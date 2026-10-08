@@ -1,0 +1,454 @@
+{
+ "case_id": 31113,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0050344000000000005
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 11,
+  "regex_citations": 4,
+  "regex_addressed": 4,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 7,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 7,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 8,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 49,
+   "para_end": 49
+  },
+  {
+   "citing_para": 8,
+   "neutral_citation": "2009 SCC 12",
+   "para_start": 43,
+   "para_end": 43
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2020 FC 164",
+   "para_start": 19,
+   "para_end": 19
+  }
+ ],
+ "structure": {
+  "overview": "Surjit Kaur sought judicial review of an immigration officer's refusal of her permanent residence application under the Home Support Worker Class, based on insufficient eligible work experience. The officer calculated the work experience period strictly according to Ministerial Instructions, excluding overseas work and not considering work permit extension processing before the permanent residence application. The Federal Court dismissed the judicial review application, finding no procedural fairness breach and that the decision was reasonable.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 7,
+    "by": "Applicant",
+    "text": "Breach of procedural fairness and unreasonableness"
+   },
+   {
+    "id": "P2",
+    "para": 11,
+    "by": "Applicant",
+    "text": "Officer delayed work permit extension processing, failed to justify decision, denied interview"
+   },
+   {
+    "id": "P3",
+    "para": 17,
+    "by": "Applicant",
+    "text": "Officer erred by not considering work experience after application date"
+   },
+   {
+    "id": "P4",
+    "para": 18,
+    "by": "Applicant",
+    "text": "Work permit extension should have been considered before permanent residence application"
+   },
+   {
+    "id": "P5",
+    "para": 12,
+    "by": "Respondent",
+    "text": "No procedural fairness breach; straightforward calculation; no authority for work permit extension before PR application"
+   },
+   {
+    "id": "P6",
+    "para": 19,
+    "by": "Respondent",
+    "text": "Correct calculation of eligible work experience per Ministerial Instructions"
+   },
+   {
+    "id": "P7",
+    "para": 20,
+    "by": "Respondent",
+    "text": "Work permit application processed only after eligibility decision; no authority from Applicant otherwise"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 13,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P4",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Applicant Surjit Kaur seeks judicial review of an immigration officer's refusal of her permanent residence application under the Home Support Worker Class.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks judicial review",
+    "Officer refused application for permanent residence",
+    "Reason: insufficient work experience"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court dismisses the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "Applicant arrived in Canada on March 6, 2019, on a two-year work permit as a Home Support Worker under NOC 4412.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Applicant worked for Mr. Rai from March 9, 2019 to February 26, 2021, and submitted permanent residence and work permit extension applications on February 26, 2021, received March 3, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Officer refused the permanent residence application, noting only 23 months and 20 days of eligible work experience instead of the required 24 months.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Officer calculated the 36-month qualifying period from March 3, 2018 to March 3, 2021, excluding overseas work experience from eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Applicant submits issues: whether there was a breach of procedural fairness and whether the decision was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The standard of review for procedural fairness is correctness, with no deference to the decision-maker on procedural fairness questions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of review is correctness",
+    "No deference on procedural fairness"
+   ],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (AG), 2018 FCA 69 at paras 49, 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States procedural fairness standard of review is correctness"
+    },
+    {
+     "cite": "Canada (Citizenship and Immigration) v Khosa, 2009 SCC 12 at para 43",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms procedural fairness standard of review"
+    },
+    {
+     "cite": "Baker v Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817 at 837-41",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains fairness assessment in procedural fairness"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Both parties agree the merits are reviewed on a presumptive reasonableness standard, not rebutted here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 16-17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets presumptive reasonableness standard for merits review"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Reasonableness requires justification, transparency, intelligibility, and alignment with facts and law; burden is on challenger to show unreasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness criteria",
+    "Burden on challenger"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness criteria"
+    },
+    {
+     "cite": "Vavilov at paras 102, 105",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains when decision is unreasonable"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States burden of proof on challenger"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Applicant argues Officer delayed processing work permit extension, failed to justify decision, and denied interview opportunity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Respondent argues no procedural fairness breach as decision involved straightforward calculation and no authority requires work permit extension before permanent residence application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Court finds no procedural fairness breach; Applicant failed to prove 11-month delay was unreasonable per established criteria (Thomas, Conille).",
+   "ideas": "multiple",
+   "idea_list": [
+    "No procedural fairness breach",
+    "Applicant failed to prove unreasonable delay"
+   ],
+   "citations": [
+    {
+     "cite": "Thomas v Canada (Public Safety and Emergency Preparedness), 2020 FC 164 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sets criteria for unreasonable delay"
+    },
+    {
+     "cite": "Conille v Canada (Minister of Citizenship and Immigration), [1999] 2 FC 33 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports criteria for delay assessment"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Court disagrees Applicant's claim that Officer failed to provide reasons, citing Decision letter and GCMS notes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Court rejects Applicant's entitlement to interview, noting no statutory right and no issues with submitted materials.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court agrees with Respondent that no authority requires processing work permit extension before permanent residence application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Applicant argues Officer erred by not considering work experience after application date up to Decision date.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicant argues work permit extension should have been considered before permanent residence application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Respondent argues Officer correctly calculated 23 months and 20 days of eligible work experience per Ministerial Instructions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Respondent states Program Delivery Instructions require work permit application processing only after eligibility decision on permanent residence application; Applicant offers no authority otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court finds Decision reasonable as Officer provided understandable reasoning consistent with Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 84",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports sufficiency of Officer's reasoning"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court notes Ministerial Instructions require 24 months of work experience within 36 months before application date, not Decision date.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ministerial Instructions Respecting the Home Child Care Provider Class, (2019) C Gaz I, 3174, s 2(4)",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Clarifies timing requirement for work experience"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Only Canadian work experience from March 9, 2019 to February 26, 2021 qualifies; overseas work is excluded as correctly determined by Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Despite shortfall of days, Officer reasonably concluded Applicant did not meet eligibility requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Court agrees with Respondent that work permit application could not be processed before eligibility decision; Applicant offers no authority otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The application for judicial review is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "No question for certification arises as agreed by parties and court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

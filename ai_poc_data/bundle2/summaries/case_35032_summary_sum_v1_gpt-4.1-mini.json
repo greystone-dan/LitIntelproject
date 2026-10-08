@@ -1,0 +1,456 @@
+{
+ "case_id": 35032,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.005344400000000001
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 3,
+  "model_citations": 12,
+  "regex_citations": 5,
+  "regex_addressed": 5,
+  "pinpoints": 5,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 7,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 8,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 12,
+   "neutral_citation": "2025 FC 929",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2024 FC 1730",
+   "para_start": 19,
+   "para_end": 20
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2022 FC 1452",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2014 FC 926",
+   "para_start": 18,
+   "para_end": 18
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2009 FCA 145",
+   "para_start": 24,
+   "para_end": 24
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's motion for mandamus relief to compel the Respondent to decide on a permanent residence application within a set timeframe. The Applicant challenges delays in the security screening process and seeks expedited judicial review, while the Respondent opposes the motion. The Federal Court dismissed the motion, finding no exceptional circumstances to justify mandamus and rejecting the Applicant's supplemental evidence and arguments for expedited relief.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "Applicant",
+    "text": "Completed medical exam, biometrics, responded to requests"
+   },
+   {
+    "id": "P2",
+    "para": 7,
+    "by": "Applicant",
+    "text": "Filed for leave and judicial review seeking mandamus to compel PR decision within 30 days"
+   },
+   {
+    "id": "P3",
+    "para": 16,
+    "by": "Applicant",
+    "text": "New evidence updates factual matrix; no prejudice to Respondent"
+   },
+   {
+    "id": "P4",
+    "para": 23,
+    "by": "Applicant",
+    "text": "Over three years delay causes harm; Court should expedite leave application"
+   },
+   {
+    "id": "P5",
+    "para": 29,
+    "by": "Applicant",
+    "text": "Claims exceptional circumstances and new evidence shows exceptionality; denies bypassing leave or queue jumping"
+   },
+   {
+    "id": "P6",
+    "para": 24,
+    "by": "Respondent",
+    "text": "Rule 8(1) does not apply as no timelines fixed for leave decision"
+   },
+   {
+    "id": "P7",
+    "para": 28,
+    "by": "Respondent",
+    "text": "Section 72(1) IRPA bars judicial review without leave; jurisdictional bar"
+   },
+   {
+    "id": "P8",
+    "para": 18,
+    "by": "Respondent",
+    "text": "New evidence won't affect Court's decision on justification for delay"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 14,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Respondent opposes the motion; parties await decision on leave for judicial review where Applicant seeks mandamus to compel PR decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent opposes motion",
+    "Parties await leave decision",
+    "Applicant seeks mandamus order"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court dismisses the motion for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant completed medical exam, biometrics, and responded to further information requests in the application process.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "IRCC reviewed the Applicant\u2019s application and initiated a security review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "On February 17, 2025, the Applicant filed for leave and judicial review seeking mandamus to compel decision on PR application within 30 days or set time.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On April 23, 2025, the Respondent filed its memorandum of argument and affidavit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "On April 25, 2025, the Applicant filed his reply memorandum of argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "No Immigration Rules provisions allow filing evidence on Reply; supplemental evidence requires special circumstances under Rule 55 and Ahmed at para 13.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "States no evidence filing on Reply except special circumstances under Rule 55"
+    },
+    {
+     "cite": "Ahmed v Canada (Citizenship and Immigration), 2025 FC 929 at para 13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines special circumstances test for filing supplemental evidence"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Court follows Ahmed's factors to determine special circumstances for supplemental evidence: availability, relevance, and prejudice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ahmed v Canada (Citizenship and Immigration), 2025 FC 929 at para 15",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Lists factors for granting leave to file supplemental evidence"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Applicant failed to prove special or unusual circumstances to file supplementary reply evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Respondent concedes evidence availability but court agrees Applicant fails other two test elements for supplemental evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Applicant argues new evidence updates factual matrix and Respondent is not prejudiced by it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Respondent shows new evidence does not complete security review; Applicant acknowledges CSIS screen is only one step.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Applicant fails second test element as evidence won't affect Court's decision on Respondent's justification for delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Admitting new evidence prejudices Respondent by depriving response opportunity; Respondent filed evidence on screening steps not before leave judge.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Filing supplemental reply evidence conflicts with Immigration Rules' philosophy to ensure expeditious leave applications; supported by Taiyese and Ahmed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Supplemental evidence conflicts with Rules' philosophy",
+    "Cites Taiyese and Ahmed supporting expeditious process"
+   ],
+   "citations": [
+    {
+     "cite": "Taiyese v Canada (Citizenship and Immigration), 2024 FC 1730 at paras 19-20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports expeditious processing under Immigration Rules"
+    },
+    {
+     "cite": "Ahmed v Canada (Citizenship and Immigration), 2025 FC 929 at para 22",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports expeditious processing under Immigration Rules"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Applicant attempts to split case by new affidavit after Minister's response, giving inappropriate advantage.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Applicant argues over three years delay causes harm and Court should expedite leave application without unfairness to others.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Respondent argues Rule 8(1) does not apply as no timelines fixed by Rules or Court Order for leave decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Justice Diner in Ezimokhai says timeline for leave decision is Court's prerogative and exclusive jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ezimokhai v Canada (Citizenship and Immigration), 2022 FC 1452 at para 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court controls timeline for leave decision"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Court agrees Rule 8(1) cannot compel leave decision; same fundamental impediment applies as in Ezimokhai.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ezimokhai v Canada (Citizenship and Immigration), 2022 FC 1452 at para 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Rule 8(1) cannot compel leave decision"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Associate Justice Horne notes many litigants seek priority; granting relief would prioritize Applicant over others.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lu v Canada (Minister of Citizenship and Immigration) IMM-3585-25, June 25, 2025, para 9",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Notes many litigants seek priority in immigration matters"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Section 72(1) IRPA bars judicial review without leave; cited Farhadi and Varela supporting this jurisdictional bar.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Section 72(1) IRPA bars judicial review without leave",
+    "Cites Farhadi and Varela supporting bar"
+   ],
+   "citations": [
+    {
+     "cite": "Section 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "States Court's jurisdiction and leave requirement"
+    },
+    {
+     "cite": "Farhadi v Canada (Minister of Citizenship and Immigration) 2014 FC 926 at para 18",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports leave requirement for judicial review"
+    },
+    {
+     "cite": "Varela v Canada (Minister of Citizenship and Immigration) 2009 FCA 145 at para 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports leave requirement for judicial review"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "Applicant claims exceptional circumstances and new evidence shows exceptionality; denies bypassing leave or queue jumping.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court rejects Applicant's claim of exceptional circumstances justifying extraordinary remedy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Court agrees mandamus relief is like summary judgment, which is unavailable under Immigration Rules; citing Lu para 11.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lu v Canada (Minister of Citizenship and Immigration) IMM-3585-25, June 25, 2025, para 11",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Mandamus akin to summary judgment not available under Immigration Rules"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Court acknowledges Applicant's frustration but stresses importance of security screening for immigration system integrity and public confidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

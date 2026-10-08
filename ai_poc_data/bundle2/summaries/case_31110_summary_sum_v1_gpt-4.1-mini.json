@@ -1,0 +1,439 @@
+{
+ "case_id": 31110,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.00587
+ },
+ "verification": {
+  "paragraphs": 30,
+  "summaries": 30,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 12,
+  "regex_citations": 7,
+  "regex_addressed": 7,
+  "pinpoints": 6,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 3,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 2,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 9,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2021 FC 472",
+   "para_start": 10,
+   "para_end": 11
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2018 SCC 31",
+   "para_start": 55,
+   "para_end": 55
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2019 FC 2",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2022 FC 268",
+   "para_start": 38,
+   "para_end": 38
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2004 FC 87",
+   "para_start": 10,
+   "para_end": 10
+  }
+ ],
+ "structure": {
+  "overview": "Applicant Morufu Oladiti Ogunleye, a Nigerian convert from Shiite Islam to Christianity, seeks judicial review of the Refugee Appeal Division's (RAD) negative decision on his refugee claim based on fear of religious extremists. The RAD found the applicant not credible due to inconsistencies, vague testimony, and lack of corroborating evidence, particularly regarding links to Boko Haram and the Islamist groups threatening him. The Federal Court dismissed the judicial review application, finding the RAD's decision reasonable and not misapplying legal principles.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 10,
+    "by": "Applicant",
+    "text": "RAD wrongly found applicant not credible due to inconsistencies about Islamist group's name"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "Applicant",
+    "text": "RAD overemphasized contradictions about Boko Haram threats and misunderstood submissions"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 11,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P1,P2",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicant Morufu Oladiti Ogunleye claims fear of religious extremists after converting to Christianity and seeks judicial review of RAD's negative refugee claim decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Applicant is a 54-year-old Nigerian born into a Shiite Muslim family who converted to Christianity in 2005 after witnessing extremist behavior.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Applicant faced continued attacks and threats in Nigeria, fled to the US in 2017, then entered Canada later that year.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "RPD found applicant not credible due to vague testimony, inconsistencies, and failure to seek asylum in the US.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "RAD found RPD erred on some issues but still questioned applicant's credibility and rejected negative inference about US asylum delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "RAD concluded applicant failed to credibly establish key claim elements due to inconsistencies and lack of group details.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "RAD found no credible link between applicant and Boko Haram and gave no weight to threatening letter or car evidence due to inconsistencies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The sole issue for judicial review is whether the RAD's decision was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Parties agree standard of review is reasonableness per Vavilov and Reyes Ramirez; court must not reweigh evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 16-17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States reasonableness standard for administrative decisions"
+    },
+    {
+     "cite": "Reyes Ramirez v Canada (Citizenship and Immigration), 2021 FC 472 at paras 10-11",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Parties agree on reasonableness standard"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness as justification, transparency, intelligibility"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 125",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Court must not reweigh evidence"
+    },
+    {
+     "cite": "Canada (Canadian Human Rights Commission) v Canada (Attorney General), 2018 SCC 31 at para 55",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports no reweighing evidence rule"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Applicant argues RAD wrongly found him not credible due to inconsistencies about the Islamist group's name.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Court rejects applicant's claim that RAD misapplied Maldonado presumption, finding sufficient grounds to rebut credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Explains Maldonado presumption",
+    "Finds sufficient grounds to rebut presumption"
+   ],
+   "citations": [
+    {
+     "cite": "Maldonado v Minister of Employment and Immigration, [1980] 2 FC 302 at para 5",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites presumption of truthfulness"
+    },
+    {
+     "cite": "He v Canada (Citizenship and Immigration), 2019 FC 2 at para 22",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility can be rebutted by contradictions"
+    },
+    {
+     "cite": "Robert v Canada (Citizenship and Immigration), 2022 FC 268 at para 38",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports rebutting presumption for credibility issues"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court finds RAD reasonably concluded applicant's illiteracy does not excuse his failure to identify the Islamist group's name.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Yilmaz v Canada (Minister of Citizenship and Immigration), 2003 FC 844",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Distinguishes Yilmaz on knowledge of group name requirement"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Court finds RAD reasonably drew negative inference from applicant's inconsistent group names and explanations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sinan v Canada (Minister of Citizenship and Immigration), 2004 FC 87 at para 10",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "RAD may assess explanations for inconsistencies"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Applicant argues RAD erred by overemphasizing contradictions about Boko Haram threats and misunderstood his submissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Claims knowing Boko Haram letter is enough",
+    "Argues RAD misunderstood submissions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "RAD found applicant failed to establish a link between his claim and Boko Haram.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "RAD gave no weight to handwritten letter allegedly from Boko Haram despite possible expanded influence of group.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Court finds RAD did not err in rejecting letter evidence and credibility given inconsistencies and applicant's burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 125",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court must not reweigh evidence"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Court finds RAD reasonably assessed evidence and credibility concerns justified rejection of applicant's claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "RAD found applicant's knowledge of Jamaat Tabligh group insufficient and lacking personalization after applicant's inconsistent responses.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "below",
+   "summary": "RAD found applicant's illiteracy does not explain inconsistencies about the group seeking to harm him.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "below",
+   "summary": "RAD held illiteracy does not excuse applicant's onus to provide accurate information and no vulnerable status was claimed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "below",
+   "summary": "RAD cited Olajide case emphasizing importance of internal consistency and that major contradictions reach tipping point.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Olajide",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant referenced Olajide on credibility assessment"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "below",
+   "summary": "RAD concluded applicant's vague and inconsistent knowledge about Jamaat Tabligh undermines credibility of this claim element.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "below",
+   "summary": "RAD noted applicant provided no corroborating evidence to support prior affiliation with Jamaat Tabligh.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "below",
+   "summary": "RAD found no link between applicant's Shia group and Boko Haram, which is Salafi-jihadist and regionally limited.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "below",
+   "summary": "RAD found threatening letter lacked Boko Haram logo and was titled 'Islamic Society of Kano State', showing no link to Boko Haram or Jamaat Tabligh.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "below",
+   "summary": "Applicant's explanations about letter authorship and threats were inconsistent and contradicted prior testimony and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "below",
+   "summary": "RAD noted letter mentioned it was the third sent, inconsistent with applicant's claim of receiving only one letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "below",
+   "summary": "RAD gave no weight to letter due to inconsistencies and lack of logos, finding it does not corroborate threats from Boko Haram or Jamaat Tabligh.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

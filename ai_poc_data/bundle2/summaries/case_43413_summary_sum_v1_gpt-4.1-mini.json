@@ -1,0 +1,261 @@
+{
+ "case_id": 43413,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0038192
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 9,
+  "regex_citations": 3,
+  "regex_addressed": 3,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 7
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 2,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 12,
+   "neutral_citation": "2010 SCC 62",
+   "para_start": 44,
+   "para_end": 44
+  }
+ ],
+ "structure": {
+  "overview": "This case involves MEGlobal Canada's appeal against the Tax Court of Canada's order quashing its appeal on reassessments for tax years 2008, 2010, and 2011 without leave to amend. MEGlobal, the applicant, sought a downward transfer pricing adjustment under subsection 247(2) of the Income Tax Act, which the Minister denied under subsection 247(10). The Federal Court of Appeal upheld the Tax Court's decision, dismissing MEGlobal's appeal with costs.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 8,
+    "by": "MEGlobal",
+    "text": "Tax Court can apply subsection 247(2) alone for downward adjustment"
+   },
+   {
+    "id": "P2",
+    "para": 10,
+    "by": "MEGlobal",
+    "text": "Seek amendment to refer years back to Minister for reconsideration and reassessment"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This appeal challenges the Tax Court of Canada's order quashing MEGlobal's appeal on reassessments for 2008, 2010, and 2011 without leave to amend.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "2025 TCC 50",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Identifies the Tax Court order under appeal"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "MEGlobal's predecessor sold ethylene glycol to a non-arm's length non-resident at resale price minus 10%, later proposing a 15% discount based on transfer pricing analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Minister reassessed MEGlobal's tax years upward under subsection 247(2), then reversed those adjustments but refused MEGlobal's request for a downward adjustment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 247(2) of the Income Tax Act, R.S.C. 1985, c. 1 (5th Supp.)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for transfer pricing adjustments"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "MEGlobal objected to the 2016 reassessments solely requesting a downward transfer pricing adjustment under subsection 247(2).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 247(2) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for downward adjustment request"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Minister denied the downward adjustment; MEGlobal appealed to Tax Court and applied for judicial review; Tax Court quashed the appeal for lack of jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Subsection 247(10) requires the Minister's opinion that circumstances justify a downward transfer pricing adjustment before it can be made.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 247(10) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Sets Minister's discretion condition for downward adjustments"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The Supreme Court majority in Dow Chemical Canada ULC v. Canada confirmed Tax Court lacks jurisdiction to review Minister's denial of downward adjustments under subsection 247(10).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Dow Chemical Canada ULC v. Canada, 2024 SCC 23",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Confirms Tax Court's lack of jurisdiction over Minister's discretion under s. 247(10)"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Tax Court lacks jurisdiction to review the Minister's denial, but MEGlobal argues the Tax Court can apply subsection 247(2) alone to find a downward adjustment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Tax Court lacks jurisdiction to review Minister's denial",
+    "MEGlobal argues Tax Court can apply s. 247(2) alone"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 247(2) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Describes transfer pricing adjustment rule MEGlobal relies on"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Subsection 247(2) cannot be read alone to reduce income without the Minister's opinion under subsection 247(10); no downward adjustment can be made otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Tax Court noted statute-bar issues if appeal quashed; MEGlobal seeks amendment to refer years back to Minister for reconsideration and reassessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Tax Court cannot grant MEGlobal's requested relief to refer the matter back without the Minister's opinion; subsection 171(1) limits Tax Court's relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 171(1) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Limits Tax Court's powers in appeals from reassessments"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "No authority exists to refer back for reconsideration if Minister refuses downward adjustment; Tax Court lacks jurisdiction without power to grant relief sought.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. TeleZone Inc., 2010 SCC 62, at para 44",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Court jurisdiction requires authority to make the order sought"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Minister denied the downward adjustment partly because it would create double non-taxation, as UAE does not tax the income, so no relief under subsection 247(10).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 247(10)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Relief provision applies only where double taxation or improper allocation exists"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Since the Minister would not grant the downward adjustment even if MEGlobal's price was correct, determining the arm's length price first is unclear in purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "There is no basis to overturn the Tax Court's decision; MEGlobal's appeal is dismissed with costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

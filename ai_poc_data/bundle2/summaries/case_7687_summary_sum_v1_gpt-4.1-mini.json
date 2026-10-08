@@ -1,0 +1,591 @@
+{
+ "case_id": 7687,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0076156
+ },
+ "verification": {
+  "paragraphs": 39,
+  "summaries": 39,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 18,
+  "regex_citations": 8,
+  "regex_addressed": 8,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 4,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 6
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 10,
+  "rebuttals": 7,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 24,
+   "neutral_citation": "2018 FC 551",
+   "para_start": 49,
+   "para_end": 49
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2008 FC 1035",
+   "para_start": 34,
+   "para_end": 34
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2012 FC 1379",
+   "para_start": 34,
+   "para_end": 34
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a judicial review of a Refugee Protection Division (RPD) decision denying refugee protection to a Colombian family alleging persecution by the ELN due to the Principal Applicant's role as a blood donation coordinator. The Applicants argued errors in the RPD's political opinion nexus analysis and internal flight alternative (IFA) assessment, while the Respondent supported the RPD's findings. The Federal Court dismissed the judicial review application, finding the RPD's decision reasonable and supported by evidence.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 11,
+    "by": "Applicants",
+    "text": "RPD erred on political opinion nexus and IFA viability"
+   },
+   {
+    "id": "P2",
+    "para": 13,
+    "by": "Applicants",
+    "text": "Incorrect political opinion test ignoring perceived political opinion and misapplied IFA principle"
+   },
+   {
+    "id": "P3",
+    "para": 14,
+    "by": "Applicants",
+    "text": "Political opinion ground does not require legal entity or state connection, citing Ward"
+   },
+   {
+    "id": "P4",
+    "para": 15,
+    "by": "Applicants",
+    "text": "RPD wrongly applied risk standard requiring probability rather than possibility"
+   },
+   {
+    "id": "P5",
+    "para": 16,
+    "by": "Applicants",
+    "text": "Dispute RPD\u2019s credibility findings on stay in Villavicencio, behavior, and delay leaving"
+   },
+   {
+    "id": "P6",
+    "para": 17,
+    "by": "Applicants",
+    "text": "RPD erred relying solely on NDP maps despite cautionary letter"
+   },
+   {
+    "id": "P7",
+    "para": 20,
+    "by": "Applicants",
+    "text": "ELN\u2019s legality and state connection irrelevant to political opinion ground, citing Ward"
+   },
+   {
+    "id": "P8",
+    "para": 10,
+    "by": "Minister\u2019s representative",
+    "text": "Applicants lacked credibility"
+   },
+   {
+    "id": "P9",
+    "para": 18,
+    "by": "Respondent",
+    "text": "RPD\u2019s nexus analysis was reasonable"
+   },
+   {
+    "id": "P10",
+    "para": 19,
+    "by": "Respondent",
+    "text": "Viable IFA under section 97(1) makes RPD\u2019s decision reasonable"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 21,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P1,P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P5,P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P1,P10",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 37,
+    "answers": "P1,P9,P10",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Applicants seek judicial review of a September 23, 2019 Refugee Protection Division decision under section 72(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory basis for judicial review application"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "Principal Applicant, spouse, and three children are Colombian citizens applying for refugee protection under sections 96 and 97 of IRPA; spouse represents minor children.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 96 and 97 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory provisions for refugee protection claims"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed; reasons follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Applicants are from Bogota; Principal Applicant alleges targeting by ELN due to her blood donation coordinator role starting July 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Principal Applicant was attacked and threatened; family relocated multiple times within Colombia due to threats from ELN.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Applicants obtained US visas in October 2017, left Colombia in April 2018, and traveled to Canada via New Jersey.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "RPD denied refugee claim finding no well-founded fear on a Convention ground; Applicants were victims of crime without political or social group nexus; no protection needed under section 97.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "RPD found a viable Internal Flight Alternative (IFA) in Sincelejo after rejecting section 96 claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "RPD found no risk in Sincelejo, doubted Applicants' presence in relocated cities, and found ELN inactive there; Applicants' delay in leaving Colombia undermined fear claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Minister\u2019s representative intervened on documents only, arguing Applicants lacked credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Applicants argue RPD erred on political opinion nexus and IFA viability, focusing on political opinion errors and not on social group membership.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Issue is whether the Decision is reasonable, reviewed under reasonableness standard per Vavilov, with no exemptions applying.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes reasonableness standard of review"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Applicants submit RPD applied incorrect political opinion test ignoring perceived political opinion and misapplied IFA principle that agents of persecution determine persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Santanilla Bonilla v Canada (Minister of Citizenship and Immigration), 2013 FC 656",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants rely on this case for political opinion test"
+    },
+    {
+     "cite": "Gopalapillai v Minister of Citizenship and Immigration, 2019 FC 228",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants rely on this case for political opinion test"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Applicants argue political opinion ground does not require group to be legal entity or intertwined with state, citing Ward.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v Ward (1993) 2 SCR 689 at 746",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants cite Ward on political opinion ground requirements"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicants contend RPD wrongly applied risk standard requiring probability rather than possibility and challenge factual findings on ELN interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Applicants dispute RPD\u2019s credibility findings regarding their stay in Villavicencio, behavior in Colombia, and delay in leaving.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Applicants argue RPD erred relying solely on NDP maps despite author\u2019s letter cautioning against their use for future risk assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Respondent submits RPD\u2019s nexus analysis was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Respondent argues even if section 96 analysis erred, viable IFA under section 97(1) makes RPD\u2019s decision reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Applicants rely on Ward to argue ELN\u2019s legality and state connection are irrelevant to political opinion ground, citing perceived political opinion in Ward.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v Ward (1993) 2 SCR 689 at 746",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants rely on Ward for political opinion ground interpretation"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "RPD found refusal to cooperate with ELN was not political opinion but victimization; ELN not entwined with state in Capital District, so no state challenge perceived.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court notes Santanilla Bonilla found perceived political opinion on clear evidence from UNHCR report linking refusal to pay with persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Santanilla Bonilla, at para 68",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of clear evidence supporting perceived political opinion"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Court observes Ward, Santanilla Bonilla, and Gopalapillai involved clear evidence of persecution, which is lacking here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ward",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reference to case with clear evidence"
+    },
+    {
+     "cite": "Santanilla Bonilla",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reference to case with clear evidence"
+    },
+    {
+     "cite": "Gopalapillai",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reference to case with clear evidence"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Applicants failed to provide clear evidence of persecution on political opinion; RPD reasonably found no nexus and victims of crime instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kahumba v Canada (Citizenship and Immigration), 2018 FC 551 at para 49",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Onus on applicant to support claim"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Two-part test for no IFA: no serious possibility of persecution or conditions make refuge unreasonable, per Thirunavukkarasu.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), [1994] 1 FC 589 at pp 593, 597 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets test for Internal Flight Alternative"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "IFA test is objective; applicant must prove no IFA or unreasonableness; high threshold for unreasonableness per Gallio Farias.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gallo Farias v Canada (Citizenship and Immigration), 2008 FC 1035 at para 34",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains burden and threshold for IFA unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "RPD correctly stated IFA test; court rejects Applicants\u2019 argument that RPD used wrong risk standard; burden is balance of probabilities for serious possibility of persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam v. Canada (Minister of Employment and Immigration), [1992] 1 F.C. 706 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies burden of proof for serious possibility of persecution in IFA"
+    },
+    {
+     "cite": "Gallio Farias at 34",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports burden and threshold for IFA"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "RPD gave four reasons for finding no serious possibility of persecution in the proposed IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "RPD found no credible evidence ELN located Applicants in relocated places; family and neighbors did not report ELN contact; omissions undermined claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Despite Applicants\u2019 concerns, cousin\u2019s declaration lacked evidence of ELN approach, supporting RPD\u2019s credibility findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The RPD found no evidence from the Applicants' neighbours or in-laws about people driving by their home and no explanation for this lack.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The RPD noted the Applicants delayed six months leaving Colombia despite family support and employment, and the spouse returned home to sell belongings despite ELN threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "The RPD assessed the risk in Sincelejo, found ELN inactive there, and considered maps with a cautionary letter about their use for future risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the RPD fully examined ELN risk, noted omissions, and reasonably concluded no serious persecution risk, citing Kaur and Vavilov.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD examined ELN risk fully",
+    "Court affirms RPD's conclusion citing Kaur and Vavilov"
+   ],
+   "citations": [
+    {
+     "cite": "Kaur v Canada (Citizenship and Immigration), 2012 FC 1379 at para 34",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports RPD's conclusion on persecution risk"
+    },
+    {
+     "cite": "Vavilov at para 125",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court states it cannot re-weigh evidence, endorsing RPD's role"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The RPD reasonably found relocation to Sincelejo was not unreasonable, considering distance, country conditions, and Applicants' personal circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds no reviewable error in the RPD's analysis of the second part of the IFA test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds the RPD's IFA analysis detailed, reasoned, and meeting the Vavilov reasonableness standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court dismisses the application for judicial review for the reasons stated above.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "No question of general importance was raised or arises for certification by the parties or the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

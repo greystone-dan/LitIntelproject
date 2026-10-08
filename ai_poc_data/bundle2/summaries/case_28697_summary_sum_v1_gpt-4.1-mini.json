@@ -1,0 +1,717 @@
+{
+ "case_id": 28697,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0095304
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 4,
+  "model_citations": 23,
+  "regex_citations": 15,
+  "regex_addressed": 12,
+  "pinpoints": 9,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 16,
+   "party_argument_reported": 3,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 21,
+  "rebuttals": 12,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 9,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2024 FC 910",
+   "para_start": 15,
+   "para_end": 16
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2020 FC 799",
+   "para_start": 9,
+   "para_end": 9
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2012 FC 992",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2023 FC 297",
+   "para_start": 35,
+   "para_end": 35
+  },
+  {
+   "citing_para": 35,
+   "neutral_citation": "2021 FC 1219",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 46,
+   "neutral_citation": "2021 FC 160",
+   "para_start": 48,
+   "para_end": 48
+  },
+  {
+   "citing_para": 46,
+   "neutral_citation": "2015 FCA 86",
+   "para_start": 36,
+   "para_end": 36
+  },
+  {
+   "citing_para": 46,
+   "neutral_citation": "2020 FC 634",
+   "para_start": 58,
+   "para_end": 58
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Applicants challenging the Refugee Appeal Division's (RAD) analysis under the second prong of the Internal Flight Alternative (IFA) test regarding persecution risk as pro-Khalistan supporters. The Applicants argue RAD failed to properly consider their political beliefs and the risk of inability to express those beliefs in India, while the Respondent defends RAD's decision as reasonable. The Federal Court dismissed the judicial review, finding RAD's decision reasonably addressed the Applicants' political beliefs and risk of persecution in the IFA context.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicants",
+    "text": "RAD ignored unreasonableness of IFA due to inability to express political opinions"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "Applicants",
+    "text": "RAD found Principal Applicant credible pro-Khalistan supporter but failed to address risk of inability to express beliefs under second prong"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "Applicants",
+    "text": "Similar arguments rejected in Singh 2024 and Singh 2025 linked to first prong findings"
+   },
+   {
+    "id": "P4",
+    "para": 16,
+    "by": "Applicants",
+    "text": "RAD acknowledged identity suppression argument and justified no second prong repetition"
+   },
+   {
+    "id": "P5",
+    "para": 17,
+    "by": "Applicants",
+    "text": "RAD recognized political beliefs as identity and renouncing beliefs to avoid persecution is improper"
+   },
+   {
+    "id": "P6",
+    "para": 18,
+    "by": "Applicants",
+    "text": "Two distinctions from Singh cases: RAD found Singh applicants not true supporters; RAD addressed Tab 12.8 NDP under first prong in Singh cases"
+   },
+   {
+    "id": "P7",
+    "para": 19,
+    "by": "Applicants",
+    "text": "RAD failed to address political beliefs and Tab 12.8 NDP under first prong; Tab 12.8 only mentioned under second prong regarding Sikh religion"
+   },
+   {
+    "id": "P8",
+    "para": 20,
+    "by": "Respondent",
+    "text": "Issue only second prong; RAD properly assessed pro-Khalistan support under first prong; Applicants' second prong arguments lack reviewable error"
+   },
+   {
+    "id": "P9",
+    "para": 21,
+    "by": "Court",
+    "text": "RAD acknowledged Applicants' argument citing NDP that Sikhs advocating Khalistan are labeled extremists"
+   },
+   {
+    "id": "P10",
+    "para": 23,
+    "by": "Court",
+    "text": "RAD found Canadian pro-Khalistan activities did not raise risk of persecution in India"
+   },
+   {
+    "id": "P11",
+    "para": 24,
+    "by": "Court",
+    "text": "RAD addressed NDP evidence on risk to SFJ members and concluded Applicants unlikely to be monitored"
+   },
+   {
+    "id": "P12",
+    "para": 25,
+    "by": "Court",
+    "text": "Supporting Khalistan not illegal in India; harassment not systematic; Principal Applicant might be monitored but not mistreated"
+   },
+   {
+    "id": "P13",
+    "para": 26,
+    "by": "Court",
+    "text": "No evidence contradicted RAD's conclusions; Decision addresses alleged jeopardy to political expression rights"
+   },
+   {
+    "id": "P14",
+    "para": 27,
+    "by": "Court",
+    "text": "RAD considered Applicants' arguments and Tab 12.8 NDP though not explicitly naming it"
+   },
+   {
+    "id": "P15",
+    "para": 31,
+    "by": "Court",
+    "text": "Failure to name Tab 12.8 specifically does not mean disregard; critical contradictory evidence needed to find unreasonableness"
+   },
+   {
+    "id": "P16",
+    "para": 32,
+    "by": "Court",
+    "text": "RAD reasonably found Applicants lacked profile for persecution or inability to express political views"
+   },
+   {
+    "id": "P17",
+    "para": 33,
+    "by": "Court",
+    "text": "No further analysis needed under either IFA prong once RAD concluded Applicants lacked profile attracting authorities or jeopardizing rights"
+   },
+   {
+    "id": "P18",
+    "para": 34,
+    "by": "Court",
+    "text": "Applicants failed to show profile for persecution; RAD found they could express beliefs in India; no jeopardy to fundamental rights"
+   },
+   {
+    "id": "P19",
+    "para": 35,
+    "by": "Court",
+    "text": "RAD reasonably found no motivation by persecutors to pursue Applicants; no need to revisit fear claims at second IFA stage"
+   },
+   {
+    "id": "P20",
+    "para": 36,
+    "by": "Court",
+    "text": "RAD reasonably assessed political identity risk under first prong; no need to reassess under second prong; court rejects counsel's argument"
+   },
+   {
+    "id": "P21",
+    "para": 46,
+    "by": "Court",
+    "text": "Failure to mention evidence does not make decision unreasonable unless evidence is critical and contradicts conclusion"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 21,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 36,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 46,
+    "answers": "P7",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Applicants challenge RAD's second prong IFA analysis regarding persecution as pro-Khalistan supporters, arguing RAD ignored unreasonableness of IFA due to inability to express political opinions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Court dismisses judicial review, finding RAD's Decision reasonably addressed Applicants' political beliefs in IFA context.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "RPD found Applicants failed to prove Punjab police had means or motivation to track them outside Punjab; Principal Applicant lacked public profile attracting Indian authorities' attention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "RAD confirmed RPD's decision that both IFA prongs were met, finding agents of persecution lacked motivation to locate Applicants in IFA, citing Kumar 2012 FC 30.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kumar v Canada (Citizenship and Immigration), 2012 FC 30",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "RAD relied on this case to support motivation analysis in IFA test"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "RAD found Applicants' pro-Khalistan activities in Canada did not put them at risk and Principal Applicant lacked public profile to attract Indian authorities' persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Parties agree reasonableness is the standard of review for the Decision, citing Vavilov 2019 SCC 65 paras 10, 25; court concurs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes reasonableness as standard of review"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Court explains reasonableness standard requires justification, transparency, intelligibility; misapprehension of evidence may render decision unreasonable; burden on challenger, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness criteria and burden on challenger"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "First prong requires showing agents of persecution have means and motivation to cause harm throughout country; cites Bassi and others.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bassi v Canada (Citizenship and Immigration), 2024 FC 910",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains first prong requirements"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Second prong requires actual evidence of jeopardy in IFA; applicant must prove IFA not viable; cites Olusola 2020 FC 799 and others.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Olusola v Canada (Citizenship and Immigration), 2020 FC 799",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains second prong burden and effect"
+    },
+    {
+     "cite": "Ranganathan v Canada (Minister of Citizenship and Immigration), 2000 CanLII 16789 (FCA)",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports second prong analysis"
+    },
+    {
+     "cite": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), 1993 CanLII 3011 (FCA)",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports second prong analysis"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Applicants argue RAD found Principal Applicant credible pro-Khalistan supporter but failed to address risk of inability to express beliefs, making IFA unreasonable under second prong.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicants acknowledge Singh 2024 and Singh 2025 where similar arguments were rejected as linked to first prong findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2024 FC 1483",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants rely on this case for argument"
+    },
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2025 FC 314",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants rely on this case for argument"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Applicants submit RAD in Singh cases acknowledged identity suppression argument and thorough first prong analysis justified no second prong repetition.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Applicants concede RAD recognized their political beliefs as identity and that renouncing beliefs to avoid persecution is improper, citing Gur 2012 FC 992.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gur v Canada (Citizenship and Immigration), 2012 FC 992",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants cite to support identity and belief protection"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Applicants argue two distinctions from Singh cases: RAD found Singh applicants not true supporters; RAD specifically addressed Tab 12.8 NDP under first prong in Singh cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Applicants contend RAD failed to address their political beliefs and Tab 12.8 NDP under first prong; Tab 12.8 only mentioned under second prong regarding Sikh religion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Respondent argues issue is only second prong; RAD properly assessed pro-Khalistan support under first prong; Applicants' second prong arguments lack reviewable error and objective evidence does not apply.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court disagrees with Applicants; RAD acknowledged Applicants' argument citing NDP that Sikhs advocating Khalistan are labeled extremists, quoting Applicants' appeal memorandum.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court notes RAD's Decision responds to Applicants' submission regarding NDP evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "RAD acknowledged Applicants' claim that support for Khalistan is identity and self-censorship infringes rights but found Principal Applicant's Canadian activities did not raise risk of persecution in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "RAD addressed NDP evidence on risk to SFJ members and concluded Applicants unlikely to be monitored by Indian authorities on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "RAD found supporting Khalistan not illegal in India; some harassment occurs but not systematic; Principal Applicant might be monitored but not mistreated constantly.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "No evidence contradicted RAD's conclusions; Decision sufficiently addresses Applicants' alleged jeopardy to political expression rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "RAD considered Applicants' arguments and reliance on Tab 12.8 NDP, though not explicitly naming it, addressing it in the Decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court cites Justice Gascon in Singh 2024 at para 46 to support reasoning on evidence consideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2024 FC 1483",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports approach to evidence consideration"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "RAD considered objective evidence and hostile government attitude but concluded Principal Applicant's profile would not lead to persecution in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "RAD's language reflects Applicants' appeal submissions citing Tab 12.8 NDP; court finds RAD did not disregard Tab 12.8.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "RAD's risk assessment not contradicted by Tab 12.8; failure to name it specifically does not mean disregard; critical contradictory evidence needed to find unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2024 FC 1483",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains when failure to consider evidence renders decision unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "RAD reasonably found Applicants lacked profile for persecution or inability to express political views; conclusion logical and coherent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "No further analysis needed under either IFA prong once RAD concluded Applicants lacked profile attracting authorities or jeopardizing fundamental rights, citing Singh 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2024 FC 1483",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports no further analysis needed when profile lacking"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Applicants failed to show profile for persecution; RAD found they could express beliefs in India; no jeopardy to fundamental rights; no further analysis required, citing Singh 2024 and Singh 2023.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants failed to show persecution profile",
+    "RAD found expression possible, no jeopardy",
+    "No further analysis required"
+   ],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2024 FC 1483",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports no further analysis when no jeopardy found"
+    },
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2023 FC 297",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports no further analysis when no jeopardy found"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The RAD reasonably found no motivation by alleged persecutors to pursue Applicants, so no need to revisit fear claims at second IFA stage.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's finding on persecutors' motivation",
+    "No need to revisit fear claims"
+   ],
+   "citations": [
+    {
+     "cite": "Singh 2025 at paras 18-19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports RAD's finding on motivation and fear claims"
+    },
+    {
+     "cite": "Singh 2024 at para 44",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports RAD's approach to fear claims"
+    },
+    {
+     "cite": "Kaur v Canada (Citizenship and Immigration), 2021 FC 1219 at para 22",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports legal principle on fear claims at second IFA stage"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The RAD reasonably assessed Applicants' political identity risk under first prong; no need to reassess under second prong; court rejects counsel's argument.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "No questions for certification are proposed or arise in these circumstances, as agreed by parties and court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Failure to mention evidence does not make decision unreasonable unless evidence is critical and contradicts conclusion; no crucial omission here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Failure to mention evidence not always unreasonable",
+    "Presumption decision makers consider all evidence",
+    "Only critical contradictory evidence omission matters",
+    "No crucial omission in this case"
+   ],
+   "citations": [
+    {
+     "cite": "Singh 2023 at para 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports principle on failure to mention evidence"
+    },
+    {
+     "cite": "Valencia at para 25",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports principle on failure to mention evidence"
+    },
+    {
+     "cite": "Khir v Canada (Citizenship and Immigration), 2021 FC 160 at para 48",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports principle on failure to mention evidence"
+    },
+    {
+     "cite": "Kanagendren v Canada (Citizenship and Immigration), 2015 FCA 86 at para 36",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Presumption decision makers consider all evidence"
+    },
+    {
+     "cite": "Torrance v Canada (Attorney General), 2020 FC 634 at para 58",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports when omission of evidence may be critical"
+    }
+   ]
+  }
+ ]
+}

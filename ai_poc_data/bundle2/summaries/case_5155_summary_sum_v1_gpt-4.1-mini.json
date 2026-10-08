@@ -1,0 +1,899 @@
+{
+ "case_id": 5155,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0103596
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 44,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 41,
+  "regex_citations": 25,
+  "regex_addressed": 25,
+  "pinpoints": 21,
+  "purposes": {
+   "standard_of_review_or_test": 11,
+   "supports_court_conclusion": 12,
+   "party_argument_reported": 8,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 9
+  },
+  "multi_idea_paragraphs": 10,
+  "party_points": 8,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 15,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2020 FC 631",
+   "para_start": 30,
+   "para_end": 31
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2020 FC 607",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2020 FC 491",
+   "para_start": 63,
+   "para_end": 65
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2020 FC 461",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2005 SCC 40",
+   "para_start": 114,
+   "para_end": 114
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2017 FCA 157",
+   "para_start": 89,
+   "para_end": 89
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2011 FC 105",
+   "para_start": 44,
+   "para_end": 44
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2005 FCA 85",
+   "para_start": 26,
+   "para_end": 32
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2020 FC 4",
+   "para_start": 38,
+   "para_end": 39
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2010 FC 198",
+   "para_start": 20,
+   "para_end": 20
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2015 FCA 86",
+   "para_start": 34,
+   "para_end": 34
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2014 FC 384",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2021 FC 404",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2019 FC 796",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2017 FC 397",
+   "para_start": 31,
+   "para_end": 31
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2019 FC 807",
+   "para_start": 26,
+   "para_end": 26
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2018 FC 1128",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 32,
+   "neutral_citation": "2019 FC 970",
+   "para_start": 54,
+   "para_end": 58
+  },
+  {
+   "citing_para": 32,
+   "neutral_citation": "2006 FC 1503",
+   "para_start": 72,
+   "para_end": 75
+  },
+  {
+   "citing_para": 32,
+   "neutral_citation": "2006 FC 246",
+   "para_start": 38,
+   "para_end": 38
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Mosaab Al Ayoubi's judicial review of a migration officer's decision rejecting his permanent residence application due to inadmissibility under IRPA 34(1)(f) for alleged membership in the Syrian Political Security Directorate (PSD), an organization believed to engage in espionage against Canada. The Federal Court reviewed the reasonableness of the officer's decision, including the assessment of membership, evidence reliability, and credibility findings. The Court dismissed the application for judicial review, finding the officer's decision reasonable and supported by credible evidence.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 14,
+    "by": "Applicant",
+    "text": "Inadequate reasons on membership"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "Applicant",
+    "text": "Error assessing PSD's espionage activities"
+   },
+   {
+    "id": "P3",
+    "para": 14,
+    "by": "Applicant",
+    "text": "Improper credibility questioning"
+   },
+   {
+    "id": "P4",
+    "para": 19,
+    "by": "Applicant",
+    "text": "Officer failed to assess membership factors like nature, duration, commitment"
+   },
+   {
+    "id": "P5",
+    "para": 30,
+    "by": "Applicant",
+    "text": "Officer relied on vague, unreliable, hearsay documentary evidence"
+   },
+   {
+    "id": "P6",
+    "para": 33,
+    "by": "Applicant",
+    "text": "Unreasonable reliance on news report about Syrian spies on U.S. soil"
+   },
+   {
+    "id": "P7",
+    "para": 38,
+    "by": "Applicant",
+    "text": "Unreasonable questioning of credibility on military service length and interrogation room awareness"
+   },
+   {
+    "id": "P8",
+    "para": 41,
+    "by": "Applicant",
+    "text": "Credibility questioned over inconsistencies about interrogation room"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 20,
+    "answers": "P1,P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P8",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicant, Mosaab Al Ayoubi, seeks judicial review of a migration officer's decision rejecting his permanent residence application due to inadmissibility under IRPA 34(1)(f).",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks judicial review",
+    "Officer rejected application for inadmissibility"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 34(1)(f) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility ground cited by Officer"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant is a Syrian citizen currently residing in Beirut, Lebanon.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant completed compulsory military service with the Political Security Directorate, including a month as a security guard for military intelligence in Raqqa.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "After military service, the Applicant and family moved to Lebanon and claimed refugee protection; four family members were accepted as refugees in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant received a procedural fairness letter about concerns of membership in Syrian Military Intelligence, responded denying active membership, but the application was rejected and judicial review filed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "PFL issued for inadmissibility concerns",
+    "Applicant responded denying active membership",
+    "Application rejected and judicial review filed"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 34(1)(f) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility ground cited by reviewing officer"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Parties agreed to redetermine the matter by a different officer; the Applicant was interviewed again in 2017 and 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "A second PFL was sent in 2019 about membership in PSD and contradictory information; application was rejected in 2020 due to no response.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Second PFL issued with concerns",
+    "Application rejected for no response"
+   ],
+   "citations": [
+    {
+     "cite": "paragraphs 34(1)(a) and (f) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility grounds cited by officer"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Applicant's representative showed a timely response was submitted; Officer reviewed again but maintained concerns and issued a new PFL in 2020.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Response submitted within deadline",
+    "Officer maintained concerns and issued new PFL"
+   ],
+   "citations": [
+    {
+     "cite": "paragraphs 34(1)(a) and (f) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility grounds cited by Officer"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Applicant responded denying membership or contribution to PSD activities, challenged evidence reliability, and requested ministerial relief if inadmissible.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Denied membership and contribution",
+    "Challenged evidence reliability",
+    "Requested ministerial relief"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On January 5, 2021, the Officer rejected the application, concluding the Applicant was a member of PSD, an organization reasonably believed to engage in espionage against Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraphs 34(1)(a) and (f) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility grounds applied by Officer"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Officer addressed Applicant's lack of commitment argument, found contradictions, and was unconvinced Applicant was forced to act against his will.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Addressed lack of commitment argument",
+    "Found contradictions",
+    "Rejected forced action claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Officer relied on credible sources like Amnesty International and Human Rights Watch to conclude PSD engaged in espionage against Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Officer noted ministerial relief requests require separate applications and could not be considered in this permanent residence application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Applicant challenges the decision on grounds of inadequate reasons on membership, error assessing PSD's espionage, and improper credibility questioning.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inadequate reasons on membership",
+    "Error on PSD espionage assessment",
+    "Improper credibility questioning"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Both parties agree the standard of review is reasonableness, citing Vavilov and other Federal Court cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 10, 16-17 [Vavilov]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes reasonableness as standard of review"
+    },
+    {
+     "cite": "Weldemariam v Canada (Public Safety and Emergency Preparedness), 2020 FC 631 at paras 30-31[Weldemariam]",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Reported agreement on reasonableness standard"
+    },
+    {
+     "cite": "Gaga v Canada (Citizenship and Immigration), 2020 FC 607 at para 11 [Gaga]",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Reported agreement on reasonableness standard"
+    },
+    {
+     "cite": "Crenna v Canada (Citizenship and Immigration), 2020 FC 491 at paras 63-65",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Reported agreement on reasonableness standard"
+    },
+    {
+     "cite": "AB v Canada (Citizenship and Immigration), 2020 FC 461 at para 27",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Reported agreement on reasonableness standard"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Court must assess if the decision is reasonable, justified, transparent, and intelligible, with burden on challenger to prove unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 83",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines focus on decision and reasoning"
+    },
+    {
+     "cite": "Vavilov at para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness hallmarks"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States burden on challenger to show unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "IRPA paragraphs 34(1)(a) and (f) describe inadmissibility for membership in organizations engaging in espionage, assessed on reasonable grounds without temporal limits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraphs 34(1)(a) and (f) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility grounds"
+    },
+    {
+     "cite": "section 33 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Confirms reasonable grounds standard and no temporal constraints"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The reasonable grounds to believe standard is low, requiring objective, compelling, and credible information, more than suspicion but less than balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mugesera v Canada (Minister of Citizenship and Immigration), 2005 SCC 40 at paras 114, 116-117",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains reasonable grounds standard"
+    },
+    {
+     "cite": "Mahjoub v Canada (Citizenship and Immigration), 2017 FCA 157 at para 89",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonable grounds standard"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer failed to adequately assess membership factors like nature, duration, and commitment, relying on Perez Villegas.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Perez Villegas v Canada (Citizenship and Immigration), 2011 FC 105 at para 44 [Perez Villegas]",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on this case for membership assessment argument"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Court rejects the Applicant's argument that the Officer failed to provide sufficient reasons on membership.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Membership under IRPA is broadly interpreted; formal membership or participation in acts is not required, supported by multiple cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Poshteh v Canada (Minister of Citizenship and Immigration), 2005 FCA 85 at paras 26-32",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines broad interpretation of membership"
+    },
+    {
+     "cite": "Garces Caceres v Canada (Public Safety and Emergency Preparedness), 2020 FC 4 at paras 38-39 [Garces Caceres]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports broad membership interpretation"
+    },
+    {
+     "cite": "Ismeal v Canada (Public Safety and Emergency Preparedness), 2010 FC 198 at para 20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports broad membership interpretation"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Kanagendren confirms membership under IRPA 34(1)(f) does not require complicity or significant contribution to wrongful acts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kanagendren v Canada (Citizenship and Immigration), 2015 FCA 86 [Kanagendren]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies membership test does not require complicity"
+    },
+    {
+     "cite": "Ezokola v Canada (Citizenship and Immigration), 2013 SCC 40",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Referenced in Kanagendren for membership test context"
+    },
+    {
+     "cite": "Kanagendren v Canada (Citizenship and Immigration), 2014 FC 384 at para 14",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Earlier Federal Court decision on membership"
+    },
+    {
+     "cite": "Garces Caceres at para 39",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports Kanagendren membership interpretation"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Court applies Kanagendren principles on membership to espionage organizations under IRPA paragraphs 34(1)(f) and (a).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gaga at paras 7-19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports applying Kanagendren principles to espionage membership"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Earlier decisions like Perez Villegas predate Kanagendren; admission of membership suffices for IRPA 34(1)(f) membership requirement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Foisal v Canada (Citizenship and Immigration), 2021 FC 404 at para 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Admission of membership suffices"
+    },
+    {
+     "cite": "Gaga at para 17-18",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Admission of membership suffices"
+    },
+    {
+     "cite": "MN v Canada (Public Safety and Emergency Preparedness), 2019 FC 796 at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Admission of membership suffices"
+    },
+    {
+     "cite": "Khan v Canada (Citizenship and Immigration), 2017 FC 397 at para 31",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Admission of membership suffices"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Applicant admitted serving with PSD during military service; Officer reasonably found membership without needing to assess nature, duration, or commitment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rahman v Canada (Public Safety and Emergency Preparedness), 2019 FC 807 at para 26",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "No need to assess nature, duration, commitment when membership admitted"
+    },
+    {
+     "cite": "Intisar v Canada (Citizenship and Immigration), 2018 FC 1128 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Applicant's reliance on Yihdego is misplaced as that case focused on Canada's interests, not membership conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Yihdego v Canada (Public Safety and Emergency Preparedness), 2020 FC 833",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Yihdego focused on Canada's interests, not membership"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Officer considered Applicant's arguments minimizing duties but reasonably concluded Applicant served with PSD and knew its purpose and activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Applicant failed to show the Officer's reasons on membership were inadequate or unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The Officer found PSD part of Mukhabarat and relied on reports from credible agencies to conclude PSD engaged in espionage against Canada and allies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer's conclusion is unreasonable due to reliance on vague, unreliable, and hearsay-based documentary evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's argument as unpersuasive.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Applicant cited Karakachian to challenge the officer's sources, but the court finds the officer's sources credible and reliable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant cites Karakachian",
+    "Court finds officer's sources credible"
+   ],
+   "citations": [
+    {
+     "cite": "Karakachian v Canada (Citizenship and Immigration), 2009 CF 948",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on it to challenge officer's sources"
+    },
+    {
+     "cite": "Koffi v Canada (Immigration, Refugees and Citizenship), 2019 FC 970",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports credibility of officer's sources"
+    },
+    {
+     "cite": "Zeki Mahjoub v Canada (Minister of Citizenship and Immigration), 2006 FC 1503",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports credibility of officer's sources"
+    },
+    {
+     "cite": "Jalil v Canada (Minister of Citizenship and Immigration), 2006 FC 246",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports credibility of officer's sources"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Applicant argues it was unreasonable for the Officer to rely on a news report about Syrian spies operating on U.S. soil, citing Weldemariam.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Weldemariam",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on it to argue about espionage scope"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court explains Weldemariam's issue about espionage contrary to Canada's interests and the need for a nexus to national security interests.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Explains Weldemariam's issue",
+    "Court's findings on espionage and nexus"
+   ],
+   "citations": [
+    {
+     "cite": "Weldemariam",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains the case's issue and findings"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Unlike Weldemariam, the Officer here explained the nexus between the PSD's actions and Canada's interests.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The applicable standard of proof is 'reasonable grounds to believe', which is low but requires compelling and credible information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Given the evidence, the Officer reasonably found grounds to believe the PSD engaged in espionage against Canada; the court will not reweigh evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's reasonable finding",
+    "Court refuses to reweigh evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 125",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports court's refusal to reweigh evidence on judicial review"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The Applicant argues it was unreasonable for the Officer to question his credibility about his military service length and interrogation room awareness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court is not persuaded the Officer questioned the Applicant's credibility on military service length, noting the Officer's response to the PFL.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Due to inconsistencies, the Officer reasonably relied on the Applicant's interview statements over counsel's PFL response.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "The Applicant alleges the Officer questioned his credibility over inconsistencies about what he heard and saw in the interrogation room.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Officer reasonably found inconsistencies in the Applicant's evidence about the interrogation room based on contradictory statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The Applicant failed to show a reviewable error; the Officer's decision meets the reasonableness standard from Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports reasonableness standard applied"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The application for judicial review is dismissed; no questions of general importance arise for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

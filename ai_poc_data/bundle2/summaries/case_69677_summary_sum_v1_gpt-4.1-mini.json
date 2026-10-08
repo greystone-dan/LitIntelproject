@@ -1,0 +1,475 @@
+{
+ "case_id": 69677,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0058808
+ },
+ "verification": {
+  "paragraphs": 19,
+  "summaries": 19,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 27,
+  "regex_citations": 12,
+  "regex_addressed": 0,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 5,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 10
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 7,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 19,
+   "neutral_citation": "2020 FC 966",
+   "para_start": 59,
+   "para_end": 59
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2013 FC 1004",
+   "para_start": 51,
+   "para_end": 51
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a Colombian family seeking refugee protection in Canada due to fears of criminal gang persecution, focusing on whether the Colombian state provided adequate protection. The appellants, the family, appealed the Refugee Protection Division's decision, but the tribunal dismissed the appeal, agreeing they are neither Convention refugees nor persons in need of protection. The tribunal found that state protection measures were adequate and that the appellants failed to rebut the presumption of state protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 6,
+    "by": "other",
+    "text": "Claim based solely on youngest child's events"
+   },
+   {
+    "id": "P2",
+    "para": 11,
+    "by": "court",
+    "text": "Mother-in-law's complaint appropriate; parents at fault for no follow-up"
+   },
+   {
+    "id": "P3",
+    "para": 12,
+    "by": "court",
+    "text": "State protection measures adequate, not just after-the-fact"
+   },
+   {
+    "id": "P4",
+    "para": 13,
+    "by": "court",
+    "text": "Subjective police ineffectiveness does not prove inadequate protection"
+   },
+   {
+    "id": "P5",
+    "para": 14,
+    "by": "court",
+    "text": "Appellants benefited from multiple state protection programs"
+   },
+   {
+    "id": "P6",
+    "para": 15,
+    "by": "court",
+    "text": "Many country condition articles irrelevant to appellants' situation"
+   },
+   {
+    "id": "P7",
+    "para": 18,
+    "by": "court",
+    "text": "Appellants failed to rebut presumption of state protection or show serious risk"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 12,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The family from Colombia fears a criminal cartel and claimed refugee protection in Canada; the key issue is state protection, which the tribunal agrees on.",
+   "ideas": "multiple",
+   "idea_list": [
+    "family background and fear",
+    "claim for refugee protection",
+    "determinative issue is state protection"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal, agreeing the appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The appellants lived in a quiet Medellin suburb; the youngest child was active in leadership and performing arts.",
+   "ideas": "single",
+   "idea_list": [
+    "appellants' residence and activities"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "In November 2018, a gang tried to recruit the youngest child, who refused; the family reported to authorities and received protection measures.",
+   "ideas": "single",
+   "idea_list": [
+    "gang recruitment attempt and family response"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The family felt police were not serious, sought asylum in Canada during planned trip; mother-in-law tried to report a second incident before departure.",
+   "ideas": "single",
+   "idea_list": [
+    "family's dissatisfaction with police and asylum claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "All appellants base their claim solely on the events involving the youngest child, XXXX.",
+   "ideas": "single",
+   "idea_list": [
+    "basis of appellants' claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The appellants do not present new evidence nor request an oral hearing.",
+   "ideas": "single",
+   "idea_list": [
+    "no new evidence or oral hearing requested"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD's decision was correct, focusing on state protection.",
+   "ideas": "single",
+   "idea_list": [
+    "tribunal's role and focus"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Citizenship and Immigration) v. Huruglica, 2016 FCA 93",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "standard for reviewing RPD decisions"
+    },
+    {
+     "cite": "Rozas del Solar v. Canada (Citizenship and Immigration), 2018 FC 1145",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "standard for reviewing RPD decisions"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Refugee protection is surrogate protection, invoked only after unsuccessful state protection attempts; claimants must seek state protection first.",
+   "ideas": "single",
+   "idea_list": [
+    "refugee protection as surrogate and claimant's onus"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "There is a presumption of state protection unless rebutted by convincing evidence; the test is forward-looking and burden increases with democracy level.",
+   "ideas": "multiple",
+   "idea_list": [
+    "presumption of state protection",
+    "burden of proof and test for state protection"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Ward, 1993 CanLII 105 (CSC)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "presumption of state protection"
+    },
+    {
+     "cite": "Canada (Minister of Employment) v. Villafranca (1992), 1992 CanLII 8569 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "state control and protection efforts"
+    },
+    {
+     "cite": "Canada (Citizenship and Immigration) v. Kadenko 1996 CanLII 3981 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "burden increases with democracy"
+    },
+    {
+     "cite": "Burai v. Canada (Citizenship and Immigration), 2020 FC 966 at para. 59",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "forward-looking test for state protection"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appellants contacted police and got protection but left Colombia quickly; the tribunal agrees mother-in-law's complaint was appropriate but faults parents for not following up.",
+   "ideas": "multiple",
+   "idea_list": [
+    "mother-in-law's complaint appropriate",
+    "parents' failure to follow up is negative"
+   ],
+   "citations": [
+    {
+     "cite": "Ruszo v. Canada (Citizenship and Immgration) 2013 FC 1004",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "failure to exhaust state protection does not rebut presumption"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal finds state protection measures adequate, including police orders and advice, and rejects appellants' argument that measures were inadequate or only after-the-fact.",
+   "ideas": "single",
+   "idea_list": [
+    "adequacy of state protection measures"
+   ],
+   "citations": [
+    {
+     "cite": "RPD-1, Exhibit C-14",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "police protection order"
+    },
+    {
+     "cite": "RPD-1, Exhibit 8-7",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "news article on Gulf Clan ceasefire"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal follows Federal Court authority that subjective perceptions of police ineffectiveness do not prove inadequate state protection; protection must be adequate, not perfect.",
+   "ideas": "single",
+   "idea_list": [
+    "adequacy vs perfection of state protection"
+   ],
+   "citations": [
+    {
+     "cite": "Ruszo v. Canada (Citizenship and Immigration) 2013 FC 1004 at para. 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "subjective perception not compelling"
+    },
+    {
+     "cite": "Mudrak v. Canada (Citizenship and Immigration), 2015 FC 188",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "state protection must be effective"
+    },
+    {
+     "cite": "Kadenko v. Canada (Citizenship and Immigration), 1996 CanLII 2981",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "state protection must be effective"
+    },
+    {
+     "cite": "Garcia v. Canada (Minister of Citizenship and Immigration), 2007 FC 79",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "adequate not perfect protection"
+    },
+    {
+     "cite": "Camacho v. Canada (Citizenship and Immgration), 2007 FC 830",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "adequate not perfect protection"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The appellants benefited from multiple state programs providing protection and reparations for victims of crime.",
+   "ideas": "single",
+   "idea_list": [
+    "state programs benefiting appellants"
+   ],
+   "citations": [
+    {
+     "cite": "RPD-1, Exhibit C-12",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "police report"
+    },
+    {
+     "cite": "RPD-1, Exhibit C-13",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "application for police protection"
+    },
+    {
+     "cite": "RPD-1, Exhibit C-14",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "police protection order"
+    },
+    {
+     "cite": "RPD-1, Exhibit C-15",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Ombudsman order"
+    },
+    {
+     "cite": "RPD-1, Exhibit C-16",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "victims registration"
+    },
+    {
+     "cite": "RPD-1, Exhibit C-17",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "victims registration"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal finds many country condition articles provided by appellants are irrelevant to their situation, such as those about human rights defenders or other regions.",
+   "ideas": "single",
+   "idea_list": [
+    "irrelevance of some country condition evidence"
+   ],
+   "citations": [
+    {
+     "cite": "P-2, Appellants Memoranda at p. 29, para 54.",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "appellants' country condition evidence"
+    },
+    {
+     "cite": "RPD-1, Exhibit 8-14",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "human rights council statement"
+    },
+    {
+     "cite": "Exhbibit 8-25",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "FARC related violence"
+    },
+    {
+     "cite": "Exhibit 8-26",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "post-war violence"
+    },
+    {
+     "cite": "RPD-1, National Documentation Package (NDP), Colombia, 12 June 2020, tab 7.20",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "organized crime background"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal agrees the Gulf Clan is a major paramilitary group using local gangs; evidence shows multiple gangs in Medellin including Los Chivos, though their alliance is unclear.",
+   "ideas": "single",
+   "idea_list": [
+    "country condition evidence on gangs and paramilitary groups"
+   ],
+   "citations": [
+    {
+     "cite": "UNHCR guidelines from 2015",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "description of armed groups and networks"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Country evidence shows ongoing violence but government efforts and programs provide adequate state protection despite imperfections.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ongoing violence and unrest",
+    "government efforts and adequate protection"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The appellants failed to rebut the presumption of state protection or show serious risk of persecution or cruel treatment if returned to Colombia.",
+   "ideas": "single",
+   "idea_list": [
+    "failure to meet burden of proof"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal under section 111(1)(a) of the Act, confirming the RPD's decision that appellants are not refugees or persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [
+    "dismissal of appeal and confirmation of RPD decision"
+   ],
+   "citations": [
+    {
+     "cite": "section 111(1)(a) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "statutory basis for dismissal"
+    }
+   ]
+  }
+ ]
+}

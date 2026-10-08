@@ -1,0 +1,1101 @@
+{
+ "case_id": 4728,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.016402800000000002
+ },
+ "verification": {
+  "paragraphs": 81,
+  "summaries": 81,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 32,
+  "regex_citations": 14,
+  "regex_addressed": 14,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 10,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 17
+  },
+  "multi_idea_paragraphs": 10,
+  "party_points": 16,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 36,
+   "neutral_citation": "2019 FCA 67",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2017 FCA 61",
+   "para_start": 82,
+   "para_end": 82
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2019 FC 646",
+   "para_start": 26,
+   "para_end": 26
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2015 FC 1234",
+   "para_start": 75,
+   "para_end": 76
+  },
+  {
+   "citing_para": 57,
+   "neutral_citation": "2019 FC 361",
+   "para_start": 5,
+   "para_end": 17
+  },
+  {
+   "citing_para": 57,
+   "neutral_citation": "2019 FC 1285",
+   "para_start": 20,
+   "para_end": 22
+  },
+  {
+   "citing_para": 62,
+   "neutral_citation": "2020 FC 1044",
+   "para_start": 20,
+   "para_end": 22
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns a dispute between Dominelli and the Minister of National Revenue over whether Dominelli fulfilled a settlement agreement related to a compliance application under the Income Tax Act. Dominelli sought to enforce the agreement claiming compliance, while the Minister opposed, arguing Dominelli failed to meet his obligations. The Federal Court dismissed Dominelli's motion, finding he did not provide sufficient details of his search efforts or document production as required by the agreement.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Dominelli",
+    "text": "Dominelli claims he fulfilled the settlement agreement and seeks enforcement."
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "Minister",
+    "text": "Minister argues Dominelli did not comply and motion should be rejected."
+   },
+   {
+    "id": "P3",
+    "para": 19,
+    "by": "Minister",
+    "text": "Minister objects to late filing of Supplementary Motion Record alleging ambush and Rules violation."
+   },
+   {
+    "id": "P4",
+    "para": 21,
+    "by": "Minister",
+    "text": "Minister objects to Kamboj affidavit for lack of personal knowledge and improper reliance."
+   },
+   {
+    "id": "P5",
+    "para": 27,
+    "by": "Dominelli",
+    "text": "Dominelli claims Minister cannot alter agreement terms due to dissatisfaction and questions Minister's discretion scope."
+   },
+   {
+    "id": "P6",
+    "para": 28,
+    "by": "Minister",
+    "text": "Minister argues Dominelli failed to conduct detailed and exhaustive search and provide sufficient details."
+   },
+   {
+    "id": "P7",
+    "para": 49,
+    "by": "Dominelli",
+    "text": "Dominelli argues his added clause limiting search to one source is part of agreement context."
+   },
+   {
+    "id": "P8",
+    "para": 50,
+    "by": "Dominelli",
+    "text": "Dominelli contends Minister did not specify search details or document types and cannot unilaterally change terms."
+   },
+   {
+    "id": "P9",
+    "para": 51,
+    "by": "Dominelli",
+    "text": "Dominelli argues Minister's objections about originals or signed documents lack basis."
+   },
+   {
+    "id": "P10",
+    "para": 52,
+    "by": "Dominelli",
+    "text": "Dominelli asserts Minister accepts limited use of documents appended to Kamboj affidavit."
+   },
+   {
+    "id": "P11",
+    "para": 53,
+    "by": "Minister",
+    "text": "Minister argues Dominelli failed to prove compliance with admissible evidence, criticizing Kamboj affidavit."
+   },
+   {
+    "id": "P12",
+    "para": 54,
+    "by": "Minister",
+    "text": "Minister points out deficiencies in Dominelli's affidavit: no personal search, hearsay reliance, no explanation for limited search."
+   },
+   {
+    "id": "P13",
+    "para": 55,
+    "by": "Minister",
+    "text": "Minister submits Dominelli risks relying solely on Young's documents without Minister's acceptance."
+   },
+   {
+    "id": "P14",
+    "para": 56,
+    "by": "Minister",
+    "text": "Minister notes Dominelli referenced multiple advisors, showing no acceptance of only Young as source."
+   },
+   {
+    "id": "P15",
+    "para": 57,
+    "by": "Minister",
+    "text": "Minister submits Kamboj affidavit should be disregarded as it shields affiant from cross-examination."
+   },
+   {
+    "id": "P16",
+    "para": 58,
+    "by": "Minister",
+    "text": "Minister argues Dominelli failed to meet onus to conduct detailed search and provide winding up documents."
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 59,
+    "answers": "P9",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 60,
+    "answers": "P5,P7,P8,P10,P11,P12,P13,P14,P15,P16",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P15",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 62,
+    "answers": "P10",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 63,
+    "answers": "P9",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Dominelli seeks to enforce a settlement agreement, claiming compliance; the Minister opposes and seeks ruling on a compliance application under the Income Tax Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dominelli's enforcement request",
+    "Minister's opposition and compliance application"
+   ],
+   "citations": [
+    {
+     "cite": "section 231.7 of the Income Tax Act, RSC 1985, c. 1 (5th Supp)",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Minister's compliance application basis"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court clarifies party roles: Dominelli is moving party here but respondent below; Minister is responding party here but applicant below.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The agreement arose from a compliance application brought by the Minister against Dominelli, which was strongly contested and heard over three days.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The parties agreed Dominelli would search for documents, provide an affidavit detailing the search and documents found, and if satisfactory, the compliance application would be discontinued.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The parties informed the Court of settlement efforts; after Dominelli's affidavit, the Minister was unsatisfied and asked for judgment; Dominelli objected and moved to enforce the agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Dominelli argues he fulfilled the agreement and case should end; Minister argues Dominelli did not comply and motion should be rejected.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dominelli's compliance claim",
+    "Minister's non-compliance argument"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court dismisses Dominelli's motion, finding he failed to provide required details of his search and requests to advisors, which is fatal to his claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The underlying facts are largely uncontested; the summary provides background without commenting on the merits of the compliance application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Dominelli founded NRT Technology Corp and entered into two Leveraged Insurance Annuity arrangements, described in the Minister's submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "The Minister states Dominelli deducted over $139 million in carrying charges from the LIA arrangements and audited his 2013 tax year, later expanded to other years.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The Minister reassessed Dominelli's taxes for 2012-2015, which Dominelli challenges; the audit of 2016 remains.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "The parties agree the Minister requested documents for 2016 audit and Dominelli provided some, but disagree if Dominelli met obligations under ITA s 231.1(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 231.1(1) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Relevant statutory obligation disputed"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "In November 2020, the Minister started a summary application under ITA s 237.1 alleging Dominelli's non-compliance; Dominelli opposed; details not reviewed as matter is ongoing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 237.1 of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Basis of Minister's summary application"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "other",
+   "summary": "The compliance application was heard in December 2020; Justice Diner encouraged settlement; parties negotiated and finalized agreement by December 31, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "other",
+   "summary": "Key agreement terms: Dominelli to conduct detailed search for documents, provide affidavit with search details and documents, Minister to discontinue application if satisfied.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "other",
+   "summary": "Dominelli provided affidavit and documents; Minister was unsatisfied and asked Court for decision; Dominelli moved to enforce agreement and stop judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "other",
+   "summary": "Justice Diner directed he would not issue judgment pending outcome of Dominelli's motion to enforce the settlement agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The sole issue is whether the agreement has been fulfilled and if the Minister's compliance application should be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Minister objects to late filing of Supplementary Motion Record including affidavit and cross-examination transcript, alleging ambush and Rules violation; Dominelli argues no unfairness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's objection to late filing",
+    "Dominelli's response on fairness"
+   ],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules, SOR/98-106",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites Rules to object to late filing"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court accepts the Supplementary Motion Record but gives it less weight due to late filing and resulting unfairness to the Minister.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules, SOR/98-106",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Court applies Rules to weigh late evidence"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Minister objects to Kamboj affidavit appended to Dominelli's affidavit, arguing lack of personal knowledge and improper reliance to avoid cross-examination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's objection to Kamboj affidavit",
+    "Improper evidence tactic argument"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The parties agree they reached a binding agreement meeting criteria from Apotex Inc. v Allergan Inc., 2016 FCA 155.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Apotex Inc. v Allergan Inc., 2016 FCA 155",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Parties agree on binding settlement criteria"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court sets out the Supreme Court of Canada's approach to contract interpretation from Sattva and recent cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sattva Capital Corp. v Creston Moly Corp., 2014 SCC 53",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sets contract interpretation approach"
+    },
+    {
+     "cite": "Ledcor Construction Ltd. v Northbridge Indemnity Insurance Co., 2016 SCC 37",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Confirms Sattva approach"
+    },
+    {
+     "cite": "Corner Brook (City) v Bailey, 2021 SCC 29",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Confirms Sattva approach"
+    },
+    {
+     "cite": "Wastech Services Ltd. v Greater Vancouver Sewerage and Drainage District, 2021 SCC 7",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Confirms Sattva approach"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Sattva directs contracts be interpreted as a whole, with ordinary meaning, in context, focusing on parties' intent and commercial purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sattva Capital Corp. v Creston Moly Corp., 2014 SCC 53 [Sattva]",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains practical, context-based contract interpretation"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Sattva limits use of surrounding circumstances to avoid overriding contract text or creating new agreements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sattva Capital Corp. v Creston Moly Corp., 2014 SCC 53 [Sattva]",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Limits on surrounding circumstances in interpretation"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court now addresses the main dispute: the Minister's discretion scope and whether Dominelli fulfilled his obligations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "Dominelli claims he fulfilled the agreement and Minister cannot alter terms due to dissatisfaction; he questions Minister's discretion scope.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Minister argues Dominelli failed to conduct a detailed and exhaustive search and did not provide sufficient details of his efforts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court will review the agreement's terms and context before addressing the parties' fundamental questions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The agreement was a resolution process, not a full settlement, setting steps for Dominelli and Minister to try to resolve the compliance application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The agreement focused on specific outstanding documents related to annuity benefits and insurance premiums for 2016, requiring proof of payment and documentation of unwinding arrangements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Dominelli was obligated to personally sign an undertaking by December 31, 2020, and provide an affidavit by February 1, 2021, detailing his search for the outstanding material.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Dominelli's Undertaking required a detailed search of his and advisors' records, an affidavit with located documents, and a description of search efforts for missing documents, with a list of 24 entities to inquire.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The agreement arose from a compliance motion alleging Dominelli failed to comply with s 231.1(1) of the ITA, which authorizes inspection and examination of taxpayer records.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ITA s 231.1(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Describes authorized person's inspection powers under the ITA"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Minister brought a compliance application under s 231.7(1) ITA to compel Dominelli to provide access or documents he failed to provide under s 231.1 or 231.2.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ITA s 231.7(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Describes court's power to order compliance with s 231.1 or 231.2"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Court notes the law on compliance applications, including the Minister's broad audit powers and the requirement for reasonable efforts to acquire documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's audit powers",
+    "Requirement of reasonable efforts for document production"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (National Revenue) v Cameco Corporation, 2019 FCA 67",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "States purpose of s 231.1 and s 231.7 for Minister's access"
+    },
+    {
+     "cite": "BP Canada Energy Co. v Minister of National Revenue, 2017 FCA 61",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Describes Minister's broad audit discretion"
+    },
+    {
+     "cite": "Canada (National Revenue) v Lin, 2019 FC 646",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains reasonable efforts required for document production"
+    },
+    {
+     "cite": "Canada (Minister of National Revenue) v Amdocs Canadian Managed Services Inc., 2015 FC 1234",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports reasonable efforts principle in document production"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Dominelli complied with the agreement by signing the undertaking on December 31, 2020, and providing the affidavit on February 2, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The Minister's counsel indicated on February 5, 2021, that the Minister was not satisfied with the materials produced and would request the judge's judgment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The dispute is whether Dominelli fulfilled his obligations under the agreement, with Dominelli asserting compliance and the Minister asserting failure.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Court must examine Dominelli's affidavit and documents to determine if he fulfilled his obligations and assess the Minister's dissatisfaction, considering the agreement context.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sattva",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requires interpreting agreement as a whole in its context"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The Minister focused on three document categories: proof of payment for two insurance premiums and documentation of the arrangement's winding up.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Court clarifies it is not deciding if the documents are satisfactory for tax liability assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The issue is whether Dominelli's affidavit shows he met his obligation to search and document efforts as promised in his Undertaking.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Dominelli's Undertaking included a term allowing him to stop searching once he obtained all outstanding documents from one source, accepted by the Minister.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Dominelli's affidavit states that insurance consultant Robert Young sent documents answering some requests, which were appended as exhibits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Dominelli's affidavit summarizes transactions involving insurance policies, assignments, payments, and receipts related to the policies and creditors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Dominelli's affidavit states his mother died in 2017, the death benefit was settled in 2019, and letters confirm payment of premiums as part of winding up.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The meaning of words in agreements is derived from context, purpose, and the nature of the relationship created.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "Dominelli argues his added clause limiting search obligations to one source is part of the agreement context under Sattva and consistent with his reliance on advisors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sattva",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Dominelli relies on it for interpreting agreement context"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "Dominelli contends the Minister did not specify search details or document types, so she cannot unilaterally change the agreement terms due to dissatisfaction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "Dominelli argues the Minister's objections about originals or signed documents lack basis since the agreement only required searching and providing obtained documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "Dominelli asserts the Minister accepts limited use of documents appended to the Kamboj affidavit, which can show compliance without proving truth.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "party",
+   "summary": "The Minister argues Dominelli failed to prove compliance with admissible evidence, criticizing the Kamboj affidavit's hearsay and form.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zaman v Canada (Minister of Citizenship & Immigration), [1997] FCJ No 646 (QL), 131 FTR 54",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites to challenge affidavit form"
+    },
+    {
+     "cite": "Krah v Canada (Citizenship and Immigration), 2019 FC 361",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites to challenge affidavit form"
+    },
+    {
+     "cite": "Almeddine v Canada (Citizenship and Immigration), 2019 FC 1285",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites to challenge affidavit form"
+    }
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "party",
+   "summary": "The Minister points out deficiencies in Dominelli's affidavit: no personal search stated, reliance on hearsay from Young, no explanation for limited search or wind-up documents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No personal search stated",
+    "Reliance on hearsay",
+    "No explanation for limited search",
+    "No wind-up documents explanation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "party",
+   "summary": "The Minister submits Dominelli risks relying solely on Young's documents without Minister's acceptance, which is not evidenced.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "party",
+   "summary": "The Minister notes Dominelli referenced multiple advisors in audits, showing she never accepted only Young as source of documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "The Minister submits the Kamboj affidavit should be disregarded as it shields the affiant from cross-examination and was improperly filed as an exhibit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zaman v Canada (Minister of Citizenship & Immigration), [1997] FCJ No 646 (QL), 131 FTR 54",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites to support disregarding appended affidavit"
+    },
+    {
+     "cite": "Krah v Canada (Citizenship and Immigration), 2019 FC 361",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites to support disregarding appended affidavit"
+    },
+    {
+     "cite": "Almeddine v Canada (Citizenship and Immigration), 2019 FC 1285",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister cites to support disregarding appended affidavit"
+    }
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "party",
+   "summary": "The Minister argues Dominelli failed to meet his onus to conduct a detailed search, explain steps, and provide documents on winding up, so his motion should be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The Court agrees Dominelli limited the Minister's discretion under the agreement, so objections about copies or unsigned documents do not support the Minister's position.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bhasin v Hrynew, 2014 SCC 71",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports limiting Minister's discretion under agreement"
+    },
+    {
+     "cite": "Wastech Services",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports limiting Minister's discretion under agreement"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The Court finds Dominelli has not met his onus to prove he fulfilled his promises under the agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the Kamboj affidavit statements beyond procedural history have little weight, but focuses on Dominelli's affidavit and finds it insufficient.",
+   "ideas": "multiple",
+   "idea_list": [
+    "weight of Kamboj affidavit limited",
+    "Dominelli's affidavit is main evidence",
+    "Dominelli's evidence falls short"
+   ],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The court notes that affidavits appended to other affidavits are problematic but here it does not discount Dominelli's affidavit, which still falls short.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appended affidavits problematic",
+    "Dominelli's affidavit fully considered",
+    "evidence still insufficient"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (National Revenue) v Edward Enterprise International Group Inc., 2020 FC 1044 at paras 20-22",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "illustrates problem with affidavits appended to affidavits"
+    },
+    {
+     "cite": "Krah",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "discusses issue with affidavits appended to affidavits"
+    }
+   ]
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The court agrees with Dominelli that it need not assess the documents' substance but must assess if his evidence shows compliance with the agreement's terms.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court will analyze Dominelli's obligations and evidence under grouped headings, starting with document search and documenting efforts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "Dominelli promised to perform exhaustive searches of records and particularize his efforts, including directing his advisors and making inquiries.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "Dominelli's affidavit lacks details of his own or his advisors' searches, only stating that Robert Young sent documents to lawyers, which does not comply with the agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Considering context, the Minister's expectations about records from Dominelli and advisors are relevant, and the Minister acknowledges Dominelli's reliance on advisors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Dominelli's affidavit fails to show he searched his own or related companies' records or documented his requests to advisors, contrary to the agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "Dominelli believed asking Mr. Young for documents sufficed to meet obligations, citing a clause he added to the Undertaking.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The agreement required Dominelli to request exhaustive searches from advisors and particularize efforts in an affidavit, applying to both his and advisors' searches.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Dominelli did not describe his requests to Young or provide communications showing instructions or why the documents were complete.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Dominelli's evidence does not state he believed all Outstanding Material came from one source nor explain why, only recounting Young's statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Dominelli's evidence fails to prove he conducted thorough searches or particularized efforts; the Minister required documentation, which Dominelli did not provide.",
+   "ideas": "multiple",
+   "idea_list": [
+    "failure to prove thorough search",
+    "failure to particularize efforts",
+    "Minister's demand for documentation justified"
+   ],
+   "citations": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "Dominelli's affidavit states Young advised the 2016 premiums were satisfied but does not say if documents about winding up exist or were requested.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "Letters from Advantage Insurance confirm winding up but do not indicate existence of supporting documents, failing agreement terms.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The Minister's demand for documentation is reasonable and part of the agreement; Dominelli's evidence only shows belief in winding up, not document requests or existence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's demand reasonable",
+    "agreement governs interpretation",
+    "Dominelli's evidence insufficient"
+   ],
+   "citations": [
+    {
+     "cite": "Sattva",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "requires interpretation of agreement terms in context"
+    }
+   ]
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "Even ignoring concerns about affidavit weight, Dominelli has failed to show he fulfilled his agreement obligations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The agreement arose from a compliance application focused on Outstanding Material for 2016; both parties knew the Minister was unsatisfied, explaining search and particularization requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "There is a striking gap between Dominelli's promises and affidavit evidence, which does not meet the agreement's detailed terms, so his motion fails.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The court dismisses Dominelli's motion to enforce the settlement for the reasons explained above.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The parties jointly proposed $5,000 costs; the court finds this reasonable and orders Dominelli to pay that amount to the Minister.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 400",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "court exercises discretion to award costs"
+    }
+   ]
+  }
+ ]
+}

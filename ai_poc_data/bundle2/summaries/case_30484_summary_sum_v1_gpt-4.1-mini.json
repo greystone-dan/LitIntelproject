@@ -1,0 +1,168 @@
+{
+ "case_id": 30484,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0029376
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 2,
+  "paragraphs_missing": [
+   3,
+   4,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   20,
+   21,
+   23,
+   24,
+   25,
+   27,
+   29,
+   30,
+   31,
+   32
+  ],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 3,
+  "regex_citations": 12,
+  "regex_addressed": 0,
+  "pinpoints": 6,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 4,
+  "rebuttals": 0,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 20,
+   "neutral_citation": "2020 CAF 196",
+   "para_start": 35,
+   "para_end": 35
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2017 CF 643",
+   "para_start": 10,
+   "para_end": 12
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2020 CF 428",
+   "para_start": 9,
+   "para_end": 9
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2020 CF 236",
+   "para_start": 5,
+   "para_end": 5
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2020 CF 708",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2019 CF 1106",
+   "para_start": 21,
+   "para_end": 21
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a family of five seeking asylum in Canada, with the principal applicant fearing death due to religious conversion and an associated applicant alleging gender-based discrimination in Morocco. The Refugee Protection Division (RPD) initially refused their refugee claim, and the Refugee Appeal Division (RAD) dismissed their appeal. The applicants challenged these decisions, but the appeal was ultimately dismissed.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "applicant",
+    "text": "fear of death from father due to religious conversion"
+   },
+   {
+    "id": "P2",
+    "para": 1,
+    "by": "applicant",
+    "text": "gender-based discrimination claim in Morocco"
+   },
+   {
+    "id": "P3",
+    "para": 2,
+    "by": "tribunal_below",
+    "text": "RPD refusal due to lack of refugee status under IRPA sections 96 and 97"
+   },
+   {
+    "id": "P4",
+    "para": 2,
+    "by": "tribunal_below",
+    "text": "RAD dismissal of appeal"
+   }
+  ],
+  "rebuttals": [],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The applicants are a family of five; the principal applicant fears death from his father due to religious conversion, and the associated applicant claims gender-based discrimination in Morocco.",
+   "ideas": "multiple",
+   "idea_list": [
+    "family composition and identities",
+    "principal applicant's fear",
+    "associated applicant's discrimination claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Refugee Protection Division (RPD) refused the asylum claim as applicants lacked refugee status under sections 96 and 97 of the Immigration and Refugee Protection Act (IRPA); the Refugee Appeal Division (RAD) dismissed the appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD refusal grounds",
+    "RAD dismissal"
+   ],
+   "citations": [
+    {
+     "cite": "LC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cites the Immigration and Refugee Protection Act governing refugee status"
+    },
+    {
+     "cite": "article 96",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Refers to refugee status under IRPA"
+    },
+    {
+     "cite": "article 97",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Refers to person in need of protection under IRPA"
+    }
+   ]
+  }
+ ]
+}

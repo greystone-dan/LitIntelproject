@@ -1,0 +1,501 @@
+{
+ "case_id": 7426,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.006732000000000001
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 18,
+  "regex_citations": 10,
+  "regex_addressed": 8,
+  "pinpoints": 6,
+  "purposes": {
+   "standard_of_review_or_test": 7,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 7
+  },
+  "multi_idea_paragraphs": 8,
+  "party_points": 6,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 7,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 54,
+   "para_end": 54
+  },
+  {
+   "citing_para": 7,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 77,
+   "para_end": 77
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2018 FC 581",
+   "para_start": 16,
+   "para_end": 16
+  },
+  {
+   "citing_para": 14,
+   "neutral_citation": "2014 FC 976",
+   "para_start": 24,
+   "para_end": 24
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2016 FC 111",
+   "para_start": 46,
+   "para_end": 46
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2015 FC 142",
+   "para_start": 19,
+   "para_end": 19
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Adeyinka Ilori's judicial review of a Citizenship Judge's decision denying his Canadian citizenship application due to insufficient residence evidence and credibility concerns. The Federal Court found the tribunal record incomplete and illegible, and that a natural justice breach occurred because Mr. Ilori was not given a fair opportunity to respond to adverse evidence. The court granted judicial review, set aside the decision, and ordered a rehearing by a new decision maker.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "Applicant",
+    "text": "natural justice breach and error in evidence assessment"
+   },
+   {
+    "id": "P2",
+    "para": 18,
+    "by": "Respondent",
+    "text": "Applicant was informed of evidence and had opportunity to respond"
+   },
+   {
+    "id": "P3",
+    "para": 22,
+    "by": "Court",
+    "text": "self-represented applicants must know the case to meet and respond fairly"
+   },
+   {
+    "id": "P4",
+    "para": 23,
+    "by": "Court",
+    "text": "Citizenship Judge applied a qualitative test not clearly communicated"
+   },
+   {
+    "id": "P5",
+    "para": 25,
+    "by": "Court",
+    "text": "failure to inform Applicant of test applied and case to meet breaches natural justice"
+   },
+   {
+    "id": "P6",
+    "para": 27,
+    "by": "Court",
+    "text": "declines to certify question on document retention, governed by Privacy Regulations"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 19,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P1",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicant, Adeyinka Ilori, entered Canada in 2010, became a permanent resident, and applied for citizenship in 2013, defining the relevant residence period.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Citizenship Judge denied Mr. Ilori's citizenship application due to insufficient evidence of residence and credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Mr. Ilori did not receive the Citizenship Judge's decision until 2.5 years later, after which he filed for judicial review; Justice Barnes accepted this timeline.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Mr. Ilori's judicial review raises issues of natural justice breach and error in evidence assessment, plus a preliminary issue about the tribunal record's completeness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court finds the tribunal record incomplete and illegible, and a natural justice breach occurred, so it grants judicial review and orders rehearing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Incomplete and illegible tribunal record",
+    "Breach of natural justice",
+    "Grant of judicial review and rehearing"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Annex A contains the applicable legislative provisions relevant to the case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Procedural fairness breaches are reviewed on a correctness standard focusing on fairness and justice, citing Canadian Pacific Railway and Vavilov.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of review for procedural fairness",
+    "Nature of procedural fairness duty"
+   ],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 at para 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States correctness standard for procedural fairness breaches"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov] at para 77",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains procedural fairness is context-specific and flexible"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The presumptive standard of review is reasonableness, requiring justification and rationality, with the challenger bearing the onus, per Vavilov.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness standard of review",
+    "Requirements for reasonable decision",
+    "Onus on challenger"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, at para 10",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States presumptive standard of review is reasonableness"
+    },
+    {
+     "cite": "Vavilov, at para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness as coherent and rational analysis"
+    },
+    {
+     "cite": "Vavilov, at para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness requires justification, transparency, intelligibility"
+    },
+    {
+     "cite": "Vavilov, at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Challenger must show decision is unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal record is incomplete and missing key documents central to the Citizenship Judge's decision, preventing meaningful judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Togtokh v Canada (Citizenship and Immigration), 2018 FC 581 at para 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports setting aside decision due to incomplete record"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Two versions of the tribunal record were submitted; the second includes a typed transcript and is clearer and more complete, and is accepted by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22 [IMM Rules], Rule 17",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Governs contents of tribunal record"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The typed transcript improves legibility but remains incomplete with undecipherable parts, raising questions about the original hearing notes' clarity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Several key documents referenced by the Citizenship Judge are missing from both versions of the tribunal record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Citizenship Act, s 5(1)(c)(i)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines residence requirement relevant to documents"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Additional documents attached to Mr. Ilori's affidavit are missing from the tribunal record, including hearing notices and responses to information requests.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The missing documents prevent meaningful judicial review; passport stamps are not conclusive but were inconsistently accepted by the Citizenship Judge.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Missing documents hinder review",
+    "Passport stamps' evidentiary value",
+    "Judge's inconsistent acceptance of stamps"
+   ],
+   "citations": [
+    {
+     "cite": "Haddad v Canada (Citizenship and Immigration), 2014 FC 976 at para 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Passport stamps not irrefutable proof of entries/exits"
+    },
+    {
+     "cite": "Citizenship Act, s 5(1)(c)(i)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Residence requirement for citizenship"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Missing documents and illegible hearing notes impede review; notes should be legible to assist in assessing decision rationality per Vavilov.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Missing documents central to decision",
+    "Illegible hearing notes hinder review",
+    "Legible notes aid rationality assessment"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, at para 85",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness requires rational chain of analysis"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Respondent admitted documents were destroyed after microfilming; this risks setting aside decisions if central documents are lost prematurely.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Document destruction admitted",
+    "Risk of losing central documents",
+    "Privacy Regulations context"
+   ],
+   "citations": [
+    {
+     "cite": "Privacy Regulations, SOR/83-508, paragraph 4(1)(a) and (b)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Regulates retention and destruction of personal information"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Despite the record issues being determinative, the court addresses the natural justice breach to avoid repetition on rehearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Respondent argues Mr. Ilori was informed of evidence and had opportunity to respond, but the court disagrees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Citizenship Judge's decision discusses evidence without showing it was put to Mr. Ilori at hearing; the court finds no indication he was questioned on it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that evidence was used to discredit him without giving a fair chance to respond, breaching natural justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Information from Mr. Ilori\u2019s spouse suggesting he lives in Nigeria was not put to him at hearing, though it may have influenced the Judge\u2019s decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Applicant accepts the Minister's investigative powers, but the court stresses self-represented applicants must know the case to meet and respond fairly.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's investigative authority accepted",
+    "Duty of procedural fairness emphasized",
+    "Extra care for self-represented applicants"
+   ],
+   "citations": [
+    {
+     "cite": "Fazail v Canada (Citizenship and Immigration), 2016 FC 111 at para 46",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Duty of procedural fairness requires knowing the case to meet"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Citizenship Judge shifted from a quantitative to a qualitative test, focusing on Mr. Ilori\u2019s living and working in Nigeria, which was not clearly communicated.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court explains three citizenship tests exist, including the qualitative Koo test, and procedural fairness requires applicants know which test applies; the Judge applied a veiled Koo test.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Three citizenship tests explained",
+    "Koo qualitative test focus",
+    "Applicant must know test applied",
+    "Judge applied veiled Koo test"
+   ],
+   "citations": [
+    {
+     "cite": "Miji v Canada (Citizenship and Immigration), 2015 FC 142 at para 19",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains three citizenship tests"
+    },
+    {
+     "cite": "Koo (Re), 1992 CanLII 2417 (FC), [1993] 1 FC 286 (TD)",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines qualitative test focusing on residence location"
+    },
+    {
+     "cite": "Miji, at para 21",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Procedural fairness requires applicant know test applied"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Citizenship Judge failed to inform Mr. Ilori of the test applied and the case to meet, breaching natural justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court grants judicial review, sets aside the Citizenship Judge\u2019s decision, and orders rehearing by a new decision maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court declines to certify the Applicant\u2019s proposed question on document retention, finding it not dispositive and governed by Privacy Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Privacy Regulations, s 4(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Governs document retention of personal information"
+    }
+   ]
+  }
+ ]
+}

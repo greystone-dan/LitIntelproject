@@ -1,0 +1,665 @@
+{
+ "case_id": 6001,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0087212
+ },
+ "verification": {
+  "paragraphs": 46,
+  "summaries": 46,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 22,
+  "regex_citations": 10,
+  "regex_addressed": 9,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 12
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 5,
+  "rebuttals": 7,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 16,
+   "neutral_citation": "2002 SCC 1",
+   "para_start": 98,
+   "para_end": 98
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2018 FC 1128",
+   "para_start": 15,
+   "para_end": 15
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2020 FC 38",
+   "para_start": 18,
+   "para_end": 18
+  },
+  {
+   "citing_para": 27,
+   "neutral_citation": "2022 FC 510",
+   "para_start": 26,
+   "para_end": 26
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2019 FC 145",
+   "para_start": 41,
+   "para_end": 41
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2021 FC 108",
+   "para_start": 20,
+   "para_end": 20
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2018 FC 1080",
+   "para_start": 66,
+   "para_end": 66
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant from Bangladesh seeking judicial review of the Immigration Division's decision that found him inadmissible under IRPA sections 34(1)(f) and 34(1)(c) for membership in a terrorist organization. The Immigration Division concluded that the BNP and its affiliate JCD engaged in terrorism, but the Federal Court found the Division's reasoning on BNP's intent to cause serious harm insufficient and unreasonable. The Court granted the judicial review, set aside the inadmissibility finding, and remitted the matter to the Immigration Division for reconsideration by a new panel.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 8,
+    "by": "Applicant",
+    "text": "Admitted BNP membership but denied BNP is violent terrorist organization"
+   },
+   {
+    "id": "P2",
+    "para": 13,
+    "by": "Minister's counsel",
+    "text": "JCD is BNP's creation and main actor in violence; BNP accountable for terrorism"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "Applicant",
+    "text": "Denied participation in violence or BNP's engagement in terrorism"
+   },
+   {
+    "id": "P4",
+    "para": 25,
+    "by": "Applicant",
+    "text": "Accepted violence during BNP hartals but denied BNP leadership intended injury or death"
+   },
+   {
+    "id": "P5",
+    "para": 39,
+    "by": "Minister",
+    "text": "Certification question on whether repeated strikes causing harm can be terrorism under s.34(1)(c) IRPA"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 31,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 37,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 40,
+    "answers": "P5",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicant from Bangladesh seeks judicial review of the Immigration Division's decision finding him inadmissible under IRPA sections 34(1)(f) and 34(1)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, S.C. 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines grounds of inadmissibility cited in the decision"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Applicant entered Canada on a student visa in April 2018 and applied for asylum in October 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "In November 2019, the Minister issued a report alleging reasonable grounds that the Applicant was a member of a terrorist organization, making him inadmissible under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for inadmissibility report"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Section 34 of the IRPA outlines security grounds for inadmissibility, including paragraphs 34(1)(c) and (f) concerning terrorism and membership in terrorist organizations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, S.C. 2001, c 27, s 34(1)(c), (f)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Provides statutory text of security grounds for inadmissibility"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Minister's report states the BNP and JCD engaged in terrorist activities and implicitly organized violence to achieve political goals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Minister referred the matter to the Immigration Division for an admissibility hearing held on April 13, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Minister's counsel presented documents to prove reasonable grounds that the Applicant was a JCD member and that BNP engaged in terrorism.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Applicant admitted membership in BNP but denied that BNP is a violent terrorist organization.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Minister's counsel described Bangladesh's political history, noting BNP and Awami League as main parties with alternating election wins.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The AL government abolished caretaker government in 2011; BNP responded with strikes causing economic losses and street violence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Documentary evidence shows BNP planned hartals causing violence including petrol bombings and railway damage.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "A 2009 article describes Bangladesh's political parties as having a culture of street violence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Minister's counsel argued JCD is BNP's creation and main actor in violence, holding BNP accountable for resulting terrorism and requesting deportation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Human Rights Watch report",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Supports claim of student wings' involvement in violence"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Applicant admitted JCD membership for protection and resume benefit but denied attending meetings or rallies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicant denied voting for JCD candidates, participation in violence, or BNP's engagement in terrorism.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Immigration Division adopted the Supreme Court's Suresh definition of terrorism to conclude BNP and JCD engaged in terrorism.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Suresh v Canada (Minister of Citizenship and Immigration), 2002 SCC 1 at para 98",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines terrorism for the decision"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The ID noted BNP's absence from Canada's terrorist entity list is not determinative for terrorism under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The ID used four factors from M.N. v Canada to assess BNP's engagement in terrorism: structure, leadership control, knowledge, and public stance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "M.N. v Canada (Public Safety and Emergency Preparedness), 2019 FC 796 at para 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Provides factors to assess terrorist organization status"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The ID agreed terrorism requires intent to cause serious harm and found the four M.N. factors met.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The ID concluded BNP had specific intent to cause death and serious harm, making Applicant inadmissible under IRPA 34(1)(f) and issued removal order.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The reasonableness standard applies to IRPA 34(1)(f) determinations of reasonable grounds for terrorist organization membership.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Intisar v Canada (Citizenship and Immigration), 2018 FC 1128 at para 15",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States reasonableness standard for IRPA 34(1)(f) decisions"
+    },
+    {
+     "cite": "Miah v Canada (Public Safety and Emergency Preparedness), 2020 FC 38 at para 18",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms reasonableness standard for such decisions"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Supreme Court in Vavilov defines a reasonable decision as rational, logical, and justified by law and facts, with traceable reasoning.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 102, 105",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness standard for judicial review"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The issue is whether the ID reasonably found reasonable grounds that BNP/JCD engages in terrorism under IRPA 34(1)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Both parties agree that intent to cause death or serious harm is essential to define terrorism under IRPA 34(1)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Applicant accepts violence occurred during BNP hartals but denies BNP leadership intended injury or death.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The question is whether the ID properly applied the Suresh terrorism definition and found BNP intended harm by calling hartals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The reasonableness of intent findings in terrorism cases is debated, as noted by Justice Pentney in Babu v Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Babu v Canada (Public Safety and Emergency Preparedness), 2022 FC 510 at para 26",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Notes judicial division on intent issue in terrorism cases"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Consensus is that proof of intent requires more than awareness or wilful blindness to likely violence from hartals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Saleheen v Canada (Public Safety and Emergency Preparedness), 2019 FC 145 at para 41",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies intent proof requires more than awareness"
+    },
+    {
+     "cite": "Miah v Canada (Public Safety and Emergency Preparedness), 2020 FC 38 at para 34",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports higher standard for intent proof"
+    },
+    {
+     "cite": "Islam v Canada (Public Safety and Emergency Preparedness), 2021 FC 108 at para 20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms intent requires more than wilful blindness"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The ID found BNP planned violent hartals with leadership control, knowledge of violence risk, implicated leaders, and weak denunciation of violence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "below",
+   "summary": "The ID summarized findings at paragraphs 71-74 and reached a conclusion on BNP's terrorist activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds the critical finding conclusory and lacking analysis on how it was reached.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The ID ignores BNP's legitimacy and the political context of hartals, which are common protest tools not inherently terrorist acts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Reports of violence during BNP hartals do not prove BNP engaged in terrorism or conclude so.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "No evidence shows BNP leadership instructed violent acts; a link between violence and BNP intent is unproven.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The ID wrongly applied a lower standard of intent than required by law for calling hartals causing death or injury.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court finds Justice Norris's reasoning in Rana v Canada relevant to this case's circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rana v Canada (Public Safety and Emergency Preparedness), 2018 FC 1080 at para 66",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Justice Norris's reasoning applies to this case"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Applying Justice Norris's reasoning, the court concludes the BNP membership inadmissibility finding cannot be sustained.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The judicial review application is granted and the matter is remitted to the ID for reconsideration by a new panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "party",
+   "summary": "The Minister submits a certification question about whether repeated general strikes causing harm can be terrorism under s.34(1)(c) IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court rejects the Minister's certification question as it concerns fact-based intent, not a general legal issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "below",
+   "summary": "The member erred by equating hartals and blockades with terrorist activity without proving intent to cause serious harm as required.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Suresh",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines terrorism's essence as intent to cause serious harm"
+    }
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "below",
+   "summary": "The BNP is a legal political party whose leadership plans and coordinates hartals requiring mobilization and resources.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "below",
+   "summary": "BNP leadership controls members and called blockades causing deaths and injuries, targeting minorities to pressure the government.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit C-28, page 212",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Evidence of attacks during BNP blockades"
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "below",
+   "summary": "BNP leadership knew of violent consequences from hartals and continued calls despite media coverage and accusations against leaders.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit C-28",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Media reports on political violence"
+    },
+    {
+     "cite": "2012 onward",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Timeframe of events"
+    }
+   ]
+  },
+  {
+   "para": 74,
+   "speaker": "below",
+   "summary": "Human rights groups urged BNP to condemn violence, but BNP only vaguely denounced it and blamed others, condoning violence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit C-36, pp. 357 \u2013 360",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Human Rights Watch report"
+    },
+    {
+     "cite": "Exhibit C-34, p. 351",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Amnesty International report"
+    },
+    {
+     "cite": "Exhibit C-28, p. 271",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Evidence of BNP's vague denunciations"
+    }
+   ]
+  },
+  {
+   "para": 75,
+   "speaker": "below",
+   "summary": "The tribunal finds BNP had specific intent to cause death or serious harm, meeting the M.N. case factors for terrorism.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "M.N.",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Factors for establishing specific intent in terrorism cases"
+    }
+   ]
+  }
+ ]
+}

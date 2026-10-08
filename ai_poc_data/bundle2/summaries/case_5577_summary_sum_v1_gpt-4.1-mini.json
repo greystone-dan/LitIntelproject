@@ -1,0 +1,885 @@
+{
+ "case_id": 5577,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0119796
+ },
+ "verification": {
+  "paragraphs": 64,
+  "summaries": 64,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 31,
+  "regex_citations": 11,
+  "regex_addressed": 11,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 7,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 9,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 13
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 12,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 28,
+   "neutral_citation": "2002 SCC 33",
+   "para_start": 7,
+   "para_end": 37
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns a judicial review application by the Applicant challenging the Executive Director's dismissal of her complaint to the Canadian Judicial Council (CJC) about Justice Norton. The Applicant alleged judicial dishonesty and misconduct, but the Executive Director dismissed the complaint as falling outside the CJC's mandate, reasoning that judicial decisions are not conduct issues and should be addressed by appeal. The Federal Court upheld the Executive Director's decision as reasonable, applying the reasonableness standard of review and finding no error in the dismissal for lack of conduct issues.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 22,
+    "by": "Applicant",
+    "text": "correctness is standard of review"
+   },
+   {
+    "id": "P2",
+    "para": 25,
+    "by": "Applicant",
+    "text": "correctness applies due to fraud on the court"
+   },
+   {
+    "id": "P3",
+    "para": 31,
+    "by": "Applicant",
+    "text": "Executive Director wrongly reviewed evidence"
+   },
+   {
+    "id": "P4",
+    "para": 32,
+    "by": "Applicant",
+    "text": "Executive Director exceeded authority citing Girouard"
+   },
+   {
+    "id": "P5",
+    "para": 41,
+    "by": "Applicant",
+    "text": "CJC can review judicial decisions for law and evidence"
+   },
+   {
+    "id": "P6",
+    "para": 42,
+    "by": "Applicant",
+    "text": "subsection 63(2) mandates CJC to investigate dishonesty"
+   },
+   {
+    "id": "P7",
+    "para": 43,
+    "by": "Applicant",
+    "text": "Singh supports CJC investigation of misconduct"
+   },
+   {
+    "id": "P8",
+    "para": 44,
+    "by": "Applicant",
+    "text": "Executive Director erred in dismissing misconduct allegations"
+   },
+   {
+    "id": "P9",
+    "para": 18,
+    "by": "Applicant",
+    "text": "complaint raises judicial conduct issues"
+   },
+   {
+    "id": "P10",
+    "para": 24,
+    "by": "Applicant",
+    "text": "decision is unreasonable"
+   },
+   {
+    "id": "P11",
+    "para": 23,
+    "by": "Applicant",
+    "text": "Dunsmuir principles remain relevant"
+   },
+   {
+    "id": "P12",
+    "para": 16,
+    "by": "Applicant",
+    "text": "six issues on CJC reviewability and complaint dismissal"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 26,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 45,
+    "answers": "P8",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 46,
+    "answers": "P8",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 58,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 60,
+    "answers": "P8",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P9",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This is a judicial review application of the Executive Director's March 1, 2021 decision dismissing the Applicant's complaint to the Canadian Judicial Council.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "In March 2018, the Applicant was charged with impaired driving after erratic driving and license suspension under the Motor Vehicle Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Criminal Code, RSC 1985, c C-46, subsections 253(1)(a) and (b)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for impaired driving charge"
+    },
+    {
+     "cite": "Motor Vehicle Act, RSNS 1989, c 293",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for license suspension"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicant was acquitted of impaired driving but sued the Registrar and Attorney General of Nova Scotia over license suspension and Charter breaches.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R v Turner-Lienaux (August 26, 2019), HA-18-1783 (NS Prov Ct)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Criminal acquittal decision referenced"
+    },
+    {
+     "cite": "subsection 11(d) and 11(h) Charter rights",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Charter rights alleged breached"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Justice Norton dismissed the Applicant's action against the Registrar and Attorney General on October 21, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Turner-Lienaux v Nova Scotia (Registrar of Motor Vehicles), 2020 NSSC 292",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Decision dismissing Applicant's action"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Applicant complained to the CJC about Justice Norton, alleging judicial dishonesty and multiple breaches of judicial duty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Executive Director dismissed the complaint, summarizing the Applicant's allegations against Justice Norton.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The Executive Director stated judicial decisions fall within judges' responsibilities and are outside the CJC's mandate, suggesting appeal as recourse.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The Executive Director noted that terms like 'falsification' and 'dishonesty' alone do not make a judgment a conduct issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "The Executive Director said bias is a judicial matter for courts, and the Applicant's disagreement with Justice Norton is not evidence of bias.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "The Executive Director cited Cojocaru to explain judicial copying is accepted if the judge considers facts and issues properly.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Cojocaru v British Columbia Women\u2019s Hospital and Health Centre, 2013 SCC 30",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains judicial copying practice and its limits"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The Executive Director concluded no conduct issue was raised by the complaint, so it was dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court's role is to decide if the Executive Director's decision must be set aside, not to determine if the complaint is well founded or second-guess Justice Norton.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court notes both parties filed memoranda but neither fully complied with the Federal Courts Rules' requirements for concise statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Rules on memorandum content and length"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Applicant's Memorandum raises two issues about the Executive Director's legal errors regarding CJC authority and conduct definitions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Applicant filed a 36-page further submission before the hearing, adding arguments about fraud on the court law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Applicant's further submissions list six issues related to CJC reviewability, duties, standards, evidence, and complaint dismissal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court observes the further submissions' six issues do not fully align with the original two issues in the Applicant's Memorandum.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Applicant reiterates allegations to show her complaint raises judicial conduct issues, acknowledging CJC jurisdiction is limited to conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Respondent does not dispute the Executive Director's authority to assess evidence but argues the complaint does not involve conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Respondent concedes judge behavior during hearings or decisions can be conduct but denies Justice Norton's behavior qualifies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Court identifies three issues: standard of review, Executive Director's authority on evidence, and reasonableness of dismissal for lack of conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicant submits correctness is the standard of review but concedes Vavilov governs the analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Dunsmuir v New Brunswick, 2008 SCC 9",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for standard of review"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant concedes Vavilov governs standard of review"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Applicant's counsel cites Vavilov para 2 to show Dunsmuir principles remain relevant in standard of review and reasonableness analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, para 2",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for standard of review framework and reasonableness guidance"
+    },
+    {
+     "cite": "Dunsmuir v New Brunswick, 2008 SCC 9",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for principles underlying judicial review"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Applicant submits reasonableness is the initial standard of review and argues the decision is unreasonable in further submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Applicant argues correctness applies due to fraud on the court, relying on Pfizer and Mediatube cases about court integrity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Pfizer Canada Inc v Canada (Minister of Health), 2011 FCA 215",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for fraud on court principle"
+    },
+    {
+     "cite": "Mediatube Corp v Bell Canada, 2018 FCA 127",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for fraud on court principle"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court is not persuaded Pfizer or Mediatube assist the Applicant as neither involved administrative action review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Court explains Pfizer and Mediatube involved appeals addressing fraud on the court, not trial judge conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules, SOR/98-106, Rule 399",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Pfizer involved motion under Rule 399 to set aside appeal decision"
+    },
+    {
+     "cite": "Pfizer Canada Inc v Canada (Minister of Health), 2011 FCA 215",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Case involved appeal decision set aside for fraud"
+    },
+    {
+     "cite": "Mediatube Corp v Bell Canada, 2018 FCA 127",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Case involved appeal motion about ineffective counsel and fraud on court"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Court notes trial judges get deference on appeals except on law, and fraud on court removes that deference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Housen v Nikolaisen, 2002 SCC 33, paras 7-37",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains appellate deference to trial judges except on law"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Court holds that court integrity does not require correctness standard for CJC complaint dispositions, as appeals address integrity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Court concludes reasonableness is the only applicable standard of review for the decision under review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The Applicant argues the Executive Director wrongly reviewed evidence in the Applicant's submissions to the CJC.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "party",
+   "summary": "The Applicant contends the Executive Director exceeded his authority, relying on Girouard v Canada (Attorney General), 2019 FC 1282.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant argues Executive Director exceeded authority relying on Girouard"
+   ],
+   "citations": [
+    {
+     "cite": "Girouard v Canada (Attorney General), 2019 FC 1282",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Girouard to argue Executive Director exceeded authority"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's reliance on Girouard misplaced because it involved different CJC procedures.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court explains the 2015 CJC Procedures apply here, unlike in Girouard where complaints were made in 2012 and 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Judges Act mandates inquiries on certain complaints and allows discretionary screening for others, including those by the public.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Judges Act, RSC 1985, c J-1, s 63(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Explains mandatory inquiry on certain complaints"
+    },
+    {
+     "cite": "Judges Act, RSC 1985, c J-1, s 63(2)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Explains discretionary screening for other complaints"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Justice Rouleau in Girouard considered the 2010 Procedures, which had a different screening process than the current 2015 Procedures.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Justice Rouleau's criteria in Girouard correspond to the 2010 Procedures, confirming which version he considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The 2015 Procedures apply here, providing an early screening by the Executive Director to dismiss complaints not involving conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The Applicant accepts the 2015 Procedures apply; the Executive Director did not exceed authority by reviewing the complaint's allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Executive Director did not dispute the facts but found the remedy was an appeal, not a CJC complaint.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "The Applicant disputes the Executive Director's claim that the CJC cannot review judicial decisions for congruence with law or evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Applicant argues subsection 63(2) mandates the CJC to investigate any complaint showing even minimal evidence of dishonesty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Judges Act, s 63(2)",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites mandate to investigate complaints with evidence of dishonesty"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "The Applicant relies on Singh v Canada (Attorney General), 2015 FC 93, to show the CJC can investigate judicial misconduct allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Attorney General), 2015 FC 93",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites Singh as precedent for CJC investigating misconduct"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "party",
+   "summary": "The Applicant claims the Executive Director erred by finding allegations of misconduct do not justify CJC investigation, calling it absurd.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "The Respondent argues the Executive Director reasonably concluded the complaint did not raise conduct issues within the CJC's mandate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The Respondent submits that mere allegations without evidence do not warrant CJC consideration and the Applicant's claims are speculative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court notes its role is to assess the Executive Director's reasonableness, not to re-evaluate the complaint's merits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The court explains reasonableness review requires decisions to be justified, transparent, and based on coherent analysis, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 87",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness review focus on outcome and reasoning"
+    },
+    {
+     "cite": "Vavilov at paras 85 and 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines characteristics of a reasonable decision"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "A decision is unreasonable if essential rationale is missing, but review is not a line-by-line error search, per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 98",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Unreasonableness if rationale missing"
+    },
+    {
+     "cite": "Vavilov at para 102",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Not a line-by-line error search"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Flaws must be significant to be unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court should not reweigh evidence or interfere with factual findings absent exceptional circumstances, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 125",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Limits on reweighing evidence and interfering with findings"
+    }
+   ]
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The Executive Director reviewed six misconduct allegations and found they related to judicial decision-making, not conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The Executive Director explained such complaints fall outside the CJC's mandate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Regarding plagiarism, the Executive Director found it not misconduct and noted the judge cited the correct statute section.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Supreme Court of Canada case law",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports conclusion plagiarism not misconduct"
+    }
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "A tribunal's decision may be unreasonable if it unjustifiably departs from past practice, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 131",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Unreasonableness if unjustified departure from past practice"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The Applicant's reliance on Singh is misplaced because it involved different screening criteria under the 2010 Procedures.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Screening of non-conduct matters was previously done by the Chairperson under the 2010 Procedures.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "In Singh, the Chairperson found no evidence of misconduct and that judicial decisions should be challenged on appeal, not by CJC.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh at para 53",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Chairperson's finding on no misconduct and appeal as proper challenge"
+    }
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The Executive Director's decision aligns with Singh by dismissing the complaint due to lack of evidence and proper appeal route.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The Applicant misinterprets the Executive Director's statement that certain words alone do not make a judgment a conduct issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The Executive Director meant that the complaint's essence, not language, determines if it falls under CJC jurisdiction; the court agrees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The Executive Director reasonably concluded the complaints were about judicial decision-making, not conduct, consistent with past practice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The parties agree and the court concurs that $2,500 is a reasonable costs award given the extensive records and submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "The Executive Director's role is limited to administering complaints and determining if they meet three criteria involving federally-appointed judges and rationality.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 121,
+   "speaker": "court",
+   "summary": "The Executive Director does not assess evidence but refers well-founded complaints to the Chairperson and has no decision-making role in inquiries.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

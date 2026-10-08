@@ -1,0 +1,251 @@
+{
+ "case_id": 33973,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0036884000000000005
+ },
+ "verification": {
+  "paragraphs": 10,
+  "summaries": 10,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 4,
+  "model_citations": 9,
+  "regex_citations": 5,
+  "regex_addressed": 4,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 2,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 3,
+   "neutral_citation": "2015 SCC 61",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 8,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 85,
+   "para_end": 85
+  },
+  {
+   "citing_para": 8,
+   "neutral_citation": "2023 SCC 21",
+   "para_start": 10,
+   "para_end": 10
+  }
+ ],
+ "structure": {
+  "overview": "Mr. Duran sought judicial review of an Immigration Officer's refusal to reconsider his humanitarian and compassionate (H&C) permanent residence application. The Immigration Officer had refused the application initially and upon reconsideration, citing lack of new evidence and speculative family separation concerns. The Federal Court found the reconsideration decision unreasonable, particularly regarding the assessment of establishment and the child's best interests, and set aside the reconsideration decision.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "Mr. Duran",
+    "text": "new evidence about family murders and processing delays"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "Mr. Duran",
+    "text": "challenge to Officer's elevated establishment threshold"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P1",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "Mr. Duran seeks judicial review of an Immigration Officer's refusal to reconsider his H&C permanent residence application; the court finds the decision unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicant seeks judicial review",
+    "court finds decision unreasonable"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "In 2023, Mr. Duran applied for permanent residence on H&C grounds citing established factors; previous H&C and refugee claims were refused.",
+   "ideas": "multiple",
+   "idea_list": [
+    "2023 H&C application details",
+    "previous refusals of H&C and refugee claims"
+   ],
+   "citations": [
+    {
+     "cite": "Kanthasamy v. Canada (Citizenship and Immigration), 2015 SCC 61 at para 27",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Mr. Duran relies on Kanthasamy for H&C grounds"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The 2024 Immigration Officer refused Mr. Duran's H&C application, weighing establishment, hardship, and child's best interests; this decision is under separate review.",
+   "ideas": "single",
+   "idea_list": [
+    "summary of initial refusal decision"
+   ],
+   "citations": [
+    {
+     "cite": "Duran Bantan v Canada (Minister of Citizenship and Immigration), [IMM-8570-24] 2025 FC 1416",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "related judicial review decision released concurrently"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Mr. Duran requested reconsideration with new evidence about family murders and processing delays, challenging the Officer's elevated establishment threshold.",
+   "ideas": "multiple",
+   "idea_list": [
+    "new evidence submitted",
+    "challenge to establishment threshold"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Officer reconsidered but confirmed refusal, finding no new establishment evidence, accepting murder evidence but no direct threat, and deeming family separation speculative.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no new establishment evidence",
+    "murder evidence accepted but no direct threat",
+    "family separation impact speculative"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The reasonableness standard applies, requiring coherent, justified, and transparent decisions, especially given severe impacts on individual rights.",
+   "ideas": "single",
+   "idea_list": [
+    "standard of review is reasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "defines reasonableness standard"
+    },
+    {
+     "cite": "Vavilov at paras 15, 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "clarifies reasonableness as justified, intelligible, transparent"
+    },
+    {
+     "cite": "Mason v Canada (Citizenship and Immigration), 2023 SCC 21 at para 10, 76",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "requires responsive justification"
+    },
+    {
+     "cite": "Vavilov at para 133",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "reasons must reflect stakes when rights severely impacted"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Officer's reconsideration was unreasonable for failing to explain disagreement with Mr. Duran's arguments, lacking responsive justification.",
+   "ideas": "single",
+   "idea_list": [
+    "failure to provide responsive justification"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "responsive justification principle requires explanation"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Given the child's interests must be a singularly significant focus, the Officer's reasoning was insufficient and more was required.",
+   "ideas": "single",
+   "idea_list": [
+    "child's interests require significant focus"
+   ],
+   "citations": [
+    {
+     "cite": "Kanthasamy at para 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "child's interests are singularly significant in H&C"
+    },
+    {
+     "cite": "Vavilov at paras 90, 99, 105, 133",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "reasonableness requires adequate reasons given stakes"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Because establishment and child's best interests assessments were unreasonable, the court sets aside the reconsideration decision without addressing hardship.",
+   "ideas": "single",
+   "idea_list": [
+    "sets aside reconsideration decision"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "No serious question of general importance for certification arises from this case.",
+   "ideas": "single",
+   "idea_list": [
+    "no certification question"
+   ],
+   "citations": []
+  }
+ ]
+}

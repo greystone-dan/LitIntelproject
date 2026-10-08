@@ -1,0 +1,420 @@
+{
+ "case_id": 7471,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.005760400000000001
+ },
+ "verification": {
+  "paragraphs": 29,
+  "summaries": 29,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 10,
+  "regex_citations": 5,
+  "regex_addressed": 4,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 7,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 15,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2009 SCC 12",
+   "para_start": 58,
+   "para_end": 58
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2019 FC 394",
+   "para_start": 11,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "The Minister of Citizenship and Immigration sought judicial review of the Immigration Appeal Division's (IAD) decision allowing Mr. Doss's appeal of a visa refusal for his mother based on excessive health-related demand. Mr. Doss, the applicant, argued that his mother's health condition was stable and that humanitarian and compassionate (H&C) grounds justified the appeal, while the Minister, the respondent, contended the IAD erred in its assessment of health and H&C factors. The Federal Court allowed the Minister's application for judicial review, finding the IAD's decision unreasonable and setting it aside for reconsideration.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 14,
+    "by": "Minister",
+    "text": "IAD erred in finding stable health and assessing H&C grounds"
+   },
+   {
+    "id": "P2",
+    "para": 24,
+    "by": "Mr. Doss",
+    "text": "Kidney transplants unrealistic over age 80"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "Mr. Doss",
+    "text": "Mother's health stable, improved kidney condition, H&C grounds including insecurity in Egypt"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 17,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P3",
+    "verdict": "partly"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Minister seeks judicial review of the IAD decision allowing Mr. Doss's appeal of a visa refusal for his mother.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister seeks review",
+    "IAD allowed appeal",
+    "visa refusal for mother"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court allows the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "Mr. Doss, a Canadian citizen born in Egypt, seeks to sponsor his mother, a Spanish citizen living in Egypt, aged 81 and widowed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "An immigration officer refused the sponsorship due to Ms. Finianos's health condition causing excessive demand under IRPA s 38(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility on health grounds"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The officer relied on IRCC physician's opinion about costly dialysis and transplant needs, noting public funding and long waiting lists.",
+   "ideas": "multiple",
+   "idea_list": [
+    "medical opinion on treatment costs",
+    "public funding and waiting lists",
+    "family support in Egypt"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Mr. Doss appealed, alleging stable health, improved kidney condition, transplant not recommended over 80, and H&C grounds including insecurity in Egypt.",
+   "ideas": "multiple",
+   "idea_list": [
+    "challenge to inadmissibility",
+    "H&C considerations",
+    "financial means"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "IRCC medical team requested a new medical exam to reassess the officer's decision after Mr. Doss's appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The IAD hearing was held on August 5, 2020, with Mr. Doss as the sole witness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "The IAD allowed the appeal but found the nephrologist's report irrelevant and upheld the 2017 and 2019 medical results showing excessive demand risk.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IAD allowed appeal",
+    "nephrologist report had little relevance",
+    "medical results valid showing excessive demand"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "The IAD found illness costs significant but temporary, noting Ms. Finianos's age and limited short-term health service needs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The IAD gave significant weight to Mr. Doss's close relationship and financial ability to care for his mother.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "The IAD found Ms. Finianos had little support in Egypt and that living with other children abroad was unrealistic, favoring Mr. Doss's support.",
+   "ideas": "multiple",
+   "idea_list": [
+    "little support in Egypt",
+    "other children living abroad unrealistic",
+    "Mr. Doss's support favored"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The IAD concluded sufficient H&C considerations offset the excessive demand on health services under IRPA objectives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Minister argues the IAD erred in finding stable health and in assessing H&C grounds against the seriousness of diagnosis and costs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "error on health stability",
+    "error on H&C assessment"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The applicable standard of review for IAD decisions under IRPA s 67(1)(c) is reasonableness, citing Vavilov and Khosa.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 10, 16\u201317",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States reasonableness standard for IAD decisions"
+    },
+    {
+     "cite": "Canada (Citizenship and Immigration) v Khosa, 2009 SCC 12 at para 58",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms reasonableness standard for IAD decisions"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Under reasonableness, the court reviews the decision's justification, transparency, intelligibility, and rationality per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at paras 83, 99, 102\u2013104, 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains reasonableness review criteria and burden"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court accepts the Minister's argument that the IAD's findings on illness cost burden lack coherent and rational analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 85",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding of incoherent and irrational analysis"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "other",
+   "summary": "IRPA s 38(1) defines inadmissibility on health grounds for excessive demand; 'excessive demand' is defined in IRPR s 1(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27 s 38(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines health inadmissibility"
+    },
+    {
+     "cite": "Immigration and Refugee Protection Regulations, SOR/2002-227 s 1(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines 'excessive demand'"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "other",
+   "summary": "Sponsorship refusals on health grounds can be appealed to the IAD under IRPA ss 63(1) and 67(1)(c) for H&C special relief.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27 ss 63(1), 67(1)(c)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Sets appeal and relief grounds"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Jugpall establishes that H&C grounds must match the seriousness of inadmissibility; more serious cases require stronger H&C.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jugpall v Canada (Minister of Citizenship and Immigration), [1999] IADD No 600 (QL)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains proportionality of H&C grounds to inadmissibility"
+    },
+    {
+     "cite": "Patel v Canada (Citizenship and Immigration), 2019 FC 394",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports Jugpall principles"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The IAD relied on IRCC physicians' findings of excessive demand, as no other medical results were available.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The IAD found Ms. Finianos's condition stable and short-term care needs limited, based on Mr. Doss's testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds the IAD's short-term care duration finding unsupported by medical prognosis, including transplant timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Mr. Doss argues kidney transplants are unrealistic over age 80, relying on a scientific article and statistical charts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court finds Mr. Doss's evidence outdated, lacking context, and inconsistent with the IRCC physician's opinion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "charts lack context",
+    "article outdated",
+    "physician considered age",
+    "physician concluded excessive demand"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Mr. Doss presented little evidence to undermine diagnosis; his testimony is hearsay and Ms. Finianos refused full exams.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court defers to IAD but finds its inconsistent analysis may have caused error in balancing H&C and family reunification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The IAD decision lacks reasonableness; the court allows review, sets aside decision, and refers for reconsideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "No question of general importance was certified or arises in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

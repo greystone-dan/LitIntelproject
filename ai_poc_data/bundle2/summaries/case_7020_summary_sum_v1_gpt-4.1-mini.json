@@ -1,0 +1,496 @@
+{
+ "case_id": 7020,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0063868
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 24,
+  "regex_citations": 12,
+  "regex_addressed": 9,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 11,
+   "party_argument_reported": 2,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 5
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 5,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 4,
+   "neutral_citation": "2013 FCA 258",
+   "para_start": 9,
+   "para_end": 9
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2012 FCA 83",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2014 FCA 176",
+   "para_start": 36,
+   "para_end": 36
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the applicant's motion under Rule 397(1)(b) to correct errors or omissions in the Federal Court's judicial review judgment in Garcia Diaz v Canada. The applicant sought corrections to specific paragraphs in the judgment, including the status of his mother, the characterization of his arguments regarding the Best Interests of the Child (BIOC) assessment, and the role of the IRCC checklist. The Court allowed the motion in part, correcting the mother's status but rejecting other corrections as outside the scope of Rule 397(1)(b) and not constituting overlooked matters.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 11,
+    "by": "applicant",
+    "text": "Mother is Canadian citizen, not permanent resident"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "applicant",
+    "text": "Did not argue officer 'may not conduct' BIOC assessment"
+   },
+   {
+    "id": "P3",
+    "para": 18,
+    "by": "applicant",
+    "text": "Clarify IRCC checklist's role in custody evidence filing"
+   },
+   {
+    "id": "P4",
+    "para": 66,
+    "by": "applicant",
+    "text": "Did not raise BIOC in application; officer must allow submissions before BIOC assessment"
+   },
+   {
+    "id": "P5",
+    "para": 68,
+    "by": "applicant",
+    "text": "Officer may only conduct BIOC if sufficiently raised, citing Owusu"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 12,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 79,
+    "answers": "P4,P5",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The applicant filed a motion under Rule 397(1)(b) to correct errors or omissions in the Court's judicial review judgment in Garcia Diaz v Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 397(1)(b) of the Federal Courts Rules, SOR/98-106",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Rule 397(1)(b) to request correction of errors or omissions"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Court allows the applicant's motion in part for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "Rule 397 allows a party to request reconsideration of an order within 10 days for errors or omissions or clerical mistakes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 397",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Sets out the text of Rule 397 on reconsideration and correction of orders"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal held in MacDonald and Yeager that Rule 397's reconsideration power is narrow and cannot be used to rethink or reverse decisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rule 397 power is narrow",
+    "Cannot rethink or reverse decision"
+   ],
+   "citations": [
+    {
+     "cite": "Canada v. MacDonald, 2021 FCA 6, at para 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Rule 397 power is narrow and cannot reverse itself"
+    },
+    {
+     "cite": "Yeager v. Day, 2013 FCA 258, at para 9",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Rule 397 is limited to correcting small oversights"
+    },
+    {
+     "cite": "Taker v. Canada (Attorney General), 2012 FCA 83, at para 4",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports limited scope of Rule 397"
+    },
+    {
+     "cite": "Cowessess First Nation No. 73 v. Pelletier et al., 2017 FC 859 (Diner J.), at para 16",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports limited scope of Rule 397"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Justice LeBlanc set out principles applicable to Rule 397(1)(b) motions in Naboulsi v. Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Naboulsi v. Canada (Citizenship and Immigration), 2020 FC 357",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sets out principles for Rule 397(1)(b) motions"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Lee decision is mentioned as relevant to the principles on reconsideration motions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lee v Canada (Minister of Citizenship and Immigration), 2003 FC 867",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Relevant to reconsideration principles"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Motions for reconsideration are not an alternative appeal or chance to reargue the matter, per Benipal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Benipal v Canada (Minister of Citizenship and Immigration), 2002 FCT 1302 at para 8",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reconsideration is not an alternative appeal or reargument"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Failure to address a point argued by parties is not a matter overlooked under Rule 397(1)(b), per Balasingam.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Balasingam v Canada (Minister of Employment and Immigration), [1994] FCJ No 448",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Argument raised is not a matter overlooked under Rule 397(1)(b)"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "A 'matter' under Rule 397(1)(b) relates to remedies sought, not arguments raised, per Lee and Haque.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lee v Canada (Minister of Citizenship and Immigration), 2003 FC 867",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines 'matter' as related to remedies, not arguments"
+    },
+    {
+     "cite": "Haque v Canada (Minister of Citizenship and Immigration), [2000] FCJ No 1141",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports definition of 'matter' under Rule 397(1)(b)"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The applicant does not argue failure to address a remedy but failure to address a point argued, which is outside Rule 397(1)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The applicant proposes correcting paragraph 2 to state his mother is a Canadian citizen, not just a permanent resident; the respondent agrees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court agrees to correct paragraph 2 under Rule 397(2) and Rule 4 to reflect the mother is a Canadian citizen.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 397(2)",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Allows correction of clerical mistakes or errors"
+    },
+    {
+     "cite": "Rule 4",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports correction of errors in Reasons"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The second proposed correction concerns paragraph 68 of the Reasons, which is quoted next.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The applicant says he did not argue the officer 'may not conduct' the BIOC assessment; this was wrongly attributed in respondent's submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The respondent opposes the second correction, saying paragraph 68 does not mischaracterize the applicant's arguments and cites paragraph 66.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "In reply, the applicant narrows the correction request to focus on correcting the misattribution of the argument to him.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court rejects the second correction under Rule 397(1)(b) as it is not a 'matter' and reconsideration cannot revisit merits or reasoning.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Not a 'matter' under Rule 397(1)(b)",
+    "Reconsideration cannot revisit merits or reasoning"
+   ],
+   "citations": [
+    {
+     "cite": "Naboulsi (paras 8-9)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines 'matter' under Rule 397(1)(b)"
+    },
+    {
+     "cite": "Lee (para 4)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines 'matter' under Rule 397(1)(b)"
+    },
+    {
+     "cite": "Haque (para 5)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines 'matter' under Rule 397(1)(b)"
+    },
+    {
+     "cite": "Taker (para 5)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court has no power to revisit merits under Rule 397(1)(b)"
+    },
+    {
+     "cite": "Janssen Inc. v. Abbvie Corporation, 2014 FCA 176 (Stratas JA), at para 36",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Limits reconsideration power"
+    },
+    {
+     "cite": "Bayer Inc. v Fresenius Kabi Canada Ltd., 2016 FC 970 (Brown J.), at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Limits reconsideration power"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The applicant's third proposed change concerns clarifying the IRCC checklist's role in filing custody evidence for permanent residence applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Applicant's counsel discovered he did refer to the IRCC checklist at hearing; respondent's counsel had technical issues; parties amended submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The respondent argues paragraphs 75-79 are not incorrect or misleading and paragraph 79 acknowledges the checklist submission.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Court finds the third proposed change outside Rule 397(1)(b) as failure to address a point argued is not a matter overlooked and Reasons are not incorrect.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Failure to address point argued not a matter under Rule 397(1)(b)",
+    "Reasons not incorrect or misleading"
+   ],
+   "citations": [
+    {
+     "cite": "Naboulsi (paras 8 and 10)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to address point is not a matter under Rule 397(1)(b)"
+    },
+    {
+     "cite": "Lee (para 4)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to address point is not a matter under Rule 397(1)(b)"
+    },
+    {
+     "cite": "Haque (para 5)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to address point is not a matter under Rule 397(1)(b)"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Court considers whether Rule 397 allows amendment due to the decision's precedential impact and counsel's advice to future applicants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Court rejects amending Reasons for precedential impact absent error or omission; such issues belong to appeal courts and future counsel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The applicant's motion is allowed in part; no costs are requested by either party.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "party",
+   "summary": "The applicant submitted he did not raise the BIOC in his application and the officer must give him another chance to make submissions before conducting a BIOC assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 68,
+   "speaker": "party",
+   "summary": "The applicant argued that an officer may only conduct a BIOC assessment if sufficiently raised in the application, citing Owusu.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Owusu, at para 5",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Owusu to argue BIOC assessment requires issue to be raised"
+    }
+   ]
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The Court concludes the BIOC was sufficiently raised in the application materials, making the issue relevant to the H&C application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,333 @@
+{
+ "case_id": 6303,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.004638000000000001
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 3,
+  "regex_citations": 2,
+  "regex_addressed": 2,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 6,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 24,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 102,
+   "para_end": 102
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns a judicial review of the Refugee Appeal Division's (RAD) decision confirming the Refugee Protection Division's (RPD) finding of a viable internal flight alternative (IFA) for the Applicants, Bangladeshi citizens fearing persecution. The Applicants challenged the RAD's refusal to admit new evidence, particularly a custody application, which they argued was material to their refugee claim. The Federal Court granted the judicial review, finding the RAD's refusal to admit the custody application evidence unreasonable and flawed under the reasonableness standard, and thus allowed the application without addressing other issues.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 19,
+    "by": "Applicants",
+    "text": "RAD's refusal to admit evidence"
+   },
+   {
+    "id": "P2",
+    "para": 19,
+    "by": "Applicants",
+    "text": "Applying balance of probabilities to future risk"
+   },
+   {
+    "id": "P3",
+    "para": 19,
+    "by": "Applicants",
+    "text": "RAD failing to consider all evidence on IFA"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 22,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This is a judicial review application of the RAD's May 6, 2021 decision confirming the RPD's finding of a viable internal flight alternative for the Applicants.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application for judicial review",
+    "RAD confirmed RPD decision",
+    "Applicants not refugees or in need of protection"
+   ],
+   "citations": [
+    {
+     "cite": "sections 96 and 97(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "statutory basis for refugee and protection claims"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The application is granted because the RAD erred in its analysis of admitting the Applicants' new evidence on appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Principal Applicant and her minor children are Bangladeshi citizens fearing persecution linked to conflicts involving her husband and fearing abuse from him.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The Applicants allege ongoing harassment and extortion threats, including a kidnapping of the son and three verbal threats to the Principal Applicant in 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "In October 2018, the Principal Applicant was threatened by two men who named her children and threatened to kill them if money was not paid.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Less than a week later, the Principal Applicant was threatened again with harm to her children if her husband reported the incidents to authorities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The Principal Applicant suspected her husband owed money leading to threats and felt he was withholding information about the incidents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The Principal Applicant claims ongoing abuse and sexual assault by her husband and fears stigma if she divorces him in Bangladesh.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "The Applicants arrived in Canada in December 2018, applied for refugee protection, and the RPD rejected their claim in February 2020, finding a viable IFA in Chittagong.",
+   "ideas": "multiple",
+   "idea_list": [
+    "arrival and application dates",
+    "RPD findings and rejection"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RAD considered whether to admit new evidence about the agents of persecution's political connections, including the husband's custody application revealing details.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RAD admitted psychotherapist reports but refused to admit other new evidence including the custody application and related affidavits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RAD found the custody application did not meet IRPA subsection 110(4) requirements, reasoning the information existed before the RPD decision and should have been submitted earlier.",
+   "ideas": "multiple",
+   "idea_list": [
+    "custody application inadmissible under IRPA 110(4)",
+    "information existed before RPD decision",
+    "Applicants argued information was newly obtained",
+    "RAD rejected Applicants' explanation"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 110(4) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "governs admission of new evidence on appeal"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RAD concluded the custody application information was reasonably available and should have been presented before the RPD rejected the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The RAD found a viable IFA in Chittagong and no evidence that agents of persecution were state-affiliated, concluding Applicants fled non-state actors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RAD found Applicants failed to prove on a balance of probabilities that the husband or agents would pursue them to Chittagong, failing the first IFA test prong.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RAD found the IFA reasonable because the Principal Applicant is educated, has family support, and can find residence and employment in Chittagong.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The RAD found the Principal Applicant's mental health issues would not make the IFA unreasonable, as mental health care is available and accessible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RAD dismissed the appeal, concluding a viable internal flight alternative existed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicants raise three issues: RAD's refusal to admit evidence, applying balance of probabilities to future risk, and failing to consider all evidence on IFA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's refusal to admit evidence",
+    "balance of probabilities on future risk",
+    "failure to consider totality of evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The parties and court agree the applicable standard of review is reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court's decision to grant judicial review depends on the first issue about the RAD's refusal to admit evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court agrees it was unreasonable for the RAD to find the custody application information reasonably available to the Principal Applicant before the RPD decision, ignoring her husband as a persecutor.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's conclusion unreasonable",
+    "RAD ignored husband as persecutor",
+    "court requires consideration of this context"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds the Principal Applicant had no basis to expect her husband would provide information before being served with the custody application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds the RAD's reasoning on admissibility of the custody application logically flawed under the reasonableness standard from Canada (Minister of Citizenship and Immigration) v Vavilov.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness standard from Vavilov",
+    "RAD's analysis flawed"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paragraph 102",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets reasonableness standard for administrative decisions"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Because the custody application evidence is material to the refugee claim and IFA, the court grants judicial review without addressing other issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "No questions for certification for appeal were proposed or stated by either party.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

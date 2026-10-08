@@ -1,0 +1,342 @@
+{
+ "case_id": 28179,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0049816
+ },
+ "verification": {
+  "paragraphs": 22,
+  "summaries": 22,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 5,
+  "model_citations": 7,
+  "regex_citations": 5,
+  "regex_addressed": 3,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 4,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 13,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2015 SCC 61",
+   "para_start": 44,
+   "para_end": 44
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2020 FC 879",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2015 FCA 139",
+   "para_start": 21,
+   "para_end": 21
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of a Senior Immigration Officer's refusal of their humanitarian and compassionate (H&C) application under IRPA. The Applicant argued that their long residence and establishment in Canada should warrant relief, while the Officer found insufficient evidence of hardship and establishment. The Federal Court dismissed the judicial review, finding the Officer's decision reasonable and supported by the evidence.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicant",
+    "text": "Seeks judicial review of H&C refusal under IRPA subsection 72(1)"
+   },
+   {
+    "id": "P2",
+    "para": 16,
+    "by": "Applicant",
+    "text": "Long residence alone proves establishment and hardship"
+   },
+   {
+    "id": "P3",
+    "para": 19,
+    "by": "Applicant",
+    "text": "Disagrees with Officer's weight on immigration non-compliance"
+   },
+   {
+    "id": "P4",
+    "para": 24,
+    "by": "Applicant",
+    "text": "Relies on Budlakoti case and international obligations"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 16,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "A Senior Immigration Officer refused the Applicant's H&C application; the Applicant seeks judicial review under IRPA subsection 72(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory basis for judicial review application"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court dismisses the Applicant's judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The Officer acknowledged the Applicant's 35+ years in Canada but found insufficient evidence of social services history or adverse country conditions in Iran.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Officer noted the Applicant's family situation but found no evidence that available means to maintain contact were inadequate and no support letters were provided.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer reviewed employment certificates but found no financial evidence and unclear means of support or community involvement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer concluded the evidence did not show the Applicant's establishment in Canada was sufficient to cause negative impact if removed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer gave positive weight to the Applicant's 2020 pardon and time in Canada but found insufficient evidence of undue hardship from removal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer found the Applicant's establishment modest and gave negative weight to non-compliance with immigration laws, denying H&C exemption.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Officer acknowledged inevitable hardship from removal but found it normal and not justifying H&C relief; cumulative factors did not favour Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Officer's decision is reviewed on the presumptive reasonableness standard per Vavilov and related cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 7",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States presumptive reasonableness standard"
+    },
+    {
+     "cite": "Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61 at para 44",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard"
+    },
+    {
+     "cite": "Jaramillo Zaragoza v Canada (Citizenship and Immigration), 2020 FC 879 at para 10",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Reasonableness review requires justification, transparency, and intelligibility per Vavilov's criteria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines hallmarks of reasonableness"
+    },
+    {
+     "cite": "Vavilov at para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonable decision as coherent and justified"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's argument that long residence alone proves establishment and hardship, noting the Officer's emphasis on lack of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Officer considered the Applicant's circumstances but found limited evidence of employment, finances, support letters, and community involvement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Officer's conclusion that the Applicant's establishment was relatively modest is reasonably available.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Applicant's disagreement with the Officer's weight on immigration non-compliance does not affect the reasonableness of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Officer considered the Applicant's challenges as a young unaccompanied minor, finding them empathetic but not determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Officer reasonably gave negative weight to immigration non-compliance and noted lack of evidence on family relationship strength.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Officer did not err in assessing establishment or hardship; lack of evidence addresses most Applicant's arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds Budlakoti unhelpful to the Applicant's argument, noting the Applicant did not raise international obligations before the Officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Budlakoti involved strong ties and birth in Canada, unlike this case; duration of stay was only one factor in that decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Budlakoti at para 9.3",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains UNHRC's strong ties finding in Budlakoti"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Officer considered duration and family but found limited evidence and non-compliance; Budlakoti does not show error or inconsistency with IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "No question of general importance for certification is identified by the parties or the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

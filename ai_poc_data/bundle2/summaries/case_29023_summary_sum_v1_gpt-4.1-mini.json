@@ -1,0 +1,226 @@
+{
+ "case_id": 29023,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0030888
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 5,
+  "regex_citations": 2,
+  "regex_addressed": 2,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 2,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 8,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 15,
+   "para_end": 15
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Kanokkarn Chuenyen's challenge to a Minister of National Revenue decision refusing taxpayer relief under ITA subsection 220(3.1) for 2021 assessed interest and penalties. Ms. Chuenyen argued the delegate erred in assessing her responsibility and disregarded her explanations, while the Minister's delegate found her non-compliance and lack of reasonable care justified refusal. The Federal Court found the delegate's decision reasonable and dismissed the application.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 6,
+    "by": "Ms. Chuenyen",
+    "text": "delegate ignored lack of knowledge, misattributed online account access, blamed volunteer tax consultant errors"
+   },
+   {
+    "id": "P2",
+    "para": 7,
+    "by": "Ms. Chuenyen",
+    "text": "delegate disbelieved explanation about earlier errors; 2021 mistake should be first error"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The applicant, Kanokkarn Chuenyen, challenges a Minister of National Revenue decision refusing taxpayer relief under ITA subsection 220(3.1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 220(3.1) of the Income Tax Act, RSC 1985, c 1 (5th Supp) [ITA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Identifies the statutory provision for taxpayer relief"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "Ms. Chuenyen requested relief for 2021 assessed interest and penalties, citing new immigrant status and lack of online account access.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Minister\u2019s delegate denied the second taxpayer relief request in a letter dated April 11, 2024, which Ms. Chuenyen now challenges.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The delegate found Ms. Chuenyen had a history of non-compliance, did not exercise reasonable care, and that her circumstances were not beyond her control.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The sole issue is whether the delegate\u2019s refusal to waive penalties and interest was unreasonable under the broad discretion granted by ITA section 220(3.1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 220(3.1) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Describes Minister's discretion to waive penalties or interest"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Ms. Chuenyen argues the delegate erred by ignoring her lack of knowledge, misattributing online account access, and blaming volunteer tax consultant errors.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of knowledge beyond control",
+    "delegate erred on online account access",
+    "errors due to volunteer tax consultant"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Ms. Chuenyen contends the delegate disbelieved her explanation about earlier errors and emphasizes her 2021 mistake should be considered her first.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court cannot reconsider the delegate\u2019s decision or reweigh evidence; it reviews only for unreasonableness per Vavilov, 2019 SCC 65 at para 15.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65 at para 15",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets standard of review for judicial review as reasonableness"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The delegate followed CRA Guidelines IC07-1R1, holding taxpayers responsible for errors by third parties, supported by court decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada Revenue Agency\u2019s Information Circular IC07-1R1 - Taxpayer Relief Provisions",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains principles guiding delegate's decision"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Ms. Chuenyen failed to show the delegate\u2019s decision was unreasonable; the delegate properly considered prior errors and explained refusal clearly.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court agrees with the respondent that the delegate\u2019s April 11, 2024 decision was reasonable and dismisses the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "The respondent did not request costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court refuses to accept late additional authorities from the respondent, as they could have been included earlier.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court amends the style of cause to name the Attorney General of Canada as respondent, with no opposition from Ms. Chuenyen.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 303 of the Federal Courts Rules, SOR/98-106",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Supports amendment of style of cause to name proper respondent"
+    }
+   ]
+  }
+ ]
+}

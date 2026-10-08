@@ -1,0 +1,581 @@
+{
+ "case_id": 27727,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0079824
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 6,
+  "model_citations": 18,
+  "regex_citations": 12,
+  "regex_addressed": 7,
+  "pinpoints": 8,
+  "purposes": {
+   "standard_of_review_or_test": 18,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 7,
+  "party_points": 5,
+  "rebuttals": 13,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 11,
+   "neutral_citation": "2024 CF 13",
+   "para_start": 15,
+   "para_end": 15
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2018 CF 987",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2011 CF 380",
+   "para_start": 24,
+   "para_end": 24
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2020 CF 413",
+   "para_start": 18,
+   "para_end": 18
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2008 CAF 84",
+   "para_start": 42,
+   "para_end": 42
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2018 CF 533",
+   "para_start": 40,
+   "para_end": 40
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2020 CF 263",
+   "para_start": 39,
+   "para_end": 39
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2013 CF 598",
+   "para_start": 10,
+   "para_end": 10
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns applicants Lopez de Armas and Lopez Jaramillo challenging the Refugee Appeal Division's (RAD) decision rejecting their asylum claims in Canada based on discrimination experienced as Colombian citizens of Venezuelan origin. The applicants argued the RAD erred by ignoring cumulative discrimination effects and misassessing evidence, while the court found the RAD's decision reasonable and not seriously flawed. The court dismissed the judicial review, concluding the discrimination did not amount to persecution or serious fundamental rights violations warranting refugee protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "applicants",
+    "text": "RAD erred by ignoring cumulative discrimination effects and misassessing facts and evidence"
+   },
+   {
+    "id": "P2",
+    "para": 28,
+    "by": "applicants",
+    "text": "Society perceives them as Venezuelans causing xenophobia and discrimination"
+   },
+   {
+    "id": "P3",
+    "para": 29,
+    "by": "applicants",
+    "text": "Failed to identify evidence contradicting RAD's conclusions"
+   },
+   {
+    "id": "P4",
+    "para": 32,
+    "by": "applicants",
+    "text": "Applicants face risk of persecution or serious harm under law"
+   },
+   {
+    "id": "P5",
+    "para": 3,
+    "by": "court",
+    "text": "RAD's decision reasonable despite regrettable discrimination"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 18,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P2",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 3,
+    "answers": "P5",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Applicants Lopez de Armas and Lopez Jaramillo argue the Refugee Appeal Division erred by ignoring cumulative effects of discrimination and misassessing facts and evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants' argument on cumulative effects",
+    "applicants' argument on factual and evidentiary errors"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court rejects the applicants' judicial review, finding the Refugee Appeal Division's decision reasonable and not seriously flawed despite regrettable discrimination.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court rejects judicial review",
+    "court finds discrimination regrettable but not persecution",
+    "court finds no serious flaw in decision"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "In 2016, applicants left Venezuela for Colombia due to opposition to the Venezuelan government, accompanied by Mrs. Jaramillo, wife and mother respectively.",
+   "ideas": "single",
+   "idea_list": [
+    "applicants' migration history"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Applicants obtained Colombian citizenship through paternal lineage, but Mrs. Jaramillo could not obtain Colombian citizenship.",
+   "ideas": "single",
+   "idea_list": [
+    "citizenship status of applicants and Mrs. Jaramillo"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Applicants and Mrs. Jaramillo faced discrimination in Colombia, leading them to leave for Canada in 2019 and file asylum claims.",
+   "ideas": "single",
+   "idea_list": [
+    "discrimination in Colombia and asylum filing"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division accepted Mrs. Jaramillo's asylum claim but rejected the applicants' claims, finding their discrimination did not amount to persecution.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD decision on asylum claims"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RAD upheld the RPD's decision, recognizing discrimination against Venezuelan migrants but not against Colombian citizens of Venezuelan origin, noting state efforts and lack of serious threats to applicants.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD upholds RPD",
+    "distinction between migrants and citizens",
+    "state efforts and lack of serious threats"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RAD did not address state protection as its finding of no persecution was dispositive.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's decision not to address state protection"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Under the reasonable decision standard, courts must assess if the administrative decision is coherent, rational, justified, transparent, and intelligible.",
+   "ideas": "single",
+   "idea_list": [
+    "criteria for reasonable decision"
+   ],
+   "citations": [
+    {
+     "cite": "Mason c Canada (Citoyennet\u00e9 et Immigration), 2023 CSC 21 au para 64",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "defines criteria for reasonable decision"
+    },
+    {
+     "cite": "Vavilov au para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "defines criteria for reasonable decision"
+    },
+    {
+     "cite": "Vavilov au para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "emphasizes justification, transparency, intelligibility"
+    },
+    {
+     "cite": "Dunsmuir c Nouveau-Brunswick, 2008 CSC 9 aux para 47, 74",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "supports criteria for reasonable decision"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Decision-makers must justify decisions to affected persons; courts review both outcome and reasoning with respectful attention to rationale.",
+   "ideas": "multiple",
+   "idea_list": [
+    "requirement to justify decisions to affected persons",
+    "court's respectful review of reasoning and outcome"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov au para 86",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "requires justification to affected persons"
+    },
+    {
+     "cite": "Vavilov au para 87",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "courts review both result and reasoning"
+    },
+    {
+     "cite": "Mason aux para 58, 60",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "courts must understand decision-maker's reasoning"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Courts must show deference and intervene only to preserve administrative legitimacy, rationality, and fairness, per Vavilov and Mason.",
+   "ideas": "single",
+   "idea_list": [
+    "judicial deference and limited intervention"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov au para 13, 46, 75",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "explains judicial deference principle"
+    },
+    {
+     "cite": "Mason au para 57",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "emphasizes respect for administrative role"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The party challenging a decision must prove unreasonableness with serious flaws to annul it, per Vavilov.",
+   "ideas": "single",
+   "idea_list": [
+    "burden of proof on challenger to show serious flaws"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov au para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets burden to prove serious flaws for annulment"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court disagrees with the applicants' analysis and finds their arguments unconvincing.",
+   "ideas": "single",
+   "idea_list": [
+    "court rejects applicants' arguments"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court agrees with the Minister that the discrimination suffered, though regrettable, does not seriously violate applicants' fundamental rights.",
+   "ideas": "single",
+   "idea_list": [
+    "court agrees discrimination not serious violation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Not all discrimination is persecution; asylum seekers must prove serious, sustained, systematic fundamental rights violations, considering cumulative effects.",
+   "ideas": "multiple",
+   "idea_list": [
+    "distinction between discrimination and persecution",
+    "requirement to prove serious violations",
+    "importance of cumulative effects"
+   ],
+   "citations": [
+    {
+     "cite": "Kamara au para 25",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets test for persecution from discrimination"
+    },
+    {
+     "cite": "Morissaint c Canada (Citoyennet\u00e9 et Immigration), 2020 CF 413 au para 18",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "supports persecution test"
+    },
+    {
+     "cite": "Canada (Citoyennet\u00e9 et Immigration) c Munderere, 2008 CAF 84 au para 42",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "recognizes cumulative effects can amount to persecution"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RAD reasonably assessed individual and cumulative discrimination effects and concluded no persecution occurred.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's reasonable conclusion on persecution"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Applicants mainly faced racist insults, exclusion, client loss, and police threats, which cumulatively do not amount to serious fundamental rights violations.",
+   "ideas": "single",
+   "idea_list": [
+    "applicants' experiences do not amount to persecution"
+   ],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD found applicants accessed basic services and employment despite some client loss, supporting no serious rights violation.",
+   "ideas": "single",
+   "idea_list": [
+    "applicants had access to basic services"
+   ],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Applicants' claim of police threats is unsubstantiated; RAD noted Venezuelan Colombian citizens receive better police treatment.",
+   "ideas": "single",
+   "idea_list": [
+    "police threat claim unsubstantiated",
+    "better police treatment for citizens"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RAD found applicants were never seriously threatened, assaulted, or deprived of state services and could work and attend school.",
+   "ideas": "single",
+   "idea_list": [
+    "applicants' personal experience assessed by RAD"
+   ],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The RAD noted objective evidence mainly concerns undocumented Venezuelan migrants, not Colombian citizens of Venezuelan origin, justifying different treatment.",
+   "ideas": "single",
+   "idea_list": [
+    "objective evidence distinguishes migrants from citizens"
+   ],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Applicants argue society perceives them as Venezuelans causing xenophobia; SAR recognized this but applicants failed to prove serious fundamental rights violations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants' argument on perception and xenophobia",
+    "court finds lack of proof of serious violations"
+   ],
+   "citations": [
+    {
+     "cite": "Emamian c Canada (Citoyennet\u00e9 et Immigration), 2018 CF 533 au para 40",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "recognizes perception can cause discrimination"
+    },
+    {
+     "cite": "Riboul c Canada (Citoyennet\u00e9 et Immigration), 2020 CF 263 au para 39",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "applicant must prove serious fundamental rights violations"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Applicants failed to identify evidence contradicting the RAD's conclusions in their written and oral submissions.",
+   "ideas": "single",
+   "idea_list": [
+    "applicants did not challenge RAD evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court is satisfied the RAD reasonably concluded discrimination did not seriously violate applicants' fundamental rights despite sympathy for their suffering.",
+   "ideas": "single",
+   "idea_list": [
+    "court upholds RAD's reasonable conclusion"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Applicants' disagreement with RAD's assessment of cumulative effects and outcome is insufficient for court intervention under reasonable decision standard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "applicants' disagreement with RAD",
+    "court's deference to administrative findings"
+   ],
+   "citations": [
+    {
+     "cite": "Savas c Canada 2013 CF 598 au para 10",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "disagreement with decision not enough for intervention"
+    },
+    {
+     "cite": "Vavilov au para 125",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "court must defer to administrative findings"
+    },
+    {
+     "cite": "Canada (Commission canadienne des droits de la personne) c Canada (Procureur g\u00e9n\u00e9ral), 2018 CSC 31 au para 55",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "supports deference to administrative decisions"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Refugee protection is limited to persecution or serious harm under law; applicants failed to show such risk under Immigration and Refugee Protection Act.",
+   "ideas": "single",
+   "idea_list": [
+    "legal limits of refugee protection and applicants' failure"
+   ],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "No party proposed a question of public importance, and the court agrees none exists.",
+   "ideas": "single",
+   "idea_list": [
+    "no question of public importance certified"
+   ],
+   "citations": []
+  }
+ ]
+}

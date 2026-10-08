@@ -1,0 +1,703 @@
+{
+ "case_id": 61307,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.011084
+ },
+ "verification": {
+  "paragraphs": 46,
+  "summaries": 46,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 9,
+  "model_citations": 18,
+  "regex_citations": 8,
+  "regex_addressed": 7,
+  "pinpoints": 6,
+  "purposes": {
+   "standard_of_review_or_test": 9,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 4,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 6,
+  "party_points": 12,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 28,
+   "neutral_citation": "2022 FC 139",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 33,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 54,
+   "para_end": 54
+  },
+  {
+   "citing_para": 43,
+   "neutral_citation": "2024 FC 260",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 51,
+   "neutral_citation": "2023 FC 1571",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 54,
+   "neutral_citation": "2013 SCC 36",
+   "para_start": 96,
+   "para_end": 96
+  },
+  {
+   "citing_para": 58,
+   "neutral_citation": "2023 FC 1357",
+   "para_start": 14,
+   "para_end": 14
+  }
+ ],
+ "structure": {
+  "overview": "Mr. Wu appealed the Final Second Review Decision by the Canada Revenue Agency denying his eligibility for the Canada Recovery Benefit (CRB) due to insufficient income proof. The Attorney General of Canada defended the decision as reasonable and procedurally fair, challenging the admissibility of new evidence. The Federal Court found the decision reasonable and procedurally fair, rejected Mr. Wu's procedural fairness and Charter claims, and refused to admit new evidence, dismissing the appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Mr. Wu",
+    "text": "breach of procedural fairness and unreasonable decision ignoring income proof"
+   },
+   {
+    "id": "P2",
+    "para": 2,
+    "by": "Mr. Wu",
+    "text": "allegation of coercion violating Charter s 7 rights"
+   },
+   {
+    "id": "P3",
+    "para": 3,
+    "by": "Respondent",
+    "text": "preliminary challenge to admissibility of evidence"
+   },
+   {
+    "id": "P4",
+    "para": 3,
+    "by": "Respondent",
+    "text": "defense of Final Second Review Decision as reasonable and fair"
+   },
+   {
+    "id": "P5",
+    "para": 43,
+    "by": "Mr. Wu",
+    "text": "CERB eligibility should apply to CRB"
+   },
+   {
+    "id": "P6",
+    "para": 44,
+    "by": "Mr. Wu",
+    "text": "income period should be Oct 15, 2019 to Oct 9, 2020"
+   },
+   {
+    "id": "P7",
+    "para": 45,
+    "by": "Mr. Wu",
+    "text": "Final Second Reviewer ignored tax returns and income records"
+   },
+   {
+    "id": "P8",
+    "para": 49,
+    "by": "Respondent",
+    "text": "omission of Mr. Lau payments justified as gifts for non-profit services"
+   },
+   {
+    "id": "P9",
+    "para": 51,
+    "by": "Mr. Wu",
+    "text": "calculation period error but income still below threshold"
+   },
+   {
+    "id": "P10",
+    "para": 53,
+    "by": "Mr. Wu",
+    "text": "CRA breached procedural fairness by ignoring income documents and denying fair chance to respond"
+   },
+   {
+    "id": "P11",
+    "para": 54,
+    "by": "Mr. Wu",
+    "text": "CRA failed to accommodate disability and broke promises, citing Cameron"
+   },
+   {
+    "id": "P12",
+    "para": 57,
+    "by": "Mr. Wu",
+    "text": "allegation of coercion violating section 7 Charter rights"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 37,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 46,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 50,
+    "answers": "P8",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 55,
+    "answers": "P10,P11",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 58,
+    "answers": "P2,P12",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 59,
+    "answers": "P2,P12",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Mr. Wu argues the Final Second Reviewer breached procedural fairness and made an unreasonable decision ignoring his income proof and alleges coercion violating Charter s 7 rights.",
+   "ideas": "multiple",
+   "idea_list": [
+    "breach of procedural fairness",
+    "unreasonable decision ignoring income proof",
+    "Charter s 7 rights breach by coercion"
+   ],
+   "citations": [
+    {
+     "cite": "Canadian Charter of Rights and Freedoms, s 7, Part I of the Constitution Act, 1982, being Schedule B to the Canada Act 1982 (UK), 1982, c 11",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Mr. Wu alleges breach of his Charter s 7 rights"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Respondent, Attorney General of Canada, preliminarily challenges admissibility of some evidence and defends the Final Second Review Decision as reasonable and procedurally fair.",
+   "ideas": "multiple",
+   "idea_list": [
+    "preliminary issue on evidence admissibility",
+    "defence of decision's reasonableness and fairness"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court finds the Final Second Review Decision procedurally fair and reasonable, refusing to allow Mr. Wu more evidence after multiple CRA opportunities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The CRB Act provisions define the Minister, impose burden of proof on applicant, and allow Minister to reconsider eligibility within 36 months after payment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of Minister",
+    "applicant's burden of proof",
+    "Minister's reconsideration power"
+   ],
+   "citations": [
+    {
+     "cite": "CRB Act, ss 2, 6, 30(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "statutory provisions relevant to the case"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Mr. Wu submitted various documents to CRA in August 2022, including letters, tax assessments, and receipts totaling $5,750.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The First Reviewer found Mr. Wu ineligible for CRB due to insufficient income proof and inability to contact him for more information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "CRA notified Mr. Wu of the First Decision denying CRB eligibility for not meeting the $5,000 income threshold.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Initial Second Reviewer found Mr. Wu ineligible again due to insufficient income proof and inability to contact him after two attempts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "CRA notified Mr. Wu of the Initial Second Review Decision denying CRB eligibility for not meeting income requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The new officer spoke with Mr. Wu in January 2024, who explained his employment and babysitting income paid in cash without documentation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "other",
+   "summary": "Mr. Wu submitted various documents in February 2024, including medical records, handwritten income calculations, and tax returns.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "In March 2024, Mr. Wu explained his cancer diagnosis, employment history, and lack of documentation supporting his income claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "In May 2024, the officer explained babysitting income was casual, not business, and Mr. Wu claimed additional caregiving work paid by cheque.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "other",
+   "summary": "Mr. Wu uploaded documents in May 2024 including letters, employment confirmation, cheques, and job applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "other",
+   "summary": "In June 2024, another CRA officer was assigned to review Mr. Wu\u2019s CRB eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "In June 2024, the new officer spoke with Mr. Wu who described his employment, babysitting, caregiving, and was given a deadline for more documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "Mr. Wu uploaded documents in June 2024 including letters, text messages, T4A slip, and cheques from caregiving work.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "other",
+   "summary": "In July 2024, a Final Second Reviewer was assigned to continue reviewing Mr. Wu\u2019s CRB eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The Final Second Reviewer spoke with Mr. Wu in July 2024 and confirmed previously stated information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The Final Second Reviewer explained the review process and income calculation periods to Mr. Wu in July 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The Final Second Reviewer\u2019s notes list Mr. Wu\u2019s submitted documents and income amounts for 2019, 2020, and 2021 showing insufficient income.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Aryan v Canada (Attorney General), 2022 FC 139 at para 22",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited as part of the Final Second Reviewer\u2019s reasons"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The Final Second Reviewer analyzed Mr. Wu\u2019s documents and found total income below $5,000 for relevant periods, denying CRB eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The party challenging the decision must prove serious shortcomings making it unjustified, unintelligible, or lacking transparency to overturn it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets burden and test for unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Procedural fairness breaches are reviewed on correctness; fairness is context-specific and assessed by factors from Baker and Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 at para 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "correctness standard for procedural fairness breaches"
+    },
+    {
+     "cite": "Baker v Canada (Minister of Citizenship and Immigration), 1999 CanLII 699 (SCC), [1999] 2 SCR 817 at paras 22-23",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "factors for procedural fairness"
+    },
+    {
+     "cite": "Vavilov at para 77",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "context-specific nature of procedural fairness"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The AGC identifies several exhibits in Mr. Wu\u2019s affidavit that were not before the Final Second Reviewer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The Court agrees with the AGC\u2019s position on the inadmissibility of the new evidence not before the Final Second Reviewer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The Court explains the general rule against new evidence on judicial review and lists exceptions from Access Copyright.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Access Copyright at para 19",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "general rule on new evidence admissibility"
+    },
+    {
+     "cite": "Access Copyright at para 20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "exceptions to new evidence rule"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The Court finds Mr. Wu\u2019s new evidence does not meet exceptions and would improperly supplement the record, thus inadmissible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Act, RSC 1985, c F-7, s 18.1(4)(d)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "court\u2019s role limited to reviewing existing record"
+    },
+    {
+     "cite": "Access Copyright at para 20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "supports inadmissibility of new evidence"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Court will not consider new evidence and will review the Final Second Review Decision only for reasonableness and procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Mr. Wu has not shown serious shortcomings; superficial flaws are insufficient to overturn the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "seriousness required to overturn decision"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Mr. Wu argues CERB eligibility should apply to CRB, but the AGC and court reject this, citing Joodaki confirming separate eligibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mr. Wu's CERB-CRB eligibility argument",
+    "Court rejects argument citing Joodaki"
+   ],
+   "citations": [
+    {
+     "cite": "Joodaki v Canada (Attorney General), 2024 FC 260 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms CRB and CERB have separate eligibility requirements"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "party",
+   "summary": "Mr. Wu submits his CRB application date means earnings from Oct 15, 2019 to Oct 9, 2020 should be counted to meet $5,000 threshold.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "Mr. Wu contends the Final Second Reviewer's decision lacks justification for ignoring his tax returns and records proving income eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The May 22, 2024 letter about $2,200 income was not before the Final Second Reviewer, so its omission is not faulted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Mr. Wu submitted cheques from A. Lau and others on May 24, 2024, some dated before October 2019, which do not count for the income period.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Additional cheques from Mr. Lau to Mr. Wu were submitted on June 28, 2024, dated early 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "AGC admits Final Second Reviewer omitted Mr. Lau payments but argues Mr. Wu admitted these were gifts for non-profit services in a June 14, 2024 call.",
+   "ideas": "multiple",
+   "idea_list": [
+    "AGC admits omission",
+    "AGC cites Mr. Wu's admission of gifts in call"
+   ],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Court finds it reasonable for Final Second Reviewer to exclude Mr. Lau payments as non-eligible gifts from non-profit services.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "Mr. Wu argues calculation period error, but even including all amounts, he does not meet the $5,000 income threshold.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "party",
+   "summary": "Mr. Wu claims CRA breached procedural fairness by ignoring his income documents and denying him a fair chance to respond.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "party",
+   "summary": "Mr. Wu relies on Cameron to argue procedural fairness breach due to CRA's failure to accommodate disability and broken promises.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mr. Wu's reliance on Cameron",
+    "Summary of Cameron's procedural fairness findings"
+   ],
+   "citations": [
+    {
+     "cite": "Cameron v Canada (Attorney General), 2024 FC 2",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Mr. Wu cites Cameron for procedural fairness breach"
+    },
+    {
+     "cite": "Canadian Pacific at para 56",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Cameron cites Canadian Pacific on procedural fairness"
+    },
+    {
+     "cite": "Agraira v Canada (Public Safety and Emergency Preparedness), 2013 SCC 36 at para 96",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Cameron cites Agraira on legitimate expectations doctrine"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Court rejects Mr. Wu's procedural fairness claim, noting he was not disabled, had no promised procedure, and submitted documents multiple times.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Procedural fairness requires the party to know the case and respond; deference does not override this fundamental right, citing Canadian Pacific.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Pacific at para 56",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Emphasizes procedural fairness and right to be heard despite deference"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "Mr. Wu alleges coercion by CRA Officer violating his section 7 Charter rights, but provides no evidence or legal support.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Court finds no evidence of coercion and dismisses Mr. Wu's section 7 Charter claim for lack of basis and procedural steps, citing Ibrahim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ibrahim v Canada (Attorney General), 2023 FC 1357 at para 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Mr. Wu failed to meet requirements to pursue Charter claim"
+    }
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Mr. Wu's section 7 Charter claim is not considered by the Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

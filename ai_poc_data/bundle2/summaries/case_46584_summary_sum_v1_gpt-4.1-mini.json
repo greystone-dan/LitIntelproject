@@ -1,0 +1,391 @@
+{
+ "case_id": 46584,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0051592
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 11,
+  "regex_citations": 10,
+  "regex_addressed": 9,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 2,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns a judicial review of the Appeal Division's decision allowing the respondent's late employment insurance claims appeal. The Attorney General (applicant) challenges the Appeal Division's intervention and substitution of its own decision, arguing it overstepped its powers and disregarded the General Division's findings. The court found serious flaws in the Appeal Division's reasoning, set aside its decision, dismissed the appeal, and declined costs.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "respondent",
+    "text": "entitlement to antedating due to emotional impact and mistaken belief"
+   },
+   {
+    "id": "P2",
+    "para": 10,
+    "by": "Attorney General",
+    "text": "Appeal Division disregarded presumption and overstepped powers"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 11,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P2",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Attorney General seeks judicial review to set aside the Appeal Division's decision allowing the respondent's late employment insurance claims appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Attorney General seeks review",
+    "Appeal Division allowed appeal",
+    "General Division refused claims"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Appeal Division found the General Division erred on the initial claim but not on the renewal claim refusal.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division's findings on errors"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The respondent did not respond or appear in the judicial review application.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent did not respond"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The respondent lost his job after suspension, filed late claims for benefits, and requested antedating of both claims.",
+   "ideas": "single",
+   "idea_list": [
+    "Facts of respondent's claims and requests"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The respondent argues entitlement to antedating due to emotional impact, ongoing disputes, and mistaken belief about pension and benefits.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent's reasons for antedating"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The General Division doubted the respondent's excuse for delay, noting he acted promptly on other matters and good faith ignorance is not good cause.",
+   "ideas": "multiple",
+   "idea_list": [
+    "General Division doubts delay excuse",
+    "Good faith ignorance not good cause"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Kaler, 2011 FCA 266",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Good faith ignorance not good cause for delay"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The General Division held a reasonable person would promptly seek information and dismissed the respondent's appeal for lack of exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [
+    "General Division's reasonable person standard and dismissal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Appeal Division intervened only on the initial claim delay, finding the General Division erred by ignoring help from children and more than friend advice.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division's intervention on initial claim delay"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Appeal Division chose to substitute its own decision rather than remitting the case to the General Division.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division substituted decision"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Attorney General criticizes the Appeal Division for disregarding the presumption that the General Division considered all evidence and for overstepping powers.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Criticism of presumption disregard",
+    "Criticism of power overreach"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court states the standard of review is unreasonableness, requiring coherent reasoning and justification, and finds serious flaws here.",
+   "ideas": "single",
+   "idea_list": [
+    "Standard of review and finding of flaws"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets standard of review for unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court explains the statutory framework for timely claims and the possibility of late claims with good cause under the Employment Insurance Act and Regulations.",
+   "ideas": "single",
+   "idea_list": [
+    "Statutory framework for claims and late filing"
+   ],
+   "citations": [
+    {
+     "cite": "Employment Insurance Regulations, SOR/96\u2011332, subsection 26(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Requirement for timely claim filing"
+    },
+    {
+     "cite": "Employment Insurance Act, S.C. 1996, c. 23, subsection 10(4)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Allows late claims with good cause"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court states claimants must show they took reasonably prompt steps to determine entitlement throughout the delay period, citing case law.",
+   "ideas": "single",
+   "idea_list": [
+    "Good cause requires prompt steps throughout delay"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Kaler, 2011 FCA 266",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines good cause and prompt steps requirement"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Beaudin, 2005 FCA 123",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains administration and eligibility review"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Ignorance of the Act, even in good faith, does not establish good cause for delay, per case law.",
+   "ideas": "single",
+   "idea_list": [
+    "Ignorance not good cause"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Carry, 2005 FCA 367",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Ignorance not good cause"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Kaler, 2011 FCA 266",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Ignorance not good cause"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Appeal Division may only intervene for natural justice breaches, legal errors, or perverse or capricious factual findings by the General Division.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division's limited intervention powers"
+   ],
+   "citations": [
+    {
+     "cite": "Department of Employment and Social Development Act, S.C. 2005, c. 34, section 58",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines Appeal Division's intervention powers"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The General Division applied the correct framework, and the Appeal Division had to rebut the presumption it considered all evidence to intervene on omissions.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division must rebut presumption to intervene"
+   ],
+   "citations": [
+    {
+     "cite": "Simpson v. Canada (Attorney General), 2012 FCA 82",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Presumption General Division considered all evidence"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Appeal Division failed to explain how omissions about help and belief were determinative, undermining its decision's coherence.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division's failure to explain omissions' impact"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Appeal Division did not show how the General Division erred in finding the respondent obligated to promptly determine benefit eligibility despite emotional difficulties.",
+   "ideas": "single",
+   "idea_list": [
+    "No grounds shown to challenge General Division's finding"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Appeal Division's lack of explanation on omissions fatally undermines its decision's intelligibility and transparency.",
+   "ideas": "single",
+   "idea_list": [
+    "Serious flaw in Appeal Division's decision coherence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Appeal Division erred by substituting its own findings on the merits, exceeding its powers and committing a reviewable error.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division exceeded powers by substituting findings"
+   ],
+   "citations": [
+    {
+     "cite": "Cameron v. Canada (Attorney General), 2018 FCA 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Appeal Division cannot substitute findings on merits"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court allows judicial review, sets aside the Appeal Division decision, dismisses the appeal, and declines costs as requested.",
+   "ideas": "single",
+   "idea_list": [
+    "Judicial review allowed, Appeal Division decision set aside"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The evidence shows the respondent was emotionally affected, sought help, returned to work in stress, filed complaint and benefits claim timely.",
+   "ideas": "single",
+   "idea_list": [
+    "Evidence of respondent's emotional state and actions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The Appeal Division found the respondent took reasonable steps and exceptional circumstances exempted him from prompt steps requirement.",
+   "ideas": "single",
+   "idea_list": [
+    "Appeal Division's findings on reasonable steps and exceptional circumstances"
+   ],
+   "citations": []
+  }
+ ]
+}

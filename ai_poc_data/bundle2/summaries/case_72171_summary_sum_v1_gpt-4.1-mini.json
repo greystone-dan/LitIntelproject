@@ -1,0 +1,560 @@
+{
+ "case_id": 72171,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0069076
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 20,
+  "regex_citations": 9,
+  "regex_addressed": 2,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 5,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 9
+  },
+  "multi_idea_paragraphs": 5,
+  "party_points": 7,
+  "rebuttals": 7,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 34,
+   "neutral_citation": "2018 FC 147",
+   "para_start": 18,
+   "para_end": 18
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2019 FC 54",
+   "para_start": 29,
+   "para_end": 29
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2017 FC 1102",
+   "para_start": 30,
+   "para_end": 31
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2020 FC 12",
+   "para_start": 23,
+   "para_end": 24
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Mr. XXXX and his family's claim for refugee protection in Canada, alleging persecution in the Democratic Republic of Congo due to political affiliations. The Refugee Appeal Division (RAD) reviewed the Refugee Protection Division's (RPD) decision, which excluded some family members as US permanent residents and found others not credible or not refugees. The RAD dismissed the appeal, finding no errors in the RPD's decision and denying the request for an oral hearing.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "applicant",
+    "text": "RPD erred on exclusion clause, misapplied sections 96 and 97 IRPA, violated Charter and international obligations"
+   },
+   {
+    "id": "P2",
+    "para": 10,
+    "by": "applicant",
+    "text": "Requests oral hearing to better explain issues, alleges RPD misunderstood facts and credibility"
+   },
+   {
+    "id": "P3",
+    "para": 14,
+    "by": "applicant",
+    "text": "Contends RPD erred in its decision"
+   },
+   {
+    "id": "P4",
+    "para": 15,
+    "by": "applicant",
+    "text": "Argues RPD wrongly excluded wife and children as US permanent residents despite doubts and lack of Minister's evidence"
+   },
+   {
+    "id": "P5",
+    "para": 16,
+    "by": "applicant",
+    "text": "Contends RPD erred by applying section 96 IRPA instead of section 97 and unfairly assessed credibility focusing on minor details"
+   },
+   {
+    "id": "P6",
+    "para": 17,
+    "by": "applicant",
+    "text": "Argues Canada would violate constitutional and international obligations if RPD's decision upheld due to lack of protection in DRC"
+   },
+   {
+    "id": "P7",
+    "para": 31,
+    "by": "applicant",
+    "text": "Argues Canada would violate constitutional and international obligations if RPD's decision confirmed due to lack of protection in DRC"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P6,P7",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Mr. XXXX and family claim DRC citizenship and fear persecution due to political affiliations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. XXXX acts as representative for minor children; one daughter is a US citizen.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Minister intervenes, alleging some family members are US permanent residents and lack credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "RPD found wife and two children are US permanent residents and excluded under section 98 IRPA; others not refugees or protected persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 98 of the Immigration and Refugee Protection Act (IRPA)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines exclusion clause applied by RPD"
+    },
+    {
+     "cite": "Refugee Convention",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Defines refugee status"
+    },
+    {
+     "cite": "section 7 to 12 of the Canadian Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines protection provisions"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Applicant requests oral hearing, alleges RPD erred on exclusion clause, misapplied sections 96 and 97 IRPA, and violated Charter and international obligations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 96 of the IRPA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant argues RPD misapplied this section"
+    },
+    {
+     "cite": "section 97 of the IRPA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant argues RPD should have applied this section"
+    },
+    {
+     "cite": "sections 7 to 12 of the Canadian Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant alleges Charter violations"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Court concludes oral hearing is not possible and RPD did not err as alleged.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Court dismisses appeal based on prior findings; introduces section on oral hearing before RAD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appeal dismissed",
+    "Heading for oral hearing section"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "RAD Rules require appellants to submit detailed reasons for requesting an oral hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Refugee Appeal Division Rules (RAD Rules)",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Sets procedural requirement for oral hearing requests"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Applicant's memorandum lacks submissions supporting an oral hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Applicant requests oral hearing to better explain issues, alleging RPD misunderstood facts and credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "RAD must determine if subsection 110(6) IRPA criteria met; no new evidence submitted, so oral hearing not possible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 110(6) of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets criteria for holding oral hearing"
+    },
+    {
+     "cite": "subsection 110(4) of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requires evidence submission for appeal"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "RAD's role is to review RPD errors, not re-hear claims; correctness standard applies after analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's role is error review",
+    "Correctness standard applied"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "RAD Rules require appellant to specify errors and their location in RPD decision or hearing record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Paragraph 3(3)(g) of the RAD Rules",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Specifies appellant's duty to identify errors and locations"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Applicant contends RPD erred in its decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicant argues RPD wrongly excluded wife and children as US permanent residents despite doubts about status and lack of Minister's evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Applicant contends RPD erred by applying section 96 IRPA instead of section 97 and unfairly assessed credibility focusing on minor details.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 96 of the IRPA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant argues RPD misapplied this section"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Applicant argues Canada would violate constitutional and international obligations if RPD's decision is upheld due to lack of protection in DRC.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Court finds RPD did not err as alleged after analyzing the record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Chairperson designated decision MB8-00025 as jurisprudential guide on Article 1E of Refugee Convention for consistency in RPD and RAD decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "decision by my colleague Jo-Anne Pickel in file MB8-00025",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Designated jurisprudential guide for Article 1E interpretation"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "RPD analyzed testimony and evidence, found wife and children are US permanent residents with valid cards until 2027, status not cancelled on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "RPD presumed US authorities willing and able to protect wife and children; applicant did not rebut this presumption.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Court agrees RPD correctly found wife and children were US permanent residents on hearing date, considering relevant facts and law; burden on applicant not met.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's finding correct",
+    "Applicant failed burden to prove loss of status"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Court cites principles from Pickel decision: status assessed at RPD hearing date; risk in country of residence considered before exclusion under Article 1E and section 98 IRPA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Assessment date is RPD hearing date",
+    "Risk in country of residence considered before exclusion"
+   ],
+   "citations": [
+    {
+     "cite": "Article 1E of the Refugee Convention",
+     "kind": "other",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines exclusion criteria"
+    },
+    {
+     "cite": "section 98 of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines exclusion clause"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Applicant did not challenge RPD's assessment date or presumption that US authorities would protect wife and children.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Court rejects applicant's argument that Minister must prove wife and children's US permanent resident status.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "RPD correctly found wife and children excluded under Article 1E and section 98 IRPA; no need to analyze DRC citizenship claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Article 1E of the Refugee Convention",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports exclusion finding"
+    },
+    {
+     "cite": "section 98 of the IRPA",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports exclusion finding"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "RPD found applicant not credible due to omissions, contradictions, implausibilities, and inconsistent behavior with persecution claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court finds RPD properly focused on major issues in credibility assessment and was impartial, not setting traps.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court gives example of applicant's contradictory testimony undermining credibility on abduction and police complaint.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Court concludes RPD did not err in finding applicant's credibility seriously undermined by omissions, contradictions, and implausibilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "The applicant argues that Canada would violate constitutional and international obligations if the RPD's decision is confirmed due to lack of protection in the DRC.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal clarifies the issue is refugee status under IRPA, not deportation or constitutional issues, and finds no exceptional circumstances to consider constitutional claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "issue is refugee status, not deportation",
+    "no exceptional circumstances for constitutional analysis"
+   ],
+   "citations": [
+    {
+     "cite": "sections 7 and 12 of our Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "applicant's argument about deportation violating Charter rights"
+    },
+    {
+     "cite": "sections 96 and 97 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "defines refugee or person in need of protection"
+    },
+    {
+     "cite": "30",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "footnote reference"
+    },
+    {
+     "cite": "31",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "footnote reference"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD's decision rejecting the applicant's refugee protection claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the applicant's appeal and signs the decision dated May 24, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

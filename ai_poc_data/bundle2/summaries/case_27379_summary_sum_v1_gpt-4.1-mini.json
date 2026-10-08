@@ -1,0 +1,457 @@
+{
+ "case_id": 27379,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.006348400000000001
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 6,
+  "model_citations": 19,
+  "regex_citations": 12,
+  "regex_addressed": 11,
+  "pinpoints": 8,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 13,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 8,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 12,
+   "neutral_citation": "2021 FC 1031",
+   "para_start": 40,
+   "para_end": 40
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2010 FC 1086",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2015 FC 102",
+   "para_start": 94,
+   "para_end": 94
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2020 SCC 28",
+   "para_start": 79,
+   "para_end": 80
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2022 SCC 39",
+   "para_start": 88,
+   "para_end": 88
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2023 FC 870",
+   "para_start": 61,
+   "para_end": 61
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2021 FCA 171",
+   "para_start": 33,
+   "para_end": 33
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2007 FC 415",
+   "para_start": 7,
+   "para_end": 7
+  }
+ ],
+ "structure": {
+  "overview": "The case involves Applicants seeking judicial review of the Temporary Public Policy (CUAET) on grounds of alleged discrimination under section 15 of the Charter, against the Respondent Attorney General. The Respondent moved to be relieved from filing a full Certified Tribunal Record (CTR), arguing only legal questions are at issue, not specific decisions. The Court partially granted the motion, requiring production of relevant CUAET documents but excluding unrelated LCA and individual decision documents.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicants",
+    "text": "challenge CUAET as unconstitutional discrimination"
+   },
+   {
+    "id": "P2",
+    "para": 3,
+    "by": "Respondent AG",
+    "text": "no specific decision challenged, only legal question"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "Applicants",
+    "text": "CUAET discriminates based on nationality contrary to section 15 Charter"
+   },
+   {
+    "id": "P4",
+    "para": 7,
+    "by": "Applicants",
+    "text": "CUAET provides better benefits than LCA policy for Afghan nationals"
+   },
+   {
+    "id": "P5",
+    "para": 9,
+    "by": "Applicants",
+    "text": "seek documents on CUAET, LCA, and refusals for family members"
+   },
+   {
+    "id": "P6",
+    "para": 10,
+    "by": "Applicants",
+    "text": "documents relevant to assess discrimination and Charter defences"
+   },
+   {
+    "id": "P7",
+    "para": 15,
+    "by": "Applicants",
+    "text": "challenge CUAET legality under section 15 but not Minister's decisions"
+   },
+   {
+    "id": "P8",
+    "para": 16,
+    "by": "Applicants",
+    "text": "documents needed to assess Charter challenge including sections 15(2) and 1"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 4,
+    "answers": "P2",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P5",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P7",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Respondent AG moves to be relieved from filing a Certified Tribunal Record as required by the Court's April 23, 2024 Production Order under Rule 14(2).",
+   "ideas": "multiple",
+   "idea_list": [
+    "AG's motion to be relieved from filing CTR",
+    "AG objects to electronic sending requirement"
+   ],
+   "citations": [
+    {
+     "cite": "Rule 14(2) of the Federal Courts Citizenship, Immigration and Refugee Protection Rules, SOR/93-22",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "AG relies on this rule to seek relief from filing CTR"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicants seek judicial review of the Temporary Public Policy (CUAET), alleging it is unconstitutional due to discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The AG argues the Applicants do not challenge a specific decision requiring a CTR, only a legal question answerable by existing evidence and arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court partially grants the motion, relieving the AG from producing documents unrelated to the challenged CUAET but requiring CTR for relevant CUAET documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Applicants are Canadian citizens with Afghan family abroad, alleging CUAET discriminates based on nationality contrary to section 15 of the Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 15 of the Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for discrimination claim"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Applicants argue CUAET provides better benefits than the LCA policy for Afghan nationals; they do not challenge individual immigration decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Applicants oppose the motion, seeking documents the Minister considered in making CUAET, LCA, and refusing LCA applications for specific family members.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Applicants say these documents are relevant to determine if CUAET is discriminatory and to assess Charter violation defences under sections 15(2) and 1.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Rule 14(2) must be read with Rule 17(b), which requires a CTR to include all relevant documents in the tribunal's possession.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Abu v Canada (Citizenship and Immigration), 2021 FC 1031 at para 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports interpretation of Rule 17(b) requiring relevant documents in CTR"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The relevance test under Rule 17 matches that under Rule 317 of Federal Courts Rules: documents relevant if they may affect the Court's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Abu at paras 28 and 43",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports relevance test for documents"
+    },
+    {
+     "cite": "Douze v Canada (Citizenship and Immigration), 2010 FC 1086 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports relevance test"
+    },
+    {
+     "cite": "Nguesso v Canada (Citizenship and Immigration), 2015 FC 102 at para 94",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports relevance test"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court routinely issues production orders before leave to allow time for settlement, consistent with IRPA section 74 and practice guidelines.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Abu at paras 30, 32",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports early production orders for settlement"
+    },
+    {
+     "cite": "Consolidated Practice Guidelines for Citizenship, Immigration, and Refugee Protection Proceedings dated June 24, 2022 (last amended October 31, 2023) at para 40",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Practice guidelines supporting early production orders"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Applicants challenge CUAET's legality under section 15 Charter but do not challenge any Minister's decision or interpretation under IRPA subsection 25.2(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "Applicants contend documents sought are needed to assess the Charter challenge, including whether distinctions are justified under sections 15(2) or 1.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court agrees documents about CUAET's development are relevant; unlike CARL, here relevancy of documents is established for the Charter challenge.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court agrees documents on CUAET relevant",
+    "Distinguishes CARL case where relevancy not established"
+   ],
+   "citations": [
+    {
+     "cite": "Canadian Association of Refugee Lawyers v Canada (Citizenship and Immigration), 2024 FC 128 [CARL]",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Distinguished CARL where no relevancy of documents shown"
+    },
+    {
+     "cite": "Canadian Association of Refugee Lawyers v Canada (Citizenship and Immigration), 2022 FC 1204",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Referenced prior CARL decision"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Section 15(2) and section 1 require courts to determine the law's objective; proof of discriminatory intent is not required but CTR may assist assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Law v Canada, [1999] 1 SCR 497 at para 80",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports requirement to determine law's objective"
+    },
+    {
+     "cite": "Fraser v Canada (Attorney General), 2020 SCC 28 at paras 79-80",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports requirement to determine law's objective"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Supreme Court in Sharma recognized extrinsic evidence can help identify legislative purpose despite caution against reliance on it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R v Sharma, 2022 SCC 39 [Sharma]",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports use of extrinsic evidence to assess legislative purpose"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "This Court follows similar approach ordering disclosure of documents considered in policy decisions, even if this is a constitutional challenge, not traditional judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Janssen Inc v Canada (Health), 2023 FC 870 at para 61",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports ordering disclosure of documents considered in policy decisions"
+    },
+    {
+     "cite": "Portnov v Canada (Attorney General), 2021 FCA 171 [Portnov] at paras 33\u201134",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports ordering disclosure of documents considered in policy decisions"
+    },
+    {
+     "cite": "Canada Mink Breeders Association v British Columbia, 2022 BCSC 1731 at para 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports ordering disclosure of documents considered in policy decisions"
+    },
+    {
+     "cite": "Airth v Canada (National Revenue), 2007 FC 415 at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports ordering disclosure of documents considered in policy decisions"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Determining relevant documents is fact-specific; many documents relevant to judicial review of CUAET are also relevant to assessing its Charter legality.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Portnov at para 33",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Documents shedding light on reasoning and submissions are relevant"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Respondent's Record includes an affidavit by Ms. Cato describing CUAET background and attaching publicly available documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The annexed documents are publicly available and do not include the information Applicants seek, which they should receive subject to exemptions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 87 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Possible exemption basis for documents"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Court grants the motion in part, limiting CTR production to relevant CUAET information and excluding LCA-related documents and individual decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

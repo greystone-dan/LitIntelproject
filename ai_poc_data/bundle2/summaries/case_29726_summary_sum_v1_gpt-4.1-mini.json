@@ -1,0 +1,625 @@
+{
+ "case_id": 29726,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0075292
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 3,
+  "model_citations": 13,
+  "regex_citations": 6,
+  "regex_addressed": 6,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 3,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 6,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 11,
+  "rebuttals": 10,
+  "left_open": 1
+ },
+ "pinpoints": [
+  {
+   "citing_para": 26,
+   "neutral_citation": "2019 FC 112",
+   "para_start": 30,
+   "para_end": 30
+  },
+  {
+   "citing_para": 33,
+   "neutral_citation": "2019 FC 908",
+   "para_start": 9,
+   "para_end": 9
+  },
+  {
+   "citing_para": 33,
+   "neutral_citation": "2004 FC 937",
+   "para_start": 15,
+   "para_end": 15
+  },
+  {
+   "citing_para": 38,
+   "neutral_citation": "2021 FC 232",
+   "para_start": 12,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's challenge to an immigration officer's refusal of his refugee claim based on credibility findings related to alleged arrests and persecution in Ethiopia. The Applicant argues the officer's adverse credibility findings were unreasonable and exaggerated, while the Respondent defends the decision citing significant inconsistencies. The Federal Court granted the judicial review application, finding the officer's credibility findings unreasonable and the decision not justified.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 12,
+    "by": "Applicant",
+    "text": "Officer's credibility concerns minor and exaggerated"
+   },
+   {
+    "id": "P2",
+    "para": 13,
+    "by": "Respondent",
+    "text": "Some credibility findings weak but overall support Decision"
+   },
+   {
+    "id": "P3",
+    "para": 14,
+    "by": "Respondent",
+    "text": "Applicant's interview inconsistency about fleeing alone significant"
+   },
+   {
+    "id": "P4",
+    "para": 15,
+    "by": "Respondent",
+    "text": "Contradiction between fleeing alone and family also targeted"
+   },
+   {
+    "id": "P5",
+    "para": 22,
+    "by": "Applicant",
+    "text": "Officer's rejection of fleeing alone implausibility finding lacks reasons"
+   },
+   {
+    "id": "P6",
+    "para": 27,
+    "by": "Applicant",
+    "text": "Inconsistencies must be real and not exaggerated to support negative credibility"
+   },
+   {
+    "id": "P7",
+    "para": 29,
+    "by": "Applicant",
+    "text": "No evidence family used Facebook; Officer gave no basis for finding"
+   },
+   {
+    "id": "P8",
+    "para": 33,
+    "by": "Applicant",
+    "text": "Implausibility findings require clear evidence and rationalization"
+   },
+   {
+    "id": "P9",
+    "para": 34,
+    "by": "Applicant",
+    "text": "Escape account not clearly unlikely; Officer's reasoning illogical"
+   },
+   {
+    "id": "P10",
+    "para": 35,
+    "by": "Applicant",
+    "text": "Officer should have considered National Documentation Package on Ethiopian detention"
+   },
+   {
+    "id": "P11",
+    "para": 36,
+    "by": "Respondent",
+    "text": "Officer reasonably found claim of walking away from detention credible"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 16,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P7",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 37,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 38,
+    "answers": "P9",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P8",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 40,
+    "text": "Applicant's argument about failure to consider UNHCR refugee status"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant alleges arrests and cruel treatment in 2017 during protests involving Amhara and Oromo communities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "arrest and detention",
+    "cruel treatment claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant fled Ethiopia to Kenya in 2018 at age 17 and was recognized as a UNHCR refugee in 2019.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's flight and refugee status"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "An immigration officer in Nairobi rejected the Applicant's application in February 2022, prompting judicial review.",
+   "ideas": "single",
+   "idea_list": [
+    "Decision rejection and judicial review"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court grants the application, finding the Officer's credibility findings unreasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "court grants application due to unreasonable credibility findings"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The key issue is whether the Officer's credibility findings were reasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "issue is reasonableness of credibility findings"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The parties agree the Decision is reviewed on a reasonableness standard per Vavilov, 2019 SCC 65.",
+   "ideas": "single",
+   "idea_list": [
+    "standard of review is reasonableness per Vavilov"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "establishes reasonableness standard for review"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "A reasonable decision must be coherent and justified; the Applicant must show serious shortcomings per Vavilov paras 85 and 100.",
+   "ideas": "single",
+   "idea_list": [
+    "definition of reasonableness and burden on Applicant"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "defines reasonable decision"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets threshold for setting aside decision"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer's credibility concerns were minor, exaggerated, and that no real opportunity to respond was given.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges credibility findings as minor and exaggerated"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Respondent concedes some credibility findings are weak but argues overall they support the Decision, highlighting two significant findings.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent defends overall credibility findings"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Respondent relies on the Applicant's interview response about being the only family member to flee to Kenya as a significant inconsistency.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent highlights inconsistency about fleeing alone"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Respondent submits the Applicant's claim that only he was targeted contradicts his allegation that his family was also targeted.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent points out contradiction in targeting claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court is not persuaded by the Respondent's additional submission regarding the contradiction about who was targeted.",
+   "ideas": "single",
+   "idea_list": [
+    "court rejects Respondent's contradiction argument"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court agrees the Respondent's supplemental submissions do not reflect the Officer's reasons or awareness of the contradiction.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds Respondent's submissions not part of Officer's reasons"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court agrees with the Applicant that the Officer's finding that it made no sense he was the only one who fled was unreasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds Officer's 'made no sense' finding unreasonable"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court considers the Applicant's explanation for being targeted and fleeing alone in the context of his interview statements about protest accusations.",
+   "ideas": "single",
+   "idea_list": [
+    "court contextualizes Applicant's explanation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Interview notes show the Applicant explained his second arrest related to alleged protest involvement, which the Officer found unbelievable.",
+   "ideas": "single",
+   "idea_list": [
+    "interview notes on second arrest and Officer's disbelief"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Applicant's interview explanation aligns with his written application about arrests and warnings not to protest.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's explanation consistent with written application"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer's rejection of his fleeing alone is an implausibility finding lacking reasons.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges implausibility finding as unreasoned"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds the Officer's unclear 'made no sense' comment unintelligible and unsupported by serious inconsistencies.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds Officer's reasoning unclear and unjustified"
+   ],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicant and court agree that family members often flee persecution while others remain behind.",
+   "ideas": "single",
+   "idea_list": [
+    "common occurrence of family separation in fleeing persecution"
+   ],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court finds the Officer erred in rejecting the Applicant's explanation about fleeing alone and second arrest as nonsensical.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds Officer erred in rejecting explanation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The court finds the Officer engaged in a microscopic evaluation of peripheral or irrelevant issues, citing Clermont 2019 FC 112.",
+   "ideas": "single",
+   "idea_list": [
+    "Officer's microscopic evaluation criticized"
+   ],
+   "citations": [
+    {
+     "cite": "Clermont v Canada (Citizenship and Immigration), 2019 FC 112 at para 30",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "criticizes microscopic evaluation of peripheral issues"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Applicant submits inconsistencies must be real and not exaggerated to support negative credibility findings, citing three cases.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant argues only real inconsistencies support negative findings"
+   ],
+   "citations": [
+    {
+     "cite": "Attakora v Canada (Minister of Employment and Immigration), [1989] FCJ No 444 (CA) at 4",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "supports argument on real inconsistencies"
+    },
+    {
+     "cite": "Rajaratnam v Canada (Minister of Employment and Immigration), [1991] FCJ No 1271 (CA) at 10-11",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "supports argument on real inconsistencies"
+    },
+    {
+     "cite": "Djama v Canada (Minister of Employment and Immigration), [1992] FCJ No 531 (CA) at 1",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "supports argument on real inconsistencies"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The Officer found it not credible that the Applicant was not in touch with family given his social media and sponsor contacts.",
+   "ideas": "single",
+   "idea_list": [
+    "Officer's finding on family contact and social media"
+   ],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Applicant argues no evidence showed his family used Facebook or had internet, and the Officer gave no basis for his finding.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges Officer's social media contact assumption"
+   ],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court finds the Officer's rejection of the Applicant's explanation for delayed UNHCR registration unreasonable and unexplained.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds Officer's rejection of registration explanation unreasonable"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court concludes the Officer erred by making unjustified adverse credibility findings and zealously seeking contradictions.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds Officer erred and was overzealous"
+   ],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Applicant argues implausibility findings require clear evidence and rationalization per Valtchev, Zaiter, and Santos cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "implausibility requires clear evidence",
+    "cites Valtchev, Zaiter, Santos"
+   ],
+   "citations": [
+    {
+     "cite": "Valtchev v Canada (Minister of Citizenship and Immigration), 2001 FCT 776 at para 7",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "implausibility requires clearest cases"
+    },
+    {
+     "cite": "Zaiter v Canada (Citizenship and Immigration), 2019 FC 908 at para 9",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "implausibility not just unlikeliness"
+    },
+    {
+     "cite": "Santos v Canada (Minister of Citizenship and Immigration), 2004 FC 937 at para 15",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "implausibility needs clear rationalization in reasons"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Applicant asserts his escape account was not clearly unlikely and the Officer's implausibility finding was based on illogical reasoning.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges implausibility finding as illogical"
+   ],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The Applicant submits the Officer should have considered the National Documentation Package describing Ethiopian detention problems.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant argues Officer ignored relevant country conditions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Respondent argues the Officer reasonably found the Applicant's claim of simply walking away from detention credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds the Officer's rejection of the Applicant's second arrest claim unreasonable, questioning the Officer's implausibility finding about the escape.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that no evidence shows escaping prison in Ethiopia is easy but finds this case not clearly beyond reasonable expectation, citing YZ and Valtchev.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no evidence escape is easy",
+    "case not clearly unreasonable"
+   ],
+   "citations": [
+    {
+     "cite": "YZ v Canada (Citizenship and Immigration), 2021 FC 232 at para 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for reasonable expectation standard"
+    },
+    {
+     "cite": "Valtchev at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for reasonable expectation standard"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court recalls Zaiter requiring more than unlikeliness for implausibility-based disbelief and finds the Officer's 'unlikely' escape finding insufficient for overall disbelief.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zaiter at para 9",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for credibility standard requiring more than unlikeliness"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court declines to address the Applicant's argument about the Officer's failure to consider UNHCR refugee status due to prior credibility findings conclusions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "other",
+   "summary": "The court states there is no question to certify.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

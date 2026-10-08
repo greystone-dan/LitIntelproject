@@ -1,0 +1,855 @@
+{
+ "case_id": 69923,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.011100400000000002
+ },
+ "verification": {
+  "paragraphs": 63,
+  "summaries": 63,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 22,
+  "regex_citations": 7,
+  "regex_addressed": 1,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 11,
+   "supports_court_conclusion": 5,
+   "party_argument_reported": 5,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 15,
+  "party_points": 6,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 63,
+   "neutral_citation": "2007 FCA 385",
+   "para_start": 16,
+   "para_end": 16
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns an appeal by a Nigerian family against the Refugee Protection Division's decision that they have an internal flight alternative (IFA) in Port Harcourt, Nigeria, and thus are not refugees or persons in need of protection. The appellants argue the RPD erred in its assessment of subjective fear, credibility, and the reasonableness of the IFA, and seek to admit new medical evidence. The tribunal independently reviewed the case, rejected the new evidence, found the IFA reasonable, and dismissed the appeals, confirming the RPD's decision.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "appellants",
+    "text": "Appeal allowed; find refugees or remit matter"
+   },
+   {
+    "id": "P2",
+    "para": 7,
+    "by": "appellants",
+    "text": "Seek to admit new medical evidence"
+   },
+   {
+    "id": "P3",
+    "para": 17,
+    "by": "appellants",
+    "text": "RPD erred by failing subjective fear and credibility analysis before IFA"
+   },
+   {
+    "id": "P4",
+    "para": 27,
+    "by": "appellants",
+    "text": "RPD underestimated reach and power of agents of persecution"
+   },
+   {
+    "id": "P5",
+    "para": 28,
+    "by": "appellants",
+    "text": "RPD ignored husband's affidavit, Basis of Claim, and mother's affidavit with threatening note"
+   },
+   {
+    "id": "P6",
+    "para": 50,
+    "by": "appellants",
+    "text": "RPD erred in finding Port Harcourt reasonable due to unemployment, childcare, non-indigene status"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P6",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Principal Appellant and her minor children, all Nigerian citizens, appeal the Refugee Protection Division's June 30, 2020 decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Principal Appellant is the Designated Representative for her minor children, who rely on her evidence for their appeals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Principal Appellant fears harm from her deceased husband's family in Nigeria due to traditional rituals and blame for his death in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The Refugee Protection Division found the appellants had an internal flight alternative in Port Harcourt and dismissed their claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellants request the appeal be allowed, finding them refugees or persons in need of protection, or remitting the matter to the RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "1",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Reference to appellants' request for relief"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "After independent review on correctness standard, the appellants are found not to be refugees or in need of protection due to an internal flight alternative; new evidence is rejected.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision on refugee status",
+    "rejection of new evidence"
+   ],
+   "citations": [
+    {
+     "cite": "2",
+     "kind": "other",
+     "purpose": "standard_of_review_or_test",
+     "why": "Standard of correctness applied in review"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The appellants seek to admit two medical letters dated after the RPD decision as new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "3",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' request to admit medical letters"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The law allows new evidence only if it arose after the RPD decision, was not reasonably available, or could not reasonably have been brought before; it must be new, credible, and relevant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "4",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal criteria for admitting new evidence"
+    },
+    {
+     "cite": "5",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requirement that evidence be new, credible, and relevant"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The medical letters are new by date and concern the Principal Appellant's diabetes treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The medical letters indicate the diabetes treatment began in 2018, before the RPD decision and hearing, so the condition is not new.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appellants failed to explain why the medical evidence was not reasonably available before the RPD, despite submissions on diabetes' impact on IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "6",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' submissions on diabetes affecting IFA reasonableness"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Newness of evidence depends on the event it proves, not just the document date; old evidence remains old even if newly documented.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "7",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Definition of newness of evidence"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The appellants were represented by counsel, and it is unclear why important medical evidence was not presented at the hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The RPD hearing record shows no mention of medical conditions or requests for more time to submit medical evidence by the appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The appellants failed to prove the medical reports are new and reasonably unavailable; thus, the evidence is not admitted and no discretion exists to admit it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "failure to meet burden on new evidence",
+    "no discretion to admit evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Because the new evidence is inadmissible under IRPA, the tribunal lacks jurisdiction to hold an oral hearing under ss.110(6).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 110(4) of Immigration and Refugee Protection Act (IRPA)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal basis for inadmissibility of new evidence"
+    },
+    {
+     "cite": "ss.110 (6)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal basis for jurisdiction to hold hearing"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The appellants argue the RPD erred by failing to conduct subjective fear and credibility analysis before assessing IFA and by ignoring family and employability circumstances.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD failed subjective fear and credibility analysis",
+    "RPD ignored family and employability factors"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellants' claim that the RPD failed subjective fear and credibility analysis inaccurate based on the RPD decision and hearing record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RPD considered subjective fear and the appellants' failure to claim in the USA, and did not draw adverse credibility findings despite unclear testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "8",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "RPD decision addressing subjective fear and credibility"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal in Kanagaratnum held that IFA analysis can be done without first determining claimant credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kanagaratnum",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Legal precedent allowing IFA analysis before credibility determination"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal considered evidence of agents of persecution with IFA in Port Harcourt and assessed credibility to rebut safety and reasonableness of the IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The tribunal applied the two-pronged Rasaratnam test, modified for section 97 of IRPA, to assess the internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal test for assessing internal flight alternative"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal must be satisfied there is no serious possibility of persecution or risk to life or cruel treatment in the IFA on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The IFA conditions must be reasonable for the appellant to seek refuge there, considering all circumstances; both test prongs must be met.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The appellants bear the burden to show no IFA exists; the IFA must be realistic and attainable without great danger or undue hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "12",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Definition of realistic and attainable internal flight alternative"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "A new National Documentation Package was released after the appeal was perfected; no recent country condition changes warranting notice were found.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "13",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "New country information released after appeal"
+    },
+    {
+     "cite": "Zhang",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requirement to consider recent country condition changes"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The appellants argue the RPD erred by underestimating the reach and power of the agents of persecution, citing harm to the PA's father.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The appellants contend the RPD ignored the husband's affidavit, Basis of Claim form, and the PA's mother's affidavit with a threatening note.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "15",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' reliance on husband's affidavit and BoC"
+    },
+    {
+     "cite": "16",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' reliance on mother's affidavit with threats"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RPD considered all evidence but did not specifically analyze the documents as the appellants claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal reviewed the supporting documents and PA's testimony and found sufficient credible evidence about the agents of persecution and their reach in Nigeria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Affidavit of XXXX XXXX XXXX is found unreliable due to improper stamping and photograph placement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Affidavit unreliable",
+    "Stamping and photograph issues"
+   ],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Affidavit heading incorrectly spells 'Oath' as singular instead of plural 'Oaths' Law, indicating inaccuracy.",
+   "ideas": "single",
+   "idea_list": [
+    "Incorrect naming of Oaths Law"
+   ],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Affidavits reference incorrect names and years of the Oaths Law, showing inconsistency.",
+   "ideas": "single",
+   "idea_list": [
+    "Incorrect Oaths Law references"
+   ],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Affidavits lack required details and may be fraudulently obtained, so are not credible evidence of persecution agents' nature or power.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Missing affiant details",
+    "Fraudulent affidavits common",
+    "Affidavits not credible evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The PA's husband states he went first to Alagolo police station, then Ikeja for investigation and affidavit.",
+   "ideas": "single",
+   "idea_list": [
+    "Sequence of police visits by PA's husband"
+   ],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Police report timing conflicts with PA's testimony about police station visits and affidavit completion.",
+   "ideas": "single",
+   "idea_list": [
+    "Contradiction between police report and PA's testimony"
+   ],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "PA testified family was out to a restaurant or shopping, returning to find her father beaten and unconscious, but no hospital report exists.",
+   "ideas": "single",
+   "idea_list": [
+    "No hospital report despite injury"
+   ],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "PA testified police investigated assault and arrest occurred but was vague and gave no details despite long residence in Nigeria.",
+   "ideas": "single",
+   "idea_list": [
+    "Vague testimony on police investigation and arrest"
+   ],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "PA's evidence on arrest conflicts with BoC narrative; RPD rightly found insufficient credible evidence on agents of persecution.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Conflict in arrest evidence",
+    "RPD's finding of insufficient evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Appellants lived at same address months after assault, showing agents of persecution had opportunity to find them but did not.",
+   "ideas": "single",
+   "idea_list": [
+    "Agents had opportunity but did not locate appellants"
+   ],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Threatening note indicates writer does not know PA's location, supporting that agents have not located her.",
+   "ideas": "single",
+   "idea_list": [
+    "Note shows agents don't know PA's location"
+   ],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "No objective evidence supports idol worshippers' powers to locate and harm individuals via oracles.",
+   "ideas": "single",
+   "idea_list": [
+    "No evidence for oracle powers"
+   ],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "PA was vague about agents of persecution, their powers, rituals, and government connection, supporting RPD's conclusion.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Vague description of agents",
+    "No detail on rituals",
+    "No government connection details"
+   ],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Appellants have been abroad four years with only one alleged attempt to contact them, showing insufficient evidence of ongoing search.",
+   "ideas": "single",
+   "idea_list": [
+    "Insufficient evidence of ongoing search"
+   ],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Nigeria's large population and poor infrastructure make anonymity easier and locating persons across cities difficult.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Population size and growth",
+    "Ethnic groups",
+    "Poor infrastructure and property system"
+   ],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Appellants can mitigate exposure via privacy on social media; family support means location need not be disclosed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Privacy on social media reasonable",
+    "Family support for PA"
+   ],
+   "citations": [
+    {
+     "cite": "Federal Court",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Privacy on social media is reasonable, not a violation or fugitive living"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "PA's risk of criminality in Port Harcourt must be assessed under IRPA ss. 97(1); no personal risk established.",
+   "ideas": "single",
+   "idea_list": [
+    "No personal risk under IRPA"
+   ],
+   "citations": [
+    {
+     "cite": "ss. 97(1) of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal standard for personal risk assessment"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Generalized crime risk in Port Harcourt does not meet high Federal Court of Appeal threshold for unreasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Generalized crime risk",
+    "High threshold for unreasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Federal Court of Appeal",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets high threshold for unreasonableness test"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Insufficient evidence shows appellants face serious persecution or risk of harm in Port Harcourt; it is reasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "Port Harcourt reasonable IFA"
+   ],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "Appellants argue RPD erred in finding Port Harcourt reasonable due to unemployment, childcare, and non-indigene status obstacles.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellants' argument on obstacles"
+   ],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Threshold to prove Port Harcourt unreasonable is high; lack of work or friends is insufficient.",
+   "ideas": "single",
+   "idea_list": [
+    "High threshold for unreasonableness"
+   ],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "PA is Yoruba Christian with university education and teaching experience, above national average.",
+   "ideas": "multiple",
+   "idea_list": [
+    "PA's ethnicity and religion",
+    "Education and work experience"
+   ],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "PA's skills allow private sector work; she is not limited to trading or taxi driving as appellants claim.",
+   "ideas": "single",
+   "idea_list": [
+    "PA's employment options not limited"
+   ],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Indigene status affects public sector jobs but not PA's private sector employment opportunities.",
+   "ideas": "single",
+   "idea_list": [
+    "Indigene status impact limited"
+   ],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Objective evidence shows employment in Nigerian cities is easier with education and English skills, which PA has.",
+   "ideas": "single",
+   "idea_list": [
+    "Education and English aid employment"
+   ],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Single female heads face housing and discrimination challenges but no public service access limits; educated women fare better.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Challenges for single female heads",
+    "No public service limits",
+    "Educated women fare better"
+   ],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Appellants showed resourcefulness in USA; PA volunteered and had church support; Port Harcourt has active Christian community.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Resourcefulness in USA",
+    "Church support",
+    "Port Harcourt Christian community"
+   ],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Evidence on discrimination against non-indigenes is mixed; internal migration is common and indigeneity less evident in cities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Mixed evidence on discrimination",
+    "Internal migration common",
+    "Indigeneity less evident in cities"
+   ],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Non-indigenes have access to essential public services; health access depends on ability to pay, not indigeneity.",
+   "ideas": "single",
+   "idea_list": [
+    "Non-indigenes access public services"
+   ],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "No credible evidence shows housing cost or service access makes Port Harcourt unreasonable; lack of finances alone insufficient.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No evidence housing cost unreasonable",
+    "Financial lack not enough"
+   ],
+   "citations": [
+    {
+     "cite": "Federal Court",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Lack of financial resources does not make IFA unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal finds the PA's change in marital status does not make Port Harcourt an unreasonable relocation given her family ties and independence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The tribunal is satisfied the second part of the Rasaratnam test is met and relocation to Port Harcourt is not objectively unreasonable for the Appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Applies the Rasaratnam test to assess reasonableness of relocation"
+    }
+   ]
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeals and confirms the RPD's decision that the Appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

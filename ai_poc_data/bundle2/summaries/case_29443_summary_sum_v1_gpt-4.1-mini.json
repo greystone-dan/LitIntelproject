@@ -1,0 +1,716 @@
+{
+ "case_id": 29443,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.009554
+ },
+ "verification": {
+  "paragraphs": 46,
+  "summaries": 46,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 3,
+  "model_citations": 21,
+  "regex_citations": 13,
+  "regex_addressed": 11,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 8,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 9
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 11,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 18,
+   "neutral_citation": "2011 FCA 312",
+   "para_start": 5,
+   "para_end": 5
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2021 FC 998",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2016 SCC 54",
+   "para_start": 124,
+   "para_end": 124
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2013 FCA 143",
+   "para_start": 12,
+   "para_end": 13
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2018 FCA 1",
+   "para_start": 28,
+   "para_end": 28
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2023 FC 188",
+   "para_start": 34,
+   "para_end": 35
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2008 SCC 61",
+   "para_start": 71,
+   "para_end": 71
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns Pfizer's patent impeachment action against uniQure's patent related to a modified Factor IX protein used in gene therapy for hemophilia B. uniQure sought a stay of the impeachment action due to ongoing re-examination of the patent, but the Federal Court dismissed the stay motion, finding it not in the interests of justice. The court balanced the impact of re-examination, discovery needs, and prejudice, ultimately allowing the impeachment action to proceed without stay.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "uniQure",
+    "text": "move to stay patent impeachment due to re-examination"
+   },
+   {
+    "id": "P2",
+    "para": 3,
+    "by": "Pfizer",
+    "text": "impeach patent alleging anticipation, obviousness, lack of utility, overbreadth, unpatentable subject-matter, misrepresentation"
+   },
+   {
+    "id": "P3",
+    "para": 21,
+    "by": "uniQure",
+    "text": "stay needed as claim scope undefined and re-examination may narrow issues"
+   },
+   {
+    "id": "P4",
+    "para": 22,
+    "by": "Pfizer",
+    "text": "stay should be rare; re-examination impact speculative; undertaking conditional; no proven prejudice"
+   },
+   {
+    "id": "P5",
+    "para": 28,
+    "by": "uniQure",
+    "text": "discovery would narrow issues but inventor conduct discovery remains necessary"
+   },
+   {
+    "id": "P6",
+    "para": 30,
+    "by": "Pfizer",
+    "text": "alleges obviousness to try R338L variant as FIX replacement"
+   },
+   {
+    "id": "P7",
+    "para": 31,
+    "by": "uniQure",
+    "text": "denies skilled persons motivated or aware of unexpected benefits"
+   },
+   {
+    "id": "P8",
+    "para": 38,
+    "by": "court",
+    "text": "uniQure chose litigation strategy and cannot claim prejudice from delay or avoid discovery"
+   },
+   {
+    "id": "P9",
+    "para": 39,
+    "by": "court",
+    "text": "rejects uniQure's concern of summary trial tactics; accepts Pfizer's assurance for early trial"
+   },
+   {
+    "id": "P10",
+    "para": 40,
+    "by": "court",
+    "text": "not persuaded uniQure will be unfairly prejudiced by parallel proceedings"
+   },
+   {
+    "id": "P11",
+    "para": 43,
+    "by": "court",
+    "text": "rejects uniQure's argument of no urgency; notes Pfizer's commercial interest and duty to proceed expeditiously"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 23,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 38,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 40,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "uniQure, the Defendant, moves to stay the patent impeachment action due to ongoing re-examination of its Patent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Patent relates to a modified Factor IX protein used in gene therapy for hemophilia B, covering uniQure's HEMGENIX\u00ae product.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Pfizer seeks to impeach the Patent alleging anticipation, obviousness, lack of utility, overbreadth, unpatentable subject-matter, and misrepresentation of inventorship.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Patent Act, RSC 1985, c P-4",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cited for section 53 on inventorship misrepresentation"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court finds it not in the interests of justice to grant the stay after considering context, length, purpose, impact, and prejudice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Patent's three independent claims require at least 70% sequence identity with specified FIX sequences, allowing up to 30% variability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Impugned claims specify leucine or aspartic acid at position 338 and dosage range; leucine variant R338L is found in patients.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The SOC alleges anticipation by Stafford, obviousness, lack of demonstration for claim breadth, unpatentable subject-matter, and inventorship misrepresentation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "anticipation by Stafford",
+    "obviousness",
+    "lack of demonstration for claim breadth",
+    "unpatentable subject-matter",
+    "inventorship misrepresentation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Pfizer intends to sell its gene therapy product in Canada, with Phase 3 trials done but no regulatory submission yet.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "uniQure requested re-examination of the Patent on October 21, 2022, citing new prior art from foreign proceedings involving Pfizer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 48.1 of the Patent Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cited for re-examination request procedure"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Re-examination Board accepted a substantial new question of patentability for independent claims, especially utility, but not for dependent claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "uniQure filed Proposed Claims narrowing scope, removing 70% identity and dosage limits, focusing on patient-found sequence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 48.3(2) of the Patent Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cited for filing reply with proposed amendments"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The Board has until April 14, 2024 to decide re-examination, with possible outcomes including maintaining, cancelling, or adopting amended claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 48.4(1) of the Patent Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cited for possible re-examination outcomes"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "uniQure undertakes not to defend extant claims if the Board accepts any amendments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "other",
+   "summary": "The Action is early; discovery not started; Pfizer proposed discovery completion by April 2024; trial not before 2025.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Mylan explains the Court's stay discretion is like scheduling, distinct from enjoining other bodies, with public interest in fair, timely proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mylan Pharmaceuticals ULC v AstraZeneca Canada Inc, 2011 FCA 312",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains Court's discretion to stay its own proceeding"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Stay discretion depends on factual context, guided by just, expeditious, least expensive determination and prejudice considerations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mylan at para 5",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Factual context for stay discretion"
+    },
+    {
+     "cite": "ArcelorMittal Exploitation mini\u00e8re Canada SENC v Canada (Attorney General), 2021 FC 998 at para 19",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Factual context for stay discretion"
+    },
+    {
+     "cite": "Windsor (City) v Canadian Transit Co, 2016 SCC 54 at para 124",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Guidance on just, expeditious, least expensive determination and prejudice"
+    },
+    {
+     "cite": "Coote v Lawyers\u2019 Professional Indemnity Company, 2013 FCA 143 at paras 12-13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Guidance on stay discretion factors"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Balancing timely proceedings with whether another body's decision will materially impact litigation is relevant to stay discretion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Clayton v Canada (Attorney General), 2018 FCA 1 at para 28",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Balancing expeditiousness and fairness"
+    },
+    {
+     "cite": "Iris Technologies v Canada (Revenue Agency), 2023 FC 188 at paras 34-35",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Prematurity if another body's decision materially impacts litigation"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "uniQure argues stay is needed because claim scope is undefined and re-examination may narrow issues, affecting discovery and expert reports.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Pfizer argues stay should be rare, re-examination impact is speculative, undertaking is conditional, and uniQure hasn't proven prejudice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "stay should be rare",
+    "re-examination impact speculative",
+    "undertaking conditional",
+    "uniQure's burden unmet"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court finds stay will not sufficiently narrow issues or prejudice uniQure to justify granting it in the interests of justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court distinguishes Iristel, where stay was granted due to exclusive jurisdiction over a material issue, unlike here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Iristel",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Distinguishes Iristel stay precedent as not analogous"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Amendments by the Board won't dispose of the Action as key allegations remain, so re-examination won't resolve the litigation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Board may not accept uniQure's amendments removing dosage limits; Board restricts claim scope broadening under Patent Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 48.3(2) of the Patent Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Limits on claim amendments not broadening monopoly"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Dependent claims' fate is unclear; uniQure's conditional undertaking does not fully address this uncertainty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "uniQure claims discovery would narrow without utility and claim breadth issues, but inventor conduct discovery remains necessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Sanofi confirms inventor's course of conduct is relevant to obviousness analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Apotex Inc v Sanofi-Synthelabo Canada Inc, 2008 SCC 61",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Inventor's conduct relevant to obviousness"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "Pfizer alleges it was obvious to try the R338L variant as a FIX replacement therapy by the relevant date.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "uniQure denies skilled persons would have been motivated or aware of the invention's unexpected benefits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The inventor's conduct is in issue; no authority supports limiting discovery on it; uniQure's position lacks jurisprudence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sanofi",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "No support for limiting discovery on inventor's conduct"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Iristel would not have sued without withheld tax refunds; claims depend on refund right, per Hester v Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hester v Canada, [2007] GSTC 172 (Ont. Sup. Ct.) at paras 53 and 54",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Shows claim foundation on tax refund right"
+    },
+    {
+     "cite": "leave dismissed [2008] GSTC 55 (Ont. Div. Ct.)",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Confirms dismissal of leave in Hester"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds it premature to hear the Claim while the Tax Court Appeals on Assessments' validity and tax refunds remain unresolved.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court notes the Tax Court Appeals outcome will affect the Claim's merits, supporting a stay request based on judicial economy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court explains that if the Tax Court finds Assessments valid, Iristel's damage claim would likely fail, as Iristel conceded.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "If Iristel wins the Tax Court Appeals, it would simplify the current action by removing the need to litigate Assessments' lawfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court states uniQure chose its litigation strategy and cannot claim prejudice from its own delay or avoid discovery by admissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court rejects uniQure's concern that Pfizer would use summary trial tactics, accepting Pfizer's counsel's assurance to seek an early trial date instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court is not persuaded uniQure will be unfairly prejudiced by parallel proceedings, as key patentability issues remain and procedural tools exist.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court notes the Board can take up to 12 months for re-examination, which is not short, and the re-examination impact should be significant to justify delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mylan at para 19",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Re-examination impact must be significant to justify delay"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court observes the Patent Act allows re-examination and impeachment to proceed in parallel, as it does not bar impeachment during re-examination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court rejects uniQure's argument of no urgency, noting Pfizer's commercial interest and the duty to proceed expeditiously per Clayton.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Clayton",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Duty to proceed expeditiously and fairly in litigation"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Balancing responsibilities and uncertain re-examination impact, the court finds no reason to grant a stay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court concludes that granting a stay would not serve justice and dismisses the motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The parties agree on $5,000 costs but disagree on payment timing; uniQure wants costs in the cause, Pfizer wants immediate payment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court states rule 401(2) allows immediate costs if a motion was improperly brought or opposed, but this motion does not qualify.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "rule 401(2) of the Federal Courts Rules",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Court's power to order immediate costs"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The court exercises discretion to award $5,000 costs to Pfizer in any event of the cause.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "rule 400",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Factors guiding court's discretion on costs"
+    }
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The court explains that quick, easy invention by the inventor may support obviousness unless their knowledge exceeds that of a skilled person.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

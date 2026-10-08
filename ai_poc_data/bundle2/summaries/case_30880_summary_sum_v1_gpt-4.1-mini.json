@@ -1,0 +1,489 @@
+{
+ "case_id": 30880,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.006529200000000001
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 2,
+  "model_citations": 24,
+  "regex_citations": 16,
+  "regex_addressed": 14,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 10,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 7
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 4,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 11,
+   "neutral_citation": "2023 FC 1220",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2021 FC 689",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2009 FC 1233",
+   "para_start": 31,
+   "para_end": 31
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2011 SCC 42",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2017 FC 786",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2014 FC 39",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2010 FCA 184",
+   "para_start": 34,
+   "para_end": 35
+  }
+ ],
+ "structure": {
+  "overview": "Mr. Lam, the applicant, challenged a decision of the Law Society of Ontario (LSO), the respondent, alleging fraud and seeking damages. The Federal Court reviewed the motion to strike Mr. Lam's claim, finding it disclosed no reasonable cause of action and was vexatious. The Court struck the claim without leave to amend and awarded costs to the LSO.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 8,
+    "by": "applicant",
+    "text": "Claim attacks T-1394-23 Decision as fabricated and alleges LSO fraud"
+   },
+   {
+    "id": "P2",
+    "para": 24,
+    "by": "respondent",
+    "text": "LSO requests costs on substantial indemnity basis and high end of Tariff B"
+   },
+   {
+    "id": "P3",
+    "para": 31,
+    "by": "court",
+    "text": "ITO test for jurisdiction involves three steps including federal law essential to case"
+   },
+   {
+    "id": "P4",
+    "para": 32,
+    "by": "court",
+    "text": "Windsor clarifies ITO test applies to claim's essential nature, here breach of contract"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 21,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P2",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Mr. Lam was served with the LSO's motion record and was aware of the motion scheduled for February 14, 2024, as confirmed by service certificate and his emails.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Service confirmed",
+    "Mr. Lam aware of motion and date"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "A Direction was issued on February 12, 2024, as a result of emails Mr. Lam sent to the Registry regarding the LSO's motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Mr. Lam received the Direction and sent an email on February 13, 2024, alleging fraud and impersonation related to the Direction and motion hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Despite notice of the motion and hearing date, Mr. Lam did not attend, request adjournment, file a respondent's record, or request an extension.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The motion hearing proceeded on February 13, 2024, without Mr. Lam's attendance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Mr. Lam's Claim attacks the T-1394-23 Decision as fabricated and alleges the LSO committed fraud by publishing fake judgments, seeking $480,000 and punitive damages.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Attack on T-1394-23 Decision",
+    "Allegations of LSO fraud and fake judgments",
+    "Claim for damages"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Justice Gleeson explained that allegations based on speculation or that are scandalous, frivolous, or vexatious need not be accepted as true on a motion to strike.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bounpraseuth v. Canada, 2023 FC 1220",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains exceptions to accepting allegations as true"
+    },
+    {
+     "cite": "Templanza v Canada, 2021 FC 689",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports exception to accepting allegations as true"
+    },
+    {
+     "cite": "Carten v Canada, 2009 FC 1233",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports exception to accepting allegations as true"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Although the LSO filed no evidence, the law on considering documents referred to in pleadings is briefly set out, citing Bouchard v. Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bouchard v. Canada, 2016 FC 983",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains law on documents referred to in pleadings"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court reviewed and considered the T-1394-23 Decision attached to the Claim for the motion under Rules 221(1)(a) and (c).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The law on motions to strike balances protecting plaintiffs' right to a hearing with avoiding burdening courts with doomed claims, using developed tests.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The test for a motion to strike requires the defendant to show it is plain and obvious the pleading discloses no reasonable cause of action, assuming facts true.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Imperial Tobacco Canada Ltd., 2011 SCC 42 at para 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets high bar for motion to strike"
+    },
+    {
+     "cite": "Hunt v Carey Canada Inc, [1990] 2 SCR 959 at p 980",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports test for motion to strike"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Facts in the statement of claim must be accepted as true unless clearly unprovable or speculative; claims are read generously, especially if self-represented.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The claim must set out facts supporting a recognized or considered cause of action, including all elements; novelty alone is not grounds to strike.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Justice Roy explained a statement of claim requires a clear story of material facts supporting specific allegations and causes of action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Al Omani v. Canada, 2017 FC 786 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains requirement for clear factual story in claim"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Flexibility for self-represented parties exists but does not excuse compliance with rules to ensure fairness and avoid vague or speculative claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Barkley v Canada, 2014 FC 39 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports need for compliance despite self-representation"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Flexibility for self-representation cannot override justice and fairness demands for all parties, as ensured by rules and case principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Claim is struck because it discloses no reasonable cause of action due to lack of jurisdiction and is vexatious; either ground suffices.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Allegations of misrepresentation, fraud, or malice must be particularized; bald allegations are scandalous, frivolous, vexatious, and abuse of process.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Court Rules, Rule 191",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Requires particulars for serious allegations"
+    },
+    {
+     "cite": "Merchant Law Group v Canada (Revenue Agency), 2010 FCA 184 at paras 34-35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports requirement for particulars and abuse of process finding"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Claim is struck without leave to amend.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The LSO requests costs on a substantial indemnity basis and at the high end of column IV of Tariff B for this motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Tariff B",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "LSO requests costs based on Tariff B"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Costs of $2,000 are awarded to the LSO, payable by Mr. Lam forthwith, considering rules, LSO's success, and the vexatious nature of the Claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rules 400 and 401 (1)",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Rules governing costs"
+    },
+    {
+     "cite": "Rule 400 (3)",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Factors for awarding costs"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Supreme Court has considered the Federal Court's jurisdiction in several cases, including Quebec North Shore, McNamara, Rhine, ITO, and Windsor.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Quebec North Shore Paper Co. v. Canadian Pacific Ltd. (1976), [1977] 2 S.C.R. 1054",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supreme Court cases on Federal Court jurisdiction"
+    },
+    {
+     "cite": "McNamara Construction (Western) Ltd. v. The Queen, [1977] 2 S.C.R. 654",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supreme Court cases on Federal Court jurisdiction"
+    },
+    {
+     "cite": "Rhine v. The Queen, [1980] 2 S.C.R. 442",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supreme Court cases on Federal Court jurisdiction"
+    },
+    {
+     "cite": "ITO-Int\u2019l Terminal Operators v. Miida Electronics, [1986] 1 S.C.R. 752",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supreme Court cases on Federal Court jurisdiction"
+    },
+    {
+     "cite": "Windsor",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Recent Supreme Court case on Federal Court jurisdiction"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Two Federal Court of Appeal decisions, Peter G. White and Air Muskoka, provide good summaries of the relevant law on jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Peter G. White Management Ltd. v. Canada (Minister of Canadian Heritage), 2006 FCA 190",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Federal Court of Appeal summaries of jurisdiction law"
+    },
+    {
+     "cite": "744185 Ontario Incorporated v. Canada, 2020 FCA 1",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Federal Court of Appeal summaries of jurisdiction law"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The ITO test for jurisdiction involves three steps: statutory grant, federal law essential to case, and valid federal law basis; breach of contract claims may satisfy step 2 if federal regulation applies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ITO test three steps",
+    "Application to breach of contract claims"
+   ],
+   "citations": [
+    {
+     "cite": "ITO",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets three-part test for jurisdiction"
+    },
+    {
+     "cite": "Windsor",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Step 1 requires action created or recognized under federal law"
+    },
+    {
+     "cite": "Rhine",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Step 2 may be satisfied by federal regulatory scheme for contract claims"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Windsor clarifies the ITO test applies to the claim's essential nature, not its pleading form; here, the claim is essentially for breach of contract.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Windsor",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "ITO test applies to essential nature of claim"
+    }
+   ]
+  }
+ ]
+}

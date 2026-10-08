@@ -1,0 +1,1017 @@
+{
+ "case_id": 61482,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0151668
+ },
+ "verification": {
+  "paragraphs": 85,
+  "summaries": 57,
+  "paragraphs_missing": [
+   1,
+   7,
+   16,
+   19,
+   22,
+   23,
+   64,
+   65,
+   66,
+   67,
+   68,
+   69,
+   70,
+   71,
+   72,
+   73,
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85
+  ],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 63,
+  "regex_citations": 42,
+  "regex_addressed": 24,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 34,
+   "party_argument_reported": 2,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 26
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 4,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 24,
+   "neutral_citation": "2026 SCC 20",
+   "para_start": 40,
+   "para_end": 40
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2026 SCC 19",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 63,
+   "neutral_citation": "2025 SCC 22",
+   "para_start": 82,
+   "para_end": 82
+  },
+  {
+   "citing_para": 78,
+   "neutral_citation": "2024 SCC 3",
+   "para_start": 29,
+   "para_end": 29
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the reasonableness of delay between conviction and sentencing under section 11(b) of the Charter, with the appellant challenging the sentencing delay as unreasonable. The appellant argues for a five-month presumptive ceiling on sentencing delay, following the Ontario Court of Appeal's Charley decision, while the Crown and the Supreme Court prefer a flexible, contextual 'markedly longer than reasonable' test. The Supreme Court rejects presumptive ceilings for sentencing delay, adopts the flexible markedly longer test, and upholds the lower court's approach to assessing delay reasonableness.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "appellant",
+    "text": "five-month ceiling for sentencing delay per Charley"
+   },
+   {
+    "id": "P2",
+    "para": 3,
+    "by": "Crown",
+    "text": "flexible approach to sentencing delay"
+   },
+   {
+    "id": "P3",
+    "para": 46,
+    "by": "Crown",
+    "text": "support markedly longer test for clarity"
+   },
+   {
+    "id": "P4",
+    "para": 46,
+    "by": "appellant",
+    "text": "oppose markedly longer test as unpredictable and burdensome"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 32,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 47,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 47,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Court in Jordan set 18- and 30-month presumptive ceilings for trial length under s. 11(b), but not for other criminal proceeding stages.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Framework for trial length under s. 11(b) with presumptive ceilings"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeal concerns assessing delay reasonableness between conviction and sentencing, with appellant urging a five-month ceiling per Charley, Crown preferring a flexible approach.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant's position: five-month ceiling",
+    "Crown's position: flexible assessment"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Charley, 2019 ONCA 726, 147 O.R. (3d) 497, at para. 87",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellant relies on Charley's five-month presumptive ceiling"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court adopts the Crown's flexible standard, noting sentencing requires a process after guilt to impose a fit sentence with evidence and submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Criminal Code, R.S.C. 1985, c. C-46, s. 720",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory requirement that sentencing occur as soon as practicable after guilt"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Reasonableness of sentencing delay depends on factors like delay length, case complexity, parties' conduct, and local comparable cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "If s. 11(b) breach is found post-verdict, remedy usually reduces sentence, with stays rare; s. 24(1) allows discretionary remedies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 24(1) of the Charter",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Provides remedial scope for Charter breaches"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "Defence requested adjournment for trial transcript; sentencing submissions scheduled for February 25, 2022, by trial judge.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "On February 25, 2022, defence made submissions; Crown could not submit due to technical delays; hearing continued to April 5, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On April 5, 2022, another judge adjourned due to trial judge unavailability; rescheduled to April 19, 2022 for Crown submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "On May 24, 2022, trial judge questioned counsel; Crown to provide written responses; next hearing set for July 12, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "On July 12, 2022, another judge adjourned due to trial judge emergency; rescheduled to September 16, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "On September 16, 2022, trial judge not ready to sentence, sought immigration clarification; continuation set for October 20, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "On October 20, 2022, defence filed stay application for unreasonable sentencing delay under s. 11(b); appellant waived delay for Crown response.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "On December 16, 2022, trial judge dismissed s. 11(b) application and sentenced appellant to conditional sentence and probation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "Trial judge found 378-day sentencing delay, deducted 74 days for defence adjournment, 80 days for unavailability, 69 days for complexity, 39 days for submissions delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "Trial judge concluded net sentencing delay was 116 days, under Charley's five-month ceiling, and dismissed s. 11(b) application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Charley",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Presumptive ceiling for post-verdict delay"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Court of Appeal found net sentencing delay was 225 days, exceeding Charley's ceiling, and held s. 11(b) rights were infringed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Charley",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Five-month presumptive ceiling for post-verdict delay"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "Court of Appeal reduced sentence due to delay, rejected conditional discharge, and noted immigration consequences were considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Jordan replaced Morin framework with presumptive ceilings to address delay complacency and protect accused and public interests.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Established new framework for s. 11(b) delay analysis"
+    },
+    {
+     "cite": "R. v. Jacques-Taylor, 2026 SCC 20, at para. 40",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Related case referencing Jordan framework"
+    },
+    {
+     "cite": "R. v. Vrbanic, 2026 SCC 19, at para. 22",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Related case referencing Jordan framework"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Jordan set 18- and 30-month ceilings for trial delay, deducting defence delays; exceeding ceiling shifts burden to Crown to show exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Presumptive ceilings and burden shifting for trial delay"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Below ceiling, defence must show meaningful steps and marked excess delay; assessment is contextual, considering complexity and Crown steps.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Contextual assessment of delay below ceiling"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Jordan ceilings apply only to charge-to-trial end period; post-conviction delay not addressed and left open by Jordan majority.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Limits of presumptive ceilings to pre-verdict period"
+    },
+    {
+     "cite": "K.G.K.",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Related case on delay phases"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Ontario Court of Appeal in Charley applied s. 11(b) to sentencing delay, created separate five-month ceiling, noting post-verdict accused no longer presumed innocent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Charley",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Established five-month ceiling for post-verdict delay"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Charley rejected Crown's flexible approach, holding presumptive ceilings essential to Jordan's certainty and applied them to sentencing delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Charley",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reasoning for presumptive ceiling in sentencing delay"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "In K.G.K., Court declined to extend Jordan ceilings to verdict deliberation, adopting a 'markedly longer than reasonable' standard due to judicial integrity presumption.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K.",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Standard for verdict deliberation delay"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "other",
+   "summary": "Heading introducing the topic that sentencing proceedings' variability makes presumptive ceilings unsuitable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court declines to follow Charley or impose presumptive ceilings for sentencing delay due to lack of evidence and sentencing's variable nature.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Criminal Code, s. 720",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Parliament's direction that sentencing occur 'as soon as practicable' requires flexibility"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "other",
+   "summary": "Heading introducing the rationale for why presumptive ceilings do not apply to post-verdict sentencing delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Various legitimate reasons can extend sentencing time, including reports, hearings, and applying jury verdict findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Nahanee, 2022 SCC 37, [2022] 3 S.C.R. 3",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for contested sentencing submissions requiring more evidence and argument"
+    },
+    {
+     "cite": "Criminal Code, s. 724(2)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "time needed to identify and apply factual findings implicit in jury verdict"
+    },
+    {
+     "cite": "R. v. Brown, [1991] 2 S.C.R. 518, at p. 523",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for applying factual findings from verdict"
+    },
+    {
+     "cite": "R. v. Ferguson, 2008 SCC 6, [2008] 1 S.C.R. 96, at para. 18",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for applying factual findings from verdict"
+    },
+    {
+     "cite": "R. v. Aragon, 2022 ONCA 244, 413 C.C.C. (3d) 79, at para. 106",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for applying factual findings from verdict"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Sentencing may take longer due to systemic and background factors affecting Indigenous and racialized offenders, requiring specialized reports.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Criminal Code, s. 718.2(e)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "requires attention to Indigenous offenders' circumstances"
+    },
+    {
+     "cite": "R. v. Gladue, [1999] 1 S.C.R. 688, at para. 93",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains different method of analysis for Indigenous offenders"
+    },
+    {
+     "cite": "R. v. Ipeelee, 2012 SCC 13, [2012] 1 S.C.R. 433, at para. 59",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains systemic and background factors consideration"
+    },
+    {
+     "cite": "R. v. Anderson, 2021 NSCA 62, 74 C.R. (7th) 333, at paras. 109 and 119",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for importance of Impact of Race and Culture Assessments"
+    },
+    {
+     "cite": "R. v. Morris, 2021 ONCA 680, 159 O.R. (3d) 641, at para. 138",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "cited for importance of Impact of Race and Culture Assessments"
+    },
+    {
+     "cite": "I.F., Attorney General of Nova Scotia, at para. 12",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "noting time to prepare assessments"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Criminal Code mandates an individualized, informed sentencing process with provisions allowing evidence and delays for rehabilitation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Criminal Code, s. 720(1)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "courts must proceed to sentencing 'as soon as practicable'"
+    },
+    {
+     "cite": "Criminal Code, s. 723(1)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "court may hear submissions on relevant facts"
+    },
+    {
+     "cite": "Criminal Code, s. 723(2)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "court may receive relevant evidence"
+    },
+    {
+     "cite": "Criminal Code, s. 723(3)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "court may require production of additional evidence"
+    },
+    {
+     "cite": "Criminal Code, s. 723(4)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "court may compel live testimony"
+    },
+    {
+     "cite": "Criminal Code, s. 720(2)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "sentencing may be delayed for rehabilitative purposes"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Sentencing judges must control proceedings by setting timelines and requiring parties to clarify positions to avoid unnecessary delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Charley, at para. 74",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "parties must collaborate to ensure efficient sentencing"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Sentencing length varies by case complexity and information needed for a fit sentence, justifying variable timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "other",
+   "summary": "Heading introducing the test for assessing reasonableness of post-verdict sentencing delay as the 'markedly longer' test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Jordan ceilings addressed trial delay complacency; K.G.K. explains this specific problem and why presumptive ceilings were adopted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K.",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains Jordan ceilings' purpose"
+    },
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "addresses culture of complacency in trial delays"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The Court has rejected extending Jordan ceilings to other criminal phases without evidence of systemic delay problems.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. K.J.M., 2019 SCC 55, [2019] 4 S.C.R. 39, at para. 63",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "declined lower ceiling for youth justice due to lack of delay problem"
+    },
+    {
+     "cite": "K.G.K., at para. 38",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "declined extending ceilings to verdict deliberation time"
+    },
+    {
+     "cite": "R. v. J.F., 2022 SCC 17, [2022] 1 S.C.R. 330, at para. 65",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "declined modifying ceilings for retrials without real problem"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "No evidence shows complacency about sentencing delay; lack of case law does not prove systemic delay problem.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "transcript, at p. 15",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "appellant argues lack of case law shows complacency"
+    },
+    {
+     "cite": "I.F., Attorney General of Nova Scotia, at para. 12",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "noting time to prepare assessments"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court declines to follow Charley, emphasizing the need for evidence of systemic delay before imposing presumptive ceilings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Charley, at para. 74",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Charley approach not followed due to lack of systemic delay evidence"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "other",
+   "summary": "Heading introducing the 'markedly longer' test as consistent with s. 11(b) jurisprudence and avoiding complexity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Different provinces use varied tests for post-verdict sentencing delay, including 'markedly longer', MacDougall, and flexible approaches.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Fouani, 2025 ABCJ 2, 569 C.R.R. (2d) 232, at para. 67",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Alberta adopts 'markedly longer' test"
+    },
+    {
+     "cite": "R. v. Cape, 2025 ABCJ 129, at para. 120",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Alberta adopts 'markedly longer' test"
+    },
+    {
+     "cite": "R. v. S.P.P., 2024 NSSC 42, at para. 100",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Nova Scotia adopts 'markedly longer' test"
+    },
+    {
+     "cite": "MacDougall, at para. 60",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Manitoba and BC apply MacDougall standard"
+    },
+    {
+     "cite": "R. v. Clemons, 2018 MBQB 144, 421 C.R.R. (2d) 26, at paras. 38-42, aff\u2019d 2020 MBCA 4",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Manitoba applies MacDougall standard"
+    },
+    {
+     "cite": "R. v. S.C.W., 2018 BCCA 346, 367 C.C.C. (3d) 518",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "BC applies MacDougall standard"
+    },
+    {
+     "cite": "L\u00e9vesque Paquette v. R., 2022 QCCA 1047, at para. 63",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Quebec uses flexible, modulated approach"
+    },
+    {
+     "cite": "Chemama v. R., 2024 QCCA 405, at para. 351",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Quebec uses flexible, modulated approach"
+    }
+   ]
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The Crown supports the markedly longer test for clarity; the appellant opposes it as replicating Morin's unpredictability and burdening defence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown supports markedly longer test",
+    "Appellant opposes markedly longer test"
+   ],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court endorses the markedly longer test as consistent, clear, suitable for sentencing, and reflecting changed interests post-guilt.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K.",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "test consistent with existing s. 11(b) jurisprudence"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "other",
+   "summary": "Heading introducing considerations for whether post-verdict delay was markedly longer than reasonably necessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Applying a different test than markedly longer would fragment sentencing; the same test should apply to all sentencing phases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K., at paras. 65-66",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "presumption of judicial integrity supports markedly longer test for deliberations"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The markedly longer standard fits the changed balance of interests after guilt, with attenuated offender rights and heightened societal interests.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "other",
+   "summary": "Heading introducing that remedies for unreasonable post-verdict sentencing delay are discretionary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The markedly longer standard is objective and normative, assessing delay in an ideal justice system, not current resource-limited realities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The standard requires contextual comparison of actual sentencing time to reasonable time, considering length and reasons for delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Factors from K.G.K. for verdict deliberation delay also guide assessing whether sentencing delay was markedly longer than reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K., paras. 67-72",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "provides framework for evaluating delay"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Extreme post-verdict delay alone may breach s. 11(b), but usually the analysis starts with length and rarely is length alone enough.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K., at para. 68",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "extreme delay may breach s. 11(b) regardless of context"
+    }
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Case complexity is important in assessing delay, including evidence, co-accused, legal issues, reports, and associated proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K., at para. 70",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "complexity factors relevant to delay assessment"
+    },
+    {
+     "cite": "Jordan, at para. 88, quoting Morin, at pp. 791-92",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "delay varies with case complexity"
+    },
+    {
+     "cite": "Criminal Code, s. 721(1)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "consideration of reports in sentencing"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Reasons for specific delays, including medical emergencies or report delays, are relevant to assessing delay cause and length.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "I.F., Attorney General of Alberta, at para. 21",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "delay reasons inform assessment"
+    }
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Parties' conduct and timing of legal issues affect whether delay was markedly longer than reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Comparing elapsed time to similar cases helps assess reasonableness, but systemic underfunding limits this comparison's usefulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "K.G.K., at para. 72, citing Jordan, at para. 89",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "comparison to typical case timelines relevant"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Markedly longer standard is objective and normative, not excusing delay due to systemic underfunding, and respects sentencing judge's findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Local circumstances matter but cannot justify systemic under-resourcing causing unreasonable post-verdict sentencing delay.",
+   "ideas": "multiple",
+   "idea_list": [
+    "local circumstances relevance",
+    "systemic under-resourcing not justification",
+    "common practice not conclusive",
+    "system must respond"
+   ],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "other",
+   "summary": "Heading introducing the qualitative difference in balancing interests under section 11(b) post-verdict sentencing phase.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "Rahey held stay is appropriate remedy for pre-conviction delay but did not address post-conviction sentencing delay remedy.",
+   "ideas": "single",
+   "idea_list": [
+    "Rahey on pre-conviction delay remedy"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Rahey, [1987] 1 S.C.R. 588",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Rahey's holding on pre-conviction delay remedy"
+    },
+    {
+     "cite": "R. v. Varennes, 2025 SCC 22, at para. 82, fn. 3",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Court's position on post-conviction remedy not taken"
+    },
+    {
+     "cite": "Jordan, at para. 49, fn. 2",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Court's position on post-conviction remedy not taken"
+    }
+   ]
+  }
+ ]
+}

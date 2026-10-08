@@ -1,0 +1,447 @@
+{
+ "case_id": 29985,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0066096
+ },
+ "verification": {
+  "paragraphs": 30,
+  "summaries": 30,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 8,
+  "model_citations": 9,
+  "regex_citations": 9,
+  "regex_addressed": 5,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 7,
+  "rebuttals": 8,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 4,
+   "neutral_citation": "2022 FC 139",
+   "para_start": 42,
+   "para_end": 42
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2012 FCA 22",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 12,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of a CRA Officer's decision denying her eligibility for the Canada Recovery Benefit (CRB) due to insufficient income evidence and non-COVID-19 reasons for not working. The Applicant challenged the decision on grounds including procedural fairness, evidence admissibility, and the reasonableness of the Officer's findings. The Federal Court found the Officer's decision reasonable, rejected the Applicant's claims, and dismissed the application without ordering costs.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 7,
+    "by": "Applicant",
+    "text": "Accountant corrected 2019 income to $6,300"
+   },
+   {
+    "id": "P2",
+    "para": 8,
+    "by": "Applicant",
+    "text": "Exhibit G about self-employed CRB repayment rules"
+   },
+   {
+    "id": "P3",
+    "para": 9,
+    "by": "Applicant",
+    "text": "COVID-19 affected work due to travel restrictions"
+   },
+   {
+    "id": "P4",
+    "para": 19,
+    "by": "Applicant",
+    "text": "Unaware of need to prove non-working due to COVID-19"
+   },
+   {
+    "id": "P5",
+    "para": 20,
+    "by": "Applicant",
+    "text": "Tried contacting Officer after Second Decision with no reply"
+   },
+   {
+    "id": "P6",
+    "para": 28,
+    "by": "Applicant",
+    "text": "Second Decision unreasonable ignoring honest belief and COVID-19 circumstances"
+   },
+   {
+    "id": "P7",
+    "para": 30,
+    "by": "Applicant",
+    "text": "2019 Notice of Assessment shows income over $5,000 for eligibility"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The CRA informed the Applicant on April 22, 2022, that she was ineligible for CRB for all twenty-eight two-week periods.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicant requested a review; a CRA Officer confirmed in January 2023 that she was not eligible for CRB due to insufficient income evidence and non-COVID-19 reasons for not working.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Applicant seeks judicial review of the Second Decision; the court finds the Officer's decision reasonable and dismisses the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent and finds Exhibits F and G and paragraphs 10 and 13 of the Applicant\u2019s Affidavit inadmissible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Applicant claims her accountant corrected a miscalculation on her 2019 Tax Return increasing net self-employment income to $6,300, supported by Exhibit F, a 2019 Notice of Reassessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Exhibit G is a 2021 Government of Canada news release about self-employed individuals not needing to repay CRB if they qualified based on gross income and met other requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Applicant submits COVID-19 affected her work due to travel restrictions, supported by news articles linked in paragraph 13 of her Affidavit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The 2019 Notice of Reassessment is inadmissible as it was created after the Second Decision and cannot retroactively prove 2019 income.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Paragraph 10 of the Applicant\u2019s Affidavit is also inadmissible for the same reasons as the 2019 Notice of Reassessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court notes the Applicant raises procedural fairness issues and applies an exception to admit some evidence, but ultimately finds the new evidence inadmissible as it would not alter the decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Procedural fairness issue raised",
+    "New evidence inadmissible"
+   ],
+   "citations": [
+    {
+     "cite": "Access Copyright",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Exception to evidence admissibility for procedural defects"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court will not consider the Applicant\u2019s Charter claim due to lack of evidence, legal arguments, and failure to follow Federal Courts Rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules, SOR/98\u2011106",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Applicant failed to follow rules to initiate Charter claim"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "other",
+   "summary": "Section 3 of the CRB Act sets income eligibility criteria for CRB applications in 2020 and 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 3(1)(d) of the CRB Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Income eligibility criteria for 2020 CRB applications"
+    },
+    {
+     "cite": "paragraph 3(1)(e) of the CRB Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Income eligibility criteria for 2021 CRB applications"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "other",
+   "summary": "Section 6 of the CRB Act requires applicants to provide any information the Minister may require regarding the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 6 of the CRB Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Applicant's duty to provide information"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicant relies on Fentum, claiming she was unaware of the need to prove non-working due to COVID-19 and believed bank statements sufficed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Fentum v Canada (Attorney General), 2023 FC 857 [Fentum]",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Fentum for procedural fairness argument"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant claims she tried multiple times to contact the Officer after the Second Decision but received no reply.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant\u2019s procedural fairness arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court distinguishes Fentum, finding the Officer reasonably considered evidence and the Applicant\u2019s explanation about work stoppage before COVID-19.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Fentum",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Facts differ; no unjustifiable leap by Officer here"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Officer gave the Applicant an opportunity to verify other income, which she denied having.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Applicant did not specify what further evidence she would have provided if given the opportunity, aside from new general lockdown evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the Second Decision was based on insufficient evidence, not adverse credibility findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Applicant was informed multiple times about the Income Requirement and did not explain what additional information she could have provided.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Applicant submits the Second Decision was unreasonable for ignoring her honest belief and COVID-19's extraordinary circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant\u2019s submission, noting the Income Requirement is statutory and non-discretionary, so belief does not affect eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "At hearing, the Applicant pointed to her 2019 Notice of Assessment showing income over $5,000 to support eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court explains that only employment or self-employment income counts, and the Applicant's net self-employment income was below $5,000.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsections 3(1)(d)(i) to (iv) of the CRB Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines eligible income for CRB"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court notes possible accountant errors but finds no reviewable error by the Officer based on submitted information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant\u2019s suggestion that the Officer should have contacted her employer, noting the onus is on the taxpayer under section 6 of the CRB Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 6 of the CRB Act",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Onus on applicant to provide information"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Officer considered bank statements but found inconsistencies and lack of income source information, reasonably concluding the Applicant failed the Income Requirement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court declines to award costs despite ruling for the Respondent, considering the Applicant's financial hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "There is no order as to costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

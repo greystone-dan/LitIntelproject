@@ -1,0 +1,652 @@
+{
+ "case_id": 66591,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.008838400000000001
+ },
+ "verification": {
+  "paragraphs": 38,
+  "summaries": 38,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 25,
+  "regex_citations": 9,
+  "regex_addressed": 2,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 7,
+   "supports_court_conclusion": 8,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 10
+  },
+  "multi_idea_paragraphs": 7,
+  "party_points": 8,
+  "rebuttals": 8,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 38,
+   "neutral_citation": "2014 SCC 68",
+   "para_start": 62,
+   "para_end": 62
+  },
+  {
+   "citing_para": 38,
+   "neutral_citation": "2008 FCA 404",
+   "para_start": 44,
+   "para_end": 44
+  },
+  {
+   "citing_para": 38,
+   "neutral_citation": "2012 FC 618",
+   "para_start": 47,
+   "para_end": 47
+  },
+  {
+   "citing_para": 38,
+   "neutral_citation": "2010 FC 454",
+   "para_start": 25,
+   "para_end": 25
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns an appeal by a Ukrainian applicant formerly Nigerian, who fled to Canada fearing persecution, against the Refugee Protection Division's (RPD) exclusion of his refugee claim under Article 1F(b) and section 98 IRPA for committing a serious non-political crime involving sexual interference with a minor. The Minister argued for exclusion based on serious reasons to consider the applicant committed sexual interference and assault with a a 13-year-old minor. The tribunal dismissed the appeal, agreeing with the RPD that the applicant did not take all reasonable steps to ascertain the complainant's age and that the offences were serious crimes warranting exclusion from refugee protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "Minister",
+    "text": "Applicant should be excluded for serious non-political crime sexual interference with minor"
+   },
+   {
+    "id": "P2",
+    "para": 20,
+    "by": "Counsel",
+    "text": "Applicant's vulnerability and discrimination excuse failure to ascertain age"
+   },
+   {
+    "id": "P3",
+    "para": 18,
+    "by": "Counsel",
+    "text": "Asking age multiple times was reasonable to ascertain age"
+   },
+   {
+    "id": "P4",
+    "para": 29,
+    "by": "Counsel",
+    "text": "RPD erred in dismissing mitigating circumstances"
+   },
+   {
+    "id": "P5",
+    "para": 31,
+    "by": "Counsel",
+    "text": "How couple met or hid age are mitigating circumstances"
+   },
+   {
+    "id": "P6",
+    "para": 32,
+    "by": "Counsel",
+    "text": "Willingness of minor makes offence technical or culturally accepted"
+   },
+   {
+    "id": "P7",
+    "para": 36,
+    "by": "Counsel",
+    "text": "Offence was mere error in judgment or technical crime"
+   },
+   {
+    "id": "P8",
+    "para": 37,
+    "by": "Counsel",
+    "text": "Applicant is a loving husband, mitigating factor"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 17,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 36,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 37,
+    "answers": "P8",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appeal is dismissed for the reasons explained below by the tribunal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The applicant is a Ukrainian citizen formerly Nigerian, married to XXXX, with children, who fled to Canada fearing anti-Black racist violence and persecution for alleged bisexuality.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Minister argues the applicant should be excluded from refugee protection for committing a serious non-political crime, sexual interference or assault with a minor.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD accepted the wife and children's claims but excluded the applicant under Article 1F(b) and s. 98 IRPA; the applicant challenges this finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal reviews all evidence, rejects the appellant's arguments, and agrees with the RPD's exclusion of the applicant under Article 1F(b) and s. 98 IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "1",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to tribunal's role reviewing evidence and decision."
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The applicant's affidavit repeats prior evidence and legal arguments and is inadmissible as new evidence under s. 110(4) IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 110(4) of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets conditions for admissibility of new evidence."
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Section 98 IRPA and Article 1F(b) exclude refugee claims if serious reasons exist to consider the claimant committed a serious non-political crime before admission.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 98 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Sets exclusion requirement for refugee claims."
+    },
+    {
+     "cite": "Article 1F(b) of the Convention",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Defines exclusion for serious non-political crimes."
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Minister must prove serious reasons to consider a serious crime was committed, not beyond reasonable doubt; Febles cautions against mechanistic sentencing analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's burden and standard of proof",
+    "Febles Supreme Court caution on sentencing analysis"
+   ],
+   "citations": [
+    {
+     "cite": "Febles",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains standard of proof and sentencing range considerations."
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Jayasekara requires considering crime elements, prosecution mode, penalty, facts, and mitigating/aggravating circumstances when assessing crime seriousness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jayasekara",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Lists factors to assess crime seriousness."
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Serious crimes include homicide, rape, child molestation, etc., but seriousness presumption can be rebutted; extraneous factors post-crime are irrelevant; charges not required to find serious reasons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Examples of serious crimes",
+    "Presumption rebuttable",
+    "Extraneous factors irrelevant",
+    "No charge or conviction needed"
+   ],
+   "citations": [
+    {
+     "cite": "4",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Examples of serious crimes and rebuttable presumption."
+    },
+    {
+     "cite": "5",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Extraneous factors not relevant to seriousness."
+    },
+    {
+     "cite": "6",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "No charge or conviction needed to find serious reasons."
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "It is undisputed the applicant had sexual intercourse with a 13-year-old who became pregnant; he asked her age four times and was told she was 18; he took no further steps; no charges in Ukraine.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The relevant Canadian crimes are sexual interference under s. 151 and sexual assault under s. 271 of the Criminal Code.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 151 of the Criminal Code",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines sexual interference offence."
+    },
+    {
+     "cite": "s. 271 of the Criminal Code",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines sexual assault offence."
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Section 151 defines sexual interference as touching a person under 16 for sexual purpose, punishable by up to 14 years or lesser summary conviction penalties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 151 of the Criminal Code",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines sexual interference offence and penalties."
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Section 271 defines sexual assault as sexual touching without consent or violating sexual integrity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 271 of the Criminal Code",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines sexual assault offence."
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Consent defense unavailable if complainant under 16 unless accused took all reasonable steps to ascertain age; exceptions for close age do not apply here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "7",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Consent defense rules for under 16."
+    },
+    {
+     "cite": "8",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Requirement to take all reasonable steps to ascertain age."
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The case hinges on whether the applicant took all reasonable steps to ascertain age and the balancing of Jayasekara factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal disagrees with counsel and finds the RPD correctly concluded the applicant did not take all reasonable steps to ascertain the complainant's age.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Counsel's argument that asking age multiple times was reasonable is rejected; the applicant should have taken more steps given the complainant's responsibilities and demeanor.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that living together and the complainant being in eighth grade should have prompted the applicant to inquire further about her age.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Counsel's arguments about the applicant's vulnerability and discrimination do not excuse failure to take reasonable steps to ascertain age, such as asking the complainant's parents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal rejects counsel's arguments that the applicant took all reasonable steps to determine the complainant's age before sexual intercourse.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Counsel's listed factors are not elements of the crime but possibly mitigating factors, which the tribunal will address under Article 1F(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The crime elements involve sexual intercourse without consent or legal age; the tribunal agrees serious reasons exist that the applicant committed sexual interference and assault.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Sexual interference is a serious crime due to its impact on victims under 16, legal classification, sentencing, minimum imprisonment, and forensic DNA designation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R v Oldford, 2009 NLTD 124, 288 Nfld & PEIR 203 at para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Shows sexual interference is considered abhorrent and serious."
+    },
+    {
+     "cite": "Criminal Code, at 787(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Details sentencing for sexual interference."
+    },
+    {
+     "cite": "9",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Lists factors supporting seriousness of sexual interference."
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "All elements of sexual interference and assault support finding these offences are serious crimes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "No prosecution occurred in Ukraine, but lack of charges does not prevent finding serious reasons under Article 1F(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "10",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms charges not required for exclusion under Article 1F(b)."
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal rejects counsel's speculation that cultural acceptance explains no prosecution, noting Ukrainian law criminalizes sex with under 16.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that sexual interference is serious despite sentencing range; counsel made no penalty arguments; longest sentences cited were 4-9 years.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Febles",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Cautions against mechanistic sentencing analysis."
+    },
+    {
+     "cite": "11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms sexual interference is serious crime in Canada."
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Counsel's claim that the RPD erred in dismissing mitigating circumstances is rejected due to lack of argument; the tribunal agrees with the RPD's rejection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal notes the RPD accepted as mitigating the lack of evidence of intoxication and no criminal record for the applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal rejects Counsel's view that how the couple met or hid age are mitigating circumstances and says the lack of charges in Ukraine is not mitigating.",
+   "ideas": "multiple",
+   "idea_list": [
+    "rejects mitigating circumstances about relationship development",
+    "rejects hiding age as mitigating",
+    "lack of charges not mitigating"
+   ],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal emphasizes that a minor cannot legally consent to sexual activity, rejecting Counsel's claim that willingness makes it a technicality or culturally accepted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "minor's incapacity to consent is key",
+    "rejects 'technicality' argument",
+    "rejects cultural acceptance argument"
+   ],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The tribunal acknowledges the couple's long marriage but agrees with the RPD that post-crime factors like marriage and children are extraneous and do not mitigate the seriousness of the offence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "acknowledges marriage and children",
+    "rejects extraneous post-crime factors",
+    "agrees offence remains serious"
+   ],
+   "citations": [
+    {
+     "cite": "Jayasekara, supra note 3 at para. 44",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "only factors related to commission of offence considered"
+    },
+    {
+     "cite": "Febles, supra note 2 at paras. 14-15 and 60",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "extraneous factors not to be considered"
+    },
+    {
+     "cite": "Febles, supra note 2 at para. 6",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "seriousness of offence under Article 1F(b)"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal agrees there was insufficient evidence to find that the applicant's education and career were delayed due to pregnancy, as the RPD did not fully question her.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that increased tension with the applicant's parents was an aggravating circumstance related to the sexual interference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal rejects Counsel's claim that the offence was a mere error in judgment or technical crime, affirming Canadian law treats sexual interference as serious.",
+   "ideas": "multiple",
+   "idea_list": [
+    "rejects 'error in judgment' claim",
+    "rejects 'technical crime' claim",
+    "notes Canadian law treats offence as serious",
+    "rejects UNHCR narrow Article 1F(b) interpretation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal accepts the applicant is a loving husband but finds this extraneous and not relevant to the Article 1F(b) analysis, agreeing with the RPD's exclusion decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "accepts applicant's good character",
+    "finds factor extraneous",
+    "supports RPD exclusion decision"
+   ],
+   "citations": [
+    {
+     "cite": "Febles v. Canada (Citizenship and Immigration), 2014 SCC 68 at para. 62",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supreme Court rejected post-crime conduct relevance"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the applicant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

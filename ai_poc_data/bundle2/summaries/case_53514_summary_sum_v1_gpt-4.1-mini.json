@@ -1,0 +1,2412 @@
+{
+ "case_id": 53514,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.034439199999999996
+ },
+ "verification": {
+  "paragraphs": 145,
+  "summaries": 145,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 152,
+  "regex_citations": 88,
+  "regex_addressed": 84,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 33,
+   "supports_court_conclusion": 50,
+   "party_argument_reported": 7,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 61
+  },
+  "multi_idea_paragraphs": 21,
+  "party_points": 11,
+  "rebuttals": 13,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 45,
+   "neutral_citation": "2025 SCC 31",
+   "para_start": 52,
+   "para_end": 52
+  },
+  {
+   "citing_para": 76,
+   "neutral_citation": "2025 SCC 27",
+   "para_start": 42,
+   "para_end": 42
+  },
+  {
+   "citing_para": 143,
+   "neutral_citation": "2025 SCC 22",
+   "para_start": 82,
+   "para_end": 82
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns an appeal by the Crown against a stay of proceedings granted due to alleged unreasonable delay violating the accused's s. 11(b) Charter right to a trial within a reasonable time. The respondent, Mr. Jacques-Taylor, was charged jointly with a co-accused, and delays arose primarily from the co-accused counsel's unavailability, raising issues about attributing delay and exceptional circumstances in joint trials. The Supreme Court allowed the Crown's appeal, finding that co-accused delay can be a discrete exceptional circumstance but that the Crown failed to take reasonable steps to mitigate delay, ultimately dismissing the appeal and upholding the stay.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 19,
+    "by": "Crown",
+    "text": "Co-accused delay as discrete exceptional circumstance"
+   },
+   {
+    "id": "P2",
+    "para": 20,
+    "by": "Respondent",
+    "text": "Individualized approach to delay attribution"
+   },
+   {
+    "id": "P3",
+    "para": 118,
+    "by": "Crown",
+    "text": "Co-accused delay unforeseeable and unavoidable"
+   },
+   {
+    "id": "P4",
+    "para": 119,
+    "by": "Crown",
+    "text": "Defence conduct implies acceptance of delay"
+   },
+   {
+    "id": "P5",
+    "para": 120,
+    "by": "Respondent",
+    "text": "Co-accused delay within Crown control, not exceptional"
+   },
+   {
+    "id": "P6",
+    "para": 121,
+    "by": "Respondent",
+    "text": "Crown failed reasonable steps to address delay"
+   },
+   {
+    "id": "P7",
+    "para": 129,
+    "by": "Crown",
+    "text": "Reasonableness of Crown steps depends on accused's s. 11(b) application timing"
+   },
+   {
+    "id": "P8",
+    "para": 130,
+    "by": "Crown",
+    "text": "Accused must signal s. 11(b) jeopardy level"
+   },
+   {
+    "id": "P9",
+    "para": 131,
+    "by": "Court",
+    "text": "Crown's duty independent of accused's s. 11(b) timing"
+   },
+   {
+    "id": "P10",
+    "para": 133,
+    "by": "Court",
+    "text": "Accused inaction does not excuse Crown's duty"
+   },
+   {
+    "id": "P11",
+    "para": 141,
+    "by": "Court",
+    "text": "Respondent's missed filing deadline not defence delay or excuse for Crown"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 75,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 76,
+    "answers": "P7,P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 78,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 79,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 80,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 81,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 82,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 83,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 84,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 131,
+    "answers": "P7,P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 133,
+    "answers": "P7,P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 141,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 145,
+    "answers": "P6",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The Court introduces three issues: duty to collaborate, joint trials' role, and exceptional circumstances from joint Crown decisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "duty to collaborate",
+    "role of joint trials",
+    "exceptional circumstances from Crown joint decisions"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Jordan, 2016 SCC 27, [2016] 1 S.C.R. 631",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Introduces the foundational case on delay and duty in criminal justice system"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The duty to ensure prompt trials applies to all actors: defence, Crown, and judges, not just the Crown alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reiterates the duty from Jordan applies to all actors"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court emphasizes cooperation and efficient case management by all parties to ensure timely trials.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Joint trials should be the norm as they improve systemic efficiency and reduce delays.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Despite challenges, Crown, defence, and courts must collaborate proactively in joint trials to respect s. 11(b) rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 11(b) of the Canadian Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "References the constitutional right to a trial within a reasonable time"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court considers if delays from joint prosecution decisions can be discrete exceptional circumstances, focusing on co-accused delays.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Court finds delay from co-accused counsel unavailability is a discrete exceptional circumstance and deducts it from net delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court allows the Crown's appeal, sets aside the stay, and remits the matter for trial.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Facts: Police stopped respondent and co-accused, found cannabis and firearms; charges laid Nov 18, 2021; 18-month Jordan ceiling May 18, 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Establishes 18-month presumptive ceiling for provincial court trials"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "Crown disclosed by Feb 2022; pre-trial conference delayed to July 6, 2022; trial projected as straightforward and short.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "Trial dates delayed due to co-accused counsel unavailability; trial pushed to Oct 2-4, 2023, exceeding 18-month ceiling.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "Case management judge set s. 11(b) application deadline Nov 3, 2022; respondent indicated intent but did not file on time.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 11(b)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Refers to the Charter right at issue"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "Respondent filed s. 11(b) application late in January 2023, months after the deadline set by the judge.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "other",
+   "summary": "Crown sought earlier trial dates; respondent and co-accused counsel had conflicting availabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "other",
+   "summary": "The s. 11(b) stay application was heard March 27, 2023; judgment granting stay rendered June 8, 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "Case management judge deducted four months delay but refused to attribute co-accused counsel's unavailability delay to respondent, granting stay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "Court of Appeal affirmed the stay, applying an individualized approach to delay attribution in joint charges.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Gopie, 2017 ONCA 728, 140 O.R. (3d) 171",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Court of Appeal relied on this case for individualized delay attribution"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Crown appeals, raising two issues for the Court to resolve.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Crown argues delays caused by one accused can be discrete exceptional circumstances; respondent argues for individualized approach.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown's argument for deducting co-accused delay",
+    "Respondent's argument for individualized attribution"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Yusuf, 2021 SCC 2, [2021] 1 S.C.R. 5",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Crown asks Court to resolve question left open in Yusuf"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Crown challenges the scope of the Boulanger/Hanan approach; respondent says declining trial dates is one factor in contextual analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown's argument on Boulanger/Hanan approach",
+    "Respondent's counter on declining dates"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Boulanger, 2022 SCC 2, [2022] 1 S.C.R. 9",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Crown references Boulanger for delay apportionment approach"
+    },
+    {
+     "cite": "R. v. Hanan, 2023 SCC 12, [2023] 1 S.C.R. 467",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Crown references Hanan for delay apportionment approach"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Court will only answer if co-accused caused delay can be a discrete exceptional circumstance for the accused.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Court will review the Jordan framework focusing on duty to collaborate and joint prosecutions' role in efficiency.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Delay characterization and unreasonableness are questions of law reviewed for correctness; factual findings get deference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Boulanger, 2022 SCC 2, at para. 4",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States standard of review for delay characterization"
+    },
+    {
+     "cite": "R. v. Pauls, 2020 ONCA 220, 149 O.R. (3d) 609, at para. 40, aff\u2019d 2021 SCC 2, [2021] 1 S.C.R. 5, at paras. 2\u20113",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms deference to factual findings absent palpable error"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Section 11(b) guarantees trial within reasonable time to protect accused's rights and maintain public confidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27, paras. 20, 22-28",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains purpose of s. 11(b) right"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Section 11(b) right starts when charged and runs until trial conclusion or anticipated conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. J.F., 2022 SCC 17, [2022] 1 S.C.R. 330, at para. 23",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines when s. 11(b) right is engaged"
+    },
+    {
+     "cite": "R. v. MacDougall, [1998] 3 S.C.R. 45, at paras. 11\u201113",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports timing of s. 11(b) right"
+    },
+    {
+     "cite": "R. v. Kalanj, [1989] 1 S.C.R. 1594, at p. 1602",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports timing of s. 11(b) right"
+    },
+    {
+     "cite": "R. v. K.G.K., 2020 SCC 7, [2020] 1 S.C.R. 364, at para. 31",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines end point of s. 11(b) right"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Jordan sets presumptive ceilings: 18 months for provincial court trials, 30 months for superior court or provincial court after preliminary inquiry.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27, para. 46",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "States presumptive ceilings for delay"
+    },
+    {
+     "cite": "R. v. J.F., 2022 SCC 17, para. 26",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Confirms ceilings from Jordan"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Jordan framework application is straightforward.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "First, calculate gross delay from charge to trial end, then subtract defence-attributable delay to get net delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27, para. 60",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Describes calculation of delay"
+    },
+    {
+     "cite": "R. v. Cody, 2017 SCC 31, [2017] 1 S.C.R. 659, at para. 21",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports calculation of delay"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Delay is attributable to defence if waived clearly or caused by defence conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27, para. 61",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines waiver of delay"
+    },
+    {
+     "cite": "R. v. J.F., 2022 SCC 17, para. 47",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports waiver principle"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Defence delay includes unjustifiable conduct and unavailability when Crown and court are ready.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, 2016 SCC 27, para. 66",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines defence delay"
+    },
+    {
+     "cite": "Jordan, 2016 SCC 27, para. 63",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Includes dilatory tactics as defence delay"
+    },
+    {
+     "cite": "R. v. Askov, [1990] 2 S.C.R. 1199, pp. 1227\u201128",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports definition of defence delay"
+    },
+    {
+     "cite": "Jordan, 2016 SCC 27, para. 64",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Includes defence unavailability as delay"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Defence delay excludes legitimate, reasonable conduct and can be apportioned fairly between Crown and defence if both contributed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "defence delay excludes legitimate conduct",
+    "apportionment between Crown and defence possible"
+   ],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines legitimate and reasonable defence delay"
+    },
+    {
+     "cite": "Boulanger, at paras. 5\u20116",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports definition of legitimate defence delay"
+    },
+    {
+     "cite": "Boulanger, at paras. 8\u201110",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports apportionment of delay"
+    },
+    {
+     "cite": "Hanan, at para. 9",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports apportionment of delay"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Defence delay circumstances are not predefined; judges must use contextual, fact-driven analysis and common sense to determine legitimacy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at paras. 64\u201165",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports contextual analysis of defence delay"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Net delay exceeding presumptive ceilings of 18 or 30 months is presumed unreasonable; below is presumed reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Either party can argue delay reasonableness; onus lies on party against presumption, which is not easily rebutted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "parties can argue delay reasonableness",
+    "onus on party against presumption"
+   ],
+   "citations": [
+    {
+     "cite": "J.F., at para. 68",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports argument at second step of Jordan"
+    },
+    {
+     "cite": "Cody, at paras. 22\u201125",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports argument at second step of Jordan"
+    },
+    {
+     "cite": "Jordan, at paras. 47, 67\u201168 and 82\u201183",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports argument at second step of Jordan"
+    },
+    {
+     "cite": "Jordan, at paras. 46\u201148 and 105",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States onus on party against presumption"
+    },
+    {
+     "cite": "Cody, at paras. 23\u201125",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States onus on party against presumption"
+    },
+    {
+     "cite": "Jordan, at paras. 56 and 83",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Presumption not easily rebutted"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Crown can rebut presumptive unreasonable delay by showing discrete exceptional circumstances or case complexity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 56",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States Crown's burden to rebut presumption"
+    },
+    {
+     "cite": "R. v. K.J.M., 2019 SCC 55, [2019] 4 S.C.R. 39, at para. 82",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports Crown's rebuttal methods"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Courts have struggled with 'exceptionality' and 'complexity'; this appeal focuses on discrete exceptional circumstances, not complexity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Vrbanic, 2026 SCC 19",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Discusses case complexity exception"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Discrete exceptional circumstances are unforeseen or unavoidable delays outside Crown's control; courts should not equate exceptionality with rarity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of discrete exceptional circumstances",
+    "courts' misinterpretation of exceptionality"
+   ],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines discrete exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Exceptionality means delays outside Crown's control, not rarity; common events like medical emergencies qualify as discrete exceptional circumstances.",
+   "ideas": "multiple",
+   "idea_list": [
+    "exceptionality not rarity",
+    "examples of discrete exceptional circumstances"
+   ],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies exceptionality definition"
+    },
+    {
+     "cite": "R. v. Klassen, 2018 ABCA 258, 72 Alta. L.R. (6th) 282, at para. 89",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports broader interpretation of exceptionality"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The duty of all criminal justice participants to work diligently and proactively to ensure speedy trials is emphasized.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at paras. 116 and 137",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports duty to expedite trials"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Jordan framework replaced Morin to combat complacency, setting presumptive ceilings where delays become unreasonable, protecting accused and society.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at paras. 37\u201138 and 46",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Describes Jordan framework and ceilings"
+    },
+    {
+     "cite": "R. v. Morin, [1992] 1 S.C.R. 771",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Previous framework replaced by Jordan"
+    },
+    {
+     "cite": "Jordan, at para. 56",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Ceilings mark unreasonable delay"
+    },
+    {
+     "cite": "Jordan, at paras. 27, 2 and 19",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Importance of speedy trials for accused and society"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Jordan imposes a duty on all criminal justice actors to expedite proceedings and comply with delay ceilings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 5, 45 and 116\u201117",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Emphasizes duty of all participants"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Crown counsel, as ministers of justice, have a central role in timely trials but do not bear the burden alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Boucher v. The Queen, [1955] S.C.R. 16, at pp. 23\u201124",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines Crown as ministers of justice"
+    },
+    {
+     "cite": "R. v. Anderson, 2014 SCC 41, [2014] 2 S.C.R. 167, at para. 37",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports Crown's role in timely trials"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Defence must also ensure proceedings move quickly; cooperation is essential to fulfilling s. 11(b) objectives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 5, 45 and 116\u201117",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports defence duty to cooperate"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Illegitimate defence delays must be deducted; accused must be proactive or risk deductions or discrete exceptional circumstance findings.",
+   "ideas": "multiple",
+   "idea_list": [
+    "deductions for illegitimate defence delay",
+    "accused must be proactive"
+   ],
+   "citations": [
+    {
+     "cite": "J.F., at para. 32",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports deductions for defence delay"
+    },
+    {
+     "cite": "R. v. Ste\u2011Marie, 2022 SCC 3, [2022] 1 S.C.R. 14, at para. 11",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports deductions for defence delay"
+    },
+    {
+     "cite": "Cody, at para. 28",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports deductions for defence delay"
+    },
+    {
+     "cite": "J.F., at para. 33",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports finding defence conduct as exceptional circumstance"
+    },
+    {
+     "cite": "Cody, at para. 33",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports finding defence conduct as exceptional circumstance"
+    },
+    {
+     "cite": "Jordan, at para. 21",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "s. 11(b) is a shield, not a sword"
+    },
+    {
+     "cite": "Morin, at pp. 801\u20112",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "s. 11(b) is a shield, not a sword"
+    },
+    {
+     "cite": "Askov, at p. 1222",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "s. 11(b) is a shield, not a sword"
+    }
+   ]
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Heightened duty to collaborate in complex cases; parties should plan, admit issues early, and use efficient procedures like blended voir dire.",
+   "ideas": "multiple",
+   "idea_list": [
+    "heightened collaboration in complex cases",
+    "use of efficient procedural mechanisms"
+   ],
+   "citations": [
+    {
+     "cite": "Jean v. R., 2020 QCCA 1455, at paras. 30 and 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports use of blended voir dire"
+    },
+    {
+     "cite": "R. v. Cochrane, 2018 ABCA 80, 359 C.C.C. (3d) 210, at para. 5",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports use of blended voir dire"
+    },
+    {
+     "cite": "R. v. Furlong, 2012 NLCA 29, 323 Nfld. & P.E.I.R. 77, at para. 28",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports use of blended voir dire"
+    },
+    {
+     "cite": "R. v. Felderhof (2003), 68 O.R. (3d) 481 (C.A.), at para. 57",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports written submissions to shorten proceedings"
+    },
+    {
+     "cite": "R. v. Haevischer, 2023 SCC 11, [2023] 1 S.C.R. 416, at para. 102",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports written submissions to shorten proceedings"
+    },
+    {
+     "cite": "R. v. Di Paola, 2025 SCC 31, at para. 52",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports considering duplicative counts"
+    },
+    {
+     "cite": "R. v. R.V., 2021 SCC 10, [2021] 1 S.C.R. 131, at para. 78",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports considering duplicative counts"
+    },
+    {
+     "cite": "R. v. Sciascia, 2017 SCC 57, [2017] 2 S.C.R. 539, at para. 32",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports considering duplicative counts"
+    }
+   ]
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Joint trials are important for efficient criminal justice and align with Jordan's purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Joint trials play a crucial role in achieving efficient criminal justice and are strongly preferred.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Joint charging and trials are strongly preferred; severance only if joint trial causes injustice to accused.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Phillips v. The Queen, [1983] 2 S.C.R. 161, at p. 169",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports joint charging and trial preference"
+    },
+    {
+     "cite": "R. v. Chow, 2005 SCC 24, [2005] 1 S.C.R. 384, at para. 10",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports joint charging and trial preference"
+    },
+    {
+     "cite": "R. v. S.J.L., 2009 SCC 14, [2009] 1 S.C.R. 426, at para. 50",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports joint charging and trial preference"
+    },
+    {
+     "cite": "R. v. Crawford, [1995] 1 S.C.R. 858, at para. 31",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Severance only if joint trial causes injustice"
+    },
+    {
+     "cite": "Sciascia, at para. 33",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Joint trials are the rule"
+    },
+    {
+     "cite": "Chow, at paras. 10 and 47",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Joint trials are the rule"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Joint trials promote proper and efficient administration of justice, a compelling policy consideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sciascia, at para. 33",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports joint trials' policy rationale"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Joint trials conserve judicial resources, reduce costs, streamline issues, and serve more litigants efficiently, benefiting society.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Last, 2009 SCC 45, [2009] 3 S.C.R. 146, at para. 16",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports societal interest in efficient justice"
+    },
+    {
+     "cite": "R. v. Cowan, 2021 SCC 45, [2021] 3 S.C.R. 323, at para. 63",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports societal interest in efficient justice"
+    }
+   ]
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Joint trials better reveal truth by having all accused and witnesses testify once, reducing memory issues and inconsistent testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Crawford, [1995] 1 S.C.R. 858, at para. 30",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports truth-seeking function of joint trials"
+    },
+    {
+     "cite": "R. v. Jaser, 2024 ONCA 448, 172 O.R. (3d) 1, at paras. 155\u201156",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports truth-seeking function of joint trials"
+    }
+   ]
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Joint trials reduce delays and burdens on participants, enhancing public confidence in the justice system.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Joint trials ensure efficiency, reduce delays and costs, enhance truth-seeking, and safeguard public confidence; severance is rare.",
+   "ideas": "multiple",
+   "idea_list": [
+    "benefits of joint trials",
+    "severance is exception"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Vassell, 2016 SCC 26, [2016] 1 S.C.R. 625, at para. 10",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Notes severance is exception"
+    },
+    {
+     "cite": "Jordan, at para. 129",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Notes severance may be desirable in limited cases"
+    }
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Joint trials may lengthen individual proceedings but create systemic efficiencies protecting s. 11(b) rights overall.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Severance cannot be ordered just to save time for one accused if it causes delays for others; all accused have s. 11(b) rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Raising severance as routine would increase systemic delays; Jordan must balance s. 11(b) rights and joint trial benefits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Crawford, at paras. 33\u201134",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports balancing s. 11(b) rights and joint trials"
+    },
+    {
+     "cite": "Dagenais v. Canadian Broadcasting Corp., [1994] 3 S.C.R. 835, at p. 877",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports balancing s. 11(b) rights and joint trials"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "An accused's s. 11(b) right is individual and constitutionally guaranteed; it cannot be sacrificed for efficiency.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 79",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Affirms individual s. 11(b) right"
+    },
+    {
+     "cite": "Vassell, at paras. 4\u20115",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Affirms individual s. 11(b) right"
+    }
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Presumptive ceilings remain rebuttable; delays from joint trials can be exceptional circumstances making delay reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Ny, 2016 ONSC 8031, 343 C.C.C. (3d) 512, at para. 47",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Reports argument that joint trial delays can be exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Ontario Court of Appeal in Tran held joint trial delays can be discrete exceptional circumstances if four criteria are met.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Tran, 2023 ONCA 532, 429 C.C.C. (3d) 55",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports Ontario Court of Appeal decision on joint trial delays"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Singh reaffirmed Tran, emphasizing balancing accused's s. 11(b) rights with society's interest in joint trials to avoid systemic delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Singh, 2025 ONCA 843",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports reaffirmation of Tran and balancing interests"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The Ontario and British Columbia Courts of Appeal recognize scheduling conflicts in joint trials as exceptional circumstances, citing R. v. Singh.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Ontario and BC Courts adopt similar criteria",
+    "Delays from co-accused's adjournments can be exceptional circumstances",
+    "Severance not always appropriate",
+    "Crown took reasonable steps to expedite"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Singh, 2016 BCCA 427, 344 C.C.C. (3d) 516",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "BC Court of Appeal held scheduling conflicts can be exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "BC Court of Appeal decisions hold scheduling conflicts between defence counsel can be discrete exceptional circumstances deductible from net delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Rai, 2019 BCCA 377, 381 C.C.C. (3d) 1, at paras. 153\u201163",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Scheduling conflicts between defence counsel can be exceptional circumstances"
+    },
+    {
+     "cite": "R. v. Eheler, 2021 BCCA 316, 74 C.R. (7th) 29, at para. 74",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports scheduling conflicts as exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "Other appellate courts recognize delays from co-accused's conduct as discrete exceptional circumstances deductible from net delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Klassen",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Delays from co-accused conduct can be discrete exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court agrees with the approach to exceptional circumstances in joint trials outlined by Paciocco J.A. in Tran and adopts its four criteria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "First criterion: Crown must show joint trial is in the interests of justice considering various relevant factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Last, at para. 18",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Lists factors relevant to interests of justice in joint trials"
+    }
+   ]
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "Judges should consider efficiency gains and negative effects of severance; presumption favors joint trials despite additional delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vassell, para. 6",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Delay from multiple co-accused must be accepted in reasonable time analysis"
+    }
+   ]
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Presumption favoring joint trials is not absolute; joint trial may be unjust if co-accused repeatedly delays proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vassell, at paras. 5\u20117",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Illustrates when joint trial may not be in interests of justice"
+    }
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Second criterion: Crown must show delay arises directly from joint proceedings, but other reasons may also prove discrete exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "Third criterion: Crown must show exceptional circumstance was reasonably unforeseen or reasonably unavoidable, acknowledging delay from multiple accused is a fact of life.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vassell, at para. 6",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Delay from multiple accused is a fact of life"
+    },
+    {
+     "cite": "Jordan, at para. 77",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Exceptional circumstances must be unforeseen or unavoidable"
+    }
+   ]
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Fourth criterion: Crown must show it took reasonable steps to minimize delay from joint proceedings, not requiring perfection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, para. 70",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Crown must take reasonable steps to minimize delay"
+    }
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "If Crown meets four criteria, delay from joint proceedings is a discrete exceptional circumstance; Justice Karakatsanis disagrees with first two criteria.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Four criteria must be met for discrete exceptional circumstance",
+    "Justice Karakatsanis opposes first two criteria"
+   ],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The presumption that joint trials are in the interests of justice is strong but not redundant; defence can rebut it by showing joint trial is unjust.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Presumption favors joint trials",
+    "Defence can rebut presumption"
+   ],
+   "citations": [
+    {
+     "cite": "Chow, at para. 47",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Presumption applies when offences arise from same event"
+    },
+    {
+     "cite": "Crawford, at para. 30",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports presumption of joint trials"
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Showing delay caused by joint trial is necessary; causality is implicit in Jordan framework and made explicit in Tran.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 74,
+   "speaker": "other",
+   "summary": "The Court's intervention is warranted under the circumstances of this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The case management judge erred by not concluding joint trial was in interests of justice and that co-accused counsel unavailability could be a discrete exceptional circumstance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The case management judge erred in law by ignoring defence inaction's relevance to Crown's conduct and s. 11(b) deadline non-compliance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Judge erred by ignoring joint trial interests",
+    "Judge erred by ignoring defence inaction relevance"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Shepherd, 2009 SCC 35, [2009] 2 S.C.R. 527, at para. 20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defence inaction relevant to Crown's conduct"
+    },
+    {
+     "cite": "R. v. Beaver, 2022 SCC 54, [2022] 3 S.C.R. 718, at para. 73",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports relevance of defence inaction"
+    },
+    {
+     "cite": "Sinclair v. Venezia Turismo, 2025 SCC 27, at para. 42",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports relevance of defence inaction"
+    }
+   ]
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The case management judge erred in finding no discrete exceptional circumstances but lacked guidance from this Court or Court of Appeal at the time.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The Crown satisfied the four Tran criteria: joint trial in interests of justice, delay from joint trial, delay unavoidable, and Crown took reasonable steps to minimize delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "First criterion met: joint trial is in interests of justice due to factual nexus and no injustice risk; respondent's counsel agreed joint trial reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "Second criterion met: delay arose directly from joint trial due to scheduling conflict between defence counsel causing three weeks delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "Third criterion met: delay was unavoidable due to scheduling conflict; Crown had no control over defence counsel schedules.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "Fourth criterion met: Crown could not reasonably have remedied delay despite some fault; took reasonable steps after s. 11(b) application filed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, para. 70",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Crown held to reasonableness standard, not perfection"
+    }
+   ]
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The three-week delay from scheduling conflict is a discrete exceptional circumstance and must be deducted, bringing total delay under Jordan ceiling.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "No respondent argument shows delay unreasonable; thus, delay is reasonable and stay of proceedings must be set aside.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "Despite finding no ceiling breach, court highlights case management's role and defence conduct's relevance to Crown's mitigation efforts.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Case management protects s. 11(b) rights",
+    "Defence conduct informs Crown's reasonableness analysis"
+   ],
+   "citations": []
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "Respondent counsel's failure to meet 120-day case management deadline was unjustified and unreasonable, undermining Jordan's call to action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "Case management decisions are essential to ensure compliance with Jordan ceilings by focusing parties on delay sources and expediting proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Morton, 2020 ABCA 250, 391 C.C.C. (3d) 288, at para. 61",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case management helps ensure Jordan compliance"
+    },
+    {
+     "cite": "R. v. Kazman, 2020 ONCA 22, 452 C.R.R. (2d) 185, at para. 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case management focuses on delay sources"
+    },
+    {
+     "cite": "R. v. Anderson, 2025 ONCA 172, 446 C.C.C. (3d) 476, at para. 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case management expedites proceedings"
+    },
+    {
+     "cite": "Jordan, at paras. 70 and 114",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Jordan endorses case management"
+    },
+    {
+     "cite": "Cody, at para. 38",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case management is a powerful tool"
+    },
+    {
+     "cite": "Haevischer, at para. 76",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case management minimizes delays"
+    }
+   ]
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "Case management decisions must be binding; parties must cooperate to prevent ignoring deadlines and wasting resources.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Oliver (2005), 194 O.A.C. 284 (C.A.), at para. 29",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case management decisions must be binding"
+    },
+    {
+     "cite": "Anderson (C.A.), at para. 25",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Parties must cooperate in case management"
+    },
+    {
+     "cite": "Kazman, para. 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "No ignoring court orders and deadlines"
+    }
+   ]
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "Parties may fail deadlines for valid reasons but must act reasonably and promptly notify court to seek extensions or solutions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Oliver, at para. 29",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Parties must notify court promptly if unable to meet deadlines"
+    }
+   ]
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "While Crown's obligation to act reasonably is independent, defence inaction can affect delay attribution and Crown's mitigation reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown's obligation independent of accused's assertion",
+    "Defence inaction relevant to delay attribution and Crown's reasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "J.F., at para. 56",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Both Crown and defence must take proactive measures"
+    },
+    {
+     "cite": "J.F., at para. 58",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Accused cannot do nothing when s. 11(b) right threatened"
+    }
+   ]
+  },
+  {
+   "para": 91,
+   "speaker": "party",
+   "summary": "Respondent's counsel delayed filing the s. 11(b) application past deadlines without informing Crown or court, leading Crown to believe it was abandoned.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent counsel delayed filing",
+    "Crown reasonably believed abandonment",
+    "Respondent not ready despite Crown's efforts"
+   ],
+   "citations": []
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "Court notes contextual factors like COVID-19 and joint proceedings affect reasonableness of Crown's steps; Crown not obliged to chase defence missing deadlines.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Contextual factors affect reasonableness",
+    "Crown not required to chase defence",
+    "Late filing affects Crown's conduct analysis"
+   ],
+   "citations": [
+    {
+     "cite": "K.G.K.",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports reasonableness analysis under s. 11(b)"
+    },
+    {
+     "cite": "R. v. Allen (1996), 92 O.A.C. 345, at para. 27",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports that no case is isolated in resource demands"
+    }
+   ]
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "Respondent's counsel gave some legitimate reasons for delay but admitted filing application at a convenient time, which is not a valid excuse for missing deadlines.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 94,
+   "speaker": "court",
+   "summary": "Respondent's counsel emphasized case management's importance but ignored case management judge's directive, contradicting her own statements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "Crown did not seek to attribute respondent's delay as defence delay; co-accused delays may be attributed if other accused fails to act reasonably.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown did not seek defence delay deduction",
+    "Co-accused delay attribution explained"
+   ],
+   "citations": [
+    {
+     "cite": "R. v. Chung, 2021 ONCA 188, 402 C.C.C. (3d) 145, at para. 195",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains co-accused delay attribution"
+    },
+    {
+     "cite": "R. v. Potter, 2020 NSCA 9, 385 C.C.C. (3d) 1, at paras. 361-63",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains co-accused delay attribution"
+    },
+    {
+     "cite": "R. v. Albinowski, 2018 ONCA 1084, 371 C.C.C. (3d) 190, at para. 38",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains co-accused delay attribution"
+    }
+   ]
+  },
+  {
+   "para": 96,
+   "speaker": "court",
+   "summary": "Court cites Ste-Marie to support that inaction by accused in face of co-accused delay counts as defence delay, consistent with Jordan's individualized approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ste-Marie",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports attributing delay to accused's inaction consistent with Jordan"
+    }
+   ]
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "Respondent gave verbal notice of s. 11(b) application in July 2022 but filed late with no communication, which was unjustified; Crown declined to treat delay as defence delay.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent's late filing unjustified",
+    "Crown declined defence delay deduction"
+   ],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports that unreasonable accused actions include late notice of Charter applications"
+    }
+   ]
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "Court would allow Crown's appeal, set aside stay of proceedings, and remit matter for trial.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 99,
+   "speaker": "court",
+   "summary": "Court states that staying criminal cases before merits harms accused, victims, and public confidence in justice system.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "Court emphasizes right to trial within reasonable time protects accused and public confidence; delays harm all parties and system fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "Court recalls Jordan created presumptive ceilings to address delay and incentivize cultural change in criminal justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Jordan, 2016 SCC 27, [2016] 1 S.C.R. 631",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Introduced presumptive ceilings for delay"
+    }
+   ]
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "Court notes Jordan's flexibility means stays don't always follow ceiling breaches, but some close cases still result in stays, including this one.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "To justify delay over ceiling, Crown must show reasonable steps taken for exceptional circumstances; defence conduct informs but Crown bears duty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "Court finds Crown did not take reasonable steps to mitigate delay despite knowing trial dates exceeded ceiling and defence's s. 11(b) application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Framework for exceptional circumstances and Crown's duty"
+    }
+   ]
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "Defence filed s. 11(b) application late but did not prevent Crown from acting; Crown responsible for failing to meet Jordan limits; appeal dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 106,
+   "speaker": "other",
+   "summary": "Background: Jacques-Taylor and co-accused charged with firearms offences in Nov 2021; charges stayed before trial in Oct 2023 after 22 months.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 107,
+   "speaker": "other",
+   "summary": "Trial dates set in July 2022, about 8 months post-charge; scheduling complicated by co-accused counsel availability; final dates Oct 2-4, 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 108,
+   "speaker": "other",
+   "summary": "Case management judge set 120-day deadline for s. 11(b) applications; Jacques-Taylor gave notice shortly after but filed notice and full application late in Jan and Feb 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 109,
+   "speaker": "other",
+   "summary": "Crown proposed earlier trial dates in April and July 2023; scheduling conflicts prevented agreement on these dates.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 110,
+   "speaker": "below",
+   "summary": "Application judge declined to hold Jacques-Taylor accountable for late s. 11(b) filing, finding Crown had notice and late filing did not impact timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 111,
+   "speaker": "below",
+   "summary": "Application judge found total delay 18 months and two weeks, a borderline case, but stayed proceedings due to Crown's failure to mitigate delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 112,
+   "speaker": "below",
+   "summary": "Court of Appeal dismissed Crown's appeal, agreeing application judge was correct on co-accused delay and Crown's mitigation options.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "Section 11(b) protects accused's liberty interest and community's interest in fair, timely trials, citing Jordan and Askov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at paras. 25-26",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains s. 11(b) interests"
+    },
+    {
+     "cite": "R. v. Askov, [1990] 2 S.C.R. 1199, at pp. 1219-20",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains s. 11(b) interests"
+    }
+   ]
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "Jordan sets presumptive ceilings of 18 months in provincial court and 30 months in superior court, shifting burden to Crown after ceiling exceeded.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sets presumptive ceilings and burden shift"
+    }
+   ]
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "Exceptional circumstances must be unforeseen or unavoidable and Crown must take reasonable steps to avoid delay; success not required, only reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 69",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines exceptional circumstances"
+    },
+    {
+     "cite": "Jordan, at para. 70",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Requires reasonable steps by Crown"
+    }
+   ]
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "Crown must mitigate delay from exceptional circumstances and prioritize faltering cases; mitigable delay not subtracted from total delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 75",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Crown's duty to mitigate delay"
+    }
+   ]
+  },
+  {
+   "para": 117,
+   "speaker": "court",
+   "summary": "If Crown shows discrete unforeseen event caused delay and took reasonable steps, that delay is subtracted from total time under Jordan's quantitative approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 118,
+   "speaker": "party",
+   "summary": "Crown argues co-accused delay is a discrete exceptional circumstance, generally unforeseen and unavoidable, and Crown could not have avoided delay here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 119,
+   "speaker": "party",
+   "summary": "Crown contends defence conduct shows Crown reasonably assumed defence accepted pace due to late s. 11(b) filing and no severance request.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 120,
+   "speaker": "party",
+   "summary": "Jacques-Taylor argues joint trials should not harm s. 11(b) rights; co-accused delay is within Crown's control and not an exceptional circumstance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 121,
+   "speaker": "party",
+   "summary": "Mr. Jacques-Taylor argues the Crown failed to take reasonable steps to address delay after trial dates were assigned, noting defence never waived s. 11(b) rights.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Jacques-Taylor's argument on Crown's failure",
+    "Defence's s. 11(b) rights not waived"
+   ],
+   "citations": []
+  },
+  {
+   "para": 122,
+   "speaker": "court",
+   "summary": "The court agrees co-accused scheduling delay can be an exceptional circumstance if unforeseeable and unremediable, citing Jordan para 69.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines exceptional circumstances test for delay"
+    }
+   ]
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "The court rejects Ontario Court of Appeal's added preconditions for exceptional circumstances in joint trials from R. v. Tran as unnecessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Tran, 2023 ONCA 532, 429 C.C.C. (3d) 55",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Rejects added preconditions for exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 124,
+   "speaker": "court",
+   "summary": "The court holds joint trials are presumed in the interests of justice, so Crown need not prove this each time for scheduling delay claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Chow, 2005 SCC 24, [2005] 1 S.C.R. 384, at para. 47",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports presumption that joint trials are in interests of justice"
+    }
+   ]
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The court states no special rule for joint trials; delay must be unforeseeable or unavoidable and unremediable to qualify as exceptional.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 126,
+   "speaker": "court",
+   "summary": "The court explains severance to avoid delay is generally unreasonable due to risks and system preference for joint trials, except in complex cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 127,
+   "speaker": "court",
+   "summary": "The court cautions that co-accused delay is not automatically exceptional; Crown must prove exceptional circumstances under Jordan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Dos Santos, 2025 ONCA 598, 178 O.R. (3d) 481, at para. 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports Crown's burden to prove exceptional circumstances"
+    }
+   ]
+  },
+  {
+   "para": 128,
+   "speaker": "court",
+   "summary": "The court emphasizes the Crown alone must take reasonable steps to address exceptional circumstances causing delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 70",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States Crown's obligation to avoid delay"
+    }
+   ]
+  },
+  {
+   "para": 129,
+   "speaker": "party",
+   "summary": "The Crown argues its reasonable steps depend on defence's s. 11(b) application timing and absence of application implies accused's contentment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "A.F., at para. 35",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Crown's argument on accused's failure to apply affecting reasonable steps"
+    }
+   ]
+  },
+  {
+   "para": 130,
+   "speaker": "party",
+   "summary": "The Crown contends it must rely on accused to signal s. 11(b) jeopardy level, as accused has information Crown lacks.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "A.F., at para. 34",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Crown's argument on accused's role in signaling delay"
+    }
+   ]
+  },
+  {
+   "para": 131,
+   "speaker": "court",
+   "summary": "The court disagrees, holding Crown's obligation to take reasonable steps does not depend on accused's s. 11(b) assertion timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 132,
+   "speaker": "court",
+   "summary": "The court explains Jordan shifts burden to Crown after ceiling, requiring Crown to prove exceptional circumstances and reasonable steps, not defence action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at paras. 116-17",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains Jordan's burden-shifting framework"
+    },
+    {
+     "cite": "Jordan, at para. 81",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States Crown's burden to justify delay exceeding ceiling"
+    }
+   ]
+  },
+  {
+   "para": 133,
+   "speaker": "court",
+   "summary": "The court rejects Crown's view that accused's inaction excuses Crown's duty to mitigate delay exceeding the ceiling under Jordan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 134,
+   "speaker": "court",
+   "summary": "The court holds Crown does not need accused's input to assess s. 11(b) jeopardy because Jordan's ceilings make delay presumptively unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 61",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines presumptive unreasonableness after 18 months"
+    }
+   ]
+  },
+  {
+   "para": 135,
+   "speaker": "court",
+   "summary": "The court states only clear and unequivocal waiver permits inferring accused's contentment with delay; silence or inaction is insufficient.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 61",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines waiver standard"
+    },
+    {
+     "cite": "R. v. J.F., 2022 SCC 17, [2022] 1 S.C.R. 330, at para. 47",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms silence is not waiver"
+    },
+    {
+     "cite": "Askov, at pp. 1228-29",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports no waiver by silence"
+    }
+   ]
+  },
+  {
+   "para": 136,
+   "speaker": "court",
+   "summary": "The court warns that Crown's approach would encourage complacency Jordan sought to prevent by requiring proactive delay mitigation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 41",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains need for proactive delay prevention"
+    }
+   ]
+  },
+  {
+   "para": 137,
+   "speaker": "court",
+   "summary": "The court rejects Crown's suggestion that accused's failure to seek severance supports reasonableness of joint trial decision due to rarity of severance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Chow, at para. 47",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports joint trials as norm, severance as exception"
+    }
+   ]
+  },
+  {
+   "para": 138,
+   "speaker": "court",
+   "summary": "The court notes reasonable steps vary; sometimes Crown cannot remedy delay but still meets burden if it shows so.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at para. 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonable steps requirement"
+    },
+    {
+     "cite": "R. v. Loiacono, 2023 ABCA 157, at para. 28",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Example where Crown met reasonable steps burden"
+    }
+   ]
+  },
+  {
+   "para": 139,
+   "speaker": "court",
+   "summary": "The court states accused must act diligently but s. 11(b) right is constitutional and only clear waiver or defence delay reduces it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan, at paras. 61, 64",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines waiver and defence delay requirements"
+    }
+   ]
+  },
+  {
+   "para": 140,
+   "speaker": "court",
+   "summary": "The court finds Crown failed to take reasonable steps to address co-accused counsel unavailability delay, acting too late.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 141,
+   "speaker": "court",
+   "summary": "The court holds Mr. Jacques-Taylor's missed filing deadline does not excuse Crown's inaction or count as defence delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 142,
+   "speaker": "court",
+   "summary": "The court states Crown must act once ceiling is breached; accused's missed deadline is not clear waiver or excuse for Crown's inaction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jordan",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Framework for delay ceiling and reasonable steps"
+    }
+   ]
+  },
+  {
+   "para": 143,
+   "speaker": "court",
+   "summary": "The court affirms trial judges can set s. 11(b) application deadlines to prevent delay and expedite trials, citing R. v. Varennes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Varennes, 2025 SCC 22, at paras. 82, 86 and 103-5",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports use of deadlines to prevent delay"
+    }
+   ]
+  },
+  {
+   "para": 144,
+   "speaker": "court",
+   "summary": "The court states filing deadlines are important; missed deadlines causing delay can be defence delay, but here no delay was caused by missed deadline.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Bird, 2019 SCC 7, [2019] 1 S.C.R. 409, at para. 1",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports obligation to follow court orders"
+    }
+   ]
+  },
+  {
+   "para": 145,
+   "speaker": "court",
+   "summary": "The court concludes Crown did not meet burden to take reasonable steps or show inability to do so and dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

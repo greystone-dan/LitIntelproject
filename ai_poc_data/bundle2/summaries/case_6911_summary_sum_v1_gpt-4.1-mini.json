@@ -1,0 +1,1026 @@
+{
+ "case_id": 6911,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.012199600000000001
+ },
+ "verification": {
+  "paragraphs": 78,
+  "summaries": 78,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 17,
+  "regex_citations": 14,
+  "regex_addressed": 14,
+  "pinpoints": 9,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 10,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 17,
+  "rebuttals": 15,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 36,
+   "neutral_citation": "2013 FC 445",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 60,
+   "neutral_citation": "2016 FC 1121",
+   "para_start": 24,
+   "para_end": 24
+  },
+  {
+   "citing_para": 60,
+   "neutral_citation": "2018 FC 924",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 61,
+   "neutral_citation": "2018 FC 924",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 61,
+   "neutral_citation": "2021 FC 197",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 65,
+   "neutral_citation": "2015 FC 145",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 68,
+   "neutral_citation": "2016 FC 1357",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 68,
+   "neutral_citation": "2019 FC 980",
+   "para_start": 16,
+   "para_end": 16
+  },
+  {
+   "citing_para": 72,
+   "neutral_citation": "2007 FC 448",
+   "para_start": 26,
+   "para_end": 26
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns judicial review of visa officer decisions denying permanent resident visa applications of Pakistani Christian minority applicants fearing religious persecution. The applicants challenged the visa officer's adverse credibility findings and failure to assess the core refugee claim, while the respondent defended the officer's credibility assessment. The Federal Court found the visa officer's decision unreasonable for focusing on minor inconsistencies and ignoring the main claim, granted judicial review, set aside the decisions, and ordered redetermination by a different officer.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 31,
+    "by": "Applicants",
+    "text": "lack of independent credibility assessment of Mr. Rafi's evidence"
+   },
+   {
+    "id": "P2",
+    "para": 41,
+    "by": "Applicants",
+    "text": "unreasonable due to microscopic credibility assessment, failure to assess core claim, interpreter misunderstandings, ignoring material evidence"
+   },
+   {
+    "id": "P3",
+    "para": 42,
+    "by": "Applicants",
+    "text": "procedural fairness breach due to unanticipated interview schedule change causing stress"
+   },
+   {
+    "id": "P4",
+    "para": 49,
+    "by": "Applicants",
+    "text": "Officer focused on peripheral issues and ignored risk as Christian minorities"
+   },
+   {
+    "id": "P5",
+    "para": 50,
+    "by": "Applicants",
+    "text": "contest all four adverse credibility findings"
+   },
+   {
+    "id": "P6",
+    "para": 51,
+    "by": "Applicants",
+    "text": "discrepancy about bathroom door locking trivializes claim"
+   },
+   {
+    "id": "P7",
+    "para": 52,
+    "by": "Applicants",
+    "text": "phone search discrepancy is minor detail from seven years prior"
+   },
+   {
+    "id": "P8",
+    "para": 53,
+    "by": "Applicants",
+    "text": "consistent testimony on medical treatment despite alleged inconsistency"
+   },
+   {
+    "id": "P9",
+    "para": 54,
+    "by": "Applicants",
+    "text": "unreasonable to doubt letter authenticity due to English writing"
+   },
+   {
+    "id": "P10",
+    "para": 55,
+    "by": "Applicants",
+    "text": "interpreter testimony risks innocent misunderstanding; peripheral details irrelevant"
+   },
+   {
+    "id": "P11",
+    "para": 56,
+    "by": "Applicants",
+    "text": "Officer failed to assess central claim and forward-looking risk as Christians"
+   },
+   {
+    "id": "P12",
+    "para": 57,
+    "by": "Respondent",
+    "text": "Officer best placed to assess credibility, explained concerns, allowed responses"
+   },
+   {
+    "id": "P13",
+    "para": 58,
+    "by": "Respondent",
+    "text": "Applicants' responses vague, evasive, explanations illogical"
+   },
+   {
+    "id": "P14",
+    "para": 59,
+    "by": "Respondent",
+    "text": "no obligation to assess rest of claim once credibility rejected"
+   },
+   {
+    "id": "P15",
+    "para": 70,
+    "by": "Applicants",
+    "text": "schedule change unexplained, no offer of more preparation time, causing unfairness"
+   },
+   {
+    "id": "P16",
+    "para": 71,
+    "by": "Respondent",
+    "text": "schedule change did not breach fairness; no evidence of stress; notice given; applicants agreed"
+   },
+   {
+    "id": "P17",
+    "para": 31,
+    "by": "Applicants",
+    "text": "identical issues raised; Mr. Rafi adds claim about lack of independent credibility assessment"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 43,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P7",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P8",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P9",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P10",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P11",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 72,
+    "answers": "P15",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 73,
+    "answers": "P15",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 74,
+    "answers": "P15",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 57,
+    "answers": "P12",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 58,
+    "answers": "P13",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 59,
+    "answers": "P14",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicants, Stela Akhtar and her nephew Saleem Rafi, are Pakistani Christian minorities residing in Thailand fearing religious persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicants seek judicial review of a visa officer's November 15, 2019 decision denying their permanent resident visa applications under the Convention Refugee Abroad and Country of Asylum classes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 139(1)(e) and sections 145 and 147 of the Immigration and Refugee Protection Regulations, SOR/2002-227 [IRPR]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cites relevant IRPR provisions for visa requirements"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The visa officer found discrepancies between the Applicants' accounts of a robbery incident and deemed them not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court finds the visa officer's decision unreasonable for focusing on minor issues and ignoring the main refugee claim basis, granting judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicants are Pakistani citizens from a Christian family in Faisalabad who lived there until 2012 before residing in Thailand.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Ms. Akhtar owned a global import/export company employing Mr. Rafi and was well known in her community for business success.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Ms. Akhtar testified that protests erupted in Pakistan after an anti-Islam movie, targeting their Christian family in a Muslim majority area.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On September 29, 2012, the Applicants' home was robbed at gunpoint by 3-4 armed intruders who assaulted Mr. Rafi and locked them in a bathroom.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Applicants filed a police report (FIR) about the robbery, but no action was taken by authorities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Ms. Akhtar received a threatening letter from Lashkar-e-Taiba demanding money or threatening kidnapping and killing of her family.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Applicants fled Pakistan to Thailand on December 7, 2012, lived there without status, and had their UNHCR refugee claim denied.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "In 2018, a group in Alberta applied to sponsor the Applicants; they were interviewed in Bangkok on October 1, 2019 with an Urdu interpreter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Applicants' permanent resident visa application was denied by letter dated November 15, 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Applicants received identical refusal letters for their visa applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The visa officer refused the Applicants' permanent resident visa applications under the Convention Refugees Abroad and Country of Asylum classes per IRPR sections 145 and 147.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "sections 145 and 147 of the IRPR",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cites IRPR provisions under which refusal was made"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The refusal letter states credibility issues with Applicants' accounts on being locked in bathroom, phone searches, medical treatment, and threatening letter, leading to refusal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "GCMS notes show the officer's negative credibility finding was based on discrepancies between Ms. Akhtar and Mr. Rafi's accounts of the incident.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "Both Applicants testified they were locked in a bathroom for about 20 minutes after being assaulted during the robbery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "Ms. Akhtar and Mr. Rafi gave inconsistent answers about whether the bathroom door was locked or just closed during the robbery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The officer found the confusion about the bathroom door locking raised doubt about the genuineness of that part of the account.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "Ms. Akhtar gave inconsistent answers about whether they searched for Mr. Rafi's phone after the robbery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "Mr. Rafi initially said they searched for Ms. Akhtar's phone together and his phone alone, later saying they searched together for his phone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "Ms. Akhtar later clarified there was no discrepancy: they searched for her phone first, then Mr. Rafi's phone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The officer found the Applicants' responses about phone searches illogical and confused but gave this issue limited weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "Mr. Rafi explained he had pre-existing injuries worsened by the robbery and planned to see a doctor in a few days for treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "Ms. Akhtar said they did not seek immediate special medical treatment but had his injuries examined during routine treatment days later.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The officer found the medical treatment explanation illogical and suspected the account was rehearsed, doubting its credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The officer found it unlikely the threatening letter would be in Urdu but address Ms. Akhtar's name in English, doubting the letter's authenticity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "other",
+   "summary": "At the hearing's start, counsel raised missing pages in the CTR; the hearing was adjourned until the pages were filed, then resumed on September 23, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "other",
+   "summary": "Two preliminary matters remain to be addressed, including consolidation of files.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "party",
+   "summary": "Applicants submit identical issues; Mr. Rafi adds a claim about lack of independent credibility assessment of his evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' identical issues",
+    "Mr. Rafi's additional credibility issue"
+   ],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "other",
+   "summary": "Two related matters with similar facts and arguments were heard together by consent; one combined decision will be issued.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "Applicants filed an affidavit from Helen MacDonald, representative of the Sponsorship Agreement Holder in their sponsorship application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "MacDonald's affidavit included her interpretation of a medical document based on her expertise as a speech pathologist and rehabilitation professional.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The original medical document, a handwritten English assessment of Mr. Rafi's symptoms from 2012, was filed without an affidavit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the medical document is inadmissible because judicial review is limited to the record before the decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sedighi v Canada (Citizenship and Immigration), 2013 FC 445 at para 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Limits judicial review to the record before the decision-maker"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The MacDonald affidavit does not meet recognized exceptions to the rule limiting evidence on judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Association of Universities and Colleges of Canada v Canadian Copyright Licensing Agency, 2012 FCA 22",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines exceptions to evidence admissibility on judicial review"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Although the MacDonald affidavit is excluded, the record contains an interpretation of Mr. Rafi's medical evidence at the time of the robbery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "below",
+   "summary": "Mr. Rafi's Schedule A form stated he suffered a beating after a brain injury from a 2012 accident, with medical evidence of moderate brain injury affecting memory.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Officer was required to consider the medical information in their assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Applicants argue the Officer's decision is unreasonable due to a microscopic credibility assessment, failure to assess the claim's core, interpreter misunderstandings, and ignoring material evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Unreasonable microscopic credibility assessment",
+    "Failure to assess claim's core",
+    "Interpreter misunderstanding possibility",
+    "Ignoring material evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "Applicants challenge procedural fairness due to an unanticipated interview schedule change causing stress without detailed explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court finds the Decision unreasonable based on the Officer's microscopic credibility assessment and failure to assess the claim's central basis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court declines to consider the other two grounds of unreasonableness or procedural fairness raised by the Applicants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The Supreme Court in Vavilov confirmed judicial review is presumed reasonable standard, with burden on challenger to prove unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets standard of review as reasonableness with burden on challenger"
+    }
+   ]
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "A reasonable decision must show justification, transparency, and intelligibility; serious shortcomings justify setting it aside.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines criteria for reasonableness in decisions"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Reasonable decisions have coherent, rational analysis justified by facts and law constraining the decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at paras 15 and 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains characteristics of reasonable decisions"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Procedural fairness requires the applicant to know the case and have a fair chance to respond; no standard of review applies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies procedural fairness principles and review approach"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "Applicants argue the Officer's negative credibility findings focus on peripheral issues and ignore their risk as Christian minorities in Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "Applicants contest all four adverse credibility findings listed in the Decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "Applicants argue the focus on whether the bathroom door was locked or shut trivializes their claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "Applicants submit the discrepancy about the phone search is a minor detail from an event seven years prior.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "party",
+   "summary": "Applicants stress consistent testimony that Mr. Rafi was under medical treatment before and after the robbery, despite alleged inconsistency.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "party",
+   "summary": "Applicants argue it was unreasonable to negatively find credibility from lack of explanation about English writing on a threat letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "party",
+   "summary": "Applicants submit interpreter testimony risks innocent misunderstanding and peripheral details are irrelevant to their Christian minority claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "party",
+   "summary": "Applicants argue the Officer failed to assess the central claim and forward-looking risk as Christians, rendering the Decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "Respondent submits the Officer was best placed to assess credibility, explained concerns, allowed responses, and weighed inconsistencies appropriately.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "party",
+   "summary": "Respondent emphasizes the Officer found Applicants' responses vague, evasive, and their explanations illogical.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "Respondent argues the Officer had no obligation to assess the rest of the claim once credibility was rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Credibility findings get deference but are reviewable; decision-makers should avoid overzealous analysis of minor inconsistencies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Credibility findings get deference but reviewable",
+    "Warning against overzealous analysis of evidence"
+   ],
+   "citations": [
+    {
+     "cite": "N\u2019kuly v Canada (Citizenship and Immigration), 2016 FC 1121 at para 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility findings are reviewable despite deference"
+    },
+    {
+     "cite": "Lawani v Canada (Citizenship and Immigration), 2018 FC 924 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Warns against overzealous negative credibility findings"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court states that refugee status determination is not a memory test and criticizes overzealous analysis of irrelevant issues as unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "refugee status not memory test",
+    "overzealous analysis unreasonable"
+   ],
+   "citations": [
+    {
+     "cite": "Sheikh v Canada (Minister of Citizenship and Immigration), 2000 CanLII 15200 (FC), [2000] FCJ No 568 (QL) at para 28",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "refugee status determination is not a memory test"
+    },
+    {
+     "cite": "Lawani v Canada (Citizenship and Immigration), 2018 FC 924 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "overzealous analysis of irrelevant issues is unreasonable"
+    },
+    {
+     "cite": "Olajide v Canada (Citizenship and Immigration), 2021 FC 197 at para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "overzealous analysis of irrelevant issues is unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The court finds it unreasonable to expect exact recollections seven years after a traumatic home invasion and assault.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The court notes that the applicants' differing recollections of the same event cannot reliably indicate credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court finds the officer failed to provide contextual analysis and made broad credibility conclusions based on minor inconsistencies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The court rejects the officer's focus on minor details as sufficient to doubt the applicants' claim of religious targeting.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kanagarasa v Canada (Citizenship and Immigration), 2015 FC 145 at para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "rejects microscopic view of minor facts to doubt claim"
+    }
+   ]
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The court finds the officer failed to consider the applicants' claim basis as Christian minorities in Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "The court notes no dispute over applicants' Christian identity or country conditions, and adverse credibility findings did not affect these central claim aspects.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The court states the officer was required to assess the applicants' fear of persecution and risks as Christians returning to Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Safdari v Canada (Citizenship and Immigration), 2016 FC 1357 at para 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "officer required to examine fear of persecution"
+    },
+    {
+     "cite": "Okubu v Canada (Citizenship and Immigration), 2019 FC 980 at para 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "officer required to examine fear of persecution"
+    }
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The court finds the officer's failure to assess key risks and focus on minor details renders the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "party",
+   "summary": "The applicants argue the officer failed to explain an earlier schedule change and did not ask if they wanted more preparation time, causing unfairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 71,
+   "speaker": "party",
+   "summary": "The respondent argues the schedule change did not breach fairness, noting no evidence of stress and that applicants had notice and agreed to start early.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The court agrees with the respondent that failure to object to the schedule change at hearing implies waiver of procedural fairness breach.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kamara v Canada (Minister of Citizenship and Immigration), 2007 FC 448 at para 26",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "failure to object implies waiver of procedural fairness breach"
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The court finds a one-hour schedule difference did not prejudice the applicants' ability to present their claim fully and fairly.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The court finds no demonstrated breach of procedural fairness warranting intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The court finds the applicants have established the officer's decisions are unreasonable for stated reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The court grants the applications for judicial review and orders reasons placed in each court file.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The court sets aside the decisions and orders redetermination by a different officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "The court finds no question for certification arises as neither party proposed one.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

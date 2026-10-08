@@ -1,0 +1,457 @@
+{
+ "case_id": 27654,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0061236
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 1,
+  "model_citations": 19,
+  "regex_citations": 4,
+  "regex_addressed": 4,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 11,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 6
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 7,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 14,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 23,
+   "para_end": 23
+  }
+ ],
+ "structure": {
+  "overview": "This case is a judicial review of an IRCC Officer's decision refusing the Applicant's permanent residence application under the Canadian Experience Class due to self-employed work experience, which is excluded by the Regulations. The Applicant, a 28-year-old Indian citizen, argued the decision was unreasonable and unfair, while the Respondent maintained there was no reviewable error. The court found the Officer's decision reasonable and dismissed the application.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "Applicant",
+    "text": "reviewable errors and unreasonableness of refusal decision"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "Respondent",
+    "text": "no reviewable error in Officer's decision"
+   },
+   {
+    "id": "P3",
+    "para": 16,
+    "by": "Applicant",
+    "text": "Decision unreasonable and unfair for ignoring work experience under exception code C11 and overlooking evidence"
+   },
+   {
+    "id": "P4",
+    "para": 17,
+    "by": "Applicant",
+    "text": "Decision did not address Procedural Fairness Letter concerns"
+   },
+   {
+    "id": "P5",
+    "para": 20,
+    "by": "Applicant",
+    "text": "fettering argument"
+   },
+   {
+    "id": "P6",
+    "para": 21,
+    "by": "Applicant",
+    "text": "consideration under Federal Skilled Worker Class"
+   },
+   {
+    "id": "P7",
+    "para": 8,
+    "by": "Applicant",
+    "text": "substantial duties performed, location does not disqualify, no minimum wage applies, meets Federal Skilled Worker Class requirements"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 18,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P6",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This is a judicial review application of an IRCC Officer's decision refusing permanent residence under Canadian Experience Class due to self-employed work experience.",
+   "ideas": "multiple",
+   "idea_list": [
+    "application for judicial review",
+    "reason for refusal",
+    "self-employed work excluded"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 72(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "statutory basis for judicial review"
+    },
+    {
+     "cite": "Immigration and Refugee Protection Regulations, SOR/2002-227, s 87(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "defines Canadian Experience Class eligibility"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Applicant is a 28-year-old Indian citizen who applied for permanent residence under the Canadian Experience Class in November 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicant claimed Canadian work experience from April 2021 with a numbered company, which was self-employed work excluded by the Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant raises issues about reviewable errors in the Officer's refusal decision and its reasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "error in refusal decision",
+    "error on self-employed work exclusion",
+    "unreasonableness of decision"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Respondent submits the Applicant failed to show any reviewable error in the Officer's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court states the main issue is whether the Officer's decision is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Officer's Procedural Fairness Letter raised concerns about the Applicant's job duties, employment location, and low salary inconsistent with the executive director role.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Applicant replied that she performed substantial duties, location does not disqualify, no minimum wage applies, and she meets Federal Skilled Worker Class requirements.",
+   "ideas": "multiple",
+   "idea_list": [
+    "substantial duties performed",
+    "location irrelevant",
+    "no minimum wage requirement",
+    "meets Federal Skilled Worker Class"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Regulations, ss 75(1) and 75(2)",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites Federal Skilled Worker Class requirements"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer's Decision states the Applicant's work experience was self-employed under exemption code C11, which does not qualify for Canadian Experience Class.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer refused the Applicant's permanent residence application under IRPA subsections 10.3(1)(e) and 11.2.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, ss 10.3(1)(e) and 11.2",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "legal basis for refusal"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Regulations at s 87.1(2) set out Canadian Experience Class membership requirements including one year of full-time work in specified occupations with substantial duties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Regulations, s 87.1(2)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "sets membership requirements for Canadian Experience Class"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Regulations s 87.1(3) excludes self-employment and unauthorized work from qualifying work experience.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Regulations, s 87.1(3)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "excludes self-employment from qualifying work experience"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "IRPA s 11.2 prohibits issuing permanent residence documents if criteria under s 10.3(1)(e) are not met.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, s 11.2",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "legal provision preventing issuance if criteria unmet"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The parties agree the standard of review is reasonableness; procedural fairness is reviewed on correctness per Vavilov at para 23.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review is reasonableness",
+    "procedural fairness standard is correctness"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, [2019] 4 SCR 653, para 23",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets standards for reasonableness and procedural fairness review"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Canada Post Corp v Canadian Union of Postal Workers explains what constitutes a reasonable decision and court's role in reasonableness review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada Post Corp v Canadian Union of Postal Workers, 2019 SCC 67",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "explains reasonableness standard and court's review role"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Applicant argues the Decision is unreasonable and unfair for ignoring work experience under work permit exception code C11 and overlooking evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Applicant submits the Decision did not address concerns raised in the Procedural Fairness Letter and repeats her prior arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the core fact is self-employed work, which is excluded by s 87.1(3)(b), making the Decision reasonable and the only reasonable conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Regulations, s 87.1(3)(b)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "self-employment excluded from qualifying work experience"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer had no duty to inform the Applicant about the self-employment exclusion as it is public legislation and obvious; no judicial intervention warranted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's fettering argument, noting fettering does not apply to legislated criteria like these Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Applicant's argument for consideration under Federal Skilled Worker Class lacks merit as she was not invited or applied under that Class.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court concludes the application must be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "A reasonable decision is coherent, rational, justified by facts and law, and courts must review reasons with respectful attention per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "defines reasonableness as coherent and justified decision"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, para 84",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "court must review reasons with respectful attention"
+    },
+    {
+     "cite": "Dunsmuir v New Brunswick, 2008 SCC 9, para 48",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "quoted in Vavilov on reviewing reasons"
+    },
+    {
+     "cite": "Newfoundland Nurses' Union v Newfoundland and Labrador (Treasury Board), 2011 SCC 62",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "reasons read holistically and contextually"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Reasonableness depends on legal and factual context; decision must show justification, transparency, and intelligibility per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, para 90",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "reasonableness depends on context"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "decision must show justification, transparency, intelligibility"
+    },
+    {
+     "cite": "Dunsmuir v New Brunswick, 2008 SCC 9, paras 47 and 74",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "cited for reasonableness criteria"
+    },
+    {
+     "cite": "Catalyst Paper Corp. v. North Cowichan (District), 2012 SCC 2, para 13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "cited for reasonableness criteria"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The party challenging a decision bears the burden to show the decision is unreasonable due to central or significant flaws per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "burden on challenger to prove unreasonableness"
+    }
+   ]
+  }
+ ]
+}

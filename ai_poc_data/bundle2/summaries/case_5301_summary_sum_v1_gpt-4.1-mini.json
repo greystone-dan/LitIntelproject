@@ -1,0 +1,343 @@
+{
+ "case_id": 5301,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.004046
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 8,
+  "regex_citations": 8,
+  "regex_addressed": 8,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 3,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 13,
+   "neutral_citation": "2018 FC 1263",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2015 SCC 61",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2014 FC 595",
+   "para_start": 16,
+   "para_end": 16
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2009 FCA 189",
+   "para_start": 43,
+   "para_end": 45
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2020 FC 231",
+   "para_start": 68,
+   "para_end": 69
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2004 FCA 38",
+   "para_start": 5,
+   "para_end": 5
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2010 FC 423",
+   "para_start": 12,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a judicial review of an Immigration Officer's decision rejecting the applicants' permanent residence application on humanitarian and compassionate grounds under IRPA s 25(1). The applicants, Albanian and Italian citizens, challenged the decision arguing the officer failed to properly consider hardships and evidence. The Federal Court dismissed the judicial review, finding the officer's decision reasonable and supported by the evidence.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 10,
+    "by": "applicants",
+    "text": "submitted affidavits after leave asserting persecution fear and lack of treatment in Albania"
+   },
+   {
+    "id": "P2",
+    "para": 12,
+    "by": "applicants",
+    "text": "officer erred by ignoring hardships, some evidence, and not weighing Canadian ties or globally assessing H&C factors"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "applicants",
+    "text": "rely on Kanthasamy for considering refugee evidence to assess hardship if returned"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 13,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Applicants seek judicial review of an Immigration Officer's June 19, 2020 decision rejecting their permanent residence application on humanitarian and compassionate grounds under IRPA s 25(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 25(1) of the Immigration and Refugee Protection Act, SC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Identifies legal basis for H&C application rejection"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The court announces dismissal of the judicial review application at the hearing's close.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "Applicants are Albanian and Italian citizens who came to Canada as visitors; the male applicant had a stroke shortly after arrival and was treated in hospital with follow-up recommended in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The respondent received the H&C application on October 17, 2018, accompanied by counsel's letter and hospital discharge summary but no additional material.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Counsel's letter claimed quick community integration and volunteer work in Canada, mentioned family ties, but provided no detailed evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Counsel stated Mr. Vokshi's doctor advised against travel for health reasons without supporting medical evidence, emphasizing family support importance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "No further supporting information was submitted between the application filing and the June 19, 2020 decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The officer noted absence of documents on establishment in Canada and risk in Italy, but acknowledged the hospital discharge summary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The officer concluded the discharge summary did not advise against travel and that treatment would be available in Italy, thus insufficient evidence for H&C exemption.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "Applicants submitted affidavits after leave granting, asserting persecution fear and lack of treatment in Albania, which were not before the officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The sole issue is whether the decision denying the H&C application is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicants argue the officer erred by ignoring hardships, some evidence, and not weighing Canadian ties or globally assessing H&C factors; counsel admitted weak evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court rejects the applicants' argument that the officer erred by not considering risk in Albania, as no evidence was before the officer, citing Efe-Agbonaye.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Efe-Agbonaye v Canada (Minister of Citizenship and Immigration), 2018 FC 1263 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Officer not at fault for ignoring unsubmitted risk evidence"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "No evidence showed applicants must return to Albania; they are Italian citizens with valid passports and no jeopardized status in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicants rely on Kanthasamy for considering refugee evidence to assess hardship if returned to foreign state.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61, at para 7",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants cite for considering refugee evidence in hardship assessment"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court states applicants must provide evidence to the officer; the officer is not obliged to assist in meeting the burden, citing multiple cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants must provide evidence",
+    "Officer not obliged to assist burden"
+   ],
+   "citations": [
+    {
+     "cite": "Nicayenzi v Canada (Citizenship and Immigration), 2014 FC 595 at para 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Applicants must provide evidence"
+    },
+    {
+     "cite": "Kisana v Canada (Minister of Citizenship and Immigration), 2009 FCA 189 (CanLII) at paras 43-45",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Officer not obliged to assist applicants"
+    },
+    {
+     "cite": "Egwuonwu v Canada (Citizenship and Immigration), 2020 FC 231 at paras 68-69",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Officer not obliged to assist applicants"
+    },
+    {
+     "cite": "Owusu v Canada (Minister of Citizenship and Immigration), 2004 FCA 38 (CanLII) at para 5",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Officer not obliged to assist applicants"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The officer reasonably weighed scant evidence on establishment and hardship, relying on counsel's bald statements without intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jacques v Canada (Citizenship and Immigration), 2010 FC 423, at para 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court defers to officer's reasonable weight assessment"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The officer reasonably concluded treatment was available in Italy, as counsel's travel caution lacked medical evidence and discharge report recommended follow-up there.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Applicants failed to meet onus with sufficient evidence; officer's decision was reasonable, justified, transparent, and intelligible despite new arguments on review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "No serious questions of general importance were raised, so none are certified.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,583 @@
+{
+ "case_id": 43373,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.009778
+ },
+ "verification": {
+  "paragraphs": 33,
+  "summaries": 33,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 4,
+  "model_citations": 28,
+  "regex_citations": 16,
+  "regex_addressed": 13,
+  "pinpoints": 9,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 15,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 8
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 2,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 17,
+   "neutral_citation": "2024 FCA 171",
+   "para_start": 22,
+   "para_end": 24
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2024 FCA 65",
+   "para_start": 7,
+   "para_end": 9
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2023 FCA 47",
+   "para_start": 46,
+   "para_end": 48
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2023 FCA 237",
+   "para_start": 50,
+   "para_end": 50
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2022 FCA 83",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2022 FCA 77",
+   "para_start": 49,
+   "para_end": 49
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2020 FCA 100",
+   "para_start": 33,
+   "para_end": 33
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2016 FCA 127",
+   "para_start": 15,
+   "para_end": 15
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2020 FCA 218",
+   "para_start": 17,
+   "para_end": 17
+  }
+ ],
+ "structure": {
+  "overview": "WestJet appeals the Canada Industrial Relations Board's decision that found the respondent was unjustly dismissed and that his unwelcome sexual comments did not amount to sexual harassment. The Federal Court of Appeal found the Board's conclusion on sexual harassment unreasonable and contradictory, setting aside the decision and remitting the matter for reconsideration. The court upheld other findings of the Board, including the respondent's mental health challenges and the appropriateness of the adjudicator.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "WestJet",
+    "text": "Board's sexual harassment conclusion unreasonable and contradictory"
+   },
+   {
+    "id": "P2",
+    "para": 17,
+    "by": "Respondent",
+    "text": "Court should defer to Board's reasoned findings under reasonableness standard and dismiss application"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 27,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "WestJet seeks to set aside the Canada Industrial Relations Board's decision finding it unjustly dismissed the respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Board found the respondent's unwelcome sexual comments did not amount to sexual harassment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "WestJet argues the Board's conclusion on sexual harassment is unreasonable and contradictory, requiring the decision to be set aside and remitted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Board's conclusion unreasonable",
+    "Contradictory findings on sexual nature",
+    "Decision must be set aside and remitted"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The respondent testified about his open family background and interest in sexual development topics discussed with female co-workers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "Co-workers warned K.S. about the respondent's repeated unwelcome sexual comments and questions, which he downplayed despite objections.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The respondent exhibited aggressive behavior and personal habits that co-workers found disconcerting.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "K.S. complained after a conversation about her daughter's sexual development, leading to a harassment investigation confirming inappropriate conduct by the respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "WestJet terminated the respondent for harassment, sexual harassment, and policy violations following the investigation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Board found little difference in versions of the key conversation and largely accepted WestJet's witnesses' accounts despite some memory issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Board found the respondent engaged in inappropriate sexual questions and sharing intimate family details but not serious enough for termination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Board noted the respondent's lack of boundaries created an uncomfortable workplace but involved no sexual touching or innuendo.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Board found the respondent's behavior inappropriate and troubling due to his refusal to stop despite verbal cues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Board concluded the respondent's conduct was not sexual harassment as comments were not sexual in nature or intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Board found termination excessive given mitigating factors and imposed a five-day suspension instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The respondent argues the court should defer to the Board's reasoned findings under the reasonableness standard and dismiss the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Supreme Court defines sexual harassment as unwelcome sexual conduct harming the work environment or causing adverse job consequences.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Janzen v. Platy Enterprises Ltd., 1989 CanLII 97 (SCC), [1989] 1 SCR 1252 [Janzen] at p. 1284",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Definition of sexual harassment by Supreme Court"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Textbooks define sexual harassment broadly, including overt advances, lewd comments, and unwelcome sexual behavior in the workplace.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Donald J.M. Brown, David M. Beatty & Adam J. Beatty, Canadian Labour Arbitration, 5th ed (Toronto: Thompson Reuters Canada, 2019) [Brown & Beatty] at \u00a7 7:33",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Definition of sexual harassment including various forms"
+    },
+    {
+     "cite": "Arjun Aggarwal, Sexual Harassment in the Workplace, 2nd ed. (Toronto: Butterworths, 1992) at p. 7",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Definition of sexual harassment including subtle and obvious behaviors"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Supreme Court states sexual harassment is a demeaning practice attacking employee dignity and self-respect.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Janzen at p. 1284",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sexual harassment as affront to dignity and self-respect"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Canada Labour Code defines harassment and violence to include sexual conduct causing offence or injury to employees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada Labour Code, R.S.C. 1985, c. L-2, s. 122(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory definition of harassment and violence including sexual nature"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Sexual harassment does not require sexual intent or awareness by the harasser, only that comments are sexual and offensive objectively.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Calgary (City) v. Canadian Union of Public Employees Local 37, 2019 ABCA 388 at paras. 36, 43\u201344",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sexual harassment requires objective sexual nature and offensiveness"
+    },
+    {
+     "cite": "Laurie and Bell Media, Re (2020), 2020 CarswellNat 5204 (Can.Adjud. (CLC Part III)) at paras. 197\u2013200",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sexual harassment requires objective sexual nature and offensiveness"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Lewd or demeaning comments and pornography distribution can constitute sexual harassment even without sexual intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sterling Crane and IUOE, Local 955 (Cormier), Re, 2024 CanLII 46844 (Alta. Arb.) at para. 140",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Lewd comments can be sexual harassment without sexual intent"
+    },
+    {
+     "cite": "Alberta Justice and Solicitor General and AUPE (869395), Re, 2023 CarswellAlta 160, [2023] A.W.L.D. 1215 at para. 79",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Lewd comments can be sexual harassment without sexual intent"
+    },
+    {
+     "cite": "Brown & Beatty at \u00a7 7:33",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Lewd comments can be sexual harassment without sexual intent"
+    },
+    {
+     "cite": "Poliquin at paras. 55\u201360",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Distribution of pornography is sexual harassment"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Only WestJet's arguments about the Board's sexual harassment conclusion justify intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Board's decision is reviewed on a reasonableness standard and entitled to deference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Essa\u00ef v. Toronto-Dominion Bank, 2024 FCA 65 at paras. 7\u20139",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness standard applies to Board decision"
+    },
+    {
+     "cite": "Northern Inter-Tribal Health Authority Inc. v. Yang, 2023 FCA 47 at paras. 46\u201348",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness standard applies to Board decision"
+    },
+    {
+     "cite": "Amer v. Shaw Communications Canada Inc., 2023 FCA 237 at para. 50",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness standard applies to Board decision"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Board's finding that the respondent did not sexually harass is unreasonable for two reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Board made contradictory findings on whether the respondent's conduct was sexual, rendering the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653 at paras. 102\u2013104",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Contradictory findings render decision unreasonable"
+    },
+    {
+     "cite": "Nowlan v. Canada (Attorney General), 2022 FCA 83 at paras. 27, 38",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Contradictory findings render decision unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Board's conclusion contradicts established case law that the respondent's repeated sexual comments constitute sexual harassment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para. 112",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to follow case law renders decision unreasonable"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Poupart, 2022 FCA 77 at para. 49",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to follow case law renders decision unreasonable"
+    },
+    {
+     "cite": "Entertainment Software Association v. Society of Composers, Authors and Music Publishers of Canada, 2020 FCA 100 at para. 33",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to follow case law renders decision unreasonable"
+    },
+    {
+     "cite": "Bahniuk v. Canada (Attorney General), 2016 FCA 127 at para. 15",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to follow case law renders decision unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Decision must be set aside because the respondent's comments meet the definition of sexual harassment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "No other grounds raised by WestJet justify intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Board considered the Policies, seriousness, and remorse; these aggravating factors must be re-weighed on remand.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "David Harris, Wrongful Dismissal, 8th ed (Toronto: Thomson Reuters, 2025) [Harris] at \u00a7 5:60",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Aggravating factors justify more severe discipline"
+    },
+    {
+     "cite": "Brown & Beatty at \u00a7 7:33",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Aggravating factors justify more severe discipline"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Board did not err in declining to make a credibility determination as differences were immaterial.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds no error in the Board's conclusion that the respondent had mental health challenges based on his testimony, rejecting the applicant's claim of no evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court explains its discretion to remit cases for reconsideration per Vavilov and notes dismissal is not automatic in sexual harassment cases, so the Board must redetermine the complaint.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court's discretion to remit per Vavilov",
+    "sexual harassment dismissal not automatic, Board must redetermine"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "explains discretion to remit to decision maker"
+    },
+    {
+     "cite": "Harris at \u00a7 5:60",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "notes dismissal not automatic in sexual harassment cases"
+    },
+    {
+     "cite": "Brown & Beatty at \u00a7 7:33",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "notes dismissal not automatic in sexual harassment cases"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The court declines WestJet's request to remit to a different adjudicator due to lack of transcript and hardship, instead remitting to Mr. Asbell or another adjudicator, citing similar cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "declines different adjudicator due to hardship",
+    "remits to Mr. Asbell or another adjudicator",
+    "cites similar cases"
+   ],
+   "citations": [
+    {
+     "cite": "Sauv\u00e9 at para. 56",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports remitting to same or another adjudicator"
+    },
+    {
+     "cite": "Northern Inter-Tribal Health Authority at paras. 85\u201387",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports remitting to same or another adjudicator"
+    },
+    {
+     "cite": "Jog v. Bank of Montreal, 2020 FCA 218 at para. 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports remitting to same or another adjudicator"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,520 @@
+{
+ "case_id": 35557,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0068088
+ },
+ "verification": {
+  "paragraphs": 26,
+  "summaries": 26,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 8,
+  "model_citations": 10,
+  "regex_citations": 9,
+  "regex_addressed": 6,
+  "pinpoints": 5,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 10,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 22,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 21,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2015 SCC 61",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2018 FC 329",
+   "para_start": 24,
+   "para_end": 28
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2002 FCA 125",
+   "para_start": 12,
+   "para_end": 31
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2008 FC 165",
+   "para_start": 9,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of a decision by Canadian immigration authorities refusing humanitarian and compassionate relief and a Pre-Removal Risk Assessment, primarily due to the Applicant's criminal record and immigration history. The Applicant, who has a complex personal and immigration background including caregiving for grandchildren, challenges the officer's assessment of the best interests of the children (BIOC) and other findings. The Federal Court granted the judicial review, finding the officer's BIOC assessment unreasonable and legally flawed.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "Applicant",
+    "text": "Applicant's immigration and relationship history"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "Applicant",
+    "text": "Overstayed visitor visa in 1995"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "Applicant",
+    "text": "Convicted for importing cannabis resin in 1998"
+   },
+   {
+    "id": "P4",
+    "para": 7,
+    "by": "Applicant",
+    "text": "Deported to Guyana in 1999 to avoid immigration fight"
+   },
+   {
+    "id": "P5",
+    "para": 11,
+    "by": "Applicant",
+    "text": "Failed permanent residence application due to criminal record and pardon issues"
+   },
+   {
+    "id": "P6",
+    "para": 14,
+    "by": "Applicant",
+    "text": "Removal order issued after arrest"
+   },
+   {
+    "id": "P7",
+    "para": 15,
+    "by": "Applicant",
+    "text": "Pre-Removal Risk Assessment refused in March 2023"
+   },
+   {
+    "id": "P8",
+    "para": 18,
+    "by": "tribunal_below",
+    "text": "Grandchildren not financially dependent, no exemption warranted"
+   },
+   {
+    "id": "P9",
+    "para": 19,
+    "by": "tribunal_below",
+    "text": "Applicant's situation due to own choices and disregard of immigration law"
+   },
+   {
+    "id": "P10",
+    "para": 20,
+    "by": "tribunal_below",
+    "text": "Applicant's asthma noted but smoking and unclear treatment payment"
+   },
+   {
+    "id": "P11",
+    "para": 21,
+    "by": "tribunal_below",
+    "text": "Country conditions in Guyana do not justify relief without personal impact"
+   },
+   {
+    "id": "P12",
+    "para": 25,
+    "by": "court",
+    "text": "Officer's BIOC assessment unreasonable, justifying review grant"
+   },
+   {
+    "id": "P13",
+    "para": 26,
+    "by": "court",
+    "text": "BIOC requires attentive examination, not determinative"
+   },
+   {
+    "id": "P14",
+    "para": 27,
+    "by": "court",
+    "text": "Officer's BIOC assessment was brief and focused on financial dependency"
+   },
+   {
+    "id": "P15",
+    "para": 28,
+    "by": "court",
+    "text": "Officer wrongly treated financial dependency as decisive in BIOC"
+   },
+   {
+    "id": "P16",
+    "para": 29,
+    "by": "court",
+    "text": "Financial dependency relevant but not determinative in BIOC"
+   },
+   {
+    "id": "P17",
+    "para": 30,
+    "by": "court",
+    "text": "Officer's conclusion was peremptory, contrary to Vavilov"
+   },
+   {
+    "id": "P18",
+    "para": 31,
+    "by": "court",
+    "text": "Officer's finding on grandchildren's dependency contradicted by evidence"
+   },
+   {
+    "id": "P19",
+    "para": 32,
+    "by": "court",
+    "text": "Evidence shows Applicant's caregiving enables daughter's work and study"
+   },
+   {
+    "id": "P20",
+    "para": 33,
+    "by": "court",
+    "text": "Officer failed to consider evidence on children's best interests in H&C analysis"
+   },
+   {
+    "id": "P21",
+    "para": 34,
+    "by": "court",
+    "text": "Applicant's close relationship with grandchildren supported but ignored"
+   },
+   {
+    "id": "P22",
+    "para": 35,
+    "by": "court",
+    "text": "Officer ignored evidence of Applicant's critical childcare role for family stability"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 25,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P8",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court grants the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant first came to Canada in 1989 to visit his girlfriend and became a common-law partner in 1991, splitting time between Canada and the U.S.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "In 1995, the Applicant entered Canada on a visitor visa to see his fianc\u00e9e but overstayed after the visa expired.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "In 1998, the Applicant was convicted in Canada for importing cannabis resin and served 9 months before deportation to the U.S.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "In 1999, the Applicant voluntarily left the U.S. and was deported to Guyana to avoid a prolonged immigration fight.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Applicant was initially homeless in Guyana but later received help from a cousin who has since moved to the U.S.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Applicant separated from Ms. Lewis around 2011, met Donatella Gallo in 2012, and married her in 2016.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Applicant and Ms. Gallo tried to apply for permanent residence via spousal sponsorship but failed due to his criminal record and pardon issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Applicant and Ms. Gallo separated in November 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Following the arrest, Canadian immigration authorities issued a removal order against the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Applicant applied for a Pre-Removal Risk Assessment, which was refused in March 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The officer found the grandchildren would not be negatively impacted enough to warrant exemption since they are not financially dependent on the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The officer found the Applicant could maintain family relationships from Guyana and that his situation results from his own choices and immigration law disregard.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The officer acknowledged the Applicant's asthma but noted he smokes and it was unclear how he pays for treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The officer found country conditions in Guyana do not justify humanitarian relief as the Applicant did not show personal impact.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The officer's assessment of the grandchildren's best interests was clearly unreasonable, justifying granting the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "BIOC is not necessarily determinative; it requires well-defined, attentive examination of children's interests per Kanthasamy and related cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Baker v Canada (Minister of Citizenship and Immigration), 1999 CanLII 699 (SCC) at para 75",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "BIOC not necessarily determinative of immigration decisions"
+    },
+    {
+     "cite": "Lovo v Canada (Citizenship and Immigration), 2018 FC 329 at paras 24-28",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "BIOC may be outweighed by other factors"
+    },
+    {
+     "cite": "Kanthasamy at para 39",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "BIOC must be well identified and examined attentively"
+    },
+    {
+     "cite": "Legault v Canada (Minister of Citizenship and Immigration), 2002 FCA 125 (CanLII) at paras 12 and 31",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports careful BIOC examination"
+    },
+    {
+     "cite": "Kolosovs v Canada (Minister of Citizenship and Immigration), 2008 FC 165 (CanLII) at paras 9-12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports detailed BIOC analysis"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The officer's entire BIOC assessment was a brief statement focusing on financial dependency and contact maintenance, concluding no negative impact.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The officer wrongly treated financial or other dependency as decisive in the BIOC assessment, which is legally incorrect.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Financial dependency is relevant but not determinative in BIOC; a complete assessment requires more, per Kanthasamy and cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Motrichko v Canada (Citizenship and Immigration), 2017 FC 516",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Financial dependency alone insufficient for BIOC assessment"
+    },
+    {
+     "cite": "Chamas v Canada (Citizenship and Immigration), 2021 FC 1352",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports that dependency is not sole BIOC factor"
+    },
+    {
+     "cite": "Kanthasamy at paras 39 and 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "BIOC requires well identified and defined assessment"
+    },
+    {
+     "cite": "Kanthasamy at para 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Cites IRCC H&C Manual factors, only one relates to dependency"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The officer's conclusion on the children's best interests was a peremptory one, contrary to Vavilov's warning against such conclusions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 102",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Warns against peremptory conclusions lacking rationale"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The officer's finding that the grandchildren are not dependent contradicts evidence showing the Applicant's primary caregiving role and emotional support.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Evidence shows the Applicant's caregiving enables his daughter to work and study, contradicting the officer's dependency finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The officer failed to accurately summarize and consider evidence on the children's best interests and its role in the H&C analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Applicant's close relationship with his grandchildren was supported by evidence, but the officer did not address this adequately.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The officer ignored evidence that the Applicant's childcare role is critical to his family's financial stability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,293 @@
+{
+ "case_id": 72466,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0039632
+ },
+ "verification": {
+  "paragraphs": 19,
+  "summaries": 19,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 8,
+  "regex_citations": 3,
+  "regex_addressed": 2,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 5,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns appellants who fear returning to Venezuela due to threats but also hold Italian citizenship. The Refugee Protection Division (RPD) rejected their refugee claim for lack of credibility and failure to prove risk or inadequate state protection in Italy. The Refugee Appeal Division (RAD) upheld the RPD's decision, dismissing the appeal as the appellants failed to prove serious risk or lack of protection in Italy.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "applicant",
+    "text": "fear of returning to Venezuela due to drug trafficker threats"
+   },
+   {
+    "id": "P2",
+    "para": 8,
+    "by": "applicant",
+    "text": "fear of Italian criminal groups despite no tangible evidence"
+   },
+   {
+    "id": "P3",
+    "para": 10,
+    "by": "below",
+    "text": "questioning principal appellant's reasons for not traveling to Italy"
+   },
+   {
+    "id": "P4",
+    "para": 14,
+    "by": "applicant",
+    "text": "challenge to state protection analysis (implied, though appellants do not dispute)"
+   },
+   {
+    "id": "P5",
+    "para": 16,
+    "by": "court",
+    "text": "presumption that Italy is a functional state capable of protection"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The appellants, Venezuelan and Italian citizens, fear returning to Venezuela due to the principal appellant's report of a drug trafficker and potential vengeance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The RPD rejected the appellants' refugee claim due to lack of credibility and failure to show risk or inadequate state protection in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The RAD identifies the key issue as whether the RPD erred in assessing the appellants' risk and state protection in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The RAD finds the appellants failed to prove risk or lack of protection in Italy and dismisses the appeal, upholding the RPD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD must apply the correctness standard of review per Huruglica, except when RPD has a credibility advantage, and will analyze the record independently.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Huruglica",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes correctness standard of review for RAD"
+    },
+    {
+     "cite": "Huruglica",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Exception when RPD has credibility advantage"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Claimants with multiple citizenships must prove risk in all countries; if no risk in one, no need to review the other.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hanukashvili, Valeri v. M.C.I.",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requirement to establish claim merits in all citizenship countries"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Since RPD found no risk in Venezuela or Italy, the RAD focuses only on Italy for this appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The appellants argue that despite no tangible evidence, the reputation of Italian criminal groups suggests their fear could be real.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RAD finds citing mafia presence insufficient to prove serious risk or persecution in Italy on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD questioned the principal appellant about her reasons for not traveling to Italy, where she and her children hold citizenship.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Minute 01:28:00 of the recording of the hearing before the Refugee Protection Division (RPD)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Evidence of appellant's testimony about Italy"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The principal appellant's fear of Italy is vague and unsupported by tangible evidence or current risk from hitmen or mafia.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Appellant's record. Appeal memorandum, paragraph 26.",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Acknowledgement of lack of tangible evidence"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RAD agrees the RPD did not err in finding no evidence of actual risk or harm attempts in Italy, dismissing mafia presence alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The appellants failed to show serious risk of persecution, torture, or cruel treatment in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The RAD finds no need to analyze state protection since appellants do not dispute RPD's analysis, but reviews it anyway and finds no error.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The RPD considered evidence of the alleged agent of harm's extradition and imprisonment in Italy, confirming Italian state functionality.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RPD record. Document 5- Article dated XXXX XXXX, 2014, published on the XXXX XXXX website.",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Evidence of mafioso's extradition and imprisonment"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "There is a presumption that states can protect citizens unless the state apparatus has completely broken down; Italy is presumed functional.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Ward, ?1993] 2 S.C.R. 689.",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Presumption of state protection for citizens"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The appellants failed to rebut the presumption that Italy can protect them; the RPD did not err in this conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RAD concludes appellants failed to show serious risk of persecution or harm in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD dismisses the appeal and confirms the RPD's decision that the appellants are not refugees or persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v. Huruglica, 2016 FCA 93.",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Citation of precedent in decision"
+    }
+   ]
+  }
+ ]
+}

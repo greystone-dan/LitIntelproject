@@ -1,0 +1,1140 @@
+{
+ "case_id": 35348,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.015294400000000003
+ },
+ "verification": {
+  "paragraphs": 62,
+  "summaries": 62,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 9,
+  "model_citations": 45,
+  "regex_citations": 37,
+  "regex_addressed": 29,
+  "pinpoints": 19,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 25,
+   "party_argument_reported": 13,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 5
+  },
+  "multi_idea_paragraphs": 7,
+  "party_points": 15,
+  "rebuttals": 15,
+  "left_open": 2
+ },
+ "pinpoints": [
+  {
+   "citing_para": 15,
+   "neutral_citation": "2007 FC 1048",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2022 FC 1161",
+   "para_start": 28,
+   "para_end": 28
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2022 FC 768",
+   "para_start": 34,
+   "para_end": 34
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2010 SCC 3",
+   "para_start": 34,
+   "para_end": 34
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2002 SCC 54",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2018 SCC 48",
+   "para_start": 54,
+   "para_end": 54
+  },
+  {
+   "citing_para": 38,
+   "neutral_citation": "2015 FC 575",
+   "para_start": 79,
+   "para_end": 79
+  },
+  {
+   "citing_para": 53,
+   "neutral_citation": "2024 SCC 10",
+   "para_start": 69,
+   "para_end": 69
+  },
+  {
+   "citing_para": 53,
+   "neutral_citation": "2007 SCC 26",
+   "para_start": 52,
+   "para_end": 52
+  },
+  {
+   "citing_para": 53,
+   "neutral_citation": "2008 SCC 28",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 54,
+   "neutral_citation": "2022 FC 1444",
+   "para_start": 170,
+   "para_end": 171
+  },
+  {
+   "citing_para": 54,
+   "neutral_citation": "2009 FC 160",
+   "para_start": 47,
+   "para_end": 48
+  },
+  {
+   "citing_para": 54,
+   "neutral_citation": "2010 FC 957",
+   "para_start": 81,
+   "para_end": 81
+  },
+  {
+   "citing_para": 54,
+   "neutral_citation": "2013 FC 104",
+   "para_start": 70,
+   "para_end": 72
+  },
+  {
+   "citing_para": 56,
+   "neutral_citation": "2023 FCA 120",
+   "para_start": 44,
+   "para_end": 44
+  },
+  {
+   "citing_para": 56,
+   "neutral_citation": "2002 SCC 84",
+   "para_start": 75,
+   "para_end": 75
+  },
+  {
+   "citing_para": 62,
+   "neutral_citation": "2023 SCC 21",
+   "para_start": 37,
+   "para_end": 37
+  },
+  {
+   "citing_para": 62,
+   "neutral_citation": "2018 FCA 22",
+   "para_start": 46,
+   "para_end": 46
+  },
+  {
+   "citing_para": 62,
+   "neutral_citation": "2017 FCA 130",
+   "para_start": 36,
+   "para_end": 36
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Afghan nationals (Applicants) who received Facilitation Letters intended to help them pass Taliban checkpoints and allegedly promised Temporary Resident Permits (TRPs) to enter Canada. The Applicants claim these letters were issued under the Crown prerogative and that their rights under the Charter were engaged, seeking mandamus relief. The Federal Court rejected the Applicants' claims, finding no Crown prerogative authority or promise of visas, dismissed the Charter claim, and certified three questions of general importance for appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "Applicants",
+    "text": "Facilitation Letters promised TRPs under Crown prerogative"
+   },
+   {
+    "id": "P2",
+    "para": 20,
+    "by": "Applicants",
+    "text": "Definition of Crown prerogative as discretionary authority"
+   },
+   {
+    "id": "P3",
+    "para": 21,
+    "by": "Applicants",
+    "text": "Three Crown prerogatives apply: foreign affairs, admission/exclusion, war and peace"
+   },
+   {
+    "id": "P4",
+    "para": 22,
+    "by": "Applicants",
+    "text": "Foreign affairs prerogative includes consular functions like issuing visas"
+   },
+   {
+    "id": "P5",
+    "para": 23,
+    "by": "Applicants",
+    "text": "Admission/exclusion prerogative is derivative of foreign affairs prerogative"
+   },
+   {
+    "id": "P6",
+    "para": 24,
+    "by": "Applicants",
+    "text": "War and peace prerogative authorizes military deployments like Afghanistan evacuation"
+   },
+   {
+    "id": "P7",
+    "para": 25,
+    "by": "Applicants",
+    "text": "IRPA s.24 has not extinguished Crown prerogative to issue visas"
+   },
+   {
+    "id": "P8",
+    "para": 34,
+    "by": "Applicants",
+    "text": "Prerogative is limited non-statutory administrative power"
+   },
+   {
+    "id": "P9",
+    "para": 35,
+    "by": "Applicants",
+    "text": "Minister Sajjan knew Facilitation Letters used but did not authorize dissemination"
+   },
+   {
+    "id": "P10",
+    "para": 51,
+    "by": "Applicants",
+    "text": "Nexus to Canada arises from state actions and delegation in Canadian offices"
+   },
+   {
+    "id": "P11",
+    "para": 52,
+    "by": "Applicants",
+    "text": "Charter s.7 applies like refugee claimants with well-founded fear of persecution"
+   },
+   {
+    "id": "P12",
+    "para": 66,
+    "by": "Applicants",
+    "text": "Propose five certification questions on prerogative, delegation, letters, estoppel, Charter"
+   },
+   {
+    "id": "P13",
+    "para": 59,
+    "by": "Respondents",
+    "text": "DND and GAC lack authority under immigration law; decisions not under IRPA"
+   },
+   {
+    "id": "P14",
+    "para": 60,
+    "by": "Respondents",
+    "text": "Crown prerogative decisions outside IRPA s.72; appeal under Federal Courts Act s.18.1"
+   },
+   {
+    "id": "P15",
+    "para": 67,
+    "by": "Respondents",
+    "text": "Propose eight certification questions on prerogative, estoppel, Charter"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 26,
+    "answers": "P2,P3,P4,P5,P6,P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P1,P2,P3,P4,P5,P6,P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 36,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 46,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 47,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 48,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 50,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 53,
+    "answers": "P11",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 54,
+    "answers": "P11",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 55,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 56,
+    "answers": "P11",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 57,
+    "answers": "P11",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P13,P14",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 70,
+    "text": "Certification questions depend on factual findings about Mr. Young's authorization"
+   },
+   {
+    "para": 71,
+    "text": "Certified three questions on Crown prerogative authority and judicial review for appeal"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Respondents issued Facilitation Letters in 2021 to help designated Afghan nationals pass Taliban checkpoints to reach Kabul Airport.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicants claim the Facilitation Letters promised them TRPs to enter Canada under the Crown prerogative, despite no visa applications or issuances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "In August 2021, GAC issued Facilitation Letters to help Canadian citizens, permanent residents, and families pass checkpoints to Kabul Airport.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The GAC Facilitation Letter stated that named persons were Canadian citizens granted visas to enter Canada and requested safe passage to Kabul Airport.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "IRCC used the Facilitation Letters from August 19 to 30, 2021, to help Afghan nationals with immigration applications reach evacuation flights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "On August 28, 2021, IRCC declared the Facilitation Letters invalid for boarding flights to Canada, limiting their purpose to checkpoint passage only.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "IRCC repeated the invalidation message of the Facilitation Letters on August 30 and October 6, 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "Mr. Young received and modified the Facilitation Letter template to remove Canadian citizen references, then sent it to Senator McPhedran and Ms. Robinson.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "Ms. Robinson distributed personalized Facilitation Letters to at-risk individuals, including the Applicants, via various organizations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The Applicants received their Facilitation Letters from FIFA between August 29 and September 7, 2021, after IRCC's invalidation message.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court's jurisdiction for mandamus is under Federal Courts Act s.18(1) and IRPA s.72; mandamus is an extraordinary remedy assessed case-by-case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Federal Courts Act, RSC, 1985, c F-7, s 18(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Court's jurisdiction for mandamus"
+    },
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 72",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Mandamus recognized under IRPA"
+    },
+    {
+     "cite": "Tapie v Canada (Citizenship and Immigration), 2007 FC 1048 at para 7",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Mandamus is an extraordinary remedy"
+    },
+    {
+     "cite": "Oladele v Canada (Citizenship and Immigration), 2022 FC 1161 at para 28",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Mandamus remedy assessment"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The mandamus test requires a public legal duty owed to the applicant, a clear right, no other remedy, practical effect, no equitable bar, and balance of convenience.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Apotex v Canada (Attorney General), 1993 CanLII 3004 (FCA), [1994] 1 FC 742 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Mandamus test criteria"
+    },
+    {
+     "cite": "Sharafaldin v Canada (Citizenship and Immigration), 2022 FC 768 at para 34",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Recent summary of mandamus test"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Applicants were not intended recipients of Facilitation Letters, received them after evacuation flights ended and after IRCC invalidated them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicants define Crown prerogative as discretionary authority legally left to the Crown, a limited non-statutory administrative power.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Prime Minister) v Khadr, 2010 SCC 3 at para 34",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Definition of Crown prerogative"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Applicants assert three Crown prerogatives apply: foreign affairs, admission/exclusion of aliens, and war and peace including military.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicants say the foreign affairs prerogative includes consular functions like issuing visas, citing the Vienna Convention and related Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vienna Convention on Consular Relations",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Defines consular functions including issuing visas"
+    },
+    {
+     "cite": "Foreign Missions and International Organizations Act, SC 1991, c 41",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Incorporates Vienna Convention into domestic law"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Applicants argue the admission/exclusion prerogative is a derivative of foreign affairs prerogative, citing cases recognizing it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Obodzinsky (TD), 2002 FCT 943 at paras 49-54",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports admission/exclusion prerogative"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Kisluk, 1999 CanLII 8351 (FC) at para 164",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports admission/exclusion prerogative"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicants say the war and peace prerogative, recognized in Operation Dismantle, authorizes military deployments like the 2021 Afghanistan evacuation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada v Operation Dismantle Inc., 1983 CanLII 4977 (FCA) at 779 (aff\u2019d 1985 CanLII 74 (SCC))",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Recognizes war and peace prerogative"
+    },
+    {
+     "cite": "Department of National Defence, The Crown Prerogative as applied to Military Operations, March 2020",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Explains legal authority from Crown prerogative for military operations"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Applicants argue IRPA s.24 has not extinguished the Crown prerogative to issue visas, citing Khadr and DND's position on prerogative powers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Khadr, para 35",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Section 10 of DFAIT Act did not extinguish foreign affairs prerogative"
+    },
+    {
+     "cite": "National Defence Act, RSC, 1985, c N-5, ss 31(1) and 33(1)",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "DND says these do not extinguish prerogative to deploy CAF"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court respectfully disagrees with the Applicants' arguments regarding the Crown prerogative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Parliament's IRPA governs entry to Canada; visa decisions must comply with IRPA and its regulations, respecting the rule of law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Supreme Court in Khadr stated that statutory provisions can limit or set aside the Crown prerogative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Khadr",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Statutory provisions can limit Crown prerogative"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Parliament's IRPA requires foreign nationals to apply for visas and officers to issue them after examination, limiting prerogative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 11(1)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Statutory visa application and issuance requirements"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Only the Minister of Citizenship and Immigration may designate officers under IRPA to carry out its purposes, per section 6.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 6",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Minister's exclusive authority to designate officers"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Finding Facilitation Letters issued under Crown prerogative would undermine Parliamentary sovereignty and allow executive to bypass laws.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Reference re Pan-Canadian Securities Regulation, 2018 SCC 48 at para 54",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Parliamentary sovereignty means legislature's power is supreme"
+    },
+    {
+     "cite": "Ross River Dena Council Band v Canada, 2002 SCC 54 at para 4",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Crown cannot disregard statutory limitations and rely on prerogative"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Court rejects the Applicants' Crown prerogative arguments as inconsistent with Parliamentary sovereignty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The prerogative is discretionary authority legally left to the Crown, a limited non-statutory administrative power.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Reference as to the Effect of the Exercise of the Royal Prerogative of Mercy Upon Deportation Proceedings, [1933] S.C.R. 269, p. 272",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Definition of prerogative power"
+    },
+    {
+     "cite": "A. V. Dicey, Introduction to the Study of the Law of the Constitution (8th ed. 1915), p. 420",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Definition of prerogative power"
+    },
+    {
+     "cite": "Hogg, at p. 1-17",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Definition of prerogative power"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "Minister Sajjan testified he knew Facilitation Letters were used but did not authorize or know about their dissemination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Mr. Young was not authorized by the Ministers to grant visas or authorize Ms. Robinson to distribute Facilitation Letters.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Under IRPA s.6, delegation must be in writing specifying powers; no such delegation authorized issuing Facilitation Letters here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 6(1)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Delegation must be in writing specifying powers and duties"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The IRPA does not allow sub-delegation, reflecting the general administrative law presumption against it, as explained in Morton v Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IRPA excludes sub-delegation",
+    "general presumption against sub-delegation",
+    "definition of sub-delegation from Morton"
+   ],
+   "citations": [
+    {
+     "cite": "Morton v Canada (Fisheries and Oceans), 2015 FC 575 at para 79",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines sub-delegation and supports presumption against it"
+    },
+    {
+     "cite": "Robert W. Macaulay and James L.H. Sprague, Practice and Procedure before Administrative Tribunals (loose-leaf) (Toronto: Carswell, 1988) (2012 updated) at 5-20",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Provides definition of sub-delegation"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Sub-delegation is only allowed when the action is purely administrative without significant discretion, as per Morton.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Morton v Canada (Fisheries and Oceans), 2015 FC 575 at para 80",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sets exception to presumption against sub-delegation for purely administrative acts"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Ms. Robinson could not have been sub-delegated authority to add names or issue visas, as this is not a purely administrative act.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The situation reflects a poor understanding of Facilitation Letters and Canadian immigration by Mr. Young, Senator McPhedran, Ms. Robinson, and third parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Applicants' claim that Ms. Robinson was delegated authority to act for IRCC is rejected.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Public law promissory estoppel requires a clear promise by a public authority inducing reliance, similar to private law estoppel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immeubles Jacques Robitaille inc v Qu\u00e9bec (City), 2014 SCC 34 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines public law promissory estoppel requirements"
+    }
+   ]
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The Supreme Court noted significant differences between private and public law promissory estoppel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Public law promissory estoppel does not apply here as no promise was made by Canadian officials and estoppel cannot grant unauthorized powers.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no promise by Canadian officials",
+    "estoppel cannot confer unauthorized powers"
+   ],
+   "citations": [
+    {
+     "cite": "Tapambwa v Canada (Citizenship and Immigration), 2019 FCA 34 at para 67",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Estoppel cannot give powers not legally possessed"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Even if a promise existed, enforcing it would override IRPA provisions, undermining Parliamentary sovereignty and rule of law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "promise unenforceable as it overrides IRPA",
+    "would violate Parliamentary sovereignty and rule of law"
+   ],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Accepting Facilitation Letters as visas would violate Parliamentary sovereignty and the rule of law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court finds no visa promise was made, which disposes of the Charter claim, but will still assess the Applicants' arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "Applicants argue their nexus to Canada arises from state actions involving Facilitation Letters and delegation occurring in Canadian government offices.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "Applicants claim their situation is like refugee claimants, citing Singh for section 7 Charter rights outside Canada with well-founded fear of persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Minister of Employment and Immigration, [1985] 1 SCR 177",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicants rely on Singh for Charter rights outside Canada"
+    }
+   ]
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The court agrees Charter does not apply to risks from foreign entities, only to Canadian state actions, citing relevant cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Charter does not apply to foreign risks",
+    "Charter applies to Canadian extraterritorial actions only"
+   ],
+   "citations": [
+    {
+     "cite": "Charter, section 32",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Limits Charter application to government actors"
+    },
+    {
+     "cite": "Dickson v Vuntut Gwitchin First Nation, 2024 SCC 10 at para 69",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports Charter's limited application"
+    },
+    {
+     "cite": "Khadr at para 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Charter applies to Canadian participation in foreign acts violating rights"
+    },
+    {
+     "cite": "R v Hape, 2007 SCC 26 at para 52",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    },
+    {
+     "cite": "Canada (Justice) v Khadr, 2008 SCC 28 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    }
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The Applicants lack a nexus to Canada and thus cannot claim Charter protection, supported by multiple Federal Court decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Security Intelligence Service Act (CA) (Re), 2022 FC 1444 at paras 170-171",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports lack of nexus to Canada"
+    },
+    {
+     "cite": "Slahi v Canada (Justice), 2009 FC 160 at paras 47-48, 52",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports lack of nexus to Canada"
+    },
+    {
+     "cite": "Slahi v Canada (Justice), 2009 FCA 259",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Affirms above"
+    },
+    {
+     "cite": "Toronto Coalition to Stop the War v Canada (Public Safety and Emergency Preparedness), 2010 FC 957 at para 81",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports lack of nexus to Canada"
+    },
+    {
+     "cite": "Zeng v Canada (Attorney General), 2013 FC 104 at paras 70-72",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports lack of nexus to Canada"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The Crown prerogative is not engaged as the government did not issue Facilitation Letters or affect Applicants' risk; letters came from unauthorized third parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Applicants' hardship in Afghanistan lacks causal link to Canadian state action; government inaction alone cannot ground a section 7 Charter claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no causal link to Canadian state action",
+    "government inaction insufficient for Charter claim"
+   ],
+   "citations": [
+    {
+     "cite": "Canada v Boloh 1(a), 2023 FCA 120 at paras 44, 47-48",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Government inaction alone insufficient for Charter claim"
+    },
+    {
+     "cite": "Gosselin v Qu\u00e9bec (Attorney General), 2002 SCC 84 at paras 75, 77, 81-84",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The Applicants' Charter claim fails.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "Respondents argue DND and GAC lack authority under immigration law, so decisions here are not under IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "party",
+   "summary": "Respondents contend Crown prerogative decisions fall outside IRPA section 72 and must proceed under Federal Courts Act section 18.1, granting automatic appeal rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court rejects Respondents' position and agrees to assess if proposed questions meet certification requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "IRPA paragraph 74(d) limits appeals to certified questions of general importance transcending party interests, per Supreme Court and FCA precedents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "IRPA limits appeals to certified questions",
+    "Certification requires broad significance"
+   ],
+   "citations": [
+    {
+     "cite": "Mason v Canada (Citizenship and Immigration), 2023 SCC 21 at para 37",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines certification requirements for appeal"
+    },
+    {
+     "cite": "Lunyamila v Canada (Public Safety and Emergency Preparedness), 2018 FCA 22 at para 46",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports certification criteria"
+    },
+    {
+     "cite": "Lewis v Canada (Public Safety and Emergency Preparedness), 2017 FCA 130 at para 36",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports certification criteria"
+    }
+   ]
+  },
+  {
+   "para": 63,
+   "speaker": "other",
+   "summary": "Both parties proposed several questions for certification before the hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "other",
+   "summary": "The court requested additional submissions on certification requirements and impact of factual findings on certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 65,
+   "speaker": "other",
+   "summary": "Parties could not agree on certified questions and each proposed their own serious questions of general importance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "party",
+   "summary": "Applicants propose five certification questions about Crown prerogative, delegation, Facilitation Letters, promissory estoppel, and Charter application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 67,
+   "speaker": "party",
+   "summary": "Respondents propose eight certification questions grouped into Crown prerogative, public law promissory estoppel, and Charter application categories.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Certification questions depend on factual findings that Mr. Young was authorized under Crown prerogative to issue and delegate Facilitation Letters.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "The evidence does not support that Mr. Young was authorized under Crown prerogative to issue or delegate Facilitation Letters.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Despite findings, the court certifies three questions on Crown prerogative authority and judicial review under IRPA, considering case uniqueness and possible error.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "The court finds the three questions raised are broadly significant, involving federal prerogative authority and judicial review, and certifies them for appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "broad significance of questions",
+    "certification for appeal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "The court decides not to award costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,289 @@
+{
+ "case_id": 34803,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.003344
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 2,
+  "model_citations": 8,
+  "regex_citations": 6,
+  "regex_addressed": 6,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 3,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 7,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 85,
+   "para_end": 86
+  },
+  {
+   "citing_para": 8,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 54,
+   "para_end": 54
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2019 FC 812",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2016 FC 359",
+   "para_start": 11,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicants seeking judicial review of a Pre-Removal Risk Assessment (PRRA) decision that denied them risk of harm if returned to Sweden. The Applicants had previously been granted refugee status based on an Eritrean account, but this was vacated after it was found they were Swedish nationals. The Federal Court dismissed the judicial review, upholding the PRRA decision and rejecting the Applicants' procedural fairness and collateral attack arguments.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Applicants",
+    "text": "challenge PRRA decision denying risk of harm"
+   },
+   {
+    "id": "P2",
+    "para": 13,
+    "by": "Applicants",
+    "text": "argue for oral hearing before PRRA decision"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "Applicants",
+    "text": "claim Officer relied on mere allegations of Swedish nationality"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicants seek judicial review of a PRRA decision denying risk of harm if returned to Sweden.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Applicants entered Canada in 2017 and were granted refugee status based on the Adult Applicant's Eritrean account.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "In 2021, the Minister learned from Swedish authorities that the Applicants are Swedish nationals and applied to vacate their refugee status for misrepresentation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD found the Applicants were Swedish nationals and vacated their refugee status; judicial review of that was dismissed in 2023 FC 1372.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sariam v Canada (Citizenship and Immigration), 2023 FC 1372",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports prior judicial review dismissal of RPD decision"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Minister found the Applicants inadmissible under IRPA s 40(1)(c); leave to judicially review that was dismissed by the Federal Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 40(1)(c) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cites statutory basis for inadmissibility finding"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Reasonableness requires justification, transparency, coherence, and relation to facts and law, per Vavilov 2019 SCC 65 paras 85-86.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 85-86",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness standard for decision review"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Procedural fairness is assessed on a correctness-like standard considering all circumstances including Baker factors, per CPR v Canada 2018 FCA 69 para 54.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 at para 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets procedural fairness standard for review"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court rejects Applicants' collateral attack on RPD's finding of Swedish nationality upheld by this Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Officer correctly assessed risk in Sweden; Applicants failed to show risk there, citing Gul 2019 FC 812 para 19.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gul v Canada (Citizenship and Immigration), 2019 FC 812 at para 19 [Gul]",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports burden on Applicants to show risk in country of removal"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The PRRA Officer's finding of no risk of harm in Sweden is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Applicants argue they should have had an oral hearing before the PRRA decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Oral hearing is not automatic and only required if credibility issues arise; here none existed as decision was based on lack of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gul at para 28",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains when oral hearing is required in PRRA process"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Applicants' claim that Officer relied on mere allegations of Swedish nationality is rejected; Officer relied on RPD's credible findings upheld by court, citing Ntia 2016 FC 359 paras 11-12 and IRPA s 113(a).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ntia v Canada (Citizenship and Immigration), 2016 FC 359 at paras 11-12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports reliance on RPD findings by PRRA Officer"
+    },
+    {
+     "cite": "IRPA, subsection 113(a)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Legal basis for relying on prior tribunal findings"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "No procedural fairness issues arise from the PRRA process.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The judicial review is dismissed and no question for certification is granted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

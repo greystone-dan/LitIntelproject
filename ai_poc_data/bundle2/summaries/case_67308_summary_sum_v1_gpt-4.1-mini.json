@@ -1,0 +1,581 @@
+{
+ "case_id": 67308,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0081312
+ },
+ "verification": {
+  "paragraphs": 36,
+  "summaries": 36,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 14,
+  "regex_citations": 10,
+  "regex_addressed": 0,
+  "pinpoints": 8,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 8,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 8,
+  "party_points": 7,
+  "rebuttals": 7,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 36,
+   "neutral_citation": "2016 FCA 93",
+   "para_start": 103,
+   "para_end": 103
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2019 FC 1191",
+   "para_start": 25,
+   "para_end": 25
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2018 FC 45",
+   "para_start": 59,
+   "para_end": 59
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2016 FC 464",
+   "para_start": 22,
+   "para_end": 24
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2013 FC 252",
+   "para_start": 88,
+   "para_end": 88
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2019 FC 14",
+   "para_start": 48,
+   "para_end": 52
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2020 FC 640",
+   "para_start": 8,
+   "para_end": 11
+  },
+  {
+   "citing_para": 36,
+   "neutral_citation": "2021 FC 230",
+   "para_start": 12,
+   "para_end": 16
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns an appeal by a Jamaican citizen (the appellant) against the Refugee Protection Division's (RPD) rejection of his claim for protection due to persecution risks from a gang and inadequate state protection in Jamaica. The RPD had rejected the claim based on concerns about document authenticity, inconsistent testimony, and delay in claiming, but the Refugee Appeal Division (RAD) reviewed new evidence, resolved authenticity issues, accepted the appellant's credibility, and found a personal risk to life without protection. The RAD allowed the appeal and recognized the appellant as a person in need of protection, substituting its own decision for the RPD's.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "appellant",
+    "text": "persecution and risk from gang due to police informant activities and family threats"
+   },
+   {
+    "id": "P2",
+    "para": 3,
+    "by": "tribunal_below",
+    "text": "RPD rejected claim citing police letter authenticity, inconsistent testimony, son's letter omissions, and delay"
+   },
+   {
+    "id": "P3",
+    "para": 10,
+    "by": "appellant",
+    "text": "new evidence on appeal: email from previous counsel and police letter with crest and signature"
+   },
+   {
+    "id": "P4",
+    "para": 18,
+    "by": "appellant",
+    "text": "RPD erred in finding one police letter fraudulent due to missing crest"
+   },
+   {
+    "id": "P5",
+    "para": 24,
+    "by": "appellant",
+    "text": "son's letter should be assessed for what it says, not omissions"
+   },
+   {
+    "id": "P6",
+    "para": 28,
+    "by": "tribunal_below",
+    "text": "delay in claiming raises credibility concerns"
+   },
+   {
+    "id": "P7",
+    "para": 29,
+    "by": "appellant",
+    "text": "delay explanation unreasonable but does not undermine credible risk claim"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 19,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P7",
+    "verdict": "partly"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal grants the appeal and recognizes the appellant as a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant, a Jamaican citizen, alleges persecution and risk from the Gwalla's Crew gang due to police informant activities and family threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD rejected the appellant's claim citing police letter authenticity, inconsistent testimony, son's letter omissions, and delay in claiming.",
+   "ideas": "multiple",
+   "idea_list": [
+    "police letter not genuine",
+    "inconsistent testimony",
+    "son's letter omission",
+    "delay in claiming"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal reviews the evidence, finds authenticity concerns resolved, accepts explanations for inconsistencies, and finds the appellant credible and in need of protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "authenticity concerns resolved",
+    "no adverse inference on inconsistency",
+    "son's letter assessed positively",
+    "delay noted but not determinative",
+    "appellant credible and protected"
+   ],
+   "citations": [
+    {
+     "cite": "Singh",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets test for new evidence admissibility and credibility"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The appeal is allowed and the tribunal substitutes its own decision recognizing the appellant as a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The RAD requested research on Jamaican police documents' appearance and letterhead authority from 2016 to 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The IRB Research Directorate found no information on Jamaican police documents after consulting multiple sources within time constraints.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The RAD disclosed the research report to counsel with deadlines and extensions, but no response was received.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The tribunal finds the lack of information on Jamaican police documents neither supports nor undermines the appellant's police documents' credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The appellant submits new evidence on appeal: an email from previous counsel about police conversation and a police letter with crest and signature.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Under IRPA subsection 110(4), new evidence is admissible if it arose after the RPD decision, was unavailable, or could not reasonably have been presented earlier.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "IRPA subsection 110(4)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines admissibility criteria for new evidence on appeal"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal must decide if new evidence is new, credible, and relevant per Singh before accepting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets criteria for accepting new evidence"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Under IRPA subsection 110(6), an oral hearing is only held if new evidence raises serious credibility issues central to the claim and justifies the outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "IRPA subsection 110(6)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets conditions for holding an oral hearing on new evidence"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal partially admits new evidence but finds no hearing necessary as the appeal is granted and claim accepted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The new evidence was not reasonably available before the RPD decision due to the police officer's leave and is admissible under IRPA 110(4).",
+   "ideas": "multiple",
+   "idea_list": [
+    "new evidence not available before RPD",
+    "police officer on leave",
+    "evidence admissible under IRPA 110(4)"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The police letter with crest and old date is not credible due to backdating, and is inadmissible despite appellant's explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The police letter signed by a detective divisional inspector is new, relevant, credible, and admitted into evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RPD found one police letter genuine and the other fraudulent due to missing crest; counsel argues this was an error.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RPD was entitled to consider letterhead appearance in assessing authenticity despite lack of objective evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "No information on standard appearance of Jamaican police letters was found in the National Documentation Package or research report.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The tribunal finds new evidence sufficient to resolve authenticity concerns and accepts the police letter as genuine on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The 2016 police letter corroborates the appellant's police informant status, gang threats, cousin's murder, and risk on return to Jamaica.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The inconsistency in the appellant's Basis of Claim about gang threats is reasonably explained by illiteracy and lack of counsel initially.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The son's letter does not mention the 2014 attack, but counsel argues it should be assessed for what it says, not what it omits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Supporting documents should not be negatively inferred for omissions as the author is not cross-examinable; absence of evidence is not evidence of absence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gabila",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports that absence in supporting documents should not imply negative inference"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The son's letter corroborates threats but silence on the 2014 attack does not discredit the attack's credibility supported by other evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The son's letter corroborates continuing threats; other credible evidence supports the 2014 attack despite the letter's silence on it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's concern about the appellant's delay in claiming is not determinative of credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal agrees delay raises concerns but finds appellant's explanation unreasonable; delay alone does not undermine credible risk claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "delay raises concerns",
+    "explanation unreasonable",
+    "delay not determinative"
+   ],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant faces a personal risk to life in Jamaica without state protection or internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant faces a personal risk to life under IRPA s.97(1), explaining the two-stage analysis for such claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "personalized risk found",
+    "two-stage analysis explained"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 97(1) of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines legal basis for assessing personalized risk"
+    },
+    {
+     "cite": "Canada (MCI) v. Huruglica, 2016 FCA 93, at para. 103",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports the two-stage analysis for subsection 97(1)(b) claims"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "At the first stage, the tribunal finds the appellant was personally threatened with death due to cooperating with police, with ongoing credible threats after arrival in Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "personal threat established",
+    "pattern and ongoing risk noted"
+   ],
+   "citations": [
+    {
+     "cite": "Exhibit RAD-1, Response to Information Request JAM200308.E",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Evidence of threats and risk"
+    },
+    {
+     "cite": "Exhibit P-2, Appellant's Record, at pp. 9-10, 14, 15",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Appellant's evidence of threats and attacks"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "At the second stage, the tribunal finds the appellant's risk is distinct and not generally faced by others in Jamaica, with no adequate state protection or internal flight alternative.",
+   "ideas": "multiple",
+   "idea_list": [
+    "risk distinct from general gang violence",
+    "no adequate state protection or IFA"
+   ],
+   "citations": [
+    {
+     "cite": "Exhibit RAD-2, RAD disclosure of the Response to Information Request JAM200308.E, November 27, 2020",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Evidence on general gang violence and risk comparison"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal finds Jamaica's police are underpaid and poorly trained, witness protection ineffective, and state protection inadequate for the appellant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "police underpaid and poorly trained",
+    "witness protection ineffective",
+    "state protection inadequate"
+   ],
+   "citations": [
+    {
+     "cite": "Exhibit RPD-1, RPD record, Exhibit 6, at p. 90 (duplicate at Exhibit 9, at p. 213)",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Evidence on police conditions and protection"
+    },
+    {
+     "cite": "Exhibit P-2, Appellant's Record, at p. 15",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Appellant's evidence on lack of protection"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 7, at p. 110",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Evidence on witness protection program problems"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant faces a personal risk throughout Jamaica and lacks a viable internal flight alternative due to the country's small size and gang interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 2, at p. 27, at question 2(a)",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Evidence on Jamaica's size and gang reach"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal allows the appeal and substitutes its own decision that the appellant is a person in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

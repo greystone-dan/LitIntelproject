@@ -1,0 +1,217 @@
+{
+ "case_id": 33770,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0033648000000000003
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 2,
+  "model_citations": 3,
+  "regex_citations": 1,
+  "regex_addressed": 1,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 2,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "Ms. Dhillon seeks judicial review of IRCC's refusal of her permanent residence application, arguing that IRCC ignored her response to a procedural fairness letter. The Federal Court found that Ms. Dhillon did submit her response, and IRCC's decision was unreasonable for failing to acknowledge this due to a processing error. The court set aside the refusal decision and did not certify any question for appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Ms. Dhillon (Applicant)",
+    "text": "IRCC ignored her response to procedural fairness letter"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "Respondent (IRCC)",
+    "text": "January 3 email means December 13 response not received, must be resubmitted, blames consultant"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 15,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P1",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Ms. Dhillon seeks judicial review of IRCC's refusal of her permanent residence application for ignoring her response to a procedural fairness letter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "Between June 2022 and November 2023, IRCC requested additional information, which Ms. Dhillon's consultant and employer promptly provided.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "On November 23, 2023, IRCC sent a procedural fairness letter to the consultant about concerns over the employer's genuineness and ability to pay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The consultant responded to the PFL on December 13, 2023, uploading supporting documents, and IRCC confirmed receipt by automated reply.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "On January 3, 2024, IRCC emailed the consultant requesting resubmission of the PFL response with additional explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The January 3 email referenced the December 13 submission and listed attached documents from the consultant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Ms. Dhillon's consultant did not respond to IRCC's January 3 email, and new counsel provided no explanation or ineffective assistance claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "GCMS notes lack any record of the December 13 submission or January 3 email, only noting no response to the PFL and refusal on March 26, 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "IRCC refused Ms. Dhillon's application on March 26, 2024, for failing to prove a genuine full-time job offer meeting conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Reasonableness review requires decisions to respond to evidence and context, per Supreme Court's Vavilov decision at para 126.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness review standard and need to consider evidence"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Respondent argues the January 3 email means the December 13 response was not received and must be resubmitted, blaming the consultant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court disagrees with the Respondent's interpretation of the January 3 email.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court finds the January 3 email's wording does not clearly state the December 13 materials were not received or considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "On balance, the court finds Ms. Dhillon submitted her PFL response and should not be blamed for IRCC's processing glitch; decision lacks responsive justification per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 126",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Decision must respond to evidence and factual matrix"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court sets aside the unreasonable decision and finds no question for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 127,
+   "speaker": "court",
+   "summary": "The court quotes Baker to emphasize that procedural fairness requires decision makers to provide responsive reasons showing they listened to parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Baker, at para. 28",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains duty of procedural fairness and responsive reasons"
+    }
+   ]
+  }
+ ]
+}

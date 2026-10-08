@@ -1,0 +1,400 @@
+{
+ "case_id": 29759,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0055016
+ },
+ "verification": {
+  "paragraphs": 24,
+  "summaries": 24,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 9,
+  "regex_citations": 4,
+  "regex_addressed": 3,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 3,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 8,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 8,
+   "neutral_citation": "2021 FC 430",
+   "para_start": 32,
+   "para_end": 32
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2022 FC 1333",
+   "para_start": 16,
+   "para_end": 16
+  }
+ ],
+ "structure": {
+  "overview": "The Applicants, a Colombian family, sought judicial review of the Refugee Protection Division's (RPD) decision refusing their refugee claim due to a viable internal flight alternative (IFA) in Sincelejo. The RPD found the Applicants credible but concluded that relocation to Sincelejo was reasonable and safe, a finding the Federal Court reviewed for reasonableness. The Court found the RPD's IFA reasoning unreasonable due to multiple errors and granted the Applicants' application for judicial review.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 10,
+    "by": "Applicants",
+    "text": "RPD's inferences about ELN motivation based on assumptions"
+   },
+   {
+    "id": "P2",
+    "para": 15,
+    "by": "Applicants",
+    "text": "RPD erred suggesting ELN threats due to shared water source"
+   },
+   {
+    "id": "P3",
+    "para": 19,
+    "by": "Applicants",
+    "text": "RPD understated ELN's ability to find them given criminal tracking methods"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 11,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P2",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Applicants, Colombian citizens, seek judicial review of the RPD's March 1, 2022 decision refusing their refugee claim based on lack of nexus to a Convention ground and IFA in Sincelejo.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicants' identity and claim",
+    "RPD's findings and issue"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statute under which RPD analyzed claims"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court will grant the Applicants' application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicants are a family of four, including Principal Applicant Mr. Galvis Bonilla, his spouse, and two children; adults owned a water bottling business in Barbosa.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' family and business background"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "In 2018, the adult Applicants were extorted by the ELN, paying two million pesos monthly until 2020, when ELN threatened them over diverted water for a gold mine.",
+   "ideas": "single",
+   "idea_list": [
+    "Extortion and threats by ELN"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "By April 2020, Applicants stopped extortion payments; Principal Applicant threatened with death if unpaid by December; business closed; they left Colombia November 2020 and claimed refugee in Canada January 2021.",
+   "ideas": "single",
+   "idea_list": [
+    "Events leading to departure and refugee claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The RPD found Applicants credible, accepted extortion and threats, found personalized risk under IRPA s.97(1)(b), but refused claims due to viable IFA in Sincelejo.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's findings and refusal reason"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA) s 97(1)(b)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for personalized risk finding"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RPD found Applicants lived 705 km from Sincelejo, ELN inactive there, no evidence of ELN presence, Applicants no longer tied to local economy, ELN unlikely motivated to find them, and Sincelejo suitable for relocation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Distance and ELN presence",
+    "Applicants' ties and ELN motivation",
+    "Suitability of Sincelejo as IFA"
+   ],
+   "citations": [
+    {
+     "cite": "National Documentation Package (NDP) for Colombia",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Source of objective evidence on ELN presence"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RPD's IFA findings are reviewed for reasonableness under Vavilov and Sadiq, requiring coherent, rational, justified decisions.",
+   "ideas": "single",
+   "idea_list": [
+    "Standard of review for IFA findings"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 10, 23, 85, 102",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness standard for administrative decisions"
+    },
+    {
+     "cite": "Sadiq v Canada (Citizenship and Immigration), 2021 FC 430 at para 32",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Applies reasonableness review to IFA findings"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The IFA test requires no serious risk in the IFA and that it be reasonable for the claimant to seek refuge there, per Rasaratnam and Thirunavukkarasu.",
+   "ideas": "single",
+   "idea_list": [
+    "IFA test elements"
+   ],
+   "citations": [
+    {
+     "cite": "Rasaratnam v Canada (Minister of Employment and Immigration), [1992] 1 FC 706 (CA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines IFA test elements"
+    },
+    {
+     "cite": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), [1994] 1 FC 589 (CA) at pp 595\u2013597",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Further explains IFA test requirements"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Applicants argue the RPD's inferences about ELN's motivation are based on assumptions about ELN's motives and required demonstrations of continued interest.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' argument on RPD assumptions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court disagrees that RPD assumed ELN motivation; RPD reasonably found insufficient evidence of ELN motivation based on facts and law, not assumptions.",
+   "ideas": "single",
+   "idea_list": [
+    "Court rejects Applicants' argument on assumptions"
+   ],
+   "citations": [
+    {
+     "cite": "Mohammed v Canada (Citizenship and Immigration), 2022 FC 1333 at para 16",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Applicants bear onus to prove no viable IFA"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court finds three cumulative errors in the RPD's reasoning that undermine its conclusion's coherence and intelligibility.",
+   "ideas": "single",
+   "idea_list": [
+    "Court identifies three errors in RPD reasoning"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "First, the RPD improperly relied on Principal Applicant's knowledge of threats to others without explaining its relevance to ELN's motivation to pursue Applicants.",
+   "ideas": "single",
+   "idea_list": [
+    "First error: relevance of knowledge of threats to others"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court finds Applicants' argument that RPD lacked evidentiary basis for ELN attempts to find them unpersuasive and notes Applicants must provide evidence of ELN motivation.",
+   "ideas": "single",
+   "idea_list": [
+    "Court rejects Applicants' argument on evidentiary basis"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Applicants submit the RPD erred in suggesting ELN threatened them due to shared water source with ELN's gold mining.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' argument on ELN motivation error"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The RPD accepted ELN threats stemmed from Applicants' status as business owners, but linked ELN interest to water source, which the court finds problematic.",
+   "ideas": "single",
+   "idea_list": [
+    "Court notes RPD's inconsistent reasoning on ELN motivation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RPD's focus on water source as basis for ELN conflict overlooks Applicants' claim ELN targeted them as business owners generally, not competitors for water.",
+   "ideas": "single",
+   "idea_list": [
+    "Court notes RPD failed to address broader ELN motivation claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RPD failed to explain its analysis of whether ELN's interest was due to water source or general targeting of business owners, undermining its IFA conclusion.",
+   "ideas": "single",
+   "idea_list": [
+    "Court finds RPD's explanation on ELN motivation insufficient"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Applicants argue RPD's statement that ELN 'may have the means to find' them is a gross understatement given evidence of criminal tracking methods.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicants' argument on RPD understatement of ELN tracking ability"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The RPD's statement contradicts its earlier conclusion ELN has no presence in Sincelejo and introduces unreasonable uncertainty without explanation.",
+   "ideas": "single",
+   "idea_list": [
+    "Court finds RPD's statement vague and contradictory"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 102",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Unreasonable uncertainty undermines decision rationality"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds the three identified errors materially compromise the clarity and intelligibility of the RPD's decision.",
+   "ideas": "single",
+   "idea_list": [
+    "Court concludes RPD decision is unclear and unintelligible"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RPD's reasons on the first prong of the IFA test are unreasonable, warranting judicial review and allowing the application.",
+   "ideas": "single",
+   "idea_list": [
+    "Court allows judicial review due to unreasonable RPD reasons"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "No question for certification was proposed or arises in this case.",
+   "ideas": "single",
+   "idea_list": [
+    "No certification question"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The ELN targeted Applicants as business owners reliant on water; after business closure in 2018, Applicants removed the key factor making them ELN targets.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's view on ELN motivation and business closure"
+   ],
+   "citations": []
+  }
+ ]
+}

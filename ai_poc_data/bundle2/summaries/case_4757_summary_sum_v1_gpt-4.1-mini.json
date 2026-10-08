@@ -1,0 +1,573 @@
+{
+ "case_id": 4757,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.007911600000000001
+ },
+ "verification": {
+  "paragraphs": 33,
+  "summaries": 33,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 24,
+  "regex_citations": 7,
+  "regex_addressed": 7,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 14,
+   "supports_court_conclusion": 5,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 5
+  },
+  "multi_idea_paragraphs": 9,
+  "party_points": 5,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 4,
+   "neutral_citation": "2016 FC 599",
+   "para_start": 3,
+   "para_end": 3
+  },
+  {
+   "citing_para": 8,
+   "neutral_citation": "2015 SCC 61",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2004 FCA 38",
+   "para_start": 8,
+   "para_end": 8
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  }
+ ],
+ "structure": {
+  "overview": "Ms. Kifungo seeks judicial review of an Immigration Officer's refusal to grant her permanent residence in Canada under humanitarian and compassionate (H&C) grounds. The Immigration Officer found her evidence on establishment in Canada, family ties, and country conditions insufficient and dismissed her claim as unreasonable. The Federal Court upheld the Officer's decision, finding it reasonable and supported by the evidence, and dismissed the judicial review application.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Applicant",
+    "text": "Officer failed to apply section 25 H&C considerations"
+   },
+   {
+    "id": "P2",
+    "para": 20,
+    "by": "Applicant",
+    "text": "Officer fettered discretion by not examining hardship if returned to Congo"
+   },
+   {
+    "id": "P3",
+    "para": 21,
+    "by": "Applicant",
+    "text": "Applicant incapable of leaving Canada due to moratorium"
+   },
+   {
+    "id": "P4",
+    "para": 27,
+    "by": "Applicant",
+    "text": "Establishment analysis unintelligible"
+   },
+   {
+    "id": "P5",
+    "para": 28,
+    "by": "Applicant",
+    "text": "Claim to help raise nephew supported by evidence"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 16,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Ms. Kifungo seeks judicial review of an Immigration Officer's refusal to grant permanent residence without applying section 25 H&C considerations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks judicial review",
+    "Immigration Officer refused application",
+    "Applicant relies on section 25 IRPA"
+   ],
+   "citations": [
+    {
+     "cite": "section 11 of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal requirement for application from outside Canada"
+    },
+    {
+     "cite": "section 25(1) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Section allowing H&C considerations for permanent residence"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant and her brother entered Canada in August 2010; she is a citizen of the Democratic Republic of the Congo.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant and siblings crossed the US/Canada border to seek refugee status; the older sister was refused entry due to age, Applicant was 16.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant's parents' situation in Congo is unclear; her father was detained twice and later left for Gabon; mother stayed in Congo.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "2016 FC 599, para 3",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Court decision on asylum refusal mentioning father's detention"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The judicial review of the Applicant's asylum claim was dismissed; the RPD found lack of credibility, confirmed by the Court as reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Submissions before the Immigration Officer focused on Applicant's establishment in Canada, length of stay, and risks if returned to Congo, not survival details.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Senior Immigration Officer found the Applicant's establishment in Canada lacked substance despite nearly 10 years' stay, citing Irimie on H&C test.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's finding on establishment",
+    "Citation of Irimie case on H&C test"
+   ],
+   "citations": [
+    {
+     "cite": "Irimie v Canada (Minister of Citizenship and Immigration), 2000 CanLII 16640 (FC) [Irimie]",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines H&C test not as immigration screening"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The Officer cited Kanthasamy to note hardship of leaving Canada alone is insufficient for relief under section 25(1) IRPA, referencing Irimie again.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer cites Kanthasamy on hardship",
+    "Kanthasamy references Irimie"
+   ],
+   "citations": [
+    {
+     "cite": "Kanthasamy v Canada (Citizenship and Immigration), 2015 SCC 61, [2015] 3 SCR 909 [Kanthasamy]",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Hardship alone insufficient for relief under section 25(1)"
+    },
+    {
+     "cite": "Irimie, at paragraph 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Referenced by Kanthasamy on hardship"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The Officer rejected the Applicant's argument that a moratorium on removals prevented her from leaving Canada, stating it is a shield, not a sword.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Officer corrected the Applicant's impression that she was obligated to stay in Canada due to the moratorium, stating she was free to leave.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Officer noted limited financial information from the Applicant, especially no details from 2010 to 2016 on how she subsisted in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Officer found little evidence on education and community involvement, concluding the Applicant's establishment and ties in Canada were unclear.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Officer reviewed Congo's difficult conditions but found the Applicant's evidence on family and country situation vague and insufficient, citing Owusu.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer notes Congo conditions",
+    "Applicant's evidence on family vague",
+    "Cites Owusu on responsibility for evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Owusu v Canada (Minister of Citizenship and Immigration), 2004 FCA 38, [2004] 2 FCR 635 [Owusu]",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Applicant responsible for providing evidence"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Officer considered the best interests of the Applicant's nephew, noting limited contact and financial support from the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Officer found insufficient evidence about the nephew to justify relief under section 25(1), concluding combined grounds did not warrant exemption.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court sympathizes but finds the Applicant's evidence before the Officer fatally defective, so the decision's reasonableness stands.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bernard v Canada (Revenue Agency), 2015 FCA 263",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Judicial review based on record before decision maker"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The parties agree the standard of review is reasonableness, confirmed by the Supreme Court in Vavilov as the presumption in all cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Parties agree on reasonableness standard",
+    "Vavilov confirms presumption of reasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 [Vavilov]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms reasonableness as presumptive standard"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Vavilov requires applicants to show unreasonableness; reasonableness demands justification, transparency, intelligibility; flaws include incoherence or unjustified conclusions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Burden on applicant to show unreasonableness",
+    "Reasonableness hallmarks",
+    "Types of fundamental flaws"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, para 99, 100, 103, 104",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness requirements and flaws"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court must show judicial restraint, respect administrative roles, and not reweigh evidence or accept new evidence on review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 13, 14",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Emphasizes judicial restraint and respect for administrative decisions"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant argues the Officer fettered discretion by not examining hardship if returned to Congo, but the record does not support this.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Applicant argued she was incapable of leaving Canada due to moratorium; Officer misunderstood this as a creditable prevention from return.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The Officer corrected the misunderstanding, acknowledged the moratorium, and linked it to a hypothetical return to Congo.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RPD can reject evidence based on implausibility and found the Applicant failed to prove fear of persecution; this was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Contrary to Applicant's claim, the Officer considered the TSR and discussed hypothetical return if moratorium lifts, requiring application from outside Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Relief varies by case, but H&C officers must consider all relevant facts substantively, citing Baker for this principle.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Baker, at paras. 74-75",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Officers must consider all relevant facts in H&C determinations"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Due to the TSR, the Officer did not consider the Applicant at risk of removal; the Applicant failed to submit evidence on country conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Applicant's claim that the establishment analysis is unintelligible fails due to lack of evidence; affidavit after the fact is unhelpful.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Applicant's claim to help raise her nephew is unsupported by evidence; the Officer noted almost no information about the child.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Officer did not require hardship evidence but evidence about the child; lack of evidence was fatal to the Applicant's claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Applicant failed to show the decision was unreasonable due to lack of evidence; Kanthasamy and Chirwa define H&C considerations as evidence-based.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant failed to prove unreasonableness",
+    "Kanthasamy and Chirwa define H&C evidence standard"
+   ],
+   "citations": [
+    {
+     "cite": "Kanthasamy, para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines H&C considerations as evidence-based"
+    },
+    {
+     "cite": "Chirwa v Canada (Minister of Citizenship and Immigration) (1970), 4 IAC 338",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Quoted on H&C considerations requiring evidence"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The parties did not request certification of a question under section 74 of the IRPA, and the court agrees no such question arose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 74 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Refers to the statutory provision for certifying a question"
+    }
+   ]
+  },
+  {
+   "para": 125,
+   "speaker": "court",
+   "summary": "The court states that factual findings by the decision maker are generally not interfered with on review unless exceptional circumstances exist, citing multiple authorities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision maker assesses evidence",
+    "court defers to factual findings except in exceptional cases"
+   ],
+   "citations": [
+    {
+     "cite": "CHRC, at para. 55",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports deference to decision maker's factual findings"
+    },
+    {
+     "cite": "Khosa, at para. 64",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports deference to decision maker's factual findings"
+    },
+    {
+     "cite": "Dr. Q, at paras. 41-42",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports deference to decision maker's factual findings"
+    },
+    {
+     "cite": "Housen, at paras. 15-18",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains reasons for deference to first instance findings"
+    },
+    {
+     "cite": "Dr. Q, at para. 38",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains reasons for deference to first instance findings"
+    },
+    {
+     "cite": "Dunsmuir, at para. 53",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains reasons for deference to first instance findings"
+    }
+   ]
+  },
+  {
+   "para": 126,
+   "speaker": "court",
+   "summary": "The court explains that a reasonable decision must be justified by facts and evidence, and unreasonableness arises if the decision maker misapprehends or ignores evidence, citing Dunsmuir and Baker.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of reasonable decision",
+    "examples of unreasonableness from misapprehension of evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Dunsmuir, para. 47",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonable decision as justified by facts"
+    },
+    {
+     "cite": "Southam, at para. 56",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Decision must consider evidentiary record and factual matrix"
+    },
+    {
+     "cite": "Baker, para. 48",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Example of unreasonableness from ignoring evidence and bias"
+    }
+   ]
+  }
+ ]
+}

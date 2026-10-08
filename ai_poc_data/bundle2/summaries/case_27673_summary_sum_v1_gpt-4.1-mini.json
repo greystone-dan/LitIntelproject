@@ -1,0 +1,574 @@
+{
+ "case_id": 27673,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0081696
+ },
+ "verification": {
+  "paragraphs": 41,
+  "summaries": 41,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 4,
+  "model_citations": 17,
+  "regex_citations": 11,
+  "regex_addressed": 10,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 9,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 3,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 17,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 54,
+   "para_end": 56
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2023 FC 733",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 32,
+   "neutral_citation": "2019 FC 212",
+   "para_start": 17,
+   "para_end": 20
+  },
+  {
+   "citing_para": 39,
+   "neutral_citation": "2009 SCC 12",
+   "para_start": 43,
+   "para_end": 43
+  },
+  {
+   "citing_para": 41,
+   "neutral_citation": "2006 FC 1283",
+   "para_start": 24,
+   "para_end": 24
+  },
+  {
+   "citing_para": 41,
+   "neutral_citation": "2012 FC 145",
+   "para_start": 7,
+   "para_end": 7
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's challenge to a visa officer's decision refusing to extend and restore his study permit in Canada due to non-compliance with study permit conditions. The Applicant, who had academic interruptions and delayed permit renewal, sought judicial review of the refusal decision made by the immigration officer (tribunal_below). The Federal Court dismissed the application, finding the officer's decision reasonable and procedurally fair.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 23,
+    "by": "Respondent",
+    "text": "Applicant failed to meet study permit conditions and did not provide required documents"
+   },
+   {
+    "id": "P2",
+    "para": 24,
+    "by": "Applicant",
+    "text": "Decision is unreasonable and Respondent improperly supplemented Officer\u2019s reasons"
+   },
+   {
+    "id": "P3",
+    "para": 42,
+    "by": "Applicant",
+    "text": "Inordinate delay in processing breached procedural fairness"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 25,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 44,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 45,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant requests the Court to set aside the Decision and have it redetermined by a different officer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court dismisses the Applicant's application for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant arrived in Canada in 2016 to study computer science at York University with a valid study permit expiring November 19, 2019, requiring continuous study and departure upon expiry.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicant renewed his Nigerian passport and had his temporary resident status restored and work-study permit extended to December 31, 2022, with conditions to continue studies at Lassonde and leave Canada by then.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "In 2021, the Applicant was barred from studies at Lassonde for two years due to poor academic performance, eligible for readmission in summer 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "On June 27, 2022, the Applicant was accepted into a one-year music program at Humber College.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "On October 26, 2022, the Applicant applied to extend his study permit under subsection 182(1) of the IRPR.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Regulations, SOR/2002-227",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Cites the regulation under which the extension was applied."
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "On January 17, 2023, a visa officer refused the Applicant's extension due to insufficient funds; the study permit expired December 31, 2022, and the Applicant did not challenge this.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "On February 22, 2023, the Applicant applied to IRCC to restore and extend his expired study permit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "On April 27, 2023, the Applicant was notified that additional information was required to support his application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "On May 2, 2023, the Applicant\u2019s lawyer submitted additional documents stating the Applicant completed his program and sought extension to qualify for a post-graduate work permit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "other",
+   "summary": "The Applicant applied for leave to challenge the Decision on July 4, 2023; the Court granted leave on June 19, 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Study permit decisions are reviewed on a reasonableness standard, as established in Vavilov at paragraphs 10 and 23.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the reasonableness standard for review of study permit decisions."
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Reasonableness review requires decisions to be transparent, intelligible, justified, and based on a rational chain of analysis per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines criteria for reasonableness review."
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Judicial review requires finding a central or significant error to render the decision unreasonable, per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets threshold for judicial review intervention."
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Procedural fairness issues are reviewed on correctness or akin to correctness, considering fairness standards in context.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States standard for procedural fairness review."
+    },
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports correctness standard for procedural fairness."
+    },
+    {
+     "cite": "Chera v Canada (Citizenship and Immigration), 2023 FC 733",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains fairness standards to be applied."
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Public information states students must not take leave exceeding 150 days or they must change status or leave Canada, else they breach study permit conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration, Refugees and Citizenship Canada, \u201cStudy Permits: Assessing study permit conditions\u201d (last modified 25 September 2023), online: <canada.ca>",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Provides official guidance on study permit conditions and leave limits."
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Respondent argues the Applicant failed to meet study permit conditions and did not provide required documents, making the Decision reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicant contends the Decision is unreasonable and that the Respondent improperly supplemented the Officer\u2019s reasons in their memorandum.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court disagrees that the Respondent supplemented the Officer\u2019s reasons; the memorandum aligns with the Officer\u2019s notes and reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Respondent\u2019s memorandum summary is consistent with the Officer\u2019s reasons, referencing the Applicant\u2019s non-compliance with study permit conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Officer\u2019s reasons are clear, intelligible, and reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Court cites Ntamag confirming that restoration is not allowed if the student is not enrolled or actively pursuing studies under subsection 220.1(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ntamag v Canada (Immigration, Refugees and Citizenship), 2020 FC 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms restoration disallowed if not enrolled or actively studying."
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Applicant was barred from studies in 2021 and did not resume studies until September 2022, thus not enrolled or actively studying for over a year.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Although the Applicant started a new program in September 2022, he lacked prior authorization and delayed renewing his study permit until near expiration.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Officer\u2019s finding that the Applicant failed to comply with study permit conditions by not being actively engaged in study is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Applicant\u2019s sole purpose to restore his permit for PGWP eligibility justifies the Officer\u2019s conclusion that restoration requirements were unmet, per Ofori.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ofori v Canada (Citizenship and Immigration), 2019 FC 212",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports refusal when restoration sought solely for PGWP eligibility."
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Applicant\u2019s persistent non-compliance renders him ineligible for restoration despite timely application within 90 days.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Officer reasonably considered the Applicant\u2019s history and intention but found non-compliance with section 182 conditions, justifying refusal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Officer noted the Applicant did not provide an updated Letter of Acceptance; the lawyer\u2019s letter showed program completion and transcript submission.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Officer reasonably required an updated Letter of Acceptance since the Applicant had completed studies and sought extension only for PGWP eligibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that the issue of the Officer's decision on restoration is determinative of the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Breaches of procedural fairness are reviewed on a correctness standard focusing on fairness of process considering all circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "CPR at para 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States correctness standard for procedural fairness breaches"
+    },
+    {
+     "cite": "Eagle\u2019s Nest Youth Ranch Inc v Corman Park (Rural Municipality #344), 2016 SKCA 20 at para 20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports correctness standard for procedural fairness"
+    },
+    {
+     "cite": "Canada (Citizenship and Immigration) v Khosa, 2009 SCC 12 at para 43",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms focus on fairness of process in procedural fairness review"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Procedural fairness is relaxed for study permit applications due to non-judicial nature and officers' expertise, per Li v Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Li v Canada (Minister of Citizenship and Immigration), 2001 FCT 791 at paras 45\u201350",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports relaxed procedural fairness in study permit context"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Applicants must provide sufficient evidence; officers have no duty to allow addressing concerns from insufficient evidence, per Hassani and Huang.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hassani v Canada (Citizenship and Immigration), 2006 FC 1283 at para 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports no duty on officers to allow addressing insufficient evidence"
+    },
+    {
+     "cite": "Huang v Canada (Citizenship and Immigration), 2012 FC 145 at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Applicant argued that an 'inordinate delay' in processing breached procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's delay argument, noting IRCC processing times are non-prescriptive and delays alone do not breach procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The Applicant failed to provide all requested information timely despite IRCC's request and counsel's partial submission; no further steps were taken.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "IRCC's decision took time but delay was not inordinate, unfair, or prejudicial to the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The Officer reasonably denied restoration and extension due to Applicant's failure to comply with original permit conditions under IRPR subsections 182 and 220.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsections 182 and 220 of the IRPR",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Legal basis for denial of restoration and extension"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "No questions for certification were posed or found by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,431 @@
+{
+ "case_id": 69033,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0058792
+ },
+ "verification": {
+  "paragraphs": 29,
+  "summaries": 29,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 3,
+  "regex_citations": 1,
+  "regex_addressed": 1,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 8,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns a Somali minor appellant whose refugee claim was rejected by the Refugee Protection Division (RPD) due to identity and credibility issues. The Refugee Appeal Division (RAD) allowed the appeal, finding errors in the RPD's assessment of identity and credibility, and ultimately recognized the appellant as a Convention refugee. The RAD substituted its own decision granting refugee protection based on the appellant's fear of persecution in Somalia.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "Appellant",
+    "text": "RPD erred in assessing identity and credibility"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "Appellant",
+    "text": "Unreasonable to expect minor to live alone in Somalia"
+   },
+   {
+    "id": "P3",
+    "para": 7,
+    "by": "Appellant",
+    "text": "Request to admit affidavit from social worker"
+   },
+   {
+    "id": "P4",
+    "para": 13,
+    "by": "Appellant",
+    "text": "Provided independent evidence supporting identity"
+   },
+   {
+    "id": "P5",
+    "para": 14,
+    "by": "Appellant",
+    "text": "RPD erred by giving little weight to community letter and school documents"
+   },
+   {
+    "id": "P6",
+    "para": 15,
+    "by": "Appellant",
+    "text": "Assisted by social worker to find relatives but unsuccessful"
+   },
+   {
+    "id": "P7",
+    "para": 16,
+    "by": "Appellant",
+    "text": "RPD unfairly focused on memory gaps, improper under child claimant guideline"
+   },
+   {
+    "id": "P8",
+    "para": 25,
+    "by": "Appellant",
+    "text": "Fled due to fear of Al-Shabaab and domestic violence; unsafe with uncle or alone in Somalia"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 17,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P7",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P1",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Appellant, a Somali minor represented by a Designated Representative, had his refugee claim rejected by the RPD and appeals to the RAD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's background and claim",
+    "RPD rejection",
+    "Appellant's appeal request"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The RAD allows the appeal and finds the Appellant is a Convention refugee.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Appellant's history includes fleeing Somalia due to fear of Al-Shabaab and domestic violence, traveling through Ethiopia and the USA, and arriving in Canada as an unaccompanied minor.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's background and travel history"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The RPD heard the Appellant's claim in August 2020 and rejected it in September 2020 due to failure to credibly establish identity.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD decision on identity"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred in assessing his identity and credibility and that expecting a minor to live alone in Somalia is unreasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's argument on RPD errors"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RAD explains IRPA subsections 110(3) and 110(4) limit new evidence to post-rejection or previously unavailable evidence without a hearing.",
+   "ideas": "single",
+   "idea_list": [
+    "IRPA rules on new evidence"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 110(3) of the Immigration and Refugee Appeal Act (IRPA)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Explains RAD's evidence rules"
+    },
+    {
+     "cite": "Subsection 110(4) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Limits new evidence to post-rejection or unavailable evidence"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Appellant requests admission of an affidavit from his social worker updating efforts to find his family.",
+   "ideas": "single",
+   "idea_list": [
+    "Request to admit new affidavit evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RAD admits the affidavit and emails as they postdate the claim rejection and relate to identity.",
+   "ideas": "single",
+   "idea_list": [
+    "Admitting new evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD found identity was the key issue and rejected the Appellant's identity due to lack of documentation and credible evidence.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's identity finding"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD noted the Appellant's youth and representation but found his testimony about family contact and documentation inconsistent and unreasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD notes minor's representation",
+    "RPD doubts testimony on family contact and documentation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD found the Designated Representative's contacts insufficient as the Appellant provided no reliable evidence of reasonable family contact efforts.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD on family contact efforts"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RPD found significant omissions in the Appellant's testimony about his US entry, time there, and timeline inconsistencies.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD on testimony omissions and timeline"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Appellant argues he provided independent evidence from his social worker and community letters supporting his identity, which the RPD should have explored more.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's argument on independent evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Appellant contends the RPD erred by giving little weight to a community letter and school documents that support his identity.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's argument on community and school evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The Appellant states he is assisted by a social worker to find relatives in Somalia but has been unsuccessful.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's family search efforts"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD did not find him untruthful but unfairly focused on memory gaps, which is improper under the Guideline for child claimants.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's argument on credibility assessment"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The RAD finds the RPD erred in concluding the Appellant failed to establish identity, considering the child's circumstances and Guideline 3.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD finds RPD erred on identity"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RAD finds the RPD wrongly gave little weight to the community letter, which probatively establishes the Appellant's Somali identity.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD on probative value of community letter"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD considers unsuccessful family search efforts and finds the RPD erred in expecting more internet contact given the Appellant's circumstances.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD on family contact efforts and RPD error"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The RAD finds the RPD failed to consider the Appellant's limited education, trauma, and reliance on his representative for family contact.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD ignored Appellant's education and trauma",
+    "RPD ignored reliance on representative"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RAD disagrees with the RPD's negative credibility inference based on omissions and timeline gaps in the Appellant's testimony.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD rejects RPD's negative credibility inference"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RAD finds the Appellant's consistent evidence outweighs timeline issues and that the RPD erred in rejecting his credibility.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD finds Appellant credible despite timeline issues"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD finds the Appellant has established Somali citizenship on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD finds identity established"
+   ],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RPD did not consider the merits of the claim due to its finding on identity.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD did not assess merits"
+   ],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Appellant argues he fled due to fear of Al-Shabaab and domestic violence and cannot safely live with his uncle or alone in Somalia.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellant's fear and safety arguments"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RAD reviews the Appellant's consistent testimony about threats from his stepfather, family abuse, and fear of returning to Somalia.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD reviews Appellant's testimony on fear"
+   ],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The RAD notes country evidence showing Somalia's violence, child exploitation, forced recruitment, and trafficking risks.",
+   "ideas": "single",
+   "idea_list": [
+    "Country conditions on Somalia's risks to children"
+   ],
+   "citations": [
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 3, National Documentation Package (NDP) for Somalia, version 31 March 2020, item 5.7: Somali Country Report: Children and Security",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Country conditions evidence on Somalia's child security issues"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD finds a serious possibility of persecution in Somalia from stepfather, Al-Shabaab, or traffickers, with no protection or internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD finds risk of persecution and no protection"
+   ],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RAD allows the appeal and substitutes its own decision that the Appellant is a Convention refugee.",
+   "ideas": "single",
+   "idea_list": [
+    "Final decision allowing appeal"
+   ],
+   "citations": []
+  }
+ ]
+}

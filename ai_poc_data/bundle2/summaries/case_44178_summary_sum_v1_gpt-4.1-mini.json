@@ -1,0 +1,228 @@
+{
+ "case_id": 44178,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0028296000000000003
+ },
+ "verification": {
+  "paragraphs": 10,
+  "summaries": 10,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 7,
+  "regex_citations": 8,
+  "regex_addressed": 7,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 4,
+  "rebuttals": 3,
+  "left_open": 1
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "This case concerns an appeal by the appellant against the Federal Court judge's dismissal of judicial review of an arbitral award issued by a Tribunal. The appellant challenged the Tribunal's jurisdiction and sought review under the Federal Courts Act, but the Federal Court judge found no jurisdiction to review the Tribunal's decision as it was based on private arbitration under a Policy and contract. The Federal Court of Appeal unanimously dismissed the appeal, finding no error in the judge's decision and rejecting the appellant's reliance on precedent.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "applicant",
+    "text": "challenge dismissal of judicial review of Tribunal's arbitral award"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "applicant",
+    "text": "Tribunal's jurisdiction arises from federal law and Federal Courts Act applies"
+   },
+   {
+    "id": "P3",
+    "para": 7,
+    "by": "applicant",
+    "text": "reliance on Collins v. Saddle Lake Cree Nation to support jurisdiction"
+   },
+   {
+    "id": "P4",
+    "para": 8,
+    "by": "tribunal_below",
+    "text": "Tribunal exercises private power, not subject to Federal Court review"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 7,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P4",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 9,
+    "text": "Whether the Tribunal exercises private or public power is not decided but judge's reasoning accepted if necessary"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This appeal challenges the Federal Court judge's dismissal of judicial review of the Tribunal's arbitral award on the appellant's complaint.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal from Federal Court judgment",
+    "judge declined jurisdiction and dismissed review",
+    "Tribunal did not uphold appellant's complaint"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Supreme Court's standards in Housen v. Nikolaisen govern review: correctness for law, palpable error for fact or mixed questions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Housen v. Nikolaisen, 2002 SCC 33, [2002] 2 S.C.R. 235",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets standards of review for law and fact/mixed questions"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The key issue is whether the Federal Court judge erred in finding no jurisdiction to review the Tribunal's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court unanimously finds no error by the judge and dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The judge properly reviewed facts and law, noted appellant withdrew complaint under Canada Labour Code, and used private arbitration per Policy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "judge's thorough review of facts and law",
+    "appellant withdrew complaint under section 240 Canada Labour Code",
+    "appellant used dispute resolution under Policy"
+   ],
+   "citations": [
+    {
+     "cite": "Anisman v. Canada (Border Services Agency), 2010 FCA 52",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "judge properly instructed herself on the law"
+    },
+    {
+     "cite": "section 240 of the Canada Labour Code, R.S.C. 1985, c. L\u20112",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "appellant formally withdrew complaint under this section"
+    },
+    {
+     "cite": "section 9 of the Unified Executive Management Policy",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "dispute resolution procedure used by appellant"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The judge correctly found the Tribunal's jurisdiction came from the Policy and contract, not federal law, so it is not a federal tribunal under the Federal Courts Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Tribunal's jurisdiction from Policy and contract",
+    "Policy not a by-law",
+    "Tribunal not a federal board under Federal Courts Act"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 18(1) of the Federal Courts Act, R.S.C. 1985, c. F\u20117",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "defines 'federal board, commission or other tribunal' for jurisdiction"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The appellant's reliance on Collins v. Saddle Lake Cree Nation is rejected as inapplicable here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Collins v. Saddle Lake Cree Nation #462, 2023 FC 1239",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "case does not involve definition of federal tribunal"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The judge alternatively found the Tribunal exercised private power, not subject to Federal Court review, citing Air Canada v. Toronto Port Authority.",
+   "ideas": "multiple",
+   "idea_list": [
+    "judge considered private vs public power",
+    "cited Air Canada v. Toronto Port Authority",
+    "concluded Tribunal exercised private power"
+   ],
+   "citations": [
+    {
+     "cite": "Air Canada v. Toronto Port Authority, 2011 FCA 347",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "factors for private vs public power analysis"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court finds no need to decide on private/public power issue but agrees with the judge's reasoning if it were necessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The appeal is dismissed with costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

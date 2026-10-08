@@ -1,0 +1,378 @@
+{
+ "case_id": 70156,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.005006
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 2,
+  "regex_citations": 2,
+  "regex_addressed": 0,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 7,
+  "rebuttals": 11,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns an appeal by the Principal Appellant and family, Indian citizens claiming refugee protection in Canada due to alleged persecution linked to political party membership and harassment. The Refugee Protection Division (RPD) found some allegations not credible and identified Kolkata as a safe Internal Flight Alternative (IFA). The tribunal dismissed the appeal, agreeing with the RPD's findings on credibility and the viability of the IFA, concluding the appellants are not Convention refugees or persons in need of protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Appellants",
+    "text": "Cannot return due to INLD membership and harassment by BJP and RSS"
+   },
+   {
+    "id": "P2",
+    "para": 3,
+    "by": "Appellants",
+    "text": "Arrest, kidnapping, and torture in June 2018 for protesting BJP"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "Appellants",
+    "text": "RPD ignored country condition evidence and erred on IFA viability"
+   },
+   {
+    "id": "P4",
+    "para": 12,
+    "by": "Appellants",
+    "text": "RPD failed to consider BJP and RSS strength and state's tracking ability"
+   },
+   {
+    "id": "P5",
+    "para": 21,
+    "by": "Appellants",
+    "text": "RPD failed to consider BJP and RSS strength and police influence in Haryana"
+   },
+   {
+    "id": "P6",
+    "para": 22,
+    "by": "Appellants",
+    "text": "BJP's strong electoral base in West Bengal in 2019"
+   },
+   {
+    "id": "P7",
+    "para": 25,
+    "by": "Appellants",
+    "text": "Unsafe anywhere in India due to state tracking and surveillance"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 13,
+    "answers": "P1,P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P1,P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P1,P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P3,P4,P5,P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P4,P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P4,P5,P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P1,P2,P3,P4,P5,P6,P7",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Principal Appellant, his wife, the Associate Appellant, and their minor children are all Indian citizens.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Appellants claim they cannot return to India due to the Principal Appellant's INLD party membership and alleged harassment by BJP and RSS.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Principal Appellant alleges he was arrested, kidnapped, and tortured in June 2018 for protesting against the BJP government.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Appellants came to Canada on visitor visas in 2017 and 2018 and applied for refugee protection together in November 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RPD found some allegations lacked credibility and found a viable Internal Flight Alternative (IFA) in Kolkata, West Bengal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD ignored country condition evidence and erred in finding a viable IFA exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Citizenship and Immigration) v. Huruglica, 2016 FCA 93",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the standard of review for tribunal decisions"
+    },
+    {
+     "cite": "Rozas del Solar v. Canada (Citizenship and Immigration), 2018 FC 1145",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the standard of review for tribunal decisions"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD was correct that the Appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RPD was correct to reject the claim due to lack of credibility and the viability of the proposed IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Appellants presented no new evidence and are not seeking to introduce any; the reference to 'new developments' was an error.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal reviewed the RPD hearing and record and agrees with the RPD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD failed to consider the strength of BJP and RSS and the state's ability to track individuals.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD ignored BJP and RSS strength",
+    "RPD ignored state tracking ability"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Appellants do not contest the RPD's credibility findings, which the tribunal agrees with regarding several allegations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD's disbelief of police raid allegation",
+    "RPD's disregard of affidavits",
+    "RPD's disbelief of criminal charges allegation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The tribunal finds credible the Principal Appellant's INLD membership, harassment by the Chief Minister, and arrest after protest.",
+   "ideas": "multiple",
+   "idea_list": [
+    "INLD membership credible",
+    "Harassment credible",
+    "Arrest credible"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that these allegations are credible on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that Kolkata is a safe Internal Flight Alternative since BJP is not in power there.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds police communication limits across India unimportant to this case, despite RPD noting them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal notes no formal charges or warrants exist against the Principal Appellant and he left India without difficulty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Principal Appellant's business continues operating successfully, indicating reduced interest from alleged persecutors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that Kolkata meets both prongs of the IFA test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD failed to consider BJP and RSS strength and police influence in Haryana.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Appellants cite evidence showing BJP's strong electoral base in West Bengal in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal agrees BJP is not in power in West Bengal, so the RPD did not err in finding Kolkata safe.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal is satisfied the RPD did not err regarding BJP or RSS strength in concluding Kolkata is a viable IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Appellants argue they are unsafe anywhere in India due to state tracking capabilities and surveillance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that there is insufficient evidence the Principal Appellant is on any watch list or database.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The tribunal finds no serious possibility of persecution or risk of harm if the Appellants return to India, specifically Kolkata.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

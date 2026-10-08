@@ -1,0 +1,266 @@
+{
+ "case_id": 42511,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0036812
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 5,
+  "regex_citations": 7,
+  "regex_addressed": 6,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 3,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "Google LLC appeals the Federal Court's decision that Sonos Inc. did not infringe Google's patent claim 7 related to adaptive echo cancellation and noise suppression in smart speakers. Google contends errors in the Federal Court's interpretation of key terms and application of the patent claims. The Federal Court of Appeal dismisses Google's appeal, upholding the original decision and costs order against Google.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Google",
+    "text": "error in interpreting 'echo cancellation' and 'an order' and applying 'adaptively determine'"
+   },
+   {
+    "id": "P2",
+    "para": 8,
+    "by": "Google",
+    "text": "echo cancellation includes any echo minimization, conflated with noise suppression"
+   },
+   {
+    "id": "P3",
+    "para": 11,
+    "by": "Google",
+    "text": "'an order' could mean one function available but not performed"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Google LLC appeals the Federal Court's decision that Sonos Inc. did not infringe Google's patent claim 7 and a costs order against Google.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Google is appellant",
+    "Sonos is respondent",
+    "Federal Court decision under appeal",
+    "Costs order under appeal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Google argues the Federal Court erred in interpreting terms \"echo cancellation\" and \"an order\" and in applying \"adaptively determine\" in claim 7 infringement analysis.",
+   "ideas": "multiple",
+   "idea_list": [
+    "error in interpreting 'echo cancellation'",
+    "error in interpreting 'an order'",
+    "error in applying 'adaptively determine'"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court would dismiss the appeal of the Federal Court's Infringement Decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The 150 Patent relates to adaptive echo and noise control in devices like Sonos smart speakers, with claim 7 defining an electronic device with echo cancellation and noise suppression ordered adaptively.",
+   "ideas": "single",
+   "idea_list": [
+    "description of 150 Patent and claim 7"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The parties agree the standard of review is correctness for law questions and palpable and overriding error for fact or mixed fact and law questions, per Housen v. Nikolaisen.",
+   "ideas": "single",
+   "idea_list": [
+    "standard of review agreed"
+   ],
+   "citations": [
+    {
+     "cite": "Housen v. Nikolaisen, 2002 SCC 33, [2002] 2 S.C.R. 235",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines standard of review for law and fact questions"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Claim construction involves law and mixed fact and law; expert evidence weight is a mixed question reviewed for palpable and overriding error, per Whirlpool and Biogen.",
+   "ideas": "multiple",
+   "idea_list": [
+    "claim construction is law",
+    "expert evidence weight is mixed fact and law",
+    "standard of review for expert evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Whirlpool Corp. v. Camco Inc., 2000 SCC 67, [2000] 2 S.C.R. 1067 at paras. 61, 76",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Claim construction is a question of law"
+    },
+    {
+     "cite": "Whirlpool at para. 48",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Patent claims interpreted from skilled person's perspective"
+    },
+    {
+     "cite": "Biogen Canada Inc. v. Pharmascience Inc., 2022 FCA 143, 196 C.P.R. (4th) 120 at para. 38",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Review of expert evidence weight is for palpable and overriding error"
+    },
+    {
+     "cite": "ABB Technology AG v. Hyundai Heavy Industries Co., Ltd., 2015 FCA 181, 132 C.P.R. (4th) 405 at paras. 22\u201323",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Same as Biogen on expert evidence review standard"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The Federal Court found \"echo\" distinct from \"noise\" and that echo cancellation and noise suppression are distinct, relying on expert evidence.",
+   "ideas": "single",
+   "idea_list": [
+    "Federal Court's finding on echo and noise distinction"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Google argues the Federal Court erred by not addressing that \"echo cancellation\" includes any echo minimization, not just the patent's method, thus conflating echo cancellation with noise suppression.",
+   "ideas": "single",
+   "idea_list": [
+    "Google's argument on broader 'echo cancellation' meaning"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court finds the Federal Court did consider and reject Google's broader construction of \"echo cancellation\" as noise suppression.",
+   "ideas": "single",
+   "idea_list": [
+    "Federal Court considered and rejected Google's argument"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court rejects Google's argument that the Federal Court's interpretation violates claim construction principles regarding claim 7 and dependent claim 8 scope.",
+   "ideas": "single",
+   "idea_list": [
+    "No violation of claim construction principles"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "Google argues the Federal Court erred by not recognizing \"an order\" could mean one function available but not performed.",
+   "ideas": "single",
+   "idea_list": [
+    "Google's argument on 'an order' meaning"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Federal Court considered expert evidence and concluded both echo cancellation and noise suppression must be performed in at least two orders; this was not erroneous.",
+   "ideas": "single",
+   "idea_list": [
+    "Federal Court's conclusion on 'an order' supported"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Since Google must prove error on both claim construction issues and failed to do so, the appeal on infringement is dismissed without considering other arguments.",
+   "ideas": "single",
+   "idea_list": [
+    "Dismissal of infringement appeal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Google's appeal of the costs order depends on success in the infringement appeal, so no further comment is needed.",
+   "ideas": "single",
+   "idea_list": [
+    "Costs appeal depends on infringement appeal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court dismisses both appeals with costs fixed at $15,000, with all judges agreeing.",
+   "ideas": "single",
+   "idea_list": [
+    "Dismissal of appeals with costs"
+   ],
+   "citations": []
+  }
+ ]
+}

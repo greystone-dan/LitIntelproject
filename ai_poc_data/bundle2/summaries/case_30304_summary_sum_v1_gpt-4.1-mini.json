@@ -1,0 +1,462 @@
+{
+ "case_id": 30304,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0064996
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 6,
+  "model_citations": 16,
+  "regex_citations": 12,
+  "regex_addressed": 9,
+  "pinpoints": 11,
+  "purposes": {
+   "standard_of_review_or_test": 10,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 4,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 12,
+   "neutral_citation": "2012 FCA 22",
+   "para_start": 19,
+   "para_end": 20
+  },
+  {
+   "citing_para": 14,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 54,
+   "para_end": 54
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2019 FC 1647",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2018 FC 512",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2020 FC 741",
+   "para_start": 57,
+   "para_end": 58
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2021 FC 1264",
+   "para_start": 57,
+   "para_end": 57
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2022 FC 1748",
+   "para_start": 3,
+   "para_end": 3
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2006 FC 153",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2022 FC 930",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2018 FCA 205",
+   "para_start": 24,
+   "para_end": 24
+  }
+ ],
+ "structure": {
+  "overview": "Mr. Saeed Rana, an inmate, sought judicial review of a disciplinary decision by the Independent Chairperson (ICP) of Kent Institution regarding contraband found in his cell. The ICP found Mr. Rana had knowledge and control of the contraband and imposed a fine, but the Federal Court found the ICP's decision unreasonable due to lack of explanation and improper reliance on irrelevant evidence. The Court allowed the review, found procedural fairness was not breached, and awarded Mr. Rana costs.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 5,
+    "by": "Mr. Rana",
+    "text": "Questioned initial cell inspection and documentation"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "Mr. Rana",
+    "text": "Argued failure to prove knowledge and control due to lack of evidence"
+   },
+   {
+    "id": "P3",
+    "para": 21,
+    "by": "Mr. Rana",
+    "text": "ICP erred by wrongly placing onus and relying on anecdotal evidence"
+   },
+   {
+    "id": "P4",
+    "para": 24,
+    "by": "Respondent",
+    "text": "ICP's decision reasonable based on circumstantial evidence"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 15,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Mr. Saeed Rana, the Applicant, seeks judicial review of an oral disciplinary decision by the Independent Chairperson (ICP) of Kent Institution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "Mr. Rana was an inmate in a single cell where contraband (a cell phone and chargers) was found during a search on May 26, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The Officer testified about finding contraband behind tampered suicide prevention hooks in Mr. Rana's cell and prior contraband discoveries in his cell.",
+   "ideas": "multiple",
+   "idea_list": [
+    "contraband found behind tampered hooks",
+    "prior contraband found in Mr. Rana's cell"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Mr. Rana's advocate questioned whether an initial inspection of the cell was done and documented; the Officer could not answer.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Mr. Rana's advocate argued the Institution failed to prove his knowledge and control of the contraband due to lack of evidence of tools or prior cell searches.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The ICP noted no evidence Mr. Rana had a tool to tamper with hooks and no proof he was in the cell long enough to remove such a tool.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The ICP found the Officer's evidence showed the hiding place was commonly used and concluded Mr. Rana had care and control of the contraband.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The ICP was satisfied beyond reasonable doubt that Mr. Rana had knowledge and control of the contraband and imposed a $45 fine.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court agrees the affidavit portion should not be considered for reasonableness but will consider it for alleged procedural fairness defects.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Association of Universities and Colleges of Canada v Canadian Copyright Licensing Agency (Access Copyright), 2012 FCA 22 at paras 19-20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Rule on considering evidence not before decision maker"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court states procedural fairness requires the accused to know the case and have a fair chance to respond (Canadian Pacific).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 at para 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Test for procedural fairness"
+    },
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69 at para 56",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Fair opportunity to respond is key question"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court rejects Mr. Rana's procedural fairness claim because his advocate did not object at the hearing, which is fatal to the claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bulatci v Canada (Attorney General), 2019 FC 1647 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to object at hearing fatal to procedural fairness claim"
+    },
+    {
+     "cite": "Bouchard v Canada (Attorney General), 2018 FC 512 at para 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports failure to object is fatal"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Court finds the ICP did not rely on prior contraband evidence to convict and only referenced history during sanctioning, which is allowed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Paragraph 34(c) of the Corrections and Conditional Release Regulations, SOR/92-520",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "ICP must consider inmate behaviour in sanctioning"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court finds the disciplinary process was fair and Mr. Rana had a full opportunity to respond, so no procedural fairness breach occurred.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Perron v Canada (Attorney General), 2020 FC 741 at paras 57-58",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Disciplinary process must balance efficiency and fairness"
+    },
+    {
+     "cite": "Nome v Canada (Attorney General), 2021 FC 1264 at para 57",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Mr. Rana had full and fair opportunity to respond"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The ICP must be satisfied beyond reasonable doubt that Mr. Rana had knowledge and control of contraband, based on hearing evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 43(3) of the CCRA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requires proof beyond reasonable doubt"
+    },
+    {
+     "cite": "Bulatci at para 21",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports burden of proof standard"
+    },
+    {
+     "cite": "Williams v Canada (Attorney General), 2006 FC 153 at para 10",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports burden of proof standard"
+    },
+    {
+     "cite": "Cliff v Canada (Attorney General), 2022 FC 930 at para 7",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Institution bears burden of proof"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Knowledge can be inferred from facts but must be the only reasonable inference from evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bibeau at paras 9, 16",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Knowledge may be inferred from facts"
+    },
+    {
+     "cite": "Bulatci at paras 24-25",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Only reasonable inference must be guilt"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Mr. Rana argues the ICP erred by wrongly placing onus on him and unreasonably relying on anecdotal evidence about contraband concealment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ICP wrongly placed onus on Mr. Rana",
+    "ICP unreasonably relied on anecdotal evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The ICP rejected the argument about lack of evidence of a tool, noting no proof Mr. Rana was in cell long enough to remove it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The ICP found the Officer's evidence clear and unequivocal that the hiding place was popular and concluded Mr. Rana had care and control.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Respondent argues the ICP's decision is reasonable as the circumstantial evidence only supports guilt.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court finds the Respondent's submissions do not reflect the ICP's actual decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The ICP's decision omits key evidence about Mr. Rana's cell occupancy and prior searches, and the tampering was described as obvious.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The ICP fails to explain why guilt is the only reasonable inference, ignoring lack of evidence about prior cell searches.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The ICP improperly relied on the Officer's prior success rate, which is irrelevant to Mr. Rana's case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The ICP's decision is conclusory and lacks explanation of reasoning, failing the Vavilov reasonableness framework.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Cliff at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Decision must explain reasoning"
+    },
+    {
+     "cite": "Sharif v Canada (Attorney General), 2018 FCA 205 at paras 24, 27",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court cannot supplement decision reasons"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Court awards Mr. Rana $1,000 in costs, which the Respondent does not oppose and the Court finds reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

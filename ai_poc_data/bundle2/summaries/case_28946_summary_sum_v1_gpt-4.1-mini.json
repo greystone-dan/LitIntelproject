@@ -1,0 +1,312 @@
+{
+ "case_id": 28946,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0037952000000000003
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 7,
+  "regex_citations": 7,
+  "regex_addressed": 7,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 4,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 11,
+   "neutral_citation": "2023 FC 107",
+   "para_start": 33,
+   "para_end": 33
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a judicial review of an IRCC officer's refusal of the Applicants' applications, specifically focusing on the reasonableness of the decision and procedural fairness. The Applicants challenged the decision on grounds that the officer ignored evidence about the principal applicant's ties to Iran and unreasonably assessed an employer's letter. The Federal Court found the decision unreasonable, granted the application for judicial review, and set aside the officer's decision.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "Applicants",
+    "text": "Decision unreasonable and procedural fairness breached"
+   },
+   {
+    "id": "P2",
+    "para": 8,
+    "by": "Applicants",
+    "text": "PA's study plan detailed strong ties to Iran"
+   },
+   {
+    "id": "P3",
+    "para": 14,
+    "by": "Respondent",
+    "text": "Officers must assess ties against incentives to overstay"
+   },
+   {
+    "id": "P4",
+    "para": 15,
+    "by": "Applicants",
+    "text": "Officer's findings on employer's letter unreasonable"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 7,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P3",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P4",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "On May 3, 2023, an IRCC officer refused the Applicants' applications.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Applicants seek judicial review; the court finds the Decision unreasonable and grants the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicants argue the Decision was unreasonable and the Officer breached procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "Applying the reasonableness standard from Vavilov, the court finds the Decision unreasonable for two reasons: ignoring evidence on PA's ties to Iran and unreasonable treatment of employer's letter.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness standard applied",
+    "two reasons for unreasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the reasonableness standard of review applied"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The Officer found the PA lacks significant family ties outside Canada and that ties to Iran are weakened by travel with immediate family.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court agrees with Applicants that the Officer failed to consider evidence about the PA's family, professional, and financial ties to Iran.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The PA's study plan detailed close family ties, professional network, stable employment, and financial ties to Iran.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Officer ignored evidence contradicting findings about PA's ties to Iran, showing lack of engagement with relevant evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The case facts resemble Jafari, where the officer used identical wording and the court set aside the decision for ignoring evidence on ties to Iran.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jafari v Canada (Citizenship and Immigration), 2023 FC 183",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Similar facts and officer's failure to consider evidence led to decision set aside"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Masouleh and Sadeghinia cases support that ignoring contradictory evidence about family ties supports inference of overlooking evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Masouleh v Canada (Citizenship and Immigration), 2023 FC 1159",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports inference of overlooked evidence when officer fails to mention contradictory evidence"
+    },
+    {
+     "cite": "Sadeghinia v Canada (Citizenship and Immigration), 2023 FC 107",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same reasoning as Masouleh"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court reaches the same conclusion as in Masouleh and Jafari regarding ignoring evidence on ties to Iran.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court agrees the Officer could consider weakened ties due to family travel but erred by not engaging with evidence on PA's ties to Iran; Aryanfar is distinguishable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer entitled to consider weakened ties",
+    "Officer erred by ignoring evidence",
+    "Aryanfar case distinguished"
+   ],
+   "citations": [
+    {
+     "cite": "Aryanfar v Canada (Citizenship and Immigration), 2024 FC 1712",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Distinguished due to different findings about applicant's ties to Iran"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Respondent cites Chhetri to argue officers must assess ties to home country against incentives to overstay, but Officer failed to do so here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Chhetri v Canada (Citizenship and Immigration), 2011 FC 872",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent's argument on assessing strength of ties to home country"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "The PA included an employer's letter; Applicants argue the Officer's findings on it were unreasonable, which the court agrees with.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Officer wrongly found the employer's letter generic and mentioning positive attributes; the letter confirms promotion and salary increase conditional on MBA completion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court shares concerns from Hagh Shenas about officer's findings on employer's letter, though not fully agreeing with Applicants' view on letter's detail.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hagh Shenas v Canada (Citizenship and Immigration), 2024 FC 1086",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Similar concerns about officer's findings on employer's letter"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The employer's letter aims to show likelihood of PA's return to stable employment in Iran, not to support study plan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Officer's misconstruction of the employer's letter's content and purpose was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Given the findings, the court need not consider the rest of the Applicants' arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "other",
+   "summary": "There is no question for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

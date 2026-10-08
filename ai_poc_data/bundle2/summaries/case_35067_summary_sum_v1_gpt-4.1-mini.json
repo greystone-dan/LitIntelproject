@@ -1,0 +1,813 @@
+{
+ "case_id": 35067,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.008948000000000001
+ },
+ "verification": {
+  "paragraphs": 27,
+  "summaries": 27,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 4,
+  "model_citations": 41,
+  "regex_citations": 35,
+  "regex_addressed": 33,
+  "pinpoints": 29,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 27,
+   "party_argument_reported": 7,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 17,
+  "party_points": 5,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 16,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 85,
+   "para_end": 85
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2023 SCC 21",
+   "para_start": 64,
+   "para_end": 64
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2007 FCA 99",
+   "para_start": 14,
+   "para_end": 15
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2023 FC 1106",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2021 FC 1375",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2016 FC 178",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2014 FC 938",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2024 FC 462",
+   "para_start": 24,
+   "para_end": 24
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2012 FC 1379",
+   "para_start": 48,
+   "para_end": 51
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2019 FC 602",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2022 FC 414",
+   "para_start": 20,
+   "para_end": 20
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2022 FC 1575",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2025 FC 1389",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2015 FC 911",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2018 FC 924",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2022 FC 541",
+   "para_start": 55,
+   "para_end": 56
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2015 FC 1215",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2018 FC 785",
+   "para_start": 18,
+   "para_end": 20
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2025 FC 1899",
+   "para_start": 33,
+   "para_end": 33
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2020 FC 438",
+   "para_start": 28,
+   "para_end": 28
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2020 FC 707",
+   "para_start": 16,
+   "para_end": 16
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2019 FC 311",
+   "para_start": 41,
+   "para_end": 41
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2025 FC 993",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2024 FC 912",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2023 FC 1362",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2024 FC 1382",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2023 FC 1592",
+   "para_start": 24,
+   "para_end": 25
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2025 FC 215",
+   "para_start": 47,
+   "para_end": 51
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2022 FC 774",
+   "para_start": 14,
+   "para_end": 20
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns an appeal by the Applicant against the Refugee Appeal Division's (RAD) dismissal of their refugee claim, alleging errors in credibility assessment, ignoring new evidence, and procedural unfairness. The RAD found the Applicant's allegations not credible, dismissed claims of bias, and did not hold an oral hearing, concluding the new evidence did not affect the outcome. The Federal Court dismissed the application, finding the RAD's decision reasonable and its credibility findings entitled to deference.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicant",
+    "text": "RAD's decision unreasonable due to credibility errors and ignoring new evidence"
+   },
+   {
+    "id": "P2",
+    "para": 22,
+    "by": "Applicant",
+    "text": "RAD erred by microscopic analysis, ignoring explanations and new evidence, blaming friend and trauma for inconsistencies"
+   },
+   {
+    "id": "P3",
+    "para": 27,
+    "by": "Applicant",
+    "text": "RAD ignored country condition evidence and improperly raised Internal Flight Alternative"
+   },
+   {
+    "id": "P4",
+    "para": 30,
+    "by": "Applicant",
+    "text": "Alleges bias and unfair dismissal of evidence, overemphasis on inconsistencies, disregarded corroborative evidence"
+   },
+   {
+    "id": "P5",
+    "para": 23,
+    "by": "Respondent",
+    "text": "Credibility findings reasonable, documentation inconsistent, some Applicant submissions meritless or irrelevant"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 24,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P5",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant alleges the RAD's decision is unreasonable due to errors in credibility assessment and ignoring new evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's microscopic analysis error",
+    "Failure to consider explanations",
+    "Disregard of new evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The application is dismissed as the Applicant has not shown the RAD's decision is unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Applicant filed a refugee claim without counsel; the RPD dismissed it for credibility issues; the Applicant appealed with new evidence and requested an oral hearing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Initial claim without counsel",
+    "RPD dismissal for credibility",
+    "Appeal with new evidence and hearing request"
+   ],
+   "citations": [
+    {
+     "cite": "SOR/2012-257",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Refugee Appeal Division Rules cited for new evidence admission"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The RAD dismissed the appeal, finding the Applicant's key allegations lacked credibility and insufficient evidence of persecution or risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RAD found no merit in claims of RPD bias, identified unexplained inconsistencies and omissions, and assessed the Applicant as an ordinary Christian man.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No RPD bias",
+    "Unexplained inconsistencies",
+    "Applicant's profile as ordinary Christian"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RAD admitted one media article but did not hold an oral hearing, finding the new evidence did not affect credibility or claim outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 110(6) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory provision for oral hearing in RAD appeals"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RAD found no procedural unfairness by the RPD as the Applicant did not provide specific examples.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RAD acknowledged the presumption of truthfulness but found it undermined by unexplained inconsistencies and omissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RAD drew a negative inference from inconsistencies between medical documentation and the Applicant's testimony about injuries.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RAD noted new testimony details omitted from the BOC and rejected the explanation that a friend failed to include them, finding no reasonable excuse for omissions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New testimony details omitted",
+    "Rejected friend explanation",
+    "No reasonable excuse for omissions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RAD found some RPD credibility findings too weak but ultimately did not find the Applicant's allegations credible on balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The RAD dismissed the Applicant's other arguments as unsupported, inaccurate, and irrelevant to the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court reviews administrative decisions for internal coherence, justification, transparency, and intelligibility under the reasonableness standard.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of review",
+    "Reasonableness criteria"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness standard for reviewing administrative decisions"
+    },
+    {
+     "cite": "Mason v Canada (Citizenship and Immigration), 2023 SCC 21 at para 64",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms reasonableness standard and criteria"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Onus on party challenging decision to show unreasonableness"
+    },
+    {
+     "cite": "Vavilov at para 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness hallmarks: justification, transparency, intelligibility"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "To establish need for protection under s 97(1), claimants must show a balance of probabilities risk of torture, death, or cruel treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sanchez v Canada (Citizenship and Immigration), 2007 FCA 99 at paras 14-15",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains objective test for protection risk under s 97(1)"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Deference is owed to the RAD on credibility findings, which are core to its expertise and can be determinative of claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Deference to RAD on credibility",
+    "Credibility can decide refugee status"
+   ],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2023 FC 1106 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports deference to RAD on credibility"
+    },
+    {
+     "cite": "Aldaher v Canada (Citizenship and Immigration), 2021 FC 1375 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports deference to RAD on credibility"
+    },
+    {
+     "cite": "Sary v Canada (Citizenship and Immigration), 2016 FC 178 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports deference to RAD on credibility"
+    },
+    {
+     "cite": "Pepaj v Canada (Minister of Citizenship and Immigration), 2014 FC 938 at para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility issues are RAD's core competency"
+    },
+    {
+     "cite": "Guadarrama Vazquez v Canada (Citizenship and Immigration), 2024 FC 462 at para 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility findings can end refugee claims"
+    },
+    {
+     "cite": "Kaur v Canada (Citizenship and Immigration), 2012 FC 1379 at paras 48 to 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility findings can end refugee claims"
+    },
+    {
+     "cite": "Matsika v Canada (Citizenship and Immigration), 2019 FC 602 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility findings can end refugee claims"
+    },
+    {
+     "cite": "Labana v Canada (Citizenship and Immigration), 2022 FC 414 at para 20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility findings can end refugee claims"
+    },
+    {
+     "cite": "Pedro v Canada (Citizenship and Immigration), 2022 FC 1575 at para 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Credibility findings can end refugee claims"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Section 110 governs RAD appeals; RAD may hold hearings on new evidence but is not obliged and must exercise discretion reasonably.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Section 110 governs RAD appeals",
+    "Discretion to hold hearings on new evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2025 FC 1389 at para 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "RAD's discretion to hold hearings must be reasonable"
+    },
+    {
+     "cite": "Zhuo v Canada (Citizenship and Immigration), 2015 FC 911 at para 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "RAD's discretion to hold hearings must be reasonable"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD erred by microscopic analysis, ignoring explanations and new evidence, and blames a friend and trauma for inconsistencies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Microscopic analysis claim",
+    "Failure to consider explanations",
+    "New evidence ignored",
+    "Friend's help blamed",
+    "Trauma and stress explained inconsistencies"
+   ],
+   "citations": [
+    {
+     "cite": "Kanthasamy v Canada (Minister of Citizenship and Immigration), 2015 SCC 61",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for error in credibility findings"
+    },
+    {
+     "cite": "s 110(4) of the Act",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for new evidence admission"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Respondent argues the credibility findings were reasonable, documentation inconsistent, and some Applicant submissions meritless or irrelevant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Credibility findings reasonable",
+    "Documentation inconsistent",
+    "Some submissions meritless or irrelevant"
+   ],
+   "citations": [
+    {
+     "cite": "Lawani v Canada (Citizenship and Immigration), 2018 FC 924 at para 22",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports reasonableness of credibility findings"
+    },
+    {
+     "cite": "Lawani at para 24",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports insufficiency of documentation"
+    },
+    {
+     "cite": "Kaiyaga v Canada (Minister of Citizenship and Immigration), 2022 FC 541 at paras 55-56",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports insufficiency of documentation"
+    },
+    {
+     "cite": "Brahim v Canada (Minister of Citizenship and Immigration), 2015 FC 1215 at para 17",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports insufficiency of documentation"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The court finds the RAD's analysis thorough, transparent, and focused on key inconsistencies undermining the Applicant's credibility.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD's thorough analysis",
+    "Transparency and intelligibility",
+    "Key inconsistencies identified"
+   ],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The RAD reasonably considered and rejected the Applicant's explanations for omissions, noting counsel representation and no trauma evidence before RPD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD considered explanations",
+    "Rejected friend and trauma excuses",
+    "Applicant represented by counsel"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RAD independently assessed documentary evidence, rejected some RPD findings as overreach, and found no error in its conclusions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD independent assessment",
+    "Rejected RPD overreach",
+    "No error found"
+   ],
+   "citations": [
+    {
+     "cite": "Akram v Canada (Citizenship and Immigration), 2018 FC 785 at paras 18-20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "RAD entitled to independent credibility findings"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD ignored country condition evidence and improperly raised Internal Flight Alternative, but the court finds credibility was the key issue.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant claims ignored country evidence",
+    "Claims RAD raised IFA improperly",
+    "Court finds credibility was key"
+   ],
+   "citations": [
+    {
+     "cite": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), 1993 CanLII 3011 (FCA)",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites for country condition evidence and IFA argument"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD reasonably applied statutory criteria to exclude most new evidence; courts only review reasonableness of that decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD applied statutory criteria",
+    "Court reviews reasonableness only"
+   ],
+   "citations": [
+    {
+     "cite": "Moyo v Canada (Citizenship and Immigration), 2025 FC 1899 at para 33",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court reviews reasonableness of new evidence admission"
+    },
+    {
+     "cite": "Khan v Canada (Citizenship and Immigration), 2020 FC 438 at paras 28, 32",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court reviews reasonableness of new evidence admission"
+    },
+    {
+     "cite": "Dugarte de Lopez v Canada (Citizenship and Immigration), 2020 FC 707 para 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court reviews reasonableness of new evidence admission"
+    },
+    {
+     "cite": "Akanniolu v Canada (Citizenship and Immigration), 2019 FC 311 at para 41",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court reviews reasonableness of new evidence admission"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RAD reasonably found some new evidence was available earlier and applied proper criteria and case law in assessing it with credibility concerns.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New evidence could be earlier",
+    "Applied RAD Rule 29 and Act",
+    "Applied Singh/Raza criteria",
+    "Considered evidence with credibility"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Citizenship and Immigration) v Singh, 2016 FCA 96",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case law for new evidence criteria"
+    },
+    {
+     "cite": "Raza v Canada (Citizenship and Immigration), 2007 FCA 385",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Case law for new evidence criteria"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The Applicant alleges bias and unfair dismissal of evidence, claiming the RPD overemphasized inconsistencies and disregarded corroborative evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The RAD's procedural fairness findings are reviewed for reasonableness; the RAD addressed bias claims and reasonably rejected them for lack of specificity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Procedural fairness reviewed for reasonableness",
+    "RAD addressed and rejected bias claims"
+   ],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2025 FC 993 at para 27",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Patel v Canada (Citizenship and Immigration), 2024 FC 912 at para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Lokhande v Canada (Citizenship and Immigration), 2023 FC 1362 at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Ayub v Canada (Citizenship and Immigration), 2024 FC 1382 at para 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Imafidon v Canada (Citizenship and Immigration), 2023 FC 1592 at paras 24-25",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Rodas Tejeda v Canada (Citizenship and Immigration), 2025 FC 215 at paras 47-51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Rodriguez v Canada (Citizenship and Immigration), 2022 FC 774 at paras 14-20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    },
+    {
+     "cite": "Vavilov, at paras 23 and 25",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard for procedural fairness"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's request to reweigh evidence, finds the RAD's assessment thorough and reasonable despite Applicant's self-representation and language issues.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reweighing evidence impermissible",
+    "RAD's assessment thorough and reasonable",
+    "Applicant self-represented and not fluent"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 125",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reweighing evidence not allowed on judicial review"
+    }
+   ]
+  }
+ ]
+}

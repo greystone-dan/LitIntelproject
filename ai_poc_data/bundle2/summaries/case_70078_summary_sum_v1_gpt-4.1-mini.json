@@ -1,0 +1,445 @@
+{
+ "case_id": 70078,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0066208
+ },
+ "verification": {
+  "paragraphs": 24,
+  "summaries": 24,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 22,
+  "regex_citations": 3,
+  "regex_addressed": 0,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 9,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 5,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 24,
+   "neutral_citation": "2016 FCA 93",
+   "para_start": 103,
+   "para_end": 103
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2004 FC 233",
+   "para_start": 9,
+   "para_end": 9
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns an appeal by Mexican citizens fearing cartel violence, challenging the Refugee Protection Division's (RPD) finding of a viable internal flight alternative (IFA) in M\u00e9rida. The appellants argued that the RPD failed to independently assess risks to the Associate and Minor Appellants and that the IFA was unsafe due to ongoing threats and pandemic impacts. The tribunal dismissed the appeal, confirming the RPD's decision that the appellants are not refugees or persons in need of protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "appellants",
+    "text": "challenge IFA finding and independent risk assessment"
+   },
+   {
+    "id": "P2",
+    "para": 10,
+    "by": "appellants",
+    "text": "LFM has national reach including Yucat\u00e1n"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "appellants",
+    "text": "RPD failed to consider Associate and Minor Appellants' circumstances"
+   },
+   {
+    "id": "P4",
+    "para": 20,
+    "by": "appellants",
+    "text": "pandemic worsened cartel violence and state resource diversion"
+   },
+   {
+    "id": "P5",
+    "para": 22,
+    "by": "appellants",
+    "text": "cutting ties with relatives makes IFA unreasonable"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P5",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal of the Principal, Associate, and Minor Appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The Appellants are Mexican citizens fearing two cartels; the RPD found their claims credible but identified a viable internal flight alternative in M\u00e9rida.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Appellants challenge the IFA finding and argue the RPD failed to assess risks to Associate and Minor Appellants independently.",
+   "ideas": "multiple",
+   "idea_list": [
+    "challenge IFA finding",
+    "argue failure to assess risk for Associate and Minor Appellants"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The tribunal reviews the RPD decision on correctness standard as the RPD had no advantage in assessing credibility here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Huruglica, 2016 FCA 93, at para. 103",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the standard of review for RPD decisions"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Huruglica, 2016 FCA 93, at para. 70",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains when deference to RPD credibility findings applies"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "No new evidence was presented on appeal; thus, no oral hearing can be convened under the tribunal's jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "IRPA, s. 110(6)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Limits tribunal's jurisdiction to convene oral hearings without new evidence"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The key issue is whether a viable IFA exists in M\u00e9rida; the tribunal finds no error in the RPD's conclusion that relocation is safe.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The IFA test requires no serious risk and that relocation is reasonable; the claimant must prove no viable IFA exists.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam v Canada (Minister of Employment and Immigration), [1992] 1 F.C. 706 (C.A.), at 710",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines the first prong of the IFA test"
+    },
+    {
+     "cite": "Rasaratnam v Canada (Minister of Employment and Immigration), [1992] 1 F.C. 706 (C.A.), at 709, 711",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines the second prong of the IFA test"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Although the RPD did not analyze risks to Associate and Minor Appellants separately, no independent threats were raised for them, so no error occurred.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit P-2, Appellants' Record, Counsel's memorandum, at para. 16",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants argue RPD failed to analyze risks to Associate and Minor Appellants"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 2.1, Basis of Claim (\"BOC\") Narrative, p. 26",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Basis of Claim references sexual violence fear for female Appellants"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibits 2.2 - 2.6, pp. 29-79",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Only Principal Appellant submitted narrative; others relied on it"
+    },
+    {
+     "cite": "Audio recording of the hearing, Associate Appellant's testimony, at 2:39:26 - 2:40:23; counsel's oral submissions starting at 2:41:54",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "No additional grounds of risk advanced at hearing"
+    },
+    {
+     "cite": "Ramnauth v Canada (Minister of Citizenship and Immigration), 2004 FC 233, at para. 9",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports that no error occurred without separate risk analysis"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RPD did not err in assessing risk from Knights Templar, considering its presence and relation to LFM carefully.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit P-2, Appellants' Record, Counsel's memorandum, at para. 36",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' counsel memorandum on Knights Templar risk"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 3, National Documentation Package (\"NDP\") for Mexico (31 March 2020), Item 7.2., US Congressional Research Service, Mexico: Organized Crime and Drug Trafficking Organizations, 20 December 2019 at pp. 15, 24",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Background on Knights Templar as LFM successor"
+    },
+    {
+     "cite": "Exhibit RAD-1, NDP for Mexico (30 September 2020), Item 7.2, US Congressional Research Service, Mexico: Organized Crime and Drug Trafficking Organizations, 28 July 2020, at pp. 17, 26",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Updated background on Knights Templar"
+    },
+    {
+     "cite": "Audio recording of the hearing, at 2:45:51 - 2:46:25",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' submission that Knights Templar is continuous with LFM"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, RPD Reasons and Decision, paras. 31-32",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "RPD's assessment of Knights Templar presence in Yucat\u00e1n"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Appellants claim LFM has national reach including Yucat\u00e1n but provide no evidence; documentation supports RPD's findings on LFM's limited presence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit P-2, Appellants' Record, Counsel's memorandum, at paras. 39-40",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' claim of LFM national reach"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 3, NDP for Mexico (31 March 2020), Item 7.2., US Congressional Research Service, Mexico: Organized Crime and Drug Trafficking Organizations, 20 December 2019, at pp. 15, 24",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Documentation supports RPD's findings on LFM presence"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Appellants did not submit on Los Pelones on appeal; no evidence shows their presence in Yucat\u00e1n or personal targeting of Appellants by them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit P-2, Appellants' Record, Counsel's memorandum, at para. 36",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' narrative fears Los Pelones"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, Exhibit 3, NDP for Mexico (31 March 2020)",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "No evidence of Los Pelones presence in Yucat\u00e1n"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The key issue is whether agents of persecution remain motivated to harm Appellants; the tribunal finds no ongoing motivation shown.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit P-2, Appellants' Record, Counsel's memorandum, at para. 36",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' submission on cartel reach"
+    },
+    {
+     "cite": "Exhibit RPD-1, RPD Record, RPD Reasons and Decision",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "RPD's finding on motivation of agents of persecution"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Appellants fled after threats; they complied with demands, so no ongoing motivation to pursue them exists; Appellants did not address this on appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Without evidence of ongoing motivation, Appellants fail to show personal risk in the proposed IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Appellants argue the RPD failed to consider Associate and Minor Appellants' circumstances, but no specific considerations were raised before the RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Counsel mentioned gender discrimination but did not link it to Associate Appellant's relocation; no evidence shows it makes relocation unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "No error found in RPD's assessment of Associate and Minor Appellants; Appellants failed to show relocation would be unreasonable for them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Appellants submitted Covid-19 impact documents not raised before RPD; the panel addressed the issue and found no specific submissions from Appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Appellants and counsel did not argue pandemic impacts before RPD; documents focused on cartel violence and were addressed by RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Appellants argue pandemic worsened cartel violence and state resource diversion, but no evidence links this to M\u00e9rida or Yucat\u00e1n's safety.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Appellants cite Mexico's high Covid fatality and limited healthcare access, but evidence shows healthcare access is improving and majority have access.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Appellants argue cutting ties with relatives makes IFA unreasonable, but no ongoing persecution motivation means communication is safe.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Relocation hardship is expected; Appellants failed to prove relocation to M\u00e9rida is unreasonable or jeopardizes their safety.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ramnauth v Canada (Minister of Citizenship and Immigration), 2004 FC 233, at para. 9",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports high threshold for finding IFA unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD decision that Appellants are not refugees or persons in need of protection is confirmed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

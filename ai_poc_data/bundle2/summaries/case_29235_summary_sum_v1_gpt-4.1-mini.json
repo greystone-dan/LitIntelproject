@@ -1,0 +1,715 @@
+{
+ "case_id": 29235,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.010857200000000001
+ },
+ "verification": {
+  "paragraphs": 46,
+  "summaries": 46,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 7,
+  "model_citations": 21,
+  "regex_citations": 7,
+  "regex_addressed": 5,
+  "pinpoints": 4,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 18
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 6,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 23,
+   "neutral_citation": "2019 FC 1550",
+   "para_start": 26,
+   "para_end": 26
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2021 FC 993",
+   "para_start": 30,
+   "para_end": 32
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2016 FC 822",
+   "para_start": 39,
+   "para_end": 39
+  },
+  {
+   "citing_para": 27,
+   "neutral_citation": "2020 FC 167",
+   "para_start": 24,
+   "para_end": 24
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's inadmissibility to Canada for complicity in crimes against humanity committed by the Philippine National Police during Duterte's drug war. The Applicant challenges the Immigration Division's finding of reasonable grounds to believe he was complicit, arguing insufficient evidence and errors in the decision. The Federal Court dismisses the application, upholding the ID's conclusion that the Applicant knowingly and significantly contributed to crimes through his role in Tokhang operations.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 34,
+    "by": "Applicant",
+    "text": "Insufficient evidence for complicity; denies awareness or wilful blindness"
+   },
+   {
+    "id": "P2",
+    "para": 36,
+    "by": "Applicant",
+    "text": "ID erred by conflating PNP and DEU; low-level role below complicity threshold"
+   },
+   {
+    "id": "P3",
+    "para": 37,
+    "by": "Applicant",
+    "text": "Relies on Talpur to argue activities fall below complicity bar"
+   },
+   {
+    "id": "P4",
+    "para": 45,
+    "by": "Applicant",
+    "text": "ID erred by conflating contribution to police with contribution to police crimes"
+   },
+   {
+    "id": "P5",
+    "para": 48,
+    "by": "Applicant",
+    "text": "Academic commentary suggests Canadian refugee law complicity analyses have loosened; ID's approach too broad"
+   },
+   {
+    "id": "P6",
+    "para": 50,
+    "by": "Applicant",
+    "text": "ID failed to properly consider his evidence; lacked reasonable grounds for complicity findings"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 35,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 46,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 47,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 49,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P6",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court dismisses the application, finding no fatal errors in the ID's conclusion that the Applicant contributed to crimes by Philippine police under Duterte's drug war.",
+   "ideas": "multiple",
+   "idea_list": [
+    "court dismisses application",
+    "ID's conclusion justified",
+    "no errors warranting intervention"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "From 2016 to 2022, Duterte's presidency saw a state-sponsored drug war with thousands of extrajudicial killings by police targeting drug users and dealers.",
+   "ideas": "single",
+   "idea_list": [
+    "context of Duterte's drug war"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Tokhang Operations involved police visits to suspected drug users to urge surrender, often ending in violent deaths of suspects.",
+   "ideas": "single",
+   "idea_list": [
+    "description of Tokhang Operations"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Buy-bust operations involved staged raids on suspects' homes, frequently resulting in extrajudicial killings during these encounters.",
+   "ideas": "single",
+   "idea_list": [
+    "description of buy-bust operations"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The Applicant served in the Drug Enforcement Unit from December 2016 to February 2017, conducting door-to-door visits and referrals related to drug suspects.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's duties in DEU"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The Applicant requested to leave the DEU due to danger and personal reasons, later receiving a medal for anti-drug campaign participation.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's departure from DEU and medal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "After leaving the DEU, the Applicant continued in the police force, was promoted in 2019, and resigned in 2021 to immigrate to Canada.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's police career post-DEU"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "The Applicant moved to Canada in 2021 on a spousal open work permit and was included in his wife's permanent residence application.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's immigration to Canada"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "In 2023, the Applicant was reported inadmissible to Canada for complicity in crimes against humanity under IRPA, leading to an admissibility hearing.",
+   "ideas": "single",
+   "idea_list": [
+    "inadmissibility allegation and hearing"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "Applying the Ezokola test, the ID concluded the Applicant was complicit, making a voluntary, knowing, and significant contribution to crimes.",
+   "ideas": "single",
+   "idea_list": [
+    "ID's application of Ezokola test"
+   ],
+   "citations": [
+    {
+     "cite": "Ezokola v Canada (Citizenship and Immigration), 2013 SCC 40",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "ID applied Ezokola test for complicity"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The ID found the Applicant voluntarily joined and left the DEU without duress, continued police work, and only resigned to immigrate to Canada.",
+   "ideas": "single",
+   "idea_list": [
+    "ID's findings on voluntariness"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The ID found the Applicant aware of abuses and killings by the PNP, disbelieved his denial of involvement, and found credible evidence of violence at his station.",
+   "ideas": "single",
+   "idea_list": [
+    "ID's findings on Applicant's knowledge"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The ID found the Applicant's testimony about peaceful Tokhang operations not credible and concluded his unit provided significant operational support to violent enforcement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's testimony lacks credibility",
+    "Applicant's unit supported violent operations",
+    "Medal supports significant contribution"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The ID summarized that the Applicant knowingly and significantly participated in Tokhang operations, contributing directly to targeted killings by the PNP.",
+   "ideas": "single",
+   "idea_list": [
+    "ID's summary of Applicant's participation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "other",
+   "summary": "Section 6(1) of CAHWCA criminalizes genocide, crimes against humanity, and war crimes committed outside Canada.",
+   "ideas": "single",
+   "idea_list": [
+    "CAHWCA offence provision"
+   ],
+   "citations": [
+    {
+     "cite": "s.6(1) of the CAHWCA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines offences under CAHWCA"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "other",
+   "summary": "Section 6(3) of CAHWCA defines crimes against humanity including murder, torture, persecution, and other inhumane acts against civilians.",
+   "ideas": "single",
+   "idea_list": [
+    "Definition of crimes against humanity"
+   ],
+   "citations": [
+    {
+     "cite": "s.6(3) of the CAHWCA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines crime against humanity"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "other",
+   "summary": "Ezokola sets a contribution-based test for complicity requiring voluntary, significant, and knowing contribution, with six factors for assessment.",
+   "ideas": "single",
+   "idea_list": [
+    "Ezokola test and factors"
+   ],
+   "citations": [
+    {
+     "cite": "Ezokola v Canada (Citizenship and Immigration), 2013 SCC 40",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sets test for complicity"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "other",
+   "summary": "Ezokola clarifies complicity requires a link to crimes, not mere association, and physical presence is not necessary for complicity.",
+   "ideas": "single",
+   "idea_list": [
+    "Complicity requires link, not presence"
+   ],
+   "citations": [
+    {
+     "cite": "Ezokola v Canada (Citizenship and Immigration), 2013 SCC 40",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Clarifies complicity requirements"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "The link to crimes may be broad, but is more tenuous if the organization has both legitimate and criminal purposes, as per Ezokola and other cases.",
+   "ideas": "single",
+   "idea_list": [
+    "Link to crimes may be broad but tenuous"
+   ],
+   "citations": [
+    {
+     "cite": "Ezokola v Canada (Citizenship and Immigration), 2013 SCC 40",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains link to crimes"
+    },
+    {
+     "cite": "R. (J.S. (Sri Lanka)) v. Secretary of State for the Home Department, [2010] UKSC 15",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports broader link concept"
+    },
+    {
+     "cite": "Bedi v. Canada (Public Safety and Emergency Preparedness), 2019 FC 1550",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Notes tenuous link in multifaceted organizations"
+    },
+    {
+     "cite": "Canada (Citoyennet\u00e9 et Immigration) v. Singh, 2021 FC 993",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Same as Bedi"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "other",
+   "summary": "Ezokola stresses the contribution must be significant to avoid unreasonably extending criminal participation notions.",
+   "ideas": "single",
+   "idea_list": [
+    "Significance of contribution is critical"
+   ],
+   "citations": [
+    {
+     "cite": "Ezokola v Canada (Citizenship and Immigration), 2013 SCC 40",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Emphasizes significance requirement"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "other",
+   "summary": "Where abuses are systematic and widespread, individual complicity links are stronger than in cases of isolated abuses, per Talpur.",
+   "ideas": "single",
+   "idea_list": [
+    "Stronger complicity link with systematic abuses"
+   ],
+   "citations": [
+    {
+     "cite": "Talpur v Canada (Citizenship and Immigration), 2016 FC 822",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains link strength with abuse scope"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "other",
+   "summary": "The evidentiary standard for inadmissibility under IRPA is 'reasonable grounds to believe', differing from the 'serious reasons to consider' standard in Ezokola.",
+   "ideas": "single",
+   "idea_list": [
+    "Different evidentiary standards explained"
+   ],
+   "citations": [
+    {
+     "cite": "s.33 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines reasonable grounds standard"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court finds the difference between evidentiary standards is not determinative in this case, citing Khachatryan.",
+   "ideas": "single",
+   "idea_list": [
+    "Difference in standards not determinative"
+   ],
+   "citations": [
+    {
+     "cite": "Khachatryan v Canada (Citizenship and Immigration), 2020 FC 167",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports non-determinative nature of standards difference"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Applicant does not dispute that PNP members committed crimes against humanity during Duterte's administration.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's concession on PNP crimes"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Reasonableness review requires the court to ensure the decision is transparent, intelligible, and justified, per Vavilov.",
+   "ideas": "single",
+   "idea_list": [
+    "Standard of reasonableness review"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 15",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness review standard"
+    },
+    {
+     "cite": "Vavilov at para 13",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Clarifies review is robust, not rubber-stamping"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court notes the high stakes in admissibility cases and that reasons must reflect these stakes, citing Vavilov para 133.",
+   "ideas": "single",
+   "idea_list": [
+    "Importance of reasoned decisions in high-stakes cases"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 133",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Emphasizes need for adequate reasons"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Applicant argues insufficient evidence exists for reasonable grounds of complicity and denies awareness or wilful blindness to abuses.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's main arguments"
+   ],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court disagrees with the Applicant and finds no error in the ID's conclusion of reasonable grounds for complicity.",
+   "ideas": "single",
+   "idea_list": [
+    "Court rejects Applicant's arguments"
+   ],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Applicant argues the ID erred by conflating the PNP and DEU and that his low-level role does not meet the complicity bar.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's argument on organizational role and conflation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The Applicant relies on Talpur to argue his activities fall below the complicity threshold, but the court disagrees.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant relies on Talpur; court disagrees"
+   ],
+   "citations": [
+    {
+     "cite": "Talpur v Canada (Citizenship and Immigration), 2016 FC 822",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Talpur for complicity threshold"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court summarizes Talpur, where a visa officer found the applicant complicit in crimes due to operational police activities despite his denial of presence at crime scenes.",
+   "ideas": "multiple",
+   "idea_list": [
+    "visa officer's finding of complicity",
+    "Justice Manson's dismissal of judicial review",
+    "rejection of applicant's contention about generalizing complicity"
+   ],
+   "citations": [
+    {
+     "cite": "Talpur at paras 38-39",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "cites prior case facts and findings relevant to complicity"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court agrees Talpur is relevant but not helpful to the applicant, finding the decision-maker focused on the applicant's specific role in the DEU, not mere police membership.",
+   "ideas": "multiple",
+   "idea_list": [
+    "relevance of Talpur",
+    "rejection of applicant's conflation argument",
+    "focus on applicant's DEU service"
+   ],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The ID focused mainly on the applicant's participation in Tokhang actions and linked these to police crimes against humanity with documentary evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court explains the connection between the applicant's Tokhang participation and crimes under Duterte's Operation Double Barrel, involving drug suspect killings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The ID reasonably questioned the applicant's benign descriptions of Tokhang, preferring objective evidence showing enforcement and violence at his police station.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The ID cited reports of deaths linked to police operations at the applicant's station and his supervisor, justifying preference for objective evidence over applicant's testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The ID reasonably considered the applicant's short DEU service, finding it did not lessen his knowledge or participation significance in ongoing Tokhang operations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "The applicant argues the ID erred by conflating contribution to the police with contribution to the police's crimes or criminal purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court disagrees, finding the ID reasonably concluded the applicant contributed knowingly and significantly to crimes via Tokhang operations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court finds no merit in the argument that the ID based conclusions on mere police employment or guilt by association, affirming the ID's rational analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ezokola",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "refers to Supreme Court's correction of guilt by association"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "party",
+   "summary": "The applicant cites academic commentary suggesting Canadian refugee law complicity analyses have loosened since Ezokola, reflected in the ID's broad approach.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court declines to comment on complicity scope trends but finds the ID's conclusions reasonable and consistent with Ezokola's principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ezokola",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "confirms adherence to Ezokola framework"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "party",
+   "summary": "The applicant submits the ID failed to properly consider his evidence and lacked reasonable grounds for complicity findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court rejects certification, finding the question improperly conceived and already answered by Ezokola, defining complicity as criminal responsibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The court notes Ezokola addressed the degree of contribution constituting complicity for public servants, so the question should not be certified.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ezokola",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "cites Supreme Court decision answering complicity degree question"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court acknowledges the applicant's difficult circumstances but finds the ID's reasons defensible and carefully considered his testimony and arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

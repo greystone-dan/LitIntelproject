@@ -1,0 +1,368 @@
+{
+ "case_id": 43401,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.006075199999999999
+ },
+ "verification": {
+  "paragraphs": 13,
+  "summaries": 13,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 10,
+  "model_citations": 14,
+  "regex_citations": 11,
+  "regex_addressed": 7,
+  "pinpoints": 10,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 9,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 5,
+  "party_points": 4,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 4,
+   "neutral_citation": "2019 FCA 233",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2015 FCA 208",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2008 FCA 334",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2020 FCA 134",
+   "para_start": 162,
+   "para_end": 162
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2023 FC 1446",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2013 FCA 134",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2006 FC 1333",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2023 FCA 25",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2006 FC 631",
+   "para_start": 3,
+   "para_end": 3
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2008 FC 934",
+   "para_start": 3,
+   "para_end": 3
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a judicial review application by Little Black Bear First Nation against Kawacatoose First Nation and Standing Buffalo First Nation regarding a bill of costs assessment. The Federal Court of Appeal dismissed the judicial review applications and ordered the applicant, Little Black Bear First Nation, to pay costs to the respondents. The court addressed various contested cost items and ultimately allowed specific units and expenses claimed by the respondents, including printing costs, while disallowing others.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "other",
+    "text": "applicable unit value for cost assessment"
+   },
+   {
+    "id": "P2",
+    "para": 10,
+    "by": "court",
+    "text": "disallow 3 units for two-day books under Item 2"
+   },
+   {
+    "id": "P3",
+    "para": 11,
+    "by": "court",
+    "text": "allow 2 units per day book under Item 27, reject Item 18 argument"
+   },
+   {
+    "id": "P4",
+    "para": 18,
+    "by": "court",
+    "text": "disallow costs for second and third counsel appearances under Item 14(b)"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P4",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Court dismissed judicial review applications and ordered the applicant to pay costs to respondents Kawacatoose and Standing Buffalo First Nations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court dismissed applications",
+    "Costs ordered to be paid by applicant",
+    "Costs based on midrange of column III of Tariff B"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The assessment process for Standing Buffalo's bill of costs proceeded in writing with submissions filed by both parties.",
+   "ideas": "single",
+   "idea_list": [
+    "Assessment process and submissions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The assessment officer introduces a preliminary issue regarding the applicable unit value for the cost assessment.",
+   "ideas": "single",
+   "idea_list": [
+    "Preliminary issue on unit value"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court notes some assessable services are contested and will address them individually.",
+   "ideas": "single",
+   "idea_list": [
+    "Contested assessable services to be addressed"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court finds two separate cost awards were intended for the two files and allows 5 units for preparation of respondent records in each file.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Two separate cost awards intended",
+    "5 units allowed for respondent record preparation"
+   ],
+   "citations": [
+    {
+     "cite": "Di Mauro v. Canada, 2015 FCA 208 at para. 4",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court would have stated if only one set of costs intended"
+    },
+    {
+     "cite": "Care Nursing Agency Ltd. v. Canada (National Revenue), 2008 FCA 334 at para. 4",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    },
+    {
+     "cite": "Miller Thomson LLP v. Hilton Worldwide Holding LLP, 2020 FCA 134 at para. 162",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports unit allowance and rounding"
+    },
+    {
+     "cite": "Rule 409",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Rule on costs assessment"
+    },
+    {
+     "cite": "paragraph 400(3)(g) of the Rules",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Rule provision on costs"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court disallows 3 units claimed for two-day books under Item 2 as Item 2 applies only once per application.",
+   "ideas": "single",
+   "idea_list": [
+    "Disallow duplicate Item 2 units for two-day books"
+   ],
+   "citations": [
+    {
+     "cite": "dTechs EPM Ltd. v. British Columbia Hydro and Power Authority, 2023 FC 1446 at para. 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Item 2 permitted once per application"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court allows 2 units per day book under Item 27 due to unique circumstances and Court's direction, rejecting Little Black Bear's Item 18 argument.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Allow 2 units per day book under Item 27",
+    "Reject Item 18 argument"
+   ],
+   "citations": [
+    {
+     "cite": "Rule 345",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "Little Black Bear's argument on appeal book definition"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court allows 3 units for first hearing day and 2 units for second day preparation, rounding down midpoint of column III as ordered.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Allow 3 units for first day preparation",
+    "Allow 2 units for second day preparation"
+   ],
+   "citations": [
+    {
+     "cite": "Miller Thomson at para. 162",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports rounding down units"
+    },
+    {
+     "cite": "Rule 409",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Rule on costs assessment"
+    },
+    {
+     "cite": "paragraph 400(3)(g) of the Rules",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Rule provision on costs"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court allows 3 units for second hearing day appearance after adjusting claimed time to 2 hours from 2.5 hours based on registry minutes.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Adjust hearing time to 2 hours",
+    "Allow 3 units for second day appearance"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court disallows costs for second and third counsel appearances as no court order authorized such claims under Item 14(b).",
+   "ideas": "single",
+   "idea_list": [
+    "Disallow second and third counsel costs without court order"
+   ],
+   "citations": [
+    {
+     "cite": "Visx Inc. v. Nidek Co. Ltd., 2001 FCT 1183 at para 2.(c)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Costs for second counsel require court order"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court allows a total of 32 units to Standing Buffalo for the assessed costs.",
+   "ideas": "single",
+   "idea_list": [
+    "Allow total 32 units"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court applies a reasonable printing cost rate of $0.25 per page, lower than claimed $0.50 and $0.35 rates, based on case law.",
+   "ideas": "single",
+   "idea_list": [
+    "Apply $0.25 per page printing rate"
+   ],
+   "citations": [
+    {
+     "cite": "Diversified Products Corp. v. Tye-Sil Corp., [1990] F.C.J. No. 1056 (QL) at para. 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Printing cost claimed must reflect actual cost"
+    },
+    {
+     "cite": "Clorox Company of Canada, Ltd. v. Chloretec S.E.C, 2023 FCA 25 at para. 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "$0.25 per page deemed reasonable"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court finds the number of printed pages reasonable and allows $354.00 for photocopy expenses, half for each file.",
+   "ideas": "single",
+   "idea_list": [
+    "Allow $354 for photocopy expenses"
+   ],
+   "citations": [
+    {
+     "cite": "Merck & Co. Inc. v. Apotex Inc., 2006 FC 631 at para. 3",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Printing expenses necessary and reasonable"
+    }
+   ]
+  }
+ ]
+}

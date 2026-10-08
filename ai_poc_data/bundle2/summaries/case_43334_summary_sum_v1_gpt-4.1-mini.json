@@ -1,0 +1,337 @@
+{
+ "case_id": 43334,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.004002
+ },
+ "verification": {
+  "paragraphs": 15,
+  "summaries": 15,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 13,
+  "regex_citations": 12,
+  "regex_addressed": 12,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 7
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 5,
+  "rebuttals": 7,
+  "left_open": 1
+ },
+ "pinpoints": [
+  {
+   "citing_para": 11,
+   "neutral_citation": "2024 FCA 122",
+   "para_start": 38,
+   "para_end": 38
+  }
+ ],
+ "structure": {
+  "overview": "This case involves Rogers Communications Canada Inc. appealing and seeking judicial review of a CRTC decision that found Rogers gave undue preference by refusing to carry Timeless Inc.'s OneSoccer channel and ordered alternative dispute resolution as a remedy. The Federal Court of Appeal dismissed Rogers' appeal and judicial review application, finding no errors in the Commission's decision or reasoning. The Court upheld the Commission's discretion in ordering mediation and arbitration and rejected all of Rogers' legal and factual challenges with costs awarded.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "Rogers",
+    "text": "Appeals and applies for judicial review of Commission's decision"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "Rogers",
+    "text": "Claims Commission gave inadequate reasons"
+   },
+   {
+    "id": "P3",
+    "para": 11,
+    "by": "Rogers",
+    "text": "Claims Commission unfairly considered new evidence from Timeless"
+   },
+   {
+    "id": "P4",
+    "para": 12,
+    "by": "Rogers",
+    "text": "Argues Commission lacked power to order mandatory ADR"
+   },
+   {
+    "id": "P5",
+    "para": 14,
+    "by": "Rogers",
+    "text": "Argues Commission is functus officio after finding undue preference"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P4",
+    "verdict": "not_decided"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P5",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 13,
+    "text": "Whether mandatory ADR is unavailable under the Act and Regulations"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Rogers refused to carry Timeless' OneSoccer channel, and the CRTC found undue preference violating Broadcasting Distribution Regulations section 9.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 9 of the Broadcasting Distribution Regulations, S.O.R./97-555",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Identifies the regulation breached by Rogers' refusal"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Commission ordered staff-assisted mediation and final offer arbitration if mediation failed as remedy for the undue preference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "letter decision dated December 19, 2025 in file 2022-0445-2",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Describes the remedy ordered by the Commission"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "Rogers appeals and applies for judicial review of the Commission's decision; the Court scheduled an expedited hearing due to urgency.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court questions the need for separate judicial review but notes Rogers consolidated the appeal and review to reduce complexity, citing Best Buy.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court questions separate judicial review",
+    "Rogers consolidated proceedings per Best Buy"
+   ],
+   "citations": [
+    {
+     "cite": "Best Buy Canada Ltd. v. Canada (Border Services Agency), 2025 FCA 45",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports consolidation of appeal and judicial review to minimize complexity"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court will address both appeal and judicial review, finds all Rogers' issues meritless, and dismisses both with costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court rejects Rogers' claim of inadequate reasons, applying Vavilov to find the Commission's reasons sufficient and based on the record.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejects inadequate reasons claim",
+    "Applies Vavilov standard"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v. Vavilov, 2019 SCC 65, [2019] 4 S.C.R. 653 at para. 103",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets standard for reviewing adequacy of administrative reasons"
+    },
+    {
+     "cite": "Broadcasting Decision CRTC 2023-94",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Commission's prior undue preference decision considered in reasoning"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Court finds no need for extensive court-style analysis given the Commission's discretion and urgency of the matter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court finds the Commission gave enough reasons for transparency and review, noting Rogers' sophistication and ongoing regulatory relationship.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court finds no legal or factual error in the Commission's assessment that Rogers' remedy was unlikely acceptable and alternative dispute resolution was needed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Court finds no reversible error in the Commission ordering alternative dispute resolution here and not in other cases, as it was a discretionary decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Broadcasting Decision CRTC 2023-94",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to prior decision context for discretion"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court rejects Rogers' claim that the Commission unfairly considered new evidence from Timeless, finding Rogers waived the issue by not objecting.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejects unfair new evidence claim",
+    "Applies waiver doctrine"
+   ],
+   "citations": [
+    {
+     "cite": "Halton (Regional Municipality) v. Canada (Transportation Agency), 2024 FCA 122",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports waiver doctrine application"
+    },
+    {
+     "cite": "new issue jurisprudence",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Applies to both judicial reviews and appeals"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Court declines to consider Rogers' new issue that the Commission lacked power to order mandatory ADR, citing new issue jurisprudence and prior cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Declines to consider new issue on Commission power",
+    "Cites new issue jurisprudence and cases"
+   ],
+   "citations": [
+    {
+     "cite": "Alberta (Information and Privacy Commissioner) v. Alberta Teachers\u2019 Association, 2011 SCC 61, [2011] 3 S.C.R. 654",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Judicial review new issue rule"
+    },
+    {
+     "cite": "Quan v. Cusson, 2009 SCC 62, [2009] 3 S.C.R. 712",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Appeals new issue rule"
+    },
+    {
+     "cite": "TVA Group Inc. v. Bell Canada, 2021 FCA 153, [2022] 1 F.C.R. 283 at paras. 64-66",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Idle passing comment insufficient to avoid new issue rule"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court finds Rogers has not shown mandatory ADR is unavailable under the Act and Regulations, leaving the issue for a proper case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 9(1)(h) and 10(1)(h) of the Act and sections 12-15 of the Regulations",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory provisions relevant to mandatory ADR"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court rejects Rogers' functus officio argument, explaining the Commission must decide on remedy after finding undue preference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "decision CRTC 2023-94",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Prior decision finding undue preference requiring remedy decision"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court dismisses the appeal and judicial review with costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

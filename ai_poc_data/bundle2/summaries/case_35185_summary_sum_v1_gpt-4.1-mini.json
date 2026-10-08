@@ -1,0 +1,337 @@
+{
+ "case_id": 35185,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.003948
+ },
+ "verification": {
+  "paragraphs": 11,
+  "summaries": 11,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 3,
+  "model_citations": 13,
+  "regex_citations": 14,
+  "regex_addressed": 11,
+  "pinpoints": 11,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 12,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 5,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 10,
+   "neutral_citation": "2023 FC 62",
+   "para_start": 53,
+   "para_end": 53
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2018 FC 368",
+   "para_start": 15,
+   "para_end": 15
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2012 FC 428",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2011 FC 942",
+   "para_start": 35,
+   "para_end": 35
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2005 FC 1059",
+   "para_start": 55,
+   "para_end": 56
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2022 FC 1638",
+   "para_start": 38,
+   "para_end": 38
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2008 FC 848",
+   "para_start": 41,
+   "para_end": 41
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2019 FC 1219",
+   "para_start": 21,
+   "para_end": 21
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2019 FCA 169",
+   "para_start": 70,
+   "para_end": 70
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2019 FC 1238",
+   "para_start": 16,
+   "para_end": 16
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2021 FC 959",
+   "para_start": 28,
+   "para_end": 28
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's 2013 Temporary Resident Visa application containing false information and subsequent permanent residence application with correct information. The Applicant blamed her immigration consultant for the falsehoods, but IRCC held her responsible and doubted her truthfulness. The court upheld IRCC's decision, finding no procedural fairness breach and rejecting the Applicant's arguments including issue estoppel.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicant",
+    "text": "Applied for TRV with false information via consultant"
+   },
+   {
+    "id": "P2",
+    "para": 3,
+    "by": "Applicant",
+    "text": "Did not correct or notify IRCC about false info"
+   },
+   {
+    "id": "P3",
+    "para": 4,
+    "by": "Applicant",
+    "text": "Married PR and applied for permanent residence with correct info"
+   },
+   {
+    "id": "P4",
+    "para": 5,
+    "by": "Applicant",
+    "text": "Blamed consultant for discrepancies"
+   },
+   {
+    "id": "P5",
+    "para": 6,
+    "by": "IRCC",
+    "text": "Applicant ultimately responsible and truthfulness doubted"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant applied for a Temporary Resident Visa in 2013 with false information through an immigration consultant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "In 2014, the Applicant was informed of the false information in her TRV application but did not correct or notify IRCC.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant married a Canadian permanent resident in 2018 and applied for permanent residence in 2019 with correct information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "IRCC sent a procedural fairness letter about discrepancies between the 2013 TRV and new permanent residence application; the Applicant blamed her consultant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "IRCC sent a second procedural fairness letter; the officer concluded the Applicant was ultimately responsible and doubted her truthfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court disagrees with the Applicant's arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court states applicants are ultimately responsible for truthful information even when represented by consultants, citing multiple cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Wang v Canada (Citizenship and Immigration), 2023 FC 62 at para 53",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Wang v Canada (Citizenship and Immigration), 2018 FC 368 at para 15",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Oloumi v Canada (Minister of Citizenship and Immigration), 2012 FC 428 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Jiang v Canada (Citizenship and Immigration), 2011 FC 942 at para 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Wang v Canada (Minister of Citizenship and Immigration), 2005 FC 1059 at paras 55-56",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Ali v Canada (Citizenship and Immigration), 2022 FC 1638 at para 38",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Bodine v Canada (Citizenship and Immigration), 2008 FC 848 at para 41",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    },
+    {
+     "cite": "Ji v Canada (Citizenship and Immigration), 2019 FC 1219 at para 21",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports responsibility of applicant for truthful info"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Applicant had a duty of candour under IRPA to disclose discrepancies, which is an ongoing fundamental principle in immigration law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 16(1) of the IRPA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "States duty of candour requirement"
+    },
+    {
+     "cite": "Sidhu v Canada (Citizenship and Immigration), 2019 FCA 169 at para 70",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Recognizes duty of candour as overriding principle"
+    },
+    {
+     "cite": "Gao v Canada (Public Safety and Emergency Preparedness), 2019 FC 1238 at para 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports ongoing nature of duty of candour"
+    },
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2021 FC 959 at para 28",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Duty requires disclosure of all material facts"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The Applicant knew of false information but did not disclose it until prompted; the Officer reasonably doubted her truthfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gao at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding on Applicant's failure to disclose"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "There was no procedural fairness breach; the Applicant was given two PFLs and an opportunity to respond but confirmed untruthfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Issue estoppel does not apply because the falsehoods relate to distinct applications and ongoing failure to disclose material changes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,637 @@
+{
+ "case_id": 69586,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.008874400000000001
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 44,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 23,
+  "regex_citations": 8,
+  "regex_addressed": 1,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 17
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 7,
+  "rebuttals": 6,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 44,
+   "neutral_citation": "2010 FCA 118",
+   "para_start": 28,
+   "para_end": 28
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the appellant's appeal against the Refugee Protection Division's (RPD) decision excluding him from refugee protection under Article 1E of the Refugee Convention and section 111(1)(a) of IRPA, based on his status as an Italian permanent resident. The appellant argued errors in the exclusion analysis and sought to introduce new evidence, which the tribunal rejected. The tribunal upheld the RPD's findings that the appellant retained permanent resident status in Italy, was excluded from refugee protection, and dismissed the appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "appellant",
+    "text": "RPD erred in exclusion analysis"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "appellant",
+    "text": "seek to enter expert opinions as new evidence"
+   },
+   {
+    "id": "P3",
+    "para": 9,
+    "by": "appellant",
+    "text": "new evidence meets admissibility tests due to COVID-19 and spouse's limitations"
+   },
+   {
+    "id": "P4",
+    "para": 14,
+    "by": "appellant",
+    "text": "RPD erred in finding permanent residence status, citing absence and denial of entry"
+   },
+   {
+    "id": "P5",
+    "para": 22,
+    "by": "appellant",
+    "text": "RPD erred on permanent residence status but no specifics"
+   },
+   {
+    "id": "P6",
+    "para": 28,
+    "by": "appellant",
+    "text": "no status due to absence, unemployment, refusal of entry"
+   },
+   {
+    "id": "P7",
+    "para": 36,
+    "by": "appellant",
+    "text": "RPD erred in dismissing 2018 attempted return as disingenuous"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 5,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 38,
+    "answers": "P7",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appellant's appeal, finding no error in the RPD's exclusion under Article 1E and rejecting new evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "dismiss appeal",
+    "reject new evidence",
+    "confirm exclusion under Article 1E"
+   ],
+   "citations": [
+    {
+     "cite": "Article 1E of the Convention",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for exclusion"
+    },
+    {
+     "cite": "section 98 of the Immigration and Refugee Protection Act (IRPA)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines refugee and protection status"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The tribunal confirms the RPD's decision excluding the appellant from refugee protection under section 111(1)(a) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 111(1)(a) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal authority for confirming RPD decision"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD found the appellant excluded under Article 1E because he had status similar to Italian nationals and made no allegations against Italy under IRPA sections 96 or 97.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Article 1E of the Convention",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Basis for exclusion"
+    },
+    {
+     "cite": "section 96 or section 97 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Relevant sections for allegations against Italy"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellant argues on appeal that the RPD erred in its exclusion analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The tribunal rejects the new evidence presented by the appellant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The appellant seeks to enter expert opinions as new evidence for the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal states the legal criteria for accepting new evidence on appeal under the law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Law",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Sets criteria for accepting new evidence"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The tribunal must decide if new evidence is new, credible, and relevant before accepting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Law",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Requirement for accepting new evidence"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant's counsel argues the new evidence meets admissibility tests due to COVID-19 restrictions and spouse's limitations in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The tribunal finds the new evidence was reasonably available before the RPD hearing and the appellant did not seek extensions to submit it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The tribunal finds the new evidence does not meet criteria for acceptance and denies an oral hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The tribunal's role is to review all evidence and decide if the RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Law",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines tribunal's role on appeal"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD correctly concluded the appellant had permanent residence status in Italy and considered relevant case law and tests.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Shamlou",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Factors considered for status"
+    },
+    {
+     "cite": "Zeng",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Test for exclusion under Article 1E"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD erred in finding he retained permanent residence status, citing absence and denial of entry evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal independently finds the RPD was correct to exclude the appellant under Article 1E, considering relevant case law and jurisprudential guide.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jurisprudential Guide (JG)",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Guidance on Article 1E exclusion"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal outlines the Federal Court of Appeal's three-part test from Zeng for Article 1E exclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zeng",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sets three-part test for exclusion"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The tribunal finds the appellant has status substantially similar to Italian nationals and is safe in Italy, thus excluded under Article 1E.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jurisprudential Guide (JG)",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding of safety in Italy"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The tribunal cites Shamlou identifying four basic rights indicating status substantially similar to nationals: return, work, study, and social services.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Shamlou",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Defines rights indicating status similar to nationals"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The key issue is whether the appellant had permanent residence status in Italy at the RPD hearing time.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "It is undisputed the appellant had an Italian Permanent Resident card issued in 2000 upon arrival in Canada in 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RPD found the appellant had rights to return, work, study, and access social services similar to Italian nationals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD erred on his permanent residence status but does not specify errors in assessing relevant factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The tribunal finds no error in the RPD's objection to counsel's speculation about the appellant's admission to Italy in 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal finds no error in the RPD's assessment of relevant factors under Shamlou and declines intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Shamlou",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms RPD's correct assessment"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The tribunal finds Italian permanent residents enjoy rights similar to citizens, supported by NDP and appellant's testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "National Documentation Package (NDP)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Describes rights of permanent residents in Italy"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The appeal's main issue is whether the appellant lost permanent resident status due to absence and lack of employment in Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RPD found the appellant's permanent residency had not expired and he had not proven loss of status, considering objective evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The appellant submits the RPD erred and he has no status due to absence, unemployment, and refusal of entry to Italy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The tribunal notes the NDP conditions for permanent residency in Italy, which the appellant met in 2000.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "NDP",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Conditions for permanent residency in Italy"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The NDP states permanent residents can enter Italy without visa, work, access social benefits, and participate in local public life.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "NDP",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Rights of permanent residents in Italy"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The RPD correctly found the Appellant's Italian permanent residency permit has no expiry date, only requiring periodic photo updates and revalidation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit RAD-1, National Documentation Package (NDP) for Italy, item 3.7",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Describes the permanent residency permit as permanent and non-expiring"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Appellant's evidence is insufficient to prove his Italian permanent residency was revoked due to absence or unemployment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Italian policy states permanent residency may be revoked for certain reasons, including absence, but revocation is discretionary, not automatic.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Exhibit RAD-1, NDP for Italy, item 3.8",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "States grounds for revocation and discretionary nature of revocation"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The Italian policy allows discretionary revocation with appeal rights; evidence is insufficient to find the Appellant lost permanent residency or has no recourse.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zeng v. Canada, 2010 FCA 118",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding that discretionary revocation means right of return exists"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Evidence about the Appellant's family's return to Italy without employment supports discretionary residency loss; Appellant's failure to consult authorities makes refusal speculative.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Family's return without employment supports discretionary policy",
+    "Appellant's failure to consult authorities makes refusal speculative"
+   ],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The Appellant argues the RPD erred in dismissing his 2018 attempted return to Italy as disingenuous, but no specific error is identified.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The RPD found the Appellant's 2018 return testimony inconsistent and evolving, concluding he was not genuine in his efforts to return.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The RPD found the 2018 return claim was to bolster the Appellant's case, harming credibility; no error found on review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court agrees with the RPD that the Appellant's reasons for denied entry in 2018 were inconsistent and unlikely.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Appellant gave inconsistent reasons for his 2018 Italy visit, varying from trying Italy first to just checking the situation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Additional credibility doubts arise from omissions in the Appellant's narrative about detention and refugee status attempts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Appellant held valid Italian permanent resident status at the RPD hearing; no risk assessment for Italy is needed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zeng v. Canada, 2010 FCA 118",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Identifies factors for analysis, which are not needed here"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The RPD correctly found the Appellant excluded under Article 1E of the Convention due to his status similar to Italian nationals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD decision excluding the Appellant under Article 1E and IRPA section 111(1)(a) is confirmed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act (IRPA), section 111(1)(a)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for exclusion decision"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,410 @@
+{
+ "case_id": 69446,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0056728
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 11,
+  "regex_citations": 3,
+  "regex_addressed": 2,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 3,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 8
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 6,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "Ms. XXXX, a Somali citizen, appealed the Refugee Protection Division's (RPD) denial of refugee protection. The Refugee Appeal Division (RAD) reviewed new evidence regarding her identity and the risk she faces as a single woman in Somalia. The RAD allowed the appeal, finding Ms. XXXX to be a Convention refugee due to a serious possibility of persecution upon return to Somalia.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "applicant",
+    "text": "RPD erred in finding Ms. XXXX did not establish her personal identity"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "applicant",
+    "text": "Submitted new evidence including Somali birth certificate, Ethiopian school record, and affidavits"
+   },
+   {
+    "id": "P3",
+    "para": 10,
+    "by": "applicant",
+    "text": "Made reasonable efforts to connect with family and community; school record credible despite minor errors"
+   },
+   {
+    "id": "P4",
+    "para": 15,
+    "by": "applicant",
+    "text": "Ms. XXXX is a Convention refugee as a single woman facing persecution without family support"
+   },
+   {
+    "id": "P5",
+    "para": 18,
+    "by": "applicant",
+    "text": "Ms. XXXX lacks clan and male support and likely will not be protected by clan if returned"
+   },
+   {
+    "id": "P6",
+    "para": 19,
+    "by": "applicant",
+    "text": "Single women in Somalia face discrimination and widespread gender-based violence without protection"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 8,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 7,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P6",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appeal by Ms. XXXX, a Somali citizen, against the RPD's denial of refugee protection is allowed and she is found to be a Convention refugee.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal allowed",
+    "applicant is Somali citizen",
+    "RPD denied protection",
+    "appeal to RAD"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "Ms. XXXX fled Somalia to Ethiopia in 2006 after her father's death, then left Ethiopia in 2018 due to conflict, arriving alone in Canada and losing contact with family.",
+   "ideas": "single",
+   "idea_list": [
+    "applicant's migration and family separation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The main issue is whether the RPD erred in finding Ms. XXXX did not establish her personal identity; the court finds the RPD erred and accepts new evidence establishing identity.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD error on personal identity"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court independently reviewed all evidence and applied Chairperson Guidelines on women fearing gender-related persecution in making its decision.",
+   "ideas": "single",
+   "idea_list": [
+    "court's independent review and guideline application"
+   ],
+   "citations": [
+    {
+     "cite": "Chairperson Guidelines 4: Women Refugee Claimants Fearing Gender-Related Persecution",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "court applies gender-related persecution guidelines"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD may accept new evidence only if it meets section 110(4) IRPA criteria and is credible, relevant, and arose after the RPD decision or was unavailable before.",
+   "ideas": "single",
+   "idea_list": [
+    "criteria for accepting new evidence at RAD"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "sets criteria for new evidence acceptance"
+    },
+    {
+     "cite": "section 110(4) of the Immigration and Refugee Protection Act",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "details new evidence requirements"
+    },
+    {
+     "cite": "section 171(a.3)",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "evidence must be credible and trustworthy"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "Ms. XXXX submitted new evidence including a Somali birth certificate, Ethiopian school record, and three affidavits from relatives and friends living in Edmonton.",
+   "ideas": "single",
+   "idea_list": [
+    "list of new evidence submitted"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court accepts the Ethiopian school record and the affidavit from Ms. XXXX's distant relative as new evidence at the RAD.",
+   "ideas": "single",
+   "idea_list": [
+    "acceptance of two new evidence items"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Somali birth certificate is found untrustworthy due to lack of verification, common document fraud, and no national birth registration system, so it is rejected.",
+   "ideas": "single",
+   "idea_list": [
+    "birth certificate rejected as untrustworthy"
+   ],
+   "citations": [
+    {
+     "cite": "National Documentation Package (NDP) for Somalia",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "explains birth certificate issuance issues in Somalia"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Ethiopian school record is accepted as new evidence because it was not reasonably available before the RPD decision and corroborates Ms. XXXX's testimony.",
+   "ideas": "multiple",
+   "idea_list": [
+    "school record not available before RPD",
+    "corroborates testimony",
+    "disagrees with RPD on efforts to establish identity"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Ms. XXXX made reasonable efforts to connect with family and community, and the school record is credible despite minor errors and relevant to her identity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonable efforts to connect",
+    "school record credible and relevant"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The affidavit from Ms. XXXX's distant relative is accepted as new evidence because it was not reasonably available and is credible and relevant.",
+   "ideas": "single",
+   "idea_list": [
+    "acceptance of distant relative affidavit"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Two affidavits from friends known to Ms. XXXX before the RPD decision are rejected as new evidence because she did not make reasonable efforts to locate them.",
+   "ideas": "single",
+   "idea_list": [
+    "rejection of two affidavits due to availability and lack of effort"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "No oral hearing is held as the accepted new evidence is credible, uncontradicted, and does not raise serious credibility issues.",
+   "ideas": "single",
+   "idea_list": [
+    "no oral hearing required"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Ms. XXXX has established her national and personal identity on a balance of probabilities based on accepted evidence and credible testimony.",
+   "ideas": "single",
+   "idea_list": [
+    "identity established"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Ms. XXXX is a Convention refugee as a single woman returning to Somalia without family support, facing a serious possibility of persecution.",
+   "ideas": "single",
+   "idea_list": [
+    "finding of refugee status based on social group"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Ms. XXXX is credible, has not been to Somalia since childhood, has no family network there, and has a grade XXXX education level.",
+   "ideas": "single",
+   "idea_list": [
+    "applicant's credible testimony and circumstances"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Somali culture and religion oppose women living alone; single women without male support face denial of justice and must rely on male and clan protection.",
+   "ideas": "single",
+   "idea_list": [
+    "cultural context of women's vulnerability in Somalia"
+   ],
+   "citations": [
+    {
+     "cite": "NDP for Somalia",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "explains cultural and religious norms affecting women"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Ms. XXXX lacks clan and male support and may be seen as having broken social norms, so she likely will not be protected by her clan if returned to Somalia.",
+   "ideas": "single",
+   "idea_list": [
+    "lack of protection due to clan and social norms"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Single women in Somalia face discrimination in housing, employment, loans, and widespread gender-based violence without protection.",
+   "ideas": "single",
+   "idea_list": [
+    "discrimination and violence against single women"
+   ],
+   "citations": [
+    {
+     "cite": "NDP",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "details discrimination and violence against women in Somalia"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Considering country conditions and Ms. XXXX's circumstances, the court finds she faces persecution and lacks an internal flight alternative in Somalia.",
+   "ideas": "single",
+   "idea_list": [
+    "persecution risk and no internal flight alternative"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The appeal is allowed and the court substitutes its decision that Ms. XXXX is a Convention refugee.",
+   "ideas": "single",
+   "idea_list": [
+    "appeal allowed and decision substituted"
+   ],
+   "citations": [
+    {
+     "cite": "1951 Convention Relating to the Status of Refugees",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "basis for refugee status determination"
+    },
+    {
+     "cite": "Immigration and Refugee Board of Canada, Guidelines Issued by the Chairperson",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "guidelines applied in decision"
+    },
+    {
+     "cite": "Immigration and Refugee Protection Act (IRPA), S.C. 2001, c. 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "statutory provisions governing RAD decisions"
+    },
+    {
+     "cite": "Canada (Citizenship and Immigration) v. Singh, 2016 FCA 96",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "case on new evidence criteria"
+    }
+   ]
+  }
+ ]
+}

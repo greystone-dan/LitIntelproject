@@ -1,0 +1,1174 @@
+{
+ "case_id": 53305,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0181168
+ },
+ "verification": {
+  "paragraphs": 75,
+  "summaries": 75,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 58,
+  "regex_citations": 20,
+  "regex_addressed": 17,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 8,
+   "supports_court_conclusion": 12,
+   "party_argument_reported": 4,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 34
+  },
+  "multi_idea_paragraphs": 14,
+  "party_points": 10,
+  "rebuttals": 5,
+  "left_open": 1
+ },
+ "pinpoints": [
+  {
+   "citing_para": 41,
+   "neutral_citation": "2020 SCC 24",
+   "para_start": 21,
+   "para_end": 21
+  },
+  {
+   "citing_para": 65,
+   "neutral_citation": "2020 SCC 9",
+   "para_start": 27,
+   "para_end": 27
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the interpretation of the arm's length requirement under the FAPI regime in the Income Tax Act, specifically whether a parent corporation's capital contributions and oversight count as conducting business with its controlled foreign affiliate (CFA). Loblaw Financial Holdings Inc. (applicant) appealed the Tax Court's decision that Glenhuron Bank Limited, its CFA, did not meet the arm's length requirement, with the Crown as respondent. The Supreme Court of Canada ruled that capital contributions and corporate oversight do not constitute conducting business, found that Glenhuron's business was principally with arm's length persons, and dismissed the appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 51,
+    "by": "Crown",
+    "text": "arm\u2019s length requirement is anti-avoidance"
+   },
+   {
+    "id": "P2",
+    "para": 63,
+    "by": "Tax Court",
+    "text": "corporate oversight transforms third-party interactions into non-arm's length business"
+   },
+   {
+    "id": "P3",
+    "para": 21,
+    "by": "Loblaw Financial",
+    "text": "arm\u2019s length requirement decision appealed"
+   },
+   {
+    "id": "P4",
+    "para": 43,
+    "by": "parties",
+    "text": "dispute if capital injection or oversight count as conducting business"
+   },
+   {
+    "id": "P5",
+    "para": 52,
+    "by": "Tax Court",
+    "text": "arm\u2019s length requirement ensures competition, includes capitalization"
+   },
+   {
+    "id": "P6",
+    "para": 53,
+    "by": "Federal Court of Appeal",
+    "text": "arm\u2019s length requirement targets passive income"
+   },
+   {
+    "id": "P7",
+    "para": 60,
+    "by": "Crown",
+    "text": "arm\u2019s length requirement has anti-avoidance purpose"
+   },
+   {
+    "id": "P8",
+    "para": 44,
+    "by": "Crown",
+    "text": "reliance on Barbadian law to define conducting business"
+   },
+   {
+    "id": "P9",
+    "para": 45,
+    "by": "Crown",
+    "text": "broad ITA definition of business includes capital and oversight"
+   },
+   {
+    "id": "P10",
+    "para": 39,
+    "by": "Loblaw Financial",
+    "text": "meets most financial institution exception requirements except arm\u2019s length interpretation"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 61,
+    "answers": "P9",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 64,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 57,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 60,
+    "answers": "P7",
+    "verdict": "not_decided"
+   },
+   {
+    "answer_para": 44,
+    "answers": "P8",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 60,
+    "text": "purpose of arm\u2019s length requirement as anti-avoidance not decided"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The case concerns the FAPI regime under the ITA, focusing on the arm's length requirement for financial institutions like Loblaw Financial.",
+   "ideas": "multiple",
+   "idea_list": [
+    "FAPI regime overview",
+    "arm's length requirement issue"
+   ],
+   "citations": [
+    {
+     "cite": "Income Tax Act, R.S.C. 1985, c. 1 (5th Supp.)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines the FAPI regime and financial institution exception"
+    },
+    {
+     "cite": "s. 95(1) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines the arm's length requirement in the financial institution exception"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal's question is whether a parent corporation conducts business with its CFA by providing capital and oversight, answered negatively by the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Crown did not argue GAAR; the court must interpret the arm's length requirement's precise wording, which excludes capital contributions and oversight.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Crown's GAAR position",
+    "statutory interpretation of arm's length"
+   ],
+   "citations": [
+    {
+     "cite": "general anti-avoidance rule (\"GAAR\")",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Crown's submissions mention tax avoidance but no GAAR argument before court"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "Excluding capital and oversight, most business was with arm's length persons, so Loblaw Financial qualifies for the exception; tax avoidance is not a reason to deny this.",
+   "ideas": "multiple",
+   "idea_list": [
+    "exclusion of capital and oversight",
+    "Loblaw Financial qualifies for exception",
+    "tax avoidance principle cited"
+   ],
+   "citations": [
+    {
+     "cite": "Inland Revenue Commissioners v. Westminster (Duke of), [1936] A.C. 1 (H.L.), at pp. 19\u201120",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports right to arrange affairs to minimize tax"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Loblaw Financial is a Canadian corporation, wholly owned by Loblaw Companies Ltd., which is controlled by George Weston Ltd.; these entities deal non-arm's length.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Loblaw Financial incorporated a Barbados subsidiary, Glenhuron Bank Limited, regulated under Barbados banking laws.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Barbados\u2019 Off\u2011shore Banking Act, L.R.O. 1985, c. 325",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Regulates offshore banking in Barbados"
+    },
+    {
+     "cite": "International Financial Services Act, L.R.O. 2007, c. 325",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Replaced the Barbados OSBA"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Between 1992 and 2000, Loblaw Group invested significant capital in Glenhuron through share subscriptions and interest-free loans.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Glenhuron's business included six lines, mostly dealing with related parties except Waterman Insurance; many investments involved third parties and were lucrative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Glenhuron's asset base grew mainly through retained earnings from $100 million to $700 million between 2000 and 2010; share capital remained stable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "Glenhuron was dissolved in 2013, and its assets were liquidated to fund a major acquisition by Loblaw Companies Ltd.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The dispute concerns whether Glenhuron's income is FAPI; Loblaw Financial claims the financial institution exception applies, requiring four conditions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "dispute over FAPI application",
+    "four requirements for exception"
+   ],
+   "citations": [
+    {
+     "cite": "s. 95(1) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines financial institution exception requirements"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "The Minister reassessed Loblaw Financial for several years, adding significant amounts as FAPI income from Glenhuron.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "2018 TCC 182, [2019] 2 C.T.C. 2001, at para. 145",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports reassessment amounts and years"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "Loblaw Financial objected and appealed the reassessments to the Tax Court of Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "Tax Court considered if the financial institution exception applied and whether GAAR precluded Loblaw Financial from using it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "Tax Court held the exception did not apply because Glenhuron conducted business mainly with non-arm's length persons, failing the arm's length requirement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "Tax Court defined Glenhuron's business per Barbados law as receipt and use of funds, giving more weight to receipt due to competition purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "Tax Court found Glenhuron received most funds from non-arm's length persons, including capital injections, with arm's length funds minimal by comparison.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "Tax Court found Glenhuron's use of funds was mainly for non-arm's length persons, with central management's influence pervasive.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "Tax Court concluded the exception was unavailable as Glenhuron dealt mainly with non-arm's length persons, so income was FAPI.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Tax Court held GAAR did not apply as Glenhuron's corporate actions were not avoidance transactions, stated obiter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "other",
+   "summary": "Loblaw Financial appealed the arm's length requirement decision; Crown did not cross-appeal or challenge GAAR findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "Federal Court of Appeal rejected Tax Court's approach, favoring a formal institutional definition of banking business per Canadian Pioneer Management Ltd.",
+   "ideas": "multiple",
+   "idea_list": [
+    "rejects Tax Court's approach",
+    "adopts formal institutional approach"
+   ],
+   "citations": [
+    {
+     "cite": "Canadian Pioneer Management Ltd. v. Labour Relations Board of Saskatchewan, [1980] 1 S.C.R. 433",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Mandates formal institutional approach to defining banking business"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "Federal Court of Appeal criticized Tax Court's reliance on fostering competition as unexpressed legislative intent inappropriate for detailed statutory scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "Federal Court of Appeal used traditional tax definition of business as activities occupying time and labour for profit, focusing on income-earning activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Smith v. Anderson (1880), 15 Ch. D. 247 (C.A.), at p. 258",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines business as activities occupying time and labour for profit"
+    },
+    {
+     "cite": "s. 248(1) \u201cbusiness\u201d of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory definition of business"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "Federal Court of Appeal excluded parental oversight and capital investments from business, consistent with jurisprudence distinguishing capital from income-earning activities.",
+   "ideas": "multiple",
+   "idea_list": [
+    "excludes oversight and capital",
+    "cites jurisprudence distinction"
+   ],
+   "citations": [
+    {
+     "cite": "Bennett & White Construction Co. v. Minister of National Revenue, [1949] S.C.R. 287, at p. 298",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Distinguishes capital from income-earning activities"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "Federal Court of Appeal found Glenhuron dealt mainly with arm's length persons in income-earning activities, allowing the exception except for fee income from non-arm's length persons.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Glenhuron dealt with arm's length persons",
+    "exception applies except for fee income"
+   ],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The sole issue is whether Glenhuron conducted business mainly with arm's length persons, a narrow statutory interpretation question.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The FAPI regime is complex; the court limits itself to a broad description, omitting some subtleties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "FAPI aims to tax Canadian taxpayers on income earned by CFAs in low-tax jurisdictions to remove tax deferral advantages.",
+   "ideas": "multiple",
+   "idea_list": [
+    "FAPI purpose",
+    "tax deferral exception"
+   ],
+   "citations": [
+    {
+     "cite": "s. 91(1) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Requires inclusion of CFA income on accrual basis"
+    },
+    {
+     "cite": "N. Pantaleo and M. Smart, \u201cInternational Considerations\u201d, in H. Kerr, K. McKenzie and J. Mintz, eds., Tax Policy in Canada (2012), 12:1, at p. 12:14",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains taxpayers' incentive to use low-tax jurisdictions"
+    },
+    {
+     "cite": "B. Holmes and I. Gamble, The Foreign Affiliate Rules (2020), at p. 81",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Describes FAPI regime"
+    },
+    {
+     "cite": "ss. 91(4) and 91(5)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Mechanisms to prevent double taxation"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "FAPI taxes shareholders on undistributed income earned by CFAs on an accrual basis, denying deferral benefits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "V. Krishna, Halsbury\u2019s Laws of Canada: Income Tax (International) (2019 Reissue), at HTI-15",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains accrual basis taxation under FAPI"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The FAPI regime applies mainly to passive income, balancing capital export neutrality and competitiveness of Canadian businesses abroad.",
+   "ideas": "multiple",
+   "idea_list": [
+    "FAPI applies to passive income",
+    "Capital export neutrality principle",
+    "Competitiveness concerns"
+   ],
+   "citations": [
+    {
+     "cite": "Office of the Auditor General, Report of the Auditor General of Canada to the House of Commons, 1992 (1992), at pp. 51\u201152",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains capital export neutrality and competitiveness balance"
+    },
+    {
+     "cite": "Pantaleo and Smart, at p. 12:25",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Defines capital export neutrality principle"
+    },
+    {
+     "cite": "Department of Finance, Tax Measures: Supplementary Information (1994), at p. 33",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Discusses competitiveness concerns of Canadian businesses abroad"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The active/passive income distinction is not absolute; definitions in the ITA require detailed analysis to determine FAPI status.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Active/passive income distinction not absolute",
+    "ITA definitions differ from ordinary meanings",
+    "Need to analyze specific definitions"
+   ],
+   "citations": [
+    {
+     "cite": "Pantaleo and Smart, at pp. 12:11 and 12:13",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Shows exceptions to active/passive income distinction"
+    },
+    {
+     "cite": "Holmes and Gamble, at p. 187",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains ITA income definitions differ from ordinary meanings"
+    },
+    {
+     "cite": "CIT Group Securities (Canada) Inc. v. The Queen, 2016 TCC 163, [2016] 6 C.T.C. 2013, at para. 89 (CanLII)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Emphasizes importance of analyzing specific definitions for FAPI determination"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "FAPI includes four income categories for CFAs; the first two categories are relevant here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Income from a business other than an active business includes services to related entities, deemed FAPI to prevent tax advantages.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Holmes and Gamble, at p. 274",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains purpose of deeming provision to prevent tax advantages"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The main issue is income from property, defined broadly as investment business income, introduced in 1995 to clarify active/passive income distinction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Office of the Auditor General, at pp. 48-49",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Criticized prior lack of clarity in active/passive income distinction prompting 1995 amendments"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Parliament created exceptions to the investment business definition, including the financial institution exception with specific requirements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "Meeting four requirements allows income to be active, but trading/dealing in indebtedness by regulated CFAs is FAPI unless related to Canadian financial institutions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 95(2)(l)(iv)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines trading/dealing in indebtedness as FAPI unless related to Canadian financial institution"
+    },
+    {
+     "cite": "J. Yeung, \u201cTrading or Dealing in Indebtedness Offshore: Paragraph 95(2)(l) Revisited\u201d (2011), 59 Can. Tax J. 85, at pp. 89-90",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Discusses trading or dealing in indebtedness under s. 95(2)(l)"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "2014 amendments tightened financial institution exception requirements, limiting access to large or regulated Canadian financial institutions; not retroactive here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 95(2.11)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "2014 amendment tightening financial institution exception requirements"
+    },
+    {
+     "cite": "Holmes and Gamble, at pp. 1361-65",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Discusses 2014 amendments to financial institution exception"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "No dispute that Loblaw Financial meets most financial institution exception requirements; only arm\u2019s length requirement interpretation is at issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The key issue is the meaning of 'business conducted principally with' in the arm\u2019s length requirement, reviewed on correctness standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Housen v. Nikolaisen, 2002 SCC 33, [2002] 2 S.C.R. 235",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes correctness as standard of review for legal questions"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Statutory interpretation requires a unified textual, contextual, and purposive approach, focusing on precise words in tax law exceptions like FAPI.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Unified approach to statutory interpretation",
+    "Emphasis on precise and unequivocal words",
+    "Tax context requires careful text and context focus"
+   ],
+   "citations": [
+    {
+     "cite": "Michel v. Graydon, 2020 SCC 24, at para. 21",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets framework for statutory interpretation"
+    },
+    {
+     "cite": "Canada Trustco Mortgage Co. v. Canada, 2005 SCC 54, [2005] 2 S.C.R. 601, at para. 10",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Ordinary meaning dominates when words are precise and unequivocal"
+    },
+    {
+     "cite": "Placer Dome Canada Ltd. v. Ontario (Minister of Finance), 2006 SCC 20, [2006] 1 S.C.R. 715, at para. 22",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Unified textual, contextual, purposive approach in tax context"
+    },
+    {
+     "cite": "Placer Dome, at para. 21",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Focus on text and context due to tax provision particularity"
+    },
+    {
+     "cite": "Canada Trustco, at para. 11",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Emphasizes taxpayers' right to arrange affairs to minimize tax"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The issue is whether Glenhuron\u2019s business meets the financial institution exception under s. 95(1), focusing on arm\u2019s length dealings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Parties agree arm\u2019s length test requires examining with whom the affiliate conducted business; issue is if capital injection or oversight count.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The Crown\u2019s reliance on Barbadian law to define conducting business is rejected; Canadian Parliament\u2019s intent governs interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 4(2) of the Barbados IFSA and s. 4 of the Barbados OSBA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Crown relies on Barbadian law to define business of international bank"
+    }
+   ]
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The Crown\u2019s broad ITA definition of business is acknowledged, but 'business conducted' implies active carrying out, not mere existence of business.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 248 of the ITA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Crown cites broad definition of business"
+    }
+   ]
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Capitalization is distinct from conducting business; courts and CRA rulings support that capital provision is not conducting business.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Capital distinct from business conduct",
+    "Court precedents affirm distinction",
+    "CRA ruling supports view"
+   ],
+   "citations": [
+    {
+     "cite": "Tip Top Tailors Ltd. v. Minister of National Revenue, [1957] S.C.R. 703, at p. 710",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Capital machinery distinct from business earning income"
+    },
+    {
+     "cite": "Bennett & White Construction Co., at pp. 290-92",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports distinction between capital and business conduct"
+    },
+    {
+     "cite": "Montreal Coke and Manufacturing Co. v. Minister of National Revenue, [1944] A.C. 126 (P.C.), p. 134",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Financial arrangements distinct from income-earning activities"
+    },
+    {
+     "cite": "Foreign Affiliates \u2014 Investment Business, Ruling No. 2000-0006565, June 22, 2000",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "CRA ruling states investors not clients, so capital provision not conducting business"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Banking context does not change distinction; depositors are clients, shareholders are not, so capital receipt is not conducting business.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "FAPI regime focuses on classifying income; capital enables business but is distinct from income-generating activities relevant to FAPI.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "V. Krishna, Income Tax Law (2nd ed. 2012), at pp. 80-84",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains distinction between income and capital in tax law"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Including capitalization in conducting business creates practical problems as FAPI does not allocate capital among multiple businesses within a CFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Newly formed CFAs would fail arm\u2019s length test early due to high capital ratio, showing impracticality of including capitalization as conducting business.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The Crown argues arm\u2019s length requirement is anti-avoidance to prevent tax avoidance via CFAs in low-tax jurisdictions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Tax Court judge saw arm\u2019s length requirement as ensuring competition, emphasizing capitalization due to banking business nature.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Federal Court of Appeal viewed arm\u2019s length requirement as part of financial institution exception aimed at targeting passive income.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Historical evidence shows Parliament balanced economic efficiency and tax base protection by targeting passive income in FAPI rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Office of the Auditor General, at pp. 51\u201152",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains Parliament\u2019s balancing of economic efficiency and tax base protection"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "1992 Department of Finance reaffirmed balancing capital export and import neutrality, targeting passive income to prevent tax sheltering.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Office of the Auditor General, at pp. 51\u201152",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Describes conflicting goals and FAPI rules\u2019 purpose"
+    }
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "1995 amendments aimed to protect Canadian businesses\u2019 competitiveness while preventing passive income sheltering; no evidence arm\u2019s length test targets anti-avoidance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Tax Measures: Supplementary Information, at p. 33",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Explains 1995 amendments balancing competitiveness and anti-sheltering"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Court agrees Tax Court judge erred by requiring Glenhuron to compete in Barbadian market to meet arm\u2019s length test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Parliament\u2019s detailed FAPI scheme shows no implied competitiveness requirement in arm\u2019s length test, unlike other provisions that expressly include it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s. 95(2)(a.3)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Includes arm\u2019s length and competition requirements in other FAPI provisions"
+    },
+    {
+     "cite": "s. 95(2.4)(b)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Imposes arm\u2019s length and competition conditions for exceptions"
+    }
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Expressio unius est exclusio alterius suggests competition requirement in s. 95(2.4)(b) excludes such a requirement in financial institution exception.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Ulybel Enterprises Ltd., 2001 SCC 56, [2001] 2 S.C.R. 867, at para. 42",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal maxim supporting exclusion of competition requirement in financial institution exception"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The Crown\u2019s anti-avoidance purpose argument lacks legislative support; court declines to decide arm\u2019s length requirement purpose now.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada Trustco, at para. 11",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Parliament\u2019s precise conditions must be respected; no rewriting legislation"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court reiterates that Parliament's clear wording excludes capital injections from 'business conducted' under the FAPI regime, supported by CRA rulings.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Parliament's wording excludes capital injections",
+    "CRA rulings support this interpretation"
+   ],
+   "citations": [
+    {
+     "cite": "Foreign Affiliates \u2014 Investment Business, Ruling No. 9509775, July 14, 1995",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "CRA ruling on criteria for conducting business"
+    },
+    {
+     "cite": "Ruling No. 2000\u20110006565",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "CRA reiteration on criteria for conducting business"
+    }
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "Even if capitalization were part of conducting business, capital injections predating the years under review cannot count as ongoing business conduct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "below",
+   "summary": "The Tax Court judge found that Loblaw's corporate oversight transformed Glenhuron's third-party interactions into non-arm's length business activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court rejects the Tax Court's view that corporate oversight counts as conducting business, emphasizing corporate separateness and the arm's length requirement.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rejects corporate oversight as conducting business",
+    "Emphasizes corporate separateness and arm's length requirement"
+   ],
+   "citations": [
+    {
+     "cite": "I.F., at para. 37",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Canadian Bankers\u2019 Association's argument on corporate oversight and safe harbour"
+    }
+   ]
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The court will apply the correct interpretation of the arm's length requirement afresh to uncontested factual findings from lower courts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R. v. Cole, 2012 SCC 53, [2012] 3 S.C.R. 34, at para. 82",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports applying correct interpretation to uncontested facts"
+    },
+    {
+     "cite": "R. v. Vu, 2013 SCC 60, [2013] 3 S.C.R. 657, at para. 67",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports applying correct interpretation to uncontested facts"
+    },
+    {
+     "cite": "R. v. Friesen, 2020 SCC 9, at para. 27",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports applying correct interpretation to uncontested facts"
+    }
+   ]
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The court adopts the parties' approach to assess Glenhuron's investment business as a whole for the arm's length requirement, leaving segmentation questions for another day.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Department of Finance, Special Report \u2014 Revised Draft Legislation and Technical Notes: Foreign Affiliates (1995), at p. vi",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Minister of Finance's suggestion on business-by-business analysis"
+    }
+   ]
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Excluding corporate oversight and capital investments, Glenhuron's investment activities were mainly with arm's length persons, so the arm's length requirement is met and appeal dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Glenhuron's most lucrative arm's length activities were short-term debt securities and swaps, comprising at least 86% of income during the years in issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "C.A. reasons, at Appendix A",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Source of income breakdown data"
+    }
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "These arm's length activities involved the majority of Glenhuron's assets, with investments ranging from hundreds of millions to over a billion dollars.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "Glenhuron's loans to truck drivers were a side business with mixed arm's length status, small in value compared to overall income, and managed by few employees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paras. 75-76",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Federal Court of Appeal findings on loans to truck drivers"
+    }
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Non-arm's length activities like equity forwards and intercorporate loans were insignificant compared to arm's length activities and do not meet the 'principally' threshold.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Intercorporate loans to related corporations were a side business earning small income percentages, insignificant compared to total income.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Equity forwards pegged to related Loblaw shares caused losses but were not significant enough to outweigh arm's length activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "In summary, the arm's length requirement was met during the years in issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal with costs for the reasons given.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

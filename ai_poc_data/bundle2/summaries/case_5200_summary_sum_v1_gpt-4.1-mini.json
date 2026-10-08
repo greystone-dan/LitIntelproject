@@ -1,0 +1,401 @@
+{
+ "case_id": 5200,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.004808
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 8,
+  "regex_citations": 7,
+  "regex_addressed": 7,
+  "pinpoints": 6,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 4,
+  "rebuttals": 10,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 9,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2020 FC 777",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2019 FC 265",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2019 FC 163",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 20,
+   "neutral_citation": "2017 FC 1025",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2017 FC 27",
+   "para_start": 18,
+   "para_end": 18
+  }
+ ],
+ "structure": {
+  "overview": "Mr. Singh, an Indian citizen, sought judicial review of a decision refusing his permanent residence application on humanitarian and compassionate (H&C) grounds after his refugee claim was denied. The Federal Court dismissed the application, finding no significant error in the officer's analysis of best interests of the children (BIOC) and economic hardship factors. The court upheld the officer's discretionary decision, emphasizing the lack of sufficient evidence to establish disproportionate hardship in India.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Applicant",
+    "text": "seeks judicial review of refusal of permanent residence on H&C grounds"
+   },
+   {
+    "id": "P2",
+    "para": 2,
+    "by": "Applicant",
+    "text": "cites Canadian employment enabling financial support to family in India, fearing loss of support"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "Applicant",
+    "text": "H&C application cites establishment in Canada, children's best interests, inability to apply abroad, and re-establishment difficulties in India"
+   },
+   {
+    "id": "P4",
+    "para": 11,
+    "by": "Applicant",
+    "text": "argues officer undervalued financial support and failed to consider personal economic hardship in India"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 3,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Mr. Singh, an Indian citizen, seeks judicial review of a February 26, 2021 decision refusing his permanent residence application on humanitarian and compassionate grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "After refugee status denial, Mr. Singh sought H&C relief citing his Canadian employment enabling financial support to family in India, which he fears losing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The application is dismissed as the officer properly considered evidence and country conditions, with no significant error found in the analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Background: Mr. Singh was 52 at decision date, arrived in Canada April 9, 2017, and sought refugee protection June 12, 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Refugee Protection Division and Refugee Appeal Division refused Mr. Singh's refugee claim and appeal; judicial review was dismissed in 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Mr. Singh filed his H&C application in March 2020 citing establishment in Canada, children's best interests, inability to apply abroad, and re-establishment difficulties in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The officer considered establishment, BIOC, and economic hardship factors, giving positive weight to employment but little to form letters and found insufficient evidence of hardship in India.",
+   "ideas": "multiple",
+   "idea_list": [
+    "consideration of establishment",
+    "BIOC analysis",
+    "economic hardship analysis"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 25(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Referenced for exemption under subsection 25(1)"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The officer concluded the Applicant did not meet the burden to establish H&C factors warranting exemption under subsection 25(1) of the IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 25(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Referenced for exemption under subsection 25(1)"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Applicant's arguments alleging legal errors in BIOC and hardship are reviewed for reasonableness, not correctness, citing Vavilov and Ahmed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "standard of review is reasonableness",
+    "citing Vavilov and Ahmed"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 10, 23",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes reasonableness standard for merits review"
+    },
+    {
+     "cite": "Ahmed v Canada (Citizenship and Immigration), 2020 FC 777 at paras 13, 37-39",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness review of H&C decisions"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The officer erred in stating birth certificates were not filed, but this error is immaterial as the BIOC analysis proceeded on the basis the sons are the Applicant's children.",
+   "ideas": "multiple",
+   "idea_list": [
+    "officer's factual error on birth certificates",
+    "error immaterial to BIOC analysis"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Applicant argues the officer undervalued his financial support to family and failed to consider his personal circumstances regarding economic hardship in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court is not persuaded by the Applicant's arguments regarding BIOC and economic hardship assessments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The officer's BIOC analysis was limited by scant evidence about the sons' needs and relationship, and no reviewable error is found.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The officer reviewed the Applicant's employment, remittances, India's economic situation, and hardship submissions regarding poor employment prospects.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The officer acknowledged the Applicant's financial remittances but noted no evidence on the family's finances before February 2020, supporting a rational conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The officer properly considered documentary evidence on India's economy and did not err in noting no evidence of unique impact on the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The officer reasonably concluded the Applicant failed to prove he could not find employment in India due to age or skills, based on his background and lack of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Applicant failed to show disproportionate hardship compared to typical applicants, and the officer's detailed reasons justify this conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Huang v Canada (Citizenship and Immigration), 2019 FC 265 at paras 22, 18-19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines requirement to show greater hardship than typical applicants"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The officer balanced positive weight for Canadian employment against lack of evidence of hardship in India, not using employment as a negative factor.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Zhou v Canada (Citizenship and Immigration), 2019 FC 163 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports balanced consideration of establishment and hardship"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Applicant's failure to provide sufficient evidence was fatal to his H&C application, citing Gesite.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Gesite v Canada (Citizenship and Immigration), 2017 FC 1025 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports importance of sufficient evidence in H&C applications"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "H&C decisions are highly discretionary; absent material error, the court will not intervene in the officer's refusal to grant relief, citing Nguyen.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Nguyen v Canada (Citizenship and Immigration), 2017 FC 27 at para 18",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports wide discretion in H&C decisions"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "No question for certification was proposed or arises in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

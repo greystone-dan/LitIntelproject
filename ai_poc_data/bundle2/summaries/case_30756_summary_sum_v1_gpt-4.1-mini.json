@@ -1,0 +1,563 @@
+{
+ "case_id": 30756,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.006614400000000001
+ },
+ "verification": {
+  "paragraphs": 28,
+  "summaries": 28,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 27,
+  "regex_citations": 13,
+  "regex_addressed": 13,
+  "pinpoints": 7,
+  "purposes": {
+   "standard_of_review_or_test": 10,
+   "supports_court_conclusion": 10,
+   "party_argument_reported": 2,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 5
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 6,
+  "rebuttals": 7,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 14,
+   "neutral_citation": "2024 FCA 37",
+   "para_start": 7,
+   "para_end": 7
+  },
+  {
+   "citing_para": 14,
+   "neutral_citation": "2014 FCA 257",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2013 FCA 250",
+   "para_start": 70,
+   "para_end": 70
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2015 FC 549",
+   "para_start": 56,
+   "para_end": 56
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2012 FCA 255",
+   "para_start": 31,
+   "para_end": 31
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2008 FC 420",
+   "para_start": 48,
+   "para_end": 48
+  },
+  {
+   "citing_para": 27,
+   "neutral_citation": "2022 FCA 176",
+   "para_start": 39,
+   "para_end": 39
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Adam Raffaele Mattina's application for an interim stay to prevent the referral of his tax reassessment objections from the Appeals Division to the CRA Audit Division. The Applicant argues the referral was improper and causes irreparable harm, while the Respondent contends the matter is appealable to the Tax Court and no serious issue or irreparable harm exists. The Federal Court dismissed the stay motion, finding the Applicant failed to meet the tripartite test for a stay.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 12,
+    "by": "Applicant",
+    "text": "Minister acted beyond authority and unfairly in referral"
+   },
+   {
+    "id": "P2",
+    "para": 19,
+    "by": "Applicant",
+    "text": "Referral causes irreparable harm and procedural violations"
+   },
+   {
+    "id": "P3",
+    "para": 25,
+    "by": "Applicant",
+    "text": "Balance of convenience favors stay to prevent irreversible harm"
+   },
+   {
+    "id": "P4",
+    "para": 13,
+    "by": "Respondent",
+    "text": "No serious issue; matter appealable to Tax Court; relief unavailable"
+   },
+   {
+    "id": "P5",
+    "para": 20,
+    "by": "Respondent",
+    "text": "Applicant failed to prove irreparable harm; harms speculative"
+   },
+   {
+    "id": "P6",
+    "para": 26,
+    "by": "Respondent",
+    "text": "Balance of convenience favors Respondent; public interest harmed by stay"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 14,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicant, Adam Raffaele Mattina, seeks an interim stay of the referral of his objections to the CRA Audit Division for reassessments of certain tax years.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant requests the Court to stay the referral of his objections until the judicial review or a stay motion is determined.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court dismisses the interim stay motion for the reasons that follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant alleges audits and reassessments occurred for various tax years between 2018 and 2021, with notices issued by the Respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The Applicant states he filed objections to the reassessments in October and December 2021 under section 165 of the Income Tax Act.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 165 of the Income Tax Act, RSC 1985, c 1 (5th supp.)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "References statutory basis for filing objections"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Applicant claims his objections were assigned to an Appeals Officer who gave preliminary views and held a positive meeting in September 2023.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Applicant alleges the Appeals Division referred his objections to the Audit Division due to substantial new information, instead of issuing a revised recommendation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The Applicant seeks a stay of the referral pending judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court states the well-established tripartite test for granting a stay, citing leading cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Toth v Canada (Minister of Employment and Immigration) (1988), 86 NR 302 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the stay test"
+    },
+    {
+     "cite": "Manitoba (A.G.) v Metropolitan Stores Ltd., 1987 CanLII 79 (SCC), [1987] 1 SCR 110",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the stay test"
+    },
+    {
+     "cite": "RJR-MacDonald Inc. v Canada (Attorney General), 1994 CanLII 117 (SCC), [1994] 1 SCR 311",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the stay test"
+    },
+    {
+     "cite": "R v Canadian Broadcasting Corp, 2018 SCC 5 (CanLII), [2018] 1 SCR 196",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States the stay test"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Toth test requires the applicant to establish a serious issue, irreparable harm, and balance of convenience favoring the stay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Supreme Court in RJR-MacDonald requires an extremely limited review of the merits for the first stage of the stay test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RJR-MacDonald at 314",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines limited merits review for stay test"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Applicant submits the Minister acted beyond authority, unfairly, and improperly in making the referral under section 165(3) of the ITA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 165(3) of the ITA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant's argument on Minister's authority"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "The Respondent argues no serious issue exists as the matter is appealable to Tax Court and administrative remedies are not exhausted; relief sought is unavailable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court agrees with the Respondent that the Applicant's remedy lies with the Tax Court under the ITA and Federal Courts Act; delay is not a basis to overturn assessment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's remedy is with Tax Court",
+    "Delay not basis to overturn assessment"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 169(1)(b) of the ITA",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports remedy lies with Tax Court"
+    },
+    {
+     "cite": "section 18.5 of the Federal Courts Act, RSC 1985, c F-7",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports statutory requirements for appeal"
+    },
+    {
+     "cite": "Rafique v Canada (National Revenue), 2024 FCA 37",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms delay not basis to overturn assessment"
+    },
+    {
+     "cite": "Ford v. Canada, 2014 FCA 257",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Cited in Rafique"
+    },
+    {
+     "cite": "Bolton v R., 1996 CanLII 21607 (FCA), [1996] 3 CTC 3, 200 NR 303",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Cited in Ford"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court notes vires questions on delegation under section 165(3) of the ITA relate to statutory source; judicial review of audits is possible in some cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Vires relates to statutory source",
+    "Judicial review of audits possible"
+   ],
+   "citations": [
+    {
+     "cite": "JP Morgan Asset Management (Canada) Inc v Canada (National Revenue), 2013 FCA 250",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines vires as source in legislation"
+    },
+    {
+     "cite": "Rosenberg v Canada (National Revenue), 2015 FC 549",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Audit decisions can be judicially reviewed"
+    },
+    {
+     "cite": "section 220(2.01) of the ITA",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites delegation authority"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The Court finds the Applicant mischaracterizes the delegation issue; evidence shows Appeals Division decides, Audit Division only recommends, so no serious vires issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 165(3) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Context for delegation issue"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court rejects the Applicant's claim of bad faith or non-judicious exercise of audit powers, noting no evidence and that delay is not grounds to overturn assessment.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No evidence of bad faith or non-judicious exercise",
+    "Delay not grounds to overturn assessment"
+   ],
+   "citations": [
+    {
+     "cite": "Rafique at para 7",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Delay not basis to overturn assessment"
+    },
+    {
+     "cite": "JP Morgan at paras 82, 89",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Procedural defects not grounds to set aside assessment"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The Court explains irreparable harm means harm that cannot be remedied or quantified monetarily and must be probable, not speculative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RJR-MacDonald at 341",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines irreparable harm"
+    },
+    {
+     "cite": "Xu v Canada (Minister of Employment and Immigration), [1994] FCJ No 746, 79 FTR 107 (FCTD)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies probability requirement for harm"
+    },
+    {
+     "cite": "Horii v Canada (C.A.), [1991] FCJ No 984, [1992] 1 FC 142 (FCA)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies probability requirement for harm"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicant submits the referral causes irreparable harm by violating procedural guarantees, causing stress, and stripping Court jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent submits the Applicant failed to prove irreparable harm; audit outcome is not irreparable and other harms are speculative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Court agrees with Respondent that Applicant's evidence of irreparable harm is speculative; Appeals Division retains decisional independence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Glooscap Heritage Society v Canada (National Revenue), 2012 FCA 255",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Speculative harm insufficient for irreparable harm"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Court notes evidence shows Audit Division only recommends; Appeals Division independently decides, so harm from referral is reparable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Court finds Applicant's claims of procedural unfairness and harm speculative and unclear; no evidence he cannot challenge the referral outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Glooscap at para 31",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Speculative harm insufficient"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The Court explains balance of convenience weighs which party suffers greater harm from granting or refusing the stay, citing leading cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RJR-MacDonald at 342",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines balance of convenience test"
+    },
+    {
+     "cite": "Metropolitan Stores Ltd at 129",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines balance of convenience test"
+    },
+    {
+     "cite": "Mauricette v Canada (Public Safety and Emergency Preparedness), 2008 FC 420 at para 48",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Balance of convenience flows with applicant if serious issue and irreparable harm established"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Applicant submits balance of convenience favors him as staying referral causes little harm to Respondent but prevents irreversible harm to him.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Respondent submits balance of convenience favors them as preventing Minister from statutory duties harms public interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Court finds balance of convenience favors Respondent as public interest in CRA enforcing mandate outweighs Applicant's speculative harm claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Fortius Foundations v Canada (National Revenue), 2022 FCA 176 at para 39",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Public interest outweighs speculative harm"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Court concludes Applicant failed to meet the stay test and dismisses the motion with no costs awarded.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

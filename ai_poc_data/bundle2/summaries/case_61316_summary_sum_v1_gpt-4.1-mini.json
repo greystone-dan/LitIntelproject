@@ -1,0 +1,275 @@
+{
+ "case_id": 61316,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0031576000000000004
+ },
+ "verification": {
+  "paragraphs": 17,
+  "summaries": 17,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 5,
+  "regex_citations": 2,
+  "regex_addressed": 2,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 3,
+  "rebuttals": 8,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns a judicial review application by the applicant challenging the respondent's delay in processing a citizenship or immigration matter and seeking a mandamus order to compel action. The applicant argues the delay was unreasonable and unjustified, while the respondent contends the delay was justified due to security screening and military record checks. The court dismissed the application, finding no unreasonable delay, that the respondent justified the delay, and that mandamus was not warranted.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 8,
+    "by": "applicant",
+    "text": "15-month delay is unreasonable compared to expected processing time"
+   },
+   {
+    "id": "P2",
+    "para": 15,
+    "by": "applicant",
+    "text": "no explanation given for the delay"
+   },
+   {
+    "id": "P3",
+    "para": 19,
+    "by": "applicant",
+    "text": "balance of convenience favours mandamus"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 11,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P1",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The parties jointly request the judicial review be decided in writing under paragraph 68 of the Practice Guidelines.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 68 of the Consolidated Practice Guidelines for Citizenship, Immigration, and Refugee Protection Proceedings (August 12, 2026)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Procedure for deciding the judicial review in writing"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court dismisses the application, finding no unreasonable delay and that the respondent justified the delay; mandamus is not granted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dismiss application",
+    "No unreasonable delay",
+    "Respondent justified delay",
+    "Balance of convenience against mandamus"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court lists eight conditions that must be met before it will issue a mandamus order.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court outlines three requirements from Conille v Canada for delay to be unreasonable in mandamus cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Conille v Canada (Minister of Citizenship and Immigration) (TD), 1998 CanLII 9097 (FC) at para 23",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets test for unreasonable delay in mandamus"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court identifies the main issues as duty refusal, unreasonable delay, justification, and balance of convenience for mandamus.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The applicant argues a 15-month delay is unreasonable compared to IRCC's expected processing time of weeks.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court notes it has considered IRCC service standards in many cases to assess unreasonable delay, citing Kia.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kia v Canada (Minister of Citizenship and Immigration), 2026 FC 780 [Kia]",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of court considering IRCC service standards"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court explains in Kia that service standards are relevant but not determinative for delay assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kia at para 15",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Service standards relevant to time required for process"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The applicant failed to provide evidence of applicable IRCC service standards, so the court cannot determine the relevant timeline.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kia at para 15",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of changing service standards over time"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The applicant's failure to provide evidence on service standards weakens his argument that the delay was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Even assuming unreasonable delay, the court finds the respondent has reasonably justified the delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The respondent shows IRCC requested military records and that security screening delays processing, justifying delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The applicant did not reply to the respondent's justification and only claims no explanation was given for the delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court notes no uniform approach exists on security checks as justification, often requiring evidence beyond mere assertion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Here, evidence shows IRCC was investigating military records, reasonably explaining part of the delay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court finds the respondent has not refused to perform its duty, as it processed the application and requested information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court rejects the applicant's balance of convenience argument, concluding it does not favour mandamus issuance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

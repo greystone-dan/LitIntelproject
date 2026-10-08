@@ -1,0 +1,185 @@
+{
+ "case_id": 6202,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.002802
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 9,
+  "paragraphs_missing": [
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25
+  ],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 1,
+  "regex_citations": 4,
+  "regex_addressed": 1,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 1,
+  "rebuttals": 1,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 21,
+   "neutral_citation": "2002 FCA 125",
+   "para_start": 12,
+   "para_end": 12
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2008 FC 165",
+   "para_start": 9,
+   "para_end": 12
+  }
+ ],
+ "structure": {
+  "overview": "Ms. Tuyebekova, a Kazakhstani citizen, applied for permanent residence in Canada on humanitarian grounds but was refused by IRCC. She appealed, arguing that the Officer unreasonably assessed her hardship, her grandchildren's best interests, and her daughter's psychological harm. The Federal Court found the Officer's analyses of hardship and best interests unreasonable, granted judicial review, and ordered redetermination without addressing the psychological harm issue.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Ms. Tuyebekova",
+    "text": "Officer failed to reasonably assess hardship, grandchildren's best interests, and daughter's psychological harm"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 3,
+    "answers": "P1",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The applicant, Ms. Tuyebekova, a 74-year-old Kazakhstani citizen, applied for permanent residence in Canada on humanitarian grounds and was refused by IRCC.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant identity and background",
+    "Application and refusal",
+    "Judicial review challenge"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Ms. Tuyebekova argues the Officer failed to reasonably assess her hardship, grandchildren's best interests, and daughter's psychological harm.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Hardship in returning to Kazakhstan",
+    "Best interests of grandchildren",
+    "Psychological harm to daughter"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court agrees the Officer's hardship and best interests analyses are unreasonable and these issues require redetermination, so it does not address the psychological harm issue.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Unreasonable hardship analysis",
+    "Minimal best interests assessment",
+    "No need to address psychological harm"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The court grants the judicial review for the reasons explained below.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Ms. Tuyebekova is from Kazakhstan, estranged from her five siblings due to her Christian conversion, and part of the Evangelical Pentecostal community.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's family and religious background"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "In 2012, Ms. Tuyebekova's daughter moved to Canada with her family.",
+   "ideas": "single",
+   "idea_list": [
+    "Daughter's immigration to Canada"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Ms. Tuyebekova came to Canada as a visitor in 2016 and lived with her daughter, son-in-law, and three grandchildren aged 8 months, 9, and 11 years.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's arrival and living situation in Canada"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Ms. Tuyebekova filed her H & C Application in 2018, which was refused in August 2020.",
+   "ideas": "single",
+   "idea_list": [
+    "Application filing and refusal dates"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Both parties agree the standard of review is reasonableness, confirmed by the Supreme Court in Vavilov, with no reason to depart from it here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of review agreed",
+    "Vavilov confirms reasonableness presumption",
+    "No departure from presumption"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms reasonableness as presumptive standard of review"
+    }
+   ]
+  }
+ ]
+}

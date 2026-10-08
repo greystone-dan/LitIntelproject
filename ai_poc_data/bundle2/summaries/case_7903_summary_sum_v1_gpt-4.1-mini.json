@@ -1,0 +1,692 @@
+{
+ "case_id": 7903,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.009173200000000001
+ },
+ "verification": {
+  "paragraphs": 45,
+  "summaries": 45,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 21,
+  "regex_citations": 11,
+  "regex_addressed": 9,
+  "pinpoints": 6,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 6,
+   "distinguished_or_rejected": 2,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 10,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 15,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 100,
+   "para_end": 100
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2019 FC 5",
+   "para_start": 50,
+   "para_end": 50
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2005 SCC 54",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2009 FCA 35",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 39,
+   "neutral_citation": "2005 FC 1415",
+   "para_start": 22,
+   "para_end": 23
+  },
+  {
+   "citing_para": 40,
+   "neutral_citation": "2008 FC 1409",
+   "para_start": 15,
+   "para_end": 15
+  }
+ ],
+ "structure": {
+  "overview": "Merck Canada Inc. sought judicial review of the Minister of Health's refusal to add Patent No 2,830,806 to the Patent Register due to late submission during the COVID-19 pandemic. Merck argued that the Time Limits Act suspended the 30-day deadline or that the Minister unreasonably refused to extend it, but the court found the Minister's decision reasonable and dismissed the application. The court held that the Time Limits Act did not suspend the deadline and that the Minister had no discretion to extend it under the PM(NOC) Regulations.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Merck",
+    "text": "Time Limits Act suspended 30-day deadline or Minister unreasonably refused extension"
+   },
+   {
+    "id": "P2",
+    "para": 12,
+    "by": "Merck",
+    "text": "Refusal to list 806 Patent deprives protections and litigation advantages"
+   },
+   {
+    "id": "P3",
+    "para": 13,
+    "by": "Merck",
+    "text": "Listing 806 Patent causes no prejudice; refusal causes harm due to frozen register"
+   },
+   {
+    "id": "P4",
+    "para": 20,
+    "by": "Merck",
+    "text": "Section 4(6) is gateway to litigation provisions under Time Limits Act s 6(1)"
+   },
+   {
+    "id": "P5",
+    "para": 21,
+    "by": "Merck",
+    "text": "Comparison of 30-day listing to notice requirement in Bannon case"
+   },
+   {
+    "id": "P6",
+    "para": 23,
+    "by": "Merck",
+    "text": "Patent listing triggers 45-day limitation to commence court proceeding"
+   },
+   {
+    "id": "P7",
+    "para": 30,
+    "by": "Merck",
+    "text": "Time Limits Act's purpose is to flexibly suspend or extend time limits during COVID-19"
+   },
+   {
+    "id": "P8",
+    "para": 34,
+    "by": "Merck",
+    "text": "Minister had discretion to list 806 Patent and unreasonably declined to exercise it"
+   },
+   {
+    "id": "P9",
+    "para": 35,
+    "by": "Merck",
+    "text": "Reliance on Procter & Gamble case where late patent was added"
+   },
+   {
+    "id": "P10",
+    "para": 41,
+    "by": "Merck",
+    "text": "2017 amendments expanded Minister's discretionary powers to add or refuse patent lists"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 18,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P4 P5 P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P4 P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P1 P7",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 38,
+    "answers": "P8 P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P10",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Merck seeks judicial review of the Minister's refusal to add Patent No 2,830,806 to the Patent Register due to late submission.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Merck argues the Time Limits Act suspended the 30-day deadline or the Minister unreasonably refused to extend it during COVID-19.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Time Limits Act suspends deadline",
+    "Minister unreasonably refused extension"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Minister's decision was reasonable and the judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Merck markets KEYTRUDA\u00ae, approved in Canada in 2015 for advanced-stage cancers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "KEYTRUDA\u00ae is an innovative drug with market exclusivity until 2023 and a six-year no-file period until 2021.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "One patent, No 2,691,357, is listed for KEYTRUDA\u00ae, expiring in 2028.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The 806 Patent, issued in 2020, claims a formulation of KEYTRUDA\u00ae.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Merck USA discovered the 806 Patent issuance late and submitted patent lists after business hours, deemed filed next business day.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Subsection 4(6) of the PM(NOC) Regulations requires patent list submission within 30 days after patent issuance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 4(6) of the Patented Medicines (Notice of Compliance) Regulations, SOR/93-133",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Provides the 30-day patent list submission rule"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "Minister preliminarily determined patent lists were late; Merck responded with representations and evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "Minister confirmed no discretion to extend 30-day deadline and Time Limits Act does not extend it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Merck says refusal to list 806 Patent deprives protections and litigation advantages under PM(NOC) Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Merck argues listing 806 Patent causes no prejudice and refusal causes harm due to frozen register provision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Issues: Was Minister's determination on Time Limits Act and discretion to extend 30-day period reasonable?",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Minister's decision reviewed for reasonableness per Vavilov and Elanco standards.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness standard for review"
+    },
+    {
+     "cite": "Elanco v Canada (Attorney General), 2019 FC 5 at para 50",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Statutory interpretation by administrative decision makers must follow text, context, and purpose per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 120",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains statutory interpretation principles"
+    },
+    {
+     "cite": "Canada Trustco Mortgage Co v Canada, 2005 SCC 54 at para 10",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports use of ordinary meaning when words are precise"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Decision makers must not choose inferior interpretations for expediency but discern legislative intent per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 121",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Prohibits choosing inferior interpretations for expediency"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Time Limits Act s 6(1) suspends only court-related limitation periods and time limits during COVID-19.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Time Limits Act, SC 2020, c 11, s 6(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines suspended time limits under the Act"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Time Limits Act s 6(1) applies only to court proceedings and related time limits.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Merck argues s 4(6) is a gateway to litigation provisions under s 6(1) of PM(NOC) Regulations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 6(1) of the PM(NOC) Regulations",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Merck relies on litigation provision timing"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Merck compares 30-day listing period to notice requirement in Bannon, a limitation within a limitation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bannon v Thunder Bay (City), 2000 CarswellOnt 1307 (ONCA)",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Merck relies on Bannon for limitation period analogy"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Bannon held notice requirement akin to limitation period, combined with actual limitation period.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bannon at paras 22-23",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Explains Bannon's holding on notice as limitation"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Merck says patent listing is first step triggering 45-day limitation to commence court proceeding under PM(NOC).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Bannon found notice promotes diligence and timely investigation, similar to limitation periods.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Bannon at para 22",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Describes policy reasons for notice requirement"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Court finds patent listing differs from limitation periods; it is remote from court proceedings and lacks precipitating event.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Court disagrees that PM(NOC) Regulations focus solely on litigation initiation; listing has broader advantages.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "GD Searle & Co v Canada (Health), 2009 FCA 35 at para 13",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Court disagrees with Merck's litigation-centred view"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Section 5(1) requires second person to comply with patent owner consent, acceptance, or serve NOA before litigation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Dispute and parties arise only after second person files submission and serves NOA, triggering litigation rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Listing patent is too remote from court proceeding to be a limitation period under Time Limits Act s 6(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "Merck stresses Time Limits Act's purpose to flexibly suspend or extend time limits during COVID-19.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Time Limits Act s 5(1)",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Merck cites Act's flexible suspension and extension purpose"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Section 5's 'in a flexible manner' refers to ministerial discretion under s 7, not to suspension of court proceeding time limits under s 6.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The ViiV decision about suspension of s 6(1) time periods does not apply to the 30-day period in s 4(6), which was never suspended.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ViiV Healthcare et al v Sandoz Canada Inc, 2020 FC 1040",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "ViiV's suspension ruling does not affect s 4(6) deadline here"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "ViiV contradicts the Minister's view on Time Limits Act's effect, but the Minister's finding on s 4(6) deadline remains sound.",
+   "ideas": "multiple",
+   "idea_list": [
+    "ViiV contradicts Minister's finding",
+    "Minister's determination on s 4(6) remains sound"
+   ],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "Merck argues the Minister had discretion to list the 806 Patent and unreasonably declined to exercise it, citing jurisprudence and 2017 amendments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "Merck relies on Procter & Gamble case where the Minister added a late patent to the Patent Register despite late submission.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Procter & Gamble Pharmaceuticals Canada, Inc v Canada (Minister of Health), 2003 FCT 583",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Merck cites it to support Minister's discretion to add late patent"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "below",
+   "summary": "Justice Gauthier dismissed a motion to strike the late patent listing due to a clerical error, finding it not plainly ineligible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Procter & Gamble Pharmaceuticals Canada, Inc v Canada (Minister of Health), 2003 FCT 583",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports Justice Gauthier's decision on patent eligibility"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "An appeal dismissed the challenge to the patent listing on estoppel grounds due to failure to challenge earlier.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Procter & Gamble Pharmaceuticals Canada, Inc v Canada (Minister of Health), 2003 FCA 467",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports appellate dismissal on estoppel grounds"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The Procter & Gamble decisions provide weak authority for Minister's discretion to add late patents, as the patent was added within 30 days.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "PM(NOC) Regulations timelines are strict; Hoffman-La Roche held no discretion to accept late filings without clear statutory authority.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hoffman-La Roche Ltd v Canada (Health), 2005 FC 1415",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports strict interpretation of PM(NOC) timelines and no discretion for late filings"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Previous cases affirm strict timing for patent listing to protect patentees and ensure affordable medicines; ViiV confirms stringent timelines.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Fournier Pharma Inc v Canada (Attorney General), [1999] 1 FC 327",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports necessity of strict timelines"
+    },
+    {
+     "cite": "Immunex Corporation v Canada (Health), 2008 FC 1409",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms strict timing deadlines"
+    },
+    {
+     "cite": "ViiV Healthcare et al v Sandoz Canada Inc, 2020 FC 1040",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms PM(NOC) Regulations involve stringent timelines"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Merck argues 2017 amendments expanded Minister's discretionary powers to add or refuse patent lists under ss 3(2) to 3(2.3).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The 2017 amendments did not change patent listing eligibility or confer new discretion; Regulatory Impact Statement confirms unchanged criteria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The Minister's decision was reasonable, justified, intelligible, and transparent; judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court commends counsel for the quality of their written and oral submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "other",
+   "summary": "By agreement, no costs are awarded to either party.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,410 @@
+{
+ "case_id": 42894,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.005274400000000001
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 18,
+  "regex_citations": 11,
+  "regex_addressed": 10,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 9,
+   "party_argument_reported": 8,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 4,
+  "rebuttals": 8,
+  "left_open": 2
+ },
+ "pinpoints": [
+  {
+   "citing_para": 4,
+   "neutral_citation": "2010 FCA 130",
+   "para_start": 10,
+   "para_end": 10
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns an appeal by Eli Lilly Canada Inc. (appellants) against Teva Canada Limited (respondent) regarding the admissibility of a UK patent as evidence in the appeal. The respondent moved to preclude the appellants from referring to the UK patent, arguing it is not a legal authority under Canadian rules. The court partially granted the motion to preclude direct reference to the UK patent but allowed appellants to refer to UK court decisions and fixed costs accordingly.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "respondent",
+    "text": "Move to preclude UK patent reference"
+   },
+   {
+    "id": "P2",
+    "para": 2,
+    "by": "appellants",
+    "text": "Refer to UK patent and House of Lords decision"
+   },
+   {
+    "id": "P3",
+    "para": 3,
+    "by": "respondent",
+    "text": "UK patent not authority or regulation, evidence not before court"
+   },
+   {
+    "id": "P4",
+    "para": 4,
+    "by": "appellants",
+    "text": "UK patent is authority, admissibility to hearing panel"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 7,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P4",
+    "verdict": "partly"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 18,
+    "text": "Appellants may draw hearing panel's attention to UK court decisions and patent portions"
+   },
+   {
+    "para": 19,
+    "text": "Hearing panel discretion to allow evidence and documents"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Respondent Teva Canada Limited moves to preclude appellants from referring to the UK patent in their appeal materials.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Appellants refer to the UK patent in their memorandum citing a UK House of Lords decision approving novelty of a selection patent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sanofi",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellants cite Sanofi decision quoting UK House of Lords decision."
+    },
+    {
+     "cite": "Du Pont de Nemours (Witsiepe\u2019s) Application [1982] FSR 303, HL",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellants cite UK House of Lords decision on selection patent."
+    },
+    {
+     "cite": "UK 1,404,340 Patent",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants refer to the UK patent itself."
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "Respondent argues UK patent is not an authority or regulation under Federal Courts Rules or Interpretation Act and is evidence not before Federal Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rules 348(1) and 70(1)(e) of the Federal Courts Rules, S.O.R./98-106",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "Respondent argues UK patent is not an authority under these rules."
+    },
+    {
+     "cite": "subsections 2(1), 3(1), and 35(1) of the Interpretation Act, R.S.C. 1985, c. I-21",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Respondent argues UK patent is not a regulation under these provisions."
+    },
+    {
+     "cite": "Rule 351 of the Federal Courts Rules",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "Respondent says UK patent can only be presented via fresh evidence motion under this rule."
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Appellants argue UK patent is an authority as cited by House of Lords and Supreme Court, relates to law not fact, and admissibility should be left to hearing panel.",
+   "ideas": "multiple",
+   "idea_list": [
+    "UK patent is an authority",
+    "No fresh evidence motion needed",
+    "Admissibility better left to hearing panel"
+   ],
+   "citations": [
+    {
+     "cite": "Apotex Inc. v. Sanofi-Synthelabo Canada Inc., 2008 SCC 61, [2008] 3 S.C.R. 265 (Sanofi)",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellants rely on Sanofi to support UK patent as authority."
+    },
+    {
+     "cite": "Eli Lilly Canada Inc. v. Novopharm Limited, 2010 FCA 130, 2010 CarswellNat 1424 at para. 10 (Novopharm)",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellants argue admissibility issue better left to hearing panel."
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court will first address the appellants' argument about leaving admissibility to the hearing panel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court prefers to decide the admissibility issue now to provide certainty and notes Novopharm is distinguishable as no hearing date is set.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Prefer early decision on admissibility",
+    "Novopharm case is distinguishable"
+   ],
+   "citations": [
+    {
+     "cite": "Novopharm",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Novopharm deferred admissibility due to imminent hearing, unlike here."
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court finds direct reference to the UK patent is not permitted for three reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "First, appellants ask the court to accept UK patent evidence from UK court and draw conclusions, which is improper.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The UK patent remains evidence in UK and Canadian courts and does not become law simply because construed by a court; Parliament requires foreign patents be admitted as evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 14 of the Patent Act, R.S.C. 1985, c. P-4",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Parliament requires foreign patents be admitted as evidence by certified copy."
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "A case's legal principle is limited by its facts; Lord Halsbury's 120-year-old statement confirms judgments apply only to proven facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Quinn v. Leathem, [1901] A.C. (H.L.) 495 at page 81",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Illustrates principle that judgments apply only to particular facts."
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Appellants' argument blurs the distinction between facts and law, merging evidence and law improperly.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Second, Federal Courts Rules require authorities to be legal sources, which a patent is not; courts are cautious about admitting evidence as legislative facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rules 70(1)(e) and 348(1) of the Federal Courts Rules",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines authorities as legal sources, not patents."
+    },
+    {
+     "cite": "AstraZeneca Canada Inc. v. Apotex Inc., 2003 FCA 487, [2004] 2 F.C.R. 364 at paras. 6-11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines authorities as statutes, jurisprudence, or legal writings."
+    },
+    {
+     "cite": "Public School Boards' Assn. (Alberta) v. Alberta (Attorney General), 2000 SCC 2, [2000] 1 S.C.R. 44",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Courts cautious about admitting evidence as legislative facts."
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Third, appellants' argument that UK patent is a regulation fails because Interpretation Act's definition applies only to Canadian patents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Interpretation Act defines regulation as letters patent under Canadian authority, not foreign legislation or sovereign authority.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Section 2 of the Interpretation Act",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines regulation and letters patent as Canadian, not foreign."
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "In sum, a foreign patent is not an authority recognized by this Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court offers three closing observations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "First, as the UK patent was not admitted in Federal Court trial, appellants must move to admit it as fresh evidence under Rule 351; no such motion is before the court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 351",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Fresh evidence must be admitted by motion under this rule."
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Second, appellants may draw the hearing panel's attention to UK court decisions and related patent portions to support their position.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Third, the hearing panel has discretion to allow evidence and documents, and its decision prevails over a motions judge's ruling; thus, preclusion is denied.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Panel has discretion over evidence",
+    "Panel decision prevails over motions judge",
+    "Preclusion denied"
+   ],
+   "citations": [
+    {
+     "cite": "Sport Maska Inc. v. Bauer Hockey Corp., 2016 FCA 44, [2016] 4 F.C.R. 3 at para. 37",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Panel decision has precedence over motions judge."
+    },
+    {
+     "cite": "Apotex Inc. v. Canada (Health), 2017 FCA 160, 36 Admin. L.R. (6th) 110 at para. 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Panel decision has precedence over motions judge."
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court grants the motion in part and fixes costs at $5,000 as requested by both parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

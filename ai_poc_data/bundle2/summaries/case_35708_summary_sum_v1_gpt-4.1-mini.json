@@ -1,0 +1,1198 @@
+{
+ "case_id": 35708,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.016548399999999998
+ },
+ "verification": {
+  "paragraphs": 65,
+  "summaries": 65,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 10,
+  "model_citations": 48,
+  "regex_citations": 19,
+  "regex_addressed": 12,
+  "pinpoints": 12,
+  "purposes": {
+   "standard_of_review_or_test": 8,
+   "supports_court_conclusion": 19,
+   "party_argument_reported": 12,
+   "distinguished_or_rejected": 2,
+   "background_or_other": 7
+  },
+  "multi_idea_paragraphs": 7,
+  "party_points": 17,
+  "rebuttals": 19,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 18,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 34,
+   "para_end": 34
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2022 FCA 153",
+   "para_start": 14,
+   "para_end": 15
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2023 FC 1051",
+   "para_start": 20,
+   "para_end": 20
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2012 SCC 3",
+   "para_start": 157,
+   "para_end": 157
+  },
+  {
+   "citing_para": 50,
+   "neutral_citation": "2014 FC 487",
+   "para_start": 25,
+   "para_end": 26
+  },
+  {
+   "citing_para": 50,
+   "neutral_citation": "2023 FC 1267",
+   "para_start": 56,
+   "para_end": 56
+  },
+  {
+   "citing_para": 61,
+   "neutral_citation": "2024 FC 916",
+   "para_start": 85,
+   "para_end": 85
+  },
+  {
+   "citing_para": 61,
+   "neutral_citation": "2014 FC 957",
+   "para_start": 125,
+   "para_end": 125
+  },
+  {
+   "citing_para": 61,
+   "neutral_citation": "2009 FC 974",
+   "para_start": 64,
+   "para_end": 64
+  },
+  {
+   "citing_para": 63,
+   "neutral_citation": "2014 FC 392",
+   "para_start": 90,
+   "para_end": 90
+  },
+  {
+   "citing_para": 67,
+   "neutral_citation": "2022 FC 1115",
+   "para_start": 99,
+   "para_end": 100
+  },
+  {
+   "citing_para": 67,
+   "neutral_citation": "2020 FC 1166",
+   "para_start": 116,
+   "para_end": 117
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a judicial review by TPG Technology Consulting Ltd. (Applicant) challenging the disclosure of certain information by the Government of Canada (Respondent) under the Access to Information Act (ATIA). The court partially upheld the Applicant's claims, finding some pricing references and subcontractor profiles exempt from disclosure under ATIA sections 20(1)(b) and (c), but rejected exemptions for other subcontractor information under section 20(1)(d). The judicial review was allowed in part, with costs awarded to the Applicant.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 20,
+    "by": "Applicant",
+    "text": "Information is confidential financial or commercial, exempting it supports innovation in procurement"
+   },
+   {
+    "id": "P2",
+    "para": 21,
+    "by": "Respondent",
+    "text": "Subcontractor names not commercial; some profiles public; info not treated confidentially"
+   },
+   {
+    "id": "P3",
+    "para": 25,
+    "by": "Applicant",
+    "text": "Subcontractors\u2019 identities are commercial as essential business relationships giving competitive advantage"
+   },
+   {
+    "id": "P4",
+    "para": 26,
+    "by": "Respondent",
+    "text": "Subcontractor identities not commercial; no evidence of superior quality or advantage"
+   },
+   {
+    "id": "P5",
+    "para": 29,
+    "by": "Respondent",
+    "text": "Subcontractors and employee have public profiles linking them to Applicant\u2019s TBIPS work"
+   },
+   {
+    "id": "P6",
+    "para": 30,
+    "by": "Applicant",
+    "text": "Public profiles disclose only general info; connection to Applicant not public"
+   },
+   {
+    "id": "P7",
+    "para": 38,
+    "by": "Applicant",
+    "text": "Subcontractor identities strictly confidential; supported by confidentiality clause in agreements"
+   },
+   {
+    "id": "P8",
+    "para": 40,
+    "by": "Applicant",
+    "text": "Underlying contract with PSPC has confidentiality clauses; contract not in record"
+   },
+   {
+    "id": "P9",
+    "para": 41,
+    "by": "Applicant",
+    "text": "Confidentiality expectation supported by redactions in prior access to information requests"
+   },
+   {
+    "id": "P10",
+    "para": 43,
+    "by": "Applicant",
+    "text": "News article where government says subcontractor names are third-party info; affiant's cross-examination undermines claim"
+   },
+   {
+    "id": "P11",
+    "para": 52,
+    "by": "Applicant",
+    "text": "Pricing info disclosure would let competitors reverse engineer bids and undercut prices"
+   },
+   {
+    "id": "P12",
+    "para": 53,
+    "by": "Respondent",
+    "text": "Applicant failed to prove exemption; competitors cannot accurately benchmark prices"
+   },
+   {
+    "id": "P13",
+    "para": 57,
+    "by": "Applicant",
+    "text": "Disclosure of subcontractors and profiles would cause competitors to poach them, harming competitive position"
+   },
+   {
+    "id": "P14",
+    "para": 58,
+    "by": "Respondent",
+    "text": "No evidence competitors target subcontractors; retention depends on other factors"
+   },
+   {
+    "id": "P15",
+    "para": 63,
+    "by": "Applicant",
+    "text": "Disclosure would interfere with probable negotiations, citing Porter Airlines and Calian FC"
+   },
+   {
+    "id": "P16",
+    "para": 64,
+    "by": "Respondent",
+    "text": "Calian FC found harm from specific personal rates, not ranges; names would not harm negotiations"
+   },
+   {
+    "id": "P17",
+    "para": 69,
+    "by": "Applicant",
+    "text": "Disclosing subcontractors' pay rates may lead to higher demands during ongoing negotiations, relying on Calian FC"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 22,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P3,P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P5,P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 37,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 45,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 47,
+    "answers": "P12",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 54,
+    "answers": "P12",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 56,
+    "answers": "P11",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 59,
+    "answers": "P14",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 60,
+    "answers": "P13",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P14",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 65,
+    "answers": "P15,P16",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 66,
+    "answers": "P15",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 67,
+    "answers": "P15",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 68,
+    "answers": "P15",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 70,
+    "answers": "P17",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court partially agrees with the Applicant that some pricing references and subcontractor profiles are exempt from disclosure under ATIA s 20(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "ATIA balances transparency with protecting confidential, commercial, or proprietary information through exemptions in sections 16 to 21.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, ss 16 to 21",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Shows exemptions balancing disclosure and confidentiality"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Subsection 20(1) of ATIA exempts government institutions from disclosing certain third-party information, specifically paragraphs 20(1)(b), (c), and (d).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, s 20(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Identifies relevant exemption provisions"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Paragraph 20(1)(b) requires refusal to disclose confidential financial, commercial, scientific, or technical information supplied by a third party.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, para 20(1)(b)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines refusal to disclose confidential third-party info"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Paragraph 20(1)(c) prohibits disclosure if it would likely harm a third party's competitive position or cause financial loss or gain.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, para 20(1)(c)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines harm-based disclosure exemption"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Paragraph 20(1)(d) prevents disclosure that could interfere with a third party's contractual or other negotiations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, para 20(1)(d)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines exemption to protect negotiations"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Government institutions must notify third parties and allow submissions before disclosing records containing third-party information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, ss 27(1), 28(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Requires notice and submissions before disclosure"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "Third parties can apply for judicial review if the government discloses information against their submissions under ATIA s 44(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ATIA, s 44(1)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Allows judicial review of disclosure decisions"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "The Applicant bids on government RFPs, submits skilled professional lists, and signs agreements with subcontractors and the government for services.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "PSPC notified the Applicant of an access to information request for emails related to Task Authorizations under the Applicant's TBIPS contract.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "other",
+   "summary": "The Applicant sent a redacted record version claiming exemptions under ATIA paragraphs 20(1)(b), (c), and (d).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "other",
+   "summary": "PSPC responded that only some information would be redacted, attaching a revised record with planned redactions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "other",
+   "summary": "The Applicant filed judicial review challenging PSPC's decision to disclose confidential and competitively sensitive information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court reviews de novo under ATIA s 44(1), deciding whether the information should be disclosed, citing Vavilov, Preventous, and Perreault.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Standard of review is de novo under ATIA s 44(1)",
+    "Court's role is to decide disclosure anew"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 34",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes de novo review standard under ATIA s 44(1)"
+    },
+    {
+     "cite": "Canada (Health) v Preventous Collaborative Health, 2022 FCA 153 at paras 14-15",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms de novo review and nature of ATIA s 44 applications"
+    },
+    {
+     "cite": "Preventous at paras 12-13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies ATIA s 44 is not judicial review of administrative decision"
+    },
+    {
+     "cite": "Perreault v Canada (Foreign Affairs), 2023 FC 1051 at paras 20, 29",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Court decides what decision it would have made on disclosure"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant argues the information is financial or commercial, treated confidentially, and exempting it supports innovation in procurement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Respondent argues subcontractor names are not commercial, some profiles are public, and the Applicant did not treat info as confidential.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court finds the Applicant\u2019s pricing references exempt under para 20(1)(b) but not the subcontractors\u2019 profiles.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Respondent does not dispute the Applicant supplied the information, which derives from the Applicant\u2019s TBIPS performance, citing Merck Frosst.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Merck Frosst Canada Ltd v Canada (Health), 2012 SCC 3 at para 157",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding info supplied by Applicant, not from government knowledge"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Applicant submits subcontractors\u2019 identities are commercial as essential business relationships giving competitive advantage in procurement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Respondent submits subcontractor identities are not commercial as no evidence shows superior quality or advantage in proposals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court finds subcontractors and their experience commercial, relying on Cache and evidence of their importance in procurement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Cache Computer Consulting Corp v Canada (Public Services and Procurement), 2025 FC 1515",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding subcontractor names commercial in similar context"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Confidentiality under para 20(1)(b) requires info to be objectively confidential, treated confidentially, per Air Atonabee and Merck Frosst.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Merck Frosst at para 162",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requires objective confidentiality on balance of probabilities"
+    },
+    {
+     "cite": "Ottawa Football Club v Canada (Minister of Fitness and Amateur Sports), 1989 CanLII 9491 at 487 (FC)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports confidentiality test"
+    },
+    {
+     "cite": "Air Atonabee at 202",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets three-part test for confidentiality"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Respondent argues subcontractors and employee have public profiles linking them to the Applicant\u2019s TBIPS work.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The Applicant relies on Cache to argue public profiles disclose only general info, so connection to Applicant is not public.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Cache",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Cache to argue limited public info"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds employee info is not exempt as it shows only publicly available job title and work under the contract.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court agrees a public social media profile allows the public to connect one subcontractor to the Applicant, so info is not confidential.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Respondent provided a subcontractor\u2019s social media profile showing relevant department, contract dates, and job title similar to record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "In Cache, most subcontractors were not publicly listed, and those listed lacked connection to the applicant, supporting confidentiality.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Cache at paras 47-50",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Shows limited public info on subcontractors in similar case"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Unlike Cache, here public profile reveals key details allowing public to connect subcontractor to Applicant and TBIPS through independent study.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Limited subcontractor pool and sophisticated competitors increase likelihood public can connect subcontractor and employee to Applicant, so info is not confidential.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court accepts the Applicant views its subcontractor relationship as confidential but finds it was not objectively treated as confidential.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "party",
+   "summary": "The Applicant's affiant claims subcontractor identities are strictly confidential, supported by a confidentiality clause in subcontractor agreements, citing Cache.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's confidentiality claim supported by subcontractor agreement and Cache"
+   ],
+   "citations": [
+    {
+     "cite": "Cache at para 43",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Cache's confidentiality clause finding"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court acknowledges confidentiality clauses but finds they do not limit disclosure like in Cache; no measures ensure confidentiality here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "party",
+   "summary": "Applicant claims underlying contract with PSPC has confidentiality clauses, but contract not in record; Respondent notes absence of evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant claims contract confidentiality",
+    "Respondent notes lack of contract evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Canada Post Corp v National Capital Commission, 2002 FCT 700 at paras 11-13",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites case to show absence of confidentiality agreements is indicative"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "party",
+   "summary": "Applicant submits confidentiality expectation supported by redactions in prior access to information requests about competitors' proposals, relying on Cache.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant relies on prior redactions and Cache"
+   ],
+   "citations": [
+    {
+     "cite": "Cache",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Cache for confidentiality expectation"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The court finds prior decisions like Cache do not bind and differ here; prior requests involved applicant's info, not competitors', so confidentiality not established.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Prior decisions not binding",
+    "Differences in prior requests and current case"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Office of the Information Commissioner) v Calian Ltd, 2017 FCA 135",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Prior decisions do not bind and each case is fact-specific"
+    },
+    {
+     "cite": "Cache at paras 51-52",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent notes differences in prior requests"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Applicant submits a news article where government says subcontractor names are third-party info, but affiant's cross-examination undermines confidentiality claim.",
+   "ideas": "single",
+   "idea_list": [
+    "News article cited but context undermines confidentiality"
+   ],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Court finds Applicant's pricing references confidential and uncontroverted, supported by internal treatment and subcontractor agreements limiting pricing disclosure.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "Respondent cites Soci\u00e9t\u00e9 Gamma to argue government contractors cannot expect privacy to outweigh accountability.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent relies on Soci\u00e9t\u00e9 Gamma"
+   ],
+   "citations": [
+    {
+     "cite": "Soci\u00e9t\u00e9 Gamma Inc v Canada (Department of the Secretary of State), 1994 CanLII 19529 (FC)",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites case on privacy vs accountability"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Court rejects Soci\u00e9t\u00e9 Gamma's applicability, noting differences in information type and confidentiality expectations here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Soci\u00e9t\u00e9 Gamma Inc v Canada (Department of the Secretary of State), 1994 CanLII 19529 (FC)",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Court finds Soci\u00e9t\u00e9 Gamma not persuasive due to different facts"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Maintaining confidentiality of per diem prices does not contradict public interest in accountable and competitive procurement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Court agrees disclosing allocation of public funds is important but not specific info allowing competitors to calculate Applicant's per diem rate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Exempting pricing references helps maintain competitive procurement; broad disclosure would discourage competition and innovation per Merck Frosst.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Exemption supports competition",
+    "Broad disclosure discouraged by Merck Frosst"
+   ],
+   "citations": [
+    {
+     "cite": "Merck Frosst at para 2",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Broad disclosure would discourage research and innovation"
+    }
+   ]
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "Applicant argues pricing info would let competitors reverse engineer bids and undercut prices, impacting profitability.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's harm argument on pricing disclosure"
+   ],
+   "citations": [
+    {
+     "cite": "Equifax",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Equifax for harm from pricing disclosure"
+    }
+   ]
+  },
+  {
+   "para": 53,
+   "speaker": "party",
+   "summary": "Respondent argues Applicant failed to prove exemption because competitors cannot accurately benchmark prices to affect bids.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent challenges Applicant's exemption claim"
+   ],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Court finds disclosure of per diem rates raises more than mere possibility of harm, supported by Equifax and industry familiarity.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Disclosure causes harm",
+    "Equifax supports harm finding",
+    "Industry knowledge supports harm"
+   ],
+   "citations": [
+    {
+     "cite": "Equifax at paras 29-30",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports harm from disclosure of pricing info"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Court notes Respondent's examples of marginal bid differences but finds Applicant's evidence of price-sensitive bids credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Competitors need only undercut within a reasonable range to harm Applicant; disclosure would aid competitors, so pricing info is exempt under ATIA 20(1)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "party",
+   "summary": "Applicant submits disclosure of subcontractors and profiles would cause competitors to poach them, harming competitive position, citing Cache.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's harm argument on subcontractor info"
+   ],
+   "citations": [
+    {
+     "cite": "Cache at para 82",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Cache for harm from subcontractor info disclosure"
+    }
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "party",
+   "summary": "Respondent argues no evidence competitors target subcontractors; retention depends on other factors.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent denies harm from subcontractor disclosure"
+   ],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Court finds public domain info about subcontractors cannot cause harm under ATIA 20(1)(c).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Merck Frosst at paras 219-220",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Public domain info not exempt"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Court finds disclosing non-public subcontractor profiles would prejudice Applicant's competitive position despite Respondent's arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "Court acknowledges Respondent's points but finds evidence shows Applicant seeks competitor info and that disclosure would likely prejudice Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "party",
+   "summary": "Applicant submits disclosure would interfere with probable negotiations, citing Porter Airlines and Calian FC regarding subcontractor pay rates.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's argument on probable negotiations"
+   ],
+   "citations": [
+    {
+     "cite": "Porter Airlines Inc v Canada (Attorney General), 2014 FC 392 at para 90",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Porter Airlines for probable negotiations"
+    },
+    {
+     "cite": "Calian FC",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Calian FC for pay rate negotiation harm"
+    }
+   ]
+  },
+  {
+   "para": 64,
+   "speaker": "party",
+   "summary": "Respondent submits Calian FC found harm from specific personal rates, not ranges; names of subcontractors would not harm future negotiations.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent's counter on negotiation harm"
+   ],
+   "citations": [
+    {
+     "cite": "Calian FC",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent relies on Calian FC to distinguish harm"
+    }
+   ]
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "Court finds information in dispute is not exempt under ATIA paragraph 20(1)(d).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "Court finds Applicant mischaracterizes jurisprudence; Porter Airlines does not support exemption for probable negotiations without evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Porter Airlines at para 90",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Porter Airlines requires evidence of actual or probable negotiations"
+    }
+   ]
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Court confirms jurisprudence requires actual or ongoing negotiations for exemption under ATIA 20(1)(d), rejecting Applicant's broader interpretation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Actual negotiations required",
+    "Applicant's broader view rejected"
+   ],
+   "citations": [
+    {
+     "cite": "Clowater at para 85",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms need for actual negotiations"
+    },
+    {
+     "cite": "Calian FCA at paras 49-50",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms need for actual negotiations"
+    },
+    {
+     "cite": "A Inc v Canadian Museum for Human Rights, 2022 FC 1115 at paras 99-100",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms need for actual negotiations"
+    },
+    {
+     "cite": "Concord Premium Meats Ltd v Canada (Food Inspection Agency), 2020 FC 1166 at paras 116-117",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms need for actual negotiations"
+    },
+    {
+     "cite": "Burnbrae Farms at para 125",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms need for actual negotiations"
+    },
+    {
+     "cite": "Saint John Shipbuilding Ltd v Canada (Minister of Supply and Services), [1988] FCJ No 902, 1988 CarswellNat 213 at paras 20-22",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms need for actual negotiations"
+    },
+    {
+     "cite": "Oceans Limited at para 64",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Distinguishes between 20(1)(c) and 20(1)(d) by requiring ongoing negotiations"
+    }
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "Applicant's claim about probable negotiations cannot support exemption under ATIA 20(1)(d); Cache supports this view.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Cache at para 82",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Cache finds 20(1)(d) does not exempt potential RFP bids"
+    }
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "party",
+   "summary": "Applicant submits disclosing subcontractors' pay rates may lead to higher demands during ongoing negotiations, relying on Calian FC.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's argument on pay rate disclosure harm"
+   ],
+   "citations": [
+    {
+     "cite": "Calian FC",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Calian FC for pay rate negotiation impact"
+    }
+   ]
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The court disagrees with Calian FC's reasoning, finding no evidence of price squeeze here, so the disputed information is not exempt under ATIA s 20(1)(d).",
+   "ideas": "multiple",
+   "idea_list": [
+    "disagrees with Calian FC",
+    "no evidence of price squeeze",
+    "information not exempt under s 20(1)(d)"
+   ],
+   "citations": [
+    {
+     "cite": "Calian FC",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "court rejects Calian FC's application due to lack of similar evidence"
+    },
+    {
+     "cite": "paragraph 20(1)(d) of the ATIA",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "legal basis for exemption considered"
+    }
+   ]
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The Applicant\u2019s pricing details are exempt under ATIA ss 20(1)(b) and (c) as confidential financial information that could harm competitive pricing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraphs 20(1)(b) and (c) of the ATIA",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "confidential financial information exemption applied"
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Except for two individuals, the identities and qualifications of the Applicant\u2019s subcontractors are exempt under ATIA s 20(1)(c) due to potential prejudice to competitive position.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 20(1)(c) of the ATIA",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "exemption for subcontractor information"
+    }
+   ]
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The judicial review is allowed in part; costs should be assessed low per Tariff B of the Federal Courts Rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Tariff B of the Federal Courts Rules, SOR/98-106",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "guidance on costs assessment"
+    }
+   ]
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The court awards the Applicant $3,240 in costs based on the applicable tariff.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

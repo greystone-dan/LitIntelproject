@@ -1,0 +1,874 @@
+{
+ "case_id": 6426,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0095572
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 40,
+  "regex_citations": 23,
+  "regex_addressed": 23,
+  "pinpoints": 18,
+  "purposes": {
+   "standard_of_review_or_test": 6,
+   "supports_court_conclusion": 12,
+   "party_argument_reported": 16,
+   "distinguished_or_rejected": 4,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 10,
+  "party_points": 11,
+  "rebuttals": 10,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 9,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 56,
+   "para_end": 56
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2017 FC 1067",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2014 SCC 24",
+   "para_start": 79,
+   "para_end": 79
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2020 FCA 5",
+   "para_start": 39,
+   "para_end": 39
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2020 FC 89",
+   "para_start": 12,
+   "para_end": 12
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2018 FCA 168",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 12,
+   "neutral_citation": "2006 FC 1283",
+   "para_start": 24,
+   "para_end": 24
+  },
+  {
+   "citing_para": 13,
+   "neutral_citation": "2007 FC 1092",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 14,
+   "neutral_citation": "2007 FC 20",
+   "para_start": 25,
+   "para_end": 25
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2016 FC 690",
+   "para_start": 37,
+   "para_end": 37
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2006 FC 573",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2021 FC 321",
+   "para_start": 80,
+   "para_end": 80
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2016 FC 1234",
+   "para_start": 8,
+   "para_end": 8
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2020 FC 726",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2020 FC 316",
+   "para_start": 38,
+   "para_end": 38
+  },
+  {
+   "citing_para": 27,
+   "neutral_citation": "2011 SCC 62",
+   "para_start": 16,
+   "para_end": 16
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2020 FC 77",
+   "para_start": 17,
+   "para_end": 17
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Felix Obiora Ibekwe's judicial review of a visa officer's refusal of his study permit application, alleging procedural fairness breaches and unreasonableness in the decision. The visa officer refused the permit due to concerns about the applicant's study plan, financial sufficiency, and bona fide student status. The Federal Court dismissed the judicial review application, finding no procedural fairness breach and that the decision was reasonable based on insufficient funds for the entire program.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Applicant",
+    "text": "Procedural fairness breach and unreasonableness in study permit refusal"
+   },
+   {
+    "id": "P2",
+    "para": 8,
+    "by": "Applicant",
+    "text": "Reasonableness standard for evidence, correctness for legal interpretation"
+   },
+   {
+    "id": "P3",
+    "para": 12,
+    "by": "Applicant",
+    "text": "Procedural fairness breach for no notice or chance to respond to credibility concerns"
+   },
+   {
+    "id": "P4",
+    "para": 13,
+    "by": "Applicant",
+    "text": "Officers must allow addressing extrinsic evidence and financial concerns"
+   },
+   {
+    "id": "P5",
+    "para": 14,
+    "by": "Applicant",
+    "text": "Decision relied on prohibited stereotypes"
+   },
+   {
+    "id": "P6",
+    "para": 22,
+    "by": "Applicant",
+    "text": "Officer ignored relevant evidence and failed to explain conclusions on finances and purpose"
+   },
+   {
+    "id": "P7",
+    "para": 23,
+    "by": "Applicant",
+    "text": "Applicant showed sufficient funds for one year and stable father's job"
+   },
+   {
+    "id": "P8",
+    "para": 24,
+    "by": "Applicant",
+    "text": "Officer erred doubting reasonableness of study given good grades"
+   },
+   {
+    "id": "P9",
+    "para": 25,
+    "by": "Applicant",
+    "text": "Officer failed to justify finding on purpose of visit"
+   },
+   {
+    "id": "P10",
+    "para": 26,
+    "by": "Respondent",
+    "text": "Merits reviewed on reasonableness; burden on applicant; no reweighing evidence"
+   },
+   {
+    "id": "P11",
+    "para": 27,
+    "by": "Respondent",
+    "text": "Officer reasonably found insufficient funds; considered all evidence"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 16,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P11",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicant Felix Obiora Ibekwe seeks judicial review of a visa officer's July 26, 2021 study permit refusal, alleging procedural fairness breach and unreasonableness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks judicial review",
+    "Alleges procedural fairness breach",
+    "Alleges decision unreasonableness"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "Applicant is a 24-year-old Nigerian citizen sponsored by his father, completed secondary school in 2014.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's background"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Applicant applied to University of Manitoba, accepted to University 1 Program starting September 2021, submitted study permit application April 12, 2021.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's university application and acceptance"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "Visa officer refused study permit on July 6, 2021, citing concerns about study plan, funds, motivation to return, and bona fide student status.",
+   "ideas": "single",
+   "idea_list": [
+    "Visa officer's refusal reasons"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Decision made under IRPA s 20(1)(b) and IRPR ss 179, 216(b), 220 requiring satisfaction on leaving Canada and financial sufficiency.",
+   "ideas": "single",
+   "idea_list": [
+    "Legal basis for decision"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001 c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory basis for visa officer's decision"
+    },
+    {
+     "cite": "Immigration and Refugee Protection Regulations, SOR/2002-227",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Regulatory provisions governing study permits"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "Issues are whether there was procedural fairness breach and whether the decision is reasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "Issues identified"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "Applicant argues reasonableness standard applies to evidence assessment, correctness standard to legal interpretation, citing Dunsmuir.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's standard of review argument"
+   ],
+   "citations": [
+    {
+     "cite": "Dunsmuir v New Brunswick, 2008 SCC 9",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites standards of review"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "Respondent argues procedural fairness requires notice and chance to respond, merits reviewed on reasonableness, citing Canadian Pacific, Onyeka.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Procedural fairness standard",
+    "Merits standard and deference to visa officers"
+   ],
+   "citations": [
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (AG), 2018 FCA 69 at para 56",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites procedural fairness test"
+    },
+    {
+     "cite": "Onyeka v Canada (Citizenship and Immigration), 2017 FC 1067 at para 10",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites deference to visa officers"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Procedural fairness issue reviewed on correctness standard with no deference, citing Mission Institution, Oleynik, Ebrahimshani, Del Vecchio.",
+   "ideas": "single",
+   "idea_list": [
+    "Standard of review for procedural fairness"
+   ],
+   "citations": [
+    {
+     "cite": "Mission Institution v Khela, 2014 SCC 24 at para 79",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Correctness standard for procedural fairness"
+    },
+    {
+     "cite": "Oleynik v Canada (AG), 2020 FCA 5 at para 39",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Correctness standard for procedural fairness"
+    },
+    {
+     "cite": "Ebrahimshani v Canada (Citizenship and Immigration), 2020 FC 89 at para 12",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Correctness standard for procedural fairness"
+    },
+    {
+     "cite": "Del Vecchio v Canada (AG), 2018 FCA 168 at para 4",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "No deference on procedural fairness questions"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Merits reviewed on reasonableness standard per Vavilov, requiring intelligibility, transparency, justification, and defensible outcome.",
+   "ideas": "single",
+   "idea_list": [
+    "Standard of review for merits"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness standard and review framework"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicant claims procedural fairness breach because officer should have given notice and chance to respond to credibility concerns, citing Hassani.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's procedural fairness argument"
+   ],
+   "citations": [
+    {
+     "cite": "Hassani v Canada (MCI), 2006 FC 1283 at para 24",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites notice requirement for credibility concerns"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Applicant argues officers must allow applicants to address extrinsic evidence concerns and financial concerns, citing Jesuorobo and Wang.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Right to respond to extrinsic evidence",
+    "Right to respond to financial concerns"
+   ],
+   "citations": [
+    {
+     "cite": "Jesuorobo v Canada (MCI), 2007 FC 1092 at para 14",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites obligation to address extrinsic evidence"
+    },
+    {
+     "cite": "Wang v Canada (MCI), 2003 FCT 258 at para 13",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites right to respond to financial concerns"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Applicant submits decision relied on prohibited stereotypes, citing Bonilla.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant alleges reliance on stereotypes"
+   ],
+   "citations": [
+    {
+     "cite": "Hernandez Bonilla v Canada (Minister of Citizenship and Immigration), 2007 FC 20 at para 25",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites prohibition on stereotypes"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Respondent argues procedural fairness is relaxed for student visas, officer not required to notify or supplement evidence, citing Solopova and Toor.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Relaxed procedural fairness for student visas",
+    "No obligation to notify or supplement evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Solopova v Canada (MCI), 2016 FC 690 at paras 37, 41",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites relaxed procedural fairness and no obligation to notify"
+    },
+    {
+     "cite": "Toor v Canada (MCI), 2006 FC 573 at para 17",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites no obligation to forward concerns"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court finds no procedural fairness breach; agrees fairness degree is low and burden is on applicant to satisfy officer.",
+   "ideas": "single",
+   "idea_list": [
+    "Court's finding on procedural fairness"
+   ],
+   "citations": [
+    {
+     "cite": "Solopova v Canada (MCI), 2016 FC 690 at paras 37, 41",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court agrees on low procedural fairness and applicant's burden"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Generally, notice or interview required only if credibility concerns, misrepresentation, or new extrinsic evidence arise, citing Diaz.",
+   "ideas": "single",
+   "idea_list": [
+    "Conditions for notice or interview"
+   ],
+   "citations": [
+    {
+     "cite": "Garcia Diaz v Canada (MCI), 2021 FC 321 at para 80",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court states when notice/interview required"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Applicant failed to identify specific credibility concerns; insufficient funds shown, so no disbelief; no notice required on funds, citing Toor, Hassani, Adekoya.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No identified credibility concerns",
+    "Funds insufficient, no disbelief",
+    "No notice required on funds"
+   ],
+   "citations": [
+    {
+     "cite": "Toor v Canada (MCI), 2006 FC 573 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "No notice required on financial sufficiency"
+    },
+    {
+     "cite": "Hassani v Canada (MCI), 2006 FC 1283 at para 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "No notice required on financial sufficiency"
+    },
+    {
+     "cite": "Adekoya v Canada (MCI), 2016 FC 1234 at para 8",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "No notice required on financial sufficiency"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Court rejects Applicant's reading of Wang; Wang involved credibility findings about family support and bona fides, not finances.",
+   "ideas": "single",
+   "idea_list": [
+    "Court clarifies Wang does not require notice on finances"
+   ],
+   "citations": [
+    {
+     "cite": "Wang v Canada (MCI), 2003 FCT 258 at para 13",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Wang concerned credibility, not financial notice"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Court finds no reliance on extrinsic evidence unlike Jesuorobo; Officer's concerns stemmed from Applicant's own documents.",
+   "ideas": "single",
+   "idea_list": [
+    "No extrinsic evidence reliance"
+   ],
+   "citations": [
+    {
+     "cite": "Jesuorobo v Canada (MCI), 2007 FC 1092 at para 14",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Jesuorobo involved extrinsic evidence, unlike here"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Court rejects Applicant's stereotype claim; no indication Officer relied on stereotypes or generalizations.",
+   "ideas": "single",
+   "idea_list": [
+    "No reliance on stereotypes found"
+   ],
+   "citations": [
+    {
+     "cite": "Hernandez Bonilla v Canada (Minister of Citizenship and Immigration), 2007 FC 20 at para 25",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "No evidence of stereotype reliance"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Applicant argues Officer ignored relevant evidence and failed to explain conclusions about finances and purpose of visit.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's argument on ignored evidence and unexplained conclusions"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Applicant submits he showed sufficient funds for one year, citing Kavugho-Mission and Motala, and stable father\u2019s job.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant claims sufficient funds shown",
+    "Cites similar cases",
+    "Father's stable job supports funds"
+   ],
+   "citations": [
+    {
+     "cite": "Kavugho-Mission v Canada (MCI), 2018 FC 597 at para 17",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites case where funds found sufficient"
+    },
+    {
+     "cite": "Motala v Canada (Citizenship and Immigration), 2020 FC 726 at para 17",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant cites case on financial sufficiency"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Applicant argues Officer erred in doubting reasonableness of study given good senior school grades.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges Officer's reasonableness finding"
+   ],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Applicant submits Officer failed to justify finding on purpose of visit.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant challenges lack of explanation on purpose of visit"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Respondent argues Court should not reweigh evidence; burden is on applicant to satisfy visa officer, citing Musadiq, Vavilov, Solopova.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent's argument against reweighing evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Musadiq v Canada (MCI), 2020 FC 316 at para 38",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites no reweighing evidence"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 125",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites burden on applicant"
+    },
+    {
+     "cite": "Solopova v Canada (MCI), 2016 FC 690 at para 41",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites burden on applicant"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "Respondent submits Officer reasonably found insufficient funds; officer presumed to consider all evidence; cites Onyeka and Newfoundland Nurses.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer's finding on insufficient funds reasonable",
+    "Officer presumed to consider all evidence"
+   ],
+   "citations": [
+    {
+     "cite": "Newfoundland and Labrador Nurses\u2019 Union v Newfoundland and Labrador (Treasury Board), 2011 SCC 62 at para 16",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites presumption officer considered all evidence"
+    },
+    {
+     "cite": "Onyeka v Canada (Citizenship and Immigration), 2017 FC 1067 at paras 12-17",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites case supporting insufficient funds finding"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Court finds Decision reasonable; visa officer's concise reasons responsive to evidence meet intelligibility and transparency requirements.",
+   "ideas": "single",
+   "idea_list": [
+    "Court's reasonableness finding"
+   ],
+   "citations": [
+    {
+     "cite": "Patel v Canada (MCI), 2020 FC 77 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Concise reasons can be reasonable"
+    },
+    {
+     "cite": "Newfoundland and Labrador Nurses\u2019 Union v Newfoundland and Labrador (Treasury Board), 2011 SCC 62 at para 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasons must allow understanding of decision"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 85-86",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness requires intelligibility and transparency"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Court notes total funds about $76,000 CAD; jurisprudence requires funds for entire program, citing Onyeka, Kavugho-Mission, Ocran, Motala.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Funds must cover entire program",
+    "Cites relevant jurisprudence"
+   ],
+   "citations": [
+    {
+     "cite": "Onyeka v Canada (Citizenship and Immigration), 2017 FC 1067 at para 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Funds must cover entire program"
+    },
+    {
+     "cite": "Kavugho-Mission v Canada (MCI), 2018 FC 597 at para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Funds must cover entire program"
+    },
+    {
+     "cite": "Ocran v Canada (Citizenship and Immigration), 2022 FC 175 at paras 44-45",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Funds must cover entire program"
+    },
+    {
+     "cite": "Motala v Canada (Citizenship and Immigration), 2020 FC 726 at para 17",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Motala differs as high school student case"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Applicant has funds for one year but not four years plus travel; must show $136,400 CAD total to meet statutory requirements.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant lacks funds for entire program"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court finds this case similar to Adekoya, where insufficient funds required denial of a study permit under section 220 IRPR.",
+   "ideas": "multiple",
+   "idea_list": [
+    "case similarity to Adekoya",
+    "application of section 220 IRPR"
+   ],
+   "citations": [
+    {
+     "cite": "Adekoya",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Similar facts and legal reasoning about insufficient funds for study permit"
+    },
+    {
+     "cite": "section 220 of the IRPR",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Legal requirement that officer must deny study permit if insufficient funds"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Officer reasonably found insufficient funds to support the applicant's study plan, so the court need not consider other submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The Officer did not breach procedural fairness and reasonably concluded the applicant lacked sufficient funds for the program.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no procedural fairness breach",
+    "reasonable conclusion on funds"
+   ],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed and no question for certification arises.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

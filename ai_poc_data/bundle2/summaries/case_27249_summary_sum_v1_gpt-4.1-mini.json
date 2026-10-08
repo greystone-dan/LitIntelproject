@@ -1,0 +1,525 @@
+{
+ "case_id": 27249,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.007068000000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "summaries": 23,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 6,
+  "model_citations": 29,
+  "regex_citations": 21,
+  "regex_addressed": 18,
+  "pinpoints": 13,
+  "purposes": {
+   "standard_of_review_or_test": 20,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 3,
+   "distinguished_or_rejected": 2,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 3,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 10,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2022 FC 1580",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2022 FC 386",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2022 FC 81",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2021 FC 62",
+   "para_start": 6,
+   "para_end": 6
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2020 FC 350",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2017 FC 789",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 12,
+   "neutral_citation": "2014 FC 922",
+   "para_start": 28,
+   "para_end": 28
+  },
+  {
+   "citing_para": 12,
+   "neutral_citation": "2011 FC 792",
+   "para_start": 12,
+   "para_end": 12
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2024 FC 13",
+   "para_start": 31,
+   "para_end": 31
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2022 FC 964",
+   "para_start": 21,
+   "para_end": 21
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2020 FC 1025",
+   "para_start": 15,
+   "para_end": 15
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2023 FC 139",
+   "para_start": 6,
+   "para_end": 9
+  }
+ ],
+ "structure": {
+  "overview": "Mr. Singh applied for judicial review of the Refugee Appeal Division's (RAD) decision dismissing his appeal against the Refugee Protection Division's (RPD) rejection of his refugee claim. The RPD and RAD found that an Internal Flight Alternative (IFA) in Delhi was available and reasonable, and that Mr. Singh failed to prove serious persecution risk or that his political activities in Canada affected his safety in India. The Federal Court dismissed Mr. Singh's application, finding the RAD's decision reasonable and supported by evidence.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 9,
+    "by": "Minister",
+    "text": "RAD's IFA assessment is reasonable"
+   },
+   {
+    "id": "P2",
+    "para": 20,
+    "by": "Minister",
+    "text": "No serious threats to family; RAD need not address every evidence piece"
+   },
+   {
+    "id": "P3",
+    "para": 21,
+    "by": "Mr. Singh",
+    "text": "Family harassment means no reasonable IFA, relying on Ali, AB, Huerta cases"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court will dismiss Mr. Singh's application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD rejected Mr. Singh's claim, finding issues with credibility and that an IFA in Delhi was available and reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "Mr. Singh appealed to the RAD, submitting new evidence including a voter card and photos related to the Khalistan Referendum.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The RAD dismissed Mr. Singh's appeal, accepted new evidence but noted lack of dates and affidavits supporting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RAD found Mr. Singh safe in Delhi and that he failed to prove the IFA was unreasonable, confirming Delhi as a viable IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The Minister submits that the RAD's assessment of the IFA test is reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The RAD's IFA conclusions must be reviewed for reasonableness, citing Vavilov and other cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 16-17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States reasonableness standard for reviewing IFA conclusions"
+    },
+    {
+     "cite": "Djeddi v Canada (Citizenship and Immigration), 2022 FC 1580 at paras 16-17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    },
+    {
+     "cite": "Valencia v Canada (Citizenship and Immigration), 2022 FC 386 at para 19",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    },
+    {
+     "cite": "Adeleye v Canada (Citizenship and Immigration), 2022 FC 81 at para 14",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    },
+    {
+     "cite": "Ambroise v Canada (Citizenship and Immigration), 2021 FC 62 at para 6",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    },
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2020 FC 350 at para 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    },
+    {
+     "cite": "Kaisar v Canada (Citizenship and Immigration), 2017 FC 789 at para 11",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness standard application"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court must ensure the decision is internally coherent and rational; deficiencies must be significant to render it unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines internal coherence and rationality test"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines significance of deficiencies to unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "International protection requires proving serious persecution risk throughout the country; the applicant bears this burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), 1993 CanLII 3011 (FCA) at para 2",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States burden to prove persecution risk throughout country"
+    },
+    {
+     "cite": "Rasaratnam v Canada (Minister of Employment and Immigration), 1991 CanLII 13517 (FCA) at 710",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports burden of proof principle"
+    },
+    {
+     "cite": "Emezieke v Canada (Citizenship and Immigration), 2014 FC 922 at para 28",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports burden of proof principle"
+    },
+    {
+     "cite": "Nunez Mercado v Canada (Minister of Citizenship and Immigration), 2011 FC 792 at para 12",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports burden of proof principle"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The IFA test has two prongs: no serious persecution risk in the IFA and it must be reasonable for the applicant to seek refuge there.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Djeddi at para 21",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States two-prong IFA test"
+    },
+    {
+     "cite": "Thirunavukkarasu",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports IFA test"
+    },
+    {
+     "cite": "Rasaratnam",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports IFA test"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Mr. Singh must prove the RAD's decision is unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States burden to show unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court outlines principles that RAD should consider the most recent NDP unless new info is not significant or unavailable at argument time.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Singh v Canada (Citizenship and Immigration), 2024 FC 1097",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains RAD's duty to consider recent NDP"
+    },
+    {
+     "cite": "Kamara v Canada (Citizenship and Immigration), 2024 FC 13 at para 31",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports consideration of recent NDP"
+    },
+    {
+     "cite": "Siddique v Canada (Citizenship and Immigration), 2022 FC 964 at para 21",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States when reliance on older NDP is reasonable"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Even if new NDP info is significant, Mr. Singh failed to relate it to his circumstances or show it would change the RAD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Mr. Singh has not shown how the new NDP section would change the RAD decision or that procedural fairness was breached.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Minister distinguishes the cited cases, noting no serious threats to family here and that RAD need not address every piece of evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Mr. Singh argued to the RAD that family harassment means no reasonable IFA, relying on Ali, AB, and Huerta cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ali",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Mr. Singh cites Ali for family harassment legal principle"
+    },
+    {
+     "cite": "AB",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Mr. Singh cites AB for family harassment legal principle"
+    },
+    {
+     "cite": "Huerta",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Mr. Singh cites Huerta for family harassment legal principle"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court notes these cases are fact-specific and cannot be generalized; Mr. Singh's case is distinguishable and must rely on RAD's factual findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Kodom v Canada (Citizenship and Immigration), 2023 FC 305",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Holds cited cases are fact-specific"
+    },
+    {
+     "cite": "Essel v Canada (Citizenship and Immigration), 2020 FC 1025 at para 15",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports fact-specific nature of cases"
+    },
+    {
+     "cite": "Aulakh v Canada (Citizenship and Immigration), 2023 FC 1176",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms Ali is fact-based"
+    },
+    {
+     "cite": "Pastrana Acosta v Canada (Citizenship and Immigration), 2023 FC 139 at paras 6\u20139",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Decision must be based on RAD's factual findings"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD found Mr. Singh's family returned home under an arrangement, unlike cases with serious threats to family; no such evidence here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ali",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Distinguishes Ali due to lack of serious threats here"
+    },
+    {
+     "cite": "Huerta",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Distinguishes Huerta due to lack of serious threats here"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Given the facts, the RAD reasonably did not further address the family harassment argument, which must fail.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The RAD found Mr. Singh did not show his political activities in Canada were known to Indian authorities or impacted his ability to relocate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RAD concluded Mr. Singh failed to establish his activities in Canada affected Indian authorities' awareness or his relocation ability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD's finding on the sur place claim is reasonable; Mr. Singh made no evidence of actual political opinion or impact on relocation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "No question of general importance arises from this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

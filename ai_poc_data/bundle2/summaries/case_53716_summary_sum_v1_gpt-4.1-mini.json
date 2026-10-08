@@ -1,0 +1,1750 @@
+{
+ "case_id": 53716,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.025496400000000002
+ },
+ "verification": {
+  "paragraphs": 124,
+  "summaries": 124,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 80,
+  "regex_citations": 19,
+  "regex_addressed": 16,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 11,
+   "supports_court_conclusion": 51,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 2,
+   "background_or_other": 16
+  },
+  "multi_idea_paragraphs": 8,
+  "party_points": 14,
+  "rebuttals": 5,
+  "left_open": 1
+ },
+ "pinpoints": [
+  {
+   "citing_para": 123,
+   "neutral_citation": "2024 SCC 39",
+   "para_start": 208,
+   "para_end": 208
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns a dispute between the City of Sainte-Julie (applicant) and Investissements Laroda Inc. (respondent) over a land bank agreement that novated the City's prior debt for excess land transfer. The Court of Appeal held that the agreement created a new obligation with a suspensive term, fixed at December 15, 2015, making Laroda's claim timely. The Supreme Court dismissed the City's appeal, upheld the novation and term fixing, and remanded the case to the Superior Court to determine the fair market value of the land as of that date for damages.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "City (applicant)",
+    "text": "Court of Appeal erred on novation, obligation type, remedy"
+   },
+   {
+    "id": "P2",
+    "para": 46,
+    "by": "City (applicant)",
+    "text": "Agreement was a transaction extinguishing prior obligation"
+   },
+   {
+    "id": "P3",
+    "para": 59,
+    "by": "City (applicant)",
+    "text": "Dispute if City must fulfill obligation without cadastral operations"
+   },
+   {
+    "id": "P4",
+    "para": 90,
+    "by": "City (applicant)",
+    "text": "Term should be fixed in 2012, making Laroda's action prescribed"
+   },
+   {
+    "id": "P5",
+    "para": 110,
+    "by": "City (applicant)",
+    "text": "Restitution of prestations applies, City must return excess land"
+   },
+   {
+    "id": "P6",
+    "para": 120,
+    "by": "City (applicant)",
+    "text": "Compensation value should be 2001 property roll value"
+   },
+   {
+    "id": "P7",
+    "para": 21,
+    "by": "Laroda (respondent)",
+    "text": "Demanded City finalize matter and present monetary offer due to impossibility"
+   },
+   {
+    "id": "P8",
+    "para": 22,
+    "by": "Laroda (respondent)",
+    "text": "Sued City in 2018 to fix term expiry and claim damages"
+   },
+   {
+    "id": "P9",
+    "para": 29,
+    "by": "Laroda (respondent)",
+    "text": "Agreement delayed performance (term), did not extinguish obligation (no novation)"
+   },
+   {
+    "id": "P10",
+    "para": 31,
+    "by": "Laroda (respondent)",
+    "text": "Restitution rules apply, City to pay $287,458.51 for excess land"
+   },
+   {
+    "id": "P11",
+    "para": 53,
+    "by": "Laroda (respondent)",
+    "text": "Agreement created land bank mechanism for compensating excess land and financing"
+   },
+   {
+    "id": "P12",
+    "para": 60,
+    "by": "Laroda (respondent)",
+    "text": "Agreement imposes suspensive term obligation on City"
+   },
+   {
+    "id": "P13",
+    "para": 86,
+    "by": "Laroda (respondent)",
+    "text": "Parties intended City's obligation to be exigible upon future cadastral operations"
+   },
+   {
+    "id": "P14",
+    "para": 121,
+    "by": "Laroda (respondent)",
+    "text": "Compensation must reflect fair market value as of December 15, 2015"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 34,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 86,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 91,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 110,
+    "answers": "P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 121,
+    "answers": "P6",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": [
+   {
+    "para": 122,
+    "text": "Record lacks evidence to determine market value as of December 15, 2015"
+   }
+  ]
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This paragraph is a heading introducing the background section of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The courts below debated novation, obligation type, and remedy; parties challenge the Court of Appeal's conclusions on these points.",
+   "ideas": "single",
+   "idea_list": [
+    "issues debated below and on appeal"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court concludes the agreement effected novation, extinguishing the City's prior debt and creating a new obligation via the 'area bank'.",
+   "ideas": "single",
+   "idea_list": [
+    "novation effect of agreement"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court finds the obligation is with a suspensive term, becoming exigible upon certain cadastral operations.",
+   "ideas": "single",
+   "idea_list": [
+    "nature of obligation as suspensive term"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court fixes the indeterminate term at December 15, 2015, when Laroda sent a demand letter, making the obligation exigible.",
+   "ideas": "single",
+   "idea_list": [
+    "fixing the term date"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court holds that performance by equivalence applies, entitling Laroda to damages for market value of the land as of December 15, 2015.",
+   "ideas": "single",
+   "idea_list": [
+    "remedy regime and damages entitlement"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The record lacks evidence to determine market value as of December 15, 2015; the case is remanded to Superior Court for this issue.",
+   "ideas": "single",
+   "idea_list": [
+    "remand for market value determination"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court dismisses the appeal, partly allows the cross-appeal, and orders the City to pay Laroda market value determined by Superior Court.",
+   "ideas": "single",
+   "idea_list": [
+    "final disposition and order"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "This paragraph is a heading introducing the judicial history section of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The City was required by statute and by-law to receive 10% of land for parks or pay an equivalent sum.",
+   "ideas": "single",
+   "idea_list": [
+    "statutory and by-law requirement"
+   ],
+   "citations": [
+    {
+     "cite": "Act respecting land use planning and development, S.Q. 1979, c. 51, s. 115 para. 2(8)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Sets legal requirement for land transfer or payment"
+    },
+    {
+     "cite": "By\u2011law No. 701, R\u00e8glement de lotissement (1991)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Local by-law governing land subdivision"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Larochelle transferred 3,898.27 m2 more than required; City stated it could not return or reimburse this excess land.",
+   "ideas": "single",
+   "idea_list": [
+    "excess land transfer and City's position"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "At the time, restitution of prestations applied to the excess transfer, but no restitution was made by the City.",
+   "ideas": "single",
+   "idea_list": [
+    "restitution regime and non-performance"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The City wanted another parcel of 45,615 m2 for public amenities and asked Larochelle to finance it.",
+   "ideas": "single",
+   "idea_list": [
+    "City's interest in additional land and financing request"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The City and Larochelle negotiated and agreed in 2001 to create a land bank to defer City's obligations for excess land and financing.",
+   "ideas": "single",
+   "idea_list": [
+    "agreement creating land bank"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The agreement specified land areas for transfer and creation of a bank; no mechanism for impossibility of City's performance was included.",
+   "ideas": "single",
+   "idea_list": [
+    "agreement terms and lack of impossibility clause"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Larochelle's subsidiary Laroda owned developable lots in the City, expected to use part of the land bank; no development limits were imposed.",
+   "ideas": "single",
+   "idea_list": [
+    "Laroda's land ownership and expected use of bank"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Because Laroda's land was in an agricultural zone, exclusion approval from CPTAQ was needed; parties believed approval was certain.",
+   "ideas": "single",
+   "idea_list": [
+    "need for CPTAQ exclusion and parties' belief"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The City's applications for exclusion from agricultural zone were denied in 2004 and 2008; ATQ confirmed denial in 2011; parties continued discussions.",
+   "ideas": "single",
+   "idea_list": [
+    "failed exclusion applications and ongoing discussions"
+   ],
+   "citations": [
+    {
+     "cite": "Administrative Tribunal of Qu\u00e9bec (\u201cATQ\u201d)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Tribunal confirming exclusion denial"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "In 2012, the Metropolitan Land Use and Development Plan limited agricultural zone development for at least 10 years, restricting Laroda's cadastral applications.",
+   "ideas": "single",
+   "idea_list": [
+    "MLUDP restricting development"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "After MLUDP, Laroda unsuccessfully tried to acquire other land parcels within the City's urban perimeter to use the bank.",
+   "ideas": "single",
+   "idea_list": [
+    "Laroda's failed land acquisition attempts"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "On December 15, 2015, Laroda demanded the City finalize the matter and present a monetary offer due to impossibility of using the land bank.",
+   "ideas": "single",
+   "idea_list": [
+    "Laroda's demand letter and complaint"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "After failed discussions, Laroda sued the City in 2018 to fix the term expiry and claim compensatory damages.",
+   "ideas": "single",
+   "idea_list": [
+    "Laroda's lawsuit initiation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "other",
+   "summary": "This paragraph is a heading introducing the Quebec Superior Court decision section.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The Superior Court found the agreement was a transaction effecting novation, extinguishing City's prior obligation and creating a new one.",
+   "ideas": "single",
+   "idea_list": [
+    "Superior Court's novation finding"
+   ],
+   "citations": [
+    {
+     "cite": "art. 1660 of the Civil Code of Qu\u00e9bec (\u201cC.C.Q.\u201d)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for novation by change in debt"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The Superior Court found the agreement created an 'area bank' to be used only at future cadastral operations by Larochelle and subsidiaries.",
+   "ideas": "single",
+   "idea_list": [
+    "area bank use limited to cadastral operations"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The Superior Court found the obligation conditional on uncertain cadastral approval, which became impossible, releasing the City from obligations.",
+   "ideas": "single",
+   "idea_list": [
+    "conditional obligation and impossibility"
+   ],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The Superior Court held that if the obligation had a term, it would be fixed at 2012, making Laroda's 2018 action prescribed under art. 2925 C.C.Q.",
+   "ideas": "single",
+   "idea_list": [
+    "term fixing and prescription"
+   ],
+   "citations": [
+    {
+     "cite": "art. 2925 C.C.Q.",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Prescription period for action"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "other",
+   "summary": "This paragraph is a heading introducing the issues section of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Court of Appeal held the trial judge erred; the agreement delayed performance (term), not extinguished obligation (novation).",
+   "ideas": "single",
+   "idea_list": [
+    "Court of Appeal's novation error and term finding"
+   ],
+   "citations": [
+    {
+     "cite": "2023 QCCA 1294",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Court of Appeal decision under review"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Court of Appeal applied arts. 1510 and 1512 C.C.Q., finding the term was undetermined and needed court fixing; Laroda's action not prescribed.",
+   "ideas": "single",
+   "idea_list": [
+    "term fixing and prescription ruling"
+   ],
+   "citations": [
+    {
+     "cite": "arts. 1510 and 1512 C.C.Q.",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal provisions on term and fixing"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The Court of Appeal applied restitution rules, valuing excess land at 2001 municipal roll value, ordering City to pay $287,458.51 to Laroda.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court of Appeal applies restitution rules",
+    "Value of excess land fixed at 2001 municipal roll",
+    "City ordered to pay Laroda"
+   ],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "other",
+   "summary": "Heading introducing the analysis section of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "other",
+   "summary": "Heading posing the first issue: whether the agreement effected novation extinguishing City's prior obligation for excess land.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court begins reviewing legal principles and concludes the agreement effected novation by change in debt, extinguishing prior land debt.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "other",
+   "summary": "Heading introducing the concept of novation by a change in debt.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Quebec civil law defines three novation types; this case concerns novation by change in debt as found by trial judge.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "arts. 1660 to 1666 C.C.Q.",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines novation principles in Quebec civil law"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "other",
+   "summary": "Heading introducing conditions for novation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Novation by change in debt requires a truly new element, not just an added element or form change, per legal doctrine.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Baudouin, Jobin and V\u00e9zina, at No. 998",
+     "kind": "other",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines requirement of a truly new element for novation"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "other",
+   "summary": "Heading introducing the parties' intention to novate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Novation must be between capable persons and meet contract formation conditions, as novation is effected by contract.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "arts. 1660 to 1666 C.C.Q.",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Novation provisions unchanged from prior code"
+    },
+    {
+     "cite": "art. 1170 C.C.L.C.",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Former requirement of contracting capacity for novation"
+    },
+    {
+     "cite": "Lluelles and Moore, at No. 3087",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Novation effected through contract"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court will now examine the parties' intention to novate, after discussing the new element criterion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "other",
+   "summary": "Heading introducing application of novation principles to the case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Intention to novate can be tacit, shown by creditor's conduct indicating discharge of original debtor.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mackay, at para. 24",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Intention to novate may be tacit"
+    },
+    {
+     "cite": "R\u00e9my v. Gagnon, [1971] C.A. 554 (Que.), at p. 557",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports tacit intention to novate"
+    },
+    {
+     "cite": "Chamberland (Syndic de), [1988] R.J.Q. 1159 (C.A.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports tacit intention to novate"
+    },
+    {
+     "cite": "Trust G\u00e9n\u00e9ral du Canada v. Immeubles Restau\u2011bar inc., [1994] J.Q. no 2564 (Lexis), 1994 CarswellQue 1928 (WL) (Sup. Ct.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports tacit intention to novate"
+    },
+    {
+     "cite": "Compagnie Trust Royal v. Entreprises B.M. St\u2011Jean inc., 1997 CanLII 8959 (Que. Sup. Ct.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports tacit intention to novate"
+    },
+    {
+     "cite": "Caisse populaire Desjardins de Saint\u2011R\u00e9dempteur v. Auclair, 1998 CanLII 11729 (Que. Sup. Ct.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports tacit intention to novate"
+    },
+    {
+     "cite": "Banque Laurentienne du Canada v. Adeclat, 1999 CanLII 12173 (Que. Sup. Ct.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports tacit intention to novate"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "High proof threshold for novation intention exists because creditor's renunciation of rights cannot be presumed under art. 646 C.C.Q.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "art. 646 C.C.Q.",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Renunciation of rights cannot be presumed"
+    },
+    {
+     "cite": "art. 1661 C.C.Q.",
+     "kind": "statute",
+     "purpose": "standard_of_review_or_test",
+     "why": "Intention to novate must be clear and unequivocal"
+    },
+    {
+     "cite": "Mackay, at para. 26",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports high proof threshold for novation intention"
+    }
+   ]
+  },
+  {
+   "para": 45,
+   "speaker": "other",
+   "summary": "Heading introducing context before the agreement was entered into.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Court of Appeal found no new element or intention to extinguish debt; parties argue agreement was a transaction extinguishing prior obligation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Court of Appeal finds no novation",
+    "Parties argue agreement is a transaction extinguishing prior debt",
+    "Court of Appeal did not address transaction characterization",
+    "Court finds transaction question irrelevant to novation issue"
+   ],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The court agrees parties intended to extinguish prior debt and create a new fundamentally different debt by agreement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "other",
+   "summary": "Heading introducing discussion on parties' intention to be bound by a new debt regarding excess land.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Larochelle mistakenly transferred 3,898.27 m2 excess land required for parks, reflecting difference from by-law requirement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "By\u2011law No. 701",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Defines required land transfer percentage"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "City wanted 45,615 m2 parcel for amenities; Larochelle agreed to transfer and finance it, expecting future compensation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "These two aspects formed the background to the 2001 agreement negotiations between City and Larochelle.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "other",
+   "summary": "Heading introducing second issue: whether agreement created an obligation with a term or conditional obligation for City.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "City and Larochelle agreed to a contract establishing a land bank mechanism for compensating excess land and financing additional area.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Laroda\u2019s representative testified the area bank was financing for future cadastral operations, confirmed by City council minutes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The area bank is a credit mechanism requiring City to compensate for future parks land debts via future cadastral operations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Novation by change in debt extinguished prior debt for excess land and created a new combined debt totaling 26,705.78 m\u00b2.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "arts. 1491 and 1492 C.C.Q.",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Rules on receipt of payment not due analogized to prior debt"
+    },
+    {
+     "cite": "V. Karim, Les obligations (6th ed. 2024), vol. 2, at No. 3737",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Analogy for debt extinguishment by novation"
+    },
+    {
+     "cite": "Baudouin, Jobin and V\u00e9zina, at No. 998",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Supports novation by change in debt"
+    },
+    {
+     "cite": "Lluelles and Moore, at No. 3078",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Supports novation by change in debt"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The area bank and its intended use constitute a new element, reflecting parties' intention to restructure and replace prior debt.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "other",
+   "summary": "Heading introducing discussion on obligations with a term or conditional obligation for City.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Future cadastral operations are necessary to use the area bank; parties disagree if City must fulfill obligation without such operations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The agreement imposes a suspensive term obligation on City, deferring payment until future cadastral operations occur.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "art. 1508 C.C.Q.",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines suspensive term obligations"
+    },
+    {
+     "cite": "art. 1511 C.C.Q.",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Term benefits debtor by deferring obligation"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The court fixes the term based on article 1512 C.C.Q., setting it at December 15, 2015, rejecting article 1510 C.C.Q. as inapplicable here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "art. 1512 C.C.Q.",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Court bases term fixing on this article"
+    },
+    {
+     "cite": "art. 1510 C.C.Q.",
+     "kind": "statute",
+     "purpose": "distinguished_or_rejected",
+     "why": "Article 1510 requires determinable times and impossibility, not met here"
+    }
+   ]
+  },
+  {
+   "para": 62,
+   "speaker": "other",
+   "summary": "Heading introducing discussion on obligations with a simple modality, specifically conditional obligations under articles 1497 et seq. C.C.Q.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "other",
+   "summary": "Heading introducing discussion on obligations with a term under articles 1508 et seq. C.C.Q.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The court explains suspensive and extinctive conditions, citing authorities to distinguish their effects on obligations.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of extinctive condition",
+    "definition of suspensive condition and effects"
+   ],
+   "citations": [
+    {
+     "cite": "Lluelles and Moore, at No. 2463",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines extinctive condition"
+    },
+    {
+     "cite": "144286 Canada inc. v. 9121\u20116788 Qu\u00e9bec inc., 2009 QCCA 2398, at paras. 45\u201146",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains extinctive and suspensive conditions"
+    },
+    {
+     "cite": "Placements Marc Laplante inc. v. Gagnon, 1996 CanLII 6540 (Que. C.A.), at p. 10",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains suspensive condition effect on debtor's obligation"
+    },
+    {
+     "cite": "art. 1501 C.C.Q.",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Condition fails if event will not occur"
+    },
+    {
+     "cite": "Baudouin, Jobin and V\u00e9zina, at No. 596",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "No obligation if condition fails"
+    }
+   ]
+  },
+  {
+   "para": 65,
+   "speaker": "other",
+   "summary": "Heading introducing the topic of fixing the term in obligations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The court distinguishes conditions from terms, citing cases and commentary on their objective and subjective uncertainty.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Municipalit\u00e9 de Sainte\u2011B\u00e9atrix v. Fabrique de la paroisse de Saint\u2011Pierre\u2011de\u2011Belles\u2011Montagnes, 2018 QCCA 553, at paras. 16\u201117",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Distinguishes condition and term"
+    },
+    {
+     "cite": "Commentaires du ministre de la Justice, vol. I, Le Code civil du Qu\u00e9bec \u2014 Un mouvement de soci\u00e9t\u00e9 (1993), at p. 927",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains difference between condition and term"
+    },
+    {
+     "cite": "Venne v. Quebec (Commission de protection du territoire agricole), [1989] 1 S.C.R. 880, at p. 903",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains subjective and objective uncertainty for condition"
+    },
+    {
+     "cite": "J. Ghestin, \u201cR\u00e9flexions d\u2019un civiliste sur la clause de r\u00e9serve de propri\u00e9t\u00e9\u201d (1981), 1 Recueil Dalloz Sirey 1, at pp. 4\u20115",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Quoted for uncertainty requirements in condition"
+    }
+   ]
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Authors Lluelles and Moore explain that parties' perception of certainty can determine if an obligation is conditional or with a term.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lluelles and Moore, at No. 2503, fn. 10",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains parties' intention affects classification"
+    },
+    {
+     "cite": "Baudouin, Jobin and V\u00e9zina, at No. 562",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports distinction based on parties' perception"
+    }
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The parties' state of mind distinguishes a term from a condition, supported by case law examples.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "9165\u20115662 Qu\u00e9bec inc. v. 4459181 Canada inc., 2015 QCCA 969, at para. 15",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports state of mind distinction"
+    },
+    {
+     "cite": "Hiess v. Zelnik, 2019 QCCS 150, at para. 34",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports state of mind distinction"
+    }
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "other",
+   "summary": "Heading introducing the respective scope of articles 1512 and 1510 C.C.Q. regarding fixing terms.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "other",
+   "summary": "Heading introducing conditions for the application of article 1510 C.C.Q.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Article 1512 C.C.Q. allows a party to apply to fix an uncertain or absent term, as confirmed in Uniprix inc. v. Gestion Gosselin et B\u00e9rub\u00e9 inc.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Uniprix inc. v. Gestion Gosselin et B\u00e9rub\u00e9 inc., 2017 SCC 43, [2017] 2 S.C.R. 59, at para. 66",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines application of article 1512 C.C.Q."
+    }
+   ]
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Article 1512 C.C.Q. requires a party's application to apply, creating an independent remedy that must be sought.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Uniprix, at para. 67",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Clarifies procedural requirement for article 1512 C.C.Q."
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Article 1512 C.C.Q. applies either when a term is uncertain or when there is no term but one is required by the obligation's nature.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Uniprix, at para. 66",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains two scenarios for article 1512 application"
+    }
+   ]
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The first paragraph of article 1512 C.C.Q. covers indeterminate terms where parties consider the event certain but timing unknown.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Pineau et al., at No. 1359",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines indeterminate terms"
+    },
+    {
+     "cite": "Karim, at No. 358",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines indeterminate terms"
+    },
+    {
+     "cite": "G. Marchisio, \u201cLe terme ind\u00e9termin\u00e9: r\u00e9flexions sur une modalit\u00e9 (pas si) simple!\u201d (2022), 100 Can. Bar Rev. 254, at pp. 256\u201157",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Discusses indeterminate terms"
+    },
+    {
+     "cite": "Lluelles and Moore, at No. 2505",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Discusses indeterminate terms"
+    },
+    {
+     "cite": "Baudouin, Jobin and V\u00e9zina, at No. 565",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Discusses indeterminate terms"
+    }
+   ]
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The better fortunes clause exemplifies article 1512 para. 1 C.C.Q., where repayment depends on debtor's ability, an event considered certain but timing unknown.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hiess, at paras. 34\u201138",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of better fortunes clause"
+    },
+    {
+     "cite": "Tourangeau v. Gatowski, 2004 CanLII 8105 (C.Q.), at paras. 20\u201129",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of better fortunes clause"
+    },
+    {
+     "cite": "Richard v. Boucher, 2013 QCCS 3142, at para. 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of better fortunes clause"
+    },
+    {
+     "cite": "F. Levesque, Pr\u00e9cis de droit qu\u00e9b\u00e9cois des obligations: Contrat, Responsabilit\u00e9, Ex\u00e9cution et extinction (2014), at para. 299",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains better fortunes clause"
+    },
+    {
+     "cite": "Pineau et al., at No. 1359",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains better fortunes clause"
+    },
+    {
+     "cite": "Marchisio, at p. 256",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains better fortunes clause"
+    },
+    {
+     "cite": "Lluelles and Moore, at No. 2505",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains better fortunes clause"
+    },
+    {
+     "cite": "Commentaires du ministre de la Justice, at p. 929",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains better fortunes clause"
+    },
+    {
+     "cite": "art. 1512 para. 1 C.C.Q.",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Legal basis for better fortunes clause application"
+    },
+    {
+     "cite": "art. 1510 C.C.Q.",
+     "kind": "statute",
+     "purpose": "distinguished_or_rejected",
+     "why": "Not applicable because repayment may still occur"
+    }
+   ]
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "Article 1512 para. 1 requires a reasonable time to have passed without term determination to prevent premature or delayed court intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Marchisio, at p. 261",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains reasonable time condition"
+    }
+   ]
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "The court must fix the term considering the obligation's nature, parties' situation, and circumstances, preventing arbitrariness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Marchisio, at p. 261",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Criteria for fixing term"
+    }
+   ]
+  },
+  {
+   "para": 78,
+   "speaker": "court",
+   "summary": "Article 1512 para. 2 applies when no term is specified but required by the obligation's nature; court uses para. 1 criteria to fix it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Uniprix, at para. 66",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains para. 2 application"
+    },
+    {
+     "cite": "Levesque, at para. 300",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of no term but required"
+    },
+    {
+     "cite": "Karim, at No. 373",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of no term but required"
+    },
+    {
+     "cite": "Pineau et al., at No. 1385",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of no term but required"
+    },
+    {
+     "cite": "Lluelles and Moore, at No. 2510",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Gardener example"
+    },
+    {
+     "cite": "P\u00e9ladeau v. Placements P\u00e9ladeau inc., 2020 QCCS 1373, at para. 265",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court must consider para. 1 criteria"
+    }
+   ]
+  },
+  {
+   "para": 79,
+   "speaker": "other",
+   "summary": "Heading introducing the mutual exclusivity of articles 1512 and 1510 C.C.Q.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "Article 1510 applies only if parties considered the event certain, even subjectively, as a first condition.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Karim, at No. 363",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains certainty requirement for article 1510"
+    }
+   ]
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "Second condition for article 1510 is that the day the event should have occurred is determinable, reflecting parties' expectations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Karim, at No. 363",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Day must be determinable"
+    },
+    {
+     "cite": "Pineau et al., at No. 1365",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Parties' expectations frustrated"
+    },
+    {
+     "cite": "Commentaires du ministre de la Justice, at p. 927",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Fixing term in line with parties' intention"
+    }
+   ]
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "Third condition for article 1510 is that occurrence of the event has become impossible, with impossibility being relative, not absolute.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Marchisio, at p. 269",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains relative impossibility"
+    },
+    {
+     "cite": "Pellerin Savitz LLP v. Guindon, 2017 SCC 29, [2017] 1 S.C.R. 575, at para. 12",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Creditor must act when event becomes impossible"
+    },
+    {
+     "cite": "Baudouin, Jobin and V\u00e9zina, at No. 1127",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Prescription begins when event should have occurred"
+    }
+   ]
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "When article 1510 conditions are met, the court fixes the term on the day the event should have occurred.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 84,
+   "speaker": "other",
+   "summary": "Heading introducing application of the outlined principles to the case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 85,
+   "speaker": "other",
+   "summary": "Heading introducing the court's view that the City's obligation is with a suspensive term, not conditional.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "The court finds the parties intended the City's obligation to be exigible upon future cadastral operations, indicating a suspensive term.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "The court reasons Larochelle sought compensation, not a conditional claim, and both parties expected future development enabling use of the land bank.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "The parties shared a common belief in certain future events, supporting characterization as an obligation with a suspensive term; trial judge erred.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 89,
+   "speaker": "other",
+   "summary": "Heading introducing the court's view that the term consists of new cadastral operations, even if timing is undetermined.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "The court notes the trial judge would have fixed the term in 2012 if recognizing a suspensive term, leading to prescription of the action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 91,
+   "speaker": "court",
+   "summary": "The Court agrees with the Court of Appeal that the conclusion contains a palpable and overriding error about the limited use of the 'area bank'.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "The trial judge erred by not considering the bank's use beyond the Du Moulin sector, leading to fixing the term in 2012 and a prescription conclusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "Uncontradicted evidence shows the area bank was not meant solely for the Du Moulin sector, so the term cannot be limited to one cadastral operation there.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 94,
+   "speaker": "court",
+   "summary": "The parties' agreement and City council resolution show the bank is for future cadastral operations generally, not tied to a specific parcel or timing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "The bank's value relates to an area, not a parcel, and can be used for land beyond the Du Moulin sector within the City.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 96,
+   "speaker": "court",
+   "summary": "Additional evidence shows the bank was not meant only for Du Moulin sector land, as the area and value exceed that sector's needs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "Both parties agree the term relates to new cadastral operations or land development, not solely to the Du Moulin sector dezoning.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "The Court of Appeal correctly noted three scenarios for using the bank involving land owned or acquired by Larochelle or transferred by the City.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 99,
+   "speaker": "court",
+   "summary": "The ATQ decision and MLUDP adoption did not exhaust options for using the bank, including acquiring white zone land or City transfers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "Although dezoning agricultural land became difficult after 2012, some approvals and projects suggest it remained possible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "Mr. Larochelle acknowledged that white-zoned land near autoroute 20 could still be developed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "City employee stated expropriation of Mr. Trudeau's land was possible to facilitate urban expansion, showing transfer option viability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "The trial judge erred by limiting the term to the Du Moulin sector, fixing it in 2012, and finding the action prescribed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 104,
+   "speaker": "other",
+   "summary": "Heading introducing the question of what remedy the respondent is entitled to.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "The second paragraph of article 1512 C.C.Q. does not apply because the parties agreed on a term based on certain but undetermined future events.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "Conditions for fixing the term under article 1512 C.C.Q. are met, including Laroda's request and the term's potestative nature.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "The Court fixes the term at the demand letter date, December 15, 2015, as the parties had made efforts and the situation had lasted long enough.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 108,
+   "speaker": "court",
+   "summary": "The term is fixed at December 15, 2015, and Laroda's action is not prescribed as it was instituted in 2018.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 109,
+   "speaker": "other",
+   "summary": "Heading introducing the conclusion section of the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "The City owed a debt for the 'excess transfer' but novation extinguished it, so restitution of prestations does not apply here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 111,
+   "speaker": "court",
+   "summary": "Restitution of prestations applies in three scenarios, as described in Montr\u00e9al (City) v. Octane Strat\u00e9gie inc., but none apply here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Montr\u00e9al (City) v. Octane Strat\u00e9gie inc., 2019 SCC 57, [2019] 4 S.C.R. 138",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Describes scenarios where restitution of prestations applies, none fit this case"
+    }
+   ]
+  },
+  {
+   "para": 112,
+   "speaker": "court",
+   "summary": "None of the restitution scenarios apply: no wrongful receipt, no annulment, and no superior force making performance impossible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "It is erroneous to say the City must return excess area; the bank represents agreed consideration, not excess received.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "The performance by equivalence regime under articles 1607 et seq. C.C.Q. governs the remedy here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "The City's obligation became exigible in 2015; specific performance is impossible but not absolutely, as some options remain.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "The agreement lacks a mechanism for bank impossibility or reimbursement, but parties intended compensation, not gratuitous transfers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 117,
+   "speaker": "court",
+   "summary": "Larochelle's 2015 letter shows parties expected part of the bank to be paid in money or land transfer, excluding restitution regime.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 118,
+   "speaker": "court",
+   "summary": "When specific performance is impossible, Quebec law allows damages by equivalence under articles 1607 et seq. C.C.Q.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 119,
+   "speaker": "court",
+   "summary": "Laroda's injury is loss of land value used by the City without payment, justifying monetary compensation equal to that value.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "Parties disagree on compensation value and area; Court of Appeal used 2001 property roll value for 26,705.78 m2.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Disagreement on compensation value",
+    "Disagreement on area for restitution"
+   ],
+   "citations": []
+  },
+  {
+   "para": 121,
+   "speaker": "court",
+   "summary": "The court holds compensation value must reflect fair market value as of December 15, 2015, rejecting reliance on 2001 property assessment roll value.",
+   "ideas": "multiple",
+   "idea_list": [
+    "compensation value date",
+    "reject 2001 assessment roll value",
+    "importance of market value for incentives",
+    "City's 2010 sale based on market value"
+   ],
+   "citations": []
+  },
+  {
+   "para": 122,
+   "speaker": "court",
+   "summary": "The court finds the record lacks evidence to determine market value as of December 15, 2015, noting Laroda's expert evidence and City's reliance on 2001 assessment roll.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of market value evidence",
+    "Laroda's expert valuation",
+    "City's reliance on 2001 assessment roll"
+   ],
+   "citations": []
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "The court remands the case to Superior Court to determine market value as of December 15, 2015, citing Supreme Court Act s. 46.1 and Pekuakamiulnuatsh Takuhikan.",
+   "ideas": "multiple",
+   "idea_list": [
+    "remand for market value determination",
+    "cites Supreme Court Act s. 46.1",
+    "cites Pekuakamiulnuatsh Takuhikan"
+   ],
+   "citations": [
+    {
+     "cite": "Supreme Court Act, R.S.C. 1985, c. S\u201126, s. 46.1",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "authorizes remand to lower court"
+    },
+    {
+     "cite": "Quebec (Attorney General) v. Pekuakamiulnuatsh Takuhikan, 2024 SCC 39, at para. 208",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports remand procedure for factual determination"
+    }
+   ]
+  },
+  {
+   "para": 124,
+   "speaker": "other",
+   "summary": "The decision includes Appendices A and B and an overview section.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appendix A",
+    "Appendix B",
+    "Overview section"
+   ],
+   "citations": []
+  }
+ ]
+}

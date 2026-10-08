@@ -1,0 +1,769 @@
+{
+ "case_id": 72636,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.011100800000000001
+ },
+ "verification": {
+  "paragraphs": 62,
+  "summaries": 62,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 21,
+  "regex_citations": 0,
+  "regex_addressed": 0,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 5,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 15
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 10,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns appellants from Punjab, India, who claim fear of persecution by Punjab police due to their association with Baba Rahim Singh and raise concerns about their HIV-positive status affecting safe relocation. The Refugee Protection Division (RPD) rejected their refugee claims, finding no serious risk of persecution and that relocation to Mumbai or Bangalore would not be unreasonably harsh despite HIV-related challenges. The tribunal dismissed the appeal, agreeing with the RPD's findings and confirming the appellants are not Convention refugees or persons in need of protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 13,
+    "by": "appellants' counsel",
+    "text": "RPD erred on police tracking and database use"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "appellants' counsel",
+    "text": "Punjab police likely use advanced intelligence and criminal databases"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "appellants' counsel",
+    "text": "Most officers have access to CCTNS for sharing police info"
+   },
+   {
+    "id": "P4",
+    "para": 16,
+    "by": "appellants' counsel",
+    "text": "Appellants may be in CCTNS database despite no charges or FIRs"
+   },
+   {
+    "id": "P5",
+    "para": 17,
+    "by": "appellants' counsel",
+    "text": "Risk of detection via mandatory police tenancy registration"
+   },
+   {
+    "id": "P6",
+    "para": 18,
+    "by": "appellants' counsel",
+    "text": "RPD ignores that most do not evade security despite some corruption and tech limits"
+   },
+   {
+    "id": "P7",
+    "para": 42,
+    "by": "appellants' counsel",
+    "text": "RPD erred assessing access to medical care and discrimination for HIV-positive persons"
+   },
+   {
+    "id": "P8",
+    "para": 43,
+    "by": "appellants' counsel",
+    "text": "Discrimination in India remains serious affecting employment, medical care, education"
+   },
+   {
+    "id": "P9",
+    "para": 44,
+    "by": "appellants' counsel",
+    "text": "COVID-19 worsens access to antiretroviral medications in India"
+   },
+   {
+    "id": "P10",
+    "para": 45,
+    "by": "appellants' counsel",
+    "text": "Appellants' access to medications uncertain due to absence and uprooting in India"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 23,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 54,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 56,
+    "answers": "P7",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P7",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellants, Indian citizens from Punjab, fear persecution by Punjab police due to their association with Baba Rahim Singh and related events.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The RPD rejected the appellants' refugee claims, finding safe relocation possible and HIV status irrelevant; the court agrees and dismisses the appeals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD summarized the appellants' allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The appellants alleged hiding in Delhi before flying to Canada, with police raids occurring after their departure.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "1",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to appellants' statement about police raid."
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "XXXX XXXX XXXX testified that Punjab police alerted Delhi police to appellants' address, but no police encounter occurred due to agent's relocation efforts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "2",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to testimony about police alert and agent's role."
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "XXXX XXXX XXXX testified Punjab police could find appellants via village informants but did not know how police would track them in Mumbai or Bangalore.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "3",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to testimony about police tracking methods."
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RPD found speculation that villagers would inform Punjab police in Mumbai or Bangalore unsupported, so no serious persecution risk shown.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "4",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to RPD's finding on speculation."
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD found it unlikely Punjab police would engage other police to find appellants, noting no Delhi police action or profile warranting cooperation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "5",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to RPD's reasons on police cooperation."
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD noted appellants left Punjab airport without incident, no passport seizure or summons, indicating no police interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "6",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to RPD's airport and document evidence."
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD found little interstate police communication except for major crimes like terrorism or organized crime.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "7",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to RPD's finding on police communication."
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RPD concluded Punjab police likely unaware or uninterested in pursuing appellants outside Punjab, with no credible evidence of pursuit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "8",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to RPD's overall conclusion on police pursuit."
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "party",
+   "summary": "Appellants' counsel submits the RPD erred in its findings regarding police tracking and database use.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "Counsel argues police tracking methods are well documented and Punjab police likely use advanced intelligence and criminal databases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Despite some opinion on CCTNS's limited effectiveness, most officers have access, aiming to share police info across states.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "CCTNS contains many entries beyond FIRs, so appellants may be in the database despite no charges or FIRs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Appellants risk detection via mandatory police tenancy registration, which includes identity verification to catch those evading other states' police.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "Though appellants traveled undetected, corruption and tech limits mean some evade security, but most do not; RPD ignores this.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "Claimants followed Baba Rahim Singh since 2015; problems began after 2017 riot and arrests, with Claimant briefly detained and interrogated multiple times.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Co-Claimant was arrested and interrogated about husband, faced attempted rape, fled to Delhi with minor; police inquire via village Sarpanch.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RPD found the Claimant was likely not a major suspect given release after bribe and no further detention despite multiple reports.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "RPD found appellants left Punjab airport without travel restrictions or formal accusations, indicating no police interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court disagrees that clearing airport security means no police interest in a person.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "NDP evidence shows all passengers undergo security screening and immigration checks including passport verification and photo.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "10",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to NDP evidence on airport security."
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Security checks focus on immigration but also match passengers against Black List/Look Out Circular databases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "11",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to NDP evidence on security databases."
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "LOCs are issued rarely for high-profile cases only, requiring high-level approval; most charged persons are not stopped from departing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "12",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to NDP evidence on LOC issuance criteria."
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Since appellants' case was high-profile, lack of LOC at airport supports RPD's conclusion police are not highly interested in them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court finds the RPD's first prong IFA test finding correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "Appellants are Punjabi Sikhs with grade 10 education; main income is low-paying, intermittent work and rented land.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "13",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Footnote reference to evidence on rented land."
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "below",
+   "summary": "Appellants are HIV-positive; RPD found no evidence their condition made relocation unreasonable; counsel now argues HIV status worsened by COVID-19.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "At the RPD, the Appellants submitted a 2020 medical report showing improved HIV treatment outcomes after resuming therapy in Montreal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The female Appellant was diagnosed with HIV in 2011, started treatment during pregnancy, then advised to stop post-partum due to high CD4 count and finances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "After arriving in Canada in 2018, the female Appellant was hospitalized for an AIDS-defining pneumonia but improved with treatment and medication.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "below",
+   "summary": "The physician opined the Appellants' HIV is controlled with treatment but likely would worsen if they returned to India, citing sources despite some advocacy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "below",
+   "summary": "The report states that despite free antiretrovirals in India, many do not receive treatment, drug shortages exist, and AIDS deaths remain high compared to Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "below",
+   "summary": "The physician believes financial barriers to HIV care remain in India due to out-of-pocket costs for tests and hospitalization.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "below",
+   "summary": "First-line antiretrovirals like Genvoya are unavailable in India; viral load monitoring is not routine, with less sensitive CD4 counts used instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "below",
+   "summary": "The report cites a 2018 Lancet article stating HIV-related stigma is a major barrier to UNAIDS goals in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "October 2018 Lancet HIV journal report",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Cites stigma as a barrier to HIV goals in India"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "below",
+   "summary": "The physician concludes the Appellants' immune systems are precarious and without adherence support and therapy in India, their health would be in grave danger.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "below",
+   "summary": "The RPD summarized and analyzed the HIV evidence initially in the context of persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "below",
+   "summary": "The RPD found the Appellants would not be barred from healthcare or jobs in India and noted positive government steps against HIV discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "17",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to evidence of government steps against discrimination"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "Counsel submits the RPD erred in assessing access to medical care and discrimination faced by HIV-positive persons in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Counsel argues discrimination in India remains serious, affecting employment, medical care, and the minor's education despite government efforts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "party",
+   "summary": "Counsel states COVID-19 worsens access to antiretroviral medications in India, with NGOs delivering drugs under dangerous conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "party",
+   "summary": "Counsel argues the Appellants' access to vital medications would be uncertain due to years' absence and uprooting in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "A 2017 article reports HIV-positive persons in India face discrimination including job loss, violence, and hospital refusals despite anti-discrimination laws.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "November 2017 article by a University of Sherbrooke researcher",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Reports discrimination and criticism of anti-discrimination law enforcement"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "A 2020 Global Fund report on NGO outreach delivering antiretrovirals during COVID-19 in Mumbai is admitted as credible new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "July 8, 2020, by The Global Fund to Fight AIDS, Tuberculosis and Malaria",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Describes NGO outreach during COVID-19, admitted as new evidence"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The Global Fund report states COVID-19 disrupts HIV prevention and treatment in India, making outreach workers' roles vital.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "The Global Fund report",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Describes COVID-19 impact on HIV treatment and outreach importance"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "Outreach workers deliver antiretrovirals and educate HIV patients in crowded areas, ensuring no one is left behind despite social distancing challenges.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "The Global Fund report",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Details outreach workers' activities during COVID-19"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The report concludes that despite COVID-19, outreach workers help maintain progress in reducing HIV infections and AIDS deaths in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "The Global Fund report",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Concludes outreach workers sustain HIV progress during pandemic"
+    }
+   ]
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "Given the Appellants' work experience and education, living in Mumbai slums would not alone make the IFA unreasonable or unduly harsh.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The court notes reported shortages and financial barriers to HIV treatment in India, including unavailability of first-line drugs and testing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The Global Fund's recent report indicates adequate medication distribution and effective treatment in Mumbai during COVID-19.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The court prefers The Global Fund's positive evidence over the physician's more negative view of HIV treatment in India.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court agrees with the RPD that the Appellants have sufficient ability and resilience to survive economically in Mumbai or Bangalore.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "21",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to RPD's finding on Appellants' adaptability"
+    }
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The court finds the evidence does not show conditions in Mumbai or Bangalore would be unreasonably harsh under the IFA test, affirming the RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The court states the decision is determinative but offers additional observations that would not change the outcome.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "below",
+   "summary": "The Appellants testified that in Punjab, access to antiretrovirals is poor with long lines, unlike respectful care in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The court suggests the IFA test should consider if living conditions in the IFA would force return to persecution at home.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "23",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to refugee law scholars on IFA test interpretation"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The court notes the Appellants did not show better HIV treatment conditions in Punjab than in Mumbai or Bangalore, and deficiencies cited apply to India generally.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal finds no serious chance that poor HIV treatment in Mumbai or Bangalore would force the appellants to return to persecution in Punjab, supporting the RPD's decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the appellants are not Convention refugees or persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,357 @@
+{
+ "case_id": 42802,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.004346
+ },
+ "verification": {
+  "paragraphs": 21,
+  "summaries": 21,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 7,
+  "regex_citations": 2,
+  "regex_addressed": 2,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 6,
+  "rebuttals": 8,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 8,
+   "neutral_citation": "2007 FC 192",
+   "para_start": 2,
+   "para_end": 2
+  },
+  {
+   "citing_para": 16,
+   "neutral_citation": "2008 FCA 371",
+   "para_start": 14,
+   "para_end": 14
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns the assessment of costs following the Federal Court of Appeal's dismissal of the Appellant's appeal against Canada. The Respondent, Canada, filed a Bill of Costs which the Appellant did not oppose, leading the court to assess and allow the costs claimed by the Respondent. The court allowed the full amount of $2,750.23 in costs and disbursements to be paid by the Appellant.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "Respondent",
+    "text": "Respondent filed Bill of Costs"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "Respondent",
+    "text": "Respondent informed costs settled, assessment not needed"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "Respondent",
+    "text": "Respondent later advised costs not settled, requested resumption"
+   },
+   {
+    "id": "P4",
+    "para": 7,
+    "by": "Respondent",
+    "text": "Respondent filed costs materials; Appellant filed none"
+   },
+   {
+    "id": "P5",
+    "para": 11,
+    "by": "Respondent",
+    "text": "Claims $2,450.00 for assessable services"
+   },
+   {
+    "id": "P6",
+    "para": 13,
+    "by": "Respondent",
+    "text": "Claims $347.54 in disbursements"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 8,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P6",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P6",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P6",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P6",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P6",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This paragraph introduces the costs assessment following the Federal Court of Appeal's dismissal of the Appellant's appeal with costs on December 12, 2017.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "Costs will be assessed according to Rule 407 of the Federal Courts Rules, which mandates party-and-party costs per Tariff B unless the Court orders otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 407 of the Federal Courts Rules, SOR/98-106 (FCR)",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "States the rule governing costs assessment."
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Respondent filed a Bill of Costs on February 27, 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Due to COVID-19 and suspended filing deadlines, the Federal Court of Appeal issued a direction on June 19, 2020, setting filing dates for costs assessment documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Respondent informed the court on August 31, 2020, that costs had been settled and assessment was no longer needed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "On November 10, 2020, the Respondent advised the court that costs were not settled and requested resumption of assessment; the court directed accordingly.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The Respondent filed costs materials on February 27 and November 10, 2020; the Appellant filed no responding material.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Appellant did not respond to the Respondent's costs claim, leaving it largely unopposed; the court cites Dahl v. Canada on assessment officer's role.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's non-response leaves costs unopposed",
+    "Court cites Dahl v. Canada on assessment officer's neutrality and limits"
+   ],
+   "citations": [
+    {
+     "cite": "Dahl v. Canada, 2007 FC 192, at paragraph 2",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains assessment officer's role when costs are unopposed."
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court cites Carlile v. Canada emphasizing taxing officers must balance avoiding unnecessary costs and indemnifying real costs.",
+   "ideas": "single",
+   "idea_list": [
+    "Carlile v. Canada on taxing officers' duties"
+   ],
+   "citations": [
+    {
+     "cite": "Carlile v. Canada, [1997] F.C.J. No. 885, at paragraph 26",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Guidance on taxing officers' balancing duties."
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Despite no challenge from the Appellant, the court must ensure Respondent's cost claims are necessary and reasonable using all relevant materials.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The Respondent claims $2,450.00 for assessable services.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The court finds the Respondent's claimed assessable services necessary and reasonable and allows the full $2,450.00.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The Respondent claims $347.54 in disbursements.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court allows $72.86 for process serving, finding it necessary and reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court notes issues with the Respondent's photocopying claims and will review them further.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court finds inadequate detail on photocopying claims, allowing only one copy each of the Appeal Book and Appellant\u2019s Memorandum, citing Merck & Co. v. Apotex.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Inadequate particularization of photocopying claims",
+    "Only one copy allowed for reimbursement",
+    "Cites Merck & Co. v. Apotex on assessment discretion"
+   ],
+   "citations": [
+    {
+     "cite": "Merck & Co. v. Apotex, 2008 FCA 371, at paragraph 14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains discretion in determining reasonable expenses."
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The court cites Bujnowski v. Canada to deny reimbursement for copies of documents already provided by the Appellant.",
+   "ideas": "single",
+   "idea_list": [
+    "Bujnowski v. Canada on denying reimbursement for provided copies"
+   ],
+   "citations": [
+    {
+     "cite": "Bujnowski v. Canada, [2010] FCJ No 346, at paragraph 34",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports denying costs for copies already provided."
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Following Merck and Bujnowski, the court allows only one copy each of the Appeal Book and Memorandum, totaling $23.66.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Merck & Co. v. Apotex, 2008 FCA 371",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports limiting photocopy reimbursement"
+    },
+    {
+     "cite": "Bujnowski v. Canada, [2010] FCJ No 346",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports limiting photocopy reimbursement"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court allows photocopying costs for the Respondent\u2019s Memorandum and Joint Book of Authorities as reasonable and necessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court totals the allowed disbursements at $300.23.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Respondent\u2019s Bill of Costs is allowed in full at $2,750.23, payable by the Appellant; a Certificate of Assessment will be issued.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

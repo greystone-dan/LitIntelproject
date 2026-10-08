@@ -1,0 +1,1707 @@
+{
+ "case_id": 53442,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.023824800000000004
+ },
+ "verification": {
+  "paragraphs": 124,
+  "summaries": 124,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 83,
+  "regex_citations": 31,
+  "regex_addressed": 28,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 10,
+   "supports_court_conclusion": 57,
+   "party_argument_reported": 5,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 11
+  },
+  "multi_idea_paragraphs": 6,
+  "party_points": 5,
+  "rebuttals": 12,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "This case concerns the public interest standing of the Council of Canadians with Disabilities (CCD) to challenge British Columbia's mental health laws permitting involuntary psychiatric treatment. The Attorney General of British Columbia (AGBC) appealed a Court of Appeal decision granting CCD standing after the Supreme Court of BC had dismissed it for lack of an individual plaintiff. The Supreme Court of Canada dismissed AGBC's appeal, granted CCD public interest standing, and awarded special costs to CCD.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 61,
+    "by": "AGBC",
+    "text": "CCD lacks standing without individual co-plaintiff and factual setting"
+   },
+   {
+    "id": "P2",
+    "para": 64,
+    "by": "AGBC",
+    "text": "Evidence from directly affected plaintiff vital for factual context"
+   },
+   {
+    "id": "P3",
+    "para": 78,
+    "by": "CCD",
+    "text": "CCD requests leave to cross-appeal and ruling on standing to avoid delay"
+   },
+   {
+    "id": "P4",
+    "para": 121,
+    "by": "CCD",
+    "text": "CCD is a not-for-profit with no personal interest, relying on pro bono counsel"
+   },
+   {
+    "id": "P5",
+    "para": 122,
+    "by": "CCD",
+    "text": "CCD pursued case for six years without substantive issues addressed; special costs needed"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 65,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 66,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 67,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 88,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 89,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 90,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 91,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 92,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 93,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 94,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 112,
+    "answers": "P1",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 117,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The court states that access to justice requires efficient use of court resources and avoiding frivolous lawsuits and delays.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court explains public interest standing allows individuals or organizations to bring public interest cases without direct involvement or personal rights infringement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Downtown Eastside Sex Workers United Against Violence Society, 2012 SCC 45, [2012] 2 S.C.R. 524, at para. 23",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of public interest standing promoting access to justice"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Council of Canadians with Disabilities (CCD) seeks public interest standing to challenge BC mental health laws after individual plaintiffs withdrew.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Attorney General of BC sought dismissal of CCD's claim for lack of individual plaintiff; the Supreme Court dismissed CCD, but the Court of Appeal allowed CCD's appeal; AGBC appeals.",
+   "ideas": "multiple",
+   "idea_list": [
+    "AGBC's dismissal application and argument",
+    "Supreme Court dismisses CCD",
+    "Court of Appeal allows CCD's appeal",
+    "AGBC appeals Court of Appeal decision"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court would dismiss the appeal but grant CCD public interest standing with special costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "CCD is a national non-profit advocating for Canadians with disabilities, with many member organizations and members.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "CCD's mandate is to promote equality, autonomy, and rights of people with disabilities through advocacy, policy, and litigation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "CCD and two individuals filed a claim challenging BC mental health laws permitting involuntary psychiatric treatment without consent, alleging Charter violations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The individual plaintiffs were involuntary patients alleging harm from forced psychiatric treatments under the challenged laws.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The individual plaintiffs withdrew, leaving CCD as sole plaintiff, which amended its claim to general allegations and sought public interest standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "AGBC claimed CCD lacked public interest standing without an individual plaintiff and sought dismissal of CCD's action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "CCD responded with an affidavit promising to adduce sufficient facts at trial.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Ms. Benard, CCD's Mental Health Committee Chair, was not cross-examined on her affidavit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "After the Court of Appeal hearing but before decision, a class action was filed challenging the same provisions; a similar personal injury claim was discontinued.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Class Proceedings Act, R.S.B.C. 1996, c. 50",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Class action filed under this Act challenging same provisions"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The class action has not been certified; AGBC opposes certification, filing a response asserting failure to meet criteria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Supreme Court of BC granted AGBC's summary trial, denied CCD standing, and dismissed CCD's claim applying the three-part Downtown Eastside test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Sets three-part test for public interest standing"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The chambers judge found CCD lacked a justiciable issue due to absence of a particular factual context or individual case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The chambers judge found CCD's genuine interest only weakly met because its focus was more on physical than mental disability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The chambers judge found CCD had expertise and resources but doubted its ability to meet the reasonable and effective means factor for several reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "Weighing all factors, the chambers judge declined to grant public interest standing and dismissed CCD's action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The Court of Appeal allowed CCD's appeal, set aside dismissal, and remitted for fresh consideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The Court of Appeal emphasized legality and access to justice as key principles in deciding public interest standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Highlights importance of legality and access to justice in standing law"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The Court of Appeal said legality and access to justice are key in balancing factors for public interest standing, though other concerns matter too.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The Court of Appeal held the chambers judge erred requiring an individual plaintiff for justiciable issue; systemic challenge can be established by other evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The Court of Appeal did not review other factors but disagreed with chambers judge's preference for assisting individual parties over public interest standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The Court of Appeal noted duplicative proceedings are relevant but not determinative for standing and remitted for reconsideration with new information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The appeal raises three issues (not specified here).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court states the discretionary three-factor test for public interest standing from Downtown Eastside.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 2",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "States three-factor test for public interest standing"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Downtown Eastside requires weighing factors flexibly to serve purposes limiting standing: resource allocation, affected parties' views, and courts' democratic role.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 20",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains purposes limiting standing"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Courts must balance purposes favoring granting standing: legality and access to justice, with those favoring limiting it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at paras. 20, 23, 36, 39-43, 49-50 and 76",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Explains purposes justifying granting standing"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Downtown Eastside remains the governing authority and courts should balance all purposes without giving particular weight to legality or access to justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court will define legality and access to justice, review their role in public interest standing, and reject the Court of Appeal's emphasis on them.",
+   "ideas": "multiple",
+   "idea_list": [
+    "define legality and access to justice",
+    "reject Court of Appeal's emphasis"
+   ],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The legality principle means state action must follow law and be challengable, based on the rule of law from Trial Lawyers Association case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Trial Lawyers Association of British Columbia v. British Columbia (Attorney General), 2014 SCC 59, [2014] 3 S.C.R. 31, at para. 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains legality principle and rule of law"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Access to justice is fundamental to the rule of law, as stated by Dickson C.J. in B.C.G.E.U. case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "B.C.G.E.U. v. British Columbia (Attorney General), [1988] 2 S.C.R. 214, at p. 230",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "defines access to justice as fundamental to rule of law"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Access to justice includes knowing rights, legal assistance, and broadly means access to courts for this appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "G. J. Kennedy and L. Sossin, \u201cJusticiability, Access to Justice and the Development of Constitutional Law in Canada\u201d (2017), 45 Fed. L. Rev. 707, at p. 710",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "defines access to justice broadly as access to courts"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Downtown Eastside links access to justice and public interest standing as a gatekeeping role overcoming barriers to legal rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "In Thorson, legality justified granting public interest standing to challenge a law not directly affecting the litigant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Thorson v. Attorney General of Canada, [1975] 1 S.C.R. 138, p. 163",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "shows legality's role in granting public interest standing"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "In Nova Scotia Board of Censors, standing was granted to a public member due to no practical alternative to challenge the law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Nova Scotia Board of Censors v. McNeil, [1976] 2 S.C.R. 265, p. 271",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "illustrates legality's role in public interest standing"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "In Finlay, access to justice and legality justified granting standing to challenge constitutionality of legislation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Finlay v. Canada (Minister of Finance), [1986] 2 S.C.R. 607, pp. 627, 631-32",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "shows access to justice and legality in public interest standing"
+    }
+   ]
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "In Canadian Council of Churches, legality justified denying standing since private litigants already challenged the measure.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Council of Churches v. Canada (Minister of Employment and Immigration), [1992] 1 S.C.R. 236, pp. 250, 252-53",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "shows legality used to deny standing when private challenges exist"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The current public interest standing framework from Downtown Eastside uses flexible, purposive weighing of factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 2",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "describes current framework for public interest standing"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The Downtown Eastside framework addresses legality, access to justice, and traditional concerns like judicial resources and proper court roles.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Council of Churches, p. 253",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains framework addresses multiple concerns"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court will trace concerns underlying standing law and their place in Downtown Eastside, focusing on all three factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "Allocating scarce judicial resources and screening out busybodies prevents court overburdening, as held in Canadian Council of Churches and Finlay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Council of Churches, p. 252",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains judicial resource allocation and busybody concerns"
+    },
+    {
+     "cite": "Finlay, p. 631",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "discusses busybody plaintiffs"
+    }
+   ]
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Downtown Eastside notes few frivolous cases and courts have other tools besides denying standing to prevent abuse.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 28",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains courts can prevent abuse without denying standing"
+    }
+   ]
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "Courts need contending views from affected parties to ensure proper factual context and full argument, per Downtown Eastside and Hy and Zel\u2019s.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 29",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "emphasizes need for affected parties' views"
+    },
+    {
+     "cite": "Hy and Zel\u2019s Inc. v. Ontario (Attorney General), [1993] 3 S.C.R. 675, p. 694",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports importance of factual context"
+    }
+   ]
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Courts must decide justiciable questions appropriate for judicial determination, excluding non-legal disputes, per Highwood Congregation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Highwood Congregation of Jehovah\u2019s Witnesses (Judicial Committee) v. Wall, 2018 SCC 26, [2018] 1 S.C.R. 750, para. 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "defines justiciability and limits court's role"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "The first Downtown Eastside factor, serious justiciable issue, ensures proper court role and conserves judicial resources.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 42",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains serious justiciable issue factor"
+    },
+    {
+     "cite": "Trial Lawyers, para. 47",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "links seriousness to access to justice"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "A serious issue is one far from frivolous; courts assess claims preliminarily and need not examine every claim minutely.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 42",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains assessment of serious issue"
+    },
+    {
+     "cite": "Canadian Council of Churches, p. 254",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports preliminary assessment of claims"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "Justiciability requires court capacity and legitimacy; public interest standing depends on a justiciable question.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Highwood Congregation, paras. 32-34",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "explains justiciability requirements"
+    },
+    {
+     "cite": "L. M. Sossin, Boundaries of Judicial Review: The Law of Justiciability in Canada (2nd ed. 2012), p. 7",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "defines justiciability"
+    },
+    {
+     "cite": "Downtown Eastside, para. 30",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "links public interest standing to justiciability"
+    }
+   ]
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The second factor, genuine interest, screens out busybodies by requiring a real stake or engagement in the issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 43",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "defines genuine interest factor"
+    },
+    {
+     "cite": "Canadian Council of Churches, p. 254",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports genuine interest assessment"
+    }
+   ]
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "The third factor, reasonable and effective means, relates to legality and access to justice in ensuring lawful government action and access for disadvantaged persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, paras. 49, 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "links third factor to legality and access to justice"
+    }
+   ]
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The third factor also considers judicial resource use and benefit of contending views from affected persons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Hy and Zel\u2019s, p. 692",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "relates to judicial resource allocation"
+    },
+    {
+     "cite": "Finlay, p. 633",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "relates to contending views"
+    }
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Courts should assess if the proposed suit is economical, suitable for adversarial context, and upholds legality, applying the factor purposively.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, paras. 47, 50",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "guides assessment of third factor"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The court lists interrelated matters useful for assessing the third factor from Downtown Eastside para. 51.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "provides assessment criteria for third factor"
+    }
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The Court of Appeal erred in giving particular weight to legality and access to justice, which are already addressed in the framework.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Legality and access to justice are considered in the third factor and serious justiciable issue factor but not given principal importance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, paras. 49, 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "shows legality and access to justice in third factor"
+    },
+    {
+     "cite": "Trial Lawyers, para. 47",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "shows access to justice in serious issue factor"
+    }
+   ]
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "Giving particular weight to legality and access to justice would make the third factor determinative, which Downtown Eastside warns against.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "warns against overemphasizing legality and access to justice"
+    }
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "Public interest standing requires balancing all purposes; no single purpose, including legality or access to justice, dominates.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The third factor requires courts to consider plaintiff's capacity, including resources, expertise, and factual setting.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, para. 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "details factors for assessing plaintiff's capacity"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "party",
+   "summary": "The AGBC argues CCD lacks standing due to absence of an individual co-plaintiff and insufficient factual setting.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The Court considers if an individual plaintiff is necessary for public interest standing and how to satisfy the court at a preliminary stage.",
+   "ideas": "multiple",
+   "idea_list": [
+    "necessity of individual plaintiff",
+    "satisfying court at preliminary stage",
+    "revisiting standing"
+   ],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "Both parties agree public interest litigation can proceed without a directly affected plaintiff, citing legislative facts as example.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "A.F., at para. 59",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Parties acknowledge public interest litigation without directly affected plaintiff"
+    },
+    {
+     "cite": "Danson, at pp. 1100-1101",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Legislative facts alone can support challenge"
+    }
+   ]
+  },
+  {
+   "para": 64,
+   "speaker": "party",
+   "summary": "AGBC submits evidence from a directly affected plaintiff is vital to ensure a suitable factual context before granting standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "A.F., at para. 60",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "AGBC relies on this for requiring individual plaintiff evidence"
+    }
+   ]
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The Court rejects imposing rigid requirements for individual plaintiffs for public interest standing for two reasons.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "First, a directly affected plaintiff is not vital; public interest litigants can use affected non-plaintiff witnesses to establish factual setting.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Carter v. Canada (Attorney General), 2015 SCC 5, [2015] 1 S.C.R. 331, at paras. 14-16, 22 and 110",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Non-plaintiff witnesses can establish factual setting"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Bedford, 2013 SCC 72, [2013] 3 S.C.R. 1101, at paras. 15 and 54",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    },
+    {
+     "cite": "Downtown Eastside, at para. 74",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports non-plaintiff witness evidence"
+    }
+   ]
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Second, AGBC's requirements would hinder access to justice and legality; Downtown Eastside rightly treats affected litigants as a factor, not a hurdle.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 74",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports weighing affected litigants as a factor"
+    }
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The Court asks how a public interest litigant can show a concrete factual setting without a directly affected co-plaintiff, especially at a preliminary stage.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 51",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Question about concrete factual setting without co-plaintiff"
+    }
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "court",
+   "summary": "Downtown Eastside factors are cumulative, not strict tests; trial judge has discretion on factual setting significance at preliminary stage.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Factors are cumulative, not strict tests"
+    }
+   ]
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "At trial, absence of factual setting is dispositive; evidence is key unless claim is proven on law alone; standing may be revisited after discoveries.",
+   "ideas": "multiple",
+   "idea_list": [
+    "absence of factual setting dispositive at trial",
+    "evidence key unless legal question",
+    "standing may be revisited after discoveries"
+   ],
+   "citations": [
+    {
+     "cite": "Mackay v. Manitoba, [1989] 2 S.C.R. 357, at pp. 361-62",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court cannot decide constitutional issues without facts"
+    },
+    {
+     "cite": "Danson, at pp. 1100-1101",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Claims may be proven on law alone in exceptional cases"
+    },
+    {
+     "cite": "Manitoba (Attorney General) v. Metropolitan Stores Ltd., [1987] 1 S.C.R. 110, at p. 133",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports legal question exception"
+    },
+    {
+     "cite": "Downtown Eastside, at para. 64",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Suggests other litigation strategies before revisiting standing"
+    },
+    {
+     "cite": "Hryniak v. Mauldin, 2014 SCC 7, [2014] 1 S.C.R. 87, at para. 93",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Summary dismissal possible if no evidence"
+    }
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "What suffices to show a concrete factual setting depends on litigation stage and case nature; early stage may require less evidence than later.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "Plaintiffs need not provide trial evidence at preliminary stage; mere intention to adduce evidence is insufficient; examples of relevant considerations follow.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Examples relate to reasonable and effective means factor"
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Courts should avoid denying standing bluntly; other litigation tools like screening claims, awarding costs, or deferring standing may be better.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 64",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports use of alternative litigation management strategies"
+    },
+    {
+     "cite": "Finlay, at pp. 616-17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Standing consideration may be deferred to trial"
+    }
+   ]
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "Courts can reconsider standing if plaintiff fails to show a concrete factual setting; this acts as a fail-safe to prevent complacency.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Borowski v. Canada (Attorney General), [1989] 1 S.C.R. 342",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Allows revisiting standing"
+    }
+   ]
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "Defendants may revisit standing only if a material change raises serious doubt about factual setting and other strategies are inadequate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "Material changes usually occur after pleadings or discovery; inability to show factual setting weighs more at discovery's close.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 2",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Decision to revisit standing depends on case circumstances"
+    }
+   ]
+  },
+  {
+   "para": 77,
+   "speaker": "court",
+   "summary": "Rare material changes outside pleadings/discovery may justify revisiting standing, e.g., when original basis is moot as in Borowski.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Borowski (1989), at pp. 365-68",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Borowski case example of mootness affecting standing"
+    },
+    {
+     "cite": "Minister of Justice of Canada v. Borowski, [1981] 2 S.C.R. 575",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Original standing grant in Borowski"
+    },
+    {
+     "cite": "R. v. Morgentaler, [1988] 1 S.C.R. 30",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Struck down provisions in Borowski case"
+    }
+   ]
+  },
+  {
+   "para": 78,
+   "speaker": "party",
+   "summary": "CCD requested leave to cross-appeal and urged the Court to rule on standing to avoid delay; Court agrees to grant leave and address standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Morgentaler v. New Brunswick, 2009 NBCA 26, 344 N.B.R. (2d) 39, at para. 51",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Courts may grant public interest standing in inherent jurisdiction"
+    }
+   ]
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "Standing rulings are discretionary and entitled to deference, but errors below justify intervention here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Strickland v. Canada (Attorney General), 2015 SCC 37, [2015] 2 S.C.R. 713, at para. 39",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Standing rulings entitled to deference"
+    }
+   ]
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The Court will first outline errors below, then apply Downtown Eastside factors to conclude standing should be granted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 81,
+   "speaker": "court",
+   "summary": "The chambers judge made several errors interpreting and applying Downtown Eastside factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "Chambers judge erred by focusing on pleading facts about specific individuals to determine justiciability, with conflicting views from Court of Appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The justiciability inquiry aims to distinguish private references from public interest standing; pleading individual facts is relevant but not determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Borowski (1989), at p. 367",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines justiciability inquiry purpose"
+    }
+   ]
+  },
+  {
+   "para": 84,
+   "speaker": "court",
+   "summary": "Purely hypothetical claims are not justiciable, but CCD has alleged facts supporting a constitutional claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "Chambers judge erred assessing genuine interest by distinguishing mental disabilities from disabilities, which is unfounded.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Saadati v. Moorhead, 2017 SCC 28, [2017] 1 S.C.R. 543, at paras. 2 and 35",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Mental disabilities are disabilities"
+    }
+   ]
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "Chambers judge concluded CCD failed to show its suit was a reasonable and effective means, raising four concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 87,
+   "speaker": "court",
+   "summary": "The Court will address each of the chambers judge's four concerns, stating they were given excessive weight.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "First concern: chambers judge gave determinative weight to alleged absence of robust factual setting, which was improper.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 89,
+   "speaker": "court",
+   "summary": "Chambers judge's approach contradicts Downtown Eastside, which treats factors cumulatively, not determinatively at early stages.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 20",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Factors are cumulative, not determinative alone"
+    }
+   ]
+  },
+  {
+   "para": 90,
+   "speaker": "court",
+   "summary": "Second concern: chambers judge wrongly doubted CCD's ability to fairly represent all interests; standing does not require representing all affected individuals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 91,
+   "speaker": "court",
+   "summary": "The chambers judge doubted CCD's advocacy for mental disabilities, wrongly distinguishing mental and physical disabilities, which the court rejects.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 92,
+   "speaker": "court",
+   "summary": "The chambers judge questioned if others with direct standing could challenge the claim, suggesting alternative ways to bring issues forward.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 93,
+   "speaker": "court",
+   "summary": "The court finds the chambers judge erred by not applying Downtown Eastside's practical approach to potential plaintiffs' prospects.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Courts must consider practical prospects of plaintiffs, not theoretical possibilities."
+    }
+   ]
+  },
+  {
+   "para": 94,
+   "speaker": "court",
+   "summary": "The chambers judge wrongly emphasized individual plaintiffs, but Downtown Eastside requires only reasonable and effective means to bring the case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "No requirement for individual plaintiff; focus on reasonable and effective means."
+    }
+   ]
+  },
+  {
+   "para": 95,
+   "speaker": "court",
+   "summary": "The Court of Appeal only reviewed the chambers judge's serious justiciable issue conclusion and remitted for reconsideration, not applying Downtown Eastside fully.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 96,
+   "speaker": "court",
+   "summary": "The Court of Appeal erred by not cumulatively weighing all Downtown Eastside factors, only addressing one factor individually.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requires cumulative weighing of all factors."
+    }
+   ]
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "The court must weigh all Downtown Eastside factors cumulatively, flexibly, and purposively, correcting the Court of Appeal's error.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 98,
+   "speaker": "court",
+   "summary": "CCD's pleadings raise a serious, important, and substantial constitutional issue regarding mental disabilities under the Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 42",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines serious justiciable issue standard."
+    },
+    {
+     "cite": "Finlay, at p. 633",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports seriousness of issue."
+    },
+    {
+     "cite": "Borowski (1981), at p. 589",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports seriousness of issue."
+    },
+    {
+     "cite": "McNeil, at p. 268",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports seriousness of issue."
+    }
+   ]
+  },
+  {
+   "para": 99,
+   "speaker": "court",
+   "summary": "At pleadings stage, the amended claim outlines core facts supporting the constitutional case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 100,
+   "speaker": "court",
+   "summary": "CCD alleges facts that could support a constitutional claim; detailed merits screening is unnecessary at this stage.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 56",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Serious justiciable issues need not be dissected in detail at pleading stage."
+    }
+   ]
+  },
+  {
+   "para": 101,
+   "speaker": "court",
+   "summary": "The uncontested Bernard affidavit shows CCD has a genuine interest in issues affecting people with mental disabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 102,
+   "speaker": "court",
+   "summary": "AGBC's argument that CCD's work is not narrowly focused on mental illness misses that public interest standing requires only a link and interest.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 43",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Plaintiff must show link and interest, not narrow focus."
+    }
+   ]
+  },
+  {
+   "para": 103,
+   "speaker": "court",
+   "summary": "The court finds CCD has a real stake, is engaged, and is not a mere busybody in the proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 43",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports genuine interest and engagement."
+    }
+   ]
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "Downtown Eastside outlines factors to assess reasonable and effective means: capacity, public interest, alternatives, and impact on others.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Lists factors for reasonable and effective means."
+    }
+   ]
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "CCD has resources, expertise, and pro bono counsel to advance the claim effectively.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 106,
+   "speaker": "court",
+   "summary": "CCD likely can provide concrete factual evidence; the case mainly challenges legislation's constitutionality on its face.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 107,
+   "speaker": "court",
+   "summary": "Counsel's undertaking and Bernard's affidavit assure the court that sufficient factual evidence will be adduced.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 108,
+   "speaker": "court",
+   "summary": "AGBC can challenge CCD's standing later if CCD fails to provide the factual setting promised, preferably after discovery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 109,
+   "speaker": "court",
+   "summary": "Standing is fact-specific; revisiting standing later is preferable to blunt denial at this stage.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 110,
+   "speaker": "court",
+   "summary": "CCD's claim raises public interest issues affecting many with mental disabilities and promotes access to justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 73",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports public interest factor."
+    }
+   ]
+  },
+  {
+   "para": 111,
+   "speaker": "court",
+   "summary": "The court must consider if alternative means exist that are more efficient and effective, including parallel proceedings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 51",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Considers alternative means factor."
+    }
+   ]
+  },
+  {
+   "para": 112,
+   "speaker": "court",
+   "summary": "AGBC points to a class action challenging the same provisions but argues it is statute-barred and uncertified.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 113,
+   "speaker": "court",
+   "summary": "The class action is relevant but not determinative; CCD gives reasons why its claim is reasonable and effective despite it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Downtown Eastside, at para. 67",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Parallel proceedings are relevant but not determinative."
+    }
+   ]
+  },
+  {
+   "para": 114,
+   "speaker": "court",
+   "summary": "The class action's uncertified status, focus on damages, and unknown evidence make it less effective for constitutional issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 115,
+   "speaker": "court",
+   "summary": "Individuals with mental disabilities face barriers to litigation; CCD's role as plaintiff helps overcome these.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 116,
+   "speaker": "court",
+   "summary": "Despite individuals' capacity, personal and institutional hurdles mean the parallel claim is not determinative against CCD's standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 117,
+   "speaker": "court",
+   "summary": "AGBC's concern that CCD's claim may prejudice supporters of the law is given little weight; constitutional challenges remain valid.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 118,
+   "speaker": "court",
+   "summary": "Weighing all factors cumulatively, the court grants CCD public interest standing, with possibility to revisit if evidence is lacking.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 119,
+   "speaker": "court",
+   "summary": "CCD seeks special costs, which are exceptional and require two criteria to be met.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Carter, at paras. 137 and 140",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets criteria for awarding special costs."
+    }
+   ]
+  },
+  {
+   "para": 120,
+   "speaker": "court",
+   "summary": "CCD meets criteria for special costs due to public interest and wide societal impact, shown by many interveners.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 121,
+   "speaker": "party",
+   "summary": "CCD is a not-for-profit promoting disability rights, with no personal interest and relies on pro bono counsel for this litigation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "CCD's mandate and status",
+    "No personal or financial interest",
+    "Relies on pro bono counsel"
+   ],
+   "citations": []
+  },
+  {
+   "para": 122,
+   "speaker": "party",
+   "summary": "CCD has pursued the case for six years without substantive issues addressed; special costs should be granted to avoid unfair financial burden.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Carter, at para. 140",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports argument for special costs to CCD and counsel"
+    }
+   ]
+  },
+  {
+   "para": 123,
+   "speaker": "court",
+   "summary": "The court exercises discretion to grant special costs to CCD to restore its financial position before AGBC challenged its standing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 124,
+   "speaker": "court",
+   "summary": "The court dismisses AGBC's appeal, allows CCD's cross-appeal, grants CCD public interest standing, and awards special costs to CCD throughout.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Dismiss AGBC appeal",
+    "Allow CCD cross-appeal and standing",
+    "Award special costs to CCD",
+    "List of solicitors for parties and interveners"
+   ],
+   "citations": []
+  }
+ ]
+}

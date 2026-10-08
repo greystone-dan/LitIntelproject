@@ -1,0 +1,381 @@
+{
+ "case_id": 27931,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.004458
+ },
+ "verification": {
+  "paragraphs": 18,
+  "summaries": 18,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 3,
+  "model_citations": 16,
+  "regex_citations": 9,
+  "regex_addressed": 9,
+  "pinpoints": 9,
+  "purposes": {
+   "standard_of_review_or_test": 8,
+   "supports_court_conclusion": 8,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 12,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 12,
+   "neutral_citation": "2014 SCC 24",
+   "para_start": 79,
+   "para_end": 79
+  },
+  {
+   "citing_para": 12,
+   "neutral_citation": "2018 FCA 69",
+   "para_start": 37,
+   "para_end": 56
+  },
+  {
+   "citing_para": 12,
+   "neutral_citation": "2020 FCA 196",
+   "para_start": 35,
+   "para_end": 35
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2016 FC 600",
+   "para_start": 25,
+   "para_end": 25
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2019 FCA 223",
+   "para_start": 44,
+   "para_end": 44
+  },
+  {
+   "citing_para": 18,
+   "neutral_citation": "2016 FCA 93",
+   "para_start": 103,
+   "para_end": 103
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2022 FC 546",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2018 FC 943",
+   "para_start": 34,
+   "para_end": 34
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns a judicial review of the Refugee Appeal Division's (RAD) decision to exclude the Applicant from refugee protection under Article 1(E) due to alleged fraudulent evidence and residence issues in Spain. The Applicant challenges the RAD's decision as unreasonable and procedurally unfair, while the Respondent defends the RAD's authority and findings. The Federal Court finds the RAD's decision reasonable and procedurally fair, dismissing the Applicant's judicial review application.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicant",
+    "text": "decision unreasonable and breaches procedural fairness"
+   },
+   {
+    "id": "P2",
+    "para": 17,
+    "by": "Respondent",
+    "text": "RAD had authority to hear appeals and substitute RPD decision"
+   },
+   {
+    "id": "P3",
+    "para": 20,
+    "by": "Respondent",
+    "text": "RAD reasonably concluded residence permit needed for EU travel; no error ignoring investigation consent"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 18,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 21,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 22,
+    "answers": "P3",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant argues the decision is unreasonable and breaches procedural fairness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court finds the RAD's decision reasonable and procedurally fair, dismissing the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RPD found the Applicant was not excluded under Article 1(E) and accepted his refugee claim, noting only fraudulent TRV evidence of residence in Spain.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "below",
+   "summary": "The RAD allowed the appeal against the RPD decision on December 19, 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "below",
+   "summary": "The RAD found the Applicant breached procedural fairness by not providing post-hearing evidence of an additional passport to the Respondent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RAD acknowledged evidence of the Applicant's residence in Spain but noted unexplained travel and work in the Schengen area without valid visas.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RAD found the Applicant's second passport lacked work permits but showed EU travel stamps, concluding he held permanent residence in Spain.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The Respondent established a prima facie exclusion case under Article 1(E), which the Applicant failed to rebut, leading to exclusion from protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Both parties agree on reasonableness for merits review; the court agrees and applies correctness for procedural fairness issues.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness standard for merits review"
+    },
+    {
+     "cite": "Mission Institution v Khela, 2014 SCC 24",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets correctness standard for procedural fairness"
+    },
+    {
+     "cite": "Canadian Pacific Railway Company v Canada (Attorney General), 2018 FCA 69",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports correctness standard for procedural fairness"
+    },
+    {
+     "cite": "Canadian Association of Refugee Lawyers v Canada (Immigration, Refugees and Citizenship), 2020 FCA 196",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports correctness standard for procedural fairness"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Reasonableness is deferential but robust, requiring transparent, justified, and coherent decisions based on facts and law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at paras 12-13, 15, 85, 88-90, 94, 133-135",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness standard and its application"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "To find unreasonableness, flaws must be central; courts must not reweigh evidence or interfere absent exceptional circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at paras 100, 125",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Limits on interference and defining significant flaws for unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Correctness is non-deferential; procedural fairness is assessed by fairness of procedure considering Baker factors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Baker v Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817 at paras 21-28",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets factors for assessing procedural fairness"
+    },
+    {
+     "cite": "Canadian Pacific Railway Company at para 54",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports procedural fairness assessment"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Respondent argues the RAD had authority to hear appeals and substitute the RPD decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court agrees with the Respondent that exclusion was not a new issue and the RAD had authority to substitute the RPD decision without oral evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Exclusion not a new issue",
+    "RAD authority to substitute decision",
+    "No need for oral evidence",
+    "No procedural fairness breach"
+   ],
+   "citations": [
+    {
+     "cite": "Kwakwa v Canada (Citizenship and Immigration), 2016 FC 600 at para 25",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines 'new issue' on appeal"
+    },
+    {
+     "cite": "Kreishan v Canada (Citizenship and Immigration), 2019 FCA 223 at para 44",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms RAD's power to set aside and substitute decisions"
+    },
+    {
+     "cite": "Huruglica v Canada (Citizenship and Immigration), 2016 FCA 93 at para 103",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains when RAD may refer matter back to RPD"
+    },
+    {
+     "cite": "IRPA, s 111(1)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Statutory authority for RAD's powers"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Respondent submits the RAD reasonably concluded the Applicant needed a residence permit for EU travel and did not err ignoring investigation consent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court agrees the RAD independently assessed the record, substituted the RPD decision, and found no unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Huruglica at para 103",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports RAD's substitution of RPD decision"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sets threshold for unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RAD did not err by not mentioning the Applicant's authorization to investigate; presumption is it considered all evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Wang v Canada (Citizenship and Immigration), 2022 FC 546 at para 23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Presumption that tribunal considers all evidence"
+    },
+    {
+     "cite": "Ruszo v Canada (Citizenship and Immigration), 2018 FC 943 at para 34",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports presumption of consideration of evidence"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The judicial review application is dismissed; the RAD's decision is reasonable and procedurally fair; no certification questions arise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

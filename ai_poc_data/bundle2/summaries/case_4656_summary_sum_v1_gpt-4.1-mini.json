@@ -1,0 +1,300 @@
+{
+ "case_id": 4656,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.00386
+ },
+ "verification": {
+  "paragraphs": 20,
+  "summaries": 20,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 6,
+  "regex_citations": 4,
+  "regex_addressed": 4,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 3,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 4,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 13,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 87,
+   "para_end": 87
+  },
+  {
+   "citing_para": 14,
+   "neutral_citation": "2003 SCC 20",
+   "para_start": 55,
+   "para_end": 55
+  },
+  {
+   "citing_para": 17,
+   "neutral_citation": "2020 FCA 165",
+   "para_start": 17,
+   "para_end": 24
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Mr. Iradj Mohammadi's challenge to a visa officer's decision declaring him inadmissible on security grounds under IRPA section 34(1)(d). Mr. Iradj argued the decision was unreasonable because it ignored important uncontested facts, specifically the reversal of sanctions against NNC, where he was CEO. The Federal Court agreed, set aside the decision, and remitted the matter for redetermination, finding the visa officer's failure to address key evidence unreasonable.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "Applicant",
+    "text": "Visa officer ignored important facts making decision unreasonable"
+   },
+   {
+    "id": "P2",
+    "para": 7,
+    "by": "Applicant",
+    "text": "Submitted responses about removal of NNC sanctions in EU and UK"
+   },
+   {
+    "id": "P3",
+    "para": 12,
+    "by": "Applicant",
+    "text": "Argues multiple shortcomings but focus on unreasonableness"
+   },
+   {
+    "id": "P4",
+    "para": 15,
+    "by": "Applicant",
+    "text": "Decision unreasonable for ignoring reversal of EU and UK sanctions"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 16,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 19,
+    "answers": "P1",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "Applicant Mr. Iradj argues the visa officer's decision failed to address important facts he submitted, making the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court agrees it is unreasonable for a visa officer to ignore important uncontested facts after inviting submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court will set aside the visa officer's inadmissibility decision and remit it for redetermination due to the identified unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "Mr. Iradj, an Iranian citizen, applied for permanent residence in Canada in 2013 as an investor selected by Quebec.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "In 2020, Mr. Iradj received a procedural fairness letter citing concerns under IRPA section 34(1)(d) about his inadmissibility on security grounds.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 34(1)(d)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines inadmissibility on security grounds relevant to the case"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The letter noted Mr. Iradj was CEO of NNC, linked to weapons proliferation and listed by US Treasury sanctions, inviting him to respond.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "Mr. Iradj submitted detailed responses explaining NNC's sanctions listings were re-evaluated and removed in the EU and UK after submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The visa officer summarized background facts and Mr. Iradj\u2019s submissions, including his explanations about NNC\u2019s sanctions listings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The officer acknowledged the EU listing was lifted in 2017 but did not further address this important fact in the decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The officer emphasized NNC\u2019s listing by Iran Watch and US Treasury, finding it unlikely these sanctions were errors.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Special Economic Measures (Iran) Regulations, SOR/2010-165, Schedule 1, Part I",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Referenced sanctions list including NNC"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The officer concluded NNC\u2019s sanctions listings and Mr. Iradj\u2019s CEO role made it likely he was aware of proliferation activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "Applicant argues multiple shortcomings, but court agrees with respondent that the issue is whether the decision was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court states the reasonableness standard requires review of both outcome and process, citing Vavilov at para 87.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 87",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness standard for judicial review"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The decision must show a rational analysis justified by facts and law, quoting Vavilov and Ryan for the standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, above, at paras 85 and 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets requirements for rational and justified decision-making"
+    },
+    {
+     "cite": "Law Society of New Brunswick v Ryan, 2003 SCC 20 at para 55",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports need for a reasonable line of analysis in decisions"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Applicant submits the decision is unreasonable for ignoring the reversal of NNC\u2019s EU and UK sanctions listings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court agrees the decision was unreasonable for failing to address the reversal of NNC\u2019s EU and UK listings and relying on outdated listings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The respondent\u2019s argument that remaining evidence suffices conflates justifiable and justified; failure to engage important evidence is unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v Fauteux, 2020 FCA 165, at paras 17 and 24",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Failure to address inconsistent evidence renders decision unreasonable"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court notes a decision can be unreasonable even if the ultimate conclusion would not have changed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The decision is set aside and remitted; other applicant arguments need not be considered but should be addressed by the new decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court agrees no serious question of general importance arises for certification in this case.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

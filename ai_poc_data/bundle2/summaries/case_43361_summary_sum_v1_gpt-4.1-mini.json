@@ -1,0 +1,407 @@
+{
+ "case_id": 43361,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0042948000000000005
+ },
+ "verification": {
+  "paragraphs": 11,
+  "summaries": 11,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 20,
+  "regex_citations": 17,
+  "regex_addressed": 15,
+  "pinpoints": 11,
+  "purposes": {
+   "standard_of_review_or_test": 11,
+   "supports_court_conclusion": 7,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 9,
+  "party_points": 4,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 2,
+   "neutral_citation": "2012 FCA 204",
+   "para_start": 85,
+   "para_end": 88
+  },
+  {
+   "citing_para": 2,
+   "neutral_citation": "2024 FCA 19",
+   "para_start": 6,
+   "para_end": 6
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2024 FCA 115",
+   "para_start": 20,
+   "para_end": 20
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2017 FCA 37",
+   "para_start": 12,
+   "para_end": 12
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2025 FCA 222",
+   "para_start": 9,
+   "para_end": 9
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2016 FCA 215",
+   "para_start": 79,
+   "para_end": 79
+  },
+  {
+   "citing_para": 4,
+   "neutral_citation": "2022 SCC 48",
+   "para_start": 41,
+   "para_end": 41
+  },
+  {
+   "citing_para": 5,
+   "neutral_citation": "2016 SCC 48",
+   "para_start": 38,
+   "para_end": 38
+  },
+  {
+   "citing_para": 5,
+   "neutral_citation": "2012 FCA 165",
+   "para_start": 46,
+   "para_end": 46
+  },
+  {
+   "citing_para": 9,
+   "neutral_citation": "2020 FCA 204",
+   "para_start": 6,
+   "para_end": 6
+  },
+  {
+   "citing_para": 10,
+   "neutral_citation": "2017 SCC 47",
+   "para_start": 36,
+   "para_end": 36
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns an appeal by appellants against a Federal Court order that affirmed an Associate Judge's dismissal of their late extension request to appeal a struck statement of claim. The appellants argued that the lower courts erred in their discretionary refusal to grant an extension of time, but the Federal Court of Appeal found no legal error and upheld the refusal. Consequently, the appeal was dismissed and costs were awarded to the respondents.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 6,
+    "by": "appellants",
+    "text": "errors in assuming appeal merit without summary assessment"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "appellants",
+    "text": "no reasonable delay explanation"
+   },
+   {
+    "id": "P3",
+    "para": 6,
+    "by": "appellants",
+    "text": "inferred respondent prejudice"
+   },
+   {
+    "id": "P4",
+    "para": 6,
+    "by": "appellants",
+    "text": "injustice in refusing extension"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 7,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This appeal challenges a Federal Court order affirming an Associate Judge's dismissal of appellants' late extension request to appeal a struck statement of claim.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeal of Federal Court order",
+    "Associate Judge dismissed extension request",
+    "extension filed 234 days late"
+   ],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules, S.O.R./98-106, r. 51",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Cites the rule setting the deadline for filing a notice of appeal"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court outlines four factors for granting extension of time, emphasizing the interests of justice as the overarching consideration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lists four factors for extension",
+    "interests of justice is overarching consideration"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Attorney General) v. Hennelly, 1999 CanLII 8190 at para. 3 (F.C.A.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets factors for extension of time"
+    },
+    {
+     "cite": "Grewal v. M.E.I., [1985] 2 F.C. 263 at pp. 272, 277-78 (F.C.A.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports interests of justice as overarching consideration"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Larkman, 2012 FCA 204 at paras. 85-88",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports interests of justice as overarching consideration"
+    },
+    {
+     "cite": "Greenblue Urban North America Inc. v. Deeproot Green Infrastructure, LLC, 2024 FCA 19 at para. 6",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports interests of justice as overarching consideration"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The Associate Judge found appellants intended to pursue appeal but delay caused prejudice and lacked reasonable explanation; Federal Court found no error and dismissed appeal.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Associate Judge's findings on intention, merit, prejudice, explanation",
+    "Federal Court dismissed appeal for no error"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court reviews whether the Federal Court erred in upholding the Associate Judge's discretionary refusal of extension, applying deference unless legal error exists.",
+   "ideas": "multiple",
+   "idea_list": [
+    "question is Federal Court error",
+    "discretionary decision with deference",
+    "correctness standard for legal questions"
+   ],
+   "citations": [
+    {
+     "cite": "Davis v. Canada (Royal Canadian Mounted Police), 2024 FCA 115 at para. 20",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Frames question of appellate review"
+    },
+    {
+     "cite": "Sikes v. Encana Corporation, 2017 FCA 37 at para. 12",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Frames question of appellate review"
+    },
+    {
+     "cite": "Qualizza v. Canada, 2025 FCA 222 at para. 9",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States standard of review for discretionary decisions"
+    },
+    {
+     "cite": "Hospira Healthcare Corporation v. Kennedy Institute of Rheumatology, 2016 FCA 215 at para. 79",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States standard of review for discretionary decisions"
+    },
+    {
+     "cite": "Canada (Transportation Safety Board) v. Carroll Byrne, 2022 SCC 48 at para. 41",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States standard of review for discretionary decisions"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court explains palpable and overriding error means obvious and outcome-affecting, noting appellants concede no such error exists here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "defines palpable and overriding error",
+    "appellants concede no such error"
+   ],
+   "citations": [
+    {
+     "cite": "Benhaim v. St\u2011Germain, 2016 SCC 48 at para. 38",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines palpable and overriding error"
+    },
+    {
+     "cite": "Canada v. South Yukon Forest Corporation, 2012 FCA 165 at para. 46",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines palpable and overriding error"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Appellants argue errors in assuming appeal merit without summary assessment, no reasonable delay explanation, inferred respondent prejudice, and injustice in refusing extension.",
+   "ideas": "multiple",
+   "idea_list": [
+    "challenge assumption of appeal merit",
+    "challenge no reasonable explanation",
+    "challenge inferred prejudice",
+    "claim refusal causes injustice"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Court rejects appellants' arguments, upholding the assumption of some merit without full evaluation as proper under Hennelly and related cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no error in assuming some merit",
+    "no full merits evaluation required",
+    "cites Hennelly and related cases"
+   ],
+   "citations": [
+    {
+     "cite": "Hennelly at para. 3",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports assumption of some merit without full evaluation"
+    },
+    {
+     "cite": "LeBlanc v. National Bank of Canada, [1994] 1 F.C. 81 at p. 92 (F.C.)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports assumption of some merit without full evaluation"
+    },
+    {
+     "cite": "Qualizza at para. 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports assumption of some merit without full evaluation"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The Court affirms the Federal Court's rejection of appellants' explanations for delay, finding no error or basis to intervene.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court agrees the long delay justifies concern for prejudice and supports denying extension in interests of justice, citing relevant precedents.",
+   "ideas": "multiple",
+   "idea_list": [
+    "delay length relevant to prejudice",
+    "delay length relevant to interests of justice",
+    "cites precedents supporting this"
+   ],
+   "citations": [
+    {
+     "cite": "Larkman at para. 62",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports considering delay length in interests of justice"
+    },
+    {
+     "cite": "Gambler First Nation v. Ledoux, 2020 FCA 204 at para. 6",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports considering delay length in interests of justice"
+    },
+    {
+     "cite": "Larkman at paras. 86-88",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports delay's impact on finality and certainty"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Court finds no error in the Federal Court's refusal of extension, rejecting appellants' reliance on Koch and affirming deference to factor weighing.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no error in refusal",
+    "Koch did not change test",
+    "deference to factor weighing",
+    "consequences considered"
+   ],
+   "citations": [
+    {
+     "cite": "Koch v. Borgatti Estate, 2022 FCA 201",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Rejects appellants' claim that Koch changed test for extensions"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Fontaine, 2017 SCC 47 at para. 36",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports deference to weighing of factors"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appeal is dismissed and appellants must pay costs of $2,500 to each respondent as agreed by parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

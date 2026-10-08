@@ -1,0 +1,1248 @@
+{
+ "case_id": 43363,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.018552
+ },
+ "verification": {
+  "paragraphs": 74,
+  "summaries": 74,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 13,
+  "model_citations": 58,
+  "regex_citations": 24,
+  "regex_addressed": 19,
+  "pinpoints": 20,
+  "purposes": {
+   "standard_of_review_or_test": 23,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 14,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 15
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 11,
+  "rebuttals": 8,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 20,
+   "neutral_citation": "2020 FCA 151",
+   "para_start": 14,
+   "para_end": 14
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2006 FCA 417",
+   "para_start": 41,
+   "para_end": 41
+  },
+  {
+   "citing_para": 22,
+   "neutral_citation": "2017 FCA 79",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2025 FCA 45",
+   "para_start": 11,
+   "para_end": 11
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2002 SCC 33",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2020 FCA 140",
+   "para_start": 49,
+   "para_end": 51
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2022 FCA 205",
+   "para_start": 13,
+   "para_end": 13
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2020 FCA 171",
+   "para_start": 37,
+   "para_end": 37
+  },
+  {
+   "citing_para": 25,
+   "neutral_citation": "2017 FCA 86",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 29,
+   "neutral_citation": "2021 FCA 82",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2026 FCA 27",
+   "para_start": 4,
+   "para_end": 4
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2026 SCC 5",
+   "para_start": 87,
+   "para_end": 87
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2004 SCC 6",
+   "para_start": 26,
+   "para_end": 26
+  },
+  {
+   "citing_para": 41,
+   "neutral_citation": "2020 FCA 141",
+   "para_start": 86,
+   "para_end": 87
+  },
+  {
+   "citing_para": 41,
+   "neutral_citation": "2022 FCA 25",
+   "para_start": 43,
+   "para_end": 44
+  },
+  {
+   "citing_para": 56,
+   "neutral_citation": "2012 SCC 55",
+   "para_start": 40,
+   "para_end": 40
+  },
+  {
+   "citing_para": 65,
+   "neutral_citation": "2021 SCC 30",
+   "para_start": 61,
+   "para_end": 61
+  },
+  {
+   "citing_para": 65,
+   "neutral_citation": "2020 FCA 90",
+   "para_start": 52,
+   "para_end": 52
+  },
+  {
+   "citing_para": 65,
+   "neutral_citation": "2022 FCA 154",
+   "para_start": 37,
+   "para_end": 37
+  },
+  {
+   "citing_para": 80,
+   "neutral_citation": "2007 FCA 210",
+   "para_start": 7,
+   "para_end": 7
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the classification of surgical gloves imported by Medline Canada Corporation under the Customs Tariff. The Attorney General, as appellant, challenged the Tribunal's classification of the gloves as \"for use in\" surgical instruments under tariff item 9977.00.00, arguing the Tribunal erred in law. The Federal Court of Appeal allowed the Attorney General's appeal, finding the gloves are not \"for use in\" surgical instruments and dismissing the separate judicial review application.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Attorney General",
+    "text": "Tribunal erred in law in classifying gloves"
+   },
+   {
+    "id": "P2",
+    "para": 24,
+    "by": "Medline",
+    "text": "No extricable question of law arises; Tribunal applied established legal standards"
+   },
+   {
+    "id": "P3",
+    "para": 27,
+    "by": "Attorney General",
+    "text": "Tribunal misinterpreted 'for use in' and wrongly found gloves 'attached to' scalpels"
+   },
+   {
+    "id": "P4",
+    "para": 36,
+    "by": "Attorney General",
+    "text": "Tribunal's interpretation conflicts with statutory language and tariff purpose"
+   },
+   {
+    "id": "P5",
+    "para": 37,
+    "by": "Attorney General",
+    "text": "Tribunal's broad interpretation conflicts with jurisprudence on physical connection and joint functionality"
+   },
+   {
+    "id": "P6",
+    "para": 43,
+    "by": "Medline",
+    "text": "Disputes Attorney General's view on joint functionality requiring enhancement independent of human intervention"
+   },
+   {
+    "id": "P7",
+    "para": 48,
+    "by": "Medline and Tribunal",
+    "text": "Gloves are 'attached to' scalpels due to real, effective, functional connection during surgery"
+   },
+   {
+    "id": "P8",
+    "para": 72,
+    "by": "Medline",
+    "text": "Relies on Tribunal decision in Sony to argue 'attached to' does not require incorporation"
+   },
+   {
+    "id": "P9",
+    "para": 77,
+    "by": "Tribunal",
+    "text": "Functional relationship between gloves and scalpels includes reduced infection risk, increased grip, improved tactile feedback"
+   },
+   {
+    "id": "P10",
+    "para": 78,
+    "by": "Tribunal",
+    "text": "Temporary physical connection between gloves and scalpels during surgery meets physical connection threshold"
+   },
+   {
+    "id": "P11",
+    "para": 81,
+    "by": "Tribunal",
+    "text": "Physical connection need not be permanent; can be temporary like wireless connections"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 23,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 44,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 49,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 73,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 74,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 79,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 82,
+    "answers": "P11",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Attorney General, as applicant/appellant, argues the Tribunal erred in law in classifying the gloves and seeks appeal under paragraph 68(1)(b) or judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Attorney General's primary legal error claim",
+    "Alternative judicial review claim"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 68(1)(b) of the Act",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Legal basis for appeal"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The Court finds the Attorney General's appeal raises a question of law and should be allowed, making judicial review unnecessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The gloves are subject to Medical Device Regulations and can only be imported by licensed persons; Medline holds such a licence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at para. 5",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Source of licensing fact"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Medline imported the gloves classified under tariff item 4015.11.00 as surgical gloves of vulcanized rubber; this classification is undisputed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "Medline later requested duty refunds claiming eligibility under Special Classification Provisions in Chapter 99, item 9977.00.00.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 74 of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for duty refund request"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Tariff item 9977.00.00 covers articles for use in medical, surgical, dental or veterinary sciences, including certain apparatus.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "Note 4 to Chapter 99 says terms have same meaning as in Chapters 1-97; subsection 2(1) defines 'for use in' as goods incorporated or attached to other goods.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Note 4 to Chapter 99",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Definition source for terms in Chapter 99"
+    },
+    {
+     "cite": "subsection 2(1) of the Customs Tariff",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Definition of 'for use in'"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "Note 3 to Chapter 99 requires gloves to be classified in Chapter 99 only after classification under Chapters 1-97; parties agree gloves were properly classified under 4015.11.00.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The Agency denied Medline's refund requests as gloves did not meet 'for use in' requirements; Medline appealed to the Tribunal after unsuccessful re-determination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 67(1) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for appeal to Tribunal"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The Tribunal held classification depends on whether goods are articles, for use in, and instruments used in medical sciences; first and third criteria undisputed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at paras. 41, 43-44",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Tribunal's classification criteria and findings"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The Tribunal found the gloves were neither wrought nor incorporated into scalpels, so the issue was whether gloves were 'attached to' scalpels.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at para. 45",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Tribunal's finding on 'wrought' and 'incorporated'"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The Tribunal applied a two-prong test requiring gloves to be both functionally joined and physically connected to instruments to be 'attached to' them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at paras. 45-46",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Tribunal's test for 'attached to'"
+    },
+    {
+     "cite": "Best Buy Canada Ltd. v. President of the Canada Border Services Agency, AP-2015-034, AP-2015-036 and AP-2016-001 at para. 77",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of test application"
+    },
+    {
+     "cite": "Sonos Inc. v. President of the Canada Border Services Agency, AP-2016-020 at para. 63",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of test application"
+    },
+    {
+     "cite": "Ubisoft Canada Inc. v. President of the Canada Border Services Agency, AP-2013-004 at para. 59",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Example of test application"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The Tribunal concluded gloves met both requirements by enhancing instrument function and providing a sterile barrier.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at para. 57",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Tribunal's conclusion on joint functionality"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The Tribunal held physical connection requires a real and effective connection, not necessarily permanent or purely physical, and concluded gloves met this.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court must decide if the Attorney General's appeal falls under subsection 68(1) of the Act; Medline disputes this.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 68(1) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for appeal jurisdiction"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "If appeal falls under subsection 68(1), Court must decide if Tribunal erred in law on classification and how to dispose of judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Tariff classification usually involves mixed fact and law, which do not qualify as questions of law for statutory appeals limited to law or jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Border Services Agency) v. Decolin Inc., 2006 FCA 417 at para. 41",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Classification involves mixed fact and law"
+    },
+    {
+     "cite": "Canadian National Railway Company v. Emerson Milling Inc., 2017 FCA 79 at para. 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Mixed fact and law not questions of law for appeal"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Legal errors include questions of law extricable from mixed fact and law; a question of law remains so even if factually infused.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Legal errors can be extricable questions of law",
+    "Question of law remains even if factually infused"
+   ],
+   "citations": [
+    {
+     "cite": "Best Buy Canada Ltd. v. Canada (Border Services Agency), 2025 FCA 45 at para. 11",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines extricable questions of law"
+    },
+    {
+     "cite": "Emerson Milling I at para. 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines extricable questions of law"
+    },
+    {
+     "cite": "Housen v. Nikolaisen, 2002 SCC 33 at para. 27",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Mixed fact and law can be error of pure law"
+    },
+    {
+     "cite": "Neptune at para. 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Question of law remains even if factually infused"
+    },
+    {
+     "cite": "Bell Canada v. British Columbia Broadband Association, 2020 FCA 140 at paras. 49-51",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Question of law remains even if factually infused"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "Medline argues no extricable question of law arises because Tribunal applied established legal standards to evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The Court disagrees, stating it must examine the appeal's essential character by reviewing grounds and memoranda to identify real questions of law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Neptune at para. 16",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Discerning extricable questions of law is challenging"
+    },
+    {
+     "cite": "Canada (Border Services Agency) v. Danson D\u00e9cor Inc., 2022 FCA 205 at para. 13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Discerning extricable questions of law is challenging"
+    },
+    {
+     "cite": "Emerson Milling I at para. 29",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Examination of appeal's essential character"
+    },
+    {
+     "cite": "Canada (Attorney General) v. Impex Solutions Inc., 2020 FCA 171 at para. 37",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Use of memorandum to construe notice of appeal"
+    },
+    {
+     "cite": "Canadian National Railway Company v. Emerson Milling Inc., 2017 FCA 86 at para.17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Goal to gain realistic appreciation of appeal's character"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court must ensure the appeal truly raises a question of law, not fact or mixed fact and law disguised as law.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Neptune at para. 16",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Ensuring appeal raises real question of law"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "The Attorney General claims the Tribunal misinterpreted 'for use in' and wrongly found gloves 'attached to' scalpels by being held together in hand.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Attorney General's memorandum focuses on statutory interpretation and case law, not disputing Medline's evidence except where it supports improper interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The appeal raises pure questions of law, including the novel issue of human intervention in interpreting 'for use in', fitting subsection 68(1) jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Court owes no deference to the Tribunal on questions of law and can replace its opinion with its own.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Housen at para. 8",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "No deference on questions of law"
+    },
+    {
+     "cite": "Canada (Border Services Agency) v. Cooper, 2026 FCA 27 at para. 4",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "No deference on questions of law"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Statutory words must be read in context, ordinary sense, harmoniously with the Act's scheme, object, and Parliament's intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rizzo & Rizzo Shoes Ltd (Re), [1998] 1 SCR 27 at para. 21",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Principle of statutory interpretation"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "For bilingual statutes, courts compare versions, find common meaning if discordant, and ensure it reflects parliamentary intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Taylor v. Newfoundland and Labrador, 2026 SCC 5 at paras. 87\u201190",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Methodology for interpreting bilingual statutes"
+    },
+    {
+     "cite": "R. v. Daoust, 2004 SCC 6 at paras. 26\u201131",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports bilingual interpretation methodology"
+    }
+   ]
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Attorney General contends the Tribunal's interpretation conflicts with statutory language, French version, associated words rule, and tariff purpose.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Plain meaning requires physical connection",
+    "Functionality must enhance host goods",
+    "Broad interpretation conflicts with tariff purpose"
+   ],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The Attorney General says the Tribunal's broad interpretation conflicts with established jurisprudence on physical connection and joint functionality.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The Court rejects Medline's objection, finding no new ground of appeal as the issue concerns interpretation of 'for use in' involving human interface.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The Attorney General's submissions before this Court do not differ legally or factually from those before the Tribunal, only repackaged.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Even if the \"independent physical connection\" argument is new, it is a new argument on an existing issue, not a new issue, and Medline had fair notice and responded.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Nova Chemicals Corporation v. The Dow Chemical Company, Dow Global Technologies Inc. and Dow Chemical Canada ULC, 2020 FCA 141 at paras. 86-87",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "New argument on existing issue allowed with fair notice and opportunity to respond"
+    },
+    {
+     "cite": "Canada (Commissioner of Competition) v. Secure Energy Services Inc., 2022 FCA 25 at paras. 43-44",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Same as above"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "party",
+   "summary": "Medline disputes the Attorney General's view that joint functionality requires enhancement of host goods' function independent of human intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court disagrees and finds the gloves are not \"for use in\" surgical instruments under tariff item 9977.00.00 after textual, contextual, and purposive analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "To be \"for use in\" scalpels, gloves must be wrought, incorporated into, or attached to scalpels, as per the French version.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Medline concedes gloves are neither wrought nor incorporated into scalpels, which require high physical integration, supported by dictionary definitions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "party",
+   "summary": "Medline and the Tribunal claim gloves are \"attached to\" scalpels due to a real, effective, and functional connection during surgery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at para. 78",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Tribunal's conclusion on attachment"
+    }
+   ]
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court agrees with the Attorney General that the Tribunal's interpretation of \"attached to\" extends beyond its ordinary meaning.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The ordinary meaning of \"attached to\" requires some independent physical connection like tying, stitching, or clipping.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The French version of \"attached to\" requires physical connection or integration, reinforcing the Attorney General's position.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "French definitions of \"fixation\" require solid physical attachment, which gloves and scalpels lack.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "No conflict exists between English and French versions; the more restrictive French meaning applies, reflecting parliamentary intent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Daoust at para. 29",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports applying the more restrictive bilingual interpretation"
+    }
+   ]
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The Court accepted in Agri Pack that \"attached to\" includes functional and physical relationships but narrows its meaning.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Customs and Revenue Agency) v. Agri Pack, 2005 FCA 414",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Court accepted Tribunal's two-condition interpretation narrowing 'attached to'"
+    }
+   ]
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "The Tribunal's conclusion of a real and effective connection based on a special relationship expands \"attached to\" beyond the Act's words.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "The gloves not being \"for use in\" scalpels is further supported by contextual analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "The common feature among analogous terms can resolve ambiguity or limit their scope to the broadest common denominator.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Opitz at para. 41",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports using common denominator among terms"
+    },
+    {
+     "cite": "Sullivan on the Construction of Statutes (5th ed. 2008), at p. 227",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Textbook on statutory interpretation"
+    }
+   ]
+  },
+  {
+   "para": 59,
+   "speaker": "court",
+   "summary": "The terms \"wrought\" and \"incorporated into\" suggest \"attached to\" requires a high degree of physical integration beyond mere holding.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "Chapter 99 uses different terms to describe relationships: \"for use in,\" \"for use by,\" and \"for use with.\"",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "\"For use by\" refers to the user of goods, as shown in various tariff items specifying users like printers or militia personnel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "\"For use with\" specifies use in relation to another good, as seen in several tariff items.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "\"For use in\" is mainly used for manufacturing or repairing another good, where the good forms part of the composition.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "When used for repair, \"for use in\" means the good is wrought into the composition of an existing good, as in various tariff items.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "Parliament's use of different terms is deliberate; it does not use superfluous or redundant words.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada v. Canada North Group Inc., 2021 SCC 30 at para. 61",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Presumption against superfluous words"
+    },
+    {
+     "cite": "McDiarmid Lumber Ltd. v. God\u2019s Lake First Nation, 2006 SCC 58",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Same presumption"
+    },
+    {
+     "cite": "Lawyers\u2019 Professional Indemnity Company v. Canada, 2020 FCA 90 at para. 52",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Same presumption"
+    },
+    {
+     "cite": "Contact Lens King Inc. v. Canada, 2022 FCA 154 at para. 37",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Same presumption"
+    }
+   ]
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "If Parliament intended to specify gloves in relation to scalpels or users, it would have used \"for use with\" or \"for use by,\" not \"for use in.\"",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Medline seeks duty relief based on gloves being used with scalpels, but tariff item 9977.00.00 does not provide for that.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The purpose of Chapter 99 further supports the conclusion that gloves are not \"for use in\" scalpels.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "court",
+   "summary": "The Court accepted the restrictive interpretation of \"attached to\" as proper to give effect to Parliament's purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Agri Pack at para. 30",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court accepted restrictive interpretation of 'attached to'"
+    }
+   ]
+  },
+  {
+   "para": 71,
+   "speaker": "court",
+   "summary": "Medline's broad interpretation equating \"for use in\" with \"for use with\" is unsupported by language, context, and purpose.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "party",
+   "summary": "Medline relies on a Tribunal decision in Sony, claiming \"attached to\" does not require incorporation, but the facts differ.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sony of Canada Ltd. v. Canada (National Revenue), AP-95-262 (Sony)",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Medline cites Tribunal decision on 'attached to' interpretation"
+    }
+   ]
+  },
+  {
+   "para": 73,
+   "speaker": "court",
+   "summary": "Neither physical connection nor functional joining criteria are met; gloves require human intervention and are not physically integrated with scalpels.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 74,
+   "speaker": "court",
+   "summary": "The court rejects Medline's claim that the gloves enhance scalpel functionality, stating gloves improve surgeon ability and reduce infection risk instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 75,
+   "speaker": "court",
+   "summary": "The court explains tariff item 9977.00.00 applies only to articles used \"in\" surgical instruments, not those used with or by surgeons, so gloves don't qualify.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 76,
+   "speaker": "court",
+   "summary": "The court notes the Attorney General's point that no prior decisions support gloves and scalpels being physically or functionally connected.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 77,
+   "speaker": "below",
+   "summary": "The tribunal found a functional relationship between gloves and scalpels, including reduced infection risk, increased grip, and improved tactile feedback.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 78,
+   "speaker": "below",
+   "summary": "The tribunal found a temporary physical connection between gloves and scalpels during surgery, meeting the required threshold for physical connection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 79,
+   "speaker": "court",
+   "summary": "The court agrees with the Attorney General that the Tribunal in Canadian Tire did not substitute user benefits for host goods' function enhancement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Tire at para. 43",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Attorney General's argument about Canadian Tire decision on joint functionality"
+    }
+   ]
+  },
+  {
+   "para": 80,
+   "speaker": "court",
+   "summary": "The court lists prior decisions requiring an independent physical connection or integration between goods and host goods for physical connection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sony of Canada Ltd. v. the Commissioner of the Canada Customs and Revenue Agency, AP-2001-097 at p. 2 (Sony II)",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Best Buy at paras. 5-6, 79",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Jam Industries Ltd. v. Canada (Border Services), AP-2005-006 at para. 8, aff\u2019d Jam Industries Ltd. v. Canada (Border Services Agency), 2007 FCA 210 at para. 7",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Andritz Hydro Canada Inc. and VA Tech Hydro Canada Inc. v. President of the Canada Border Services Agency, AP-2012-022 at para. 11",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Kverneland Group North America Inc. v. Canada Border Services Agency, AP-2009-013 at para. 43",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Agri Pack at paras. 21, 27",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "PHD Canada Distributing Ltd. v. the Commissioner of Customs and Revenue, AP-99-116 at p. 2",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Curve Distribution Services Inc. v. President of the Canada Border Services Agency, AP-2011-023 at para. 66",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    },
+    {
+     "cite": "Sony at p. 3",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Prior decisions on physical connection criterion"
+    }
+   ]
+  },
+  {
+   "para": 81,
+   "speaker": "below",
+   "summary": "The tribunal's theory is that physical connection need not be permanent and can be temporary, like wireless connections, citing gloves and scalpels contact during surgery.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Decision at para. 78",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Tribunal's view on physical connection threshold"
+    }
+   ]
+  },
+  {
+   "para": 82,
+   "speaker": "court",
+   "summary": "The court rejects the tribunal's theory, stating no case law supports physical connection requiring constant user intervention, and wireless connections hold goods independently.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 83,
+   "speaker": "court",
+   "summary": "The court concludes the gloves are not \"for use in\" surgical instruments under tariff item 9977.00.00 and allows the Attorney General's appeal under paragraph 68(1)(b).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 85,
+   "speaker": "court",
+   "summary": "The court cites Best Buy 2025 to explain judicial review applications against Customs Tariff decisions are limited and not always appropriate.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Best Buy 2025 at para. 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Judicial review availability is limited in Customs Tariff matters"
+    }
+   ]
+  },
+  {
+   "para": 86,
+   "speaker": "court",
+   "summary": "The court states that separate judicial review applications duplicating appeal submissions are unnecessary and likely to fail, citing Best Buy 2025.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Best Buy 2025 at para. 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Separate judicial review applications duplicating appeal submissions are doomed to fail"
+    }
+   ]
+  },
+  {
+   "para": 88,
+   "speaker": "court",
+   "summary": "The court dismisses the separate judicial review application without costs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 89,
+   "speaker": "other",
+   "summary": "The court records the filing of the reasons in case files and notes the judges' agreement and case docket number.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

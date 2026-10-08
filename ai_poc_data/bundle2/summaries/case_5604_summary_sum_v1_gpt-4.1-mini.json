@@ -1,0 +1,667 @@
+{
+ "case_id": 5604,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.008872399999999999
+ },
+ "verification": {
+  "paragraphs": 33,
+  "summaries": 33,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 33,
+  "regex_citations": 14,
+  "regex_addressed": 14,
+  "pinpoints": 5,
+  "purposes": {
+   "standard_of_review_or_test": 13,
+   "supports_court_conclusion": 9,
+   "party_argument_reported": 2,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 9
+  },
+  "multi_idea_paragraphs": 17,
+  "party_points": 4,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 13,
+   "neutral_citation": "2017 FCA 128",
+   "para_start": 86,
+   "para_end": 86
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2020 FC 1111",
+   "para_start": 41,
+   "para_end": 41
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2008 FC 1022",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 26,
+   "neutral_citation": "2011 FC 721",
+   "para_start": 16,
+   "para_end": 17
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of the Minister's decision to deny waiver of tax penalties for RRSP over-contributions in 2018. The Applicant argued a misunderstanding of spousal RRSP rules caused the over-contribution, while the Minister found no reasonable error was established. The Federal Court dismissed the judicial review, finding the Minister's decision reasonable and justified.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 25,
+    "by": "Applicant",
+    "text": "misunderstood spousal RRSP rules causing over-contribution"
+   },
+   {
+    "id": "P2",
+    "para": 9,
+    "by": "Applicant",
+    "text": "asserted honest error, prompt correction, negative interest impact"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "Applicant",
+    "text": "new ground about lack of CRA definition of 'reasonable error'"
+   },
+   {
+    "id": "P4",
+    "para": 16,
+    "by": "Applicant",
+    "text": "request to waive cost order from prior motion"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 26,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 28,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 15,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 17,
+    "answers": "P4",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Applicant over-contributed to RRSPs in 2018 and was assessed tax by the Minister, who denied his waiver request; he seeks judicial review.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's over-contribution and tax assessment",
+    "Minister's denial of waiver request",
+    "Applicant seeks judicial review"
+   ],
+   "citations": [
+    {
+     "cite": "section 204.1 of Part X.1 of the Income Tax Act, R.S.C. 1985, c. 1 (5th Supp.)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for tax on RRSP over-contribution"
+    },
+    {
+     "cite": "section 204.1(4)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Minister's discretion to waive tax"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The court finds the Minister's decision reasonable and dismisses the judicial review application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicant's RRSPs included a personal and a spousal RRSP since 2010.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "In 2018, the Applicant contributed more than his allowable RRSP limit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "In March 2019, the Applicant requested waiver of penalties, explaining he misunderstood spousal RRSP contribution rules and would withdraw excess.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's waiver request letter",
+    "Explanation of misunderstanding about spousal RRSPs",
+    "Commitment to withdraw excess"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "In March 2019, the Applicant filed a T1-OVP return and paid $1,008.25 tax for 2018 over-contribution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "In May 2019, the Minister assessed $1,040.53 tax with no penalty; arrears interest was adjusted to nil and balance paid by Applicant.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's assessment",
+    "Interest adjustment",
+    "Applicant's payment"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "On September 30, 2019, the Minister denied the waiver, explaining reasonable error excludes misunderstanding RRSP limits and the Applicant's circumstances were not reasonable.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's denial letter",
+    "Definition of reasonable error",
+    "Applicant's circumstances not reasonable"
+   ],
+   "citations": [
+    {
+     "cite": "Subsection 204.1(4) of the Income Tax Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Minister's discretion to waive tax explained"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "On October 9, 2019, the Applicant requested a second review, asserting honest error, prompt correction, and negative interest impact.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's second review request",
+    "Explanation of error and correction steps",
+    "Request for leniency"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "On March 4, 2020, the Minister denied the second request, emphasizing Applicant's long awareness of limits and no reasonable error established.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Minister's denial of second request",
+    "Applicant's responsibility to know limits",
+    "No reasonable error found"
+   ],
+   "citations": [
+    {
+     "cite": "Perinpanayagam v TFSA Processing Unit, 2020 FC 1111 at para 41",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Minister not obliged to advise on reasonable error"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Respondent raised preliminary issues from the Applicant's affidavit and memorandum, which the Court discussed with parties.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The first preliminary issue is whether to strike paragraph 6 and exhibit C of the Applicant's affidavit as not before the decision-maker.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court strikes paragraph 6 and exhibit C as not before the decision-maker and finds them irrelevant to the Minister's decision on reasonable steps.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Evidence not before decision-maker struck",
+    "No exceptions apply",
+    "Evidence irrelevant as Minister made no decision on reasonable steps"
+   ],
+   "citations": [
+    {
+     "cite": "Tsleil-Waututh Nation v Canada (Attorney General), 2017 FCA 128 at para 86",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Only evidence before decision-maker admissible on judicial review"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The second issue is whether the Applicant can raise a new ground about lack of CRA definition of 'reasonable error' not pleaded in Notice of Application.",
+   "ideas": "multiple",
+   "idea_list": [
+    "New ground of review raised",
+    "Respondent objects citing Tl\u2019azt\u2019en Nation v Sam",
+    "Applicant argues it's related to reasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Tl\u2019azt\u2019en Nation v Sam, 2013 FCA 226",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent relies on it to oppose new ground of review"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court refuses to exercise discretion to allow the new ground, finding it tangential and without merit as Minister provided guidance and no duty to advise.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Discretion not exercised to allow new ground",
+    "New ground tangential to reasonableness",
+    "Minister provided guidance on reasonable error",
+    "No duty to advise Applicant"
+   ],
+   "citations": [
+    {
+     "cite": "Perinpanayagam v TFSA Processing Unit, 2020 FC 1111 at para 41",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Minister not obliged to advise on reasonable error"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The third issue is the Applicant's request to waive a cost order from a prior unsuccessful motion, arguing it was unnecessary if Minister had waived taxes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The Court dismisses the cost waiver request as moot due to dismissal and notes proper appeal procedure was not followed.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Application dismissed so cost waiver moot",
+    "Proper appeal procedure for cost order not followed"
+   ],
+   "citations": [
+    {
+     "cite": "Rule 51 of the Federal Courts Rules",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Proper procedure to appeal cost order"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The sole remaining issue is whether the Minister's refusal to waive the Part X.1 tax was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Court agrees with the Respondent that the standard of review is reasonableness, citing Vavilov and Canada Post Corp.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness is presumptive standard",
+    "No exceptions apply",
+    "Cites Vavilov and Canada Post Corp"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (MCI) v Vavilov, 2019 SCC 65 [Vavilov] at paras 23, 25",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness as presumptive standard of review"
+    },
+    {
+     "cite": "Canada Post Corp v Canadian Union of Postal Workers, 2019 SCC 67",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains what is required for reasonable decision"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "other",
+   "summary": "Section 204.1(4) of the ITA allows the Minister to waive Part X.1 tax if the excess arose from reasonable error and reasonable steps are taken to eliminate it.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Statutory provision for waiver",
+    "Conditions: reasonable error and reasonable steps"
+   ],
+   "citations": [
+    {
+     "cite": "Section 204.1(4) of the ITA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory text of waiver provision"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "A taxpayer must satisfy the Minister that the excess arose from reasonable error and that reasonable steps are being taken to eliminate it.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Federal Court of Appeal in Connolly held subsection 204.1(4) aims to relieve harsh tax for reasonable mistakes corrected by reasonable steps.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Connolly v Canada (Minister of National Revenue), 2019 FCA 161 at para 66",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains purpose of subsection 204.1(4)"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Connolly held reasonableness requires objective assessment; ignorance of limits is not reasonable, but misinformation after inquiry might be.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness requires objective assessment",
+    "Ignorance of limits not reasonable",
+    "Misinformation after inquiry may be reasonable",
+    "Reliance on third party not determinative"
+   ],
+   "citations": [
+    {
+     "cite": "Connolly v Canada (Minister of National Revenue), 2019 FCA 161 at para 69",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sets test for reasonable error under subsection 204.1(4)"
+    },
+    {
+     "cite": "R. v. McKinlay Transport Ltd., 1990 CanLII 137 (SCC), [1990] 1 S.C.R. 627 at p. 636, 106 N.R. 385",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports self-assessment obligation"
+    },
+    {
+     "cite": "Guindon v. Canada, 2015 SCC 41, [2015] 3 S.C.R. 3 at para. 54",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports self-assessment obligation"
+    },
+    {
+     "cite": "Dimovski v Canada (Revenue Agency), 2011 FC 721 at paras 16-17",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports self-assessment obligation"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "In Connolly, the Court found the Minister's decision reasonable as the applicant gave little explanation or inquiry about his mistake.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Connolly v Canada (Minister of National Revenue), 2019 FCA 161",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Example of reasonable decision on similar facts"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Applicant claims he misunderstood spousal RRSP rules, believing contributions counted against spouse's limit, causing over-contribution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Court rejects innocence as test; reasonableness of error matters, and taxpayers must ensure compliance or seek advice.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Reasonableness, not innocence, is test",
+    "Self-assessment requires compliance",
+    "Taxpayer expected to seek advice"
+   ],
+   "citations": [
+    {
+     "cite": "Lepiarczyk v Canada (Revenue Agency), 2008 FC 1022 at para 19",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness of error is test"
+    },
+    {
+     "cite": "Connolly, supra at para 69",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Self-assessment obligation"
+    },
+    {
+     "cite": "Dimovski v Canada (Revenue Agency), 2011 FC 721 at paras 16-17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Self-assessment obligation"
+    },
+    {
+     "cite": "Perinpanayagam, supra at para 38",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Self-assessment obligation"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The Applicant did not provide evidence of how he made the mistake or sought advice, similar to Connolly's insufficient evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Connolly, supra",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Applicant's evidence similar to Connolly's insufficient evidence"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The Minister reasonably concluded the Applicant did not establish reasonable error, providing a rational chain of analysis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The Minister's decision is justified, transparent, intelligible, and within acceptable outcomes; judicial review is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The Respondent is entitled to costs of $1,000; the amount is reasonable under Tariff B.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent entitled to costs",
+    "Costs amount reasonable"
+   ],
+   "citations": [
+    {
+     "cite": "Tariff B",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Guideline for costs quantum"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court explains that a reasonable decision must be coherent, rational, and justified by facts and law, citing Vavilov and related cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of reasonable decision",
+    "method of reviewing reasons",
+    "reading reasons holistically"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, at para. 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonable decision as coherent and justified"
+    },
+    {
+     "cite": "Vavilov, at para. 84",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reviewing court must examine reasons with respectful attention"
+    },
+    {
+     "cite": "Dunsmuir, at para. 48",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports respectful attention to decision maker's reasoning"
+    },
+    {
+     "cite": "Vavilov, at para. 97",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasons read holistically and contextually"
+    },
+    {
+     "cite": "Newfoundland Nurses",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports holistic reading of reasons"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court states that reasonableness depends on legal and factual context and must show justification, transparency, and intelligibility, citing Vavilov and other cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "contextual nature of reasonableness",
+    "hallmarks of reasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, at para. 90",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness depends on legal and factual context"
+    },
+    {
+     "cite": "Vavilov, at para. 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Decision must show justification, transparency, intelligibility"
+    },
+    {
+     "cite": "Dunsmuir, at paras. 47 and 74",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports hallmarks of reasonableness"
+    },
+    {
+     "cite": "Catalyst Paper Corp. v. North Cowichan (District), 2012 SCC 2, [2012] 1 S.C.R. 5, at para. 13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports hallmarks of reasonableness"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court explains that the party challenging a decision bears the burden to prove it unreasonable by showing significant flaws, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, at para. 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets burden on challenger to prove unreasonableness"
+    }
+   ]
+  }
+ ]
+}

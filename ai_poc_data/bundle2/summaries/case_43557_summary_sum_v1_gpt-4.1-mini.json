@@ -1,0 +1,245 @@
+{
+ "case_id": 43557,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.003032
+ },
+ "verification": {
+  "paragraphs": 10,
+  "summaries": 10,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 13,
+  "regex_citations": 5,
+  "regex_addressed": 5,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 6,
+   "party_argument_reported": 2,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 5
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 2,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns appeals by the IWK Health Centre against the Tax Court's refusal to allow a rebate under the Excise Tax Act for healthcare expense reimbursements. The appellants challenge the application of prior decisions ExxonMobil and Westcoast, arguing they are manifestly wrong. The Federal Court of Appeal dismisses the appeals, upholding the Tax Court's decision and ordering costs to the respondent.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "appellants",
+    "text": "ExxonMobil and Westcoast are manifestly wrong and should not be followed"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "appellants",
+    "text": "Binding nature of prior decisions unless manifestly wrong as per Miller v. Canada"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 7,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The appeals concern the Tax Court's refusal to allow a rebate under the Excise Tax Act for healthcare expense reimbursements.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appeals concern Tax Court decision",
+    "rebate disallowed for healthcare expense reimbursements"
+   ],
+   "citations": [
+    {
+     "cite": "Part IX of the Excise Tax Act, R.S.C. 1985, c. E-15",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statute governing the rebate and assessments"
+    },
+    {
+     "cite": "subsection 259(3) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Provision for rebate for public service bodies"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "Section 175 defines when tax is deemed paid for rebate calculation under subsection 259(3), involving employee acquisition and employer reimbursement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 259(3)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines rebate calculation"
+    },
+    {
+     "cite": "section 175",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines deemed tax paid conditions"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The Tax Court found section 175 did not apply because the services were personal and not related to employer activities, relying on ExxonMobil and Westcoast.",
+   "ideas": "multiple",
+   "idea_list": [
+    "section 175 not applicable due to personal nature of services",
+    "Tax Court relied on ExxonMobil and Westcoast decisions"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 30 of the Tax Court Decision",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Tax Court's reasoning paragraph"
+    },
+    {
+     "cite": "ExxonMobil Canada Ltd. v. Canada, 2010 FCA 1",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Precedent relied on by Tax Court"
+    },
+    {
+     "cite": "Westcoast Energy Inc. v. Canada, 2022 FCA 57",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Precedent relied on by Tax Court"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellants argue ExxonMobil and Westcoast are manifestly wrong and should not be followed, not disputing their facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellants acknowledge the binding nature of prior decisions unless manifestly wrong as defined in Miller v. Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "must follow prior decisions unless manifestly wrong",
+    "definition of manifestly wrong from Miller"
+   ],
+   "citations": [
+    {
+     "cite": "Westcoast at paragraph 5",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellants cite binding precedent rule"
+    },
+    {
+     "cite": "Miller v. Canada (Attorney General), 2002 FCA 370, 220 D.L.R. (4th) 149",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Defines 'manifestly wrong' standard"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The court finds no merit in appellants' arguments and remains bound to follow ExxonMobil and Westcoast.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The court rejects appellants' claims of absurdity and inconsistency in ExxonMobil and Westcoast as insufficient under Miller.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Miller",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sets requirements for overturning precedent"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The court finds no manifest error in ExxonMobil's interpretation of sections 174 and 175 and accepts Westcoast's equal application finding.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no error in ExxonMobil's section 174 interpretation",
+    "Westcoast's application to section 175 accepted"
+   ],
+   "citations": [
+    {
+     "cite": "ExxonMobil",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Detailed interpretation of section 174"
+    },
+    {
+     "cite": "Westcoast",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirmed application to section 175"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court finds General Motors was not overlooked in ExxonMobil or Westcoast due to factual and statutory differences.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "General Motors of Canada Ltd. v. Canada, 2009 FCA 114, [2010] 2 F.C.R. 344",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Distinguished due to different statutory provisions and facts"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The court dismisses the appeals with costs to the respondent despite appellants' submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

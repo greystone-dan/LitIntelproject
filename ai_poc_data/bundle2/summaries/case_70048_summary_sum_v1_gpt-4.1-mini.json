@@ -1,0 +1,646 @@
+{
+ "case_id": 70048,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.009303200000000001
+ },
+ "verification": {
+  "paragraphs": 44,
+  "summaries": 44,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 10,
+  "regex_citations": 4,
+  "regex_addressed": 0,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 3,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 6
+  },
+  "multi_idea_paragraphs": 10,
+  "party_points": 7,
+  "rebuttals": 9,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 44,
+   "neutral_citation": "2016 FCA 93",
+   "para_start": 103,
+   "para_end": 103
+  },
+  {
+   "citing_para": 44,
+   "neutral_citation": "2019 FC 347",
+   "para_start": 25,
+   "para_end": 37
+  }
+ ],
+ "structure": {
+  "overview": "The Principal and Associate Appellants from Mexico appealed the Refugee Protection Division's (RPD) decision rejecting their refugee claims based on credibility and internal flight alternative (IFA) findings. The Refugee Appeal Division (RAD) dismissed the appeal, agreeing with the RPD that the Appellants lacked a nexus to the Refugee Convention and that a viable IFA existed in Cabos San Lucas. The RAD found some credibility concerns but accepted the 2017 extortion claim and concluded relocation to Cabos San Lucas was reasonable, confirming the RPD's decision.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "applicant",
+    "text": "Threats and extortion by Los Zetas cartel in 2017"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "applicant",
+    "text": "RPD erred in concluding viable IFA existed"
+   },
+   {
+    "id": "P3",
+    "para": 7,
+    "by": "applicant",
+    "text": "Risk of persecution throughout Mexico and criticism of RPD's consideration of cartel brutality and state protection"
+   },
+   {
+    "id": "P4",
+    "para": 28,
+    "by": "applicant",
+    "text": "Risk personalized due to extortion defiance and Los Zetas' influence negates IFA"
+   },
+   {
+    "id": "P5",
+    "para": 29,
+    "by": "applicant",
+    "text": "Low cartel presence in Cabos San Lucas but risk remains due to other cartels and police collusion"
+   },
+   {
+    "id": "P6",
+    "para": 12,
+    "by": "applicant",
+    "text": "Do not contest RPD's finding about delay detracting from credibility"
+   },
+   {
+    "id": "P7",
+    "para": 17,
+    "by": "applicant",
+    "text": "Do not contest RPD's findings on credibility of letters and police visit allegations"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 23,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P2,P4,P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 31,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P4,P5",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P2,P4,P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Principal and Associate Appellants from Mexico appeal the RPD's October 8, 2020 decision rejecting their refugee claims due to credibility and IFA findings.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants' origin and claims",
+    "RPD's findings on credibility and IFA"
+   ],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "court",
+   "summary": "The appeal is dismissed for the reasons explained below.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Principal Appellant alleges threats and extortion demands by Los Zetas cartel in 2017, fearing harm if he reported to police.",
+   "ideas": "single",
+   "idea_list": [
+    "Principal Appellant's allegations of cartel threats"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Appellants allege they relocated due to threats, traveled to Canada, and filed joint claims heard by the RPD.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellants' relocation and claim filing"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD reviews RPD decisions on a correctness standard after independent evidence assessment, applied here unless stated otherwise.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's standard of review"
+   ],
+   "citations": [
+    {
+     "cite": "1",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to standard of review applied by RAD"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred in concluding they had a viable IFA.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellants' argument on IFA error"
+   ],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Appellants argue they face persecution risk throughout Mexico, criticize RPD's consideration of cartel brutality and state protection.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Personalized risk argument",
+    "Criticism of RPD's evidence consideration",
+    "State protection argument"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The RAD raised the issue of an IFA in Cabos San Lucas and will consider the Appellants' further submissions on this.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's procedural step on IFA in Cabos San Lucas"
+   ],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Appellants do not contest RPD's credibility findings and raise irrelevant facts, which the RAD will not consider.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No contest on credibility findings",
+    "Exclusion of irrelevant facts"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The Appellants lack a nexus to the Refugee Convention as their risk stems from extortion, not a protected ground, but their risk is personalized under section 97 IRPA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No nexus to Refugee Convention",
+    "Risk assessed under section 97 IRPA"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD found the Principal Appellant's delay in claiming refugee status detracted from credibility and rejected his explanation for the delay.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on delay and credibility"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Appellants do not contest the RPD's finding about the delay detracting from credibility.",
+   "ideas": "single",
+   "idea_list": [
+    "No contest on delay finding"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RAD agrees the Principal Appellant's delay detracts from credibility and finds his explanation unreasonable despite some immigration application efforts.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's agreement on delay and credibility"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The RPD found inconsistencies in the Principal Appellant's evidence about events in Mexico after his departure, undermining credibility.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on inconsistent post-departure evidence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RPD found the neighbour's letter lacked mention of alleged police visits and warrants, giving it no weight.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on neighbour's letter credibility"
+   ],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RPD found inconsistencies between letters from the Principal Appellant's father and uncle, reducing their credibility.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on inconsistent family letters"
+   ],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Appellants do not contest the RPD's findings on the credibility of letters and allegations about police visits.",
+   "ideas": "single",
+   "idea_list": [
+    "No contest on credibility findings"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The RAD agrees with the RPD's uncontested findings that the Appellants' allegations about post-departure threats lack credibility due to omissions.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's agreement on credibility issues"
+   ],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The RAD agrees the inconsistent family letters and omissions detract from credibility and gives them little weight.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's agreement on family letters' credibility"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The RAD agrees the neighbour's letter's omissions detract from credibility and gives it no weight.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's agreement on neighbour's letter"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RPD found the Principal Appellant's testimony about fearing Los Zetas inconsistent with other evidence, detracting from credibility.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on inconsistent testimony"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RAD finds the Principal Appellant's testimony consistent and that the RPD erred in finding inconsistency regarding reasons for fear.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's finding on testimony consistency"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD finds credibility concerns with post-departure allegations but accepts the 2017 extortion claim and finds a viable IFA in Cabos San Lucas.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Credibility concerns post-departure",
+    "Acceptance of 2017 extortion claim",
+    "Finding of viable IFA"
+   ],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD states the two-pronged test for IFA from Rasaratnam: no serious risk in IFA and it is reasonable to seek refuge there.",
+   "ideas": "single",
+   "idea_list": [
+    "IFA test from Rasaratnam"
+   ],
+   "citations": [
+    {
+     "cite": "Rasaratnam",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets the two-pronged IFA test applied here"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Both prongs must be met for IFA; burden is on Appellant to disprove IFA; it must be realistic and attainable.",
+   "ideas": "single",
+   "idea_list": [
+    "IFA burden and requirements"
+   ],
+   "citations": [
+    {
+     "cite": "9",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "IFA must be realistic and attainable"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The RPD found Los Zetas lacked means and motivation to locate Appellants in Merida or Campeche due to decline and fragmentation.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on cartel's diminished presence"
+   ],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RPD found Appellants' allegations of pursuit not credible and that extortion non-payment insufficient to motivate pursuit.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's finding on lack of pursuit and motivation"
+   ],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Appellants argue their risk is personalized due to extortion defiance and that Los Zetas' influence negates IFA.",
+   "ideas": "single",
+   "idea_list": [
+    "Appellants' argument on personalized risk and no IFA"
+   ],
+   "citations": [
+    {
+     "cite": "10",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' argument on cartel's influence and risk"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Appellants concede low cartel presence in Cabos San Lucas but argue risk remains due to other cartels and police collusion, citing cases and RPD decisions.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Concession on cartel presence",
+    "Argument on risk from other cartels",
+    "Argument on police collusion",
+    "Citations to case and RPD decision"
+   ],
+   "citations": [
+    {
+     "cite": "11",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Appellants cite Federal Court decision on no IFA from Los Zetas"
+    },
+    {
+     "cite": "TB8-32937",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants cite RPD decision agreeing no IFA from Los Zetas"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The RAD finds the Appellants have a viable IFA in Cabos San Lucas as Los Zetas lack means and motivation to locate them there.",
+   "ideas": "single",
+   "idea_list": [
+    "RAD's finding of viable IFA in Cabos San Lucas"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Appellants were not pursued by Los Zetas in 2018-2019 and doubts their credibility about being targeted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "accepts personalized risk claim",
+    "agrees with RPD on no pursuit",
+    "credibility concerns on delay",
+    "no ongoing tracking by cartel"
+   ],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The Principal Appellant testified that Los Zetas wrongly suspected him of rival cartel ties but he convinced them otherwise and they demanded monthly payments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Contrary to the Appellants' claim, they did not report the cartel to police or openly challenge them; the tribunal notes a possible error in their memorandum.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants' behavior insufficient to motivate Los Zetas to track them across Mexico despite reports that debts or vendettas can motivate tracking.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "NDP",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reports on Los Zetas' motivations to track individuals"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The Appellants have not shown a political profile or opinion that would cause targeting by Los Zetas or cartels, nor does failure to pay extortion establish this.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Objective evidence shows Los Zetas are not dominant in Cabo San Lucas, have splintered, and police have dismantled many of their networks.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Los Zetas not dominant locally",
+    "cartel splintered after arrests",
+    "police dismantled networks"
+   ],
+   "citations": [
+    {
+     "cite": "NDP",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Cartel presence and splintering"
+    },
+    {
+     "cite": "Exhibit P-2",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Article on cartel leadership arrests"
+    },
+    {
+     "cite": "NDP",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Police dismantling cartel networks"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal distinguishes a Federal Court decision cited by Appellants, finding it does not apply to their case as they were not recruited by Los Zetas and lack motivation for tracking.",
+   "ideas": "multiple",
+   "idea_list": [
+    "accepts court found RAD unreasonable on IFA",
+    "rejects Appellants' broad application",
+    "distinguishes case facts from Appellants' case"
+   ],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal finds an unpublished RPD decision cited by Appellants unpersuasive due to lack of facts or decision details for comparison.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellants do not face risk to life or cruel treatment in Cabo San Lucas and moves to consider if relocation there is unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The RPD found the Appellants could relocate to Merida or Campeche and noted they did not argue against these IFAs except for fear of Los Zetas.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The Appellants only argue fear of cartels as a reason against relocation; they gave no other reasons when Cabo San Lucas was proposed as an IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The tribunal finds relocation to Cabo San Lucas reasonable as the Appellants lack credible risk of targeting and have no barriers to moving there.",
+   "ideas": "multiple",
+   "idea_list": [
+    "no credible forward-looking risk",
+    "generalized cartel risk insufficient",
+    "Appellants have relocation experience",
+    "no linguistic or logistical barriers"
+   ],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Because the tribunal finds a viable IFA, it does not consider the Appellants' state protection arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that the Appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

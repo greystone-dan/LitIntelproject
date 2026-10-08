@@ -1,0 +1,390 @@
+{
+ "case_id": 66809,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.00573
+ },
+ "verification": {
+  "paragraphs": 24,
+  "summaries": 24,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 17,
+  "regex_citations": 8,
+  "regex_addressed": 0,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 5,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 5,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns an appeal by the Principal Appellant and her children from Nigeria who fear harm from the deceased partner's family if they return. The Refugee Appeal Division (RAD) reviewed the Refugee Protection Division's (RPD) decision that had rejected their claims based on the existence of viable internal flight alternatives (IFA). The RAD allowed the appeal, finding no viable IFA and concluding that the Appellants are Convention refugees due to the risk of persecution and lack of state protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "party",
+    "text": "RPD erred applying Jurisprudential Guide TB7-19851"
+   },
+   {
+    "id": "P2",
+    "para": 11,
+    "by": "party",
+    "text": "RPD erred on Principal Appellant's education and employment background"
+   },
+   {
+    "id": "P3",
+    "para": 12,
+    "by": "party",
+    "text": "Principal Appellant has limited employment experience"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 4,
+    "answers": "P1",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P3",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Principal Appellant and her children from Nigeria fear harm from the deceased partner's family if they return.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The RPD rejected the Appellants' claims on January 27, 2020, focusing on the existence of viable internal flight alternatives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred by applying Jurisprudential Guide TB7-19851 and that its revocation and updated evidence support their claims.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD erred applying Jurisprudential Guide TB7-19851",
+    "Revocation of Guide removes basis for RPD decision",
+    "Updated evidence supports no viable IFA"
+   ],
+   "citations": [
+    {
+     "cite": "TB7-19851",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants argue RPD erred applying this guide"
+    },
+    {
+     "cite": "Member's Direction",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Court notified Appellants of considering current NDP"
+    },
+    {
+     "cite": "National Documentation Package (NDP) for Nigeria",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants rely on updated country conditions"
+    },
+    {
+     "cite": "Immigration and Refugee Board of Canada, Notice of Revocation of Jurisprudential Guide-Nigeria",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants argue revocation removes RPD's basis"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the Appellants lack a viable IFA and are found to be Convention refugees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD's role is to review all evidence and decide if the RPD's decision was correct; standard of review is correctness here.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Citizenship and Immigration) v. Huruglica, 2016 FCA 93",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports standard of review as correctness"
+    },
+    {
+     "cite": "Rozas del Solar v. Canada (Citizenship and Immigration), 2018 FC 1145",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports standard of review as correctness"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The evidence is assessed with regard to Chairperson's Guideline 4 on women fearing gender-related persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Chairperson's Guideline 4: Women Refugee Claimants Fearing Gender-Related Persecution",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Guideline applied to gender-related fear claims"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The determinative issues are the viability of IFA, presumption of truthfulness, and meeting the Convention refugee definition under IRPA.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No viable IFA",
+    "Presumption of truthfulness not rebutted",
+    "Appellants meet Convention refugee definition"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act (IRPA)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines Convention refugee"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The legal test for IFA requires no serious persecution risk and that relocation is not unreasonable under all circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam v. Canada (Minister of Employment and Immigration), [1992] 1 F.C. 706 (C.A.), p. 710",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines IFA legal test"
+    },
+    {
+     "cite": "Thirunavukkarasu v. Canada (Minister of Employment and Immigration), 1993 CanLII 3011 (FCA), [1994] 1 FC 589",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines IFA legal test"
+    },
+    {
+     "cite": "Ranganathan v. Canada (Minister of Citizenship and Immigration), 2000 CanLII 16789 (FCA), [2001] 2 FC 164",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines IFA legal test"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "Updated evidence shows relocation to proposed IFA locations is objectively unreasonable; first prong need not be considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The revocation of Jurisprudential Guide TB7-19851 alone does not overturn the RPD decision, but changed country conditions require reconsideration.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Revocation alone insufficient to overturn RPD",
+    "Changed country conditions require reassessment"
+   ],
+   "citations": [
+    {
+     "cite": "TB7-19851",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Guide used by RPD and revoked later"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Appellants argue the RPD erred in finding the Principal Appellant's education and employment background sufficient; the court agrees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RPD Reasons, paras 35-36",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants challenge RPD's finding on education and employment"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Principal Appellant has 12 years of education but limited employment experience, including informal work and selling skincare products.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court disagrees with the RPD's conclusion on employment prospects and financial support, finding the evidence speculative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RPD Reasons, para 36-37",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Court explains why it disagrees with RPD's employment findings"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Documentary evidence shows women face employment disadvantages and poverty in Nigeria, relying on social networks for survival.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Principal Appellant's profile does not favor her financial self-support in Nigeria without family support.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Female heads of households face sexual exploitation risks; the Principal Appellant's past abuse increases her vulnerability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Women without male partners face housing access difficulties; the Appellants likely face significant housing barriers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Without employment, the Appellants likely cannot afford adequate health care in Nigeria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The evidence meets the high threshold showing relocation is objectively unreasonable due to hardship accessing necessities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "standard for objectively unreasonable",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Threshold requires concrete evidence of jeopardy to life and safety"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Appellants are credible and their allegations accepted on a balance of probabilities, supporting their claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "presumption of truthfulness",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Court relies on presumption to accept allegations"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The Appellants' fears have a nexus to the Refugee Convention based on political opinion, social group, and religion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The Appellants lack adequate state protection as police refuse to intervene in family matters, supported by documentary evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The Appellants are Convention refugees due to persecution risk, lack of state protection, and no viable IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the RPD's decision is set aside and replaced with a finding that the Appellants are Convention refugees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "paragraph 111(1)(b) of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal authority for substituting decision"
+    }
+   ]
+  }
+ ]
+}

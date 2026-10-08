@@ -1,0 +1,403 @@
+{
+ "case_id": 73092,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.006103600000000001
+ },
+ "verification": {
+  "paragraphs": 32,
+  "summaries": 32,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 7,
+  "regex_citations": 4,
+  "regex_addressed": 0,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 3,
+  "rebuttals": 4,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 32,
+   "neutral_citation": "2016 FCA 96",
+   "para_start": 71,
+   "para_end": 71
+  }
+ ],
+ "structure": {
+  "overview": "Four Indian citizens appealed a decision by the Refugee Protection Division (RPD) rejecting their refugee protection claims based on the availability of internal flight alternatives (IFAs). The appellants argued risks from Punjab police and other harms, but the tribunal found the RPD correctly applied legal tests and guidelines, including on gender considerations, and that the appellants failed to prove persecution or risk in the IFAs. The tribunal dismissed the appeals and confirmed the RPD's decision that the appellants are neither Convention refugees nor persons in need of protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "appellants",
+    "text": "seek to submit three new documents on IFA and refugee status"
+   },
+   {
+    "id": "P2",
+    "para": 17,
+    "by": "appellants",
+    "text": "argue increased danger due to planned court case"
+   },
+   {
+    "id": "P3",
+    "para": 25,
+    "by": "appellants",
+    "text": "argue RPD decision violates international law and Charter"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 5,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 6,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 18,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Four Indian citizens appeal a decision rejecting their refugee protection claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "Appellants fear harm from Punjab police who raided their home; RPD rejected claims citing internal flight alternatives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The appeals are dismissed; RPD was correct that appellants have viable internal flight alternatives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "Appellants seek to submit three new documents on internal flight alternative and refugee status determination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "First two documents are inadmissible as new evidence since already submitted to RPD and on record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The third document is admissible as a legal authority under RAD Rule 3(3)(f) for legal test interpretation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RAD Rule 3(3)(f)",
+     "kind": "rule",
+     "purpose": "standard_of_review_or_test",
+     "why": "Allows admission of legal authorities for interpreting legal tests"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "RAD cannot hold oral hearing when only additional legal authorities are considered without new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The role is to independently review all evidence and decide if RPD made the correct decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The IRB Guidelines on Gender, Child Refugee Claimants, and Vulnerable Persons are applied to these claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "Principal appellant designated representative for minor appellant; RPD should have applied gender guidelines but error not determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "RAD Rule 23",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Designation of representative continues at RAD"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "RPD erred by applying outdated 1996 gender guideline instead of 2022 IRB Guideline on Gender Considerations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Failure to cite current guideline is not grounds to overturn; RPD respected guidelines in case handling.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Appellants have viable internal flight alternatives (IFAs) in four Indian cities per Ranganathan v. Canada test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ranganathan v. Canada",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines viability of internal flight alternative"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "Appellants have not proven they face persecution or s. 97 harm in the IFAs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Police are not motivated to pursue appellants in IFAs; interest is extrajudicial and unofficial without multi-state cooperation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Authorities do not view appellants as militants; accusations relate to association, not militant activity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "Appellants argue increased danger due to planned court case, but no evidence shows case filed or police motivation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants argue increased danger from court case",
+    "No evidence case filed or police motivated"
+   ],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Appellants failed to credibly prove Punjab police pursued them outside Punjab; testimony about Delhi raids inconsistent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Appellants do not dispute credibility findings; omissions and inconsistencies undermine their evidence about police raids.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "section 7 of this Board's gender guidelines",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Consideration of trauma or other issues affecting evidence"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Evidence of police raids in Delhi is not credible, but appellants' general credibility and Punjab allegations remain intact.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Agents of harm lack motivation to pursue appellants in IFAs; police tracking means irrelevant without motivation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Lack of police motivation determinative",
+    "Means of tracking irrelevant without motivation"
+   ],
+   "citations": [
+    {
+     "cite": "Yuvraj Singh v. Canada",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports finding police lack motivation to pursue in IFAs"
+    },
+    {
+     "cite": "Federal Court jurisprudence",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Generally supports IFA viability for local police risk cases"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "RPD correctly gave limited weight to 2004 reports on internal flight alternative as outdated compared to current evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Conclusion aligns with UNHCR guideline that IFA may be viable when state authority power is geographically limited.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Reject appellants' claim that state protection is absent; key issue is risk of harm given agents' motivation in IFAs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Appellants argue RPD decision violates international law and Charter; court adopts reasons rejecting similar arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "Appellants do not face reasonable chance of persecution or s. 97 harm in IFAs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "For IFA to be viable, relocation must not jeopardize life or safety; RPD's proposed IFAs are reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Appellants' health conditions do not make relocation unsafe; they can access needed healthcare in IFAs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Using an intersectional approach, appellants have not shown IFAs would be unduly harsh for them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Objective evidence shows appellants can safely live in IFAs; no ongoing discrimination or healthcare issues shown.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellants can safely live in IFAs",
+    "No ongoing discrimination or healthcare issues"
+   ],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD correctly applied Rasaratnam and properly concluded appellants have viable IFAs without showing persecution or s. 97 harm.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD applied Rasaratnam correctly",
+    "Appellants lack evidence of persecution or s. 97 harm",
+    "Relocation to IFAs not objectively unreasonable"
+   ],
+   "citations": [
+    {
+     "cite": "Rasaratnam",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "RPD applied analysis established in Rasaratnam correctly"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The tribunal dismisses the appeal and confirms the RPD's decision that appellants are neither Convention refugees nor persons in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

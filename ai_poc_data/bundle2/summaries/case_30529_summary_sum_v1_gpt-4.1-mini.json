@@ -1,0 +1,341 @@
+{
+ "case_id": 30529,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0048444000000000004
+ },
+ "verification": {
+  "paragraphs": 25,
+  "summaries": 25,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 5,
+  "model_citations": 7,
+  "regex_citations": 4,
+  "regex_addressed": 3,
+  "pinpoints": 3,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 0,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 19,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 10,
+   "para_end": 10
+  },
+  {
+   "citing_para": 19,
+   "neutral_citation": "2022 FC 233",
+   "para_start": 9,
+   "para_end": 9
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2019 FC 1068",
+   "para_start": 41,
+   "para_end": 41
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant's judicial review of the Refugee Appeal Division's (RAD) decision dismissing her appeal against the Refugee Protection Division's (RPD) finding that she was not a Convention refugee or person in need of protection due to credibility issues. The Applicant claimed risk based on her sexual orientation but the RPD and RAD found cumulative inconsistencies undermining her credibility and dismissed her claim. The Federal Court upheld the RAD's decision as reasonable and dismissed the application for judicial review.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 22,
+    "by": "Applicant",
+    "text": "RAD failed to justify credibility findings with transparent reasons and ignored key submissions"
+   },
+   {
+    "id": "P2",
+    "para": 26,
+    "by": "Applicant",
+    "text": "Explanations for inconsistencies should be considered"
+   },
+   {
+    "id": "P3",
+    "para": 7,
+    "by": "Applicant",
+    "text": "Applicant fled to Canada due to pressure to marry and rumors about sexual orientation"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 24,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The RPD found the Applicant not to be a Convention refugee or person in need of protection due to cumulative credibility concerns.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RAD dismissed the Applicant's appeal, agreeing with the RPD's credibility assessments as the key issue.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Applicant applies for judicial review of the RAD's decision under subsection 72(1) of IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory basis for judicial review application"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The court finds the RAD reasonably concluded the Applicant failed to credibly establish her risk profile and dismisses the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "party",
+   "summary": "The Applicant came to Canada in 2008, returned to Jamaica, then came back in 2014 due to pressure to marry and rumors about her sexual orientation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The RPD found contradictions about sexual orientation, family treatment, threats, and doubted the Applicant's current relationship evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RPD found the cumulative credibility concerns sufficient to deny the claim despite individual concerns being insufficient alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The Applicant recanted inconsistent testimony under questioning, but the RPD rejected her explanation, further undermining credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RPD concluded the Applicant was never threatened for sexual orientation, failed to establish being lesbian/bisexual, and was not perceived as such in Jamaica.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "The RAD noted inconsistencies in the Applicant's testimony and evidence about harassment, threats, and family relationships, rebutting truthfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RAD found no error in the RPD's failure to conduct a section 97 analysis since the Applicant failed to prove sexual orientation risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, SC 2001, c 27, s 97",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Reference to section 97 analysis requirement"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RAD found the RPD was not required to consider country risk evidence since the Applicant failed to establish a well-founded fear based on sexual orientation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The court identifies the single issue as whether the RAD reasonably concluded the Applicant failed to credibly establish her lesbian/bisexual profile.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The court states the reasonableness standard applies to RAD's credibility findings, citing Vavilov and Manenga for review principles.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness standard for reviewing credibility findings"
+    },
+    {
+     "cite": "Manenga v Canada (Citizenship and Immigration), 2022 FC 233",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports reasonableness review of credibility assessments"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court accepts the Applicant's jurisprudence summary but finds no further risk analysis needed after failure to establish profile.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "The Applicant contends the RAD failed to justify credibility findings with transparent reasons and ignored key submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court states reasons need not be comprehensive but must explain the decision; sufficiency is measured by clarity, not length.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Basanti v Canada (Citizenship and Immigration), 2019 FC 1068",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains adequacy of reasons test"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD independently reviewed the record, acknowledged Applicant's submissions, and agreed with the RPD's clear and detailed credibility findings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The court finds the RAD's adoption of RPD's findings after independent review is reasonable and consistent with Vavilov guidance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov at para 103",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasons must be read holistically and with the record"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The Applicant does not dispute inconsistencies but argues explanations should be considered; the record shows they were considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The court details inconsistencies in Applicant's testimony about threats and discrimination, noting rejected explanations for contradictions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The court notes further inconsistencies about family relationships and harassment, supporting the RAD and RPD's credibility conclusions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RAD considered the Applicant's vulnerability and found respectful questioning and proper application of guidelines on sexual orientation cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Chairperson\u2019s Guideline 9: Proceedings before the Immigration and Refugee Board of Canada involving Sexual Orientation and Gender Identity expression (2017)",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Guideline applied in proceedings involving sexual orientation"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The court rejects the Applicant's claim that the RAD failed to address alternative explanations, finding the RAD considered them adequately.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court prefers more detailed reasons but finds the RAD's reasons sufficient to deny intervention.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

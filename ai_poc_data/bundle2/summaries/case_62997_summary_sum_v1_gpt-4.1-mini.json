@@ -1,0 +1,363 @@
+{
+ "case_id": 62997,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.005350800000000001
+ },
+ "verification": {
+  "paragraphs": 34,
+  "summaries": 34,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 2,
+  "regex_citations": 2,
+  "regex_addressed": 0,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns a Mexican citizen appellant appealing the Refugee Protection Division's (RPD) rejection of his refugee claim based on fear of the Jalisco Nueva Generacion cartel. The Refugee Appeal Division (RAD) reviewed the credibility findings of the RPD, particularly discrepancies in the appellant's and his cousin's accounts of kidnapping and confinement. The RAD confirmed the RPD's decision, dismissing the appeal and finding the appellant not credible and not in need of protection.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 4,
+    "by": "appellant",
+    "text": "RPD erred in finding discrepancies about number of people and contradictory testimony"
+   },
+   {
+    "id": "P2",
+    "para": 14,
+    "by": "appellant",
+    "text": "Panel must be cautious in negative credibility findings; presumption of truthfulness"
+   },
+   {
+    "id": "P3",
+    "para": 20,
+    "by": "appellant",
+    "text": "No real discrepancy about cartel presence; differences due to misinterpretation and blindfold confusion"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 21,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 26,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The appellant, a Mexican citizen, appeals the RPD decision rejecting his refugee claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The appellant fears being killed by the Jalisco Nueva Generacion cartel after escaping their confinement for recruitment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD found the appellant not credible due to discrepancies, inconsistencies, omissions, and lack of reasonable explanations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The appellant argues the RPD erred in finding discrepancies about the number of people during confinement and contradictory testimony about the house and cartel presence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The RAD considers credibility to be the determinative issue in the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RAD confirms the RPD's decision and dismisses the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The RPD heard the appellant's and his cousin's claims together and rejected both; the cousin abandoned his appeal before the RAD.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "party",
+   "summary": "The appellant's claim is based on his cousin's written account of their kidnapping and confinement by cartel members and their escape.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "party",
+   "summary": "The appellant and cousin left Mexico and arrived in Canada on the same day, claiming refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "The RAD independently analyzed all evidence, including the RPD hearing recording, applying the correctness standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "correctness standard",
+     "kind": "other",
+     "purpose": "standard_of_review_or_test",
+     "why": "Describes the standard applied by the RAD in reviewing the evidence"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD questioned the appellant and cousin about their fear of the cartel and noted the appellant agreed with his cousin's testimony without adding information.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "The RAD noted the appellant agreed with his cousin's detailed testimony about kidnapping and escape during the hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The RAD finds the appellant based his claim on his cousin's testimony and agreed with it at the hearing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The appellant argues the panel must be cautious in negative credibility findings; the RAD agrees and cites Maldonado on presumption of truthfulness.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Appellant's caution on credibility findings",
+    "RAD agrees citing Maldonado"
+   ],
+   "citations": [
+    {
+     "cite": "Maldonado",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports the presumption of truthfulness in refugee claims unless valid doubt exists"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The RAD agrees with the RPD that the appellant did not prove working with his cousin in a garage, undermining the written account's credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "party",
+   "summary": "The cousin's written account states they were alone for days during confinement, blindfolded, beaten, and threatened by cartel members.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The RPD noted the cousin testified five cartel members guarded them, contradicting the written account's 'alone' statement, and found the explanation unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RPD rejected the cousin's explanation that 'alone' meant 'alone with cartel members' and found the omission of five cartel members unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The RPD found the credibility of the kidnapping and confinement story undermined and concluded it was not established on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The appellant claims no real discrepancy exists about cartel presence during confinement, attributing differences to misinterpretation and blindfold confusion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The RAD rejects the appellant's argument and agrees with the RPD that the written account and testimony are inconsistent and not complementary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The RAD confirms the cousin's hearing testimony about cartel members' presence contradicts the written account's claim of being alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The RAD notes the cousin testified to continuous beatings during confinement, contrasting with the written account's limited mention of violence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The RAD finds the word 'alone' in the written account unambiguous and inconsistent with the cousin's hearing testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The RAD finds it inconsistent that the appellant and cousin omitted mentioning five cartel members and continuous beatings, undermining credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The RAD rejects the appellant's claim of confusion due to blindfolds, noting clear and consistent testimony about cartel presence and beatings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The RAD considers the contradiction about confinement conditions central and determinative, undermining the appellant's credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD concludes the appellant's kidnapping and confinement likely did not occur on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The RAD agrees with the RPD's conclusion regarding the appellant's kidnapping and confinement credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Given the credibility conclusion, the RAD declines to analyze the appellant's arguments about contradictory testimony on the house's contents and nearby vehicles.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The RAD finds no need to analyze the appellant's claim about neighbours informing relatives of cartel individuals lurking.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The RAD views the appellant's arguments as peripheral given the conclusion on confinement conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The RAD concludes that the RPD's decision is correct.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The RAD dismisses the appeal and confirms the RPD's determination that the appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

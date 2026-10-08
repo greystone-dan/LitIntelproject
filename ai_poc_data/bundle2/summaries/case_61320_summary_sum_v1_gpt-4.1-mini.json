@@ -1,0 +1,229 @@
+{
+ "case_id": 61320,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0029884000000000004
+ },
+ "verification": {
+  "paragraphs": 16,
+  "summaries": 16,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 1,
+  "regex_citations": 1,
+  "regex_addressed": 1,
+  "pinpoints": 1,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 0,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 0
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 4,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 6,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 83,
+   "para_end": 83
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns the Applicant, a Kazakhstani Tajik paramedic seeking refugee protection in Canada due to ethnic persecution fears and related events. The Refugee Appeal Division (RAD) rejected his claim based on credibility issues, particularly inconsistencies in his testimony about treating a sexual assault victim. The Federal Court found the RAD's decision unreasonable due to lack of transparency and failure to consider evidence, set aside the RAD decision, and remitted the matter for redetermination.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 7,
+    "by": "Applicant",
+    "text": "RAD erred on credibility; findings lack transparency and proper evidence consideration"
+   },
+   {
+    "id": "P2",
+    "para": 8,
+    "by": "RAD",
+    "text": "Injury description inconsistent between BOC and testimony; expected consistency from medical professional"
+   },
+   {
+    "id": "P3",
+    "para": 10,
+    "by": "RAD",
+    "text": "Treatment description vague and inconsistent; lack of systematic detail and conflicting doctor presence evidence"
+   },
+   {
+    "id": "P4",
+    "para": 16,
+    "by": "RPD",
+    "text": "Applicant gave inconsistent testimony about doctor's presence during treatment without explanation"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P3",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The Applicant, a Kazakhstani Tajik, applied for refugee protection fearing ethnic persecution by Zhetisai police.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant, a paramedic, reported a sexual assault despite orders not to and was fired after treating the victim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Applicant fled Canada after fabricated drug theft charges and reports police surveilled his family at home.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "The RPD rejected the Applicant's refugee claim for lack of credibility; the RAD dismissed his appeal agreeing he was not credible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "The RAD found the Applicant's core claim about treating a sexual assault victim untrue due to inconsistent injury descriptions and unexplained police visits.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's injury description inconsistent",
+    "Treatment description vague and inconsistent",
+    "Unexplained police visits led to negative credibility inference"
+   ],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court will assess the RAD's decision for reasonableness, requiring justification, transparency, and an internally coherent analysis per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 83, 85, 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets reasonableness standard for reviewing administrative decisions"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Applicant argues the RAD erred on credibility; the Court agrees the RAD's findings lack transparency and proper evidence consideration.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The RAD found the Applicant's injury description inconsistent between the BOC and testimony, expecting consistency from a medical professional.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court finds the RAD ignored evidence explaining injury description consistency and gave no rationale for its inconsistency finding.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "below",
+   "summary": "The RAD found the Applicant's treatment description vague and inconsistent, citing lack of systematic detail and conflicting doctor presence evidence.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Treatment description vague",
+    "Inconsistent evidence on doctor treating patient"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The Court finds the RAD's reasons lack transparency and ignore evidence of the Applicant's detailed treatment testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "The RAD's reasons regarding the second consideration are quoted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Court finds the RAD's reasons illogical as the Applicant consistently testified about the doctor's arrival after initial treatment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The Court finds the RAD's shortcomings sufficient to deem its decision unreasonable and declines to consider other arguments.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The Court grants judicial review, sets aside the RAD decision, and remits the appeal to a new RAD panel for redetermination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "At the RPD hearing, the Applicant gave inconsistent testimony about the doctor's presence during the patient's treatment without explanation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

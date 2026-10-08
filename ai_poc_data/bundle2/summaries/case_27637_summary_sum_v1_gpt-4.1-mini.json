@@ -1,0 +1,535 @@
+{
+ "case_id": 27637,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0078984
+ },
+ "verification": {
+  "paragraphs": 32,
+  "summaries": 32,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 3,
+  "model_citations": 24,
+  "regex_citations": 12,
+  "regex_addressed": 11,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 19,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 4
+  },
+  "multi_idea_paragraphs": 2,
+  "party_points": 5,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 16,
+   "neutral_citation": "2005 SCC 51",
+   "para_start": 46,
+   "para_end": 46
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2023 FC 464",
+   "para_start": 31,
+   "para_end": 31
+  }
+ ],
+ "structure": {
+  "overview": "The case concerns Mr. Jilani's challenge to the refusal of visitor visas for himself and his family by Canadian immigration authorities under section 72 of the IRPA. The applicant argued that the visa refusal was unreasonable and lacked adequate reasons, citing the Supreme Court's Vavilov decision on administrative law standards. The Federal Court found the visa officer's decision reasonable, adequately justified, and dismissed the judicial review application, refusing to certify any question for appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 1,
+    "by": "applicant",
+    "text": "challenge refusal of visitor visas"
+   },
+   {
+    "id": "P2",
+    "para": 10,
+    "by": "applicant",
+    "text": "decision must be reasonable and justified per Vavilov"
+   },
+   {
+    "id": "P3",
+    "para": 25,
+    "by": "applicant",
+    "text": "employment history and brother's support show refusal unreasonable"
+   },
+   {
+    "id": "P4",
+    "para": 27,
+    "by": "applicant",
+    "text": "claim of being 'punished' for living in Saudi Arabia"
+   },
+   {
+    "id": "P5",
+    "para": 30,
+    "by": "applicant",
+    "text": "wanted more detailed reasons for refusal"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 9,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 14,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P5",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The applicant, Mr. Jilani, challenges the refusal of visitor visas for himself and his family under s 72 IRPA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 72 of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for judicial review application"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The applicant's prior employment before his current job lasted twelve months.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The visitor visa application was made June 12, 2023, with $8,000 funds and family support from the applicant's brother in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The visas for the applicant and family were refused simultaneously on July 4, 2023, for the same reasons including doubts about leaving Canada after the visit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The visa officer refused because they were not satisfied the applicant and family would leave Canada after the visit, citing weak ties and precarious employment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The court finds the reasons given are adequate, combining the refusal letter and GCMS notes.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The applicant cites Vavilov for the requirement that administrative decisions be reasonable and justified.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65, [2019] 4 SCR 653 [Vavilov]",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on Vavilov for reasonableness and justification"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court explains Vavilov's guidance that reviewing courts should not expect perfection and must respect administrative justice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 91-92",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains reviewing court's approach to administrative justice"
+    }
+   ]
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Reasons communicate the decision rationale and courts must examine them with respectful attention to understand the decision maker's reasoning.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 84",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court must examine reasons to understand decision rationale"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court references Komolafe v Canada analogy about 'dots on the page' to illustrate reasons' clarity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Komolafe v Canada (Citizenship and Immigration), 2013 FC 431",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Analogy about clarity of reasons"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court finds the reasons clear and justified, connecting the facts to the conclusion that the applicant likely won't leave Canada after the visit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "s 6 of the Canadian Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Right of Canadian citizen to enter and remain in Canada"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court notes that whether the decision is reasonable is a separate issue to be addressed next.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The court cites Chiarelli to state the fundamental immigration principle that non-citizens have no unqualified right to enter or remain in Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Employment and Immigration) v Chiarelli, [1992] 1 SCR 711",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "States fundamental immigration principle of no unqualified right to enter Canada"
+    },
+    {
+     "cite": "Medovarski v Canada (Minister of Citizenship and Immigration), 2005 SCC 51, [2005] 2 SCR 539, para 46",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reaffirms fundamental immigration principle"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "IRPA provisions require foreign nationals to obtain visas and establish they will leave Canada by the end of their authorized stay.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "ss 11(1), 19(1), 19(2), 20 of IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal requirements for visas and burden on temporary residents"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The burden on foreign nationals to establish they will leave Canada is significant and on a balance of probabilities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The applicant must show the visa officer's refusal was unreasonable given the evidence presented.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The court cites Chaudhary and Canada Post to explain the burden on applicants to prove unreasonableness under reasonableness review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Chaudhary v Canada (Citizenship and Immigration), 2024 FC 102",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Summarizes burden on applicant under reasonableness review"
+    },
+    {
+     "cite": "Canada Post Corp v Canadian Union of Postal Workers, 2019 SCC 67, [2019] 4 SCR 900, paras 31-33",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains burden and standard of review"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The reviewing court does not reweigh evidence and must show judicial restraint per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 125, 13-14",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court must show restraint and not reweigh evidence"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "The court must consider the decision as a whole and not substitute its own view for the decision maker's.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Sun v Canada (Attorney General), 2024 FCA 152",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court must consider decision as is without supplementation"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "The court turns to the applicant's arguments that the refusal was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The applicant's family no longer pursuing review is irrelevant; the decision concerns the original visa refusal context.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Chaudhary, para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains Saudization and employment insecurity"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "The applicant's arguments about employment history and brother's support do not show the refusal was unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "court",
+   "summary": "The decision maker's concern was the applicant's insufficient ties to return to Saudi Arabia or Pakistan after the visit.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Chaudhary, para 17",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines Saudization affecting employment security"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "The applicant's claim of being 'punished' for living in Saudi Arabia is rejected as irrelevant to the state's immigration prerogative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Visa officers have expertise and local knowledge, including about Saudization, warranting deference to their decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Khaleel v Canada (Citizenship and Immigration), 2022 FC 1385",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Visa officers entitled to rely on local knowledge"
+    },
+    {
+     "cite": "Chaudhary, para 40",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports deference to visa officers' professional knowledge"
+    },
+    {
+     "cite": "Haghshenas v Canada (Citizenship and Immigration), 2023 FC 464, para 31",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reinforces visa officers' reliance on local conditions"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Visa officers do not decide if applicants will not return, only if applicants have failed to establish they will return.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The applicant wanted more detailed reasons, but the law does not require extensive reasons for visa refusals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "A reasonable decision is justified, coherent, and based on facts and law, with courts examining reasons respectfully per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 85, 84",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Defines reasonableness and court's approach to reasons"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "Reasonableness depends on legal and factual context, requiring justification, transparency, and intelligibility per Vavilov and related cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 90, 99",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Criteria for reasonableness review"
+    },
+    {
+     "cite": "Dunsmuir, paras 47 and 74",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports reasonableness criteria"
+    },
+    {
+     "cite": "Catalyst Paper Corp. v. North Cowichan (District), 2012 SCC 2, para 13",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports reasonableness criteria"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The burden to prove unreasonableness lies on the challenger, who must show flaws central enough to render the decision unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, para 100",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "States burden on challenger to prove unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court finds the decision maker's reasons adequate, dismisses the judicial review application, and agrees no question should be certified under section 74.",
+   "ideas": "multiple",
+   "idea_list": [
+    "decision maker's reasons adequate",
+    "judicial review dismissed",
+    "no question certified"
+   ],
+   "citations": []
+  },
+  {
+   "para": 97,
+   "speaker": "court",
+   "summary": "The court explains Newfoundland Nurses requires careful, contextual reading of reasons and rejects using it to supply missing reasons or speculate on tribunal's thoughts.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Newfoundland Nurses requires holistic reading",
+    "rejects supplying missing reasons",
+    "rejects speculation on tribunal's thinking"
+   ],
+   "citations": [
+    {
+     "cite": "Komolafe v. Canada (Minister of Citizenship and Immigration), 2013 FC 431, 16 Imm. L.R. (4th) 267, at para. 11",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "supports careful reading of tribunal reasons and limits on court's role"
+    }
+   ]
+  }
+ ]
+}

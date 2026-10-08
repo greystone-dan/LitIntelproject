@@ -1,0 +1,639 @@
+{
+ "case_id": 6113,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0080364
+ },
+ "verification": {
+  "paragraphs": 49,
+  "summaries": 49,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 22,
+  "regex_citations": 8,
+  "regex_addressed": 6,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 18,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 5,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "This case is a judicial review application by the Applicants challenging the Refugee Appeal Division's (RAD) decision dismissing their refugee appeal based on an Internal Flight Alternative (IFA) in Pakistan. The Applicants, Pakistani citizens who converted from Sunni to Shia Islam, argued that the RAD unreasonably assessed the risk of persecution by the Sunni extremist group SSP in the IFA. The Federal Court found the RAD's decision unreasonable for failing to properly consider uncontested evidence and country conditions, granting the judicial review application.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 34,
+    "by": "Applicants",
+    "text": "RAD erred in analyzing first prong of IFA test"
+   },
+   {
+    "id": "P2",
+    "para": 35,
+    "by": "Applicants",
+    "text": "RAD unreasonably required specific attack incidents in IFA"
+   },
+   {
+    "id": "P3",
+    "para": 36,
+    "by": "Applicants",
+    "text": "UNHCR says viable IFA generally unavailable to those targeted by armed militant groups"
+   },
+   {
+    "id": "P4",
+    "para": 37,
+    "by": "Applicants",
+    "text": "UNHCR identifies SSP as armed militant group"
+   },
+   {
+    "id": "P5",
+    "para": 42,
+    "by": "Applicants",
+    "text": "Requiring living in hiding in IFA is unreasonable"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 38,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 40,
+    "answers": "P1,P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 41,
+    "answers": "P4",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 43,
+    "answers": "P5",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "This is a judicial review application under section 72 of IRPA of the RAD's December 21, 2021 decision dismissing the Applicants' refugee appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, S.C. 2001, c 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory basis for judicial review application"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The RAD did not doubt the following evidence presented by the Applicants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicants are Pakistani citizens; the Principal Applicant (MA) was Sunni and converted to Shia in 2019, while his wife (FA) is Shia.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "After MA's 2019 conversion to Shia, Sunni extremists questioned him, which he did not deny.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "Anticipating problems after conversion, the Applicants applied for US visitor visas in August 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "By late September 2019, the extremist Sunni group SSP learned of MA's conversion to Shia.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "MA was stopped and accosted by four armed men on his way home from work.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The armed men threatened MA at gunpoint and physically assaulted him.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "The men demanded MA revert to Sunni faith or face death for being a traitor and infidel.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "MA reported the attack to police, who mocked him and registered the complaint without identifying attackers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "The Applicants hid at a friend's house for weeks, who advised them to leave Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "MA received a threatening call from someone claiming to be SSP after relocating.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The caller said SSP knew of the police complaint and that the Applicants were targeted for killing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "other",
+   "summary": "The Applicants fled to the US on visitor visas, then traveled to Canada and claimed refugee status in late 2019.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "below",
+   "summary": "The RAD relied on the RPD record and Pakistan country documents as the Applicants provided no new evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "below",
+   "summary": "The RAD found no serious possibility of persecution or unreasonable relocation risk in the Internal Flight Alternative (IFA).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "below",
+   "summary": "The RAD applied the two-part Thirunavukkarasu test and found no serious persecution risk or unreasonable relocation in the IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), 1993 CanLII 3011 (FCA)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Test applied by RAD to assess IFA viability"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "below",
+   "summary": "The RAD found no evidence of targeted Shia violence in the IFA from country documents, so risk was not serious.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The RAD assessed whether SSP had motivation and means to persecute the Applicants in the IFA beyond mere possibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The RAD accepted SSP targets Shia groups and social gatherings traditionally.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "below",
+   "summary": "The RAD noted five 2019 Shia attacks but none in the IFA; UNHCR report lacked IFA-specific targeted attack info.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The RAD held Applicants failed to prove SSP could locate them in the IFA despite police corruption; no added risk from police report.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "below",
+   "summary": "The RAD noted SSP searched Applicants' family home but not outside or via police or phone tracking.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "below",
+   "summary": "The RAD considered whether Applicants could safely travel to and live in the IFA without undue hardship.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "below",
+   "summary": "The RAD found MA's education and employment history support finding work in the IFA; language and religious practice possible; no systemic discrimination noted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "below",
+   "summary": "The RAD found no evidence that MA's conversion history adds risk in Hyderabad, the IFA location.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The RAD concluded the proposed IFA location is reasonable for the Applicants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "The RAD and RPD accepted the Applicants' evidence; the issue is whether the RAD unreasonably found a viable IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "The parties agree the applicable standard of review is reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "Canada Post Corp v CUPW and Vavilov explain the requirements for a reasonable decision and judicial review under reasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada Post Corp v Canadian Union of Postal Workers, 2019 SCC 67",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains what constitutes a reasonable decision and judicial review under reasonableness"
+    },
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Clarifies the reasonableness standard for judicial review"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court explains that a reasonable decision must be coherent, rational, and justified by facts and law, citing Vavilov and related cases.",
+   "ideas": "multiple",
+   "idea_list": [
+    "definition of reasonable decision",
+    "method of reviewing reasons"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, at para. 85",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonable decision"
+    },
+    {
+     "cite": "Vavilov, at para. 84",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains respectful attention to reasons"
+    },
+    {
+     "cite": "Dunsmuir, at para. 48",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports respectful attention to reasons"
+    },
+    {
+     "cite": "Vavilov, at para. 97",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasons read holistically and contextually"
+    },
+    {
+     "cite": "Newfoundland Nurses",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports holistic reading of reasons"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The court states reasonableness depends on legal and factual context, requiring justification, transparency, and intelligibility, citing Vavilov and others.",
+   "ideas": "multiple",
+   "idea_list": [
+    "contextual nature of reasonableness",
+    "criteria for reasonableness"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov, at para. 90",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Reasonableness depends on context"
+    },
+    {
+     "cite": "Vavilov, at para. 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Criteria for reasonableness"
+    },
+    {
+     "cite": "Dunsmuir, at paras. 47 and 74",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports criteria for reasonableness"
+    },
+    {
+     "cite": "Catalyst Paper Corp. v. North Cowichan (District), 2012 SCC 2, [2012] 1 S.C.R. 5, at para. 13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports criteria for reasonableness"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court explains the burden is on the challenger to prove the decision unreasonable by showing significant flaws, citing Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, at para. 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States burden on challenger to prove unreasonableness"
+    }
+   ]
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Applicants argue the RAD correctly identified the IFA test but erred in analyzing the first prong and misinterpreted evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "party",
+   "summary": "The Applicants contend the RAD unreasonably required specific attack incidents against Shia in the IFA despite evidence of widespread anti-Shia violence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Applicants cite the UNHCR's conclusion that viable IFA is generally unavailable to those targeted by armed militant groups.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "party",
+   "summary": "The Applicants highlight a UNHCR footnote identifying the SSP as one such armed militant group.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court is not satisfied the RAD reasonably considered the UNHCR's conclusion that viable IFA is generally unavailable to those targeted by SSP.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court finds the RAD did not reasonably consider that the Applicants are specifically at risk from SSP, supported by uncontested evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court concludes the RAD's risk assessment was unreasonable for failing to consider uncontested evidence and country conditions per Vavilov.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Cited for instructions on reasonableness review"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court finds the RAD's conclusion that SSP is unlikely to seek the Applicants outside their hometown unreasonable given evidence of ongoing threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Applicants argue, supported by Ali v Canada, that requiring them to live in hiding in the IFA is unreasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ali v Canada, 2010 FC 93",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Supports Applicants' argument about living in hiding"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court finds the RAD did not reasonably assess the risk of discovery by SSP in the IFA, endangering family and negating IFA status.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court notes other issues exist but will not consider them since judicial review is granted.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The court concludes the RAD's decision was unreasonable and grants the application.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The court states no question of general importance was proposed or arises.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 104,
+   "speaker": "court",
+   "summary": "The court explains that internal rationality requires avoiding logical fallacies and ensuring the decision maker's reasoning is coherent.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 105,
+   "speaker": "court",
+   "summary": "The court states a reasonable decision must be justified by relevant law and facts, citing Dunsmuir, Catalyst, and Nor-Man.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Dunsmuir, at para. 47",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Decision must be justified by law and facts"
+    },
+    {
+     "cite": "Catalyst, at para. 13",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports justification requirement"
+    },
+    {
+     "cite": "Nor-Man Regional Health Authority, at para. 6",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Supports justification requirement"
+    }
+   ]
+  },
+  {
+   "para": 126,
+   "speaker": "court",
+   "summary": "The court explains that reasonableness requires considering evidence and factual matrix, citing Dunsmuir, Southam, and Baker.",
+   "ideas": "multiple",
+   "idea_list": [
+    "reasonableness requires justification by facts",
+    "unreasonable if evidence misapprehended"
+   ],
+   "citations": [
+    {
+     "cite": "Dunsmuir, para. 47",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Decision must be justified by facts"
+    },
+    {
+     "cite": "Southam, at para. 56",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Decision must consider evidentiary record"
+    },
+    {
+     "cite": "Baker, para. 48",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Unreasonableness if irrelevant stereotypes or ignoring evidence"
+    }
+   ]
+  }
+ ]
+}

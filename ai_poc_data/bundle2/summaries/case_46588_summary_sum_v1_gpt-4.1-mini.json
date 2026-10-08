@@ -1,0 +1,173 @@
+{
+ "case_id": 46588,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0023740000000000002
+ },
+ "verification": {
+  "paragraphs": 10,
+  "summaries": 10,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 4,
+  "regex_citations": 5,
+  "regex_addressed": 3,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 3,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 2,
+  "rebuttals": 2,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns the appellant G\u00e9rard Dugr\u00e9's appeals against three Federal Court decisions dismissing his motions to stay a Canadian Judicial Council inquiry. The Attorney General, as respondent, argued the appeals should be dismissed due to lack of a main proceeding and failure to meet stay criteria. The Federal Court of Appeal dismissed the appeals as doomed to fail and refused to stay the appeals, citing procedural congestion and prior decisions.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "Attorney General",
+    "text": "appeals should be dismissed for no main proceeding and lack of stay criteria"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "Appellant",
+    "text": "seeks stay of appeals pending Supreme Court leave or decision on Dugr\u00e9 #1"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 6,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P1",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The appellant G\u00e9rard Dugr\u00e9 appeals three Federal Court decisions dismissing his motions to stay a Canadian Judicial Council inquiry.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Federal Court struck the appellant's judicial review applications, and this Court dismissed his appeals as premature in Dugr\u00e9 #1.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Dugr\u00e9 #1, 2021 FCA 8",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Reports this Court's dismissal of appellant's appeals as premature"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Attorney General argues the appeals should be dismissed as there is no main proceeding justifying the stay motions, and the motions lack serious issues and other stay criteria.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "The Court invited written submissions on whether the appeals are doomed to fail following Dugr\u00e9 #1 and should be summarily dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "The appellant seeks a stay of the appeals pending Supreme Court leave or decision on Dugr\u00e9 #1; the Attorney General opposes this request.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The Court refuses to stay the appeals due to procedural problems caused by multiple interlocutory proceedings, citing Dugr\u00e9 #1 and C.B. Powell.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Refusal to stay appeals",
+    "Cites procedural problems and precedent C.B. Powell"
+   ],
+   "citations": [
+    {
+     "cite": "Dugr\u00e9 #1 at paragraph 34",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports refusal to stay due to procedural issues"
+    },
+    {
+     "cite": "Canada (Border Services Agency) v. C.B. Powell Limited, 2010 FCA 61, [2011] 2 F.C.R. 332 [C.B. Powell] at paras. 30-32",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Cited for principle of non-interference and procedural congestion"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Court explains that procedural congestion and paralysis justify the non-interference principle from C.B. Powell, which should be fully considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "C.B. Powell",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Explains non-interference principle to avoid procedural paralysis"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "Following Dugr\u00e9 #1, no main proceeding justifies the stay motions, so the appeals are doomed to fail and should be dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Court dismisses the appeals and proposes no costs since the Attorney General did not seek them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "The reasons will be filed in docket A-118-20 and copies in A-119-20 and A-120-20; the decision is signed by the Chief Justice and two judges.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

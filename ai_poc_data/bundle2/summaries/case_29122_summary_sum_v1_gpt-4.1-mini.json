@@ -1,0 +1,1211 @@
+{
+ "case_id": 29122,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.014552000000000002
+ },
+ "verification": {
+  "paragraphs": 72,
+  "summaries": 72,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 43,
+  "regex_citations": 23,
+  "regex_addressed": 23,
+  "pinpoints": 18,
+  "purposes": {
+   "standard_of_review_or_test": 19,
+   "supports_court_conclusion": 8,
+   "party_argument_reported": 3,
+   "distinguished_or_rejected": 1,
+   "background_or_other": 12
+  },
+  "multi_idea_paragraphs": 10,
+  "party_points": 12,
+  "rebuttals": 17,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 20,
+   "neutral_citation": "2015 FCA 227",
+   "para_start": 16,
+   "para_end": 17
+  },
+  {
+   "citing_para": 21,
+   "neutral_citation": "2011 SCC 42",
+   "para_start": 17,
+   "para_end": 17
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2016 FC 1356",
+   "para_start": 23,
+   "para_end": 23
+  },
+  {
+   "citing_para": 24,
+   "neutral_citation": "2010 FCA 184",
+   "para_start": 34,
+   "para_end": 34
+  },
+  {
+   "citing_para": 28,
+   "neutral_citation": "2017 SCC 54",
+   "para_start": 68,
+   "para_end": 68
+  },
+  {
+   "citing_para": 31,
+   "neutral_citation": "2024 SCC 13",
+   "para_start": 33,
+   "para_end": 33
+  },
+  {
+   "citing_para": 34,
+   "neutral_citation": "2015 SCC 5",
+   "para_start": 55,
+   "para_end": 55
+  },
+  {
+   "citing_para": 38,
+   "neutral_citation": "2020 SCC 11",
+   "para_start": 38,
+   "para_end": 38
+  },
+  {
+   "citing_para": 41,
+   "neutral_citation": "2020 SCC 28",
+   "para_start": 27,
+   "para_end": 27
+  },
+  {
+   "citing_para": 47,
+   "neutral_citation": "2003 SCC 69",
+   "para_start": 22,
+   "para_end": 22
+  },
+  {
+   "citing_para": 56,
+   "neutral_citation": "2011 FCA 6",
+   "para_start": 8,
+   "para_end": 8
+  },
+  {
+   "citing_para": 62,
+   "neutral_citation": "2021 FC 1061",
+   "para_start": 25,
+   "para_end": 26
+  },
+  {
+   "citing_para": 62,
+   "neutral_citation": "2022 FC 1106",
+   "para_start": 21,
+   "para_end": 21
+  },
+  {
+   "citing_para": 63,
+   "neutral_citation": "2005 SCC 11",
+   "para_start": 2,
+   "para_end": 2
+  },
+  {
+   "citing_para": 64,
+   "neutral_citation": "2007 FCA 330",
+   "para_start": 19,
+   "para_end": 19
+  },
+  {
+   "citing_para": 65,
+   "neutral_citation": "2022 FCA 209",
+   "para_start": 62,
+   "para_end": 62
+  },
+  {
+   "citing_para": 67,
+   "neutral_citation": "2007 FC 225",
+   "para_start": 28,
+   "para_end": 28
+  },
+  {
+   "citing_para": 67,
+   "neutral_citation": "2007 FC 210",
+   "para_start": 22,
+   "para_end": 23
+  }
+ ],
+ "structure": {
+  "overview": "This case involves a motion by Canada to strike the Plaintiffs' Statement of Claim related to COVID-19 vaccination mandates in the Canadian Armed Forces, alleging Charter breaches and misfeasance in public office. The Plaintiffs, representing 330 current or former CAF members, argued their claim disclosed a reasonable cause of action and that the grievance process was inadequate. The Federal Court found the pleadings lacked material facts to support any cause of action, contained vexatious language, and declined jurisdiction in favor of the grievance regime, striking the claim without leave to amend and awarding costs to Canada.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Canada",
+    "text": "Statement of Claim lacks proper pleading elements and reasonable cause"
+   },
+   {
+    "id": "P2",
+    "para": 2,
+    "by": "Canada",
+    "text": "Jurisdiction should be declined in favour of grievance regime"
+   },
+   {
+    "id": "P3",
+    "para": 3,
+    "by": "Plaintiffs",
+    "text": "Statement of Claim discloses reasonable cause of action"
+   },
+   {
+    "id": "P4",
+    "para": 3,
+    "by": "Plaintiffs",
+    "text": "Court should hear action as grievance process cannot provide requested remedies"
+   },
+   {
+    "id": "P5",
+    "para": 25,
+    "by": "Canada",
+    "text": "Pleading lacks proper elements, facts for Charter breaches, uses vexatious language"
+   },
+   {
+    "id": "P6",
+    "para": 26,
+    "by": "Plaintiffs",
+    "text": "Pleading discloses cause of action when read holistically, relying on Thomas v Canada"
+   },
+   {
+    "id": "P7",
+    "para": 44,
+    "by": "Plaintiffs",
+    "text": "CDS improperly used administrative measures denying court martial rights"
+   },
+   {
+    "id": "P8",
+    "para": 46,
+    "by": "Plaintiffs' counsel",
+    "text": "Case is misfeasance in public office claim based on CDS's illegal conduct"
+   },
+   {
+    "id": "P9",
+    "para": 51,
+    "by": "Plaintiffs",
+    "text": "Reliance on Thomas decision to support pleadings"
+   },
+   {
+    "id": "P10",
+    "para": 65,
+    "by": "Plaintiffs",
+    "text": "Grievance process is inadequate and not transparent"
+   },
+   {
+    "id": "P11",
+    "para": 70,
+    "by": "Plaintiffs",
+    "text": "Seek $5,000 costs citing many claimants and Canada's late submissions"
+   },
+   {
+    "id": "P12",
+    "para": 71,
+    "by": "Canada",
+    "text": "Seek $4,500 plus $540 for adjournment citing improper motion record and damages sought"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 4,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 4,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 27,
+    "answers": "P6",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 29,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 30,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 32,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 42,
+    "answers": "P3",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 45,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 48,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 49,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 50,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 52,
+    "answers": "P9",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 65,
+    "answers": "P10",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 66,
+    "answers": "P10",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 72,
+    "answers": "P11",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "Canada, represented by the King, moves to strike the Plaintiffs' Statement of Claim without leave to amend under Rule 221 of the Federal Courts Rules.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 221 of the Federal Courts Rules, SOR/98-106",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Rule authorizing motion to strike pleadings"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Canada argues the Statement of Claim lacks proper pleading elements, fails to disclose a reasonable cause of action, and jurisdiction should be declined in favour of the grievance regime.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of proper pleading",
+    "fail to disclose reasonable cause",
+    "jurisdiction should be declined"
+   ],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The Plaintiffs oppose the motion, arguing the Statement of Claim discloses a reasonable cause of action and the Court should hear the action as the grievance process cannot provide requested remedies.",
+   "ideas": "multiple",
+   "idea_list": [
+    "pleading discloses cause of action",
+    "court should exercise discretion to hear action"
+   ],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "The Court finds the Statement of Claim fails to disclose a reasonable cause of action and must be struck without leave to amend, and declines jurisdiction to entertain the action.",
+   "ideas": "multiple",
+   "idea_list": [
+    "pleading fails cause of action",
+    "court declines jurisdiction"
+   ],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "This is a mass tort claim on behalf of 330 current or former Canadian Armed Forces members.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "Defendants include Canada, senior Defence Staff members, former Minister and Deputy Minister of National Defence, all represented by Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "In 2021, CAF COVID-19 vaccination Directives mandated full vaccination with exemptions for medical, religious, or prohibited discrimination grounds, with penalties for non-compliance.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Human Rights Act, RSC, 1985 c H-6",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines grounds for exemptions in Directives"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "Plaintiffs filed initial and amended Statements of Claim; the amended pleading is at issue in this motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "The pleading alleges Charter rights infringements under sections 2(a), 2(d), 7, 8, and 15(1), seeks declarations and damages including $1 million per Plaintiff.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canadian Charter of Rights and Freedoms",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Alleged infringed rights in pleading"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "Plaintiffs vary in status, vaccination, and objections to the vaccine mandate; about 120 remain CAF members, others left or were discharged.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "other",
+   "summary": "Pleading details each Plaintiff's CAF service, vaccination status, exemption requests, experiences, personal circumstances, and discharge status.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "other",
+   "summary": "Canada filed the motion to strike on July 12, 2024; hearing was adjourned due to Plaintiffs' late filings, which were accepted despite non-compliance with Rules.",
+   "ideas": "multiple",
+   "idea_list": [
+    "motion filed",
+    "hearing adjourned",
+    "late filings accepted despite non-compliance"
+   ],
+   "citations": [
+    {
+     "cite": "Federal Courts Rules",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Rules govern filing deadlines and compliance"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "other",
+   "summary": "The Court heard oral submissions on September 19, 2024 in Edmonton, Alberta.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "other",
+   "summary": "The motion issues are whether pleadings should be struck without leave and whether the Court should decline jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "other",
+   "summary": "A preliminary issue was the improper filing of the Plaintiffs' motion materials.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Rules 363 and 365 require facts to be in affidavits and only referenced affidavits and sources included in the motion record.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 363",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Prescribes form of motion materials"
+    },
+    {
+     "cite": "Rule 365(2)",
+     "kind": "rule",
+     "purpose": "background_or_other",
+     "why": "Limits motion record to referenced affidavits and sources"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Plaintiffs filed 34 affidavits, some predating the claim but bearing the case style, and not all affidavits were referenced in submissions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Plaintiffs attached secondary sources as appendices not attached to affidavits, and only some were referenced; counsel conceded this was unacceptable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rules 363 and 365",
+     "kind": "rule",
+     "purpose": "party_argument_reported",
+     "why": "Plaintiffs' counsel conceded non-compliance with these rules"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "Due to breach of Rules 363 and 365, affidavits and secondary sources were not properly before the Court and were not considered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rules 363 and 365",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Court excludes improperly filed materials"
+    }
+   ]
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "Pleadings identify issues and material facts to allow parties to prepare; they must inform who, when, where, how, and what gave rise to liability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mancuso v Canada (National Health and Welfare), 2015 FCA 227 at paras 16-17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines role and requirements of pleadings"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Rule 221(1)(a) allows striking pleadings if plain and obvious they lack reasonable cause; pleadings must be read generously and material facts taken as true.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Rule 221(1)(a) standard",
+    "generous reading of pleadings"
+   ],
+   "citations": [
+    {
+     "cite": "R v Imperial Tobacco Canada Ltd, 2011 SCC 42 at para 17",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States Rule 221(1)(a) test for striking pleadings"
+    },
+    {
+     "cite": "Mancuso at para 19",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Pleadings must allege material facts for cause of action"
+    },
+    {
+     "cite": "Operation Dismantle v The Queen, [1985] 1 SCR 441 at p 455",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Material facts taken as true unless manifestly false"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Charter claims require pleading material facts supporting each component of the right, as defined by the Supreme Court.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Mancuso at para 25",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Material facts required for each Charter right component"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Pleadings may be struck as scandalous, frivolous, or vexatious if replete with bare allegations and conclusory statements making response impossible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Pelletier v Canada, 2016 FC 1356 at para 23",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines vexatious pleadings criteria"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Pleadings may be struck as abuse of process when bald, conclusory bad faith allegations lack evidentiary foundation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Merchant Law Group v Canada Revenue Agency, 2010 FCA 184 at para 34",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines abuse of process in pleadings"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Canada argues the pleading lacks proper elements, fails to connect allegations to Plaintiffs, lacks facts for Charter breaches, and uses vexatious language.",
+   "ideas": "multiple",
+   "idea_list": [
+    "lack of proper pleading elements",
+    "no connection to Plaintiffs",
+    "insufficient Charter facts",
+    "vexatious language"
+   ],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Plaintiffs argue the pleading discloses a cause of action when read holistically, relying on Thomas v Canada (Attorney General), 2024 FC 655.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Thomas v Canada (Attorney General), 2024 FC 655",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Plaintiffs rely on holistic reading to disclose cause of action"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Plaintiffs' written response is scant and focuses on merits; counsel declined to address failure to disclose cause of action despite invitation.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Section 2(a) of the Charter protects freedom of religion; infringement requires sincere belief and non-trivial interference with practice.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Ktunaxa Nation v British Columbia (Forests, Lands and Natural Resource Operations), 2017 SCC 54 at para 68",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines s.2(a) infringement test"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "No Plaintiffs plead material facts for s.2(a) cause; most denied religious exemptions do not identify specific beliefs; only one vaguely claims a belief.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "court",
+   "summary": "The pleading fails to disclose a s.2(a) cause of action as mere assertion of religious offence is insufficient without material facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "Section 2(d) of the Charter protects freedom of association, requiring government action to substantially interfere with associative activities to breach it, per SCC 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Soci\u00e9t\u00e9 des casinos du Qu\u00e9bec inc v Association des cadres de la Soci\u00e9t\u00e9 des casinos du Qu\u00e9bec, 2024 SCC 13 at para 33",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines test for s.2(d) Charter breach"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "court",
+   "summary": "The pleading lacks specific facts about associative activities or how Directives constrained them, failing to establish a s.2(d) breach.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "Without material facts, no reasonable cause of action is disclosed under s.2(d) of the Charter.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "Section 7 protects life, liberty, and security; breach requires state interference not in line with fundamental justice, per SCC 2015.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Carter v Canada (Attorney General), 2015 SCC 5 at para 55",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets test for s.7 Charter breach"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "Pleadings allege harms but lack material facts linking them to vaccination Directives, so no cause of action under s.7 is established.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Pleadings fail to connect Directives to any principle of fundamental justice, such as overbreadth.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "No cause of action under s.7 is established; vaccination mandates do not infringe s.7 per prior FC jurisprudence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lavergne-Poitras v Canada (Attorney General), 2021 FC 1232",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Vaccination mandates not contrary to fundamental justice"
+    }
+   ]
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "Section 8 protects against unreasonable search and seizure and unjustified privacy intrusions, per SCC 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "R v Ahmad, 2020 SCC 11 at para 38",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines s.8 privacy protection"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "Pleadings lack material facts supporting privacy intrusion or connection to Directives, so no s.8 cause of action is disclosed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "Absence of material facts means no cause of action under s.8 of the Charter is disclosed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Section 15(1) protects equality and prohibits discrimination based on enumerated or analogous grounds, per SCC 2020.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Fraser v Canada (Attorney General), 2020 SCC 28 at para 27",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets test for s.15(1) Charter breach"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Pleadings lack material facts to support discrimination claims or connection to Directives, so no s.15(1) cause of action.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "Due to lack of material facts, pleading fails to raise a cause of action under s.15(1).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "party",
+   "summary": "Plaintiffs allege CDS improperly used administrative measures to punish non-compliance, denying court martial rights.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "Canada argues CDS may choose administrative or disciplinary processes; prior FC case rejects abuse of process claim; Plaintiffs' argument fails.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Canada's argument on CDS authority",
+    "Prior case Hoffman supports Canada",
+    "Plaintiffs' claim rejected"
+   ],
+   "citations": [
+    {
+     "cite": "Hoffman v Canada (Attorney General), 2023 FC 1103",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms CDS can use administrative measures"
+    }
+   ]
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "Plaintiffs' counsel argues the case is a misfeasance in public office claim based on CDS's illegal conduct, not a vaccination Directive challenge.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "Misfeasance tort requires deliberate unlawful conduct by public officer and bad faith awareness of likely harm, per SCC 2003.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Odhavji Estate v Woodhouse, 2003 SCC 69 at paras 22\u201123",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines elements of misfeasance tort"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "court",
+   "summary": "Pleadings do not clearly articulate unlawful conduct or how Directives were unlawfully ordered; no material facts support this tort element.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "No material facts suggest bad faith; bald assertions of fraud violate Rule 181 requiring particularity.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 181",
+     "kind": "rule",
+     "purpose": "standard_of_review_or_test",
+     "why": "Requires precise particularity for fraud allegations"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "No material facts establish misfeasance in public office; cause of action on this ground fails.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "party",
+   "summary": "Plaintiffs rely on Justice Zinn's Thomas decision to argue pleadings disclose a reasonable cause of action holistically.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "court",
+   "summary": "Thomas does not help Plaintiffs; no material facts support allegations; lack of particulars is fatal; Plaintiffs not tied to harms.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Thomas decision context",
+    "No material facts here",
+    "Lack of particulars fatal",
+    "Plaintiffs not linked to harms"
+   ],
+   "citations": [
+    {
+     "cite": "Thomas",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Plaintiffs rely on it for holistic reading"
+    }
+   ]
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "Pleading contains vexatious language labeling vaccines and pandemic without basis.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "Pleading has bald bad faith assertions constituting abuse of process, unsupported by material facts.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "court",
+   "summary": "Pleading should be struck under Rule 221(1)(c) and (f) due to vexatious language and bald assertions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 221(1)(c) and (f)",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Grounds for striking pleadings"
+    }
+   ]
+  },
+  {
+   "para": 56,
+   "speaker": "court",
+   "summary": "Rule 221(1)(a) allows leave to amend if defects are curable, per FCA 2011.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Simon v Canada, 2011 FCA 6 at para 8",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets test for leave to amend pleadings"
+    }
+   ]
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "Pervasive absence of material facts is incurable; leave to amend should not be granted as Court should not take jurisdiction.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "court",
+   "summary": "No need to consider jurisdiction given striking without leave, but Court addresses it briefly for completeness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "Canada filed affidavit explaining CAF grievance process under NDA and DAOD policies.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "National Defence Act [NDA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statutory framework for CAF grievance process"
+    },
+    {
+     "cite": "DAOD 2017-0 Military Grievances and DAOD 2017-1 Military Grievance Process",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Policy framework supplementing grievance process"
+    }
+   ]
+  },
+  {
+   "para": 60,
+   "speaker": "party",
+   "summary": "CAF grievance process allows members to submit grievances to Initial and Final Authorities, with CDS as Final Authority, possibly reviewed by MGERC.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "National Defence Act [NDA]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines grievance submission and authorities"
+    }
+   ]
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The Federal Court allows dissatisfied CAF members to seek judicial review of the FA's decision, including appeals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The Court notes the NDA grievance process is broad and comprehensive, covering many service-related issues, citing prior cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Jones v Canada, (1994) 87 FTR 190 at paras 9-10 (TD)",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports broad wording of grievance process"
+    },
+    {
+     "cite": "Fortin v Canada (Attorney General), 2021 FC 1061 at paras 25-26",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports broad wording of grievance process"
+    },
+    {
+     "cite": "Jones v Canada (Chief of Defence Staff), 2022 FC 1106 at para 21",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Supports broad wording of grievance process"
+    }
+   ]
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The Supreme Court confirmed courts should defer to specialized administrative workplace conflict schemes except in unusual cases.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Weber v Ontario Hydro, [1995] 2 SCR 929 at paras 50-58 and 67, 1995 CanLII 108 (SCC)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "States courts should defer to specialized administrative schemes"
+    },
+    {
+     "cite": "Vaughn v Canada, 2005 SCC 11 at para 2 [Vaughn]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms deference to statutory schemes"
+    }
+   ]
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The FCA held that once a legislative grievance scheme is shown, the plaintiff must prove residual court jurisdiction exists and should be exercised.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Lebrasseur v Canada, 2007 FCA 330 at para 19",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Plaintiff bears onus to establish residual jurisdiction"
+    }
+   ]
+  },
+  {
+   "para": 65,
+   "speaker": "court",
+   "summary": "The Plaintiffs argue the grievance process is inadequate and not transparent, but the Court rejects this without evidence of bias, citing Vaughn and Bergeron.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Plaintiffs argue grievance process inadequate and lacks transparency",
+    "Court rejects argument without evidence of bias citing Vaughn and Bergeron"
+   ],
+   "citations": [
+    {
+     "cite": "Vaughn",
+     "kind": "case",
+     "purpose": "distinguished_or_rejected",
+     "why": "Lack of third-party adjudication not determinative"
+    },
+    {
+     "cite": "Bergeron v Canada (Attorney General), 2022 FCA 209 at para 62",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Allegation of lack of independence requires evidence of bias"
+    }
+   ]
+  },
+  {
+   "para": 66,
+   "speaker": "court",
+   "summary": "The Court finds no evidence of bias or exceptional circumstances and rejects Plaintiffs' broad abuse of authority claims as insufficient to override the grievance scheme.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 67,
+   "speaker": "court",
+   "summary": "Many Plaintiffs filed grievances; some were allowed; the Court consistently upholds the CAF grievance system and declines to exercise exceptional jurisdiction here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Many Plaintiffs filed grievances, some allowed",
+    "Court consistently upholds CAF grievance system and declines exceptional jurisdiction"
+   ],
+   "citations": [
+    {
+     "cite": "Veltri v Department of National Defence Canada, dated January 4, 2018, at paras 11-17 (Federal Court file no. T-1400-17)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports upholding CAF grievance system"
+    },
+    {
+     "cite": "Sandiford v Canada, 2007 FC 225 at para 28\u201129",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports upholding CAF grievance system"
+    },
+    {
+     "cite": "Graham v Canada, 2007 FC 210 at paras 22-23",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports upholding CAF grievance system"
+    }
+   ]
+  },
+  {
+   "para": 68,
+   "speaker": "court",
+   "summary": "The Court strikes the pleading entirely for failing to disclose a reasonable cause, pleading material facts, and for vexatious language; no leave to amend; residual jurisdiction denied.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rule 221(1)(a), (c) and (f)",
+     "kind": "rule",
+     "purpose": "supports_court_conclusion",
+     "why": "Grounds for striking pleadings"
+    }
+   ]
+  },
+  {
+   "para": 69,
+   "speaker": "other",
+   "summary": "Both parties seek costs on this motion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 70,
+   "speaker": "party",
+   "summary": "The Plaintiffs seek $5,000 costs, citing many claimants and Canada's late case law submission.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 71,
+   "speaker": "party",
+   "summary": "Canada seeks $4,500 plus $540 for adjournment, citing Plaintiffs' voluminous improper motion record and damages sought.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 72,
+   "speaker": "court",
+   "summary": "The Court grants Canada costs as successful party, finding the requested amount reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

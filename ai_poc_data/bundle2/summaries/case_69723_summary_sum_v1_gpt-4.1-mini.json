@@ -1,0 +1,781 @@
+{
+ "case_id": 69723,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.011661200000000002
+ },
+ "verification": {
+  "paragraphs": 64,
+  "summaries": 64,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 2,
+  "regex_citations": 0,
+  "regex_addressed": 0,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 0,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 0,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 1
+  },
+  "multi_idea_paragraphs": 1,
+  "party_points": 20,
+  "rebuttals": 18,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns an appeal by a Pakistani gay man claiming refugee protection in Canada due to persecution based on his sexual orientation. The Refugee Protection Division (RPD) rejected his claim primarily due to credibility issues, including inconsistencies, lack of corroboration, and suspicious documents. The tribunal dismissed the appeal, agreeing with the RPD's overall negative credibility assessment and finding no serious possibility of persecution if returned to Pakistan.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Appellant",
+    "text": "Persecution as Pakistani gay man"
+   },
+   {
+    "id": "P2",
+    "para": 4,
+    "by": "Appellant",
+    "text": "RPD erred by speculative findings and onerous corroboration demands"
+   },
+   {
+    "id": "P3",
+    "para": 10,
+    "by": "Appellant",
+    "text": "Secret 10-year same-sex relationship discovered and assaulted"
+   },
+   {
+    "id": "P4",
+    "para": 11,
+    "by": "Appellant",
+    "text": "Pakistan dangerous for gay men with rising extremism"
+   },
+   {
+    "id": "P5",
+    "para": 12,
+    "by": "Appellant",
+    "text": "Attempted to return to Pakistan to care for parents"
+   },
+   {
+    "id": "P6",
+    "para": 14,
+    "by": "Appellant",
+    "text": "RPD's findings on return attempts overly detailed and speculative"
+   },
+   {
+    "id": "P7",
+    "para": 17,
+    "by": "Appellant",
+    "text": "Multiple USA entries, fled Pakistan in 2011"
+   },
+   {
+    "id": "P8",
+    "para": 18,
+    "by": "Appellant",
+    "text": "Did not seek asylum in USA to complete studies, applied for permanent residence"
+   },
+   {
+    "id": "P9",
+    "para": 21,
+    "by": "Appellant's counsel",
+    "text": "Handwritten lawyer receipts customary in Pakistan"
+   },
+   {
+    "id": "P10",
+    "para": 23,
+    "by": "Appellant",
+    "text": "Receipt's lack of detail does not affect credibility"
+   },
+   {
+    "id": "P11",
+    "para": 26,
+    "by": "Appellant",
+    "text": "Knew he was gay since 1996, secret relationship 2000-2011"
+   },
+   {
+    "id": "P12",
+    "para": 30,
+    "by": "Appellant",
+    "text": "Had not decided to settle permanently in West due to parents"
+   },
+   {
+    "id": "P13",
+    "para": 33,
+    "by": "Appellant",
+    "text": "Failure to claim asylum in USA explained by fear of rejection and discrimination"
+   },
+   {
+    "id": "P14",
+    "para": 42,
+    "by": "Appellant",
+    "text": "Fear prevented obtaining evidence of gay community connections"
+   },
+   {
+    "id": "P15",
+    "para": 44,
+    "by": "Appellant",
+    "text": "519 Community Centre letter corroborative, lack of evidence alone cannot rebut truthfulness"
+   },
+   {
+    "id": "P16",
+    "para": 49,
+    "by": "Appellant",
+    "text": "Father's letter is affidavit and consistent with narrative"
+   },
+   {
+    "id": "P17",
+    "para": 52,
+    "by": "Appellant",
+    "text": "Medical report consistent with allegations"
+   },
+   {
+    "id": "P18",
+    "para": 56,
+    "by": "Appellant",
+    "text": "Photo should have probative value given secret relationship"
+   },
+   {
+    "id": "P19",
+    "para": 59,
+    "by": "Appellant",
+    "text": "Testimony about early attraction not inherently unbelievable"
+   },
+   {
+    "id": "P20",
+    "para": 34,
+    "by": "Appellant",
+    "text": "RPD treated failure to claim asylum as determinative (argued on appeal)"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 15,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P6",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 24,
+    "answers": "P10",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 25,
+    "answers": "P10",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 34,
+    "answers": "P13",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 35,
+    "answers": "P13",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 36,
+    "answers": "P13",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 37,
+    "answers": "P13",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 38,
+    "answers": "P13",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P20",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 45,
+    "answers": "P14",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 47,
+    "answers": "P15",
+    "verdict": "partly"
+   },
+   {
+    "answer_para": 50,
+    "answers": "P16",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 54,
+    "answers": "P17",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 57,
+    "answers": "P18",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 60,
+    "answers": "P19",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 61,
+    "answers": "P1",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 62,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "court",
+   "summary": "The appeal is dismissed; the RPD correctly found the Appellant is neither a Convention refugee nor in need of protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Appellant alleges he is a Pakistani gay man persecuted for his orientation, assaulted, threatened, and fled to Canada after living in the USA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "The RPD rejected the claim due to credibility issues including implausibility, omissions, inconsistencies, and unreliable documents.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD erred by speculative findings, onerous corroboration demands, ignoring evidence, and unreasonable weighing.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "No new evidence or oral hearing was requested or permitted under IRPA s. 110(6) for this appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "IRPA s. 110(6)",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "No oral hearing permitted without new evidence under this provision"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The tribunal reviewed all evidence and audio, finding no advantage for the RPD in credibility assessment, applying correctness review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The tribunal considered Guideline 9 on sexual orientation persecution in its analysis of this claim.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The key issue is the Appellant's lack of credibility regarding past persecution and future risk, which is determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The Appellant benefits from a presumption of truthfulness for sworn statements and credible documentation unless valid doubts arise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "party",
+   "summary": "The Appellant alleges a secret 10-year same-sex relationship in Pakistan, discovered and assaulted by a religious group, with family threats.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "party",
+   "summary": "The Appellant describes Pakistan as extremely conservative and dangerous for gay men, with rising religious extremism and past killings.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "party",
+   "summary": "The Appellant attempted twice to return to Pakistan to care for aging parents but was stopped by them, despite the risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant's claim about returning to care for isolated parents misleading, noting his sister lives nearby and cares for them.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD's findings on his return attempts are overly detailed and speculative, not detracting from credibility.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Appellant's return attempts undermine his subjective fear claim and are not speculative or microscopic.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The tribunal concurs that the Appellant's attempts to return to Pakistan undermine his credibility about subjective fear of persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "party",
+   "summary": "The Appellant alleges multiple USA entries on student visas, fleeing Pakistan in 2011 after his orientation was discovered.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 18,
+   "speaker": "party",
+   "summary": "The Appellant claims he did not seek asylum in the USA to complete studies and applied for permanent residence, supported by a lawyer's receipt.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 19,
+   "speaker": "below",
+   "summary": "The RPD found the lawyer's receipt suspicious due to lack of identifying details, handwriting, and a date discrepancy.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "below",
+   "summary": "The Appellant could not recall details about the lawyers or receipt, explaining he sought advice from an unknown office.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "The Appellant's counsel argued that handwritten receipts without identifiers are customary in Pakistan and possibly for tax evasion.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "below",
+   "summary": "The RPD found the receipt likely fraudulent and the Appellant did not seek legal advice as claimed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "On appeal, the Appellant argues the receipt's lack of detail does not affect credibility and is unrelated to sexual orientation claims.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "The tribunal agrees the receipt is not credible due to unusual lack of details, date discrepancy, and no efforts to verify lawyers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "Though unrelated to sexual orientation, the receipt's credibility affects the Appellant's subjective fear and failure to claim asylum.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Appellant knew he was gay since 1996, had a secret relationship from 2000-2011, and lived intermittently in the USA and Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "party",
+   "summary": "After discovery in 2011, the Appellant fled to the USA but did not seek asylum to continue studies, resuming education there.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "party",
+   "summary": "The Appellant completed studies in 2012 but did not apply for asylum, enrolling in another program in 2013 instead.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "party",
+   "summary": "The Appellant's status ended in 2013; he contacted attorneys (receipt found not credible) who said asylum was no longer possible.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "The Appellant had not decided to settle permanently in the West due to parents' plight, a claim found not credible by the RPD.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The Appellant stayed illegally in the USA from 2013 to 2018, working various jobs, then crossed illegally to Canada in 2018 to claim refugee status.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant sophisticated and resourceful, noting his failure to claim asylum in the USA for seven years undermined his credibility but was not determinative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "party",
+   "summary": "The Appellant argues on appeal that the RPD treated his failure to claim asylum in the USA as determinative and provided reasonable explanations including fear of rejection and discrimination.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the Appellant's failure to claim asylum in the USA is not reasonably explained and warrants a non-determinative negative credibility inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's first explanation that he delayed asylum to finish his degree, finding it illogical and unsupported by his later actions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's second explanation about lawyer advice, finding it not credible and insufficient to explain failure to regularize status otherwise.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The tribunal rejects the Appellant's third explanation about concern for parents, finding it not credible and inconsistent with living illegally in the USA for five years.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The tribunal finds the Appellant's fourth explanation about fear of rejection and anti-Muslim discrimination insufficient and inconsistent with his active social life in the USA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The tribunal disagrees that the RPD treated failure to claim asylum as determinative, affirming it was one of many credibility concerns leading to a negative inference.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "below",
+   "summary": "The RPD noted the Appellant's claims of active involvement in gay communities in the USA and Canada, including multiple interpersonal and sexual relationships.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "below",
+   "summary": "The RPD found no corroborative evidence from the Appellant's gay community connections despite his claims of openness and regular attendance at a community centre.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "party",
+   "summary": "The Appellant explained fear prevented him from obtaining evidence of his gay community connections and that he never considered getting letters from acquaintances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "below",
+   "summary": "The RPD found the lack of corroborative evidence unreasonable for the Appellant's profile and expected some evidence of his socializing in the USA and Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "party",
+   "summary": "The Appellant argues on appeal that secrecy and fear justify lack of evidence, that the 519 Community Centre letter is corroborative, and lack of evidence alone cannot rebut truthfulness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The tribunal finds it unusual the Appellant cannot provide any corroborative evidence of his relationships or socializing and rejects his fear explanation as inconsistent with his activities.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "court",
+   "summary": "The tribunal acknowledges no fundamental requirement for corroborative evidence but finds the lack means the claim must be decided on other evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "court",
+   "summary": "The tribunal finds the 519 Community Centre letter credible to confirm attendance but notes it lacks specific knowledge of the Appellant's orientation or other allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 48,
+   "speaker": "below",
+   "summary": "The RPD found the Appellant's father's letter not credible because it omitted mention of fleeing their hometown due to the Appellant's orientation discovery in 2011.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "party",
+   "summary": "The Appellant argues on appeal that the father's letter is an affidavit and should not be judged negatively for omissions, asserting consistency with his narrative.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The tribunal finds the father's letter is not an affidavit, notes minor irregularities, rejects the RPD's negative inference, and weighs it with other evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "below",
+   "summary": "The RPD found the medical letter from 2018 referencing a 2011 assault had limited probative value as it did not note the assault's reason.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 52,
+   "speaker": "party",
+   "summary": "The Appellant argues the medical report is consistent with his allegations and the RPD erred by focusing on what the report omits rather than states.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 53,
+   "speaker": "court",
+   "summary": "The tribunal finds it unusual the clinic issued a 2018 letter referencing 2011 records but notes the letter documents minor injuries from an assault.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 54,
+   "speaker": "court",
+   "summary": "The tribunal finds the medical letter causes no new credibility problems and should be weighed with other evidence in the final assessment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 55,
+   "speaker": "below",
+   "summary": "The RPD found a photo of two young men, claimed to be the Appellant and Z., had no romantic indication and gave it no probative value.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 56,
+   "speaker": "party",
+   "summary": "The Appellant argues it is unreasonable to give the photo no probative value given the secretive nature of his relationship with Z.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 57,
+   "speaker": "court",
+   "summary": "The tribunal finds the photo causes no credibility problems but agrees it is not probative of a romantic relationship on its own.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 58,
+   "speaker": "below",
+   "summary": "The Appellant testified he was attracted to every boy in his class at age 12 or 13, surprising the RPD and counsel who sought clarification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 59,
+   "speaker": "party",
+   "summary": "The Appellant argues the RPD's finding that his testimony was implausible is speculative and that his testimony is not inherently unbelievable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 60,
+   "speaker": "court",
+   "summary": "The tribunal finds the RPD's implausibility finding was speculative and erroneous, taking no negative inference from the Appellant's testimony.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 61,
+   "speaker": "court",
+   "summary": "The tribunal agrees with the RPD that the appellant's credibility is rebutted due to inconsistencies and lack of corroboration on his core allegations of being gay and persecuted.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agreement with RPD on rebutted presumption of truthfulness",
+    "reasons for disbelief including inconsistencies and lack of corroboration",
+    "insufficient evidence of sexual orientation and persecution risk"
+   ],
+   "citations": []
+  },
+  {
+   "para": 62,
+   "speaker": "court",
+   "summary": "The tribunal finds some RPD credibility errors but holds they do not undermine the correct overall conclusion that the appellant lacks credibility on key allegations.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 63,
+   "speaker": "court",
+   "summary": "The appellant has not demonstrated a serious possibility of persecution or risk of harm if returned to Pakistan.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 64,
+   "speaker": "court",
+   "summary": "The appellant is not a Convention refugee or person in need of protection; the appeal is dismissed under IRPA s. 111(1)(a).",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "IRPA s. 111(1)(a)",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Legal basis for dismissing the appeal"
+    }
+   ]
+  }
+ ]
+}

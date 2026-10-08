@@ -1,0 +1,676 @@
+{
+ "case_id": 28556,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0083004
+ },
+ "verification": {
+  "paragraphs": 51,
+  "summaries": 51,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 14,
+  "regex_citations": 10,
+  "regex_addressed": 10,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 4,
+   "supports_court_conclusion": 2,
+   "party_argument_reported": 5,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 3
+  },
+  "multi_idea_paragraphs": 5,
+  "party_points": 11,
+  "rebuttals": 7,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 36,
+   "neutral_citation": "2019 FC 955",
+   "para_start": 25,
+   "para_end": 26
+  },
+  {
+   "citing_para": 47,
+   "neutral_citation": "2018 FCA 22",
+   "para_start": 46,
+   "para_end": 46
+  }
+ ],
+ "structure": {
+  "overview": "The Applicant, a Tamil citizen of Sri Lanka, seeks judicial review of the Refugee Appeal Division's (RAD) decision affirming the Refugee Protection Division's (RPD) finding that she is not a Convention refugee or person in need of protection, based on the availability of an Internal Flight Alternative (IFA) in Matara. The Applicant argued that the RAD erred in its assessment of the IFA test, misapplied Gender Guidelines, and misunderstood her personal circumstances, while the Respondent maintained the RAD's decision was reasonable. The Federal Court dismissed the judicial review application, finding the RAD's decision reasonable and refusing to certify the Applicant's proposed question for appeal.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 19,
+    "by": "Applicant",
+    "text": "RAD misapprehended evidence and misapplied IFA test and Gender Guidelines"
+   },
+   {
+    "id": "P2",
+    "para": 20,
+    "by": "Applicant",
+    "text": "RAD unreasonably preferred its inferences over hers"
+   },
+   {
+    "id": "P3",
+    "para": 23,
+    "by": "Applicant",
+    "text": "RAD applied excessive IFA view and narrowly viewed persecution"
+   },
+   {
+    "id": "P4",
+    "para": 24,
+    "by": "Applicant",
+    "text": "RAD misapplied Gender Guidelines; education does not protect from persecution"
+   },
+   {
+    "id": "P5",
+    "para": 25,
+    "by": "Applicant",
+    "text": "RAD speculated on tenant's motivation and improperly assessed ability to end persecution"
+   },
+   {
+    "id": "P6",
+    "para": 34,
+    "by": "Applicant",
+    "text": "Section 96 claim should be decided before IFA consideration"
+   },
+   {
+    "id": "P7",
+    "para": 36,
+    "by": "Applicant",
+    "text": "RAD erred by suggesting giving up apartment interest"
+   },
+   {
+    "id": "P8",
+    "para": 46,
+    "by": "Applicant",
+    "text": "Certification question on whether jeopardizing life is needed to prove IFA unreasonableness"
+   },
+   {
+    "id": "P9",
+    "para": 48,
+    "by": "Applicant",
+    "text": "Response to Respondent's opposition to certification"
+   },
+   {
+    "id": "P10",
+    "para": 14,
+    "by": "Respondent",
+    "text": "RAD made no reviewable errors; decision reasonable"
+   },
+   {
+    "id": "P11",
+    "para": 26,
+    "by": "Respondent",
+    "text": "RAD decision reasonable and no errors"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 21,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 36,
+    "answers": "P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 38,
+    "answers": "P4",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 39,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 40,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 44,
+    "answers": "P1,P3,P4,P5,P6,P7",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 50,
+    "answers": "P8",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The Applicant seeks judicial review of the RAD decision affirming the RPD's finding that she is not a Convention refugee or person in need of protection under the Act.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks judicial review",
+    "RAD affirmed RPD decision",
+    "RPD found Applicant not refugee or protected person"
+   ],
+   "citations": [
+    {
+     "cite": "Immigration and Refugee Protection Act, S.C. 2001, c. 27",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines refugee and protection criteria under the Act"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "other",
+   "summary": "The Applicant is a Tamil citizen of Sri Lanka who lived in the UAE from 2011 to 2021; her husband still works there.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "other",
+   "summary": "The Applicant owns paddy lands in Northern Sri Lanka and an apartment in Colombo.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "other",
+   "summary": "In 2016, the Applicant rented out her lands and apartment; during the pandemic, she planned to return to Sri Lanka and end the tenancy, but the tenant demanded the lands.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "other",
+   "summary": "The Applicant threatened eviction, and the tenant threatened to kill her and harm her children.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 6,
+   "speaker": "other",
+   "summary": "The Applicant gave up the paddy lands but the tenant remained in the apartment.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "other",
+   "summary": "The Applicant confirmed the tenant's connection to the extremist group Bodu Bala Sena (BBS) in Sri Lanka.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "other",
+   "summary": "The Applicant entered Canada on a visitor visa in December 2021 with her two Canadian-born children.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 9,
+   "speaker": "other",
+   "summary": "In December 2021, a friend told the Applicant that BBS members threatened him when checking on her apartment, warning him not to interfere.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "other",
+   "summary": "The Applicant claimed refugee protection in Canada in January 2022.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "below",
+   "summary": "The RPD denied the Applicant's claim, including on the ground that an Internal Flight Alternative (IFA) was available in Matara.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The RAD considered the availability of the IFA as the determinative issue in the appeal.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The Applicant raises many arguments, but the court will only reference specific submissions as necessary.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "party",
+   "summary": "The Respondent submits that the RAD made no reviewable errors in its decision.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "Following Vavilov, the RAD's decision is reviewable on the reasonableness standard.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v. Vavilov, [2019] 4 S.C.R. 653",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Establishes reasonableness as the standard of review for RAD decisions"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Reasonableness requires the decision to show justification, transparency, intelligibility, and be justified by relevant facts and law, per Vavilov para 99.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, supra at paragraph 99",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines criteria for reasonableness review"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Reasonableness means the decision falls within a range of acceptable, defensible outcomes regarding facts and law, per Vavilov para 86.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Vavilov, supra at paragraph 86",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Explains the reasonableness standard"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The IFA test from Rasaratnam requires no serious possibility of persecution in the IFA and that it is reasonable to seek safety there before Canada.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam v. Canada (Minister of Employment and Immigration), [1992] 1 F.C. 706 at 710-711 (F.C.A.)",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets the two-part IFA test applied by the Board"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD misapprehended evidence, misunderstood her experience as a Tamil Hindu woman, and misapplied the first prong of the IFA test and Gender Guidelines.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RAD misapprehended evidence",
+    "RAD misunderstood Tamil Hindu experience",
+    "RAD misunderstood first prong of IFA test",
+    "RAD misapplied Gender Guidelines"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "The Applicant complains the RAD unreasonably preferred its inferences over hers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "The court finds no merit in the Applicant's argument about the RAD preferring its inferences over hers.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "court",
+   "summary": "Huruglica confirms the RAD can review RPD decisions on correctness and draw its own inferences from evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Huruglica v. Canada (Minister of Citizenship and Immigration), [2014] 4 F.C.R. 811 (F.C.)",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms RAD's authority to review evidence and draw inferences"
+    }
+   ]
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD applied an excessive view for IFA and narrowly viewed her persecution as a Tamil Hindu female head of household without relatives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 24,
+   "speaker": "party",
+   "summary": "The Applicant argues the RAD misapplied Gender Guidelines and that her education does not protect her from persecution.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "The Applicant contends the RAD speculated about the tenant's motivation and improperly assessed her ability to end persecution by conceding the apartment, which is not part of the IFA test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "The Respondent argues the RAD made no reviewable errors and the decision was reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 27,
+   "speaker": "below",
+   "summary": "The Applicant's claim is based on fear of harm from the tenant and BBS due to ethnicity, gender, and race as a Tamil Hindu woman.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 28,
+   "speaker": "below",
+   "summary": "The RPD found a viable IFA in Matara, and the RAD confirmed this after independent review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 29,
+   "speaker": "below",
+   "summary": "The RAD addressed both parts of the IFA test and concluded the Applicant failed to show the tenant or BBS were motivated to find her in the IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Rasaratnam, supra",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Refers to the IFA test applied by the RAD"
+    }
+   ]
+  },
+  {
+   "para": 30,
+   "speaker": "below",
+   "summary": "The RAD considered whether the tenant or BBS had means to locate the Applicant in the IFA, noting BBS government support but no guaranteed access to resources to find her.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 31,
+   "speaker": "below",
+   "summary": "The RAD concluded the Applicant failed to prove the proposed IFA was unreasonable for her profile.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The RAD noted the Applicant's husband supports her financially and she is well educated and able to work.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 33,
+   "speaker": "below",
+   "summary": "The RAD confirmed a viable IFA is available to the Applicant.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "party",
+   "summary": "The Applicant argues a section 96 claim should be decided before considering IFA, citing Thirunavukkarasu v. Canada (C.A.).",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's argument on section 96 claim",
+    "Citation of Thirunavukkarasu case"
+   ],
+   "citations": [
+    {
+     "cite": "Thirunavukkarasu v. Canada (Minister of Employment and Immigration) (C.A.), [1994] 1 F.C. 589",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on this case for section 96 claim order"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court states refugee protection claims must be assessed before considering IFA; safe relocation negates refugee protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "party",
+   "summary": "The Applicant alleges RAD erred by suggesting she give up apartment interest; the court rejects this, citing Malik v. Canada.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant's allegation of RAD error",
+    "Court rejects error citing Malik case"
+   ],
+   "citations": [
+    {
+     "cite": "Malik v. Canada (Minister of Citizenship and Immigration), 2019 FC 955",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Court relies on Malik to reject Applicant's error claim"
+    }
+   ]
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court finds the RAD's finding on the apartment interest issue reasonable.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds no unreasonableness in RAD's application of Gender Guidelines and consideration of country conditions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court agrees with Respondent that RAD properly considered Applicant's personal circumstances and applied correct IFA test.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The RAD reasonably assessed the first part of the IFA test regarding agents of persecution's motivation and means.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "Although RAD found Applicant failed motivation part, it still considered whether agents had means to find her in IFA.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "The RAD reasonably concluded BBS lacks access to government documents to find Applicant in IFA, based on evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The RAD explained why threats to Applicant's friend do not prove ability to trace people countrywide.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The RAD's decision meets the standard of review; judicial review application is dismissed.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "other",
+   "summary": "The Applicant was given opportunity to submit proposed questions for certification.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 46,
+   "speaker": "party",
+   "summary": "The Applicant submitted a certification question about whether jeopardizing life is needed to prove IFA unreasonableness.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 47,
+   "speaker": "party",
+   "summary": "The Respondent opposed certification, citing FCA cases on certification criteria and why the question fails.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Respondent opposes certification",
+    "Cites FCA cases on certification criteria"
+   ],
+   "citations": [
+    {
+     "cite": "Lunyamila v. Canada (Minister of Public Safety and Emergency Preparedness), 2018 FCA 22",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites for certification test"
+    },
+    {
+     "cite": "Lewis v. Canada (Public Safety and Emergency Preparedness), 2017 FCA 130, [2018] 2 F.C.R. 229",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites for certification criteria"
+    },
+    {
+     "cite": "Lai v. Canada (Public Safety and Emergency Preparedness), 2015 FCA 21, 29 Imm. L.R. (4th) 211",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites for issue needing decision to certify"
+    },
+    {
+     "cite": "Mudrak v. Canada (Citizenship and Immigration), 2016 FCA 178, 485 N.R. 186",
+     "kind": "case",
+     "purpose": "party_argument_reported",
+     "why": "Respondent cites for question nature and facts"
+    }
+   ]
+  },
+  {
+   "para": 48,
+   "speaker": "party",
+   "summary": "The Applicant responded to the Respondent's submissions on certification by letter dated September 26, 2024.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 49,
+   "speaker": "court",
+   "summary": "The court quotes subsection 74(d) of the Act on certification requirements for Federal Court of Appeal appeals.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "subsection 74 (d) of the Act",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Provides statutory certification requirements"
+    }
+   ]
+  },
+  {
+   "para": 50,
+   "speaker": "court",
+   "summary": "The court agrees with Respondent that the proposed question fails the certification test and has been addressed in prior decisions.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 51,
+   "speaker": "court",
+   "summary": "The court refuses to certify the proposed question.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,313 @@
+{
+ "case_id": 43146,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0037804000000000006
+ },
+ "verification": {
+  "paragraphs": 14,
+  "summaries": 14,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 9,
+  "regex_citations": 4,
+  "regex_addressed": 4,
+  "pinpoints": 0,
+  "purposes": {
+   "standard_of_review_or_test": 1,
+   "supports_court_conclusion": 4,
+   "party_argument_reported": 2,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 2
+  },
+  "multi_idea_paragraphs": 4,
+  "party_points": 2,
+  "rebuttals": 10,
+  "left_open": 0
+ },
+ "pinpoints": [],
+ "structure": {
+  "overview": "The case concerns Westcoast Energy Inc. (applicant) appealing the Tax Court's decision rejecting its claim for input tax credits on reimbursed employee health services. The Tax Court held that the appellant did not acquire or receive the services under the relevant provisions of the Excise Tax Act, relying on the Supreme Court's prior decision in ExxonMobil Canada Ltd. The Federal Court of Appeal dismissed the appeal, finding no legal or factual error in the Tax Court's decision and applying the precedent from ExxonMobil.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 3,
+    "by": "applicant",
+    "text": "subsection 175(1) and subparagraph 170(1)(b)(ii) allow input tax credits for employee services"
+   },
+   {
+    "id": "P2",
+    "para": 13,
+    "by": "applicant",
+    "text": "new oral argument on 'use' in section 173"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 4,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 5,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 6,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 7,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 8,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 9,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 10,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 11,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 12,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 13,
+    "answers": "P2",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "other",
+   "summary": "The appellant reimbursed employees for certain health services and claimed input tax credits, which the Minister rejected, leading to an appeal to the Tax Court.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant reimbursed employees",
+    "claimed input tax credits",
+    "Minister rejected claim",
+    "appealed to Tax Court"
+   ],
+   "citations": [
+    {
+     "cite": "Excise Tax Act, R.S.C. 1985, c. E-15",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Statute governing goods and services tax and input tax credits"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "below",
+   "summary": "The Tax Court held the appellant did not acquire or receive the services under the Act and dismissed the appeal.",
+   "ideas": "single",
+   "idea_list": [
+    "Tax Court decision dismissing appeal"
+   ],
+   "citations": [
+    {
+     "cite": "2020 TCC 116",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Tax Court decision under review"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "party",
+   "summary": "The appellant accepts the Tax Court's findings but argues subsection 175(1) and subparagraph 170(1)(b)(ii) allow claiming input tax credits for employee services.",
+   "ideas": "multiple",
+   "idea_list": [
+    "appellant accepts Tax Court findings",
+    "argues subsection 175(1) applies",
+    "invokes subparagraph 170(1)(b)(ii)"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 175(1) of the Act",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Appellant's legal basis for claiming input tax credits"
+    },
+    {
+     "cite": "subparagraph 170(1)(b)(ii) of the Act",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Appellant's additional legal basis for input tax credits"
+    }
+   ]
+  },
+  {
+   "para": 4,
+   "speaker": "court",
+   "summary": "This Court's prior decision in ExxonMobil Canada Ltd. governs the appellant's submissions and the appeal's outcome.",
+   "ideas": "single",
+   "idea_list": [
+    "ExxonMobil decision controls outcome"
+   ],
+   "citations": [
+    {
+     "cite": "ExxonMobil Canada Ltd. v. The Queen, 2010 FCA 1, 397 N.R. 204",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Precedent controlling the legal issue in this appeal"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "court",
+   "summary": "The Court must follow prior decisions unless manifestly wrong; the appellant does not claim ExxonMobil is manifestly wrong, so it applies here.",
+   "ideas": "multiple",
+   "idea_list": [
+    "must follow prior decisions",
+    "appellant does not claim manifest error",
+    "ExxonMobil applies"
+   ],
+   "citations": [
+    {
+     "cite": "Miller v. Canada (Attorney General), 2002 FCA 370, 220 D.L.R. (4th) 149",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Standard for overruling prior decisions"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "ExxonMobil held that services for exclusive personal use of employees bear no relation to employer activities and thus subsection 175(1) does not apply to such reimbursements.",
+   "ideas": "single",
+   "idea_list": [
+    "ExxonMobil limits subsection 175(1) application"
+   ],
+   "citations": [
+    {
+     "cite": "ExxonMobil, para. 50",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Legal principle about exclusive personal use services"
+    }
+   ]
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The Tax Court correctly found ExxonMobil applies equally to section 175 due to similar wording and roles, supported by Supreme Court emphasis on textual interpretation.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Tax Court applied ExxonMobil to section 175",
+    "Supreme Court supports textual interpretation"
+   ],
+   "citations": [
+    {
+     "cite": "Canada Trustco Mortgage Co. v. Canada, 2005 SCC 54, [2005] 2 S.C.R. 601",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports textual interpretation of tax provisions"
+    }
+   ]
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "ExxonMobil held section 170 applies only if employer acquires a benefit for exclusive employee enjoyment; since appellant did not acquire services, section 170 does not apply.",
+   "ideas": "single",
+   "idea_list": [
+    "ExxonMobil limits section 170 application"
+   ],
+   "citations": [
+    {
+     "cite": "ExxonMobil, para. 37",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Clarifies section 170 applies only if employer acquires benefit"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The appellant does not challenge ExxonMobil's correctness on section 170, and the Tax Court's analysis is sound.",
+   "ideas": "single",
+   "idea_list": [
+    "Tax Court's section 170 analysis upheld"
+   ],
+   "citations": []
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "No legal error is found in the Tax Court's reasons.",
+   "ideas": "single",
+   "idea_list": [
+    "no legal error in Tax Court reasons"
+   ],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The appellant does not challenge the Tax Court's factual findings by palpable and overriding error, which would be the only other recourse.",
+   "ideas": "single",
+   "idea_list": [
+    "no challenge to factual findings"
+   ],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "below",
+   "summary": "The Tax Court found services were for exclusive personal use, employees did not acquire them for employment use, so subsection 175(1) does not apply; no error found.",
+   "ideas": "single",
+   "idea_list": [
+    "Tax Court factual findings on service use"
+   ],
+   "citations": []
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The appellant's new oral argument on 'use' in section 173 was not considered by the Tax Court and lacks factual support here.",
+   "ideas": "single",
+   "idea_list": [
+    "new argument unsupported and unconsidered"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The appeal is dismissed with costs.",
+   "ideas": "single",
+   "idea_list": [
+    "appeal dismissed with costs"
+   ],
+   "citations": []
+  }
+ ]
+}

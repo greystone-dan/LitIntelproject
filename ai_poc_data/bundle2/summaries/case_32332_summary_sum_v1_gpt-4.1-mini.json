@@ -1,0 +1,425 @@
+{
+ "case_id": 32332,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.005466400000000001
+ },
+ "verification": {
+  "paragraphs": 19,
+  "summaries": 19,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 4,
+  "model_citations": 19,
+  "regex_citations": 7,
+  "regex_addressed": 7,
+  "pinpoints": 5,
+  "purposes": {
+   "standard_of_review_or_test": 3,
+   "supports_court_conclusion": 8,
+   "party_argument_reported": 1,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 7
+  },
+  "multi_idea_paragraphs": 5,
+  "party_points": 3,
+  "rebuttals": 3,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 11,
+   "neutral_citation": "2019 SCC 65",
+   "para_start": 85,
+   "para_end": 85
+  },
+  {
+   "citing_para": 11,
+   "neutral_citation": "2023 SCC 21",
+   "para_start": 8,
+   "para_end": 8
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2010 FC 133",
+   "para_start": 55,
+   "para_end": 55
+  },
+  {
+   "citing_para": 15,
+   "neutral_citation": "2008 FC 32",
+   "para_start": 32,
+   "para_end": 32
+  },
+  {
+   "citing_para": 23,
+   "neutral_citation": "2025 FC 1138",
+   "para_start": 9,
+   "para_end": 14
+  }
+ ],
+ "structure": {
+  "overview": "The Applicant seeks judicial review of the Immigration Appeal Division's (IAD) decision excluding her from permanent residence under paragraph 117(9)(d) of the Immigration and Refugee Protection Regulations (IRPR) due to non-declaration as a dependent. The IAD found it lacked jurisdiction to consider humanitarian and compassionate grounds since the Applicant was not a family class member. The Federal Court dismissed the application, finding the IAD's decision reasonable and consistent with the law.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "Applicant",
+    "text": "IAD failed to consider evidence and made contradictory determinations"
+   },
+   {
+    "id": "P2",
+    "para": 6,
+    "by": "Applicant",
+    "text": "Appeal submitted DNA test, financial support proof, affidavit, photos to establish relationship"
+   },
+   {
+    "id": "P3",
+    "para": 22,
+    "by": "Applicant",
+    "text": "Acknowledged citation errors in reply submissions without explanation"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 13,
+    "answers": "P1",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P2",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 20,
+    "answers": "P1",
+    "verdict": "rejects"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "The Applicant seeks judicial review of the IAD decision, alleging failure to consider evidence and contradictory determinations; the Respondent defends the decision.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Applicant seeks review alleging errors",
+    "Respondent defends decision"
+   ],
+   "citations": [
+    {
+     "cite": "subsection 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA]",
+     "kind": "statute",
+     "purpose": "party_argument_reported",
+     "why": "Applicant relies on judicial review provision"
+    }
+   ]
+  },
+  {
+   "para": 3,
+   "speaker": "court",
+   "summary": "The court dismisses the application for judicial review.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 5,
+   "speaker": "below",
+   "summary": "An immigration officer refused the Applicant's PR application, finding she was not a dependent child or declared family member, and excluded under paragraph 117(9)(d) IRPR.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Officer refused PR application",
+    "Applicant excluded under paragraph 117(9)(d) IRPR",
+    "Public Policy exemption not met"
+   ],
+   "citations": [
+    {
+     "cite": "section 2 of the Immigration and Refugee Protection Regulations, SOR/2002-227 [IRPR]",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines dependent child"
+    },
+    {
+     "cite": "paragraph 117(9)(d) of the IRPR",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Basis for exclusion"
+    },
+    {
+     "cite": "temporary public policy",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Exemption to paragraph 117(9)(d)"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "party",
+   "summary": "Mr. Adeleke appealed, submitting evidence including DNA test, financial support proof, affidavit, and photos to establish relationship with Applicant.",
+   "ideas": "single",
+   "idea_list": [
+    "Mr. Adeleke's appeal and evidence submission"
+   ],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "below",
+   "summary": "The IAD accepted Mr. Adeleke's explanation for non-declaration but found he still failed to declare the Applicant as a non-accompanying dependent, excluding her under paragraph 117(9)(d).",
+   "ideas": "single",
+   "idea_list": [
+    "IAD found Applicant excluded under paragraph 117(9)(d)"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 117(9)(d) of the IRPR",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Legal basis for exclusion"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "below",
+   "summary": "The IAD found it lacked jurisdiction to assess humanitarian and compassionate considerations since Applicant was not family class member, but noted other PR application options.",
+   "ideas": "single",
+   "idea_list": [
+    "IAD lacks jurisdiction for H&C assessment"
+   ],
+   "citations": [
+    {
+     "cite": "section 25 of the IRPA",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Alternative PR application option"
+    }
+   ]
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "The court explains the reasonableness standard from Vavilov and Mason, placing burden on challenger to show serious shortcomings.",
+   "ideas": "single",
+   "idea_list": [
+    "Reasonableness standard and burden of proof"
+   ],
+   "citations": [
+    {
+     "cite": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at para 85 [Vavilov]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Defines reasonableness standard"
+    },
+    {
+     "cite": "Mason v Canada (Citizenship and Immigration), 2023 SCC 21 at para 8 [Mason]",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Confirms reasonableness standard"
+    },
+    {
+     "cite": "Vavilov at para 100",
+     "kind": "case",
+     "purpose": "standard_of_review_or_test",
+     "why": "Sets burden on challenger"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "The court finds the Applicant's arguments unpersuasive.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant's arguments rejected"
+   ],
+   "citations": []
+  },
+  {
+   "para": 14,
+   "speaker": "court",
+   "summary": "The court explains section 117 of IRPR, especially paragraph 117(9)(d), which excludes certain non-accompanying family members from family class.",
+   "ideas": "single",
+   "idea_list": [
+    "Explanation of paragraph 117(9)(d) IRPR"
+   ],
+   "citations": [
+    {
+     "cite": "paragraph 117(9)(d) of the IRPR",
+     "kind": "statute",
+     "purpose": "background_or_other",
+     "why": "Defines exclusion from family class"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "court",
+   "summary": "The court notes it is undisputed Mr. Adeleke failed to declare the Applicant, and paragraph 117(9)(d) is a strict provision excluding non-disclosed family members.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Undisputed failure to declare",
+    "Paragraph 117(9)(d) is strict"
+   ],
+   "citations": [
+    {
+     "cite": "Nguyen v Canada (Citizenship and Immigration), 2010 FC 133 at para 55 [Nguyen]",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Paragraph 117(9)(d) is strict"
+    },
+    {
+     "cite": "Adjani v Canada (Citizenship and Immigration), 2008 FC 32 at para 32",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Non-disclosed family members excluded"
+    }
+   ]
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "The IAD acknowledged evidence including DNA test but found section 117(9)(d) requires all non-accompanying dependents be included without exception.",
+   "ideas": "single",
+   "idea_list": [
+    "IAD acknowledged evidence but applied strict rule"
+   ],
+   "citations": [
+    {
+     "cite": "section 117(9)(d) of the Regulations",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Mandatory inclusion of non-accompanying dependents"
+    }
+   ]
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "The IAD reasonably found Applicant excluded under paragraph 117(9)(d); family reunification and lack of fraud do not alter this legal provision.",
+   "ideas": "single",
+   "idea_list": [
+    "IAD's exclusion finding reasonable despite family reunification objective"
+   ],
+   "citations": [
+    {
+     "cite": "Vavilov at para 85",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard"
+    },
+    {
+     "cite": "Mason at para 8",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Reasonableness standard"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "The IAD correctly found it lacked jurisdiction to consider H&C factors under section 65 IRPA in sponsorship appeals when Applicant is not family class.",
+   "ideas": "single",
+   "idea_list": [
+    "IAD lacks jurisdiction for H&C in this context"
+   ],
+   "citations": [
+    {
+     "cite": "Section 65 of the IRPA",
+     "kind": "statute",
+     "purpose": "supports_court_conclusion",
+     "why": "Precludes IAD from H&C consideration"
+    },
+    {
+     "cite": "Nguyen at para 54",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Confirms IAD's lack of jurisdiction"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "court",
+   "summary": "The Public Policy exemption does not apply as Mr. Adeleke became PR under economic class, and the issue was not challenged before the IAD.",
+   "ideas": "multiple",
+   "idea_list": [
+    "Public Policy exemption inapplicable",
+    "Issue not challenged before IAD"
+   ],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "court",
+   "summary": "The Applicant has not shown the IAD's decision is unreasonable.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant failed to prove unreasonableness"
+   ],
+   "citations": []
+  },
+  {
+   "para": 21,
+   "speaker": "court",
+   "summary": "Respondent's counsel noted Applicant's reply submissions contained mismatched and inaccurate authorities.",
+   "ideas": "single",
+   "idea_list": [
+    "Respondent notes citation inaccuracies"
+   ],
+   "citations": []
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Applicant's counsel acknowledged citation errors but did not explain their cause; court notes errors resemble AI-generated mistakes.",
+   "ideas": "single",
+   "idea_list": [
+    "Applicant acknowledges citation errors; court notes AI-like errors"
+   ],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "court",
+   "summary": "Court cannot conclude errors arose from undeclared AI use but reminds counsel to disclose AI use per Notice and warns of sanctions for non-compliance.",
+   "ideas": "multiple",
+   "idea_list": [
+    "No conclusion on AI use",
+    "Reminder to disclose AI use",
+    "Warning of sanctions for non-disclosure"
+   ],
+   "citations": [
+    {
+     "cite": "Notice to the Parties and the Profession on the Use of Artificial Intelligence in Court Proceedings, dated May 7, 2024",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Court's AI disclosure requirement"
+    },
+    {
+     "cite": "Hussein v Canada (Immigration, Refugees and Citizenship), 2025 FC 1138 at paras 9\u201314, 16",
+     "kind": "case",
+     "purpose": "supports_court_conclusion",
+     "why": "Sanctions for failure to disclose AI use"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "court",
+   "summary": "No serious question of general importance for certification is proposed or found by the court.",
+   "ideas": "single",
+   "idea_list": [
+    "No certification question arises"
+   ],
+   "citations": []
+  }
+ ]
+}

@@ -1,0 +1,779 @@
+{
+ "case_id": 72098,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "sum_v1",
+ "run": "bundle2_summaries",
+ "usage": {
+  "usd": 0.0085276
+ },
+ "verification": {
+  "paragraphs": 45,
+  "summaries": 45,
+  "paragraphs_missing": [],
+  "paragraphs_not_in_chunk_dropped": 0,
+  "model_citations": 38,
+  "regex_citations": 4,
+  "regex_addressed": 0,
+  "pinpoints": 2,
+  "purposes": {
+   "standard_of_review_or_test": 2,
+   "supports_court_conclusion": 1,
+   "party_argument_reported": 19,
+   "distinguished_or_rejected": 0,
+   "background_or_other": 16
+  },
+  "multi_idea_paragraphs": 3,
+  "party_points": 8,
+  "rebuttals": 5,
+  "left_open": 0
+ },
+ "pinpoints": [
+  {
+   "citing_para": 45,
+   "neutral_citation": "2018 FC 1145",
+   "para_start": 5,
+   "para_end": 5
+  },
+  {
+   "citing_para": 45,
+   "neutral_citation": "2021 FC 437",
+   "para_start": 13,
+   "para_end": 13
+  }
+ ],
+ "structure": {
+  "overview": "This case concerns Haitian women appellants fearing gender-based violence and lack of protection if returned to Haiti. The Refugee Appeal Division (RAD) reviewed the Refugee Protection Division's (RPD) decision that found no credible risk or vulnerability. The RAD allowed the appeal, finding the appellants face a serious risk of persecution as single women without family protection and are Convention refugees.",
+  "party_points": [
+   {
+    "id": "P1",
+    "para": 2,
+    "by": "appellants",
+    "text": "fear of assault or death by ex-husband and gender-based violence"
+   },
+   {
+    "id": "P2",
+    "para": 5,
+    "by": "appellants",
+    "text": "RPD speculated, ignored evidence, failed to apply Guideline 4 properly"
+   },
+   {
+    "id": "P3",
+    "para": 15,
+    "by": "appellants",
+    "text": "RPD failed to consider all circumstances in vulnerability conclusion"
+   },
+   {
+    "id": "P4",
+    "para": 19,
+    "by": "appellants",
+    "text": "principal appellant divorced without male family; associate appellant single"
+   },
+   {
+    "id": "P5",
+    "para": 21,
+    "by": "appellants",
+    "text": "male family presence offers protection; without it, greater sexual violence risk"
+   },
+   {
+    "id": "P6",
+    "para": 22,
+    "by": "appellants",
+    "text": "house in disadvantaged, insecure area increasing risk, ignored by RPD"
+   },
+   {
+    "id": "P7",
+    "para": 26,
+    "by": "appellants",
+    "text": "sexual violence used as weapon by armed gangs in Port-au-Prince slums"
+   },
+   {
+    "id": "P8",
+    "para": 30,
+    "by": "appellants",
+    "text": "principal appellant's work exposes her to risks, leaving daughter alone"
+   }
+  ],
+  "rebuttals": [
+   {
+    "answer_para": 7,
+    "answers": "P2",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 16,
+    "answers": "P3",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 33,
+    "answers": "P8",
+    "verdict": "rejects"
+   },
+   {
+    "answer_para": 44,
+    "answers": "P5",
+    "verdict": "accepts"
+   },
+   {
+    "answer_para": 44,
+    "answers": "P6",
+    "verdict": "accepts"
+   }
+  ],
+  "left_open": []
+ },
+ "summaries": [
+  {
+   "para": 1,
+   "speaker": "party",
+   "summary": "The principal and associate appellants are Haitian women from Carrefour-Feuilles, Port-au-Prince suburbs.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "1",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to location of appellants"
+    }
+   ]
+  },
+  {
+   "para": 2,
+   "speaker": "party",
+   "summary": "Appellants fear assault or death by principal appellant's ex-husband and gender-based violence as single women if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 3,
+   "speaker": "below",
+   "summary": "RPD found domestic violence and rape allegations not credible due to omissions and contradictions, disregarding corroborating evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 4,
+   "speaker": "below",
+   "summary": "RPD concluded appellants not vulnerable to gender-based violence due to education and finances, finding no prospective risk.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "2",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to RPD's conclusion"
+    }
+   ]
+  },
+  {
+   "para": 5,
+   "speaker": "party",
+   "summary": "Appellants dispute RPD's prospective risk conclusion, arguing RPD speculated, ignored evidence, and failed to apply Guideline 4 properly.",
+   "ideas": "multiple",
+   "idea_list": [
+    "RPD based conclusions on speculation",
+    "RPD ignored evidence on gender-based violence",
+    "RPD failed to consider Guideline 4 properly"
+   ],
+   "citations": [
+    {
+     "cite": "3",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Reference to appellants' dispute of RPD conclusions"
+    },
+    {
+     "cite": "4",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Reference to appellants' reliance on Guideline 4"
+    }
+   ]
+  },
+  {
+   "para": 6,
+   "speaker": "court",
+   "summary": "The RAD's key issue is the appellants' prospective risk of harm if returned to Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 7,
+   "speaker": "court",
+   "summary": "The RPD erred in concluding no prospective risk for appellants as single women without family protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 8,
+   "speaker": "court",
+   "summary": "The appeal is allowed; appellants are determined to be Convention refugees.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "5",
+     "kind": "other",
+     "purpose": "supports_court_conclusion",
+     "why": "Supports court's refugee determination"
+    }
+   ]
+  },
+  {
+   "para": 9,
+   "speaker": "court",
+   "summary": "The RAD applies correctness standard, independently reviewing evidence without new evidence or oral hearing from appellants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "6",
+     "kind": "other",
+     "purpose": "standard_of_review_or_test",
+     "why": "States standard of review as correctness"
+    }
+   ]
+  },
+  {
+   "para": 10,
+   "speaker": "court",
+   "summary": "RPD erred on prospective risk; appellants face serious gender-related persecution risk as single women without family protection.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 11,
+   "speaker": "court",
+   "summary": "Associate appellant's claim relies on principal appellant's facts; same analysis applies to her.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 12,
+   "speaker": "court",
+   "summary": "Court considered Guideline 4 emphasizing social, cultural, religious, and economic context for claimants.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "7",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to Guideline 4"
+    }
+   ]
+  },
+  {
+   "para": 13,
+   "speaker": "court",
+   "summary": "Documentary evidence shows widespread, chronic gender-based violence in Haiti, impacting women's education, economy, and safety.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "8",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Documentary evidence on gender-based violence in Haiti"
+    }
+   ]
+  },
+  {
+   "para": 14,
+   "speaker": "below",
+   "summary": "RPD found appellants not vulnerable due to principal appellant's education, finances, and home ownership.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "11",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "RPD's conclusion on appellants' profile"
+    }
+   ]
+  },
+  {
+   "para": 15,
+   "speaker": "party",
+   "summary": "Appellants argue RPD failed to consider all their circumstances in concluding low vulnerability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 16,
+   "speaker": "court",
+   "summary": "Court agrees RPD's approach was insufficiently thorough and missed relevant information on appellants' vulnerability.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 17,
+   "speaker": "court",
+   "summary": "Federal Court in Josile identified factors for risk analysis: residence, family, state protection, and circumstances.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "Josile,12",
+     "kind": "case",
+     "purpose": "background_or_other",
+     "why": "Factors for risk analysis in gender-related persecution claims"
+    }
+   ]
+  },
+  {
+   "para": 18,
+   "speaker": "court",
+   "summary": "Risk must be more than a mere possibility to be established.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "14",
+     "kind": "other",
+     "purpose": "standard_of_review_or_test",
+     "why": "Threshold for establishing risk"
+    }
+   ]
+  },
+  {
+   "para": 19,
+   "speaker": "party",
+   "summary": "Principal appellant is divorced without male family presence; associate appellant is single and lives with her.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 20,
+   "speaker": "party",
+   "summary": "Only the principal appellant's aunt with psychological issues lives in the house; no other close relatives.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "15",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Testimony about household members"
+    }
+   ]
+  },
+  {
+   "para": 21,
+   "speaker": "party",
+   "summary": "Appellants argue male family presence offers protection; without it, they face greater sexual violence risk in urban Haiti.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "17",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Case law on male family protection"
+    }
+   ]
+  },
+  {
+   "para": 22,
+   "speaker": "party",
+   "summary": "Appellants say their house is in a disadvantaged, insecure area, increasing their risk, which RPD ignored.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 23,
+   "speaker": "party",
+   "summary": "Appellants confirmed their house is in Carrefour-Feuilles, a disadvantaged district, corroborated by evidence.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "19",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' testimony on address"
+    },
+    {
+     "cite": "20",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Corroboration of address"
+    }
+   ]
+  },
+  {
+   "para": 24,
+   "speaker": "court",
+   "summary": "Documentary evidence shows Carrefour-Feuilles is a gang-active, violent district with shootouts causing displacement.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "21",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Evidence of violence and displacement in Carrefour-Feuilles"
+    },
+    {
+     "cite": "22",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Identification of gang activity"
+    },
+    {
+     "cite": "23",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Gang control details"
+    }
+   ]
+  },
+  {
+   "para": 25,
+   "speaker": "party",
+   "summary": "Appellants had no other housing, were displaced by 2010 earthquake, and lived in tents and a school temporarily.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "24",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Testimony on displacement and housing"
+    }
+   ]
+  },
+  {
+   "para": 26,
+   "speaker": "party",
+   "summary": "Appellants argue sexual violence is used as a weapon by armed gangs in Port-au-Prince slums and disadvantaged areas.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "25",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Documentary evidence on sexual violence by gangs"
+    }
+   ]
+  },
+  {
+   "para": 27,
+   "speaker": "court",
+   "summary": "Documentary evidence shows victims hesitate to report rape due to fear; women seek protectors or diaspora escape.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "26",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Evidence on victims' fear and survival strategies"
+    }
+   ]
+  },
+  {
+   "para": 28,
+   "speaker": "court",
+   "summary": "Current gang war in Port-au-Prince causes displacement and sexual abuse, including 'sex for shelter' demands.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "27",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reference to ongoing gang war"
+    },
+    {
+     "cite": "28",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "Reports of sexual abuse among displaced persons"
+    }
+   ]
+  },
+  {
+   "para": 29,
+   "speaker": "court",
+   "summary": "Appellants' location in gang war area and lack of alternative housing increase risk of displacement and sexual abuse if returned.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": []
+  },
+  {
+   "para": 30,
+   "speaker": "party",
+   "summary": "Appellants argue principal appellant's civil engineering work exposes her to risks, leaving daughter alone.",
+   "ideas": "single",
+   "idea_list": [],
+   "citations": [
+    {
+     "cite": "29",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "Appellants' argument on work-related risks"
+    }
+   ]
+  },
+  {
+   "para": 31,
+   "speaker": "court",
+   "summary": "The court agrees with the appellants that serious employment-related discrimination forces the principal appellant to continue vulnerable work to provide for their needs.",
+   "ideas": "multiple",
+   "idea_list": [
+    "agreement with appellants",
+    "serious employment discrimination",
+    "principal appellant's vulnerability"
+   ],
+   "citations": [
+    {
+     "cite": "31 32",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "references evidence on record about employment discrimination"
+    }
+   ]
+  },
+  {
+   "para": 32,
+   "speaker": "below",
+   "summary": "The RPD concluded the principal appellant could hire a domestic worker and is an independent woman used to a man's world.",
+   "ideas": "single",
+   "idea_list": [
+    "RPD's conclusion on appellant's independence and domestic help"
+   ],
+   "citations": [
+    {
+     "cite": "33",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "quotes RPD's conclusion"
+    }
+   ]
+  },
+  {
+   "para": 33,
+   "speaker": "court",
+   "summary": "The court disagrees with the RPD, finding independence does not protect appellants from violence in a dangerous region and hiring domestic help is insufficient.",
+   "ideas": "single",
+   "idea_list": [
+    "court rejects RPD's conclusion on independence and domestic help"
+   ],
+   "citations": []
+  },
+  {
+   "para": 34,
+   "speaker": "court",
+   "summary": "The court agrees with appellants that the associate appellant's youth makes her a target for gangs and that university attendance is irrelevant to risk assessment.",
+   "ideas": "single",
+   "idea_list": [
+    "court agrees on youth vulnerability and irrelevance of university attendance"
+   ],
+   "citations": [
+    {
+     "cite": "34",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "appellants' documentary evidence on youth vulnerability"
+    },
+    {
+     "cite": "35",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "appellants' argument on university attendance irrelevance"
+    }
+   ]
+  },
+  {
+   "para": 35,
+   "speaker": "court",
+   "summary": "The court finds appellants' vulnerability to persecution as single women without family protection is corroborated and that the RPD erred in its analysis.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds RPD error on vulnerability analysis"
+   ],
+   "citations": []
+  },
+  {
+   "para": 36,
+   "speaker": "court",
+   "summary": "Having found RPD's error, the court proceeds to determine the appropriate remedy.",
+   "ideas": "single",
+   "idea_list": [
+    "court moves to remedy determination"
+   ],
+   "citations": []
+  },
+  {
+   "para": 37,
+   "speaker": "court",
+   "summary": "The court concludes appellants face a serious possibility of persecution in Haiti due to their membership in the social group of single women without family protection.",
+   "ideas": "single",
+   "idea_list": [
+    "serious possibility of persecution established"
+   ],
+   "citations": []
+  },
+  {
+   "para": 38,
+   "speaker": "court",
+   "summary": "The court finds appellants particularly vulnerable to gender-based violence, which constitutes severe abuses amounting to persecution under international law.",
+   "ideas": "multiple",
+   "idea_list": [
+    "vulnerability to gender-based violence",
+    "gender-based violence as persecution"
+   ],
+   "citations": [
+    {
+     "cite": "36",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "documentary evidence on gender-based violence"
+    },
+    {
+     "cite": "37",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "gender-based violence is gender-based"
+    },
+    {
+     "cite": "38",
+     "kind": "other",
+     "purpose": "background_or_other",
+     "why": "characterization of violence as persecution under international law"
+    }
+   ]
+  },
+  {
+   "para": 39,
+   "speaker": "court",
+   "summary": "The court finds clear and convincing documentary evidence that Haiti lacks adequate protection for women victims of gender-based violence.",
+   "ideas": "single",
+   "idea_list": [
+    "inadequate state protection established"
+   ],
+   "citations": []
+  },
+  {
+   "para": 40,
+   "speaker": "court",
+   "summary": "The court notes ineffective judicial structures and police mistreatment of female victims, who face dismissal and inadequate responses to violence reports.",
+   "ideas": "single",
+   "idea_list": [
+    "judicial and police failings in protecting women"
+   ],
+   "citations": [
+    {
+     "cite": "39",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "documentary evidence on police and court mistreatment"
+    },
+    {
+     "cite": "40",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "documentary evidence on authorities' inadequate response"
+    }
+   ]
+  },
+  {
+   "para": 41,
+   "speaker": "court",
+   "summary": "The court finds discriminatory practices and lack of resources in Haiti's judicial system prevent appellants from accessing adequate state protection.",
+   "ideas": "single",
+   "idea_list": [
+    "discrimination and resource lack prevent protection"
+   ],
+   "citations": [
+    {
+     "cite": "41",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "evidence of discriminatory judicial practices"
+    },
+    {
+     "cite": "42",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "evidence of resource shortages"
+    }
+   ]
+  },
+  {
+   "para": 42,
+   "speaker": "court",
+   "summary": "Due to insecurity and lack of family support and state protection throughout Haiti, appellants have no internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [
+    "no internal flight alternative due to insecurity and lack of protection"
+   ],
+   "citations": [
+    {
+     "cite": "43",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "evidence on insecurity in Haiti"
+    },
+    {
+     "cite": "44",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "evidence on lack of protection for women without family support"
+    }
+   ]
+  },
+  {
+   "para": 43,
+   "speaker": "court",
+   "summary": "The court concludes violence against women and lack of protection are systemic nationwide, so fear of gender-based violence extends countrywide, negating internal flight alternative.",
+   "ideas": "single",
+   "idea_list": [
+    "countrywide risk and no internal flight alternative"
+   ],
+   "citations": [
+    {
+     "cite": "45 46",
+     "kind": "other",
+     "purpose": "party_argument_reported",
+     "why": "documentary evidence on systemic violence and lack of protection"
+    }
+   ]
+  },
+  {
+   "para": 44,
+   "speaker": "court",
+   "summary": "The court determines the RPD erred in concluding appellants would not face serious persecution due to their vulnerability as single women without family protection.",
+   "ideas": "single",
+   "idea_list": [
+    "court finds RPD error on persecution risk conclusion"
+   ],
+   "citations": []
+  },
+  {
+   "para": 45,
+   "speaker": "court",
+   "summary": "The appeal is allowed; the RPD's decision is set aside and replaced with a determination that appellants are Convention refugees.",
+   "ideas": "single",
+   "idea_list": [
+    "appeal allowed and appellants recognized as refugees"
+   ],
+   "citations": []
+  }
+ ]
+}

@@ -275,7 +275,7 @@
   document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
     if(a.dataset.gotoBound)return;a.dataset.gotoBound='1';
     a.addEventListener('click',function(ev){
-      var g=a.dataset.goto,sel=g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
+      var g=a.dataset.goto,sel=g.indexOf('tab:')===0?'#researchViews [data-tab="'+g.slice(4)+'"]':g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
       var target=document.querySelector(sel);
       if(!target)return;
       ev.preventDefault();target.click();window.scrollTo({top:0});

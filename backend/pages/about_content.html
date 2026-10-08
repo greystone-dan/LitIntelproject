@@ -52,6 +52,18 @@
 .ilit-about ul.ticks li::before{content:"";position:absolute;left:3px;top:.6em;width:9px;height:5px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
 .ilit-about ul.ticks b{font-weight:600}
 
+.ilit-about .compare{margin-top:16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+.ilit-about .compare .row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:20px;padding:14px 16px;border-top:1px solid var(--border);color:inherit;text-decoration:none}
+.ilit-about .compare .row:first-child{border-top:0}
+.ilit-about .compare a.row:hover{background:var(--surface-alt)}
+.ilit-about .compare a.row:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.ilit-about .compare .k{display:block;margin-bottom:4px;color:var(--rust);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ilit-about .compare a.row .k::after{content:" \2192"}
+.ilit-about .compare b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ilit-about .compare p{margin:4px 0 0;font-size:13.5px;line-height:1.55}
+.ilit-about .compare .what p{color:var(--text)}
+.ilit-about .compare div:not(.what) p{color:var(--muted)}
+@media (max-width:760px){.ilit-about .compare .row{grid-template-columns:minmax(0,1fr);gap:8px}}
 .ilit-about .tag{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;vertical-align:1px}
 .ilit-about .tag.live{background:var(--teal-soft);color:var(--teal)}
 .ilit-about .tag.soon{background:var(--amber-soft);color:var(--amber)}
@@ -163,13 +175,16 @@
   </section>
 
   <section id="aboutWhat">
-    <h2>What you can do with it</h2>
-    <div class="grid">
-      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Find decisions</span><p>Search by case name, citation or a few words, and narrow the results by court, year or type of case.</p></a>
-      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Read them clearly</span><p>Open a decision in a clean page with numbered paragraphs. The cases and laws it mentions are marked, and you can jump straight to them.</p></a>
-      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">See the bigger picture</span><p>Look across many decisions at once: a judge’s past decisions, which cases are relied on most, and how Federal Court cases move from filing to the end.</p></a>
-      <a class="card go" href="/workbench"><span class="k">Keep and check your work</span><p>Pin the decisions you need in the Workbench, and check the cases and laws cited in a document of your own. Your document is read and then forgotten; it is never kept.</p></a>
+    <h2>What it does, and how it compares</h2>
+    <p class="intro">The Division researches with CanLII today, a free and very good service. iLit is built to sit beside it, not to replace it, and to add what it does not do for immigration litigation.</p>
+    <div class="compare" role="list">
+      <a class="row go" role="listitem" href="?tab=search&amp;group=research" data-goto="research"><div class="what"><span class="k">Find and read decisions</span><p>Search by name, citation or a few words, then read each decision in a clean page with numbered paragraphs and every cited case and law marked.</p></div><div><b>Why it helps</b><p>You get to the passage that matters quickly, and can follow a citation straight to the paragraph it points to.</p></div><div><b>What exists today</b><p>CanLII also searches full text and notes up cited paragraphs. iLit adds filters for immigration work, such as outcome and type of case.</p></div></a>
+      <a class="row go" role="listitem" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><div class="what"><span class="k">See who won, by issue</span><p>Each decision carries its outcome, for the Minister or the applicant, worked out by fixed rules and always shown with the number of decisions behind it.</p></div><div><b>Why it helps</b><p>It shows how the Court has actually ruled on an issue, not just what the cases say. Outcomes are still being checked against hand-reviewed decisions.</p></div><div><b>What exists today</b><p>I found no outcome coding for Federal Court immigration decisions in CanLII, Westlaw or Lexis.</p></div></a>
+      <a class="row go" role="listitem" href="?tab=fc-analytics&amp;group=intel" data-goto="tab:fc-analytics"><div class="what"><span class="k">Every Federal Court immigration case</span><p>The Court’s public record for each immigration case, turned into clear steps from filing to leave, hearing and judgment.</p></div><div><b>Why it helps</b><p>Most cases end without a published decision. Leave rates, timelines and workload can only be seen from the full record.</p></div><div><b>What exists today</b><p>The Court’s website looks up one file at a time and publishes overall totals each quarter.</p></div></a>
+      <a class="row go" role="listitem" href="?tab=citation-intelligence&amp;group=intel" data-goto="tab:citation-intelligence"><div class="what"><span class="k">Which authorities matter</span><p>For any case: who cites it, how that has changed over time, and how the citing decisions turned out.</p></div><div><b>Why it helps</b><p>It shows which authorities carry the day in immigration cases, and which are fading.</p></div><div><b>What exists today</b><p>CanLII lists citing cases and ranks them by discussion, without their outcomes. Paid tools flag later treatment; the Division does not hold them.</p></div></a>
+      <a class="row go" role="listitem" href="/workbench"><div class="what"><span class="k">Check a document’s citations</span><p>Drop in a memo and see every case and law it cites, linked to the library. Your document is read and then forgotten; it is never kept.</p></div><div><b>Why it helps</b><p>A quick check that every authority is found and points where it should, before a document goes out.</p></div><div><b>What exists today</b><p>CanLII has no such check. Citation checkers come with paid services the Division does not hold.</p></div></a>
     </div>
+    <p class="small" style="margin-top:10px">Comparisons are from public product information checked in October 2026. CanLII covers far more courts and tribunals than iLit does.</p>
   </section>
 
   <section id="aboutWhere">
@@ -187,7 +202,7 @@
   document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
     if(a.dataset.gotoBound)return;a.dataset.gotoBound='1';
     a.addEventListener('click',function(ev){
-      var g=a.dataset.goto,sel=g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
+      var g=a.dataset.goto,sel=g.indexOf('tab:')===0?'#researchViews [data-tab="'+g.slice(4)+'"]':g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
       var target=document.querySelector(sel);
       if(!target)return;
       ev.preventDefault();target.click();window.scrollTo({top:0});

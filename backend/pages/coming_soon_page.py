@@ -13,7 +13,7 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-from .coming_soon_content import SECTIONS
+from .coming_soon_content import PARTS, SECTIONS
 
 STATUSES = {
 	"built": "Built",
@@ -30,9 +30,8 @@ STATUS_MEANING = {
 	"concept": "An idea only. Nothing is built, and it needs something the site does not have yet, such as an on-premises model or agency sign-in.",
 }
 
-# Ordered from closest to today to furthest out: fix what is there, grow it, read it better, then
-# the parts that need agency sign-in, agency data or agency hardware.
-ORDER = ["overview", "accuracy", "expansion", "intelligence", "team", "internal", "local-ai"]
+ORDER = ["overview"] + [slug for _key, _label, _text, slugs in PARTS for slug in slugs]
+PART_OF = {slug: label for _key, label, _text, slugs in PARTS for slug in slugs}
 LABELS = {"overview": "Overview", **{key: value["label"] for key, value in SECTIONS.items()}}
 
 _EXTRA_CSS = """
@@ -59,6 +58,7 @@ body{font-family:"IBM Plex Sans",system-ui,sans-serif;padding:14px 18px 28px}
 .ilit-about .area-card .counts{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
 .ilit-about .area-card .counts .tag{margin:0}
 .ilit-about .area-card{scroll-margin-top:12px}
+.ilit-about .part{margin-top:22px}.ilit-about .part h3{margin:0;font:600 19px/1.3 var(--serif)}.ilit-about .part .small{margin:4px 0 0}.ilit-about .part .grid{margin-top:10px}
 .ilit-about .pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:34px;padding-top:18px;border-top:1px solid var(--border);font-size:14px}
 .ilit-about .pager a{color:var(--blue);text-decoration:none}.ilit-about .pager a:hover{text-decoration:underline}
 .ilit-about .glance td:first-child{font-weight:600}
@@ -114,14 +114,19 @@ def _counts(items: list) -> str:
 
 
 def _overview() -> str:
-	cards = ""
-	for number, slug in enumerate(ORDER[1:], 1):
-		area = SECTIONS[slug]
-		cards += (
-			f'<a class="card go area-card" id="{slug}" href="/data-explorer?tab=roadmap-{slug}&amp;group=roadmap" target="_top">'
-			f'<span class="k">{number} · {_e(area["label"])}</span><p>{_e(area["summary"])}</p>'
-			f'<div class="counts">{_counts(area["items"])}</div></a>'
-		)
+	parts = ""
+	number = 0
+	for key, label, text, slugs in PARTS:
+		cards = ""
+		for slug in slugs:
+			number += 1
+			area = SECTIONS[slug]
+			cards += (
+				f'<a class="card go area-card" id="{slug}" href="/data-explorer?tab=roadmap-{slug}&amp;group=roadmap" target="_top">'
+				f'<span class="k">{number} · {_e(area["label"])}</span><p>{_e(area["summary"])}</p>'
+				f'<div class="counts">{_counts(area["items"])}</div></a>'
+			)
+		parts += f'<div class="part" id="part-{key}"><h3>{_e(label)}</h3><p class="small">{_e(text)}</p><div class="grid three areas">{cards}</div></div>'
 	now = "".join(
 		f'<div class="chiprow"><strong>{_e(item[1])}</strong><span>{_tag(item[2])} {_e(item[5])} '
 		f'<a href="/data-explorer?tab=roadmap-{slug}&amp;group=roadmap" target="_top">{_e(SECTIONS[slug]["label"])} &rarr;</a></span></div>'
@@ -133,12 +138,12 @@ def _overview() -> str:
 	return (
 		'<header><p class="eyebrow">Coming soon</p><h1>Where iLit is going next</h1>'
 		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. '
-		'What comes next falls into six areas. They are ordered from closest to today to furthest out: first making what exists more accurate, '
-		'then growing the library, then features that read decisions more deeply, and last the parts that would need the agency’s own sign-in, documents or computers.</p>'
+		'What comes next is in three parts: better data, which improves every page at once; new features built on that data; and the groundwork a deployment inside the Agency would need. '
+		'Each item says honestly how far it has got and, where it helps, what existing tools offer today.</p>'
 		f'<div class="note">{_RULE}</div></header>'
-		'<section id="areas"><h2>Six areas</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
-		f'<div class="grid three areas">{cards}</div></section>'
-		'<section id="now"><h2>Being worked on now</h2><p class="intro">The items labelled “In progress”, across all six areas.</p>'
+		f'<section id="areas"><h2>{len(ORDER) - 1} areas in three parts</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
+		f'{parts}</section>'
+		'<section id="now"><h2>Being worked on now</h2><p class="intro">The items labelled “In progress”, across every area.</p>'
 		f'<div class="status-list">{now}</div></section>'
 		'<section id="labels"><h2>How to read the labels</h2><p class="intro">Every item carries one of these five labels. “Built” appears only where the feature is on the site today.</p>'
 		f'<div class="status-list">{meanings}</div></section>'
@@ -154,7 +159,7 @@ def _pager(slug: str) -> str:
 	if index > 1:
 		prev = ORDER[index - 1]
 		links.append(f'<a href="/data-explorer?tab=roadmap-{prev}&amp;group=roadmap" target="_top">&larr; {_e(LABELS[prev])}</a>')
-	links.append('<a href="/data-explorer?tab=roadmap-overview&amp;group=roadmap" target="_top">All six areas</a>')
+	links.append('<a href="/data-explorer?tab=roadmap-overview&amp;group=roadmap" target="_top">All areas</a>')
 	if index < len(ORDER) - 1:
 		nxt = ORDER[index + 1]
 		links.append(f'<a href="/data-explorer?tab=roadmap-{nxt}&amp;group=roadmap" target="_top">{_e(LABELS[nxt])} &rarr;</a>')
@@ -169,19 +174,21 @@ def _section_page(slug: str) -> str:
 	)
 	note = f'<div class="note">{_e(area["note"])}</div>' if area.get("note") else ""
 	body = (
-		f'<header><p class="eyebrow">Coming soon</p><h1>{_e(area["label"])}</h1><p class="lede">{_e(area["lede"])}</p>'
+		f'<header><p class="eyebrow">Coming soon · {_e(PART_OF[slug])}</p><h1>{_e(area["label"])}</h1><p class="lede">{_e(area["lede"])}</p>'
 		f'<p>{_e(area["why"])}</p>{note}</header>'
 		'<section id="glance"><h2>At a glance</h2><div class="table-wrap"><table class="glance"><thead><tr><th>Item</th><th>Where it stands</th><th>On the site today</th></tr></thead>'
 		f"<tbody>{rows}</tbody></table></div></section>"
 	)
-	for anchor, title, status, paragraphs, example, today, needs in area["items"]:
+	for anchor, title, status, paragraphs, example, today, needs, *rest in area["items"]:
 		paras = "".join(f"<p>{_e(text)}</p>" for text in paragraphs)
+		elsewhere = f'<div><strong>What exists elsewhere</strong><span>{_e(rest[0])}</span></div>' if rest else ""
 		body += (
 			f'<section id="{anchor}"><h2>{_e(title)}{_tag(status)}</h2>{paras}'
 			'<div class="status-list">'
 			f'<div><strong>What you could do</strong><span>{_e(example)}</span></div>'
 			f'<div><strong>What exists today</strong><span>{_e(today)}</span></div>'
 			f'<div><strong>What it needs</strong><span>{_e(needs)}</span></div>'
+			f"{elsewhere}"
 			"</div></section>"
 		)
 	return body + _pager(slug) + _FOOTER

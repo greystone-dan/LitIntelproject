@@ -95,7 +95,7 @@ def test_about_text_has_no_stale_figures_or_funding():
 	text = "".join((ROOT / "backend" / "pages" / name).read_text(encoding="utf-8") for name in ("about_content.html", "about_how.html"))
 	for stale in ("316,940", "61,000", "1.44 M", "183,010", "705 automated", "About 700", "3 of 10", "13,424", "28 Sept 2026"):
 		assert stale not in text, stale
-	for money in ("US$", "funding", "Funding", "Mac Studio", "MacBook", "subscription", "pricing", "Westlaw", "Lexis"):
+	for money in ("US$", "funding", "Funding", "Mac Studio", "MacBook", "subscription", "pricing"):  # competitors may be named for comparison, prices may not
 		assert money not in text, money
 	overview = (ROOT / "backend" / "pages" / "about_content.html").read_text(encoding="utf-8")
 	for key in ("cases", "fc_activity_cases", "fc_activity_documents"):

@@ -154,10 +154,30 @@ PARTIES = {
 }
 
 
+META: dict[int, dict] = {}
+
+
+def generic_header(meta: dict) -> str:
+	"""For cases not in PARTIES: the style of cause, and a rule for working out the sides from the text (no hard-coded names)."""
+	court = (meta.get("court") or "").strip()
+	tribunal = court.upper() in {"RPD", "RAD", "IAD", "ID"} or "refugee" in court.lower()
+	text = (
+		f"case: {meta.get('title', '')}, {meta.get('citation', '')} ({court}). "
+		"The style of cause lists the parties but not who is who; work out the applicant and the respondent from the first paragraphs of the decision, "
+		"not from the order of the names and not from who wins. For an appeal, the appellant counts as 'applicant' and the other side as 'respondent'. "
+		"The court or tribunal whose decision is under review counts as tribunal_below. "
+	)
+	if tribunal:
+		text += ("This is a decision of the tribunal itself, not a court reviewing another body: the tribunal's own reasoning and findings are the 'court' rows "
+			"(holdings, rebuttals), the claimant is the applicant and the Minister is the respondent.")
+	return text
+
+
 def build(report: dict, paragraphs: list[dict], system: str | None = None) -> list[dict]:
 	units = [{"unit": u["discussion_unit_id"].split(":")[-1], "from": u["start_paragraph"], "to": u["end_paragraph"]} for u in report.get("discussion_units", [])]
 	body = "\n\n".join(f"[{p['paragraph_index']}] {p['text']}" for p in paragraphs)
-	header = f"case: {PARTIES[report['case_id']]}\n\n" if report.get("case_id") in PARTIES else ""
+	cid = report.get("case_id")
+	header = f"case: {PARTIES[cid]}\n\n" if cid in PARTIES else (generic_header(META[cid]) + "\n\n" if cid in META else "")
 	user = f"{header}units (rule-based, container paragraph positions): {json.dumps(units)}\n\ndecision:\n{body}"
 	return [{"role": "system", "content": system or SYSTEM}, {"role": "user", "content": user}]
 
@@ -177,10 +197,17 @@ def main() -> int:
 	parser.add_argument("--out-dir", type=Path, required=True)
 	parser.add_argument("--ledger", type=Path, required=True)
 	parser.add_argument("--send", action="store_true")
+	parser.add_argument("--reports-dir", type=Path, action="append", help="Folder(s) with case_<id>_deterministic.json (default: the 300-case run reports)")
+	parser.add_argument("--meta-csv", type=Path, action="append", help="CSV(s) with case_id,title,citation,court for the sides header of cases not hard-coded")
 	parser.add_argument("--prompt", choices=["v2", "v3", "v4"], default="v2", help="Prompt version (v4 = issue map pass, then v3 extraction)")
 	parser.add_argument("--cap-usd", type=float, default=None, help="Stop when the ledger total would pass this (the ledger already holds earlier spend)")
 	args = parser.parse_args()
 	version = f"themes_{args.prompt}"
+	import csv as _csv
+	for meta_path in args.meta_csv or []:
+		for row in _csv.DictReader(meta_path.open(encoding="utf-8-sig")):
+			META[int(float(row["case_id"]))] = row
+	report_dirs = args.reports_dir or [REPORTS]
 	system, schema = SYSTEM, SCHEMA
 	if args.prompt in ("v3", "v4"):
 		import themes_prompts_v3 as v3
@@ -189,7 +216,10 @@ def main() -> int:
 	client = make_client() if args.send else None
 	args.out_dir.mkdir(parents=True, exist_ok=True)
 	for case_id in [int(x) for x in args.cases.split(",")]:
-		report = json.loads((REPORTS / f"case_{case_id}_deterministic.json").read_text(encoding="utf-8"))
+		report_path = next((d / f"case_{case_id}_deterministic.json" for d in report_dirs if (d / f"case_{case_id}_deterministic.json").exists()), None)
+		if report_path is None:
+			raise SystemExit(f"no report for case {case_id} in {[str(d) for d in report_dirs]}")
+		report = json.loads(report_path.read_text(encoding="utf-8"))
 		paragraphs = load_paragraphs(report)
 		out_cap = 12000 if args.model.startswith(("gpt-5", "o4")) else 9000
 		issues = None

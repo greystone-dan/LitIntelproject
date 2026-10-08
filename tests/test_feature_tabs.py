@@ -587,7 +587,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.index('class="brand-home"') < header.index('primary-groups')
     assert 'href="/data-explorer?tab=about&amp;group=info"' in header
     assert 'siteExperimentalToggle' not in header and 'Show experimental' not in header
-    assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
+    assert header.count('<a ') == 3 and 'href="/welcome"' in header and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link, the Workbench page and the Welcome link
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):
@@ -606,7 +606,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert 'soon-fc-analytics' not in soon
     roadmap = {tab: group for tab, group in views.items() if tab.startswith('roadmap-')}
     assert set(roadmap.values()) == {'roadmap'}
-    assert list(roadmap) == ['roadmap-overview', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-internal', 'roadmap-intelligence', 'roadmap-team', 'roadmap-local-ai']
+    assert list(roadmap) == ['roadmap-overview', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-intelligence', 'roadmap-fc-files', 'roadmap-team', 'roadmap-readiness', 'roadmap-internal', 'roadmap-local-ai']
     assert {tab: group for tab, group in views.items() if tab not in soon and tab not in roadmap} == {
         'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',
@@ -1324,6 +1324,6 @@ def test_coming_soon_roadmap_pages_serve_overview_and_every_section():
         assert page.status_code == 200 and b"Coming soon" in page.body
     with pytest.raises(HTTPException):
         routes.coming_soon_page("nope")
-    assert all(item[2] in STATUSES and len(item) == 7 for area in SECTIONS.values() for item in area['items'])
+    assert all(item[2] in STATUSES and len(item) in (7, 8) for area in SECTIONS.values() for item in area['items'])
     assert b"Internal documentation" in routes.coming_soon_page("overview").body
     assert "/coming-soon/overview" in routes._data_explorer_page_html()

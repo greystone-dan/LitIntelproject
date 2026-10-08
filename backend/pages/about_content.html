@@ -37,6 +37,8 @@
 
 .ilit-about .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
 .ilit-about .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ilit-about .grid.glance4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1000px){.ilit-about .grid.glance4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ilit-about .card{padding:14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
 .ilit-about .card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
 .ilit-about a.card.go{display:block;color:inherit;text-decoration:none}
@@ -50,6 +52,18 @@
 .ilit-about ul.ticks li::before{content:"";position:absolute;left:3px;top:.6em;width:9px;height:5px;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
 .ilit-about ul.ticks b{font-weight:600}
 
+.ilit-about .compare{margin-top:16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+.ilit-about .compare .row{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr);gap:20px;padding:14px 16px;border-top:1px solid var(--border);color:inherit;text-decoration:none}
+.ilit-about .compare .row:first-child{border-top:0}
+.ilit-about .compare a.row:hover{background:var(--surface-alt)}
+.ilit-about .compare a.row:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.ilit-about .compare .k{display:block;margin-bottom:4px;color:var(--rust);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.ilit-about .compare a.row .k::after{content:" \2192"}
+.ilit-about .compare b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ilit-about .compare p{margin:4px 0 0;font-size:13.5px;line-height:1.55}
+.ilit-about .compare .what p{color:var(--text)}
+.ilit-about .compare div:not(.what) p{color:var(--muted)}
+@media (max-width:760px){.ilit-about .compare .row{grid-template-columns:minmax(0,1fr);gap:8px}}
 .ilit-about .tag{display:inline-block;margin-right:6px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:700;vertical-align:1px}
 .ilit-about .tag.live{background:var(--teal-soft);color:var(--teal)}
 .ilit-about .tag.soon{background:var(--amber-soft);color:var(--amber)}
@@ -106,7 +120,7 @@
 
 @media (max-width:760px){
   .ilit-about h1{font-size:28px}
-  .ilit-about .grid,.ilit-about .grid.three,.ilit-about .soon-list{grid-template-columns:minmax(0,1fr)}
+  .ilit-about .grid,.ilit-about .grid.three,.ilit-about .grid.glance4,.ilit-about .soon-list{grid-template-columns:minmax(0,1fr)}
   .ilit-about .status-list div{grid-template-columns:minmax(0,1fr);gap:4px}
 }
 @media (max-width:520px){
@@ -121,117 +135,74 @@
 <div class="wrap">
 
   <header id="aboutIntro">
-    <p class="eyebrow">About</p>
+    <p class="eyebrow">About · Overview</p>
     <h1>iLit: immigration litigation intelligence</h1>
-    <p class="lede" id="aboutWhatIsIlit">iLit is a website for researching Canadian immigration case law. It brings public court and tribunal decisions together in one library, lets you search them, and shows each decision in a clean, formatted view with the cases and statutes it relies on beside the text. It runs in an ordinary web browser; there is nothing to install.</p>
+    <p class="lede" id="aboutWhatIsIlit">iLit is a website for researching Canadian immigration case law. It brings public court and tribunal decisions together in one place, lets you search them, and shows each one in a clean, easy-to-read page. It works in an ordinary web browser, with nothing to install.</p>
+    <div class="tiles" id="aboutCounts" role="list">
+      <div role="listitem"><b data-live="cases">–</b><span>court and tribunal decisions in the library</span></div>
+      <div role="listitem"><b data-live="fc_activity_cases">–</b><span>Federal Court immigration cases tracked on the Court’s public record</span></div>
+      <div role="listitem"><b data-live="fc_activity_documents">–</b><span>activity records on those cases, such as filings, hearings and rulings</span></div>
+    </div>
+    <p class="small" style="margin-top:10px">These numbers are counted fresh when this page opens. A dash means the count could not be read just now.</p>
     <div class="entry-buttons" id="aboutEntryButtons">
       <button type="button" class="ilit-tour-start" data-ilit-tour-start id="ilitTourStart"><span aria-hidden="true">&#9654;</span> Take a tour</button>
-      <a class="ilit-tour-start alt" href="/future-features" id="ilitFutureTourStart"><span aria-hidden="true">&#9776;</span> Roadmap</a>
       <a class="ilit-tour-start alt" href="?tab=about&amp;about=how" data-goto="how"><span aria-hidden="true">&#9881;</span> How it works</a>
+      <a class="ilit-tour-start alt" href="?tab=roadmap-overview&amp;group=roadmap" data-goto="roadmap" id="ilitFutureTourStart"><span aria-hidden="true">&#9776;</span> What is coming next</a>
     </div>
-    <span class="ilit-tour-start-note">The tour is a guided walk through the real site. It opens each page, explains it and shows its main features. The only thing it saves is a few example pins on a demo Workbench. The roadmap lists what could come next; nothing on it is built yet.</span>
-    <div class="tiles" id="aboutCounts" role="list">
-      <div role="listitem"><b data-live="cases">–</b><span>decisions in the library</span></div>
-      <div role="listitem"><b data-live="citations">–</b><span>citation records found in those decisions</span></div>
-      <div role="listitem"><b data-live="fc_activity_cases">–</b><span>Federal Court immigration files with their docket history</span></div>
-    </div>
-    <p class="small" style="margin-top:10px">These three numbers are read from the database when this page opens. If they show a dash, the database could not be reached.</p>
+    <span class="ilit-tour-start-note">The tour walks through the real site, one step at a time, and you can leave it whenever you like.</span>
   </header>
 
-  <section id="aboutWhy">
-    <h2>Why it was built</h2>
-    <p>Immigration litigation is growing. More cases are being filed and decided, and each one adds to the volume that the people handling it have to follow and respond to.</p>
-    <p>At the same time, a great deal of information about those cases is already public and is not being used effectively. Court and tribunal decisions, docket entries and the authorities they cite are spread across several websites. They are hard to search together, and the links between them are not shown: which earlier decision a judge relied on, which section of which Act was applied, how a file moved through the Court, and how often a point has gone one way or the other.</p>
-    <p>iLit was built to bring that public information together and connect it, so that a question such as “how has the Court treated this issue?” can be answered from the record in minutes instead of hours of searching. It is a research aid; it does not give legal advice and it does not predict results.</p>
+  <section id="aboutGlance">
+    <h2>At a glance</h2>
+    <div class="grid glance4">
+      <div class="card"><span class="k">What</span><p>A website to search and read Canadian immigration decisions, with the cases and laws they rely on.</p></div>
+      <div class="card"><span class="k">Who</span><p>Built for CBSA’s Hearings and Litigation Division; open to anyone who reads these decisions.</p></div>
+      <div class="card"><span class="k">Why</span><p>Litigation keeps growing, and the public information about it is scattered and hard to use.</p></div>
+      <div class="card"><span class="k">How</span><p>Public decisions are gathered into one database and read by fixed rules. No AI is used when you search.</p></div>
+    </div>
   </section>
 
   <section id="aboutWho">
     <h2>Who it is for</h2>
-    <p>iLit is designed to be used by the Canada Border Services Agency (CBSA) when dealing with immigration litigation, primarily by its Hearings and Litigation Division. It is a design target, not an endorsement: the Agency has not adopted or approved it.</p>
-    <p>The same library is useful to anyone who reads immigration decisions as part of their work or study, such as lawyers, researchers and students. It is built and run by one person, independently, using public decisions only.</p>
+    <p>iLit is designed for the Canada Border Services Agency (CBSA) when it deals with immigration litigation, and above all for its Hearings and Litigation Division. It is a design goal, not an endorsement: the Agency has not adopted or approved it.</p>
+    <p>Anyone who reads immigration decisions for work or study, such as lawyers, researchers and students, can use it the same way.</p>
+  </section>
+
+  <section id="aboutWhy">
+    <h2>Why it was made</h2>
+    <p>Immigration litigation keeps growing. More cases are filed and decided every year, and the people who handle them have more to keep up with.</p>
+    <p>A great deal of useful information about those cases is already public, but it is spread over several websites and hard to use together. I built iLit to gather that public information in one place and connect it, so that a question like “how has the Court treated this issue?” can be answered in minutes instead of hours.</p>
   </section>
 
   <section id="aboutWhat">
-    <h2>What you can do with it</h2>
-    <div class="grid three">
-      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Find and read decisions</span><p>Search by case name, citation or phrase from Case search, narrow by court, year, outcome or judge, and open a decision in the formatted reader.</p></a>
-      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">See the bigger picture</span><p>Intelligence / Statistics adds up many decisions: judge profiles, who cites a given case, and Federal Court docket activity over time.</p></a>
-      <a class="card go" href="?group=soon" data-goto="soon"><span class="k">Try what is coming</span><p>Coming soon holds tools that are built but not yet ready to rely on, each with a short explanation.</p></a>
+    <h2>What it does, and how it compares</h2>
+    <p class="intro">The Division researches with CanLII today, a free and very good service. iLit is built to sit beside it, not to replace it, and to add what it does not do for immigration litigation.</p>
+    <div class="compare" role="list">
+      <a class="row go" role="listitem" href="?tab=search&amp;group=research" data-goto="research"><div class="what"><span class="k">Find and read decisions</span><p>Search by name, citation or a few words, then read each decision in a clean page with numbered paragraphs and every cited case and law marked.</p></div><div><b>Why it helps</b><p>You get to the passage that matters quickly, and can follow a citation straight to the paragraph it points to.</p></div><div><b>What exists today</b><p>CanLII also searches full text and notes up cited paragraphs. iLit adds filters for immigration work, such as outcome and type of case.</p></div></a>
+      <a class="row go" role="listitem" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><div class="what"><span class="k">See who won, by issue</span><p>Each decision carries its outcome, for the Minister or the applicant, worked out by fixed rules and always shown with the number of decisions behind it.</p></div><div><b>Why it helps</b><p>It shows how the Court has actually ruled on an issue, not just what the cases say. Outcomes are still being checked against hand-reviewed decisions.</p></div><div><b>What exists today</b><p>I found no outcome coding for Federal Court immigration decisions in CanLII, Westlaw or Lexis.</p></div></a>
+      <a class="row go" role="listitem" href="?tab=fc-analytics&amp;group=intel" data-goto="tab:fc-analytics"><div class="what"><span class="k">Every Federal Court immigration case</span><p>The Court’s public record for each immigration case, turned into clear steps from filing to leave, hearing and judgment.</p></div><div><b>Why it helps</b><p>Most cases end without a published decision. Leave rates, timelines and workload can only be seen from the full record.</p></div><div><b>What exists today</b><p>The Court’s website looks up one file at a time and publishes overall totals each quarter.</p></div></a>
+      <a class="row go" role="listitem" href="?tab=citation-intelligence&amp;group=intel" data-goto="tab:citation-intelligence"><div class="what"><span class="k">Which authorities matter</span><p>For any case: who cites it, how that has changed over time, and how the citing decisions turned out.</p></div><div><b>Why it helps</b><p>It shows which authorities carry the day in immigration cases, and which are fading.</p></div><div><b>What exists today</b><p>CanLII lists citing cases and ranks them by discussion, without their outcomes. Paid tools flag later treatment; the Division does not hold them.</p></div></a>
+      <a class="row go" role="listitem" href="/workbench"><div class="what"><span class="k">Check a document’s citations</span><p>Drop in a memo and see every case and law it cites, linked to the library. Your document is read and then forgotten; it is never kept.</p></div><div><b>Why it helps</b><p>A quick check that every authority is found and points where it should, before a document goes out.</p></div><div><b>What exists today</b><p>CanLII has no such check. Citation checkers come with paid services the Division does not hold.</p></div></a>
     </div>
+    <p class="small" style="margin-top:10px">Comparisons are from public product information checked in October 2026. CanLII covers far more courts and tribunals than iLit does.</p>
   </section>
 
   <section id="aboutWhere">
-    <h2>What is in it, and where it comes from</h2>
-    <p>Decisions of the Federal Court, the Federal Court of Appeal, the Supreme Court of Canada and the Refugee Protection Division of the Immigration and Refugee Board, gathered from public sources. Each decision keeps a link to its original, so you can always check the source. It is not a complete archive of any of these bodies, and some tribunals are not in it yet.</p>
-    <p>The How it works tab explains how the information beside each decision is worked out, and what is and is not finished.</p>
+    <h2>Where the information comes from</h2>
+    <p>Everything in iLit comes from public sources: decisions of the Federal Court, the Federal Court of Appeal, the Supreme Court of Canada and the Immigration and Refugee Board, and the Federal Court’s public record of activity on each case. Every decision links back to its original, so you can always check it.</p>
+    <p>iLit is a research aid. It does not give legal advice and it does not predict results.</p>
   </section>
 
-
-
-  <section id="aboutFullDetail">
-    <h2>Full detail: the previous About page</h2>
-    <p class="intro">Everything the About page said before it was split into Overview and How it works is kept below, unchanged. Where a block belongs to the other tab it is placed there instead, under the same heading.</p>
-  <section class="full-block" id="full-intro">
-    <h3>About · where the demo stands on 6 October 2026</h3>
-    <h4>iLit: immigration litigation intelligence</h4>
-    <p class="lede">iLit is a research tool for Canadian immigration case law that I am building independently, on public decisions only. It lets you search the library, read a decision with its citations and statute references alongside the text, and see how a judge, an authority or the Federal Court docket fits into the wider picture. This page describes what works today and what does not yet.</p>
-    <p class="small">A guided walk through the real site: it opens each page, explains it and shows its main features. Press Next to go on, or Exit at any time. The only thing it saves is a few example pins on a demo Workbench.</p>
-    <p class="small">A page on what could come next and the work still to do. Nothing on it is built yet.</p>
-    <p class="small"><a href="/future-features">Future features and roadmap</a></p>
-    <p class="small">The three figures at the top of this page were: decisions in the library; citation records found in those decisions; Federal Court immigration files with their docket history.</p>
-    <p class="small" style="margin-top:10px">These three numbers are read from the database when this page opens. If they show a dash, the database could not be reached.</p>
-  </section>
-  <section class="full-block" id="full-tabs">
-    <h2>Finding your way around</h2>
-    <p class="intro">The site has three working sections along the top, plus this page. Click a card to go there.</p>
-    <div class="grid">
-      <a class="card go" href="?tab=search&amp;group=research" data-goto="research"><span class="k">Case search</span><p>The main page. Find decisions by name, citation or phrase, narrow them with filters, and open one to read it.</p></a>
-      <a class="card go" href="?tab=judge-profile&amp;group=intel" data-goto="intel"><span class="k">Intelligence / Statistics</span><p>Judge Profiles, Citation Intelligence and Federal Court Analytics: views that add up many decisions rather than reading one.</p></a>
-      <a class="card go" href="?group=soon" data-goto="soon"><span class="k">Coming soon</span><p>Everything that is built but not ready to rely on yet. Each item has a short explainer. The full list is further down this page.</p></a>
-      <a class="card go" href="?tab=about&amp;about=changelog" data-goto="changelog"><span class="k">Changelog</span><p>A timeline, newest first, of what has been added to the site and when, with a filter by theme.</p></a>
-    </div>
-  </section>
-  <section class="full-block" id="full-search">
-    <h2><span class="tag live">Live</span>Case search</h2>
-    <p class="intro">Search runs entirely on the stored library. Nothing you type is sent to an AI service.</p>
-    <ul class="ticks">
-      <li><b>Find a case.</b> Type a case name, party, citation or phrase. The search looks at names and citations and at the reasons in the decisions themselves. A short plain-words line under the box says what the search is doing.</li>
-      <li><b>See why it matched.</b> Each result shows an excerpt with your words highlighted, the court, date, outcome and how many other decisions cite it.</li>
-      <li><b>Narrow it down.</b> Advanced filters cover court, decision year, decision result, judge, Minister or government party, a tag, and a case that the results must cite. Court and year chips narrow results in one click, and results can be sorted by newest, oldest, relevance or most cited.</li>
-      <li><b>Take results with you.</b> A Copy citation button sits on results and in the reader, and a search can be downloaded as a spreadsheet or Word file.</li>
-    </ul>
-  </section>
-  <section class="full-block" id="full-reader">
-    <h2><span class="tag live">Live</span>The case reader</h2>
-    <p class="intro">Open any result to read the decision in a clean formatted view built from the original text.</p>
-    <ul class="ticks">
-      <li><b>Readable layout.</b> Headings, numbered paragraphs, quotations and signature blocks are set out by fixed rules rather than shown as one block of text. A header row gives the court, citation, case name, file number, decision date, decision maker and outcome, with links to the source.</li>
-      <li><b>Citations and statutes in the text.</b> Citations to other cases and references to statutes are highlighted in place. Hovering over a pinpointed citation shows the paragraph it points to, when that case is in the library, and hovering over a statute reference shows the provision text where it is stored. A citation that cannot be matched says so rather than guessing.</li>
-      <li><b>Around the text.</b> A side panel gives the case information and the authorities and statutes the decision refers to, and there is a search box for the text of the decision itself. A chunk-by-chunk view of the same text is also available.</li>
-      <li><b>Outcomes say when they are unsure.</b> The outcome shown comes from fixed rules read against the decision. If the rules cannot tell, it says “unclear” instead of picking one.</li>
-    </ul>
-    <p class="small">Some reader tools are still unfinished, so they stay hidden unless you switch on “Show experimental” at the top of the reader.</p>
-  </section>
-  <section class="full-block" id="full-intel">
-    <h2><span class="tag live">Live</span>Intelligence / Statistics</h2>
-    <p class="intro">Three views that add up many decisions.</p>
-    <div class="grid three">
-      <div class="card"><h3>Judge Profiles</h3><p>A judge’s decisions in the library, outcomes by issue with the full count shown (unclassified decisions included), Federal Court docket activity, and a side-by-side comparison of two judges. Judge names in the source decisions are written many ways, so duplicate profiles still exist while the cleanup is finished. Read these as descriptions, not rankings.</p></div>
-      <div class="card"><h3>Citation Intelligence</h3><p>Pick one case and see which decisions cite it, how that has changed over time, the courts and outcomes of the citing decisions, and the passages where it is cited.</p></div>
-      <div class="card"><h3>Federal Court Analytics</h3><p>Charts and tables over the Federal Court docket layer: how files progress, leave and judicial review outcomes by year filed, the time between steps, motions by type, judges, counsel and the registry. The docket is typed by Registry staff, so any figure inherits their errors.</p></div>
-    </div>
-  </section>
-  </section>
-
-  <footer>Updated 7 October 2026. The How it works tab explains where the data comes from and what is and is not finished; the Changelog tab lists every addition by date.</footer>
+  <footer>Built and run independently by one person. The How it works tab explains, step by step, how the site works; the Changelog tab lists what has been added and when.</footer>
 
 </div>
 </div>
 <script>
 (function(){
   document.querySelectorAll('.ilit-about [data-goto]').forEach(function(a){
+    if(a.dataset.gotoBound)return;a.dataset.gotoBound='1';
     a.addEventListener('click',function(ev){
-      var g=a.dataset.goto,sel=g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
+      var g=a.dataset.goto,sel=g.indexOf('tab:')===0?'#researchViews [data-tab="'+g.slice(4)+'"]':g==='changelog'||g==='how'?'[data-tab="about-'+g+'"]':'.primary-groups [data-group="'+g+'"]';
       var target=document.querySelector(sel);
       if(!target)return;
       ev.preventDefault();target.click();window.scrollTo({top:0});

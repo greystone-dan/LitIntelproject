@@ -1,0 +1,877 @@
+{
+ "case_id": 44223,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "bundle_themes10",
+ "usage": {
+  "usd": 0.0110732
+ },
+ "verification": {
+  "items": 42,
+  "quote_exact_in_cited": 42,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 7,
+  "calls": 8,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 4,
+   "arguments": 21,
+   "holdings": 19,
+   "rebuttals": 2,
+   "authorities": 0,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The Federal Court of Appeal dismissed the appeal because the appellants failed to show a palpable and overriding error in the Federal Court's finding that there was no reasonable explanation for failing to file a statement of defence, which was fatal to setting aside the default judgment.",
+  "themes": [
+   {
+    "name": "Reasonable explanation for failure to file defence",
+    "summary": "The Federal Court found no reasonable explanation for the failure to file a statement of defence, a key condition to set aside the default judgment, and the Court of Appeal found no palpable and overriding error in this finding.",
+    "paragraphs": [
+     4,
+     5,
+     7,
+     9,
+     10
+    ]
+   },
+   {
+    "name": "Standard of review on appeal",
+    "summary": "The Court of Appeal applied the standard that factual findings can only be overturned if there is a palpable and overriding error, which the appellants failed to establish.",
+    "paragraphs": [
+     6,
+     7,
+     10,
+     11
+    ]
+   },
+   {
+    "name": "Evidentiary issues and financial discrepancies",
+    "summary": "There were troubling unanswered questions about the financial evidence and affidavits, but these did not amount to reviewable error in the decision not to set aside the default judgment.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15,
+     16
+    ]
+   },
+   {
+    "name": "Costs and conduct of parties",
+    "summary": "The respondent sought costs and a declaration of abuse of process, but the Court found no basis for such a characterization and awarded no costs.",
+    "paragraphs": [
+     17,
+     18
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Background and procedural history",
+    "first_paragraph": 1,
+    "last_paragraph": 3,
+    "disposition": "other"
+   },
+   {
+    "label": "Test for setting aside default judgment",
+    "first_paragraph": 4,
+    "last_paragraph": 5,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review and appellants' concession",
+    "first_paragraph": 6,
+    "last_paragraph": 7,
+    "disposition": "other"
+   },
+   {
+    "label": "Federal Court's factual findings on reasonable explanation",
+    "first_paragraph": 8,
+    "last_paragraph": 10,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Failure to address remaining conditions for setting aside default judgment",
+    "first_paragraph": 11,
+    "last_paragraph": 11,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Concerns about evidentiary record and financial statements",
+    "first_paragraph": 12,
+    "last_paragraph": 16,
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "Costs and characterization of appeal",
+    "first_paragraph": 17,
+    "last_paragraph": 18,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The appellants brought the motion to set aside the default judgment early in 2023.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants brought the motion to set aside the default judgment early in 2023.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Federal Court concluded that Mr. Smith and 247 did not have a reasonable explanation for not filing a statement of defence.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court concluded that Mr. Smith and 247 did not have a reasonable explanation for not filing a statement of defence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Because the test is conjunctive, the Court saw no need to address the other two conditions and dismissed the appellants\u2019 motion.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Because the test is conjunctive, the Court saw no need to address the other two conditions and dismissed the appellants\u2019 motion.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Rather, they say the Federal Court made a palpable and overriding error in failing to interpret the combined evidence of the appellants and the respondent as establishing that Mr. Smith and 247 reasonably believed the matter was resolved so they had no need to file a statement of defence.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The Federal Court made a palpable and overriding error in failing to interpret the combined evidence as establishing that Mr. Smith and 247 reasonably believed the matter was resolved so they had no need to file a statement of defence.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Because of this error, they say, the Federal Court erred in failing to address the remaining two conditions to set aside a default judgment.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "Because of this error, the Federal Court erred in failing to address the remaining two conditions to set aside a default judgment.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Before us, the appellants do not allege the Federal Court erred in identifying the test for setting aside a default judgment.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants do not allege the Federal Court erred in identifying the test for setting aside a default judgment.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Moreover, they concede that its finding there was no reasonable explanation for the failure to file a statement of defence is one of mixed fact and law, if not fact.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The Federal Court's finding there was no reasonable explanation for the failure to file a statement of defence is one of mixed fact and law, if not fact.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They also accept that, under the appellate standard of review, we cannot interfere with that finding absent a palpable and overriding error or an extricable error of law: Housen v. Nikolaisen, 2002 SCC 33 at para. 36.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "Under the appellate standard of review, the Court cannot interfere with that finding absent a palpable and overriding error or an extricable error of law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Over more than six pages in its reasons, the Federal Court considered the history of the matter and the explanations the appellants offered for the failures by Mr. Smith and 247 to file a statement of defence: paras. 18-38.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court considered the history and explanations for the failures to file a statement of defence over more than six pages in its reasons.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It reviewed and analyzed the evidence from both the appellants and the respondent said to support those explanations and concluded that evidence fell short of establishing a reasonable explanation for these failures.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court reviewed and analyzed evidence from both appellants and respondent and concluded the evidence fell short of establishing a reasonable explanation for the failures.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "While the appellants also assert the Federal Court erred in not addressing the second and third conditions for setting aside a default judgment, they do so on the assumption the Federal Court made a palpable and overriding error on the first condition.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "applicant",
+    "claim": "The Federal Court erred in not addressing the second and third conditions for setting aside a default judgment, assuming it made a palpable and overriding error on the first condition.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The responding motion record in the appellants\u2019 motion to set aside the default judgment contained affidavits of Leonard Seidman and Michael Chevalier, co-counsel to the respondent, albeit with different law firms. The objective of the affidavits appears to have been to respond to the appellants\u2019 assertion that Mr. Smith and 247 were working towards a settlement of the claim.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2",
+     "12.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The affidavits of Leonard Seidman and Michael Chevalier were filed in response to the appellants' assertion about settlement efforts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Mr. Seidman\u2019s affidavit describes a telephone conversation with Mr. Smith in which Mr. Smith offered to settle the respondent\u2019s claim. Mr. Seidman affirms he \u201ctold [Mr. Smith] that in order to settle [the respondent\u2019s] claim against him, he would have to provide his HST remittance forms for sales [at the restaurant] for the period from 2016 to 2018\u201d: Appeal Book at 1473. Mr. Seidman affirms receipt of \u201cthe HST remittance forms from \u2026Mr. Smith in April 2020 showing gross sales of $974,331.07 for the period from 2016 to 2018\u201d which he then forwarded to Mr. Chevalier: Appeal Book at 1473.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2",
+     "13.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Seidman described a telephone conversation with Mr. Smith about a settlement offer and receipt of HST remittance forms showing gross sales of $974,331.07 for 2016-2018.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "However, it is clear that those remittance forms were not before the Federal Court on the respondent\u2019s motion for default judgment. Rather, financial statements for 247 for the 2015-2018 period were entered in the record through an affidavit of Elisa Kligman.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "respondent",
+    "claim": "The HST remittance forms were not before the Federal Court on the motion for default judgment, only financial statements for 2015-2018 were entered via Elisa Kligman's affidavit.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Mr. Chevalier\u2019s affidavit on the appellants\u2019 motion to set aside the default judgment says nothing about receiving the HST remittance forms from Mr. Seidman, nor about those financial statements or how they were obtained. While he affirms he had telephone calls with Mr. Smith, both before and after the default judgment, he says nothing about what they discussed during those calls.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.3",
+     "14.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "respondent",
+    "claim": "Mr. Chevalier's affidavit does not mention receiving the HST remittance forms or the financial statements or their source, nor details of calls with Mr. Smith.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Neither Ms. Kligman\u2019s affidavit nor the financial statements are in the record before us. Counsel for both parties confirmed the affidavit was not in the appellants\u2019 motion record before the Federal Court.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Neither Ms. Kligman's affidavit nor the financial statements are in the record before the Court of Appeal, and were not in the appellants' motion record before the Federal Court.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Yet, it is clear the Federal Court\u2019s $163,894.22 damages award, comprising a $50,000 franchise fee plus a royalty of 5% of net revenues, reflects net revenues of $2,277,886\u2014more than double the gross revenues reported on the HST remittance forms described in Mr. Seidman\u2019s affidavit.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court's damages award reflects net revenues of $2,277,886, more than double the gross revenues reported on the HST remittance forms.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The respondent alleges the appellants\u2019 motion was, and this appeal is, \u201cfrivolous, vexatious, [and] clearly unfounded and amounts to an abuse of process\u201d.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent alleges the appellants\u2019 motion and this appeal are frivolous, vexatious, clearly unfounded and amount to an abuse of process.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It seeks a declaration to that effect, as well as costs of this appeal on the highest scale.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent seeks a declaration that the appeal is frivolous and costs on the highest scale.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The appellants suggest that, regardless of outcome, the respondent has not always acted appropriately in the proceedings before the Federal Court.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants suggest that the respondent has not always acted appropriately in the Federal Court proceedings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As an example, they point to material that, on its face, is subject to settlement privilege but was put before the Federal Court.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants point to material subject to settlement privilege that was put before the Federal Court as an example of inappropriate conduct by the respondent.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Estate of the Late Moishe Smith and 2474234 Ontario Inc. (247) appeal the decision of the Federal Court (2023 FC 908, per Southcott J) dismissing their motion brought under Rule 399 of the Federal Courts Rules, S.O.R./98-106.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Estate of the Late Moishe Smith and 2474234 Ontario Inc. are the appellants appealing the Federal Court's decision."
+   },
+   {
+    "quote": "The Estate of the Late Moishe Smith and 2474234 Ontario Inc. (247) appeal the decision of the Federal Court (2023 FC 908, per Southcott J) dismissing their motion brought under Rule 399 of the Federal Courts Rules, S.O.R./98-106.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Federal Court dismissed the appellants' motion brought under Rule 399 of the Federal Courts Rules."
+   },
+   {
+    "quote": "That motion sought to set aside a January 21, 2021 default judgment issued against Mr. Smith and 247 in favour of the respondent, Dunn\u2019s Famous International Holdings Inc.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The motion sought to set aside a January 21, 2021 default judgment issued against Mr. Smith and 247 in favour of the respondent, Dunn\u2019s Famous International Holdings Inc."
+   },
+   {
+    "quote": "To summarize the background to this appeal, in 2016 the respondent commenced a trademark infringement action against certain individuals and corporations (the Devine parties).",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "In 2016, the respondent commenced a trademark infringement action against certain individuals and corporations called the Devine parties."
+   },
+   {
+    "quote": "In late January 2017, the respondent joined other defendants, including Mr. Smith and 247, in that action.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "In late January 2017, the respondent joined other defendants, including Mr. Smith and 247, in the trademark infringement action."
+   },
+   {
+    "quote": "The respondent served the resulting amended statement of claim on Mr. Smith and 247 shortly thereafter.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent served the amended statement of claim on Mr. Smith and 247 shortly after joining them as defendants."
+   },
+   {
+    "quote": "At the end of February 2020, following settlement of the action against the Devine parties and certain other defendants, the respondent served a second amended statement of claim on Mr. Smith and 247.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "At the end of February 2020, after settling with the Devine parties and other defendants, the respondent served a second amended statement of claim on Mr. Smith and 247."
+   },
+   {
+    "quote": "On November 6, 2020, the respondent brought an ex parte motion for default judgment, under Rule 210 of the Federal Courts Rules, based on the failure of Mr. Smith and 247 to file a statement of defence.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "On November 6, 2020, the respondent brought an ex parte motion for default judgment under Rule 210 of the Federal Courts Rules due to Mr. Smith and 247's failure to file a statement of defence."
+   },
+   {
+    "quote": "The Federal Court granted default judgment and found Mr. Smith and 247 jointly liable, ordering them to pay damages and pre- and post-judgment interest.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The Federal Court granted default judgment and found Mr. Smith and 247 jointly liable, ordering them to pay damages and pre- and post-judgment interest."
+   },
+   {
+    "quote": "The Federal Court said that, to succeed on their motion, the appellants had to demonstrate that Mr. Smith and 247 (i) had a reasonable explanation for their failure to file a statement of defence, (ii) had a prima facie defence on the merits of the claim, and (iii) moved promptly or within a reasonable time to set aside the default judgment.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "legal_test",
+    "statement": "To succeed on their motion, the appellants had to demonstrate that Mr. Smith and 247 (i) had a reasonable explanation for their failure to file a statement of defence, (ii) had a prima facie defence on the merits of the claim, and (iii) moved promptly or within a reasonable time to set aside the default judgment."
+   },
+   {
+    "quote": "The failure to establish any of the three would be fatal to their motion: reasons at paras. 16-17, citing Babis (Domenic Pub) v. Premium Sports Broadcasting Inc., 2013 FCA 288 at paras. 5-6; UBS Group AG v. Yones, 2022 FC 487 at para. 17; Moroccanoil Israel Ltd. v. Laboratoires parisiens Canada (1989) Inc., 2012 FC 962 at para. 20.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "legal_test",
+    "statement": "The failure to establish any of the three conditions would be fatal to their motion."
+   },
+   {
+    "quote": "I see no palpable and overriding error in this finding; it was open to the Federal Court on the evidence before it on the appellants\u2019 motion.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "There is no palpable and overriding error in the Federal Court's finding; it was open to the Federal Court on the evidence before it."
+   },
+   {
+    "quote": "On appeal, we cannot reweigh that evidence and draw different inferences from it, nor substitute our view of the facts for that of the Federal Court: Housen v. Nikolaisen at paras. 23-25.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "legal_test",
+    "statement": "On appeal, the court cannot reweigh evidence, draw different inferences, or substitute its view of the facts for that of the Federal Court, per Housen v. Nikolaisen at paras. 23-25."
+   },
+   {
+    "quote": "They have failed to establish such an error and thus I would dismiss the appeal.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "The appellants have failed to establish a palpable and overriding error on the first condition and thus the appeal is dismissed."
+   },
+   {
+    "quote": "While, regrettably, we have no explanation for the source of the financial statements nor the significant difference in revenue numbers, this is not an appeal of the default judgment.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The Court has no explanation for the source of the financial statements nor the significant difference in revenue numbers, but this does not affect the appeal of the decision not to set aside the default judgment."
+   },
+   {
+    "quote": "Rather, it is an appeal of the Federal Court\u2019s decision not to set that judgment aside.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal concerns the Federal Court's decision not to set aside the default judgment, not the default judgment itself."
+   },
+   {
+    "quote": "To allow that appeal we must find a reviewable error in that decision.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "legal_test",
+    "statement": "To allow the appeal, the Court must find a reviewable error in the Federal Court's decision not to set aside the default judgment."
+   },
+   {
+    "quote": "The appellants have not identified a reviewable error in that decision and I see none.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The appellants have not identified any reviewable error in the Federal Court's decision not to set aside the default judgment, and the Court sees none."
+   },
+   {
+    "quote": "I would dismiss the appeal, but in the circumstances and in my discretion, would award no costs.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is dismissed but no costs are awarded in the circumstances and in the court's discretion."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "I disagree.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "I disagree.",
+    "answers_evidence_id": "",
+    "answers_paragraph": null
+   },
+   {
+    "quote": "I see nothing in the record that supports that characterization of the motion or the appeal.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "There is nothing in the record supporting the characterization of the motion or appeal as frivolous, vexatious, or an abuse of process.",
+    "answers_evidence_id": "17.2",
+    "answers_paragraph": 17
+   }
+  ],
+  "authorities": [],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

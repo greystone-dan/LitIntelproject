@@ -117,7 +117,7 @@ def main() -> int:
 		elif s == "2":
 			themes_all.mkdir(exist_ok=True)
 			for d in (args.v5b_dir, args.v5c_dir, root / "themes10"):  # later folders win, so v5c replaces v5b
-				for f in Path(d).glob("case_*_themes_*.json"):
+				for f in sorted(Path(d).glob("case_*_themes_*_v5*_gpt-4.1-mini.json")):  # v5 < v5b < v5c, mini only
 					for old in themes_all.glob(f"case_{f.name.split('_')[1]}_themes_*.json"):
 						old.unlink()
 					shutil.copy(f, themes_all / f.name)

@@ -34,11 +34,18 @@ def main() -> int:
 	ap.add_argument("--seed", default="recent100")
 	ap.add_argument("--since", default="2021-01-01")
 	ap.add_argument("--also-exclude", default=USED)
+	ap.add_argument("--quota", default="", help="e.g. FC=35,FCA=15,SCC=15,RPD=15,RAD=20")
+	ap.add_argument("--since-rpd", default=None, help="earlier start date for RPD (library thin after 2022)")
+	ap.add_argument("--exclude-selection", type=Path, action="append", default=[], help="selection.csv files of earlier picks to exclude")
 	ap.add_argument("--exclude-csv", type=Path, default=Path("data/eval/llm_discussion_units_pilot/discussion_unit_core_300.csv"))
 	args = ap.parse_args()
 	exclude = {int(x) for x in args.also_exclude.split(",") if x}
 	if args.exclude_csv.exists():
 		exclude |= {int(float(r["case_id"])) for r in csv.DictReader(args.exclude_csv.open(encoding="utf-8-sig"))}
+	for sel in args.exclude_selection:
+		if sel.exists():
+			exclude |= {int(float(r["case_id"])) for r in csv.DictReader(sel.open(encoding="utf-8-sig"))}
+	quota = [(c.split("=")[0], int(c.split("=")[1])) for c in args.quota.split(",") if c] or QUOTA
 	picked: list[dict] = []
 	with SessionLocal() as session:
 		print("court values (top 25):", session.execute(select(Case.court, func.count()).group_by(Case.court).order_by(func.count().desc()).limit(25)).all())
@@ -46,7 +53,7 @@ def main() -> int:
 		def draw(court: str, n: int) -> None:
 			stmt = (select(Case.id, Case.title, Case.citation, Case.date, Case.court, func.count(CaseChunk.id).label("n"), func.sum(CaseChunk.token_estimate).label("tok"))
 				.join(CaseChunk, CaseChunk.case_id == Case.id)
-				.where(Case.court.in_(COURTS[court]), CaseChunk.chunk_set == "paragraph", Case.date >= args.since)
+				.where(Case.court.in_(COURTS[court]), CaseChunk.chunk_set == "paragraph", Case.date >= (args.since_rpd if court == "RPD" and args.since_rpd else args.since))
 				.group_by(Case.id)
 				.having(func.count(CaseChunk.id).between(12, 90), func.sum(CaseChunk.token_estimate) <= 30000)
 				.order_by(func.md5(func.concat(cast(Case.id, String), args.seed)))
@@ -61,10 +68,10 @@ def main() -> int:
 				got += 1
 			print(f"{court}: wanted {n}, got {got}")
 
-		for court, n in QUOTA:
+		for court, n in quota:
 			draw(court, n)
-		if len(picked) < 100:
-			draw("FC", 100 - len(picked))
+		if len(picked) < sum(n for _, n in quota):
+			draw("FC", sum(n for _, n in quota) - len(picked))
 		args.out_dir.mkdir(parents=True, exist_ok=True)
 		(args.out_dir / "reports").mkdir(exist_ok=True)
 		for p in picked:

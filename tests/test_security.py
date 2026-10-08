@@ -59,7 +59,7 @@ def test_private_gate_is_not_enforced_without_password(access_client, monkeypatc
         response = access_client.request(method, path)
         assert response.status_code == 200
         assert response.headers["x-robots-tag"] == "noindex, nofollow, noarchive"
-    assert access_client.get("/").headers["location"] == "/data-explorer"
+    assert access_client.get("/").headers["location"] == "/welcome"
     assert access_client.get("/access").status_code == 503
     assert access_client.get("/robots.txt").status_code == 200
     assert access_client.get("/docs").status_code == 200

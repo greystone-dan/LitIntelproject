@@ -1,0 +1,340 @@
+{
+ "case_id": 1540,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v2",
+ "run": "themes_loop_r1",
+ "usage": {
+  "prompt_tokens": 6535,
+  "completion_tokens": 1757,
+  "usd": 0.027126
+ },
+ "verification": {
+  "items": 17,
+  "quote_exact_in_cited": 17,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 3,
+   "holdings": 4,
+   "rebuttals": 2,
+   "authorities": 7,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The Federal Court set aside the Appeal Division's decision granting leave to appeal, finding legal errors and a lack of transparency in its reasons, and remitted the matter for redetermination.",
+  "themes": [
+   {
+    "name": "Legal Error on Medical Evidence",
+    "summary": "The Appeal Division erred in law by misinterpreting the requirement for objective medical evidence relating to the MQP.",
+    "paragraphs": [
+     38,
+     41
+    ]
+   },
+   {
+    "name": "Transparency and Reasoning",
+    "summary": "The Appeal Division's reasons lacked transparency and failed to clearly communicate the basis for granting leave.",
+    "paragraphs": [
+     43,
+     48,
+     50
+    ]
+   },
+   {
+    "name": "Standard of Review",
+    "summary": "The Court applied the reasonableness standard to the Appeal Division's decision.",
+    "paragraphs": [
+     25,
+     27,
+     28
+    ]
+   },
+   {
+    "name": "Grounds for Leave to Appeal",
+    "summary": "The statutory grounds and test for granting leave to appeal were central to the decision.",
+    "paragraphs": [
+     32,
+     33,
+     47
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The Appeal Division incorrectly found an error of law by the General Division regarding the requirement for medical evidence at the MQP.",
+    "treatment": "accepted",
+    "authority": "Brennan v Attorney General of Canada, 2011 FCA 318",
+    "paragraphs": [
+     37,
+     38
+    ],
+    "quote": "The Appeal Division was incorrect to conclude that the General Division erred in law on this issue.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "A claimant must provide objective medical evidence to support a finding of disability on or before the MQP.",
+    "treatment": "accepted",
+    "authority": "Gholipour v Canada (Attorney General), 2017 FCA 99",
+    "paragraphs": [
+     39,
+     40
+    ],
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39,
+     40
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "Ms Angell did not have a reasonable chance of success on the merits of the appeal, so leave should have been refused.",
+    "treatment": "not_decided",
+    "authority": "",
+    "paragraphs": [
+     42,
+     55
+    ],
+    "quote": "I will not address that issue in these reasons, as it is a question for the Appeal Division.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "kind": "standard_of_review",
+    "statement": "The standard of review is reasonableness.",
+    "paragraphs": [
+     25
+    ],
+    "quote": "The standard of review on this application is reasonableness",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The Appeal Division erred in law regarding the requirement for objective medical evidence relating to the MQP.",
+    "paragraphs": [
+     38,
+     41
+    ],
+    "quote": "The Appeal Division was incorrect to conclude that the General Division erred in law on this issue.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The Appeal Division's reasons lacked transparency and failed to communicate the basis for granting leave.",
+    "paragraphs": [
+     50,
+     53
+    ],
+    "quote": "the Appeal Division\u2019s reasons did not sufficiently communicate what it decided and why",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   },
+   {
+    "kind": "remedy",
+    "statement": "The decision of the Appeal Division granting leave to appeal is set aside and remitted for redetermination by a different member.",
+    "paragraphs": [
+     3,
+     54
+    ],
+    "quote": "the decision of the Appeal Division granting leave to appeal must be set aside.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "point": "The Appeal Division found an error of law by the General Division regarding medical evidence.",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court found this was a legal error and not supported by the law.",
+    "paragraphs": [
+     38
+    ],
+    "quote": "The Appeal Division was incorrect to conclude that the General Division erred in law on this issue.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "point": "Ms Angell did not have a reasonable chance of success on the merits.",
+    "made_by": "applicant",
+    "court_answer": "The Court declined to decide this, leaving it for the Appeal Division.",
+    "paragraphs": [
+     42,
+     55
+    ],
+    "quote": "I will not address that issue in these reasons, as it is a question for the Appeal Division.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "authority": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "treatment": "applied",
+    "why": "Sets out the reasonableness standard and requirements for justification, transparency, and intelligibility.",
+    "paragraphs": [
+     25,
+     27,
+     28,
+     29,
+     44,
+     46,
+     47,
+     50,
+     52,
+     53,
+     51
+    ],
+    "quote": "Vavilov, at para 100.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ]
+   },
+   {
+    "authority": "Brennan v Attorney General of Canada, 2011 FCA 318",
+    "treatment": "applied",
+    "why": "Clarifies the requirement for disability to exist prior to and continuously after the MQP.",
+    "paragraphs": [
+     38
+    ],
+    "quote": "a claimant must demonstrate an entitlement to disability benefits by reason of a severe and prolonged disability that existed prior to the expiry of the MQP and continuously thereafter",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "authority": "Gholipour v Canada (Attorney General), 2017 FCA 99",
+    "treatment": "applied",
+    "why": "Confirms the need for objective medical evidence to support disability at the MQP.",
+    "paragraphs": [
+     39,
+     40
+    ],
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39,
+     40
+    ]
+   },
+   {
+    "authority": "Warren v Canada (Attorney General), 2008 FCA 377",
+    "treatment": "applied",
+    "why": "Cited for the requirement of objective medical evidence.",
+    "paragraphs": [
+     40,
+     49
+    ],
+    "quote": "see also Warren v Canada (Attorney General), 2008 FCA 377",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ]
+   },
+   {
+    "authority": "Canada (Attorney General) v Dean, 2020 FC 206",
+    "treatment": "applied",
+    "why": "Cited for standard of review and objective medical evidence requirement.",
+    "paragraphs": [
+     25,
+     40
+    ],
+    "quote": "Dean, at para 24.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ]
+   },
+   {
+    "authority": "Vancouver Airport Authority v PSAC, 2010 FCA 158",
+    "treatment": "applied",
+    "why": "Cited for transparency in administrative decision-making.",
+    "paragraphs": [
+     44,
+     46,
+     50
+    ],
+    "quote": "transparency \u201cspeaks to the ability of observers to scrutinize and understand what an administrative decision maker has decided and why\u201d",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ]
+   },
+   {
+    "authority": "Romania v Boros, 2020 ONCA 216",
+    "treatment": "applied",
+    "why": "Cited for the requirement of transparency in administrative reasons.",
+    "paragraphs": [
+     45,
+     46
+    ],
+    "quote": "This general approach denies Ms. Boros the opportunity to understand why the process took so long.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "issue": "Whether Ms Angell had a reasonable chance of success on the merits under s. 58(2).",
+    "reason": "Left for the Appeal Division to decide on redetermination.",
+    "paragraphs": [
+     42,
+     55
+    ],
+    "quote": "I will not address that issue in these reasons, as it is a question for the Appeal Division.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ]
+   }
+  ]
+ }
+}

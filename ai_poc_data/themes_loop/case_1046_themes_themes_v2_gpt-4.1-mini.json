@@ -1,0 +1,286 @@
+{
+ "case_id": 1046,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v2",
+ "run": "themes_loop_r1",
+ "usage": {
+  "prompt_tokens": 4077,
+  "completion_tokens": 1122,
+  "usd": 0.0034260000000000002
+ },
+ "verification": {
+  "items": 14,
+  "quote_exact_in_cited": 13,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 1,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 4,
+   "holdings": 4,
+   "rebuttals": 2,
+   "authorities": 3,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The court allowed the Minister's application for judicial review, finding the Board member erred in granting an extension of time for appeal without proper reasons or consideration of prejudice.",
+  "themes": [
+   {
+    "name": "Extension of Time Criteria",
+    "summary": "The court focused on the criteria for granting an extension of time for appeal under the CPP and analogous Federal Courts Act provisions.",
+    "paragraphs": [
+     7,
+     8,
+     9,
+     10
+    ]
+   },
+   {
+    "name": "Respondent's Delay Explanation",
+    "summary": "The Respondent's reasons for delay were inconsistent and unsupported, undermining the justification for the extension.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15
+    ]
+   },
+   {
+    "name": "Prejudice to Minister",
+    "summary": "The court emphasized the need to consider prejudice to the Minister when granting extensions, which was not done here.",
+    "paragraphs": [
+     16,
+     17
+    ]
+   },
+   {
+    "name": "Procedural Fairness and Ex Parte Decision",
+    "summary": "The decision was made ex parte without notice to the Minister, raising concerns about fairness and proper procedure.",
+    "paragraphs": [
+     2,
+     10,
+     20
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "respondent",
+    "claim": "Respondent requested extension of time and leave to appeal despite delay due to personal difficulties.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12,
+     13
+    ],
+    "quote": "Ms. Gattellaro did not act earlier on this due to many difficulties in her life.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "Granted extension of time and leave to appeal seven and a half years late without reasons or Minister's submissions.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     1,
+     2
+    ],
+    "quote": "the time within which to appeal was extended and the leave to appeal was granted. No reasons were provided.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Board member erred in granting extension of time and leave to appeal without proper consideration of criteria.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     3,
+     9,
+     10
+    ],
+    "quote": "the member erred in extending the time for bringing the appeal.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3,
+     18
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The extension of time should not be granted as a matter of right and must consider prejudice to the Minister.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     7,
+     16,
+     17
+    ],
+    "quote": "The authority to extend the statutory limitation must not, in my view, be exercised arbitrarily or capriciously.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "kind": "conclusion",
+    "statement": "The Board member erred in granting an extension of time for appeal without proper reasons and consideration of prejudice.",
+    "paragraphs": [
+     3,
+     18
+    ],
+    "quote": "the member erred in extending the time for bringing the appeal",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3,
+     18
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "Criteria for granting extension of time include continuing intention to pursue appeal, arguable case, reasonable explanation for delay, and no prejudice to other party.",
+    "paragraphs": [
+     9,
+     19
+    ],
+    "quote": "the following criteria must be considered and weighed",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "kind": "other",
+    "statement": "The Board's decision to extend time is discretionary but must not be arbitrary or capricious and should be principled.",
+    "paragraphs": [
+     7,
+     18
+    ],
+    "quote": "The authority to extend the statutory limitation must not, in my view, be exercised arbitrarily or capriciously.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "kind": "remedy",
+    "statement": "The decision is set aside and referred back to the Board for re-determination by a different member applying the proper criteria.",
+    "paragraphs": [
+     19
+    ],
+    "quote": "The decision under review will be set aside and the matter referred back to the Board for re-determination",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "point": "Respondent's reasons for delay due to depression, marital problems, and young children.",
+    "made_by": "respondent",
+    "court_answer": "Reasons were inconsistent, unsupported, and did not withstand scrutiny; children were adults and no evidence of abandonment by representative.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "quote": "her reasons do not hold up to scrutiny.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "point": "Extension of time granted without considering prejudice to Minister.",
+    "made_by": "applicant",
+    "court_answer": "No evidence of prejudice consideration; allowing late appeals risks unfairness and lack of finality.",
+    "paragraphs": [
+     16,
+     17
+    ],
+    "quote": "It does not appear that prejudice to the Minister was considered by the member.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "authority": "Callihoo v. Canada, [2000] F.C.J. No. 612 (T.D.)",
+    "treatment": "mentioned",
+    "why": "Referenced regarding standard of review for discretionary decisions.",
+    "paragraphs": [
+     4
+    ],
+    "quote": "I should apply a standard of review of reasonableness simpliciter (Callihoo v. Canada)",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "authority": "Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.)",
+    "treatment": "followed",
+    "why": "Established criteria for extension of time applications.",
+    "paragraphs": [
+     9
+    ],
+    "quote": "the following criteria must be considered and weighed",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "authority": "Baksa v. Neis (c.o.b. Brookside Transport), [2002] F.C.J. No. 832",
+    "treatment": "followed",
+    "why": "Supported criteria for extension of time applications.",
+    "paragraphs": [
+     9
+    ],
+    "quote": "the following criteria must be considered and weighed",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "issue": "Appropriate standard of review for extension of time decision",
+    "reason": "Court did not need to decide because decision failed on any standard.",
+    "paragraphs": [
+     4
+    ],
+    "quote": "I do not need to reach a conclusion on the appropriate standard since I am satisfied that, on any standard of review, the decision should not stand.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   }
+  ]
+ }
+}

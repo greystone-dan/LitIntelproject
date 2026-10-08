@@ -1,0 +1,330 @@
+{
+ "case_id": 1046,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v2",
+ "run": "themes_loop_r1",
+ "usage": {
+  "prompt_tokens": 4077,
+  "completion_tokens": 1458,
+  "usd": 0.019818000000000002
+ },
+ "verification": {
+  "items": 17,
+  "quote_exact_in_cited": 10,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 1,
+  "quote_not_found": 6,
+  "quote_has_ellipsis": 6,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 4,
+   "holdings": 4,
+   "rebuttals": 2,
+   "authorities": 5,
+   "left_open": 2
+  }
+ },
+ "result": {
+  "overall": "The Minister's application for judicial review is allowed because the Board member granted an extension of time to appeal without a reasonable explanation for delay or consideration of prejudice to the Minister.",
+  "themes": [
+   {
+    "name": "Extension of Time Criteria",
+    "summary": "The decision turns on whether the Board properly applied the criteria for granting an extension of time to appeal under s. 83(1) of the CPP.",
+    "paragraphs": [
+     7,
+     9,
+     10,
+     11,
+     15,
+     16,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Reasonableness of Delay Explanation",
+    "summary": "The adequacy and credibility of the respondent's explanation for a seven-year delay is central to the outcome.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15
+    ]
+   },
+   {
+    "name": "Prejudice to the Minister",
+    "summary": "The Board failed to consider whether granting the extension would prejudice the Minister, which is a required factor.",
+    "paragraphs": [
+     16,
+     17,
+     19
+    ]
+   },
+   {
+    "name": "Procedural Fairness and Ex Parte Decision",
+    "summary": "The Board made its decision ex parte, without notice to or submissions from the Minister, raising fairness concerns.",
+    "paragraphs": [
+     1,
+     10,
+     15,
+     20
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The Board member erred in granting an extension of time and leave to appeal after seven and a half years.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     3
+    ],
+    "quote": "the member erred in extending the time for bringing the appeal.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3,
+     18
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Board failed to consider the required criteria for an extension of time, including explanation for delay and prejudice to the Minister.",
+    "treatment": "accepted",
+    "authority": "Grewal v. Canada (Minister of Employment and Immigration)",
+    "paragraphs": [
+     9,
+     10,
+     11,
+     15,
+     16
+    ],
+    "quote": "the following criteria must be considered and weighed",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "Extension of time and leave to appeal granted without reasons or submissions from the Minister.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     1,
+     10,
+     15,
+     16
+    ],
+    "quote": "No reasons were provided. Further, the decision was taken ex parte, without notice to or submissions from the Minister.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "made_by": "respondent",
+    "claim": "Delay was due to depression, marital problems, raising young children, and lack of understanding of the process.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15
+    ],
+    "quote": "her reasons do not hold up to scrutiny.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "kind": "conclusion",
+    "statement": "The Board member erred in granting an extension of time for appeal without a reasonable explanation for delay or consideration of prejudice.",
+    "paragraphs": [
+     15,
+     16,
+     18
+    ],
+    "quote": "the member erred in extending the time for bringing the appeal",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3,
+     18
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "The criteria for extension of time are: (1) continuing intention to pursue, (2) arguable case, (3) reasonable explanation for delay, (4) no prejudice to the other party.",
+    "paragraphs": [
+     9,
+     10,
+     19
+    ],
+    "quote": "the following criteria must be considered and weighed",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "kind": "standard_of_review",
+    "statement": "No need to decide the standard of review since the decision fails on any standard.",
+    "paragraphs": [
+     4
+    ],
+    "quote": "I do not need to reach a conclusion on the appropriate standard since I am satisfied that, on any standard of review, the decision should not stand.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "kind": "remedy",
+    "statement": "The decision is set aside and the matter is referred back to a different Board member for re-determination in accordance with these reasons.",
+    "paragraphs": [
+     19
+    ],
+    "quote": "The decision under review will be set aside and the matter referred back to the Board for re-determination, having regard to these reasons, by a different member of the Board.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "point": "Respondent's delay was due to depression, marital problems, young children, and lack of understanding.",
+    "made_by": "respondent",
+    "court_answer": "The court found these reasons unsupported by the evidence and inconsistent with the record.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "quote": "her reasons do not hold up to scrutiny.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "point": "Board can grant extensions as a matter of right.",
+    "made_by": "tribunal_below",
+    "court_answer": "The court held extensions are not a matter of right and must be based on principled criteria.",
+    "paragraphs": [
+     7,
+     18
+    ],
+    "quote": "An application for an extension of time...should not be granted as a matter of right, but should be subjected to a principled approach by the Board.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "authorities": [
+   {
+    "authority": "Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.)",
+    "treatment": "applied",
+    "why": "Established the four criteria for extension of time, which the court adopted for CPP appeals.",
+    "paragraphs": [
+     9,
+     10
+    ],
+    "quote": "Jurisprudence relied on by the Minister...has established that the following criteria must be considered and weighed:",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "authority": "Baksa v. Neis (c.o.b. Brookside Transport), [2002] F.C.J. No. 832",
+    "treatment": "applied",
+    "why": "Cited as authority for the four criteria for extension of time.",
+    "paragraphs": [
+     9
+    ],
+    "quote": "Jurisprudence relied on by the Minister...has established that the following criteria must be considered and weighed:",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "authority": "Callihoo v. Canada, [2000] F.C.J. No. 612 (T.D.)",
+    "treatment": "mentioned",
+    "why": "Cited regarding standard of review, but not decided.",
+    "paragraphs": [
+     4
+    ],
+    "quote": "The Applicant submits that...I should apply a standard of review of reasonableness simpliciter (Callihoo v. Canada...)",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "authority": "Canada Pension Plan, s. 83(1)",
+    "treatment": "applied",
+    "why": "Statutory basis for time limits and extensions for appeals.",
+    "paragraphs": [
+     5,
+     7
+    ],
+    "quote": "The statutory limitation of the time for bringing an appeal...is set out in s. 83(1) of the CPP",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "authority": "Federal Courts Act, s. 18.1(2)",
+    "treatment": "mentioned",
+    "why": "Analogized to the CPP provision for extension of time.",
+    "paragraphs": [
+     8
+    ],
+    "quote": "The situation faced by a member of the Board...is analogous to that before a judge of the Federal Court in considering an extension of time...",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "left_open": [
+   {
+    "issue": "Whether the first two criteria (continuing intention and arguable case) were met.",
+    "reason": "The court assumed, without deciding, that these criteria were satisfied.",
+    "paragraphs": [
+     11
+    ],
+    "quote": "I am prepared to assume, without deciding, that the first two criteria have been met.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "issue": "Whether the Board must adopt procedures to ensure Minister's submissions on extension applications.",
+    "reason": "The court declined to require procedural changes, deferring to the Board's control over its own procedures.",
+    "paragraphs": [
+     20
+    ],
+    "quote": "I recognize that the Board is the master of its own procedures and, therefore, decline to require the Board to implement procedures that would address these shortcomings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,327 @@
+{
+ "case_id": 1292,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v2",
+ "run": "themes_loop_r1",
+ "usage": {
+  "prompt_tokens": 7295,
+  "completion_tokens": 1319,
+  "usd": 0.005028400000000001
+ },
+ "verification": {
+  "items": 16,
+  "quote_exact_in_cited": 15,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 1,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 4,
+   "holdings": 6,
+   "rebuttals": 1,
+   "authorities": 5,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The court allowed the judicial review, finding the Refugee Appeal Division's decision unreasonable due to flawed implausibility findings and improper corroboration requirements.",
+  "themes": [
+   {
+    "name": "Implausibility Findings",
+    "summary": "The RAD found parts of the claimant's story implausible without sufficient basis, relying on speculation rather than evidence.",
+    "paragraphs": [
+     12,
+     17,
+     19
+    ]
+   },
+   {
+    "name": "Requirement for Corroboration",
+    "summary": "The RAD required corroboration without properly explaining why it was necessary or whether such evidence was reasonably available.",
+    "paragraphs": [
+     21,
+     22,
+     26,
+     28,
+     33,
+     36,
+     38,
+     40
+    ]
+   },
+   {
+    "name": "Assessment of Corroborating Evidence",
+    "summary": "The RAD rejected some corroborating evidence reasonably but failed to address a key letter from a friend, contributing to unreasonableness.",
+    "paragraphs": [
+     44,
+     45
+    ]
+   },
+   {
+    "name": "Internal Flight Alternative (IFA) Analysis",
+    "summary": "The RAD confused the IFA analysis with the well-founded fear of persecution, failing to properly assess if relocation would protect the claimant.",
+    "paragraphs": [
+     47,
+     49,
+     50
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in finding his story implausible without a firm basis.",
+    "treatment": "accepted",
+    "authority": "Vavilov",
+    "paragraphs": [
+     11,
+     17,
+     19
+    ],
+    "quote": "the RAD did not explain the basis for its implausibility findings",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD wrongly required corroboration without explaining why it was necessary or why evidence was reasonably available.",
+    "treatment": "accepted",
+    "authority": "Horvath",
+    "paragraphs": [
+     21,
+     22,
+     28,
+     33,
+     36,
+     38,
+     40
+    ],
+    "quote": "the RAD appears to have started from the premise that there is a general requirement for corroboration",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD rejected corroborating evidence without adequate reasons and failed to address a letter from a friend.",
+    "treatment": "partly_accepted",
+    "authority": "Vavilov",
+    "paragraphs": [
+     44,
+     45
+    ],
+    "quote": "The RAD should have responded to this argument",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ]
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The RAD's IFA finding independently justifies dismissal of the claim.",
+    "treatment": "rejected",
+    "authority": "Chaudhry",
+    "paragraphs": [
+     47,
+     49,
+     50
+    ],
+    "quote": "the RAD confused the two issues, at least in significant part",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "kind": "standard_of_review",
+    "statement": "The standard of review on judicial review in immigration and refugee matters is reasonableness.",
+    "paragraphs": [
+     10
+    ],
+    "quote": "On an application for judicial review in immigration and refugee matters, the standard of review is reasonableness",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "Implausibility findings may be made only in the clearest of cases where facts are outside what could reasonably be expected or contradicted by documentary evidence.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "quote": "plausibility findings should be made only in the clearest of cases",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "A decision-maker can require corroboration only if there is an independent reason such as doubts about credibility, implausibility, or reliance on hearsay, and the evidence is reasonably available.",
+    "paragraphs": [
+     33,
+     36
+    ],
+    "quote": "a decision-maker can only require corroborative evidence if: The decision-maker clearly sets out an independent reason for requiring corroboration",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The RAD's implausibility findings and requirement for corroboration lacked a rational chain of analysis and were unreasonable.",
+    "paragraphs": [
+     19,
+     22,
+     42,
+     46
+    ],
+    "quote": "the RAD\u2019s decision does not exhibit a rational chain of analysis",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The RAD's IFA analysis was flawed by conflating it with the well-founded fear of persecution analysis and cannot sustain the decision alone.",
+    "paragraphs": [
+     49,
+     50,
+     51
+    ],
+    "quote": "the RAD confused the two issues, at least in significant part",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   },
+   {
+    "kind": "remedy",
+    "statement": "The matter is sent back to the RAD for redetermination due to the unreasonableness of its decision.",
+    "paragraphs": [
+     46,
+     52
+    ],
+    "quote": "the application for judicial review will be allowed and the matter will be sent back for redetermination",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "point": "The RAD's IFA finding independently justifies dismissal of the claim.",
+    "made_by": "respondent",
+    "court_answer": "The RAD confused the IFA analysis with the well-founded fear of persecution and failed to properly assess the protective effect of relocation.",
+    "paragraphs": [
+     47,
+     49,
+     50
+    ],
+    "quote": "the RAD confused the two issues, at least in significant part",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "authority": "Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "treatment": "followed",
+    "why": "Established the reasonableness standard of review and requirement for a rational chain of analysis.",
+    "paragraphs": [
+     10,
+     42
+    ],
+    "quote": "the standard of review is reasonableness",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "authority": "Valtchev v Canada (Minister of Citizenship and Immigration), 2001 FCT 776",
+    "treatment": "followed",
+    "why": "Implausibility findings require the clearest of cases.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "quote": "plausibility findings should be made only in the clearest of cases",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "authority": "Horvath v Canada (Citizenship and Immigration), 2018 CF 147",
+    "treatment": "followed",
+    "why": "Corroboration required only if there is reason to doubt credibility and evidence is reasonably available.",
+    "paragraphs": [
+     28
+    ],
+    "quote": "Corroborative evidence was only required if the RAD had (1) reason to doubt the Applicants\u2019 claim and (2) the corroborating evidence could reasonably be expected to be available",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ]
+   },
+   {
+    "authority": "Maldonado v Canada (Minister of Employment and Immigration), [1980] 2 FC 302 (CA)",
+    "treatment": "followed",
+    "why": "Presumption of truthfulness unless reason to doubt.",
+    "paragraphs": [
+     27
+    ],
+    "quote": "When an applicant swears to the truth of certain allegations, this creates a presumption that those allegations are true unless there be reason to doubt their truthfulness",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   },
+   {
+    "authority": "Chaudhry v Canada (Citizenship and Immigration), 2020 FC 902",
+    "treatment": "mentioned",
+    "why": "Discussed the need to separate IFA analysis from well-founded fear of persecution.",
+    "paragraphs": [
+     49
+    ],
+    "quote": "care must be taken to separate the IFA analysis from that of the well-founded fear of persecution",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

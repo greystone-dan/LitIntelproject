@@ -1,0 +1,356 @@
+{
+ "case_id": 126,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v2",
+ "run": "themes_loop_r1",
+ "usage": {
+  "prompt_tokens": 2886,
+  "completion_tokens": 1670,
+  "usd": 0.019132
+ },
+ "verification": {
+  "items": 18,
+  "quote_exact_in_cited": 12,
+  "quote_loose_in_cited": 3,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 3,
+  "quote_has_ellipsis": 3,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 5,
+   "arguments": 8,
+   "holdings": 5,
+   "rebuttals": 4,
+   "authorities": 1,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The application for judicial review was dismissed because the Board reasonably found the applicant's delay in claiming refugee status showed a lack of subjective fear of persecution, and the applicant's explanations were unpersuasive.",
+  "themes": [
+   {
+    "name": "Delay in Claiming Refugee Status",
+    "summary": "The Board and Court focused on the applicant's 14-month delay in making a refugee claim as evidence of lack of subjective fear.",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     7,
+     17,
+     18,
+     20,
+     21
+    ]
+   },
+   {
+    "name": "Subjective Fear of Persecution",
+    "summary": "The central issue was whether the applicant genuinely feared persecution in Mexico, with the Board finding no subjective basis for his claim.",
+    "paragraphs": [
+     3,
+     8,
+     16,
+     20,
+     21
+    ]
+   },
+   {
+    "name": "Explanations for Delay",
+    "summary": "The applicant's explanations for his delay, including financial issues and being lulled by peace in Canada, were found unpersuasive by the Board and Court.",
+    "paragraphs": [
+     7,
+     10,
+     18,
+     21
+    ]
+   },
+   {
+    "name": "Role of Psychological Evidence",
+    "summary": "The applicant argued the Board misconstrued psychological evidence, but the Court found the report did not justify the delay.",
+    "paragraphs": [
+     11,
+     14,
+     19
+    ]
+   },
+   {
+    "name": "Legal Standard for Delay",
+    "summary": "The Court confirmed that delay is not always determinative but can be decisive if unexplained, following established jurisprudence.",
+    "paragraphs": [
+     5,
+     16,
+     17,
+     20,
+     21
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "It was irrational for the Board to conclude that the only possible explanation for the delay was lack of fear of serious harm in Mexico.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     9
+    ],
+    "quote": "it was irrational for the Board to conclude that the only possible explanation for the applicant not making a refugee claim for 14 months after arrival in Canada was a lack of fear of serious harm in Mexico.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Board ignored his explanation that he had no money and was put off by the first lawyer he met.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     10
+    ],
+    "quote": "the Board totally ignored his explanation as to why he did nothing after consulting the first lawyer; his excuse was that he had no money to finance a refugee claim and was put off by the lawyer that he first met.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Board misconstrued the psychological report, which found he had suffered from depression and anxiety in Mexico.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     11
+    ],
+    "quote": "the Board misconstrued the evidence, especially the psychological report.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Board erred in concluding that all persons fleeing persecution are always motivated to make a claim at the first practicable opportunity.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12
+    ],
+    "quote": "the Board erred in concluding that all persons fleeing persecution or serious harm are always motivated to make a refugee claim at the first practicable opportunity.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "made_by": "applicant",
+    "claim": "Delay is a significant factor but not decisive and cannot be examined in isolation; the Board failed to assess credibility or risk of harm.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     13
+    ],
+    "quote": "delay is a significant factor to be considered in refugee claims but not decisive in itself and cannot be examined in isolation.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The psychological report does not explain the applicant's delay after arrival in Canada.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     14
+    ],
+    "quote": "this report makes no findings as to the applicant's delay in claiming refugee status, nor does it reference any symptoms applicable to the applicant after his arrival in Canada that would render him incapable of submitting a refugee claim for 14 months.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The applicant was not convinced he wanted to stay in Canada; his decision was motivated by a relationship, not fear of persecution.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     15
+    ],
+    "quote": "the impetus for his decision to 'commit himself to staying into Canada' was not his fear of persecution in Mexico but rather the initiation of a serious relationship in Canada",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "Delay in making a refugee claim may point to lack of subjective fear and can be decisive if unexplained.",
+    "treatment": "accepted",
+    "authority": "Heer v. M.E.I.",
+    "paragraphs": [
+     5,
+     6,
+     16,
+     17
+    ],
+    "quote": "the importance one gives to the element of delay depends on the circumstances of each case, the more inexplicable the delay, the greater the probability that subjective fear is absent.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "kind": "standard_of_review",
+    "statement": "The Court reviews the Board's decision for reasonableness and legal error.",
+    "paragraphs": [
+     20,
+     21
+    ],
+    "quote": "This Court accepts that it was not unreasonable for the Board to conclude, based on the evidence before it...",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The Board reasonably found the applicant's delay in claiming refugee status showed lack of subjective fear of persecution.",
+    "paragraphs": [
+     20,
+     21
+    ],
+    "quote": "the applicant's inaction following his arrival in Canada demonstrated that he had no fear of serious harm in Mexico and thus 'no subjective basis to his claim'.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The Board did not err in law by treating the delay as decisive given the lack of satisfactory explanation.",
+    "paragraphs": [
+     17,
+     21
+    ],
+    "quote": "what is fatal to the applicant's claim is his inability to provide any satisfactory explanation for the delay.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "Delay in making a refugee claim is not always determinative but can be decisive if unexplained, depending on the circumstances.",
+    "paragraphs": [
+     5,
+     16,
+     17
+    ],
+    "quote": "while the delay is generally not a determinative factor in a refugee claim, there are circumstances where the delay can be such that it assumes a decisive role",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "kind": "remedy",
+    "statement": "Application for judicial review dismissed.",
+    "paragraphs": [
+     22
+    ],
+    "quote": "I hereby dismiss the application for judicial review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "point": "It was irrational for the Board to conclude that the only possible explanation for the delay was lack of fear.",
+    "made_by": "applicant",
+    "court_answer": "The Board's conclusion was not unreasonable based on the evidence; the explanations were unpersuasive.",
+    "paragraphs": [
+     20,
+     21
+    ],
+    "quote": "it was not unreasonable for the Board to conclude, based on the evidence before it, that the applicant's inaction...demonstrated that he had no fear of serious harm in Mexico",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "point": "The Board ignored the applicant's explanation for delay (financial and lawyer issues).",
+    "made_by": "applicant",
+    "court_answer": "The Board did not accept the applicant's evidence or his explanation to justify the delay and rejected them as unsatisfactory.",
+    "paragraphs": [
+     21
+    ],
+    "quote": "The Board did not accept the applicant's evidence or his explanation to justify the delay and rejected them as unsatisfactory.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "point": "The Board misconstrued the psychological report.",
+    "made_by": "applicant",
+    "court_answer": "The report did not provide any medical explanation justifying the applicant's inaction during the 14 months.",
+    "paragraphs": [
+     19
+    ],
+    "quote": "It does not provide any medical explanation justifying the applicant's inaction during the 14 months.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "point": "Delay is a significant factor but not decisive and cannot be examined in isolation.",
+    "made_by": "applicant",
+    "court_answer": "The Board correctly analysed the jurisprudence; delay can be decisive if unexplained.",
+    "paragraphs": [
+     20,
+     21
+    ],
+    "quote": "the Board correctly analysed the jurisprudence pertaining to the delays.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "authority": "Heer v. M.E.I. (13 April 1988) Doc. No. A-474-87 (F.C.A.)",
+    "treatment": "applied",
+    "why": "Cited for the principle that delay is an important factor in assessing subjective fear in refugee claims.",
+    "paragraphs": [
+     16
+    ],
+    "quote": "the Federal Court of Appeal in Heer v. M.E.I. ... recognized that an applicant's delay in claiming refugee status 'is an important factor which the Board is entitled to consider in weighing a claim for refugee status'.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "left_open": []
+ }
+}

@@ -1,0 +1,398 @@
+{
+ "case_id": 1292,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v2",
+ "run": "themes_loop_r1",
+ "usage": {
+  "prompt_tokens": 7295,
+  "completion_tokens": 2313,
+  "usd": 0.033094
+ },
+ "verification": {
+  "items": 21,
+  "quote_exact_in_cited": 21,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 5,
+   "arguments": 6,
+   "holdings": 6,
+   "rebuttals": 3,
+   "authorities": 5,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The Federal Court granted Mr. Senadheerage's judicial review because the RAD's findings on implausibility and corroboration lacked a rational chain of analysis and failed to follow legal safeguards.",
+  "themes": [
+   {
+    "name": "Implausibility Findings",
+    "summary": "The RAD found parts of the applicant's story implausible without a firm evidentiary basis or reference to country information.",
+    "paragraphs": [
+     12,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Requirement for Corroboration",
+    "summary": "The RAD required corroborative evidence without explaining why it was necessary or reasonably available, contrary to established legal principles.",
+    "paragraphs": [
+     21,
+     22,
+     36,
+     37,
+     40
+    ]
+   },
+   {
+    "name": "Legal Framework for Corroboration",
+    "summary": "The Court synthesizes case law, emphasizing that corroboration is not generally required unless there is an independent reason and the evidence is reasonably available.",
+    "paragraphs": [
+     26,
+     27,
+     28,
+     36
+    ]
+   },
+   {
+    "name": "Internal Flight Alternative (IFA)",
+    "summary": "The RAD's IFA analysis was flawed because it failed to assume a well-founded fear of persecution as required when considering IFA as an alternative ground.",
+    "paragraphs": [
+     47,
+     49,
+     50
+    ]
+   },
+   {
+    "name": "Assessment of Corroborating Evidence",
+    "summary": "The RAD reasonably rejected some corroborating evidence but failed to address all relevant evidence, contributing to the decision's unreasonableness.",
+    "paragraphs": [
+     44,
+     45
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in finding his story implausible, in rejecting his corroborative evidence and in requiring additional corroboration.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     11
+    ],
+    "quote": "He alleges that the RAD erred in finding his story implausible, in rejecting his corroborative evidence and in requiring additional corroboration.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "The CID and the businessman\u2019s thugs had lost any interest in harming Mr. Senadheerage.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12
+    ],
+    "quote": "The RAD\u2019s first ground for finding that Mr. Senadheerage had no well-founded fear of persecution is that both the CID and the businessman\u2019s thugs had lost any interest in him.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "It was illogical that the CID would have gone to Mr. Senadheerage\u2019s house in February 2018, as they would have known he had left the country.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12,
+     18
+    ],
+    "quote": "the RAD found that it was illogical that the CID would have gone to Mr. Senadheerage\u2019s house in February 2018, as they would have known that he had left the country.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "Mr. Senadheerage failed to provide documentary evidence supporting his testimony regarding death threats and visits by CID and thugs.",
+    "treatment": "partly_accepted",
+    "authority": "",
+    "paragraphs": [
+     21,
+     22
+    ],
+    "quote": "Mr. Senadheerage failed to provide any documentary evidence supporting his testimony regarding the death threats the businessman made against him",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "Mr. Senadheerage failed to provide a letter or affidavit from his mother, his only source of information for key events.",
+    "treatment": "partly_accepted",
+    "authority": "",
+    "paragraphs": [
+     21,
+     39
+    ],
+    "quote": "he failed to provide a letter or an affidavit from his mother, with whom he still has contact",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The RAD\u2019s IFA finding stands independently and the claim should be rejected on that basis alone.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     47
+    ],
+    "quote": "the RAD\u2019s IFA finding stands independently of its conclusion regarding Mr. Senadheerage\u2019s lack of a well-founded fear of persecution.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "kind": "standard_of_review",
+    "statement": "The standard of review is reasonableness, requiring a rational chain of analysis and compliance with legal constraints.",
+    "paragraphs": [
+     10
+    ],
+    "quote": "the standard of review is reasonableness",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "Implausibility findings may only be made in the clearest of cases, where facts are outside what could reasonably be expected or contradicted by documentary evidence.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "quote": "Such a finding may be made only in the \u201cclearest of cases:\u201d",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "kind": "legal_test",
+    "statement": "A two-step approach applies to corroboration: (1) an independent reason for requiring corroboration must be identified; (2) the evidence must be reasonably available or the claimant must explain its absence.",
+    "paragraphs": [
+     28,
+     36
+    ],
+    "quote": "a decision-maker can only require corroborative evidence if: The decision-maker clearly sets out an independent reason for requiring corroboration",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The RAD\u2019s findings on implausibility and corroboration were unreasonable and lacked a rational chain of analysis.",
+    "paragraphs": [
+     20,
+     22,
+     37,
+     42,
+     46
+    ],
+    "quote": "the RAD\u2019s analysis of the evidence is flawed in many respects.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ]
+   },
+   {
+    "kind": "conclusion",
+    "statement": "The RAD\u2019s IFA analysis was flawed because it failed to assume a well-founded fear of persecution when considering IFA as an alternative ground.",
+    "paragraphs": [
+     50
+    ],
+    "quote": "The RAD had to assume the opposite.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   },
+   {
+    "kind": "remedy",
+    "statement": "The application for judicial review is allowed and the matter is sent back for redetermination.",
+    "paragraphs": [
+     52
+    ],
+    "quote": "the application for judicial review will be allowed and the matter will be sent back for redetermination.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "point": "The CID and the businessman\u2019s thugs had lost any interest in harming Mr. Senadheerage.",
+    "made_by": "tribunal_below",
+    "court_answer": "The RAD\u2019s findings were speculative and not based on evidence or country information.",
+    "paragraphs": [
+     17,
+     18,
+     19
+    ],
+    "quote": "The findings appear to be based on the RAD\u2019s own views of what is likely or unlikely.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "point": "It was illogical that the CID would have gone to Mr. Senadheerage\u2019s house in February 2018.",
+    "made_by": "tribunal_below",
+    "court_answer": "There was no evidence for this inference; the RAD assumed too many unknown facts.",
+    "paragraphs": [
+     18
+    ],
+    "quote": "There is, however, no evidence providing a reasonable basis for an inference in this regard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "point": "The RAD\u2019s IFA finding stands independently and the claim should be rejected on that basis alone.",
+    "made_by": "respondent",
+    "court_answer": "The IFA analysis was flawed because it did not assume a well-founded fear of persecution as required.",
+    "paragraphs": [
+     50
+    ],
+    "quote": "The RAD had to assume the opposite.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "authority": "Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "treatment": "applied",
+    "why": "Sets the reasonableness standard and requirement for a rational chain of analysis.",
+    "paragraphs": [
+     10,
+     42
+    ],
+    "quote": "the standard of review is reasonableness: Canada (Citizenship and Immigration) v Vavilov",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "authority": "Valtchev v Canada (Minister of Citizenship and Immigration), 2001 FCT 776",
+    "treatment": "applied",
+    "why": "Implausibility findings only in the clearest of cases.",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "quote": "Such a finding may be made only in the \u201cclearest of cases:\u201d Valtchev",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "authority": "Al Dya v Canada (Citizenship and Immigration), 2020 FC 901",
+    "treatment": "applied",
+    "why": "Implausibility cannot be based on mere improbability.",
+    "paragraphs": [
+     14,
+     16
+    ],
+    "quote": "the unusual or improbable does occur, and that it is unreasonable to reject evidence as not credible simply because the events it describes are unusual",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "authority": "Maldonado v Canada (Minister of Employment and Immigration), [1980] 2 FC 302 (CA)",
+    "treatment": "applied",
+    "why": "Presumption of truthfulness unless there is reason to doubt.",
+    "paragraphs": [
+     27
+    ],
+    "quote": "this creates a presumption that those allegations are true unless there be reason to doubt their truthfulness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   },
+   {
+    "authority": "Horvath v Canada (Citizenship and Immigration), 2018 CF 147",
+    "treatment": "applied",
+    "why": "Two-step approach to corroboration.",
+    "paragraphs": [
+     28
+    ],
+    "quote": "Corroborative evidence was only required if the RAD had (1) reason to doubt the Applicants\u2019 claim and (2) the corroborating evidence could reasonably be expected to be available",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "issue": "What other grounds, beyond credibility or implausibility, may justify requiring corroboration.",
+    "reason": "The Court does not give a closed list of valid grounds for requiring corroboration.",
+    "paragraphs": [
+     33
+    ],
+    "quote": "I do not intend to give a closed list of what these grounds might be.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   }
+  ]
+ }
+}

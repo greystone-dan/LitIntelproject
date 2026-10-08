@@ -1,4 +1,4 @@
-"""Score a tagging run's roles against role_gold_60.json (60 paragraphs in 4 cases, one reader, so a rough guide only)."""
+"""Score a tagging run's roles against role_reference_60.json (60 paragraphs in 4 cases, one reader, so a rough guide only)."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
-GOLD = json.loads((Path(__file__).parent / "role_gold_60.json").read_text(encoding="utf-8"))["roles"]
+REFERENCE = json.loads((Path(__file__).parent / "role_reference_60.json").read_text(encoding="utf-8"))["roles"]
 
 
 def main() -> int:
@@ -15,7 +15,7 @@ def main() -> int:
 	args = parser.parse_args()
 	for directory in args.dirs:
 		right = total = 0
-		for case_id, labels in GOLD.items():
+		for case_id, labels in REFERENCE.items():
 			path = directory / f"case_{case_id}_tags.json"
 			if not path.exists():
 				continue

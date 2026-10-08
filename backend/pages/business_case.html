@@ -75,7 +75,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 </header>
 
 <nav class="toc" aria-label="Contents"><b>Contents</b>
-<a href="#s1">1. Executive summary</a><a href="#s2">2. Background and problem</a><a href="#s3">3. Proposed solution</a><a href="#s4">4. What the site does</a><a href="#s5">5. Evidence of what has been built</a><a href="#s6">6. Alternatives available to counsel</a><a href="#s7">7. Users, use cases and value</a><a href="#s8">8. Options considered</a><a href="#s9">9. Deployment: short and long term</a><a href="#s10">10. Costs and funding</a><a href="#s11">11. Return on investment</a><a href="#s12">12. Risks and mitigations</a><a href="#s13">13. Implementation plan and timeline</a><a href="#s14">14. The request and next steps</a><a href="#appA">Appendix A. Resource comparison</a><a href="#appB">Appendix B. Assumptions</a><a href="#appC">Appendix C. Unverified items</a><a href="#appD">Appendix D. Sources</a></nav>
+<a href="#s1">1. Executive summary</a><a href="#s2">2. Background and problem</a><a href="#s3">3. Proposed solution</a><a href="#s4">4. What the site does</a><a href="#s5">5. Evidence of what has been built</a><a href="#s6">6. Alternatives available to counsel</a><a href="#s7">7. Users, use cases and value</a><a href="#s8">8. Options considered</a><a href="#s9">9. Deployment: short and long term</a><a href="#s10">10. Costs, funding and local AI</a><a href="#s11">11. Return on investment</a><a href="#s12">12. Risks and mitigations</a><a href="#s13">13. Implementation plan and timeline</a><a href="#s14">14. The request and next steps</a><a href="#appA">Appendix A. Resource comparison</a><a href="#appB">Appendix B. Assumptions</a><a href="#appC">Appendix C. Unverified items</a><a href="#appD">Appendix D. Sources</a></nav>
 
 <section id="s1">
 <h2><span class="n">1</span>Executive summary</h2>
@@ -90,6 +90,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <li><b>Gap.</b> I found no Canadian product, free or commercial, that offers Federal Court immigration outcome analytics, whole-docket statistics and an authority check on a memo in one place (Appendix A). Whether any vendor offers parts of this under a private quote is unverified.</li>
 <li><b>Working evidence.</b> A library of more than 60,000 decisions, about 1.44 million citations and the docket history of 316,940 Federal Court immigration files is built and searchable. Some features are prototypes and some outcome labels are being corrected (sections 4 and 5).</li>
 <li><b>Cost.</b> My out-of-pocket spend to date is C$841.32. The funding I would need is C$2,000 to C$20,000 once, in three levels (section 10). A commercial AI platform for 25 seats is reported at C$104,000 to C$248,000 a year, and commissioning a comparable build at about C$1.45 million (sections 7 and 9).</li>
+<li><b>Local AI.</b> A dedicated machine would let larger open models be tested on iLit&rsquo;s tasks and, if they pass, run enrichment and any later analysis of internal documents without text leaving the machine. On public data alone, hosted AI is cheaper, so I propose releasing the money in three stages tied to evidence (sections 10.4 to 10.8).</li>
 <li><b>Return.</b> On illustrative assumptions of one hour a week saved by 40% of 25 users, the value is about C$34,500 a year. No time saving has been measured yet, so I present this as a formula with labelled assumptions, not a forecast (section 11).</li>
 <li><b>Safeguards.</b> No AI is used when someone searches or reads. AI is used only to enrich public decisions when they are added. The data licence is non-commercial and is respected (section 12).</li>
 </ul>
@@ -290,7 +291,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <p>I have researched what is published about Government of Canada requirements. I did not find CBSA-specific policy on any of this and I do not claim one. Where a step depends on a CBSA or Shared Services Canada decision, it is marked as such.</p>
 <h3><span class="n">9.1</span>Short term: private machine, external site, public law only</h3>
 <ul>
-<li><b>AI machine.</b> One dedicated, powerful computer that I own, running open AI models locally to enrich public decisions. A standard work-issued laptop with integrated graphics can run only small demonstration models, which is why a separate machine is a funding item.</li>
+<li><b>AI machine.</b> One dedicated, powerful computer that I own, running open AI models locally to enrich public decisions. A standard work-issued laptop with integrated graphics can run only small demonstration models, which is why a separate machine is a funding item (sections 10.4 to 10.7).</li>
 <li><b>Site.</b> Hosted on an external server in Canada, serving public decisions only. No CBSA data, accounts or network are involved.</li>
 <li><b>Requirements.</b> Public data and open licences only, attribution to the Refugee Law Lab and A2AJ [17,19], backups, a domain and server. I found no Government of Canada rule that applies to a non-government site holding only public data (inferred).</li>
 <li><b>Estimated cost.</b> The machine as in section 10; a managed Canadian server in the order of C$100 to C$500 a month (my estimate, unquoted).</li>
@@ -321,7 +322,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 </tbody></table></div>
 </section>
 <section id="s10">
-<h2><span class="n">10</span>Costs and funding</h2>
+<h2><span class="n">10</span>Costs, funding and local AI</h2>
 <h3><span class="n">10.1</span>Spend to date</h3>
 <p>These are my own out-of-pocket figures, in Canadian dollars. They exclude my time, for which I am not asking to be paid.</p>
 <p class="cap">Table 10. Project spend to date (C$)</p>
@@ -344,18 +345,68 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tbody>
 <tr><td><b>1. Keep building</b></td><td class="r">about 2,000</td><td>Tool subscriptions for six months (about 850); AI credits for one full pass over the library and experiments (about 1,000); domain, tunnel and off-site backup (about 150)</td><td>The enrichment work already planned, such as issue tagging and paragraph summaries across all decisions</td></tr>
 <tr><td><b>2. Dedicated machine</b></td><td class="r">about 5,000</td><td>Level 1; a used 32 to 36 GB laptop (1,700 to 2,500); 4 TB external storage and a UPS (about 600)</td><td>Moves iLit off a personal workstation; runs mid-size open models locally</td></tr>
-<tr><td><b>3. Long-term platform</b></td><td class="r">15,000 to 20,000</td><td>A high-memory desktop class machine (from about 7,800, about 11,000 to 12,500 at 256 GB, which is my estimate); network backup storage, UPS and warranty (about 1,500); 12 months of subscriptions and credits (3,000 to 4,000)</td><td>Runs large open models fully on site, so all AI reading of decisions and memos could happen without text leaving the machine</td></tr>
+<tr><td><b>3. Long-term platform</b></td><td class="r">15,000 to 20,000</td><td>A high-memory desktop class machine (about 7,800 at 96 GB; about 13,300 at 256 GB, my estimate); backup storage, UPS and warranty (about 1,500); 12 months of subscriptions and credits (3,000 to 4,000). All-in about 12,800 at 96 GB to about 18,300 at 256 GB; the level leaves room for sales tax and price changes</td><td>Runs large open models fully on site, so all AI reading of decisions and memos could happen without text leaving the machine</td></tr>
 </tbody></table></div>
-<p>AI processing is a small line item. My estimate for one pass over the whole library is about C$510 to C$2,030 depending on the model, and a local model brings it to electricity only [3]. The main reason to run a local model is to keep work product off third-party servers, not cost.</p>
+<p>AI processing is a small line item. My estimate for one pass over the whole library is about C$510 to C$2,030 depending on the model, and a local model brings it to electricity only [3]. The main reason to run a local model is to keep work product off third-party servers, not cost; sections 10.4 to 10.7 set out what a local machine would add and whether it is worth buying.</p>
 <h3><span class="n">10.3</span>Running cost</h3>
 <p>My estimate of the annual running cost is C$3,000 to C$8,000: the C$160 monthly subscription (C$1,920 a year) plus an external Canadian server at an assumed C$100 to C$500 a month (C$1,200 to C$6,000 a year). The hosting figure is unquoted. An internal deployment would have its own costs, set by CBSA processes that I have not priced.</p>
+<h3><span class="n">10.4</span>What a local AI machine would add</h3>
+<p>At present, enrichment of decisions has been run only on 300 core decisions, with a small hosted model, at a recorded cost of well under a cent a decision. A small local model has been wired in and scored 3 out of 10 on a paragraph-summary test, so the local path is built but not yet good enough [3,37]. Money for a capable machine buys the ability to test and run larger open models on iLit&rsquo;s own tasks. It does not guarantee they are good enough, and that has not been measured. Table 12 lists where a local model would be used, in each case at the time decisions are added or on request, never when someone searches.</p>
+<p class="cap">Table 12. Where local AI would be used (what exists today and what the machine adds)</p>
+<div class="tw"><table>
+<thead><tr><th>Task</th><th>Today</th><th>With a capable local machine</th><th>Limit or dependency</th></tr></thead>
+<tbody>
+<tr><td>Paragraph meaning and topic labels</td><td>Rules, plus a hosted small model run on 300 decisions</td><td>The same labels across the whole library, repeatable and with no per-use fee, stored as a labelled layer beside the source text</td><td>Local quality on subtle legal distinctions is not measured; the 4B model scored 3 of 10</td></tr>
+<tr><td>Tag and issue review</td><td>Rule-based tagging</td><td>A model reviews borderline rule candidates for a person to confirm</td><td>Review aid only; rules stay the source of record</td></tr>
+<tr><td>Citation and statute extraction</td><td>Rules find and match them; short forms and statute links are still being refined</td><td>A model triages ambiguous short forms and statute references for the rules to confirm</td><td>Extraction itself stays rule-based so every link can be explained</td></tr>
+<tr><td>Outcomes and case types in hard cases</td><td>Rules, with &ldquo;unclear&rdquo; where they cannot tell</td><td>A model proposes a result for the unclear cases, checked by a person and against the hand-graded set</td><td>Accuracy must pass pre-agreed marks before anything is shown</td></tr>
+<tr><td>Docket classification and audits</td><td>Rules classify about 219,000 files; audits used a hosted model</td><td>Local audits of the classifier and of hard entries</td><td>Registry entry errors cannot be fixed by a model</td></tr>
+<tr><td>Search by meaning</td><td>Paused; search uses no AI</td><td>The library embedded once on the machine; a small local model can embed a query on an ordinary processor, so no typed text leaves the system</td><td>Optional and off by default; retrieval quality against the current search must be measured first</td></tr>
+<tr><td>Live Analysis on a CBSA machine</td><td>Rule-based citation and statute check; nothing stored</td><td>With a local model inside CBSA infrastructure, argument identification and gap checks on internal drafts could be added</td><td>Concept only. Needs hosting, security and privacy approval (section 9)</td></tr>
+<tr><td>Generated answers (&ldquo;ask a question&rdquo;)</td><td>Present in the code, not part of the proposal</td><td>Could run on a local model if the Division wanted it</td><td>Not planned. Whether the Division wants generated answers at all is an open question</td></tr>
+</tbody></table></div>
+<h3><span class="n">10.5</span>The design rule stays the same</h3>
+<p>None of this changes how the site behaves for a user. Searching, reading and the statistics read results stored in advance and call no AI service. AI, local or hosted, is used to enrich public decisions when they are added, and its output is stored as labelled data separate from the source text. The one place a model could ever touch a query is optional search by meaning, which is off today and which would use a local model so that nothing typed leaves the system. Live Analysis reads a document in memory and keeps nothing, and on a CBSA machine nothing would leave CBSA.</p>
+<h3><span class="n">10.6</span>Is the hardware worth buying?</h3>
+<p>On public data alone, hosted AI is cheaper. My spend on AI for the project so far is C$114.24 (Anthropic C$54.24 and OpenAI C$60.00). My estimate for one hosted pass over the whole library is C$510 to C$2,030 [3]. The hardware and support in Level 3 come to about C$14,800 with a 256 GB machine, which equals roughly 7 to 29 full hosted passes. The machine is therefore justified by other reasons, not by cost:</p>
+<ul>
+<li><b>Confidentiality.</b> Internal documents cannot be sent to a public AI service, so any AI reading of them has to be local.</li>
+<li><b>Independence and repeatability.</b> Passes can be re-run as rules and prompts improve without a per-use fee or a vendor changing a model.</li>
+<li><b>Residency.</b> Work product stays on a machine in Canada under my control now, or the Division&rsquo;s later.</li>
+<li><b>Portability.</b> The code, the models&rsquo; weights and the evaluation set move with the work, so a CBSA-hosted version could reuse them.</li>
+</ul>
+<p>If the Division does not intend to use internal documents, the hosted route for public data is the better value, and Levels 1 and 2 are enough.</p>
+<h3><span class="n">10.7</span>Hardware options</h3>
+<p>A rule of thumb for open models compressed to 4 bits is about 0.6 GB of memory per billion parameters, plus 4 to 8 GB for the operating system and more for long documents [33]. So a 14B model needs about 9 GB, a 32B model about 19 GB and a 70B model about 42 GB. Those are third-party rules of thumb; the real file size of the chosen model governs.</p>
+<p class="cap">Table 13. Hardware options (CAD, reported list or retail prices of August to September 2026; prices are moving because memory costs are rising)</p>
+<div class="tw"><table>
+<thead><tr><th>Option</th><th class="r">Approximate price</th><th>Memory</th><th>What it runs well</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>A standard work-issued laptop</td><td class="r">Not applicable</td><td>Integrated graphics</td><td>Small demonstration models only</td><td>Why a separate machine is a funding item</td></tr>
+<tr><td>Used 32 to 36 GB MacBook Pro (M2 or M3 Max)</td><td class="r">1,700 to 2,500 [3]</td><td>About 27 GB usable for a model</td><td>14B comfortably; 32B tight</td><td>Level 2. Good for evaluation, embeddings, tag review and extraction on small to mid models</td></tr>
+<tr><td>RTX 5090 graphics card</td><td class="r">about 5,500 to 6,400 for the card; about 9,500 for a built PC [35]</td><td>32 GB on the card</td><td>Models that fit 32 GB, fast</td><td>Needs a host PC; the strongest software ecosystem for serving several users; price volatile</td></tr>
+<tr><td>NVIDIA DGX Spark</td><td class="r">about 7,650 to 9,450 reported [34]</td><td>128 GB, 273 GB/s</td><td>Large models, slower generation</td><td>Complete small box; Linux; seller prices vary</td></tr>
+<tr><td>Mac Studio M5 Ultra</td><td class="r">from 7,799 at 96 GB [32]; about 13,300 at 256 GB (my estimate)</td><td>96 to 256 GB shared</td><td>70B class with room for long documents; more at 256 GB</td><td>Level 3. The 256 GB price is my estimate from a US$4,000 memory step at C$1.38; confirm on apple.ca. Listed prices exclude sales tax, which I assume adds roughly 5 to 15%</td></tr>
+</tbody></table></div>
+<p>I do not recommend a model or a machine before testing. The shortlist of models is Apache 2.0 licensed: Mistral Small, which is French, and the Qwen3 family, which is Chinese in origin. Whether a Chinese-origin model is acceptable for government use is a CBSA policy question I have not found a source on, so I would test Mistral Small first. Llama has its own community licence that counsel would need to read [36].</p>
+<h3><span class="n">10.8</span>Funding released in stages</h3>
+<p>Because the value of the larger machine depends on test results and on the Division&rsquo;s plans, I propose releasing money in stages, each tied to evidence.</p>
+<p class="cap">Table 14. Staged funding and the evidence that releases each stage</p>
+<div class="tw"><table>
+<thead><tr><th>Stage</th><th class="r">Amount (C$)</th><th>Released when</th><th>What it buys</th></tr></thead>
+<tbody>
+<tr><td><b>Level 1</b></td><td class="r">about 2,000</td><td>Now. Nothing is required of the Division beyond interest.</td><td>Subscriptions, one full hosted enrichment pass, backups. Finishes the accuracy work in Phase 1.</td></tr>
+<tr><td><b>Level 2</b></td><td class="r">about 5,000 in total</td><td>Accuracy figures for outcomes and citations are published and a few counsel agree to a trial.</td><td>A dedicated machine and storage; the first local-model tests against a hand-graded set</td></tr>
+<tr><td><b>Level 3</b></td><td class="r">15,000 to 20,000</td><td>Local models pass marks agreed in advance on iLit&rsquo;s tasks, or the Division decides to pursue internal documents, which need a local model on its own machine.</td><td>A high-memory machine to run larger models, with backup and a year of subscriptions</td></tr>
+</tbody></table></div>
+<p>The pass marks are not set yet. I propose to set them with the Division before testing, for example that a local model must come within a few points of the hosted one on retrieval and must not show more citation errors, with a person reviewing a sample. The amounts are alternatives that build up: Level 2 includes Level 1, and Level 3 is priced as a whole, with the laptop kept as a second machine for testing and backup if Level 2 was already bought. If CBSA prefers to buy and host its own equipment, the same specification applies and the funds would not be needed.</p>
 </section>
 
 <section id="s11">
 <h2><span class="n">11</span>Return on investment</h2>
 <p>I have no measured time savings yet, so I do not state a return as fact. The method is a transparent formula with assumptions that can be changed.</p>
 <p><code>annual value = users &times; share who use it &times; hours saved per user per week &times; working weeks &times; loaded hourly cost</code></p>
-<p class="cap">Table 12. Three scenarios (illustrative placeholders, not forecasts)</p>
+<p class="cap">Table 15. Three scenarios (illustrative placeholders, not forecasts)</p>
 <div class="tw"><table>
 <thead><tr><th>Scenario</th><th class="r">Users</th><th class="r">Active share</th><th class="r">Hours / week</th><th class="r">Weeks</th><th class="r">C$ / hour</th><th class="r">Value / year</th></tr></thead>
 <tbody>
@@ -383,13 +434,13 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <li>Planning information from whole-docket statistics.</li>
 </ul>
 <h3><span class="n">11.2</span>How the figures would be replaced with measurements</h3>
-<p>A short timed comparison with a few counsel, CanLII alone against CanLII with iLit, on real tasks drawn from current files. It would record time to answer, errors found and user feedback, and would replace the placeholders in Table 12. If it shows no benefit, I will say so.</p>
+<p>A short timed comparison with a few counsel, CanLII alone against CanLII with iLit, on real tasks drawn from current files. It would record time to answer, errors found and user feedback, and would replace the placeholders in Table 15. If it shows no benefit, I will say so.</p>
 </section>
 
 <section id="s12">
 <h2><span class="n">12</span>Risks and mitigations</h2>
 <p>Ratings are my own judgement and are not from a formal assessment.</p>
-<p class="cap">Table 13. Risk register</p>
+<p class="cap">Table 16. Risk register</p>
 <div class="tw"><table>
 <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
 <tbody>
@@ -409,7 +460,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <section id="s13">
 <h2><span class="n">13</span>Implementation plan and timeline</h2>
 <p>Durations are my planning estimates, not commitments, and the later phases depend on decisions outside my control.</p>
-<p class="cap">Table 14. Phases</p>
+<p class="cap">Table 17. Phases</p>
 <div class="tw"><table>
 <thead><tr><th>Phase</th><th>Period</th><th>Scope</th><th>Outputs</th><th>Funding</th></tr></thead>
 <tbody>
@@ -419,7 +470,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td><b>3. Plan an internal home</b></td><td>Months 6 to 12</td><td>With CBSA IT, security and privacy: hosting route, owner, sign-in, assessment scope, privacy impact assessment</td><td>An agreed internal deployment plan and cost</td><td>Level 3 for the local-AI machine; CBSA process costs unpriced</td></tr>
 <tr><td><b>4. Internal deployment</b></td><td>Months 12 to 24</td><td>Hosted inside CBSA or an approved cloud; internal documents considered only after approval</td><td>A supported internal service</td><td>To be determined by CBSA</td></tr>
 </tbody></table></div>
-<p class="cap">Table 15. Decision gates</p>
+<p class="cap">Table 18. Decision gates</p>
 <div class="tw"><table>
 <thead><tr><th>Gate</th><th>When</th><th>Decision</th><th>Evidence</th></tr></thead>
 <tbody>
@@ -434,7 +485,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <h3><span class="n">14.1</span>The request</h3>
 <ul>
 <li><b>Interest and time.</b> A small group of counsel willing to try iLit on real files and tell me what is missing.</li>
-<li><b>Funding.</b> An unofficial contribution at Level 1 or Level 2 (C$2,000 to C$5,000) now, with Level 3 (up to C$20,000) considered after the trial results. This is not a procurement and creates no commitment beyond interest.</li>
+<li><b>Funding.</b> An unofficial contribution at Level 1 or Level 2 (C$2,000 to C$5,000) now, with Level 3 (up to C$20,000) released only if local models pass marks agreed in advance or the Division decides to pursue internal documents (Table 14). This is not a procurement and creates no commitment beyond interest.</li>
 <li><b>A conversation</b> with CBSA IT, security and privacy about where an internal version could be hosted and who would own it.</li>
 </ul>
 <h3><span class="n">14.2</span>Next steps</h3>
@@ -530,6 +581,12 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <li><a href="https://claude.ai/artifact/AaknoWsheQKXQEBWrQipmT">iLit status overview, 28 September 2026</a> (scale figures, features and limits)</li>
 <li><a href="https://claude.ai/artifact/PbpGbAbekaLAxuq1TfXm57">iLit competitor scan, 28 September 2026</a></li>
 <li><a href="https://github.com/greystone-dan/LitIntelproject">iLit repository</a> (public; code, tests and project reports)</li>
+<li><a href="https://www.iphoneincanada.ca/2026/09/22/mac-mini-mac-studio-canada-available/">iPhone in Canada: Mac Studio M5 Ultra available in Canada, 22 Sept 2026</a></li>
+<li><a href="https://www.promptquorum.com/prompt-bites/best-local-llm-32gb-unified-memory-mac">Local LLM memory guide for Apple silicon</a> and <a href="https://www.besthub.dev/articles/how-big-a-model-can-your-mac-run-8gb-to-192gb-memory-guide-for-local-llms-6a1ac5391cd6">model-size guide</a> (third-party rules of thumb)</li>
+<li><a href="https://d-central.tech/where-to-buy-dgx-spark-canada/">D-Central: DGX Spark in Canada</a> (a seller)</li>
+<li><a href="https://tech-insider.org/rtx-5090-price-surge-canada-2026/">Tech Insider: RTX 5090 Canadian prices, 2026</a></li>
+<li><a href="https://mistral.ai/news/mistral-small-3/">Mistral: Mistral Small 3 (Apache 2.0)</a>; Qwen3 licence as reported by secondary sources, to be confirmed on the model card</li>
+<li>iLit AI architecture readiness review, October 2026 (project file, gc-requirements)</li>
 </ol>
 </section>
 

@@ -1,0 +1,1531 @@
+{
+ "case_id": 46057,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.0177668
+ },
+ "verification": {
+  "items": 79,
+  "quote_exact_in_cited": 79,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 8,
+  "calls": 9,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.976,
+  "rows": {
+   "themes": 4,
+   "arguments": 26,
+   "holdings": 47,
+   "rebuttals": 0,
+   "authorities": 6,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The appeal is allowed, the Federal Court's decision is set aside, and Mr. Patel's application for judicial review is dismissed because the visa officer correctly interpreted and reasonably applied subsection 83(3) of the Immigration and Refugee Protection Regulations, which requires completion of a single program of full-time study of at least two years at a post-secondary institution in Canada to award adaptability points.",
+  "themes": [
+   {
+    "name": "Interpretation of Adaptability Provision",
+    "summary": "The key issue is the interpretation of subsection 83(3) of the Regulations, specifically whether adaptability points can be awarded by aggregating multiple shorter programs or require completion of a single two-year program.",
+    "paragraphs": [
+     14,
+     19,
+     20,
+     31,
+     33,
+     34
+    ]
+   },
+   {
+    "name": "Standard of Review",
+    "summary": "The court discusses and applies the appropriate standard of review, concluding that the visa officer's interpretation of the Regulations is reviewed on a correctness standard, while application to facts is reviewed for reasonableness.",
+    "paragraphs": [
+     17,
+     18,
+     21,
+     22,
+     23,
+     24,
+     26,
+     27,
+     28,
+     36,
+     37
+    ]
+   },
+   {
+    "name": "Application of Law to Facts",
+    "summary": "The visa officer's decision to deny adaptability points based on Mr. Patel's failure to complete a single two-year program is found to be reasonable and supported by transparent and intelligible reasons.",
+    "paragraphs": [
+     15,
+     16,
+     29,
+     30,
+     35,
+     36,
+     37,
+     38,
+     39
+    ]
+   },
+   {
+    "name": "Statutory Context and Purpose",
+    "summary": "The interpretation of the adaptability provision is informed by the statutory context and purpose, emphasizing economic establishment and the value of completing a single program over disparate studies.",
+    "paragraphs": [
+     11,
+     31,
+     32,
+     33,
+     34
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Factual Background",
+    "first_paragraph": 1,
+    "last_paragraph": 4,
+    "disposition": "other"
+   },
+   {
+    "label": "Legislative Framework",
+    "first_paragraph": 5,
+    "last_paragraph": 14,
+    "disposition": "other"
+   },
+   {
+    "label": "Visa Officer's Decision",
+    "first_paragraph": 15,
+    "last_paragraph": 16,
+    "disposition": "other"
+   },
+   {
+    "label": "Federal Court Decision and Certified Question",
+    "first_paragraph": 17,
+    "last_paragraph": 20,
+    "disposition": "other"
+   },
+   {
+    "label": "Issues on Appeal",
+    "first_paragraph": 21,
+    "last_paragraph": 21,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of Review",
+    "first_paragraph": 22,
+    "last_paragraph": 28,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Correctness of Visa Officer's Interpretation and Application",
+    "first_paragraph": 29,
+    "last_paragraph": 39,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Conclusion and Remedy",
+    "first_paragraph": 40,
+    "last_paragraph": 41,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "As set out above, the visa officer awarded no points for adaptability based upon Mr. Patel\u2019s period of post-secondary study in Canada.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The visa officer awarded no points for adaptability based on Mr. Patel's post-secondary study in Canada.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The officer\u2019s rationale for this was expressed in the following way in the refusal letter: [\u2026] No Adaptability points for your prior study in Canada have been assessed as you have not studied at a post-secondary institution in Canada in a program of full-time study of at least two years duration; you completed a one year program at Canada Career College and have presented evidence you attended one semester at Xincon College.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The officer refused adaptability points because Mr. Patel did not study full-time for at least two years at a Canadian post-secondary institution, completing only a one-year program at Canada Career College and one semester at Xincon College.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The visa officer\u2019s Computer Assisted Immigration Processing System notes contain the following expanded explanation for the officer\u2019s decision: - PA has studied in Cda for the following 1) a one (1) yr Diploma program in International Business Mgmt at Canadian Career College (07/Feb/2005) to 23/Jun/2006); transcripts (which have been verified by the issuing school) and a copy of diploma on file 2) a Computer Systems Technology program at Xincon College in Scarborough; transcript on file shows PA attended for the Summer/07 semester;",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The visa officer's notes explained that Mr. Patel completed a one-year diploma at Canadian Career College and attended one semester at Xincon College, but did not provide evidence of full-time study of at least two years at one institution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I note these transcripts are not/not dated, but were notarized on 09/Jan/2008 (by an Ontario based notary) : : no/no further evidence of study at, or graduation from, this school has been presented : : To have 5 points assessed, PA must provide evidence he has studied at a (i.e. one) post-secondary Cdn institution in a program of full-time study of at least two yrs\u2019 duration;",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The transcripts from Xincon College were notarized but not dated, and no further evidence of study or graduation from that school was presented.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "PA has completed a one yr program at one school and appears to have attended one semester at a different school : : furthermore, I note PA took two disparate, distinct programs and did not/not transfer from one institution to another into a similar program and with transfer credits : : PA has presented transcripts he had notarized in Jan/09 and I understand this to mean these transcripts show the extent of his studies at Xincon College as it would seem unreasonable to have notarized, and then submit, transcripts that do not show the complete scholastic history at a particular school : : I am not/not satisfied, based on the evidence before me, to assess 5 points for prior study in Cda : : [emphasis added] 4.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Patel took two distinct programs at different schools without transferring between similar programs with transfer credits, and the officer was not satisfied to award 5 points for prior study in Canada based on the evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Judge characterized the issues before him to be the standard of review and whether the visa officer erred in his interpretation of section 83 of the Regulations.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Judge characterized the issues before him to be the standard of review and whether the visa officer erred in his interpretation of section 83 of the Regulations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Judge rejected the Minister\u2019s argument that the appropriate standard of review to be applied to the officer\u2019s decision was reasonableness.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Judge rejected the Minister\u2019s argument that the appropriate standard of review to be applied to the officer\u2019s decision was reasonableness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Judge viewed the primary basis of the visa officer\u2019s decision to be his interpretation of section 83 of the Regulations.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Judge viewed the primary basis of the visa officer\u2019s decision to be his interpretation of section 83 of the Regulations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This was, in the view of the Judge, a question of law which should be reviewed on the standard of correctness.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "This was, in the view of the Judge, a question of law which should be reviewed on the standard of correctness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The question of whether Mr. Patel completed two years of study as required by section 83 was, in the Judge\u2019s view, a question of mixed fact and law which attracted review on the standard of reasonableness.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The question of whether Mr. Patel completed two years of study as required by section 83 was, in the Judge\u2019s view, a question of mixed fact and law which attracted review on the standard of reasonableness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Turning to the visa officer\u2019s interpretation of section 83 of the Regulations, the Judge found the officer interpreted section 83 so as to require full-time attendance for two years in a single academic program at a single accredited institution.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Judge found the visa officer interpreted section 83 so as to require full-time attendance for two years in a single academic program at a single accredited institution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Judge was satisfied that this interpretation was wrong in law.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Judge was satisfied that this interpretation was wrong in law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Minister argues that s 83 refers throughout to the singular (a program; a post-secondary institution; that program) and that its ordinary meaning must therefore be confined to a single two-year academic program at one institution. 20.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argues that s 83 refers throughout to the singular and that its ordinary meaning must therefore be confined to a single two-year academic program at one institution.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for Mr. Patel points to ss 33(2) of the Interpretation Act, R.S., 1985, c. I-21 which dictates that \u201cwords in the singular include the plural and words in the plural include the singular\u201d.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "respondent",
+    "claim": "Counsel for Mr. Patel points to ss 33(2) of the Interpretation Act which dictates that words in the singular include the plural and words in the plural include the singular.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Consistent with the statutory language used, both parties agree that the acquisition of an academic credential is not a requirement for the award of adaptability points.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Both parties agree that the acquisition of an academic credential is not a requirement for the award of adaptability points under s 83.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This is in harmony with s 78 of the Regulations where points are awarded for academic credentials.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "This agreement is consistent with s 78 of the Regulations where points are awarded for academic credentials.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I agree with the appellant\u2019s submission that, on an appeal from a decision of the Federal Court on an application for judicial review, the standard of appellate review is whether the Judge of the Federal Court selected the appropriate standard of review and then applied it correctly.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "On an appeal from a decision of the Federal Court on an application for judicial review, the standard of appellate review is whether the Federal Court Judge selected and correctly applied the appropriate standard of review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I do not agree with the Minister\u2019s assertion that the principal issue presented by this application must be assessed on the standard of reasonableness. The primary basis for the visa officer\u2019s decision involved the interpretation of s 83 of the IRPA Regulations. This raises an issue of law which must be reviewed on the standard of correctness: see Sapru v Canada, 2010 FC 240, 2010 CarswellNat 455 (WL) at paras 15 and 16; Charalampis v Canada, 2009 FC 1002, 353 FTR 24 at para 34; and Angeles v Canada, 2009 FC 744, 2009 CarswellNat 2506 (WL) at para 16.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2",
+     "23.3",
+     "23.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court Judge found that the principal issue must be assessed on the standard of correctness, not reasonableness, because it involved interpretation of s 83 of the IRPA Regulations, an issue of law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I accept that the issue of whether Mr. Patel completed two years of study as required by s 83 involves an issue of mixed fact and law attracting a standard of review of reasonableness.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Judge accepted that the issue of whether Mr. Patel completed two years of study involved mixed fact and law attracting a reasonableness standard of review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Minister, relying upon Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 S.C.R. 190 at paragraphs 54 and 59, Canada (Citizenship and Immigration) v. Khosa, 2009 SCC 12, [2009] 1 S.C.R. 339 at paragraph 44, and Celgene Corp. v. Canada (Attorney General), 2011 SCC 1, 410 N.R. 127 at paragraph 34, argues that the visa officer\u2019s interpretation of the Regulations should have been reviewed on the standard of reasonableness.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argues that the visa officer\u2019s interpretation of the Regulations should be reviewed on the standard of reasonableness, relying on Dunsmuir, Khosa, and Celgene.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister distinguishes this Court\u2019s decision in Shahid v. Canada (Minister of Citizenship and Immigration), 2011 FCA 40, [2011] F.C.J. No. 160 on the ground the case was heard prior to the release of the decision of the Supreme Court of Canada in Celgene.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister distinguishes Shahid on the basis that it was decided before the Supreme Court\u2019s Celgene decision.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In Shahid this Court found that the interpretation of \u201cfull-time equivalent\u201d as used in the Regulations was a pure question of statutory construction which should be decided on the standard of correctness.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In Shahid, this Court found that interpretation of 'full-time equivalent' in the Regulations was a pure question of statutory construction to be decided on the correctness standard.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The respondent replies that the standard of review is correctness and that the Judge correctly found the officer\u2019s interpretation of the Regulations to be wrong.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent submits that the standard of review is correctness and that the Judge correctly found the visa officer\u2019s interpretation of the Regulations to be wrong.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The officer viewed subsection 83(3) of the Regulations to require study at a post-secondary Canadian institution in a single program of full-time study of at least two years\u2019 duration.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The visa officer viewed subsection 83(3) of the Regulations to require study at a post-secondary Canadian institution in a single program of full-time study of at least two years\u2019 duration.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The officer acknowledged the possibility of transfer from one institution to another in a similar program.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The officer acknowledged the possibility of transfer from one institution to another in a similar program.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He expressed concern, however, that Mr. Patel had completed a one-year program of study at one school and then completed one semester at a different school. The officer expressed further concern that the programs Mr. Patel enrolled in were two disparate, distinct programs.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.4",
+     "29.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The officer expressed concern that Mr. Patel had completed a one-year program at one school and then one semester at a different school, and that the programs were two disparate, distinct programs.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The respondent, Jigarkumar Patel, applied for permanent residence in Canada as a member of the federal skilled worker class.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent, Jigarkumar Patel, applied for permanent residence in Canada as a member of the federal skilled worker class."
+   },
+   {
+    "quote": "He claimed 74 selection points, including five points for adaptability based upon his two years of Canadian post-secondary study.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "He claimed 74 selection points, including five points for adaptability based upon his two years of Canadian post-secondary study."
+   },
+   {
+    "quote": "A visa officer refused Mr. Patel\u2019s application for permanent residence on the basis that his application merited only 63 selection points - four less than the required 67 points.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "A visa officer refused Mr. Patel\u2019s application for permanent residence on the basis that his application merited only 63 selection points, four less than the required 67 points."
+   },
+   {
+    "quote": "The visa officer awarded no selection points for adaptability.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The visa officer awarded no selection points for adaptability."
+   },
+   {
+    "quote": "Had the officer awarded the requested five points for adaptability, Mr. Patel would have had the required number of points to qualify as a member of the federal skilled worker class.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Had the officer awarded the requested five points for adaptability, Mr. Patel would have had the required number of points to qualify as a member of the federal skilled worker class."
+   },
+   {
+    "quote": "Mr. Patel applied to the Federal Court for judicial review of the visa officer\u2019s decision.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Patel applied to the Federal Court for judicial review of the visa officer\u2019s decision."
+   },
+   {
+    "quote": "A Judge of the Federal Court, in reasons cited as 2010 FC 1025, 375 F.T.R. 115, allowed the application and remitted the matter to a different visa officer.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "A Judge of the Federal Court allowed the application and remitted the matter to a different visa officer."
+   },
+   {
+    "quote": "The Judge certified the following serious question of general importance: In assessing adaptability under s. 83 of the Immigration and Refugee Protection Regulations, should a visa officer aggregate programs of study that do not each constitute two years of full-time study of at least two years\u2019 duration at a post-secondary institution in Canada and award points if the total period of study amounts to or exceeds two years of full-time study at one or more post-secondary institutions?",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The Judge certified a serious question of general importance regarding the assessment of adaptability under s. 83 of the Immigration and Refugee Protection Regulations."
+   },
+   {
+    "quote": "The Minister now appeals to this Court from the decision of the Federal Court.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The Minister now appeals to this Court from the decision of the Federal Court."
+   },
+   {
+    "quote": "Mr. Patel is a citizen of India who holds a Bachelor of Science degree from a university in India.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Patel is a citizen of India who holds a Bachelor of Science degree from a university in India."
+   },
+   {
+    "quote": "He came to Canada in 2004 on a study permit.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "He came to Canada in 2004 on a study permit."
+   },
+   {
+    "quote": "From February 2005 to June 2006 he attended three semesters as a full-time student at the Canadian Career College. In June 2006 he was awarded a Diploma in International Business Management from that institution.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3",
+     "4.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "From February 2005 to June 2006 he attended three semesters as a full-time student at the Canadian Career College and was awarded a Diploma in International Business Management."
+   },
+   {
+    "quote": "During the summer of 2007 Mr. Patel attended the Xincon Technology College of Canada as a full-time student, studying computer systems technology for one semester. While he obtained several course credits, Mr. Patel did not complete the 118 week program of study. 2.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.5",
+     "4.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "During the summer of 2007 Mr. Patel attended the Xincon Technology College of Canada as a full-time student for one semester but did not complete the 118 week program of study."
+   },
+   {
+    "quote": "Section 12 of the Immigration and Refugee Protection Act, S.C. 2001, c. 27 (Act), found in Part 1, Division 1 of the Act, deals with the selection of permanent residents.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "Section 12 of the Immigration and Refugee Protection Act deals with the selection of permanent residents."
+   },
+   {
+    "quote": "Subsection 12(2) provides that a \u201cforeign national may be selected as a member of the economic class on the basis of their ability to become economically established in Canada.\u201d",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "A foreign national may be selected as a member of the economic class based on their ability to become economically established in Canada."
+   },
+   {
+    "quote": "Subsection 14(1) goes on to provide that regulations may be enacted for any matter relating to Part 1, Division 1 of the Act. (2) The regulations may prescribe, and govern any matter relating to, classes of permanent residents or foreign nationals, including the classes referred to in section 12, and may include provisions respecting (a) selection criteria, the weight, if any, to be given to all or some of those criteria, the procedures to be followed in evaluating all or some of those criteria and the circumstances in which an officer may substitute for those criteria their evaluation of the likelihood of a foreign national\u2019s ability to become economically established in Canada;",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "background_fact",
+    "statement": "Regulations may be enacted relating to classes of permanent residents, including selection criteria and the circumstances in which an officer may substitute their evaluation of a foreign national's ability to become economically established in Canada."
+   },
+   {
+    "quote": "Turning to the Regulations, paragraph 70(2)(b) of the Immigration and Refugee Protection Regulations, SOR/2002-227 (Regulations) describes the economic class of immigrants to include the federal skilled worker class. This is the class in which Mr. Patel applied for permanent residence.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "background_fact",
+    "statement": "Paragraph 70(2)(b) of the Regulations describes the economic class of immigrants to include the federal skilled worker class, which is the class Mr. Patel applied under."
+   },
+   {
+    "quote": "Paragraph 72(1)(d) of the Regulations states that a foreign national in Canada becomes a permanent resident if, among other things, it is established that \u201cthey meet the selection criteria and other requirements applicable\u201d to the class in which they apply for permanent residence.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "Paragraph 72(1)(d) of the Regulations states that a foreign national becomes a permanent resident if they meet the selection criteria and other requirements applicable to the class in which they apply."
+   },
+   {
+    "quote": "Dealing specifically with the federal skilled worker class, subsection 75(1) of the Regulations provides: 75. (1) For the purposes of subsection 12(2) of the Act, the federal skilled worker class is hereby prescribed as a class of persons who are skilled workers and who may become permanent residents on the basis of their ability to become economically established in Canada and who intend to reside in a province other than the Province of Quebec.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "Subsection 75(1) of the Regulations prescribes the federal skilled worker class as persons skilled workers who may become permanent residents based on their ability to become economically established in Canada and who intend to reside outside Quebec."
+   },
+   {
+    "quote": "As subsection 12(2) of the Act and subsection 75(1) of the Regulations specify, central to membership in the economic class, including the federal skilled worker class, is the concept of \u201cability to become economically established in Canada.\u201d",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "background_fact",
+    "statement": "Central to membership in the economic class, including the federal skilled worker class, is the concept of ability to become economically established in Canada."
+   },
+   {
+    "quote": "(1) For the purpose of determining whether a skilled worker, as a member of the federal skilled worker class, will be able to become economically established in Canada, they must be assessed on the basis of the following criteria: (a) the skilled worker must be awarded not less than the minimum number of required points referred to in subsection (2) on the basis of the following factors, namely, (i) education, in accordance with section 78, (ii) proficiency in the official languages of Canada, in accordance with section 79, (iii) experience, in accordance with section 80, (iv) age, in accordance with section 81, (v) arranged employment, in accordance with section 82, and (vi) adaptability, in accordance with section 83; and (b) the skilled worker must (i) have in the form of transferable and available funds, unencumbered by debts or other obligations, an amount equal to half the minimum necessary income applicable in respect of the group of persons consisting of the skilled worker and their family members, or (ii) be awarded the number of points referred to in subsection 82(2) for arranged employment in Canada within the meaning of subsection 82(1).",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.3",
+     "12.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "background_fact",
+    "statement": "Subsection 76(1) of the Regulations enumerates criteria to assess whether a federal skilled worker will become economically established in Canada, including points for education, language proficiency, experience, age, arranged employment, and adaptability, and requirements regarding funds or arranged employment points."
+   },
+   {
+    "quote": "Subsection 76(2) of the Regulations requires the appellant Minister to fix the minimum number of points required of a skilled worker on the basis of three enumerated factors. It is agreed that Mr. Patel was required to obtain not less than 67 points.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "The appellant Minister must fix the minimum number of points required of a skilled worker, agreed to be not less than 67 points for Mr. Patel."
+   },
+   {
+    "quote": "(1) A maximum of 10 points for adaptability shall be awarded to a skilled worker on the basis of any combination of the following elements: [\u2026] (b) for any previous period of study in Canada by the skilled worker or the skilled worker\u2019s spouse or common-law partner, 5 points; [\u2026] 83. (3) For the purposes of paragraph (1)(b), a skilled worker shall be awarded 5 points if the skilled worker or their accompanying spouse or accompanying common-law partner, by the age of 17 or older, completed a program of full-time study of at least two years\u2019 duration at a post-secondary institution in Canada under a study permit, whether or not they obtained an educational credential for completing that program.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.3",
+     "14.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "Paragraph 83(1)(b) and subsection 83(3) of the Regulations provide that a skilled worker may be awarded 5 points for previous study in Canada of at least two years' duration at a post-secondary institution under a study permit, regardless of obtaining an educational credential."
+   },
+   {
+    "quote": "It seems to me that this argument has considerable merit and is also in keeping with a purposive approach to the interpretation of s 83. 21.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The argument that singular references in s 83 include plural forms has considerable merit and aligns with a purposive approach to the interpretation of s 83."
+   },
+   {
+    "quote": "Presumably one\u2019s adaptability is not dependent upon academic achievement but rather on the basis that one be enrolled in full-time studies at an accredited institution, or institutions for at least two years.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "Adaptability points are based on enrollment in full-time studies at an accredited institution or institutions for at least two years, not on academic achievement."
+   },
+   {
+    "quote": "I can identify no policy rationale for the narrow approach advanced by the Minister.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "There is no policy rationale for the narrow approach advanced by the Minister that requires a single program at a single institution."
+   },
+   {
+    "quote": "Taking a succession of academic programs at one or more accredited institutions would not defeat or detract from the statutory purpose of recognizing a person\u2019s adaptability, provided that the other statutory pre-requisites are met.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "Taking a succession of academic programs at one or more accredited institutions does not defeat or detract from the statutory purpose of recognizing a person\u2019s adaptability, provided other statutory prerequisites are met."
+   },
+   {
+    "quote": "To entirely discount the value of Mr. Patel\u2019s pursuit of business and computer skills on such a basis seems perverse and not in keeping with the statutory object of recognizing a person's adaptability in Canada.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.11"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "To entirely discount the value of Mr. Patel\u2019s pursuit of business and computer skills on the basis of attending multiple programs or institutions is perverse and inconsistent with the statutory object of recognizing adaptability in Canada."
+   },
+   {
+    "quote": "In my view, the issues to be determined on this appeal are: i. Did the Judge err in setting aside the decision of the visa officer? 6.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "The issues to be determined on this appeal are the applicable standard of review and whether the Judge erred in setting aside the decision of the visa officer."
+   },
+   {
+    "quote": "What is the applicable standard of review? ii. What is the applicable standard of review?",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.2",
+     "21.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "The applicable standard of review is a key issue on this appeal."
+   },
+   {
+    "quote": "In my view, the jurisprudence has already determined that a visa officer\u2019s interpretation of the Act or the Regulations is reviewable on the standard of correctness.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "Jurisprudence has already determined that a visa officer\u2019s interpretation of the Act or Regulations is reviewable on the standard of correctness."
+   },
+   {
+    "quote": "The interpretative question in Shahid concerned an applicant\u2019s academic history, and so, for the purposes of a standard of review analysis, presented considerations similar to those presented by the interpretive question in this case.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "The interpretative question in Shahid concerned an applicant\u2019s academic history and presented considerations similar to those in this case for standard of review analysis."
+   },
+   {
+    "quote": "It follows that the Judge did not err by reviewing the visa officer\u2019s interpretation of subsection 83(3) of the Regulations on the standard of correctness. ii.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The Judge did not err by reviewing the visa officer\u2019s interpretation of subsection 83(3) of the Regulations on the standard of correctness."
+   },
+   {
+    "quote": "When applying the standard of correctness, a reviewing court shows no deference to the decision-maker\u2019s reasoning process. In the context of a decision of a visa officer, after undertaking its own analysis of the question the Court will either agree or disagree with the conclusion of the visa officer. Where it disagrees, the Court will substitute its own view and provide the correct answer (Dunsmuir at paragraph 50).",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1",
+     "30.2",
+     "30.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "legal_test",
+    "statement": "When applying the standard of correctness, a reviewing court shows no deference to the decision-maker\u2019s reasoning process and will substitute its own view if it disagrees with the visa officer's conclusion."
+   },
+   {
+    "quote": "Here, the Court must ascertain the meaning and effect of the phrase \u201ccompleted a program of full-time study of at least two years\u2019 duration at a post-secondary institution in Canada\u201d or \u201ca compl\u00e9t\u00e9 avec succ\u00e8s un programme [\u2026] qui a n\u00e9cessit\u00e9 au moins deux ans d\u2019\u00e9tudes \u00e0 temps plein dans un \u00e9tablissement d\u2019enseignement postsecondaire au Canada\u201d found in subsection 83(3) of the Regulations.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "The Court must ascertain the meaning and effect of the phrase 'completed a program of full-time study of at least two years\u2019 duration at a post-secondary institution in Canada' in subsection 83(3) of the Regulations."
+   },
+   {
+    "quote": "It is well-established that statutory interpretation requires consideration of the ordinary meaning of the words used as well as the statutory context and purpose. [\u2026]: It has been long established as a matter of statutory interpretation that \u201cthe words of an Act are to be read in their entire context and in their grammatical and ordinary sense harmoniously with the scheme of the Act, the object of the Act, and the intention of Parliament\u201d: see 65302 British Columbia Ltd. v. Canada, [1999] 3 S.C.R. 804, at para. 50. The interpretation of a statutory provision must be made according to a textual, contextual and purposive analysis to find a meaning that is harmonious with the Act as a whole. When the words of a provision are precise and unequivocal, the ordinary meaning of the words play a dominant role in the interpretive process. On the other hand, where the words can support more than one reasonable meaning, the ordinary meaning of the words plays a lesser role. The relative effects of ordinary meaning, context and purpose on the interpretive process may vary, but in all cases the court must seek to read the provisions of an Act as a harmonious whole. [para. 10.] The words, if clear, will dominate; if not, they yield to an interpretation that best meets the overriding purpose of the statute.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1",
+     "32.4",
+     "32.5",
+     "32.6",
+     "32.7",
+     "32.8",
+     "32.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "legal_test",
+    "statement": "Statutory interpretation requires consideration of the ordinary meaning of the words used as well as the statutory context and purpose, seeking a meaning harmonious with the Act as a whole."
+   },
+   {
+    "quote": "Interpreting subsection 83(3) of the Regulations to require study at a post-secondary Canadian institution in one program for at least two years is consistent with the plain meaning of both the English and French versions of the text. Both versions speak of having \u201ccompleted a program of full-time study of at least two years\u2019 duration\u201d or \u201ccompl\u00e9t\u00e9 avec succ\u00e8s un programme [\u2026] qui a n\u00e9cessit\u00e9 au moins deux ans d\u2019\u00e9tudes.\u201d [emphasis added] Moreover, the French version is express that the program must be successfully completed. In my view, this evidences the legislative intent that one program should be completed, as opposed to study in disparate programs for a total of two years.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1",
+     "33.2",
+     "33.3",
+     "33.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "Interpreting subsection 83(3) to require study in one program for at least two years is consistent with the plain meaning of both the English and French versions, which require successful completion of one program."
+   },
+   {
+    "quote": "In my view, such an interpretation is also consistent with the statutory context and the purpose of the legislation. Subsection 83(3) is part of a legislative regime designed to determine whether a skilled worker will be able to become economically established in Canada. Disparate programs, that is fundamentally different or distinct programs, are less likely to teach skills that will lead to economic establishment when compared with completion of one two-year program. I therefore disagree with the Judge\u2019s statement that there is no policy rationale that supports the visa officer\u2019s interpretation of subsection 83(3) of the Regulations.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1",
+     "34.2",
+     "34.3",
+     "34.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "conclusion",
+    "statement": "Such an interpretation is consistent with the statutory context and purpose, as disparate programs are less likely to lead to economic establishment than completion of one two-year program."
+   },
+   {
+    "quote": "Based upon the text of subsection 83(3) and its statutory context and purpose, I respectfully conclude that the Judge erred in law when he found the visa officer incorrectly interpreted subsection 83(3) of the Regulations.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "The Judge erred in law by finding the visa officer incorrectly interpreted subsection 83(3) of the Regulations."
+   },
+   {
+    "quote": "Based upon the text of subsection 83(3) and its statutory context and purpose, I respectfully conclude that the Judge erred in law when he found the visa officer incorrectly interpreted subsection 83(3) of the Regulations.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "The visa officer correctly interpreted subsection 83(3) of the Regulations."
+   },
+   {
+    "quote": "Having found that the visa officer correctly interpreted subsection 83(3) of the Regulations, it remains to consider whether the officer\u2019s application of the provision to the facts before him was reasonable.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "kind": "conclusion",
+    "statement": "The Court must consider whether the visa officer\u2019s application of the provision to the facts was reasonable."
+   },
+   {
+    "quote": "Review on the reasonableness standard requires an inquiry into the existence of justification, transparency and intelligibility within the decision-making process. A reviewing court must also inquire whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and the law (Dunsmuir at paragraph 47).",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1",
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "legal_test",
+    "statement": "Review on the reasonableness standard requires justification, transparency and intelligibility in the decision-making process and that the decision falls within a range of acceptable outcomes defensible in respect of facts and law."
+   },
+   {
+    "quote": "While the reasons of the visa officer were brief, they provided a transparent and intelligible justification for the officer\u2019s decision. Further, no reviewable error has been shown in the visa officer\u2019s appreciation of the evidence before him.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1",
+     "38.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "The visa officer\u2019s reasons, though brief, provided transparent and intelligible justification, and no reviewable error was shown in the officer\u2019s appreciation of the evidence."
+   },
+   {
+    "quote": "Mr. Patel had not completed a single program of full-time study of at least two years\u2019 duration.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "Mr. Patel had not completed a single program of full-time study of at least two years\u2019 duration."
+   },
+   {
+    "quote": "Based upon his correct interpretation of the Regulations and his application of subsection 83(3) to the facts before him, the visa officer\u2019s decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and the law. 7.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "Based on correct interpretation and application of subsection 83(3), the visa officer\u2019s decision falls within a range of acceptable outcomes defensible in respect of facts and law."
+   },
+   {
+    "quote": "For these reasons, I would allow the appeal, set aside the judgment of the Federal Court and dismiss Mr. Patel\u2019s application for judicial review.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is allowed, the Federal Court judgment is set aside, and Mr. Patel's application for judicial review is dismissed."
+   },
+   {
+    "quote": "A. In assessing adaptability under section 83 of the Immigration and Refugee Protection Regulations, a visa officer should not aggregate disparate programs of study and award points if the total period of study amounts to or exceeds two years of full-time study at one or more post-secondary institutions.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "In assessing adaptability under section 83 of the Immigration and Refugee Protection Regulations, a visa officer should not aggregate disparate programs of study and award points if the total period of study amounts to or exceeds two years of full-time study at one or more post-secondary institutions."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "Accordingly, the references in s 83 to the singular must be taken to include \u201cprograms\u201d, \u201cinstitutions\u201d, \u201cstudy permits\u201d and \u201cthose programs\u201d: see Canada v Ward, [1993] 2 SCR 689, 103 DLR (4th) 1 at para 90. It seems to me that this argument has considerable merit and is also in keeping with a purposive approach to the interpretation of s 83. 21.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.4",
+     "20.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "authority": "The Court relied on Canada v Ward for the principle that singular references in s 83 must be taken to include plurals, supporting a purposive approach to interpretation.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "See: Telfer v. Canada (Revenue Agency), 2009 FCA 23, [2009] 4 C.T.C. 123 at paragraph 18.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "authority": "The standard of appellate review principle is supported by Telfer v. Canada (Revenue Agency), 2009 FCA 23 at paragraph 18.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As explained by the Supreme Court of Canada in Dunsmuir, at paragraph 62, the first step in determining the appropriate standard of review is to ascertain whether the jurisprudence has already determined in a satisfactory manner the degree of deference to be accorded to a particular category of question.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "authority": "The Supreme Court of Canada in Dunsmuir explained that the first step in determining the appropriate standard of review is to see if jurisprudence has already determined the degree of deference for a category of question.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "See, for example: (i) Hilewitz v. Canada (Minister of Citizenship and Immigration); De Jong v. Canada (Minister of Citizenship and Immigration), [2005] 2 S.C.R. 706 at paragraph 71 where the Supreme Court applied the correctness standard to the interpretation of subparagraph 19(1)(a)(ii) of the Immigration Act, R.S.C. 1985, c. I-2 by a visa officer.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "authority": "The Supreme Court applied the correctness standard to visa officer interpretation of subparagraph 19(1)(a)(ii) of the Immigration Act in Hilewitz and De Jong.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "That provision rendered persons inadmissible if \u201ctheir admission would cause or might reasonably be expected to cause excessive demands on health or social services\u201d; (ii) dela Fuente v. Canada (Minister of Citizenship and Immigration), 2006 FCA 186, [2007] 1 F.C.R. 387 where this Court applied the correctness standard to the interpretation of paragraph 117(9)(d) of the Regulations by a visa officer and later the Immigration Appeal Division. Paragraph 117(9)(d) rendered a foreign national ineligible to be considered a member of the family class by virtue of their relationship to a sponsor if \u201csubject to subsection (10), the sponsor previously made an application for permanent residence and became a permanent resident and, at the time of that application, the foreign national was a non-accompanying family member of the sponsor and was not examined\u201d;",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.3",
+     "27.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "authority": "This Court applied the correctness standard to interpretation of paragraph 117(9)(d) of the Regulations by a visa officer and the Immigration Appeal Division in dela Fuente.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "and (iii) Shahid, as cited above, at paragraph 25 where this Court applied the correctness standard to the interpretation of the phrase \u201cfull-time equivalent\u201d in subsection 78(2) of the Regulations by a visa officer.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "authority": "This Court applied the correctness standard to interpretation of 'full-time equivalent' in subsection 78(2) of the Regulations by a visa officer in Shahid.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

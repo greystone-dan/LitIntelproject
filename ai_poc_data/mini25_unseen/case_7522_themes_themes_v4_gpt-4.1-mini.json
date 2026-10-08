@@ -1,0 +1,642 @@
+{
+ "case_id": 7522,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 15793,
+  "completion_tokens": 2132,
+  "usd": 0.015596000000000002
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Applicant and Respondent identification",
+    "paragraphs": [
+     1,
+     2,
+     4
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review for RAD's substantive decision",
+    "paragraphs": [
+     48,
+     49,
+     50,
+     51,
+     52
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Jurisdiction of RAD to consider sur place claims",
+    "paragraphs": [
+     53,
+     54,
+     55,
+     56,
+     59,
+     60,
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Procedural fairness regarding RAD's consideration of sur place claims without notice",
+    "paragraphs": [
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Reasonableness of RAD's determination on identity",
+    "paragraphs": [
+     56,
+     57,
+     58,
+     59,
+     90
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Reasonableness of RAD's determination on Convention refugee status",
+    "paragraphs": [
+     56,
+     89
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Remedy - setting aside RAD decision and remitting for redetermination",
+    "paragraphs": [
+     90
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Certification of questions of general importance",
+    "paragraphs": [
+     91
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 28,
+  "quote_exact_in_cited": 10,
+  "quote_loose_in_cited": 1,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 17,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 15,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 8,
+   "holdings": 8,
+   "rebuttals": 1,
+   "authorities": 7,
+   "left_open": 4
+  },
+  "paragraph_coverage": 0.44
+ },
+ "result": {
+  "overall": "The Court allowed the Minister's application for judicial review on procedural fairness grounds, setting aside the RAD's decision and remitting the matter for redetermination, while dismissing challenges to the RAD's findings on identity and jurisdiction.",
+  "themes": [
+   {
+    "name": "Identity Determination",
+    "summary": "The reasonableness of the RAD's finding that the respondents established their identities as Eritrean citizens was a key issue.",
+    "paragraphs": [
+     1,
+     2,
+     29,
+     30,
+     38,
+     41,
+     44,
+     45,
+     57,
+     58,
+     59
+    ]
+   },
+   {
+    "name": "RAD Jurisdiction on Sur Place Claims",
+    "summary": "Whether the RAD had jurisdiction to consider sur place claims not addressed by the RPD was contested.",
+    "paragraphs": [
+     53,
+     54,
+     55,
+     59,
+     60,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73
+    ]
+   },
+   {
+    "name": "Procedural Fairness in RAD Decision",
+    "summary": "The RAD's failure to give notice and opportunity to be heard on sur place claims raised procedural fairness concerns.",
+    "paragraphs": [
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88
+    ]
+   },
+   {
+    "name": "Reasonableness Standard of Review",
+    "summary": "The standard of review for the RAD's substantive decision, including identity findings, was reasonableness.",
+    "paragraphs": [
+     48,
+     49,
+     50,
+     51,
+     52
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Minister submits that the RAD\u2019s findings on identity and Convention refugee status are unreasonable.",
+    "paragraphs": [
+     4
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD's findings on identity and refugee status are unreasonable.",
+    "treatment": "rejected",
+    "outcome_note": "The Court was not persuaded that the RAD's identity finding was unreasonable and did not decide on refugee status reasonableness.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "The Minister submits that the RAD did not have jurisdiction to consider the sur place aspects of the respondents\u2019 claims.",
+    "paragraphs": [
+     4,
+     64
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD lacked jurisdiction to consider sur place claims.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found the RAD had jurisdiction to consider sur place claims.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The Minister also submits that the RAD did not have jurisdiction to consider the sur place aspects of the respondents\u2019 claims."
+   },
+   {
+    "quote": "The Minister submits that the RAD breached procedural fairness by making a positive determination on sur place claims without notice and opportunity to be heard.",
+    "paragraphs": [
+     4,
+     74,
+     75
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD breached procedural fairness by deciding on sur place claims without notice to the Minister.",
+    "treatment": "accepted",
+    "outcome_note": "This breach warranted setting aside the RAD decision and remitting the matter.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "With respect to the manner in which the decision was made, the Minister submits that, if the RAD did have jurisdiction to consider the sur place aspects of the claims, it breached the requirements of procedural fairness by making a positive determination on this basis without first giving the Minister notice that this issue was in play and an opportunity to be heard."
+   },
+   {
+    "quote": "The respondents contend that the evidence presented to the RPD was sufficient to establish their personal identities.",
+    "paragraphs": [
+     27
+    ],
+    "made_by": "respondent",
+    "claim": "The evidence was sufficient to establish identity.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[27] In written submissions on behalf of the respondents, counsel maintained that the evidence presented to the RPD was sufficient to establish their personal identities."
+   },
+   {
+    "quote": "The respondents contend that the RAD should admit new evidence and quash the RPD decision or substitute its own positive determination.",
+    "paragraphs": [
+     35
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD should admit new evidence and substitute its own decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Finally, the respondents framed their request for relief as follows: The Appellant [sic] requests that, based on the arguments detailed above, the Refugee Appeal Division (\u201cRAD\u201d) quash the decision of the RPD and return the matter for a new hearing or that the RAD substitute its own positive determination in the stead of the RPD\u2019s decision."
+   },
+   {
+    "quote": "The Minister raised concerns about the claimants\u2019 personal identities and credibility at the RPD.",
+    "paragraphs": [
+     26
+    ],
+    "made_by": "applicant",
+    "claim": "There are serious concerns regarding the claimants' credibility and identity.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found the RAD's findings on identity reasonable despite these concerns.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[26] After formally withdrawing the concern with respect to Article 1F(b) of the Refugee Convention, counsel for the Minister focused on concerns with respect to the claimants\u2019 personal identities and the credibility of the claims."
+   },
+   {
+    "quote": "The Minister did not intervene in the appeal to the RAD.",
+    "paragraphs": [
+     37
+    ],
+    "made_by": "applicant",
+    "claim": "Minister did not participate in the RAD appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[37] The Minister did not intervene in the appeal."
+   },
+   {
+    "quote": "The RAD found that the RPD erred in its assessment of birth certificates, failure to seek family assistance, and driver\u2019s licence.",
+    "paragraphs": [
+     41,
+     42,
+     43,
+     44
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD made errors in assessing identity evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[41] The RAD agreed with the respondents that the RPD erred in its assessment of their birth certificates, in drawing a negative inference from their failure to obtain better identity documents from family members in Eritrea, and in its assessment of Mr."
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Minister has not persuaded me that the RAD\u2019s identity finding is unreasonable.",
+    "paragraphs": [
+     5,
+     59
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's determination on identity is reasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "I do not agree with the Minister that the RAD lacked jurisdiction to consider the sur place aspects of the respondents\u2019 claims.",
+    "paragraphs": [
+     5,
+     67,
+     73
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD had jurisdiction to consider sur place claims.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "The RAD breached the requirements of procedural fairness by deciding the appeal on the sur place ground without notice to the Minister and opportunity to be heard.",
+    "paragraphs": [
+     5,
+     74,
+     75,
+     85,
+     87,
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's procedural fairness breach warrants setting aside its decision.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "However, when, as happened here, the case has materially shifted away from the RPD\u2019s decision and the appeal as it was framed by the respondents, the RAD breached the requirements of procedural fairness by deciding the appeal on the basis on which it did without first giving the Minister notice that a new issue was in play and an opportunity to be heard."
+   },
+   {
+    "quote": "The Minister\u2019s application for judicial review is allowed; the RAD decision is set aside and the matter remitted for redetermination by a different decision maker.",
+    "paragraphs": [
+     90
+    ],
+    "kind": "remedy",
+    "statement": "The RAD decision is set aside and remitted for redetermination.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The decision of the Refugee Appeal Division dated January 21, 2020, is set aside and the matter is remitted for redetermination by a different decision maker."
+   },
+   {
+    "quote": "The standard of review for the RAD\u2019s substantive decision is reasonableness.",
+    "paragraphs": [
+     48,
+     49,
+     50,
+     51,
+     52
+    ],
+    "kind": "standard_of_review",
+    "statement": "The RAD's substantive decisions are reviewed on a reasonableness standard.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[48] It is well-established that the substance of the RAD\u2019s decision is reviewed on a reasonableness standard (Canada (Citizenship and Immigration) v Huruglica, 2016 FCA 93 at para 35)."
+   },
+   {
+    "quote": "The Minister bears the onus to show the RAD\u2019s decision is unreasonable.",
+    "paragraphs": [
+     52
+    ],
+    "kind": "legal_test",
+    "statement": "The Minister must demonstrate serious shortcomings to set aside the RAD decision.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[52] As the applicant, the onus is on the Minister to demonstrate that the RAD\u2019s decision is unreasonable."
+   },
+   {
+    "quote": "The RAD may substitute its own determination even on grounds not addressed by the RPD, subject to procedural fairness.",
+    "paragraphs": [
+     69,
+     70,
+     71,
+     73
+    ],
+    "kind": "legal_test",
+    "statement": "Paragraph 111(1)(b) of IRPA allows the RAD to substitute its own determination on new grounds, but procedural fairness applies.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "There is no suggestion in Huruglica that the RAD cannot, as a matter of jurisdiction, substitute its own determination of the merits of the refugee claim on a basis that was not addressed by the RPD in its decision."
+   },
+   {
+    "quote": "The Minister has procedural fairness rights in RAD appeals even if not intervening.",
+    "paragraphs": [
+     80,
+     81,
+     82,
+     83
+    ],
+    "kind": "legal_test",
+    "statement": "The Minister is entitled to notice and opportunity to be heard on new issues in RAD appeals despite non-intervention.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[83] These provisions leave no room for doubt that the Minister has procedural fairness rights before the RAD even in cases where he has not (or has not yet) intervened."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The Minister submits that the RAD\u2019s identity findings are unreasonable because the RAD failed to address two arguments made by the Minister at the RPD.",
+    "paragraphs": [
+     57
+    ],
+    "point": "The RAD failed to address Minister's arguments about identity evidence.",
+    "made_by": "applicant",
+    "court_answer": "The RAD is not required to address every argument, especially those not raised on appeal; these arguments were peripheral and did not undermine the identity finding.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Canada (Citizenship and Immigration) v Huruglica, 2016 FCA 93 at para 35",
+    "paragraphs": [
+     48,
+     70
+    ],
+    "authority": "Canada (Citizenship and Immigration) v Huruglica",
+    "treatment": "followed",
+    "why": "Established reasonableness standard for RAD decisions and the RAD's power to substitute determinations.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ]
+   },
+   {
+    "quote": "Canada (Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "paragraphs": [
+     49,
+     50,
+     51,
+     52
+    ],
+    "authority": "Canada (Citizenship and Immigration) v Vavilov",
+    "treatment": "followed",
+    "why": "Confirmed reasonableness as presumptive standard of review and set out requirements for justification and transparency.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ]
+   },
+   {
+    "quote": "Jianzhu v Canada (Citizenship and Immigration), 2015 FC 551",
+    "paragraphs": [
+     65
+    ],
+    "authority": "Jianzhu v Canada",
+    "treatment": "mentioned",
+    "why": "Held RAD lacked jurisdiction to decide sur place claim not addressed by RPD, but this was distinguished.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ]
+   },
+   {
+    "quote": "Ojarikre v Canada (Citizenship and Immigration), 2015 FC 896",
+    "paragraphs": [
+     66
+    ],
+    "authority": "Ojarikre v Canada",
+    "treatment": "mentioned",
+    "why": "Held RAD cannot consider issues not relied upon in RPD decision; distinguished here.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ]
+   },
+   {
+    "quote": "Baker v Canada (Minister of Citizenship and Immigration), [1999] 2 SCR 817",
+    "paragraphs": [
+     55,
+     88
+    ],
+    "authority": "Baker v Canada",
+    "treatment": "followed",
+    "why": "Set out procedural fairness requirements for administrative decisions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ]
+   },
+   {
+    "quote": "R v Mian, 2014 SCC 54",
+    "paragraphs": [
+     77
+    ],
+    "authority": "R v Mian",
+    "treatment": "followed",
+    "why": "Test for when notice and opportunity to be heard is required on new issues raised by appellate bodies.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ]
+   },
+   {
+    "quote": "R v GF, 2021 SCC 20",
+    "paragraphs": [
+     77
+    ],
+    "authority": "R v GF",
+    "treatment": "followed",
+    "why": "Reinforced Mian test balancing adversarial process and duty to ensure justice.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "I leave open whether the Minister may present evidence on new issues in RAD appeals where he has not intervened.",
+    "paragraphs": [
+     80
+    ],
+    "issue": "Minister's right to present evidence on new issues without intervention",
+    "reason": "The Minister's complaint was limited to denial of right to make submissions on the record.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "It is not necessary to consider whether the RAD\u2019s determination that the respondents are Convention refugees is unreasonable.",
+    "paragraphs": [
+     5,
+     89
+    ],
+    "issue": "Reasonableness of RAD's refugee status determination",
+    "reason": "The procedural fairness breach was sufficient to set aside the decision.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Since this is a sufficient basis to set aside the decision and remit the matter to a new decision maker, it is neither necessary nor appropriate to consider whether the RAD\u2019s determination that the respondents are Convention refugees is unreasonable."
+   },
+   {
+    "quote": "It is not necessary to come to a definitive conclusion about the standard of review for RAD's jurisdiction to consider sur place claims.",
+    "paragraphs": [
+     54
+    ],
+    "issue": "Standard of review for RAD jurisdiction on sur place claims",
+    "reason": "The Court found the RAD had jurisdiction even applying correctness standard.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Even approaching the issue on the most favourable basis from the Minister\u2019s perspective and applying a correctness standard of review, as I explain below, the Minister has not persuaded me that the RAD did not have jurisdiction to consider the sur place aspects of the claims."
+   },
+   {
+    "quote": "The Court need not decide whether the RAD's failure to address certain Minister's arguments on identity was unreasonable.",
+    "paragraphs": [
+     58
+    ],
+    "issue": "Requirement to address all arguments on appeal",
+    "reason": "The arguments were not raised on appeal and were peripheral.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ]
+ }
+}

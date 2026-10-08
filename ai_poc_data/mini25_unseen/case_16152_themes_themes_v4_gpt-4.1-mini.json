@@ -1,0 +1,337 @@
+{
+ "case_id": 16152,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 3238,
+  "completion_tokens": 1254,
+  "usd": 0.003986
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Standard of review on state protection",
+    "paragraphs": [
+     11
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Adequacy of state protection in Korea",
+    "paragraphs": [
+     9,
+     10,
+     12,
+     13
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Applicant's failure to seek state protection as basis for finding state protection unavailable",
+    "paragraphs": [
+     10,
+     13
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Judicial review of RPD decision",
+    "paragraphs": [
+     13,
+     14
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Certification of question",
+    "paragraphs": [
+     14
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 14,
+  "quote_exact_in_cited": 14,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 6,
+   "holdings": 5,
+   "rebuttals": 2,
+   "authorities": 1,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.571
+ },
+ "result": {
+  "overall": "The judicial review application by Ms. Eun Mee Kim against the Refugee Protection Division's decision was dismissed because the Court found the RPD's decision on state protection in Korea reasonable and balanced, with no basis for intervention.",
+  "themes": [
+   {
+    "name": "State protection adequacy",
+    "summary": "The Court considered whether state protection for abused women in Korea was adequate and found the RPD's assessment reasonable and balanced.",
+    "paragraphs": [
+     9,
+     10,
+     11,
+     12
+    ]
+   },
+   {
+    "name": "Applicant's failure to seek state protection",
+    "summary": "The Applicant's failure to seek state protection despite abuse was examined and found insufficient to conclude state protection was unavailable.",
+    "paragraphs": [
+     6,
+     7,
+     10,
+     13
+    ]
+   },
+   {
+    "name": "Standard of review on state protection",
+    "summary": "The Court applied a patent unreasonableness standard to review the RPD's decision on state protection.",
+    "paragraphs": [
+     11
+    ]
+   },
+   {
+    "name": "Judicial review and certification",
+    "summary": "The Court dismissed the judicial review application and declined to certify any question.",
+    "paragraphs": [
+     13,
+     14
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Applicant argues that it was reasonable for her, given her particular situation, not to seek state protection.",
+    "paragraphs": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "Applicant contends her failure to seek state protection was reasonable due to societal values, shame, emotional dependence, and loneliness.",
+    "treatment": "rejected",
+    "outcome_note": "Court found failure to seek protection insufficient to conclude state protection unavailable.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "The Applicant further says that the RPD failed to consider whether state protection was effective in Korea.",
+    "paragraphs": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "Applicant argues RPD erred by focusing on organizational structures rather than their effectiveness.",
+    "treatment": "rejected",
+    "outcome_note": "Court found RPD's decision reasonable and balanced regarding state protection effectiveness.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   },
+   {
+    "quote": "The burden of establishing that state protection is either non-existent or inadequate rests with the Applicant.",
+    "paragraphs": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The tribunal found the Applicant must prove state protection is inadequate or non-existent.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Canada (Minister of Employment and Immigration) v. Ward (1993), 103 D.L.R.(4th)",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "quote": "An Applicant's subjective reluctance to engage the state in providing protection is not a sufficient basis to conclude that state protection is not available or effective.",
+    "paragraphs": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The tribunal held that subjective reluctance to seek protection does not prove state protection is unavailable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "The RPD took account of the state structure for the protection of abused women; it considered the U.S. DOS reports which referred to some problems in executing on the policies of increased protection for abused women.",
+    "paragraphs": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The tribunal considered state structures and reports on protection effectiveness in its decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "The RPD's decision, read as a whole, is a reasonable and balanced decision.",
+    "paragraphs": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The tribunal found its decision reasonable and balanced regarding state protection in Korea.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The standard of review on state protection is patent unreasonableness.",
+    "paragraphs": [
+     11
+    ],
+    "kind": "standard_of_review",
+    "statement": "The Court applies a patent unreasonableness standard when reviewing the RPD's assessment of state protection.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "The RPD's decision, read as a whole, is a reasonable and balanced decision.",
+    "paragraphs": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The Court finds the RPD's decision on the adequacy of state protection in Korea reasonable and balanced.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "Therefore, despite counsel's persuasive efforts, this Court can find no basis upon which to intervene in this decision.",
+    "paragraphs": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The Court declines to intervene in the RPD's decision due to lack of basis for judicial review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "This application for judicial review will be dismissed.",
+    "paragraphs": [
+     14
+    ],
+    "kind": "remedy",
+    "statement": "The Court dismisses the judicial review application.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "No question will be certified.",
+    "paragraphs": [
+     14
+    ],
+    "kind": "remedy",
+    "statement": "The Court refuses to certify any question for appeal or further review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "An Applicant's subjective reluctance to engage the state in providing protection is not a sufficient basis to conclude that state protection is not available or effective.",
+    "paragraphs": [
+     10
+    ],
+    "point": "Applicant's argument that her failure to seek state protection shows state protection is unavailable.",
+    "made_by": "applicant",
+    "court_answer": "The Court rejects this, holding that subjective reluctance alone does not prove state protection is unavailable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "The Applicant further says that the RPD failed to consider whether state protection was effective in Korea.",
+    "paragraphs": [
+     8
+    ],
+    "point": "Applicant's argument that the RPD erred by focusing on organizational structures rather than effectiveness.",
+    "made_by": "applicant",
+    "court_answer": "The Court rejects this, finding the RPD's decision reasonable and balanced in considering state protection.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "There is a presumption in favour of the existence of state protection. (See; Canada (Minister of Employment and Immigration) v. Ward (1993), 103 D.L.R.(4th)).",
+    "paragraphs": [
+     9
+    ],
+    "authority": "Canada (Minister of Employment and Immigration) v. Ward (1993), 103 D.L.R.(4th)",
+    "treatment": "followed",
+    "why": "The Court follows the presumption that state protection exists unless proven otherwise by the Applicant.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

@@ -1,0 +1,540 @@
+{
+ "case_id": 7161,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 5384,
+  "completion_tokens": 2377,
+  "usd": 0.0075592
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Standard of review for subjective fear of persecution",
+    "paragraphs": [
+     29
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Subjective fear of persecution",
+    "paragraphs": [
+     29,
+     30,
+     31
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Connection of fear to one of the five Convention grounds",
+    "paragraphs": [
+     31
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Failure to consider evidence of seeking protection from authorities",
+    "paragraphs": [
+     31
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Analysis of fear under paragraph 97(1)(b) of the Act",
+    "paragraphs": [
+     32,
+     33
+    ],
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "Certification of serious question of general importance",
+    "paragraphs": [
+     33
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Remedy: dismissal of application for judicial review",
+    "paragraphs": [
+     33
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 26,
+  "quote_exact_in_cited": 20,
+  "quote_loose_in_cited": 4,
+  "quote_found_elsewhere": 2,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 10,
+   "holdings": 9,
+   "rebuttals": 1,
+   "authorities": 4,
+   "left_open": 2
+  },
+  "paragraph_coverage": 0.485
+ },
+ "result": {
+  "overall": "The Court dismissed the application for judicial review, finding no patently unreasonable error in the panel's conclusion that the applicant did not have a subjective fear of persecution and that the panel properly analyzed the applicant's fear under paragraph 97(1)(b) of the Act.",
+  "themes": [
+   {
+    "name": "Subjective fear of persecution",
+    "summary": "Whether the applicant demonstrated a genuine subjective fear of persecution as required for refugee status.",
+    "paragraphs": [
+     2,
+     13,
+     16,
+     27,
+     29,
+     30,
+     31
+    ]
+   },
+   {
+    "name": "Connection to Convention grounds",
+    "summary": "Whether the applicant's fear of persecution was connected to one of the five Convention grounds.",
+    "paragraphs": [
+     2,
+     14,
+     17,
+     22,
+     23,
+     31
+    ]
+   },
+   {
+    "name": "Government protection",
+    "summary": "Whether the applicant rebutted the presumption that the government could protect him.",
+    "paragraphs": [
+     15,
+     18,
+     24,
+     25,
+     31
+    ]
+   },
+   {
+    "name": "Analysis under paragraph 97(1)(b) of the Act",
+    "summary": "Whether the panel properly analyzed the applicant's fear of death threats under paragraph 97(1)(b) of the Act.",
+    "paragraphs": [
+     2,
+     19,
+     26,
+     32,
+     33
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The questions submitted by the applicant are the following: 1. Is the applicant's conduct consistent with a subjective fear of persecution?",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant argues that his conduct is consistent with a subjective fear of persecution.",
+    "treatment": "not_decided",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "The personal vengeance of Villareal, who was connected to the government, had a direct link to the Convention because of his alleged political opinions.",
+    "paragraphs": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant claims that the personal vengeance is connected to a Convention ground due to political opinions.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "The panel made an error when it concluded that the applicant did not seek protection from the authorities in his country.",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant argues the panel erred in concluding he did not seek protection from authorities.",
+    "treatment": "not_decided",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The panel did not analyze the applicant's fear of death threats under paragraph 97(1)(b) of the Act.",
+    "paragraphs": [
+     19
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant claims the panel failed to analyze his fear under paragraph 97(1)(b) of the Act.",
+    "treatment": "not_decided",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "In order to meet the definition of a \"Convention refugee\", the applicant must show that he meets all parts of that definition.",
+    "paragraphs": [
+     20
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent argues the applicant must meet all parts of the refugee definition, including subjective and objective fear, connection to Convention grounds, and lack of government protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Canada (Attorney General) v. Ward",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "The panel was entirely free to assess whether a subjective fear of persecution existed in view of the claimant for asylum's actions after the events on which he based his claim.",
+    "paragraphs": [
+     21
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent submits that the panel's assessment of subjective fear is a factual and credibility determination not warranting court intervention unless patently unreasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Canada (Minister of Employment and Immigration) v. Dan-Ash",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "quote": "The existence of a connection between the alleged persecution and one of the five Convention grounds is a question of fact, which is therefore within the purview of the panel's expertise.",
+    "paragraphs": [
+     22
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent argues that the connection to Convention grounds is a factual matter within the panel's expertise.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Leon v. Canada (Minister of Citizenship and Immigration)",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "quote": "The panel was right to conclude that the applicant did not establish a lack of government protection in Mexico.",
+    "paragraphs": [
+     24
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent contends the panel correctly found the applicant did not rebut the presumption of government protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Ward; Kadenko v. Canada (Minister of Citizenship and Immigration)",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "The panel assessed the various pieces of evidence about actions taken by the applicant to obtain protection from the authorities against the persecuting agent Villareal.",
+    "paragraphs": [
+     25
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent states the panel considered evidence of the applicant's attempts to seek protection and found explanations unsatisfactory.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "quote": "In its reasons, the panel addressed the asylum application made pursuant to paragraph 97(1)(b) of the Act.",
+    "paragraphs": [
+     26
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent argues the panel properly addressed the applicant's claim under paragraph 97(1)(b) of the Act.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I answer the first and fourth questions in the negative, I do not need to answer the other two questions and the application for judicial review will be dismissed.",
+    "paragraphs": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The Court dismisses the application, answering negatively the questions on subjective fear and analysis under paragraph 97(1)(b), and declines to answer other questions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The Court should not intervene in such a case unless the panel has made a patently unreasonable error.",
+    "paragraphs": [
+     29
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of review for subjective fear of persecution is deferential; intervention only if patently unreasonable error.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "This conclusion seems entirely reasonable to the Court and therefore cannot be the subject of any intervention by the Court.",
+    "paragraphs": [
+     29
+    ],
+    "kind": "reason",
+    "statement": "The panel's conclusion that the applicant lacked subjective fear is reasonable based on his conduct and thus not subject to intervention.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "In addition to the points listed by the panel, there are other facts which show that the applicant did not really have a subjective fear of persecution.",
+    "paragraphs": [
+     30
+    ],
+    "kind": "reason",
+    "statement": "Additional facts such as failure to seek protection in the U.S. and return to Mexico support the finding of no subjective fear.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ]
+   },
+   {
+    "quote": "As the applicant has not been able to establish a subjective fear of persecution, an essential component of the refugee definition, there is no need to proceed with the analysis of the other parts of that definition.",
+    "paragraphs": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "Failure to establish subjective fear means no need to analyze connection to Convention grounds or government protection.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ]
+   },
+   {
+    "quote": "The analysis of the applicant's actions by the panel on page 3 of its decision persuades the Court that this question was dealt with and the conclusion was not unreasonable.",
+    "paragraphs": [
+     32
+    ],
+    "kind": "reason",
+    "statement": "The panel did analyze the applicant's fear under paragraph 97(1)(b) and its conclusion was reasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ]
+   },
+   {
+    "quote": "In the absence of any patently unreasonable error in this decision, I have no intention of intervening.",
+    "paragraphs": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "The Court will not intervene as there is no patently unreasonable error in the panel's decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   },
+   {
+    "quote": "The parties declined the offer to submit a serious question of general importance.",
+    "paragraphs": [
+     33
+    ],
+    "kind": "procedural_point",
+    "statement": "No serious question of general importance is certified as parties declined to submit one.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   },
+   {
+    "quote": "The application for judicial review is dismissed.",
+    "paragraphs": [
+     33
+    ],
+    "kind": "remedy",
+    "statement": "The Court dismisses the application for judicial review.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The personal vengeance of Villareal, who was connected to the government, had a direct link to the Convention because of his alleged political opinions.",
+    "paragraphs": [
+     17
+    ],
+    "point": "The personal vengeance is connected to a Convention ground due to political opinions.",
+    "made_by": "applicant",
+    "court_answer": "The Court rejects this as the panel found the vengeance was personal and not connected to Convention grounds.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Among these parts are the subjective and objective components of the alleged fear of persecution, the existence of a connection between that alleged fear and one of the Convention grounds and the absence of government protection (Canada (Attorney General) v. Ward, [1993] 2 S.C.R. 689, at 723-726).",
+    "paragraphs": [
+     20
+    ],
+    "authority": "Canada (Attorney General) v. Ward",
+    "treatment": "followed",
+    "why": "The Court follows Ward for the elements of the refugee definition including subjective and objective fear, connection to Convention grounds, and government protection.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "As the question is one of assessment of facts and credibility, intervention by the Court is not warranted unless the panel has made a patently unreasonable error (Canada (Minister of Employment and Immigration) v. Dan-Ash (1988), 93 N.R. 33 (F.C.A.)).",
+    "paragraphs": [
+     21
+    ],
+    "authority": "Canada (Minister of Employment and Immigration) v. Dan-Ash",
+    "treatment": "followed",
+    "why": "The Court follows Dan-Ash for the standard of review on factual and credibility assessments.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "quote": "The existence of a connection between the alleged persecution and one of the five Convention grounds is a question of fact, which is therefore within the purview of the panel's expertise (Leon v. Canada (Minister of Citizenship and Immigration, _1995_ F.C.J. No. 1253 (F.C.T.D.) (QL)).",
+    "paragraphs": [
+     22
+    ],
+    "authority": "Leon v. Canada (Minister of Citizenship and Immigration)",
+    "treatment": "followed",
+    "why": "The Court follows Leon for the panel's expertise on connection to Convention grounds.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "quote": "Unless the governmental system has collapsed completely, a government is presumed able to protect its citizens (Ward, supra; Kadenko v. Canada (Minister of Citizenship and Immigration) (1996), 206 N.R. 272 (F.C.A.), _1996_F.C.J. No. 1376 (F.C.A.) (QL)).",
+    "paragraphs": [
+     24
+    ],
+    "authority": "Ward; Kadenko v. Canada (Minister of Citizenship and Immigration)",
+    "treatment": "followed",
+    "why": "The Court follows Ward and Kadenko for the presumption of government protection unless the system has collapsed.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "Does the alleged fear of persecution, namely personal vengeance, have any connection with one of the five Convention grounds?",
+    "paragraphs": [
+     31
+    ],
+    "issue": "Connection of fear to one of the five Convention grounds",
+    "reason": "No need to decide because applicant failed to establish subjective fear of persecution.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "Did the panel fail to consider evidence showing that the applicant actually sought protection from the authorities in his country?",
+    "paragraphs": [
+     31
+    ],
+    "issue": "Failure to consider evidence of seeking protection from authorities",
+    "reason": "No need to decide because applicant failed to establish subjective fear of persecution.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     2
+    ]
+   }
+  ]
+ }
+}

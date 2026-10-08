@@ -1,0 +1,411 @@
+{
+ "case_id": 23574,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 8190,
+  "completion_tokens": 1410,
+  "usd": 0.0082064
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties",
+    "paragraphs": [
+     1
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review for procedural fairness issue",
+    "paragraphs": [
+     13
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review for eligibility assessment",
+    "paragraphs": [
+     14
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Issue 1: Procedural fairness breach by Officer",
+    "paragraphs": [
+     43
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Issue 2: Reasonableness of Officer's conclusion on work experience",
+    "paragraphs": [
+     44
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Certification of questions",
+    "paragraphs": [
+     45
+    ],
+    "disposition": "not_decided"
+   }
+  ]
+ },
+ "verification": {
+  "items": 18,
+  "quote_exact_in_cited": 10,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 1,
+  "quote_not_found": 7,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 7,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 7,
+   "holdings": 5,
+   "rebuttals": 1,
+   "authorities": 3,
+   "left_open": 2
+  },
+  "paragraph_coverage": 0.444
+ },
+ "result": {
+  "overall": "The Court allowed the judicial review application because the Officer breached procedural fairness by not giving the applicant an opportunity to address concerns about the credibility of his employment letter.",
+  "themes": [
+   {
+    "name": "Procedural fairness duty",
+    "summary": "Whether the Officer breached procedural fairness by not allowing the applicant to respond to concerns about the employment letter's credibility.",
+    "paragraphs": [
+     9,
+     10,
+     25,
+     38,
+     39,
+     43
+    ]
+   },
+   {
+    "name": "Assessment of evidence sufficiency vs credibility",
+    "summary": "Distinguishing whether the Officer's concerns related to sufficiency of evidence or credibility/veracity of the employment letter.",
+    "paragraphs": [
+     10,
+     17,
+     18,
+     29,
+     30,
+     38
+    ]
+   },
+   {
+    "name": "Standards of review",
+    "summary": "The applicable standards of review: correctness for procedural fairness and reasonableness for eligibility assessment.",
+    "paragraphs": [
+     13,
+     14
+    ]
+   },
+   {
+    "name": "Requirements for Federal Skilled Worker class",
+    "summary": "Regulatory requirements for skilled worker classification and evidence needed to establish work experience.",
+    "paragraphs": [
+     4,
+     5,
+     21,
+     22,
+     34,
+     35
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "the Officer had not provided sufficient independent documentation demonstrating his experience as a general practitioner or family physician",
+    "paragraphs": [
+     1,
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer found the applicant's evidence insufficient to establish his work experience as a family physician",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "On January 27, 2012, his application was refused at the screening stage by the Canadian High Commission in London because the visa officer (the Officer) found that the applicant had not provided sufficient independent documentation demonstrating his experience as a general practitioner or family physician."
+   },
+   {
+    "quote": "the Officer did not breach the applicant\u2019s right to procedural fairness",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "respondent",
+    "claim": "The Officer's decision was reasonable and no procedural fairness breach occurred",
+    "treatment": "rejected",
+    "outcome_note": "Court found procedural fairness breach",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "the Officer\u2019s concerns were related to the credibility and veracity of the employment letter",
+    "paragraphs": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The Officer doubted the credibility of the employment letter and should have allowed the applicant to respond",
+    "treatment": "accepted",
+    "outcome_note": "Court agreed the concerns related to credibility and procedural fairness was breached",
+    "changed_result": true,
+    "gap": "",
+    "authority": "Patel v Canada; Hassani v Canada",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "the Officer did not question the credibility of the evidence but was concerned with the sufficiency of that evidence",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "respondent",
+    "claim": "The Officer's concerns were about sufficiency, not credibility",
+    "treatment": "rejected",
+    "outcome_note": "Court found concerns related to credibility, not just sufficiency",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The respondent contends that the Officer did not question the credibility of the evidence provided by the applicant, but was concerned with the sufficiency of that evidence."
+   },
+   {
+    "quote": "the Officer was not required to inform the applicant of concerns before making a negative determination when evidence is insufficient",
+    "paragraphs": [
+     19
+    ],
+    "made_by": "respondent",
+    "claim": "No duty to notify or seek clarification when evidence is insufficient",
+    "treatment": "partly_accepted",
+    "outcome_note": "Court accepted this principle but found it did not apply here because concerns were about credibility",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Hassani; Patel",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Further, the respondent submits that when the evidence provided in support of an application is insufficient, a visa officer is not required to inform the applicant of his or her concerns before making a negative determination."
+   },
+   {
+    "quote": "the Officer\u2019s concerns were related to the sufficiency or to the credibility of the evidence submitted",
+    "paragraphs": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The key issue is whether concerns related to sufficiency or credibility",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "the Officer\u2019s concerns were related to the credibility of the employment letter",
+    "paragraphs": [
+     38,
+     39
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer doubted the veracity of the employment letter and found it self-serving",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     10,
+     20
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "No deference is accorded to the Officer\u2019s decision regarding issues of procedural fairness",
+    "paragraphs": [
+     13
+    ],
+    "kind": "standard_of_review",
+    "statement": "Procedural fairness issues are reviewed on a correctness standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "the Officer\u2019s analysis of the applicant\u2019s eligibility for permanent residence is reviewable on the reasonableness standard",
+    "paragraphs": [
+     14
+    ],
+    "kind": "standard_of_review",
+    "statement": "Eligibility assessments involving evidence and discretion are reviewed for reasonableness.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[14] However, the Officer\u2019s analysis of the applicant\u2019s eligibility for permanent residence as a Federal Skilled Worker involves an assessment of the evidence and the exercise of discretion and is reviewable on the reasonableness standard of review (Dunsmuir v New Brunswick, 2008 SCC 9, [2008] 1 SCR 190;"
+   },
+   {
+    "quote": "the Officer had a duty to provide the applicant with an opportunity to address her concerns",
+    "paragraphs": [
+     43
+    ],
+    "kind": "conclusion",
+    "statement": "The Officer breached procedural fairness by not allowing the applicant to respond to concerns about the employment letter.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ]
+   },
+   {
+    "quote": "the Officer\u2019s concerns related to the credibility of the employment letter",
+    "paragraphs": [
+     38
+    ],
+    "kind": "reason",
+    "statement": "The Officer\u2019s finding that the letter was self-serving indicated doubt about its veracity, triggering a duty to allow response.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[38] I find it difficult to conclude that the Officer\u2019s concerns did not relate to the credibility of the employment letter."
+   },
+   {
+    "quote": "the Court need not determine whether the Officer\u2019s decision is reasonable",
+    "paragraphs": [
+     44
+    ],
+    "kind": "court_declined_to_decide",
+    "statement": "The procedural fairness breach alone disposes of the application, so reasonableness of the decision was not decided.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[44] This conclusion is sufficient to dispose of the application, and there is no need for me to determine whether the Officer\u2019s decision is reasonable."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "the Officer did not question the credibility of the evidence but was concerned with the sufficiency of that evidence",
+    "paragraphs": [
+     18
+    ],
+    "point": "The Officer\u2019s concerns were about sufficiency, not credibility",
+    "made_by": "respondent",
+    "court_answer": "The Court found the Officer\u2019s concerns related to credibility, as indicated by the letter being self-serving, not merely insufficiency.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The respondent contends that the Officer did not question the credibility of the evidence provided by the applicant, but was concerned with the sufficiency of that evidence."
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Patel v Canada (Minister of Citizenship and Immigration), 2011 FC 571 at paras 20-27",
+    "paragraphs": [
+     17,
+     25,
+     31
+    ],
+    "authority": "Patel v Canada",
+    "treatment": "followed",
+    "why": "Recognized the duty to allow response when concerns relate to credibility or veracity of evidence.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "Hassani v Canada (Citizenship and Immigration), 2006 FC 1283 at paras 23-24",
+    "paragraphs": [
+     17,
+     24,
+     26,
+     27
+    ],
+    "authority": "Hassani v Canada",
+    "treatment": "followed",
+    "why": "Established limits on procedural fairness duties regarding credibility concerns.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "Obeta v Canada (Minister of Citizenship and Immigration), 2012 FC 1542",
+    "paragraphs": [
+     17,
+     20,
+     42
+    ],
+    "authority": "Obeta v Canada",
+    "treatment": "distinguished",
+    "why": "Circumstances differed; no absolute duty to allow response when evidence is clearly fabricated, unlike here.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "there is no need for me to determine whether the Officer\u2019s decision is reasonable",
+    "paragraphs": [
+     44
+    ],
+    "issue": "Reasonableness of Officer's eligibility decision",
+    "reason": "The procedural fairness breach alone disposes of the application.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ]
+   },
+   {
+    "quote": "The parties did not submit questions for certification",
+    "paragraphs": [
+     45
+    ],
+    "issue": "Certification of questions",
+    "reason": "No questions of general importance were raised.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ]
+   }
+  ]
+ }
+}

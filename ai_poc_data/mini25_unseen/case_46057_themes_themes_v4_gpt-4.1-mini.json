@@ -1,0 +1,573 @@
+{
+ "case_id": 46057,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 8687,
+  "completion_tokens": 2463,
+  "usd": 0.0103312
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties",
+    "paragraphs": [
+     1,
+     2,
+     3
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Certified question",
+    "paragraphs": [
+     2,
+     41
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review",
+    "paragraphs": [
+     17,
+     18,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Interpretation of subsection 83(3) of the Regulations",
+    "paragraphs": [
+     19,
+     20,
+     21,
+     29,
+     31,
+     32,
+     33,
+     34,
+     35
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Application of subsection 83(3) to facts (reasonableness)",
+    "paragraphs": [
+     36,
+     37,
+     38,
+     39
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Disposition of appeal and judicial review application",
+    "paragraphs": [
+     3,
+     40
+    ],
+    "disposition": "allowed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 27,
+  "quote_exact_in_cited": 24,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 3,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 3,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 9,
+   "holdings": 8,
+   "rebuttals": 3,
+   "authorities": 7,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.463
+ },
+ "result": {
+  "overall": "The Federal Court of Appeal allowed the Minister's appeal, finding that the visa officer correctly interpreted subsection 83(3) of the Immigration and Refugee Protection Regulations to require completion of a single two-year full-time program at a post-secondary institution in Canada, and that the officer's decision was reasonable on the facts.",
+  "themes": [
+   {
+    "name": "Interpretation of subsection 83(3) of the Regulations",
+    "summary": "The Court considered whether adaptability points for Canadian study can be awarded by aggregating multiple shorter programs or require completion of a single two-year full-time program.",
+    "paragraphs": [
+     19,
+     20,
+     21,
+     29,
+     31,
+     32,
+     33,
+     34,
+     35
+    ]
+   },
+   {
+    "name": "Standard of review",
+    "summary": "The Court determined the appropriate standard of review for the visa officer's interpretation of the Regulations and application to facts.",
+    "paragraphs": [
+     17,
+     18,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "name": "Application of subsection 83(3) to facts (reasonableness)",
+    "summary": "The Court assessed whether the visa officer reasonably applied the correct interpretation of subsection 83(3) to Mr. Patel's study history.",
+    "paragraphs": [
+     36,
+     37,
+     38,
+     39
+    ]
+   },
+   {
+    "name": "Disposition of appeal and judicial review application",
+    "summary": "The Court decided to allow the Minister's appeal, dismiss the judicial review application, and answered the certified question negatively.",
+    "paragraphs": [
+     3,
+     40,
+     41
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "He claimed 74 selection points, including five points for adaptability based upon his two years of Canadian post-secondary study.",
+    "paragraphs": [
+     1
+    ],
+    "made_by": "respondent",
+    "claim": "Mr. Patel claimed five adaptability points for two years of Canadian post-secondary study.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "A visa officer refused Mr. Patel\u2019s application for permanent residence on the basis that his application merited only 63 selection points - four less than the required 67 points.",
+    "paragraphs": [
+     1
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The visa officer refused the application for not meeting the minimum points, awarding no adaptability points.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "The Judge certified the following serious question of general importance: In assessing adaptability under s. 83 of the Immigration and Refugee Protection Regulations, should a visa officer aggregate programs of study that do not each constitute two years of full-time study of at least two years\u2019 duration at a post-secondary institution in Canada and award points if the total period of study amounts to or exceeds two years of full-time study at one or more post-secondary institutions?",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court certified a question about whether adaptability points can be awarded by aggregating multiple shorter programs.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "The Judge rejected the Minister\u2019s argument that the appropriate standard of review to be applied to the officer\u2019s decision was reasonableness.",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court Judge held the standard of review for the visa officer's interpretation of section 83 was correctness, but reasonableness for mixed fact and law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The Judge found the officer interpreted section 83 so as to require full-time attendance for two years in a single academic program at a single accredited institution.",
+    "paragraphs": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court Judge found the visa officer erred by requiring study in a single program at one institution.",
+    "treatment": "rejected",
+    "outcome_note": "The Court disagreed with the Judge's interpretation and upheld the visa officer's interpretation.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "The Minister argues that the visa officer\u2019s interpretation of the Regulations should have been reviewed on the standard of reasonableness.",
+    "paragraphs": [
+     24
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argued the visa officer's interpretation should be reviewed on a reasonableness standard.",
+    "treatment": "rejected",
+    "outcome_note": "The Court held the standard of review for interpretation is correctness.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "127 at paragraph 34, argues that the visa officer\u2019s interpretation of the Regulations should have been reviewed on the standard of reasonableness."
+   },
+   {
+    "quote": "The respondent replies that the standard of review is correctness and that the Judge correctly found the officer\u2019s interpretation of the Regulations to be wrong.",
+    "paragraphs": [
+     25
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent argued the standard of review is correctness and the visa officer's interpretation was wrong.",
+    "treatment": "rejected",
+    "outcome_note": "The Court disagreed and upheld the visa officer's interpretation.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "quote": "The officer viewed subsection 83(3) of the Regulations to require study at a post-secondary Canadian institution in a single program of full-time study of at least two years\u2019 duration.",
+    "paragraphs": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The visa officer interpreted subsection 83(3) to require completion of a single two-year full-time program at one institution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "The officer expressed concern that Mr. Patel had completed a one-year program of study at one school and then completed one semester at a different school.",
+    "paragraphs": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The officer noted Mr. Patel's studies were in two distinct programs at different institutions, not a single two-year program.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Patel had completed a one-year program of study at one school and then completed one semester at a different school."
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I would allow the appeal, dismiss Mr. Patel\u2019s application for judicial review and answer the certified question in the negative.",
+    "paragraphs": [
+     3,
+     40,
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "The Court allowed the Minister's appeal, dismissed the judicial review application, and answered the certified question negatively.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The standard of appellate review is whether the Judge of the Federal Court selected the appropriate standard of review and then applied it correctly.",
+    "paragraphs": [
+     22
+    ],
+    "kind": "legal_test",
+    "statement": "On appeal from judicial review, the appellate court reviews whether the lower court selected and applied the correct standard of review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "quote": "A visa officer\u2019s interpretation of the Act or the Regulations is reviewable on the standard of correctness.",
+    "paragraphs": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "Visa officers' interpretations of legislation are reviewed on a correctness standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   },
+   {
+    "quote": "The Judge did not err by reviewing the visa officer\u2019s interpretation of subsection 83(3) of the Regulations on the standard of correctness.",
+    "paragraphs": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The Federal Court Judge correctly applied the correctness standard to the visa officer's interpretation of subsection 83(3).",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ]
+   },
+   {
+    "quote": "Interpreting subsection 83(3) of the Regulations to require study at a post-secondary Canadian institution in one program for at least two years is consistent with the plain meaning of both the English and French versions of the text.",
+    "paragraphs": [
+     33
+    ],
+    "kind": "reason",
+    "statement": "The plain language of subsection 83(3) supports requiring completion of a single two-year full-time program.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   },
+   {
+    "quote": "Such an interpretation is also consistent with the statutory context and the purpose of the legislation.",
+    "paragraphs": [
+     34
+    ],
+    "kind": "reason",
+    "statement": "The legislative purpose supports requiring completion of one program rather than aggregating disparate programs for adaptability points.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ]
+   },
+   {
+    "quote": "The Judge erred in law when he found the visa officer incorrectly interpreted subsection 83(3) of the Regulations.",
+    "paragraphs": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "The Judge erred in concluding the visa officer's interpretation of subsection 83(3) was incorrect.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ]
+   },
+   {
+    "quote": "The visa officer\u2019s decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and the law.",
+    "paragraphs": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "The visa officer reasonably applied subsection 83(3) to the facts and made a defensible decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The Judge rejected the Minister\u2019s argument that the appropriate standard of review to be applied to the officer\u2019s decision was reasonableness.",
+    "paragraphs": [
+     18
+    ],
+    "point": "The Minister argued the standard of review should be reasonableness.",
+    "made_by": "applicant",
+    "court_answer": "The Judge held the interpretation of section 83 is a question of law reviewed on correctness, not reasonableness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The Minister argues that the visa officer\u2019s interpretation of the Regulations should have been reviewed on the standard of reasonableness.",
+    "paragraphs": [
+     24
+    ],
+    "point": "The Minister argued the visa officer's interpretation should be reviewed on reasonableness standard.",
+    "made_by": "applicant",
+    "court_answer": "The Court rejected this and held the standard of review for interpretation is correctness.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "127 at paragraph 34, argues that the visa officer\u2019s interpretation of the Regulations should have been reviewed on the standard of reasonableness."
+   },
+   {
+    "quote": "The respondent replies that the standard of review is correctness and that the Judge correctly found the officer\u2019s interpretation of the Regulations to be wrong.",
+    "paragraphs": [
+     25
+    ],
+    "point": "The respondent argued the standard of review is correctness and the visa officer's interpretation was wrong.",
+    "made_by": "respondent",
+    "court_answer": "The Court rejected the respondent's position and upheld the visa officer's interpretation as correct.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Dunsmuir v. New Brunswick, 2008 SCC 9, [2008] 1 S.C.R. 190 at paragraphs 54 and 59",
+    "paragraphs": [
+     24,
+     26,
+     27
+    ],
+    "authority": "Dunsmuir v. New Brunswick",
+    "treatment": "followed",
+    "why": "Established framework for determining standard of review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "Canada (Citizenship and Immigration) v. Khosa, 2009 SCC 12, [2009] 1 S.C.R. 339 at paragraph 44",
+    "paragraphs": [
+     24
+    ],
+    "authority": "Canada (Citizenship and Immigration) v. Khosa",
+    "treatment": "followed",
+    "why": "Supports reasonableness standard for some administrative decisions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "Celgene Corp. v. Canada (Attorney General), 2011 SCC 1, 410 N.R. 127 at paragraph 34",
+    "paragraphs": [
+     24,
+     32
+    ],
+    "authority": "Celgene Corp. v. Canada (Attorney General)",
+    "treatment": "followed",
+    "why": "Clarifies statutory interpretation principles and standard of review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "Hilewitz v. Canada (Minister of Citizenship and Immigration); De Jong v. Canada (Minister of Citizenship and Immigration), [2005] 2 S.C.R. 706 at paragraph 71",
+    "paragraphs": [
+     27
+    ],
+    "authority": "Hilewitz v. Canada",
+    "treatment": "followed",
+    "why": "Visa officer's interpretation of legislation reviewed on correctness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   },
+   {
+    "quote": "dela Fuente v. Canada (Minister of Citizenship and Immigration), 2006 FCA 186, [2007] 1 F.C.R. 387",
+    "paragraphs": [
+     27
+    ],
+    "authority": "dela Fuente v. Canada",
+    "treatment": "followed",
+    "why": "Visa officer's interpretation reviewed on correctness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   },
+   {
+    "quote": "Shahid v. Canada (Minister of Citizenship and Immigration), 2011 FCA 40, [2011] F.C.J. No. 160",
+    "paragraphs": [
+     24,
+     27
+    ],
+    "authority": "Shahid v. Canada",
+    "treatment": "followed",
+    "why": "Interpretation of academic history provisions reviewed on correctness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "Canada Trustco Mortgage Co. v. Canada, 2005 SCC 54, [2005] 2 S.C.R. 601 at paragraph 10",
+    "paragraphs": [
+     32
+    ],
+    "authority": "Canada Trustco Mortgage Co. v. Canada",
+    "treatment": "followed",
+    "why": "Sets out principles of statutory interpretation including textual, contextual and purposive analysis.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

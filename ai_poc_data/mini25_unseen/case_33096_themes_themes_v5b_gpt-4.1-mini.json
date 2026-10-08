@@ -1,0 +1,2818 @@
+{
+ "case_id": 33096,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.030934800000000005
+ },
+ "verification": {
+  "items": 148,
+  "quote_exact_in_cited": 148,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 11,
+  "calls": 12,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.956,
+  "rows": {
+   "themes": 4,
+   "arguments": 70,
+   "holdings": 62,
+   "rebuttals": 1,
+   "authorities": 15,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application by the Attorney General of Canada is allowed, quashing the Commissioner of Review Tribunals' decision to extend time to appeal the Minister's May 28, 2003 decision, primarily because the extension constituted an impermissible collateral attack on a subsequent final decision of the Minister and the reasons for the extension were inadequate.",
+  "themes": [
+   {
+    "name": "Extension of time criteria",
+    "summary": "The decision discusses the applicable legal criteria and contextual factors for granting an extension of time to appeal under the CPP, including the flexible four-part test from Gattellaro and Hogervorst.",
+    "paragraphs": [
+     8,
+     18,
+     22,
+     28,
+     31,
+     40,
+     41,
+     44
+    ]
+   },
+   {
+    "name": "Adequacy of reasons",
+    "summary": "The necessity and adequacy of reasons provided by the Commissioner for extending time are examined, emphasizing procedural fairness and referencing Baker and other jurisprudence.",
+    "paragraphs": [
+     48,
+     50,
+     55,
+     59,
+     61,
+     65
+    ]
+   },
+   {
+    "name": "Collateral attack and finality principle",
+    "summary": "The decision analyzes whether the extension of time constituted an impermissible collateral attack on a subsequent final Minister's decision, applying the Federal Court of Appeal's reasoning in Hogervorst and related cases.",
+    "paragraphs": [
+     66,
+     68,
+     70,
+     71,
+     72,
+     87,
+     88,
+     89
+    ]
+   },
+   {
+    "name": "Procedural context and tribunal differences",
+    "summary": "Differences between the Review Tribunal and Pension Appeals Board procedures and contexts are discussed to assess the applicability of extension criteria and discretion.",
+    "paragraphs": [
+     19,
+     20,
+     21,
+     29,
+     42,
+     43
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Preliminary issue: Commissioner's intervention scope",
+    "first_paragraph": 6,
+    "last_paragraph": 7,
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "Issue 1: Proper factors for extension of time",
+    "first_paragraph": 8,
+    "last_paragraph": 47,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Issue 2: Duty to provide adequate reasons",
+    "first_paragraph": 48,
+    "last_paragraph": 65,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Issue 3: Collateral attack on Minister's final decision",
+    "first_paragraph": 66,
+    "last_paragraph": 90,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Remedy and costs",
+    "first_paragraph": 91,
+    "last_paragraph": 91,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "In this judicial review application, the Attorney General of Canada, on behalf of the Minister of Human Resources and Social Development Canada (the Minister) challenges the decision dated March 13, 2007, pursuant to subsection 82(1) of the Canada Pension Plan (the \u201cCPP\u201d), rendered ex parte by the Commissioner of Review Tribunals (the Commissioner) extending the time within which Mr. Robin Pentney (the respondent) may appeal to the Review Tribunal the May 28, 2003 reconsideration decision of the Minister refusing Mr. Pentney\u2019s July 2002 application for a disability payment under the CPP.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister challenges the Commissioner's ex parte decision extending the time to appeal the reconsideration decision refusing disability payment.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Minister raised a preliminary issue at the start of the hearing. She argued the Commissioner\u2019s intervention went beyond the scope of the limited intervention granted by Prothonotory Tabib.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1",
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argued that the Commissioner's intervention exceeded the scope of the limited intervention granted by the Prothonotary.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She took particular objection to the Commissioner\u2019s memorandum of argument where he took a position and argued against the Minister on the collateral attack issue and the issue of the Commissioner\u2019s obligation to give reasons.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister objected to the Commissioner\u2019s memorandum of argument where he took a position and argued against the Minister on the collateral attack issue and the obligation to give reasons.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The matter was resolved by having Mr. Pentney adopt the Commissioner\u2019s written submissions into his own memorandum.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "Mr. Pentney adopted the Commissioner\u2019s written submissions into his own memorandum to resolve the issue of the Commissioner's overbroad intervention.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "This judicial review application raises three separate issues: 1) Whether the Commissioner erred in law in failing to consider the relevant applicable factors governing the issue of when an extension of time to appeal may be granted under the CPP.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The Commissioner erred in law by failing to consider the relevant applicable factors governing when an extension of time to appeal may be granted under the CPP.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "According to the Minister, the applicable criteria were set out in a series of recent decisions made by my colleagues commencing as noted with Justice Snider\u2019s decision in Gattellaro, above, followed in Minister of Human Resources Development v. Roy, 2005 FC 1456; in Minister of Human Resources Development v. de Tommaso, 2005 FC 1531; in Minister of Human Resources v. Eason, 2005 FC 1698; in Minister of Human Resources v. Dawdey, 2006 FC 429 and in Minister of Human Resources Development v. Piro, 2006 FC 791. As noted, all of these decisions judicially reviewed a decision of a member of the Pension Appeals Board (PAB) to extend the time to seek leave to appeal to the PAB from a decision of the Review Tribunal.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2",
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The applicable criteria for extension of time were set out in a series of recent decisions by Federal Court judges, including Gattellaro and others.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "[Emphasis mine.] 2) Whether the Commissioner erred in failing to provide reasons for decision or adequate reasons for his grant of an extension of time;",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The Commissioner erred in failing to provide reasons or adequate reasons for granting an extension of time.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "3) Was the granting of an extension of time to appeal to the Review Tribunal the Minister\u2019s first decision rendered in May 2003 an impermissible collateral attack on the Minister\u2019s February 6, 2006 decision refusing to reconsider Mr. Pentney\u2019s second application for a disability payment under the CPP filed by him in August 2004 and initially denied by the Minister on January 24, 2005 for which Mr. Pentney had not sought reconsideration and where Mr. Pentney did not seek judicial review of the February 6, 2006 decision.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The granting of an extension of time to appeal to the Review Tribunal was an impermissible collateral attack on the Minister's February 6, 2006 decision refusing to reconsider Mr. Pentney's second application for disability payment.",
+    "treatment": "not_decided",
+    "outcome_note": "This issue is addressed elsewhere, not in this part.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister submits the Commissioner\u2019s decision to extend time to appeal to the Review Committee runs counter to the Federal Court of Appeal\u2019s decision in Minister of Human Resources Development v. Hogervorst, 2007 FCA 41.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The Commissioner's decision to extend time to appeal runs counter to the Federal Court of Appeal's decision in Minister of Human Resources Development v. Hogervorst.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In his affidavit, the Commissioner deposed as to the reasons why on March 7, 2006 Mr. Iannitti recommended in writing the Commissioner exercise his discretion to accept the late appeal, on the basis of the extenuating circumstances described by Mr. Pentney in the undated letter as well as his January 11, 2006 letter. These reasons were: a. \u201cMr. Pentney\u2019s memory and cognitive difficulties he said he experiences due to the effects of his stroke and the significant number of medications he is required to consume daily\u201d; b. \u201cMr. Pentney\u2019s involvement with two complex disability benefit institutions, being his private insurer and the CPP Administration\u201d; and c. \u201cMr. Pentney\u2019s argument that he was given incorrect information from the Department as to his eligibility for the disability benefit based on his CPP contribution.\u201d The Commissioner accepted the recommendation.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2",
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Commissioner accepted the recommendation to exercise discretion to accept the late appeal based on extenuating circumstances including Mr. Pentney\u2019s medical condition, involvement with disability institutions, and misinformation about eligibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "At paragraph 29 of his affidavit, the Commissioner deposed: \u201cIn addition to the extenuating circumstances identified by Mr. Iannitti, I also considered the decision of Canada (Minister of Human Resources Development) v. Gattellaro, 2005 FC 883 which sets out the four factors that should be considered by the Pension Appeals Board when determining whether to grant an extension of time and leave to appeal a decision of a Review Tribunal when that request is made outside of the statutory 90 day appeal period. The factors are as follows: (a) A continued intention to pursue the application or appeal; (b) The matter discloses an arguable case; (c) There is a reasonable explanation for the delay; and (d) There is no prejudice to the other party in allowing the extension.\u201d",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Commissioner considered the four factors from Canada (Minister of Human Resources Development) v. Gattellaro for granting an extension of time to appeal outside the statutory 90 day period.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The factors are as follows: (a) A continued intention to pursue the application or appeal; (b) The matter discloses an arguable case; (c) There is a reasonable explanation for the delay; and (d) There is no prejudice to the other party in allowing the extension.\u201d",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The four factors are: continued intention to pursue the appeal; arguable case; reasonable explanation for delay; no prejudice to other party.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In paragraph 30 of his affidavit, the Commissioner said he mentions in his affidavit the context of the Gattellaro decision \u201cbecause it was important to appreciate the distinction between appeals to the Review Tribunal and appeals to the Pension Appeals Board, both procedurally and substantively.\u201d",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Commissioner emphasized the distinction between appeals to the Review Tribunal and the Pension Appeals Board, both procedurally and substantively.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "First, he says at paragraph 31 of his affidavit: \u201cNot only is the OCRT managing a higher volume of appeals than is the Pension Appeals Board, but being the first administrative tribunal encountered by appellants in this multi-leveled appeal system, the OCRT is dealing with appellants in very different circumstances than is the Pension Appeals Board\u201d.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The OCRT manages a higher volume of appeals than the Pension Appeals Board and deals with appellants in different circumstances.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Then, at paragraph 32, he writes: \u201cIn conjunction with, and in addition to, the Gattellaro considerations, there are also contextual factors specific to the Review Tribunal level of appeal that are not transparent from the record and which may not be readily apparent to the Applicant and the Respondent in this proceeding.\u201d [Emphasis mine.]",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In addition to the Gattellaro factors, there are contextual factors specific to the Review Tribunal level that may not be apparent to the parties.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In the next paragraph he identifies what those considerations are: (a) an imbalance of resources, in most instances, between the two parties to an appeal filed with the OCRT; (b) the challenge faced by many appellants in having to put their minds to appeal procedures while coping with a physical and/or mental disability; (c) the confusion and misunderstanding that may result from the multiplicity and complexity of the benefit schemes with which disability claimants must contend, particularly with respect to eligibility requirements; (d) the struggle faced by many appellants in understanding the Minister\u2019s reason(s) for denying a claim on reconsideration; (e) the literacy, educational, and economic resource barriers that may hinder a timely appeal; (f) the number of individuals who hesitate to appeal because they doubt a Review Tribunal will change the Minister\u2019s decision; and (g) the high rate of successful appeals.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2",
+     "22.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The contextual factors include: imbalance of resources between parties; appellants coping with disabilities; confusion from complex benefit schemes; difficulty understanding Minister's reasons; literacy and economic barriers; hesitation to appeal due to doubt about success; and high rate of successful appeals.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "He deposes the evidentiary basis in support of these additional considerations is found in the Client\u2019s Satisfaction Survey and the Standing Committee of the House of Commons Report previously referred to.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The evidentiary basis for these considerations is found in the Client\u2019s Satisfaction Survey and the House of Commons Standing Committee Report.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Commissioner states the number of late appeal requests he receives and considers is not insignificant. Statistics generated for fiscal 2004-2005 indicate that his Office received approximately 4,240 appeals, of which 316 were received after the 90 day period of appeal had expired. For fiscal 2005-2006, the Office received approximately 4,533 appeals, of which 298 were received after the 90 day appeal period had expired. Statistics indicate, also, for fiscal 2005-2006, nearly 20% of all requests for late appeals were made more than one year after the 90 day period had expired, and almost half of the 20% were made more than two years after the 90 day period had expired.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1",
+     "24.2",
+     "24.3",
+     "24.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Commissioner receives a significant number of late appeal requests, with statistics showing hundreds of appeals received after the 90 day period each year, some more than one or two years late.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Commissioner concludes in his affidavit by writing at paragraph 35: \u201cIn view of these contextual factors, I have attempted to balance fairness and efficiency considerations in the exercise of my statutory discretion, including a realistic appreciation for the unequal resources of the parties to the appeal and mindful not to impose inappropriate procedural obligations on either party.\u201d",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Commissioner balances fairness and efficiency in exercising discretion, appreciating unequal resources and avoiding inappropriate procedural obligations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In her memorandum of fact and law, counsel for the Commissioner wrote on this point at paragraph 38: The Commissioner has adopted a principled approach to the exercise of his discretion on late appeal requests that includes an assessment of the information available to him in the context of the factors identified in Canada (Minister of Human Resources Development) v. Gattellaro, 2005 FC 883.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "intervener",
+    "claim": "The Commissioner has adopted a principled approach to the exercise of his discretion on late appeal requests that includes an assessment of the information available to him in the context of the factors identified in Canada (Minister of Human Resources Development) v. Gattellaro, 2005 FC 883.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, the application of the factors contained in Gattellaro must be informed by contextual factors relevant to the Review Tribunal level of appeal.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "intervener",
+    "claim": "The application of the factors contained in Gattellaro must be informed by contextual factors relevant to the Review Tribunal level of appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She observed Gattellaro, above, concerned an extension of time to file a notice of leave to appeal to the PAB and states there are \u201cnotable differences between appeals to the Review Tribunal and appeals to the PAB, both procedurally and substantively making the following points: There is a right to appeal to the Review Tribunal whereas to appeal to the PAB leave to appeal must be granted by a member of the PAB, normally a superior court judge; There is a marked difference in the Rules of Procedure governing these two bodies.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1",
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "intervener",
+    "claim": "Gattellaro concerned an extension of time to file a notice of leave to appeal to the PAB and there are notable procedural and substantive differences between appeals to the Review Tribunal and appeals to the PAB.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Unlike the PAB hearings before the Review Tribunal are informal held in private at a location convenient to the parties; Unlike the PAB, the Review Tribunal does not have elaborate rules of procedure for notices of motion, consolidation and joinder, discovery of documents, subpoenas or evidence.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "intervener",
+    "claim": "Unlike the PAB, hearings before the Review Tribunal are informal, held in private at a location convenient to the parties, and the Review Tribunal does not have elaborate rules of procedure for notices of motion, consolidation and joinder, discovery of documents, subpoenas or evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Informality and convenience are the hallmarks of Review Tribunal procedure; The PAB rules of procedure specify the information which must be provided in support of an application for an extension of time including the Review Tribunal file, decision and reasons for decision.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "intervener",
+    "claim": "Informality and convenience are the hallmarks of Review Tribunal procedure, whereas the PAB rules specify the information which must be provided in support of an application for an extension of time including the Review Tribunal file, decision and reasons for decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Review Tribunal rules of procedure do not speak to such requirements; In 2004-05 and 2005-06 the PAB\u2019s workload was 24.6% and 15.5% of that of the Review Tribunal; The Review Tribunal is the first tribunal dealing with appellants. The PAB hears appeals from decisions of the Review Tribunal.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.5",
+     "29.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "intervener",
+    "claim": "The Review Tribunal rules of procedure do not specify requirements for extension of time applications, and the Review Tribunal handles a much larger workload than the PAB, being the first tribunal dealing with appellants, while the PAB hears appeals from decisions of the Review Tribunal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Individuals are in different circumstances when before these two bodies.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "intervener",
+    "claim": "Individuals are in different circumstances when before the Review Tribunal compared to the PAB.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As noted, in addition to the Gattellaro factors, the Commissioner when deciding to extend time says he looks at factors specific to the Review Tribunal context.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "intervener",
+    "claim": "In addition to the Gattellaro factors, the Commissioner considers factors specific to the Review Tribunal context when deciding to extend time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "These additional factors are set out in paragraph 22 of these reasons.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "intervener",
+    "claim": "These additional factors specific to the Review Tribunal context are set out in paragraph 22 of these reasons.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Attorney General argues the Commissioner had to take into account the principled approach set out in Gattellaro, above, which involves a consideration of the standard four-part test of (1) a continuing intention to bring the Court proceeding; (2) any prejudice to the parties opposite; (3) a reasonable explanation for the delay; and, (4) whether the application has merit.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "made_by": "applicant",
+    "claim": "The Commissioner had to take into account the principled approach set out in Gattellaro, involving a four-part test for extension of time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Attorney General suggests the four-part test contains the exclusive factors to be considered and all four factors must be met i.e. they are conjunctive. I find the Attorney General\u2019s argument reflects an inflexibility which the recent jurisprudence has discarded in the interest of justice. Clearly, the Federal Court of Appeal\u2019s jurisprudence indicates that the standard four-prong test is not exclusive.",
+    "paragraphs": [
+     39,
+     40
+    ],
+    "evidence_ids": [
+     "39.1",
+     "40.1",
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39,
+     40
+    ],
+    "made_by": "applicant",
+    "claim": "The four-part test contains the exclusive factors to be considered and all four factors must be met conjunctively.",
+    "treatment": "rejected",
+    "outcome_note": "Court found this approach inflexible and discarded by recent jurisprudence.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this context, the Commissioner enumerated additional considerations or additional factors which are specific to the Review Tribunal process. I agree with counsel for the Attorney General these factors are too general and not sufficiently individualized to qualify as stand alone factors which could be invoked, on their own by the Commissioner to justify the grant of leave. This is not to say that, in a particular case, depending upon the evidence before the Commissioner, one or more of them may not be of some relevance. Whether they are will depend upon the facts of a particular case. This is where the residual factor mentioned in Grewal, above, comes into play.",
+    "paragraphs": [
+     44,
+     45
+    ],
+    "evidence_ids": [
+     "44.1",
+     "44.2",
+     "45.1",
+     "45.2",
+     "45.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44,
+     45
+    ],
+    "made_by": "applicant",
+    "claim": "The Commissioner enumerated additional considerations specific to the Review Tribunal process as factors to justify granting leave.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Court agreed these factors are too general to be stand-alone but may be relevant depending on the case.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Finally, counsel for the Attorney General argued that while the Commissioner stated in his affidavit he applied the Gattellaro test, there is no evidence in the record that he did. This argument will be considered in the context of the next issue.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1",
+     "46.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "made_by": "applicant",
+    "claim": "There is no evidence in the record that the Commissioner applied the Gattellaro test despite stating he did.",
+    "treatment": "not_decided",
+    "outcome_note": "Argument to be considered under next issue.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Minister argues the Commissioner breached the duty of fairness by providing no reasons for his decision to extend time.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "made_by": "applicant",
+    "claim": "The Commissioner breached the duty of fairness by providing no reasons for his decision to extend time.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Commissioner argued the Commissioner, being an administrative tribunal making a preliminary decision which did not decide the merits of Mr. Pentney\u2019s case should not be burdened with the requirement to provide reasons for decision relying on Justice Ross\u2019 decision in West Fraser Timber Co. v. Thomson, 2001 BCSC 1139 sustained in the British Columbia Court of Appeal reported at 2002 BCCA 455.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "made_by": "respondent",
+    "claim": "The Commissioner, as an administrative tribunal making a preliminary decision not deciding the merits, should not be required to provide reasons for the extension of time decision, relying on West Fraser Timber Co. v. Thomson.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Commissioner also refers to the Supreme Court of Canada\u2019s decision in Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 S.C.R. 817 at paragraphs 35 through 44 where Justice L\u2019Heureux-Dub\u00e9 (on behalf of the Supreme Court of Canada), discussed the requirements emphasizing that at paragraph 43 where she wrote: 43 In my opinion, it is now appropriate to recognize that, in certain circumstances, the duty of procedural fairness will require the provision of a written explanation for a decision. The strong arguments demonstrating the advantages of written reasons suggest that, in cases such as this where the decision has important significance for the individual, when there is a statutory right of appeal, or in other circumstances, some form of reasons should be required. This requirement has been developing in the common law elsewhere. The circumstances of the case at bar, in my opinion, constitute one of the situations where reasons are necessary. The profound importance of an H & C decision to those affected, as with those at issue in Orlowski, Cunningham, and Doody, militates in favour of a requirement that reasons be provided. It would be unfair for a person subject to a decision such as this one which is so critical to their future not to be told why the result was reached.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.1",
+     "50.2",
+     "50.3",
+     "50.4",
+     "50.5",
+     "50.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "made_by": "respondent",
+    "claim": "The Supreme Court of Canada's decision in Baker supports that in certain circumstances a written explanation is required, especially where the decision has important significance, there is a statutory right of appeal, or other circumstances.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "On the face of the record, Mr. Iannitti\u2019s written recommendations do not evidence a consideration of all of the relevant factors which must be considered and weighed for the grant of an extension of time by the Commissioner.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Iannitti\u2019s written recommendations do not evidence consideration of all relevant factors for granting an extension of time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Moreover, a review of the documentary record, such as Mr. Pentney\u2019s request for an extension of time, show, from an evidentiary point of view, that documentation does not support a consideration of all relevant factors.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The documentary record, including Mr. Pentney\u2019s request for extension, does not support consideration of all relevant factors from an evidentiary point of view.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This is so with respect to Mr. Pentney\u2019s continuing intention to appeal the Minister\u2019s decision where a contrary intention is expressed \u2013 he had opted for payments from GWL and, if they had continued, would not have applied to the CPP.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There is a contradiction regarding Mr. Pentney\u2019s continuing intention to appeal the Minister\u2019s decision, as he opted for payments from GWL and would not have applied to CPP if those payments continued.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "A reasonable explanation for the delay suffers from the same infirmities.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The explanation for the delay in requesting extension suffers from similar infirmities as the intention to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In terms of arguable case and prejudice to the Minister we are left to speculate on what that arguable case or the prejudice may be, albeit, Mr. Pentney states in his request documents that he tried to work and has medical evidence which he did not provide to show that his condition, as at December 31, 2004 (the minimum contributory period), satisfies the test of disability for the purposes of obtaining disability payments under the CPP.",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There is speculation about the arguable case and prejudice to the Minister, despite Mr. Pentney\u2019s statements and medical evidence not provided to show disability under CPP.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Some of the reasons provided by Mr. Iannitti might qualify as appropriate additional contextual factors in Mr. Pentney\u2019s particular case but they are not clearly identified as such in Mr. Iannitti\u2019s recommendations nor in the documentary record.",
+    "paragraphs": [
+     64
+    ],
+    "evidence_ids": [
+     "64.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     64
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Some reasons provided by Mr. Iannitti might be appropriate additional contextual factors but are not clearly identified as such in his recommendations or the documentary record.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Federal Court of Appeal allowed the appeal on the basis the member\u2019s decision to grant leave to appeal RT-1 amounted to a collateral attack against RT-2.",
+    "paragraphs": [
+     68
+    ],
+    "evidence_ids": [
+     "68.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court of Appeal allowed the appeal on the basis that granting leave to appeal the initial Review Tribunal decision amounted to a collateral attack against the second Review Tribunal decision, which was final and binding.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "[Emphasis mine.] Both of these decisions had concluded Joy Hogervorst was not disabled in the case of RT-1 for the period ended November 4, 1997 and for RT-2 during the one month period between November 4, 1997 and December 31, 1997. Justice L\u00e9tourneau found that RT-2 was conclusive on the issue of her disability for the period up to December 31, 1997 and \u201cthus, an appeal against RT-1 collaterally attacks RT-2 that is also final and binding for all purposes of the CPP pursuant to subsection 84(1) of the CPP.\u201d",
+    "paragraphs": [
+     68
+    ],
+    "evidence_ids": [
+     "68.2",
+     "68.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Both decisions concluded the respondent was not disabled for the relevant periods, and the second decision was conclusive on the issue of disability up to December 31, 1997, so an appeal against the first decision collaterally attacks the second final decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Justice L\u00e9tourneau stated: \u201cThe situation here is analogous to seeking a review of an initial decision without challenging or addressing a subsequent decision reconsidering the same issue and confirming the initial decision. These are two distinct decisions and the second decision must be attacked directly, not collaterally.\u201d",
+    "paragraphs": [
+     69
+    ],
+    "evidence_ids": [
+     "69.1",
+     "69.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     69
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Justice L\u00e9tourneau stated that the situation is analogous to seeking review of an initial decision without challenging a subsequent decision on the same issue, and that the second decision must be attacked directly, not collaterally.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Moreover, Justice L\u00e9tourneau held a finding of disability, pursuant to the appeal against RT-1, would be inconsistent with, and in opposition to RT-2 and RT-3 and cited the Federal Court of Appeal\u2019s decision in Vid\u00e9otron T\u00e9l\u00e9com Lt\u00e9e., 2005 FCA 90 at paragraph 13 for the proposition: \u201cThe state and stability of the law would be ill served if two potentially contradictory decisions were allowed to exist, involving the same parties, on the same issue.\u201d",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Justice L\u00e9tourneau held that a finding of disability on appeal against the first decision would be inconsistent with the second and third decisions, citing Vid\u00e9otron T\u00e9l\u00e9com Lt\u00e9e., 2005 FCA 90, which emphasized the importance of legal stability and avoiding contradictory decisions on the same issue between the same parties.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "[Emphasis mine.] He again stated the applications judge should have intervened and quashed the member\u2019s decision in order to prevent this kind of consequence.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Justice L\u00e9tourneau stated the applications judge should have quashed the member's decision to prevent contradictory decisions and their consequences.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He concluded the challenge to RT-1, if allowed to proceed, \u201ccan lead to an intolerable and prejudicial situation, both from the perspective of the public interest and fairness to the appellant\u201d and found the applications judge erred in not recognizing and giving the effect to the principle of finality in the circumstances.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "made_by": "tribunal_below",
+    "claim": "He concluded that allowing the challenge to the first decision to proceed would lead to an intolerable and prejudicial situation, and found the applications judge erred in not recognizing the principle of finality.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Applying the rationale of Hogervorst to the case before me, counsel for the Attorney General submits that, by granting leave to challenge the Minister\u2019s May 28, 2003 decision, the Commissioner has allowed Mr. Pentney to collaterally attack the January 24, 2005 decision of the Minister denying his second application for disability benefits.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "made_by": "applicant",
+    "claim": "By granting leave to challenge the Minister's May 28, 2003 decision, the Commissioner allowed Mr. Pentney to collaterally attack the January 24, 2005 Minister's decision denying his second disability benefits application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Attorney General argues Mr. Pentney did not seek a reconsideration of the Minister\u2019s decision within ninety days and states his late request to appeal the Minister\u2019s decision was refused by the Minister on February 6, 2006.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "made_by": "applicant",
+    "claim": "Mr. Pentney did not seek reconsideration of the Minister's decision within ninety days, and his late request to appeal was refused by the Minister on February 6, 2006.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Mr. Pentney did not seek judicial review of the Minister\u2019s decision refusing his request to appeal this second Minister\u2019s decision.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "made_by": "applicant",
+    "claim": "Mr. Pentney did not seek judicial review of the Minister's refusal to consider his late request for reconsideration.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She argues in the absence of such an application for judicial review of the February 6, 2006 refusal to consider his late request for reconsideration, the Minister\u2019s decision became final and binding citing the Federal Court of Appeal\u2019s decision in Pincombe v. Canada (Attorney General), [1995] F.C.J. No. 1320 (C.A.).",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "made_by": "applicant",
+    "claim": "In the absence of judicial review of the refusal to consider the late request, the Minister's decision became final and binding, citing Pincombe v. Canada (Attorney General), [1995] F.C.J. No. 1320 (C.A.).",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Mr. Pentney relies upon the Commissioner\u2019s written argument on this point. The Commissioner acknowledged Mr. Pentney\u2019s second application for a disability payment under the CPP was denied by the Minister by letter dated January 24, 2005 and that this denial was not reconsidered at Mr. Pentney\u2019s request pursuant to subsection 81(2) of the CPP.",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.1",
+     "73.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "made_by": "respondent",
+    "claim": "Mr. Pentney relies on the Commissioner's written argument acknowledging the denial of his second disability payment application by the Minister on January 24, 2005, and that it was not reconsidered at his request under subsection 81(2) of the CPP.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Furthermore, the Commissioner acknowledged there was some initial confusion about the intended recipient of Mr. Pentney\u2019s January 11, 2006 letter due to the fact he had inadvertently addressed his letter to HRDC as opposed to OCRT. The Commissioner states at paragraph 19 of his written memorandum: \u201cThe confusion surrounding Mr. Pentney\u2019s January 11, 2006 letter was eventually resolved, and his letter was recognized as a request by him for a late appeal of the May 28, 2003 reconsideration decision.\u201d",
+    "paragraphs": [
+     74
+    ],
+    "evidence_ids": [
+     "74.1",
+     "74.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     74
+    ],
+    "made_by": "respondent",
+    "claim": "The Commissioner acknowledged initial confusion about the intended recipient of Mr. Pentney's January 11, 2006 letter, which was eventually recognized as a request for a late appeal of the May 28, 2003 reconsideration decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At paragraph 48 of his written memorandum, the Commissioner accepts Mr. Pentney did not make an application for judicial review of HRDC\u2019s decision to refuse his late request for a reconsideration of his second application and that HRDC\u2019s decision became final and conclusive.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "made_by": "respondent",
+    "claim": "The Commissioner accepts that Mr. Pentney did not apply for judicial review of HRDC's decision to refuse his late reconsideration request and that HRDC's decision became final and conclusive.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, the intervener submits that even if this decision is found to be final and conclusive, it does not preclude Mr. Pentney from being entitled to appeal the Minister\u2019s denial of the CPP disability benefit on another prior, or subsequent application.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "made_by": "intervener",
+    "claim": "Even if the Minister's refusal to accept the late reconsideration request is final and conclusive, Mr. Pentney can still appeal the denial of CPP disability benefits on another application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the Commissioner argues the law is well settled that a denial of a disability application by the Department, providing there is no appeal to a Review Tribunal, will not prevent a person from being entitled to the disability benefit on a subsequent application.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "made_by": "applicant",
+    "claim": "A denial of a disability application by the Department without an appeal to a Review Tribunal does not prevent entitlement to benefits on a subsequent application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Commissioner states, in this regard, it has been held that the principle of res judicata does not apply to decisions of the Minister or decisions of the Minister\u2019s officials as these decisions are administrative rather than judicial, relying on two PAB decisions. The Commissioner further argues by allowing an unlimited number of applications for CPP disability pension, the Commissioner\u2019s decision in respect to Mr. Pentney\u2019s late appeal on his first application is entirely consistent with the jurisprudence and the structure and the purpose of the legislation.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.2",
+     "77.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "made_by": "applicant",
+    "claim": "The principle of res judicata does not apply to Minister's administrative decisions, allowing multiple applications for CPP disability pension.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Commissioner argues Hogervorst, above, is distinguishable on his facts. There, the applicant for disability payments had the benefit of two Review Tribunal hearings which were full de novo hearings which resulted in final decisions on the merits. The Commissioner acknowledges that, barring an appeal to the Pension Appeals Board, a decision of the Review Tribunal is final and binding but submits that in this case there have been no decisions of the Review Tribunal and that, in fact, Mr. Pentney has not yet had the opportunity to have his case heard once by a Review Tribunal, let alone three times.",
+    "paragraphs": [
+     78
+    ],
+    "evidence_ids": [
+     "78.1",
+     "78.2",
+     "78.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78
+    ],
+    "made_by": "applicant",
+    "claim": "The Hogervorst case is distinguishable because it involved final decisions after two Review Tribunal hearings, which Mr. Pentney has not had.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "On the facts of this case, it is clear Mr. Pentney did not appeal to the Review Tribunal within the 90 day time limit prescribed under subsection 82(1) of the CPP the Minister\u2019s reconsideration decision of May 23, 2003 denying him a disability payment requested in his first application for a disability payment dated April 15, 2003.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney did not appeal the Minister's May 23, 2003 reconsideration decision within the 90-day limit.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He was specifically advised in the May 23, 2003 decision he had an appeal as of right to the Office of the Commissioner of Review Tribunals provided he do so within 90 days. He was also told in that letter decision that if he decided not to appeal he \u201cmay wish to re-apply for a disability benefit later\u201d.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.1",
+     "80.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney was advised he had a right to appeal to the Commissioner of Review Tribunals within 90 days and was told he could re-apply later if he did not appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He did not appeal nor did he re-apply until August 12, 2004 when he made his second disability application to HRDC. He was receiving and continued for some time to receive disability payments from his private insurer GWL. From the record, it would appear he made his second application for disability payments after GWL terminated its disability payments to him.",
+    "paragraphs": [
+     80,
+     81
+    ],
+    "evidence_ids": [
+     "80.3",
+     "81.2",
+     "81.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80,
+     81
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney did not appeal nor re-apply until August 12, 2004, after his private insurer terminated payments.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The record is also clear Mr. Pentney did not seek reconsideration from the Minister when he was advised on January 24, 2005 the Minister had initially denied his second application. Pursuant to section 81 of the CPP, he had 90 days to do so.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.1",
+     "82.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney did not seek reconsideration of the Minister's denial of his second application within 90 days as required by section 81 of the CPP.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He was advised that if decided not to request a reconsideration he \u201cmay wish to re-apply for a disability benefit later\u201d.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "made_by": "tribunal_below",
+    "claim": "He was advised he could re-apply for disability benefits if he did not request reconsideration.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Rather than re-applying for a disability payment, he waited until January 11, 2006 to then ask the Commissioner \u201cI would like to appeal (late) your denial of my request for CPP disability benefits of April 15, 2003.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney waited until January 11, 2006 to request a late appeal of the denial of his first application from April 15, 2003.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Why he did so appears from his undated letter to the Commissioner received by the Commissioner\u2019s office on March 2, 2006 where he writes that he has been without any income for a year and a half; he called the government website \u201cto get help with this appeal and they advised me that I could appeal the 2003 decision instead of the 2005 decision and possibly get some back payments for the time I have been without.\u201d",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney explained he was without income for a year and a half and was advised he could appeal the 2003 decision instead of the 2005 decision to possibly get back payments.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Referring to the February 6, 2006 decision made by an HRDC official, Mr. Pentney continued informing the Commissioner: \u201cAs you can see from my file, when I tried to do this, they just denied this appeal as it was more than 90 days old.\u201d",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Mr. Pentney was denied the late appeal because it was more than 90 days old, as per the February 6, 2006 HRDC decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In parenthesis, HRDC\u2019s February 6, 2006 letter to Mr. Pentney was a denial to reconsider the Minister\u2019s January 24, 2005 decision which, as will be recalled was the Minister\u2019s initial denial of this second application for disability payment dated August 12, 2006.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The February 6, 2006 HRDC letter denied reconsideration of the Minister's January 24, 2005 initial denial of the second disability application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In his undated letter to the Commissioner, Mr. Pentney pleaded: \u201cWould you please allow me to appeal late for the 2003 decision, due to these extenuating circumstances, to allow me the additional benefits?",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "made_by": "applicant",
+    "claim": "Mr. Pentney pleaded to the Commissioner to allow him to appeal late for the 2003 decision due to extenuating circumstances to obtain additional benefits.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At least I have saved the government several years of expense.\u201d",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "made_by": "applicant",
+    "claim": "He argued that allowing the late appeal would save the government several years of expense.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Attorney General did not seek costs against Mr. Pentney and none are awarded.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "made_by": "applicant",
+    "claim": "The Attorney General did not seek costs against Mr. Pentney.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "In this judicial review application, the Attorney General of Canada, on behalf of the Minister of Human Resources and Social Development Canada (the Minister) challenges the decision dated March 13, 2007, pursuant to subsection 82(1) of the Canada Pension Plan (the \u201cCPP\u201d), rendered ex parte by the Commissioner of Review Tribunals (the Commissioner) extending the time within which Mr. Robin Pentney (the respondent) may appeal to the Review Tribunal the May 28, 2003 reconsideration decision of the Minister refusing Mr. Pentney\u2019s July 2002 application for a disability payment under the CPP.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Attorney General of Canada, on behalf of the Minister of Human Resources and Social Development Canada, is the applicant challenging the Commissioner of Review Tribunals' decision extending the time for Mr. Robin Pentney to appeal."
+   },
+   {
+    "quote": "As noted above, the Commissioner made his decision ex parte, that is, at the request of Mr. Pentney but without input from the Minister.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The Commissioner made the extension of time decision ex parte, at Mr. Pentney's request but without input from the Minister."
+   },
+   {
+    "quote": "The Commissioner was authorized to intervene in this application on a limited basis pursuant to the Order of Prothonotary Tabib dated December 6, 2006. In her endorsement, she said she was satisfied the interests of justice will be served \u201cby allowing the Office leave to intervene in these proceedings for the limited purpose of adducing evidence as to the factors it has considered in reaching the decision under review and which do not appear from the certified tribunal record and to make representations as to whether there is a distinction between the Office\u2019s mandate and legislative scheme and those of other tribunals which requires or justifies that different or additional criteria or considerations should apply to the exercise of the Commissioner\u2019s discretion to accept late appeals.\u201d",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The Commissioner was authorized to intervene on a limited basis to adduce evidence about factors considered in the decision and to make representations about the applicability of criteria from Gattellaro to the Commissioner's discretion."
+   },
+   {
+    "quote": "She added: \u201cTo the extent the Gattellaro criteria apply to the Commissioner\u2019s decision, there would, in my view, be no public interest or justification to allow the tribunal to speak to the manner in which it assessed the materials before it, or as to how those materials would or not meet the criteria developed in Gattellaro and subsequent case law.\u201d [Emphasis mine.] She cautioned: \u201cIndeed, allowing the tribunal to speak or comment on these issues would contravene the public policy imperative of preserving the tribunal\u2019s image of impartiality.\u201d",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.4",
+     "5.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The Prothonotary emphasized that the tribunal should not comment on how it assessed materials or criteria to preserve its impartiality."
+   },
+   {
+    "quote": "I agreed with the Minister\u2019s position.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "conclusion",
+    "statement": "The Court agreed with the Minister that the Commissioner\u2019s intervention went beyond the scope of the limited intervention granted."
+   },
+   {
+    "quote": "Mr. Pentney\u2019s application for an extension of time was made on January 11, 2006 addressed not to the Commissioner as provided in the CPP but to Human Resources Development Canada (HRDC).",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Pentney applied for an extension of time on January 11, 2006, addressed to Human Resources Development Canada, not the Commissioner as required by the CPP."
+   },
+   {
+    "quote": "Attached to his letter of January 11, 2006 was the May 28, 2003 letter from HRDC explaining why he was not eligible for a disability pension.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Pentney attached the May 28, 2003 letter from HRDC explaining why he was not eligible for a disability pension."
+   },
+   {
+    "quote": "Mr. Pentney invoked the following grounds justifying the extension: 1) \u201cAlthough I did not object to your decision of May 28, 2003 (copy enclosed) because I was receiving benefits from Great West Life (GWL) I wish to do so now because GWL have refused benefits for the last year and a half.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Pentney invoked grounds for extension including that he did not object earlier because he was receiving benefits from Great West Life, but now those benefits were refused for over a year and a half."
+   },
+   {
+    "quote": "I did not see why CPP should be paying me when I have enhanced coverage paid out of my own pocket, so I let the issues slide.\u201d; 2) \u201cAlthough I have tried to work for the last year, my efforts have been unsuccessful due partly to memory and cognitive problems resulting from a hemorrhagic stroke and the side effects of some of the 10 medications that I must take daily.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "He also cited memory and cognitive problems from a hemorrhagic stroke and side effects of medications as reasons for his inability to work."
+   },
+   {
+    "quote": "I could include a more generalized letter from my doctor stating unequivocally that I am unemployable, but I have been advised by one of your specialists not to do so until you ask for it \u2026\u201d; [Emphasis mine.] 3) \u201cThat letter, and any other information that you may need, I can obtain from my doctor, or you may request it yourselves\u2026.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "He indicated he could provide a letter from his doctor stating he is unemployable but was advised not to do so until requested."
+   },
+   {
+    "quote": "That covers condition 3 in your letter and the nature of degenerative disk disease, brain damage, arthritis, kidney problems and insulin rejection certainly indicates that my medical problems are long term and although they may not cause my ultimate demise, they may very well have me unable to walk. Soon. This covers condition 4.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.7",
+     "9.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "He described his medical conditions including degenerative disk disease, brain damage, arthritis, kidney problems, and insulin rejection as long term and disabling."
+   },
+   {
+    "quote": "Please reconsider my claim. There is ample Supreme Court of Canada precedent to support it.\u201d",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.9",
+     "9.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "He requested reconsideration of his claim and cited Supreme Court of Canada precedent to support it."
+   },
+   {
+    "quote": "Conditions 3 and 4 cited in Mr. Pentney\u2019s January 11, 2006 letter are contained in the HRDC\u2019s letter of May 28, 2003 ruling, on reconsideration, the applicant was not eligible for disability benefits \u2026 \u201cbecause you should be able to work in some type of job that is more suitable to your level of ability\u201d.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "Conditions 3 and 4 cited by Mr. Pentney are from the HRDC's May 28, 2003 letter ruling he was not eligible because he should be able to work in some type of job suitable to his ability."
+   },
+   {
+    "quote": "Rules 3 and 4 of that letter read: 3. you must have a disability that stops you from doing any type of work on a regular basis (full-time, part-time or seasonal), not just the work you usually do, and 4. you must have a disability that is long term and of unknown duration, or a disability that is likely to result in death.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "Rules 3 and 4 require a disability that stops any type of work on a regular basis and that is long term or likely to result in death."
+   },
+   {
+    "quote": "The May 28, 2006 letter advised Mr. Pentney: \u201c\u2026 you do not meet the third rule listed above.\u201d and also stated the following: \u201cI am aware that you are receiving benefits under a private disability insurance plan. However, the Canada Pension Plan legislation defines disability differently from other disability programs. Others may give you benefits because you can\u2019t do your regular job or you were injured at work.\u201d",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2",
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "background_fact",
+    "statement": "The May 28, 2006 letter advised Mr. Pentney he did not meet the third rule and explained that CPP defines disability differently from other programs."
+   },
+   {
+    "quote": "The letter also advised to Mr. Pentney he had a right to appeal the Minister\u2019s decision to the Office of the Commissioner of Review Tribunals and, if he decided to appeal, he must write to them within 90 days of the date he received the Minister\u2019s letter. The letter also told him: \u201cIf you decide not to appeal this decision, you may wish to re-apply for a disability benefit later.\u201d",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "background_fact",
+    "statement": "The letter advised Mr. Pentney of his right to appeal to the Commissioner within 90 days and that if he did not appeal, he could re-apply later."
+   },
+   {
+    "quote": "[Emphasis mine] and it also said: \u201cSince your application has been denied, it is your responsibility to inform your private insurance company of this decision.\u201d",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "background_fact",
+    "statement": "The letter also said it was Mr. Pentney's responsibility to inform his private insurance company of the decision."
+   },
+   {
+    "quote": "The Commissioner\u2019s intervention was supported by two affidavits, the principal one being deposed by Philippe Rabot, the Commissioner of the Canada Pension Plan / Old Age Security Review Tribunals.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "The Commissioner\u2019s intervention was supported by affidavits, including one by Philippe Rabot, Commissioner of the CPP/Old Age Security Review Tribunals."
+   },
+   {
+    "quote": "The Commissioner noted Mr. Pentney\u2019s file with his Office consisted of a few documents in contrast to the voluminous file which HRDC has on Mr. Pentney\u2019s application for disability payments.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Pentney\u2019s file with the Commissioner consisted of a few documents, unlike the voluminous HRDC file."
+   },
+   {
+    "quote": "Those documents were: (1) Mr. Pentney\u2019s letter of January 11, 2006; (2) An undated letter from Mr. Pentney to his Office purporting to appeal the Minister\u2019s decision refusing to consider his late appeal said to have been rendered on February 6, 2006; (3) A copy of a recommendation made to him by a senior official in his Office, Mr. Patrick Iannitti, Director of Tribunal Operations, dated March 7, 2006 suggesting the acceptance of Mr. Pentney\u2019s late appeal because of the extenuating circumstances mentioned in Mr. Pentney\u2019s undated letter the Office received on March 6, 2006; (4) The Final Report of a Client Satisfaction Survey commissioned by the Office; (5) The Report of the Standing Committee on Human Resources Development and the Status of Persons with Disabilities dated June 2003; and (6) The letter dated March 13, 2006 from the Commissioner to the Edmonton Regional Office of HRDC concerning Mr. Pentney\u2019s section 82 Appeal advising HRDC: \u201cAttached is a copy of a letter of appeal received January 12, 2006. I have accepted this letter as a Notice of Appeal to a Review Tribunal. Please submit to me within 20 days from the receipt of this letter a copy of the documents required pursuant to Rule 5 of the Review Tribunal Rules of Procedure.\u201d",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2",
+     "14.3",
+     "14.4",
+     "14.5",
+     "14.6",
+     "14.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "The documents included Mr. Pentney\u2019s January 11, 2006 letter, an undated appeal letter, a recommendation to accept the late appeal, a client satisfaction survey, a report of the Standing Committee, and a letter accepting the appeal as a Notice of Appeal."
+   },
+   {
+    "quote": "In his affidavit, the Commissioner explained that: \u201cThere was some initial confusion about Mr. Pentney\u2019s January 11, 2006 letter, as it was addressed to the Department as opposed to the OCRT.\u201d",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "The Commissioner explained there was confusion about Mr. Pentney\u2019s January 11, 2006 letter because it was addressed to the Department rather than the OCRT."
+   },
+   {
+    "quote": "Mr. Pentney\u2019s letter of January 11, 2006 had been received by his Office on January 12, 2006.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "The Commissioner\u2019s Office received Mr. Pentney\u2019s letter on January 12, 2006."
+   },
+   {
+    "quote": "In an undated letter to the Commissioner received on March 2, 2006, Mr. Pentney explained again to the Commissioner the substance of why he should be granted an extension of time. In that letter he made the following points: \u201cThe appeal is late because the first time I applied, I was receiving benefits from Great West Life and I didn\u2019t think it was right that the insurance companies should be able to collect the CPP disability benefits, when they had an obligation to provide me with benefits that I have already paid for. It seemed like they were shirking their responsibility at the governments expense.\u201d; \u201cI was also given some wrong information at that time that led me to believe that I could not appeal, due to the CPP contributions rule. At that time I actually had CPP contributions and was eligible.\u201d; \u201cUnfortunately, GWL has denied me benefits later and I have been without any income for more than a year and a half. I called a number from the gov\u2019t website to get help with this appeal, and they advised me that I could appeal the 2003 decision instead of the 2005 decision and possibly get some back payments for the time I have been without.\u201d; [Emphasis mine.]",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2",
+     "16.3",
+     "16.4",
+     "16.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. Pentney sent an undated letter received March 2, 2006 explaining why he should be granted an extension of time, citing extenuating circumstances including denial of private benefits and misinformation about eligibility."
+   },
+   {
+    "quote": "\u201cWould you please allow me to appeal late for the 2003 decision, due to these extenuating circumstances, to allow me the additional benefits? At least I have saved the government several years of expense.\u201d [Emphasis mine.]; \u201cAlthough I have tried to work until last summer, my efforts have been unsuccessful due partly to memory and cognitive problems and the side effects of some of the 10 medications that I must take daily.\u201d; and Mr. Pentney made reference to his doctor\u2019s name and phone number, repeated his medical condition and stated that conditions 3 and 4 of the department\u2019s letter had been satisfied.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.6",
+     "16.7",
+     "16.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "He requested permission to appeal late for the 2003 decision due to extenuating circumstances and noted his unsuccessful work attempts due to medical conditions."
+   },
+   {
+    "quote": "The issues in this judicial review center on legal and not on factual points. As noted, they are whether the Commissioner considered the proper factors in the exercise of his discretion to extended time for an appeal to the Review Tribunal; whether and to what extent the Commissioner must provide written reasons for extending time to appeal to the Review Tribunal and whether the Commissioner\u2019s decision represents a collateral attack on the Minister\u2019s refusal of Mr. Pentney\u2019s second disability application.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1",
+     "26.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "legal_test",
+    "statement": "The issues are legal, concerning whether the Commissioner considered proper factors in extending time, the duty to provide reasons, and whether the decision is a collateral attack on the Minister's refusal."
+   },
+   {
+    "quote": "These are legal points for which the Court does not owe the Commissioner deference; his expertise is not engaged. This Court is not dealing with the merits of his decision but whether his has exercised his discretion by taking into account relevant considerations. The functional and pragmatic analysis points to the standard of review of correctness. This is what the Minister argues and the Commissioner does not disagree. I agree. The Commissioner has to be correct.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1",
+     "27.2",
+     "27.3",
+     "27.4",
+     "27.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "standard_of_review",
+    "statement": "The standard of review is correctness because the issues are legal and the Court does not owe deference to the Commissioner\u2019s exercise of discretion."
+   },
+   {
+    "quote": "The message I take from Justice L\u00e9tourneau\u2019s decision in Hogervorst is that the test in Grewal is a flexible one which must be geared to ensure that justice is done between the parties.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "conclusion",
+    "statement": "The test in Grewal is a flexible one which must be geared to ensure that justice is done between the parties."
+   },
+   {
+    "quote": "This flexibility includes assigning an appropriate weight to each factor depending upon the circumstances, the granting of leave even though one of the four standard criteria are not present and the requirement of a fifth factor that is the facts of the particular case.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "This flexibility includes assigning appropriate weight to each factor depending on the circumstances, granting leave even if one of the four standard criteria is not present, and considering the facts of the particular case as a fifth factor."
+   },
+   {
+    "quote": "Clearly, the Federal Court of Appeal\u2019s jurisprudence indicates that the standard four-prong test is not exclusive. A decision maker on an application for an extension of time must consider all other factors relevant to a particular case and assign appropriate weight to each. This suggests a contextualized approach to such an application. Moreover, as noted, the weight to be accorded to each factor will vary in the circumstances.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.2",
+     "40.3",
+     "40.4",
+     "40.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The standard four-part test is not exclusive; decision makers must consider all relevant factors and assign appropriate weight to each in a contextualized approach."
+   },
+   {
+    "quote": "My appreciation of the Commissioner\u2019s affidavit is that he has embraced, as his counsel did before me, the flexible and contextual approach espoused by the Federal Court Appeal as applied to the particular circumstances of appeals to the Review Tribunal as contrasted to those, in the different context of the PAB, which is the final internal review process in disability claim.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The Commissioner embraced the flexible and contextual approach espoused by the Federal Court of Appeal as applied to appeals to the Review Tribunal."
+   },
+   {
+    "quote": "I conclude on this point by finding that the standard four part test stated in Gattellaro, above, albeit concerned with an extension of time to obtain leave to appeal to the PAB, are equally relevant but not exclusive considerations which must be taken into account when the Commissioner decides on an application to extend time to appeal to the Review Tribunal a reconsideration decision by the Minister denying disability benefits under the CPP or the Old Age Security Act.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "The standard four-part test from Gattellaro is equally relevant but not exclusive when deciding on an extension of time to appeal to the Review Tribunal a reconsideration decision denying disability benefits."
+   },
+   {
+    "quote": "As I see it, the essence of the jurisprudence is that the standard four part test is relevant to all instances in which an extension of time to commence a proceeding is at stake whether it be the commencement of a proceeding in this Court or before an administrative tribunal.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "The standard four-part test is relevant to all instances of extension of time to commence proceedings, whether in Court or before an administrative tribunal."
+   },
+   {
+    "quote": "As I see it, the distinguishing factors advanced by counsel for the Commissioner as between the Review Tribunal and the PAB are not sufficient to lead me to conclude that the standard four part test is not appropriate to the Commissioner\u2019s extension of time decisions on late appeals.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Distinguishing factors between the Review Tribunal and the PAB are insufficient to exclude the standard four-part test from the Commissioner\u2019s extension of time decisions."
+   },
+   {
+    "quote": "The differentiating factors mentioned by the Commissioner and his counsel can be accommodated by the Commissioner in the weight to be assigned to each element of the standard four part test with an arguable case and prejudice to the other side being the major elements as well as taking into account factors relevant to the particular case.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "conclusion",
+    "statement": "The Commissioner can accommodate differentiating factors by assigning appropriate weight to each element of the four-part test, with arguable case and prejudice being major elements, plus other relevant factors."
+   },
+   {
+    "quote": "The point is that if the Commissioner is to take into account any additional factors, he must say so.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "If the Commissioner takes into account any additional factors, he must explicitly say so."
+   },
+   {
+    "quote": "On the basis of the above, this Court\u2019s intervention is not warranted in connection with issue no. 1.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "The Court\u2019s intervention is not warranted on the issue of proper factors for extension of time."
+   },
+   {
+    "quote": "The circumstances of the case at bar, in my opinion, constitute one of the situations where reasons are necessary. The profound importance of an H & C decision to those affected, as with those at issue in Orlowski, Cunningham, and Doody, militates in favour of a requirement that reasons be provided. It would be unfair for a person subject to a decision such as this one which is so critical to their future not to be told why the result was reached.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.4",
+     "50.5",
+     "50.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The circumstances of this case require that reasons be provided for the decision to extend time because of the profound importance of the decision to those affected."
+   },
+   {
+    "quote": "What Justice L\u2019Heureux-Dub\u00e9 wrote in the foregoing paragraph militates in favour of the argument that the Minister should know why the Commissioner extended time and, on the other hand, why an applicant for an extension of time was refused that extension. In either case, they should be told why the result was reached.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1",
+     "51.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "The Minister and the applicant should be told why the extension of time was granted or refused."
+   },
+   {
+    "quote": "I conclude the Commissioner had an obligation to provide reasons for extending the time to appeal to the Review Tribunal a decision rendered in May 2003. The length of time, in itself, calls for an explanation why an extension of time was granted in the circumstances of this case.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1",
+     "52.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The Commissioner had an obligation to provide reasons for extending the time to appeal a decision rendered in May 2003, especially given the length of time involved."
+   },
+   {
+    "quote": "In the circumstances of this case, I am satisfied the Commissioner gave reasons for decision. Whether those reasons are adequate is a separate question.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1",
+     "55.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "conclusion",
+    "statement": "The Commissioner gave reasons for decision in this case, but whether those reasons are adequate is a separate question."
+   },
+   {
+    "quote": "The record before me, on this point, is similar to the one endorsed in Baker, above. In this case, the reasons are found in Mr. Iannitti\u2019s written reasons for recommending to the Commissioner he extend time. In Baker, above, Justice L\u2019Heureux- Dub\u00e9 held the reasons requirement was fulfilled in the notes of the immigration officer.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1",
+     "56.2",
+     "56.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "The record before the Court is similar to that endorsed in Baker, where reasons were found in the notes of the recommending official."
+   },
+   {
+    "quote": "In my view the operational realities of the Office of the Commissioner mandate the approach suggested in Baker holding that the recommendations of these officials constitute the Commissioner\u2019s reasons, if accepted.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "kind": "conclusion",
+    "statement": "The operational realities of the Office of the Commissioner mandate that recommendations of officials constitute the Commissioner's reasons if accepted."
+   },
+   {
+    "quote": "On this point, Justice Sexton, in Via Rail Canada Ltd. v. National Transportation Agency and Jean Lemonde, (Respondents), [2001] 2 F.C. 25 (C.A.) at paragraphs 21 and 22 wrote: 21 The duty to give reasons is only fulfilled if the reasons provided are adequate. What constitutes adequate reasons is a matter to be determined in light of the particular circumstances of each case. However, as a general rule, adequate reasons are those that serve the functions for which the duty to provide them was imposed. In the words of my learned colleague Evans J.A., \"[a]ny attempt to formulate a standard of adequacy that must be met before a tribunal can be said to have discharged its duty to give reasons must [page36] ultimately reflect the purposes served by a duty to give reasons.\"7 22 The obligation to provide adequate reasons is not satisfied by merely reciting the submissions and evidence of the parties and stating a conclusion.8 Rather, the decision maker must set out its findings of fact and the principal evidence upon which those findings were based.9 The reasons must address the major points in issue. The reasoning process followed by the decision maker must be set out10 and must reflect consideration of the main relevant factors.",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.1",
+     "59.2",
+     "59.3",
+     "59.4",
+     "59.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "kind": "legal_test",
+    "statement": "The duty to give reasons is only fulfilled if the reasons provided are adequate, which means they must serve the functions for which the duty to provide them was imposed, including setting out findings of fact, principal evidence, addressing major points in issue, and showing the reasoning process reflecting consideration of main relevant factors."
+   },
+   {
+    "quote": "In the case at hand, the purpose for requiring reasons which are adequate is in order to assess whether the Commissioner had regard to all relevant considerations when deciding to extend the time.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The purpose of requiring adequate reasons here is to assess whether the Commissioner had regard to all relevant considerations when deciding to extend the time."
+   },
+   {
+    "quote": "This issue, in this case, is to be examined by reference to the recommendations made by Mr. Iannitti supplemented by reference to any relevant documentation in the record which would shed light on the consideration of those relevant factors.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The issue of adequacy of reasons is to be examined by reference to Mr. Iannitti\u2019s recommendations and any relevant documentation in the record shedding light on consideration of relevant factors."
+   },
+   {
+    "quote": "I conclude by finding that the record before me fails to disclose adequate reasons for the grant of an extension of time and this failure warrants this Court\u2019s intervention.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "conclusion",
+    "statement": "The record fails to disclose adequate reasons for the grant of an extension of time, warranting the Court\u2019s intervention."
+   },
+   {
+    "quote": "Based on this record, this Court cannot exercise its supervisory jurisdiction to determine whether the Commissioner properly exercised his discretion to extend time on the basis of Mr. Iannitti\u2019s recommendation on the evidentiary record.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "conclusion",
+    "statement": "Based on the record, the Court cannot exercise supervisory jurisdiction to determine whether the Commissioner properly exercised discretion to extend time on the basis of Mr. Iannitti\u2019s recommendation and evidentiary record."
+   },
+   {
+    "quote": "This issue requires a consideration of the Federal Court of Appeal\u2019s decision in Hogervorst, above.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "background_fact",
+    "statement": "The Federal Court of Appeal's decision in Hogervorst is relevant to the issue of collateral attack on Minister's final decision."
+   },
+   {
+    "quote": "The relevant facts of that case are: 1) On June 6, 2005, a member of the PAB extended time and leave to appeal to the PAB a decision of the Review Tribunal rendered seven years earlier on November 4, 1997 (hereafter referred to as RT-1). 2) By decision RT-1, the Review Tribunal dismissed the respondent\u2019s appeal from the Minister\u2019s reconsideration decision she was not eligible for disability payments under the CPP.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "background_fact",
+    "statement": "In Hogervorst, a member of the PAB extended time and leave to appeal a Review Tribunal decision rendered seven years earlier, which had dismissed the respondent's appeal from the Minister's reconsideration decision on disability payments under the CPP."
+   },
+   {
+    "quote": "The Review Tribunal informed her she could seek leave to appeal RT-1 within 90 days or such longer period as the Chairman or Vice-Chairman of the PAB might allow.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "background_fact",
+    "statement": "The Review Tribunal informed the respondent she could seek leave to appeal within 90 days or longer if allowed by the Chairman or Vice-Chairman of the PAB."
+   },
+   {
+    "quote": "The respondent did not appeal RT-1 which became final and binding under subsection 84(1) of the CPP which provides that a Review Tribunal or the PAB has the authority to determine any questions of fact and law and \u201cthe decision of a Review Tribunal, except as provided in this Act, or the decision of the Pension Appeals Board, except for judicial review under the Federal Courts Act, as the case may be, is final and binding for all purposes of this Act\u201d subject to subsection 84(2) which provides that: \u201cthe Minister, a Review Tribunal or the Pension Appeals Board may, notwithstanding subsection 1, on new facts, rescind or amend a decision under this Act given by him, the Tribunal or the Board as the case may be.\u201d",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent did not appeal the initial Review Tribunal decision which became final and binding under subsection 84(1) of the CPP, which provides that decisions of the Review Tribunal or PAB are final and binding except for judicial review under the Federal Courts Act, subject to subsection 84(2) allowing rescission or amendment on new facts."
+   },
+   {
+    "quote": "[Emphasis mine.] 3) Because RT-1 was final and binding, Joy Hogervorst could be entitled to disability benefits only if she established she became disabled between November 5 and December 31, 1997, the day she last satisfied the contributory requirements. 4) She made a second application for disability benefits in January 2000. Her application was denied by the Minister initially and upon reconsideration.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.4",
+     "67.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "background_fact",
+    "statement": "Because the initial Review Tribunal decision was final and binding, the respondent could only be entitled to disability benefits if she became disabled between November 5 and December 31, 1997; she made a second application in January 2000 which was denied initially and upon reconsideration."
+   },
+   {
+    "quote": "She appealed to the Review Tribunal which dismissed her appeal on October 1, 2001 (hereafter RT-2) on the grounds there were no new facts with respect to RT-1 and it was not satisfied that she had a severe and prolonged disability prior to December 31, 1997. RT-2 was not appealed to the PAB and became final and binding.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.6",
+     "67.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent appealed the denial to the Review Tribunal which dismissed the appeal on grounds of no new facts and no severe and prolonged disability prior to December 31, 1997; this decision was not appealed and became final and binding."
+   },
+   {
+    "quote": "[Emphasis mine.] 5) On November 16, 2001, she made an application pursuant to subsection 84(2) of the CCP to reopen RT-2. Subsection 84(2) authorizes a Review Tribunal to rescind or amend its prior decision on the basis of new facts. On March 6, 2002, the Review Tribunal found that the new evidence submitted by Joy Hogervorst did not meet the test for new facts and consequently that application was dismissed (hereafter as RT-3). 6) Joy Hogervorst was granted",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.8",
+     "67.9",
+     "67.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent applied to reopen the second Review Tribunal decision pursuant to subsection 84(2) of the CPP, but the application was dismissed as the new evidence did not meet the test for new facts."
+   },
+   {
+    "quote": "However, the intervener submits that even if this decision is found to be final and conclusive, it does not preclude Mr. Pentney from being entitled to appeal the Minister\u2019s denial of the CPP disability benefit on another prior, or subsequent application. Counsel for the Commissioner argues the law is well settled that a denial of a disability application by the Department, providing there is no appeal to a Review Tribunal, will not prevent a person from being entitled to the disability benefit on a subsequent application.",
+    "paragraphs": [
+     76,
+     77
+    ],
+    "evidence_ids": [
+     "76.2",
+     "77.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76,
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "The Minister's final decision refusing to accept a late reconsideration request does not preclude an appeal on a different application for CPP disability benefits."
+   },
+   {
+    "quote": "On the facts of this case, I would hold that both the principle against collateral attacks and the principle of finality of an administrative decision have been breached affecting the integrity of the scheme mandated by the CPP.",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "Both the principle against collateral attacks and the principle of finality of an administrative decision have been breached, affecting the integrity of the CPP scheme."
+   },
+   {
+    "quote": "In these circumstances, Mr. Pentney should not be allowed to impair the Minister\u2019s denial of his second application for disability payments via an extension of time through a grant of leave to extend time to challenge the denial of his first application of disability payments.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "kind": "conclusion",
+    "statement": "Mr. Pentney should not be allowed to impair the Minister\u2019s denial of his second application for disability payments by an extension of time to challenge the denial of his first application."
+   },
+   {
+    "quote": "Mr. Pentney has a remedy. He can re-apply for disability benefits. He may also invoke subsection 66(4) of the CPP for the reasons mentioned in his affidavit.",
+    "paragraphs": [
+     90
+    ],
+    "evidence_ids": [
+     "90.1",
+     "90.2",
+     "90.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     90
+    ],
+    "kind": "conclusion",
+    "statement": "Mr. Pentney has a remedy: he can re-apply for disability benefits and may invoke subsection 66(4) of the CPP for reasons in his affidavit."
+   },
+   {
+    "quote": "In the circumstances, there is no point to sending the matter back to the Commissioner for a new determination on whether an extension of time should be granted to challenge the May 23, 2003 decision denying him disability benefits.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "conclusion",
+    "statement": "There is no point in sending the matter back to the Commissioner for a new determination on whether an extension of time should be granted to challenge the May 23, 2003 decision denying disability benefits."
+   },
+   {
+    "quote": "JUDGMENT THIS COURT ORDERS AND ADJUDGES that this judicial review application is allowed.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "conclusion",
+    "statement": "This judicial review application is allowed."
+   },
+   {
+    "quote": "The Commissioner\u2019s decision to extend time to appeal to the Review Tribunal the Minister\u2019s May 28, 2003 decision is quashed.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "conclusion",
+    "statement": "The Commissioner\u2019s decision to extend time to appeal to the Review Tribunal the Minister\u2019s May 28, 2003 decision is quashed."
+   },
+   {
+    "quote": "No costs are awarded.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "conclusion",
+    "statement": "No costs are awarded."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "While it is true when he wrote to the Minister on March 13, 2006 to inform him of his decision to extend time, the Commissioner did not provide the Minister with the reasons why he was extending time, the record shows that on March 7, 2007, Mr. Iannitti had recommended to him in writing he should extend time for three reasons which have previously been described in these reasons. The record shows the Commissioner accepted that recommendation on March 10, 2006.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.2",
+     "48.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "Although the Commissioner did not provide reasons in the March 13, 2006 letter, the record shows he accepted a written recommendation on March 10, 2006 giving three reasons for extending time."
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Reference has already been made to the Federal Court of Appeal\u2019s recent decision in Hogervorst, above, in connection with the collateral attack issue. Justice L\u00e9tourneau who wrote the reasons for the Federal Court of Appeal in that case touched upon the proper principles to be applied on a motion to extend time.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1",
+     "31.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "authority": "The Federal Court of Appeal\u2019s decision in Hogervorst addresses the proper principles to be applied on a motion to extend time.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "There is no dispute as to what the correct legal test is on a motion for an extension of time to file an application for leave to appeal: see Marshall v. Canada, 2002 FCA 172; Neis v. Baksa, 2002 FCA 230. What is required is that a) there was and is a continuing intention on the part of the party presenting the motion to pursue the appeal; b) the subject matter of the appeal discloses an arguable case; c) there is a reasonable explanation for the defaulting party\u2019s delay; and d) there is no prejudice to the other party in allowing the extension.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1",
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "authority": "The correct legal test on a motion for an extension of time to file an application for leave to appeal requires that: a) there was and is a continuing intention to pursue the appeal; b) the subject matter discloses an arguable case; c) there is a reasonable explanation for the delay; and d) there is no prejudice to the other party in allowing the extension.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "This test is not in contradiction with the statement of this Court made more than twenty (20) years ago in Grewal v. Canada (Min. of Employment and Immigration), [1985] 2 F.C. 263 that the underlying consideration in an application to extend time is to ensure that justice is done between the parties. The above stated four-pronged test is a means of ensuring the fulfillment of the underlying consideration.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1",
+     "33.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "authority": "The four-pronged test is consistent with the underlying consideration that an application to extend time must ensure that justice is done between the parties, as stated in Grewal v. Canada (Min. of Employment and Immigration), [1985] 2 F.C. 263.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "It ensues that an extension of time can still be granted even if one of the criteria is not satisfied: see Grewal v. Canada, supra, at pages 278-279.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "authority": "An extension of time can still be granted even if one of the criteria is not satisfied, as per Grewal v. Canada, supra, at pages 278-279.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Chief Justice Thurlow, in Grewal, above, cautioned it would be wrong to lay down the rules which fetter a discretionary power which Parliament has not fettered.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "authority": "Chief Justice Thurlow in Grewal cautioned against laying down rigid rules that fetter a discretionary power which Parliament has not fettered.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In the case of Harold Leighton et al v. Her Majesty the Queen in Right of Canada et al, 2007 FC 553, I had an opportunity to review the recent jurisprudence in the Federal Court of Appeal on the proper principles surrounding applications for extension of time to commence judicial review proceedings in this Court.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "authority": "In Harold Leighton et al v. Her Majesty the Queen in Right of Canada et al, 2007 FC 553, the recent jurisprudence on the proper principles surrounding applications for extension of time to commence judicial review proceedings was reviewed.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Hogervorst is authority for this proposition (see paragraphs 30 and 31).",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "authority": "Hogervorst is authority for the proposition that reasons are required in the context of extension of time.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Justice Dawson in Roy, above, again dealing with a situation where an extension of time had been granted to the PAB at paragraph 13 of her decision held that while there is no statutory requirement to provide reasons \u201cwhere a full discretionary power has been conferred upon a judicial officer and where there is nothing on the face of the record that suggests the judicial exercise of the discretion, it is incumbent upon the judicial officer to support the exercise of discretion with reasons.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "authority": "Justice Dawson in Roy held that where a full discretionary power is conferred and nothing suggests improper exercise, it is incumbent to support the exercise of discretion with reasons.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Moreover, as stated by Justice Snider in Gattellaro, above, where an extension of time is made ex parte without submission from the Minister \u201cit seems more critical that the record demonstrates that all of these factors have been addressed by the decision maker\u201d.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "authority": "Justice Snider in Gattellaro stated that where an extension of time is made ex parte without submission from the Minister, it is critical that the record shows all factors have been addressed by the decision maker.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "She stated at paragraph 44: \u201cAccepting documents, such as these notes as sufficient reasons is part of the flexibility that is necessary \u2026 when courts evaluate the requirements of the duty of fairness with recognition of the day-to-day realities of administrative agencies and the many ways in which the values underlying the principles of procedural fairness can be assured. It upholds the principle that individuals are entitled to fair procedures and open decision-making, but recognizes that in the administrative context, this transparency may take place in various ways.\u201d",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.4",
+     "56.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "authority": "Baker held that accepting documents such as notes as sufficient reasons is part of the necessary flexibility in administrative fairness.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "This principle has been recognized in the case of other high volume decision makers such as the Canadian Human Rights Commission where investigations are numerous, carried out by staff investigators who make recommendations to the Commission whether to dismiss or accept a complaint.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "authority": "This principle has been recognized in other high volume decision makers such as the Canadian Human Rights Commission where staff investigators make recommendations to the Commission.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "He was of the view the applications Judge at the Federal Court should not have permitted the collateral attack to go on citing Berhad et al, 2005 FCA 267 at paragraphs 61 and 62: \u201cthat collateral attacks against decisions that are final ought to be precluded in the public interest since such attacks encourage conduct contrary to the statute\u2019s objectives and tend to undermine its effectiveness.\u201d",
+    "paragraphs": [
+     69
+    ],
+    "evidence_ids": [
+     "69.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     69
+    ],
+    "authority": "Justice L\u00e9tourneau cited Berhad et al, 2005 FCA 267, holding that collateral attacks against final decisions should be precluded in the public interest to uphold the statute's objectives and effectiveness.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Citing once again the Berhad case at paragraph 60, he stated: \u201cthis Court reiterated the principle that a time/limit for the commencement of challenges to administrative decisions is not whimsical and that it exists in the public interest, in order to bring finality to administrative decisions so as to ensure their effective implementation without delay and to provide security to those who comply with the decision or enforce compliance with it, often at considerable expense.\u201d",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "authority": "Justice L\u00e9tourneau cited Berhad at paragraph 60, emphasizing that time limits for challenging administrative decisions exist in the public interest to bring finality and ensure effective implementation and security for those complying with decisions.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "I have reviewed Justice L\u00e9tourneau\u2019s decision in Hogervorst, above, in which he made extensive reference to the Federal Court of Appeal\u2019s decision in Berhad v. Canada, 2005 FCA 267 where he emphasized finality principle writing a paragraph 60 as follows:",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "authority": "Justice L\u00e9tourneau\u2019s decision in Hogervorst extensively referenced the Federal Court of Appeal\u2019s decision in Berhad v. Canada emphasizing the finality principle.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "See Hogervorst, above at paragraph 48.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "authority": "The Court refers to Hogervorst at paragraph 48 for support.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

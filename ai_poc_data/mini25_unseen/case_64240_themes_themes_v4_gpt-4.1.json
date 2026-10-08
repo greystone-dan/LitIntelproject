@@ -1,0 +1,588 @@
+{
+ "case_id": 64240,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v4",
+ "run": "bench41",
+ "usage": {
+  "prompt_tokens": 8538,
+  "completion_tokens": 2752,
+  "usd": 0.053632
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Standard of review / Deference to RPD on credibility and own assessment on country conditions",
+    "paragraphs": [
+     11
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Admissibility of new evidence under s. 110(4) IRPA",
+    "paragraphs": [
+     13
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Request for oral hearing under s. 110(6) IRPA",
+    "paragraphs": [
+     14
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "RPD's credibility assessment of allegations of abuse and persecution",
+    "paragraphs": [
+     34,
+     40
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "RPD's analysis of risk due to renunciation of Islam and Sharia law in Lebanon",
+    "paragraphs": [
+     36,
+     40
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "RPD's analysis of state protection for women and children in Lebanon",
+    "paragraphs": [
+     35,
+     40
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Remedy: Confirmation of RPD decision / Dismissal of appeal",
+    "paragraphs": [
+     41,
+     42
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 27,
+  "quote_exact_in_cited": 21,
+  "quote_loose_in_cited": 5,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 1,
+  "quote_has_ellipsis": 1,
+  "quote_snapped_to_real_sentence": 1,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 6,
+   "arguments": 13,
+   "holdings": 9,
+   "rebuttals": 3,
+   "authorities": 2,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.5
+ },
+ "result": {
+  "overall": "The Refugee Appeal Division (RAD) dismissed the appeal, confirming the RPD's findings that the appellants lacked credibility and did not face a serious risk of persecution or harm in Lebanon. The RAD admitted new evidence but found it did not alter the outcome, and denied the request for an oral hearing.",
+  "themes": [
+   {
+    "name": "Credibility assessment and deference to RPD",
+    "summary": "The RAD reviewed the RPD's credibility findings, granted deference, and agreed that the appellants' allegations were not credible or sufficiently corroborated.",
+    "paragraphs": [
+     2,
+     11,
+     18,
+     23,
+     24,
+     25,
+     27,
+     31,
+     34,
+     40
+    ]
+   },
+   {
+    "name": "Admissibility and impact of new evidence",
+    "summary": "The RAD admitted new evidence under s. 110(4) IRPA but found it did not justify allowing the appeal or granting an oral hearing.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     29,
+     30,
+     37
+    ]
+   },
+   {
+    "name": "Risk due to renunciation of Islam and Sharia law",
+    "summary": "The appellants argued risk due to renouncing Islam and Sharia law in Lebanon, but the RAD found their profile and circumstances did not support a serious risk.",
+    "paragraphs": [
+     8,
+     21,
+     22,
+     32,
+     35,
+     36,
+     37
+    ]
+   },
+   {
+    "name": "State protection and profile of the appellants",
+    "summary": "The RAD agreed with the RPD that the appellants' education, status, and resources meant they would not face persecution or lack of state protection in Lebanon.",
+    "paragraphs": [
+     33,
+     35,
+     36,
+     40
+    ]
+   },
+   {
+    "name": "Procedural fairness and oral hearing",
+    "summary": "The appellants requested an oral hearing, but the RAD denied it, finding the new evidence did not warrant one.",
+    "paragraphs": [
+     14
+    ]
+   },
+   {
+    "name": "Remedy and outcome",
+    "summary": "The RAD confirmed the RPD's decision and dismissed the appeal, finding no basis to overturn the original decision.",
+    "paragraphs": [
+     41,
+     42
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "the RPD did not focus on the important allegations of the Appellants but instead looked for 'minor discrepancies'.",
+    "paragraphs": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred by focusing on minor discrepancies rather than the central allegations of abuse and persecution.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD agreed with the RPD's approach and found the credibility assessment reasonable.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "the RPD is also viewed as having erred by speculating about the meaning of the behaviour of Mr. XXXX when the RPD had the truthful testimony of the Principal Appellant to rely on.",
+    "paragraphs": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred by speculating about Mr. XXXX's behavior instead of relying on the Principal Appellant's testimony.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the RPD's reasoning reasonable and agreed with its conclusions.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "the Appellants face in Lebanon because the Principal Appellant has allegedly given up her Islamic faith.",
+    "paragraphs": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants face risk in Lebanon due to the Principal Appellant's renunciation of Islam, and new evidence supports this risk.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the evidence and profile did not support a serious risk on this basis.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   },
+   {
+    "quote": "the RPD is erred with respect to at least one element of his analysis related to the text chat.",
+    "paragraphs": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred in its analysis of the text chat evidence.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the new evidence did not address the central credibility issue identified by the RPD.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   },
+   {
+    "quote": "the Appellants seek to be recognized as Convention refugees or persons in need of protection. 'Alternatively' the Appellants seek to have the RPD decision be returned to the RPD for a re-determination by a 'different panel'.",
+    "paragraphs": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants seek recognition as refugees or, alternatively, a new RPD hearing by a different panel.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD dismissed the appeal and confirmed the RPD's decision.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "quote": "these meet the criterial for acceptance under Section 110(4)",
+    "paragraphs": [
+     12
+    ],
+    "made_by": "applicant",
+    "claim": "The new evidence meets the criteria for admission under s. 110(4) IRPA.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "there is anything in this material which would justify allowing or rejecting the Appellant's refugee claim, therefore I am denying the request for an oral hearing under s. 110(6).",
+    "paragraphs": [
+     14
+    ],
+    "made_by": "applicant",
+    "claim": "The new evidence justifies an oral hearing under s. 110(6) IRPA.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the new evidence did not warrant an oral hearing.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "the RPD focused on a series of assumed credibility issues but did not address the 'central basis of the refugee claim'",
+    "paragraphs": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred by focusing on collateral contradictions and not the central basis of the claim.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD agreed with the RPD's approach and found the credibility assessment reasonable.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "there are many reasons for why this should not be viewed as a contradiction.",
+    "paragraphs": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The travel authorization signed by Mr. XXXX should not be viewed as a contradiction to the abuse allegations.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the RPD's inference reasonable and agreed it was a contradiction.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "the Principal Appellant's response to this apparent contradiction is that she needed to retain the support of her parents who are devout.",
+    "paragraphs": [
+     21,
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "Wearing hijab and maintaining ties with devout parents is consistent with the claim of renouncing Islam and does not undermine credibility.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the RPD's credibility concerns reasonable given the evidence.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The response of the Principal Appellant to this apparent contradiction is that she needed to retain the support of her parents who are devout."
+   },
+   {
+    "quote": "the RPD 'relied upon his own interpretations of the facts' and there is 'no valid reason to doubt the truthfulness of the first Appellant's allegations in regards to the events surrounding the incident as she described...'",
+    "paragraphs": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred by doubting the Principal Appellant's account of the burning incident and relying on its own interpretation.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found inconsistencies in the evidence and agreed with the RPD's assessment.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "quote": "the Appellants respond to this by provided new evidence which shows that Mr. XXXX was not in America but was in Lebanon, therefore the RPD erred",
+    "paragraphs": [
+     29
+    ],
+    "made_by": "applicant",
+    "claim": "New evidence shows Mr. XXXX was in Lebanon, undermining the RPD's finding about the text chat.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found this did not address the central credibility issue and, if anything, reinforced the RPD's concerns.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "the Appellants is to draw attention to documentation which shows that woman in Lebanon can be at risk because of Sharia law",
+    "paragraphs": [
+     32
+    ],
+    "made_by": "applicant",
+    "claim": "Documentation shows women in Lebanon can be at risk due to Sharia law, supporting the claim of risk on return.",
+    "treatment": "rejected",
+    "outcome_note": "The RAD found the appellants' profile did not support a serious risk on this basis.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I must show a degree of deference to the RPD with respect to its credibility assessment.",
+    "paragraphs": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "The RAD must show deference to the RPD's credibility assessment but must reach its own conclusions on country conditions and mixed questions of law and fact.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "I conclude that this material does meet the legislative test of s. 110(4) for admission and is therefore admitted into evidence before the RAD.",
+    "paragraphs": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence submitted by the appellants meets the test under s. 110(4) IRPA and is admitted.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "I do not find that there is anything in this material which would justify allowing or rejecting the Appellant's refugee claim, therefore I am denying the request for an oral hearing under s. 110(6).",
+    "paragraphs": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence does not justify an oral hearing under s. 110(6) IRPA.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "I must conclude that this can be viewed as a contradiction.",
+    "paragraphs": [
+     18
+    ],
+    "kind": "reason",
+    "statement": "The travel authorization signed by Mr. XXXX is a contradiction to the claim that he is controlling and abusive.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "I must grant the RPD the discretion to conclude that allegations of future risk because of the formal strictures of Islam lack credibility given the absence of past persecution.",
+    "paragraphs": [
+     23
+    ],
+    "kind": "reason",
+    "statement": "Where past persecution is not established, the RPD may reasonably doubt allegations of future risk based on religious grounds.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "I concluded the RPD did not error on this issue.",
+    "paragraphs": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD did not err in its assessment of the text chat evidence.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ]
+   },
+   {
+    "quote": "I am in agreement with this conclusion.",
+    "paragraphs": [
+     34
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD agrees with the RPD's overall credibility assessment and conclusion that the appellants are not at risk of persecution.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ]
+   },
+   {
+    "quote": "I must agree with the RPD's conclusion because the Appellants have not shown they have been or will be set apart for treatment consistent with persecution such that they would require state protection in the first place.",
+    "paragraphs": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD agrees with the RPD that the appellants have not shown a need for state protection.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ]
+   },
+   {
+    "quote": "I confirm the determination of the RPD, namely, that that Ms. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX and XXXX XXXX are neither 'Convention refugees' nor 'persons in need of protection'.",
+    "paragraphs": [
+     41
+    ],
+    "kind": "remedy",
+    "statement": "The RAD confirms the RPD's decision and dismisses the appeal.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "I must conclude that this can be viewed as a contradiction.",
+    "paragraphs": [
+     18
+    ],
+    "point": "The travel authorization should not be viewed as a contradiction to the abuse allegations.",
+    "made_by": "applicant",
+    "court_answer": "The RAD found the RPD's inference reasonable and agreed it was a contradiction.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "I must grant the RPD the discretion to conclude that allegations of future risk because of the formal strictures of Islam lack credibility given the absence of past persecution.",
+    "paragraphs": [
+     23
+    ],
+    "point": "Wearing hijab and maintaining ties with devout parents is consistent with renouncing Islam and does not undermine credibility.",
+    "made_by": "applicant",
+    "court_answer": "The RAD found the RPD's credibility concerns reasonable given the evidence.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "I concluded the RPD did not error on this issue.",
+    "paragraphs": [
+     31
+    ],
+    "point": "New evidence about Mr. XXXX's location undermines the RPD's finding about the text chat.",
+    "made_by": "applicant",
+    "court_answer": "The RAD found this did not address the central credibility issue and, if anything, reinforced the RPD's concerns.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Justice Phelan in Huruglica1 states that the RAD 'must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection'.",
+    "paragraphs": [
+     10
+    ],
+    "authority": "Huruglica v. M.C.I. (2014) FC 799",
+    "treatment": "applied",
+    "why": "Sets out the RAD's role in reviewing RPD decisions and the standard of deference on credibility.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "Justice Locke references Huruglica and suggests that 'Except in cases where the credibility of a witness is critical or determinative or when the RPD has a particular benefit from the RAD to draw a specific conclusion, the RAD must not give any deference to the analysis of the evidence made by the RPD'.",
+    "paragraphs": [
+     10
+    ],
+    "authority": "Njeukam v. M.C.I. (2014) FC 859",
+    "treatment": "applied",
+    "why": "Clarifies when the RAD should or should not defer to the RPD's findings.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

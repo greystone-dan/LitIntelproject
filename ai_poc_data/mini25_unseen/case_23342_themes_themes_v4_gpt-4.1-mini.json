@@ -1,0 +1,500 @@
+{
+ "case_id": 23342,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 9656,
+  "completion_tokens": 2330,
+  "usd": 0.010903200000000002
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of the tribunal and parties",
+    "paragraphs": [
+     2
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review of RAD's interpretation of subsection 110(4) of the Act",
+    "paragraphs": [
+     37,
+     40,
+     42
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Reasonableness of RAD's interpretation of subsection 110(4) of the Act",
+    "paragraphs": [
+     57,
+     62
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Reasonableness of RAD's application of subsection 110(4) of the Act to the facts",
+    "paragraphs": [
+     59,
+     62
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Certification of questions of general importance",
+    "paragraphs": [
+     63,
+     64,
+     65,
+     66
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Remedy: judicial review and remittal",
+    "paragraphs": [
+     7,
+     66
+    ],
+    "disposition": "allowed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 22,
+  "quote_exact_in_cited": 14,
+  "quote_loose_in_cited": 1,
+  "quote_found_elsewhere": 1,
+  "quote_not_found": 6,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 4,
+  "paragraph_numbers_not_in_decision": 6,
+  "rows": {
+   "themes": 6,
+   "arguments": 6,
+   "holdings": 9,
+   "rebuttals": 1,
+   "authorities": 6,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.317
+ },
+ "result": {
+  "overall": "The Court granted the applicant's judicial review, finding that the Refugee Appeal Division (RAD) unreasonably interpreted and applied subsection 110(4) of the Immigration and Refugee Protection Act by strictly applying the Raza test, which is designed for PRRA officers, not appellate tribunals like the RAD. The Court certified questions of general importance regarding the standard of review and the applicability of the Raza test to subsection 110(4).",
+  "themes": [
+   {
+    "name": "Interpretation of subsection 110(4) of the Act",
+    "summary": "The Court examined whether the RAD reasonably interpreted subsection 110(4) of the Immigration and Refugee Protection Act regarding admissibility of new evidence on appeal.",
+    "paragraphs": [
+     5,
+     6,
+     13,
+     24,
+     43,
+     44,
+     46,
+     48,
+     49,
+     50,
+     51,
+     56,
+     57,
+     58
+    ]
+   },
+   {
+    "name": "Application of subsection 110(4) to facts",
+    "summary": "The Court assessed whether the RAD reasonably applied subsection 110(4) to the applicant's evidence, particularly the 2002 diploma.",
+    "paragraphs": [
+     5,
+     6,
+     25,
+     26,
+     29,
+     30,
+     31,
+     32,
+     59,
+     60,
+     61,
+     62
+    ]
+   },
+   {
+    "name": "Standard of review of RAD's interpretation",
+    "summary": "The Court considered the appropriate standard of review for the RAD's interpretation and application of subsection 110(4).",
+    "paragraphs": [
+     37,
+     38,
+     39,
+     40,
+     41,
+     42
+    ]
+   },
+   {
+    "name": "Role and powers of RAD versus PRRA officer",
+    "summary": "The Court distinguished the RAD's appellate role from the PRRA officer's role, affecting the applicability of the Raza test.",
+    "paragraphs": [
+     48,
+     49,
+     50,
+     51,
+     56,
+     57
+    ]
+   },
+   {
+    "name": "Certification of questions of general importance",
+    "summary": "The Court certified questions regarding the standard of review and the applicability of the Raza test to subsection 110(4).",
+    "paragraphs": [
+     63,
+     64,
+     65,
+     66
+    ]
+   },
+   {
+    "name": "Remedy and judicial review outcome",
+    "summary": "The Court granted judicial review, set aside the RAD decision, and remitted the matter for re-determination by a different member.",
+    "paragraphs": [
+     7,
+     66
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "Mr. Parminder Singh seeks judicial review of a decision by the RAD, dated September 26, 2013, whereby it confirmed the decision of the RPD that he is neither a Convention refugee within the meaning of section 96 of the Immigration and Refugee Protection Act nor a person in need of protection under its subsection 97(1).",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD erred in confirming the RPD's decision rejecting his refugee claim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Parminder Singh seeks judicial review of a decision by the RAD, dated September 26, 2013, whereby it confirmed the decision of the RPD that he is neither a Convention refugee within the meaning of section 96 of the Immigration and Refugee Protection Act, SC 2001, c 27 [Act] nor a person in need of protection under its subsection 97(1)."
+   },
+   {
+    "quote": "The applicant argues that by not admitting the 2002 school diploma into evidence, the RAD failed to admit a document that not only goes to the core of his story, but also to the RPD\u2019s finding of credibility which consequently, gravely prejudices his claim.",
+    "paragraphs": [
+     44
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD unreasonably refused to admit the 2002 diploma, which was critical evidence affecting credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ]
+   },
+   {
+    "quote": "The applicant adds that the RAD failed to give sufficient weight to the following factors: (1) The document was of critical probative value to the applicant\u2019s claim because it proved that he attended school with Bhupinder Singh at that time and that he was not lying about this fact; (2) Although the document was initially seized by the CBSA, the RPD did not believe this part of the applicant\u2019s testimony when in fact it was true; and (3) The RAD recognized that the failure to produce the document was the fault of the lawyer yet nonetheless it blamed the applicant.",
+    "paragraphs": [
+     45
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD improperly blamed the applicant for failure to produce the diploma despite lawyer's fault and the document's critical importance.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "The respondent argues the RAD used the proper test by interpreting subsection 110(4) of the Act in light of similar wording in paragraph 113(a); an interpretation of the latter can assist this Court in interpreting the former.",
+    "paragraphs": [
+     46
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD reasonably applied the Raza test from paragraph 113(a) to subsection 110(4) of the Act.",
+    "treatment": "rejected",
+    "outcome_note": "Court found the Raza test not transferable to RAD appeals.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ]
+   },
+   {
+    "quote": "The respondent argues that the RAD\u2019s determination of the appropriate analysis that is to be conducted in assessing the admissibility of new evidence should be subject to the reasonableness standard, as it involves a tribunal considering and applying its home statute.",
+    "paragraphs": [
+     37,
+     38,
+     39
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD\u2019s interpretation of subsection 110(4) should be reviewed on a reasonableness standard.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ]
+   },
+   {
+    "quote": "The parties both plead that the RAD owes the RPD deference and that it should review the RPD decision applying the reasonableness standard.",
+    "paragraphs": [
+     35
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD owes deference to the RPD and applies reasonableness standard on appeal.",
+    "treatment": "rejected",
+    "outcome_note": "Court disagreed and rejected this position.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "For the reasons discussed below, this application for judicial review will be granted.",
+    "paragraphs": [
+     7
+    ],
+    "kind": "conclusion",
+    "statement": "The Court grants the applicant's judicial review application.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "I agree with the respondent.",
+    "paragraphs": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The Court holds that the reasonableness standard applies to the RAD's interpretation and application of subsection 110(4).",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ]
+   },
+   {
+    "quote": "Therefore, I am of the view that both the RAD\u2019s interpretation of subsection 110(4) of the Act and its application to the facts of this case are to be reviewed on the reasonableness standard.",
+    "paragraphs": [
+     42
+    ],
+    "kind": "standard_of_review",
+    "statement": "The appropriate standard of review for the RAD's interpretation and application of subsection 110(4) is reasonableness.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[42] Therefore, I am of the view that both the RAD\u2019s interpretation of subsection 110(4) of the Act (as a question of law that is not of general importance to the legal system as a whole and outside the expertise of the RAD) and its application to the facts of this case (as a question of mixed fact and law) are to be reviewed on the reasonableness standard."
+   },
+   {
+    "quote": "I am of the view that it was unreasonable for the RAD to strictly apply the Raza test in interpreting subsection 110(4) of the Act all the while failing to appreciate that its role is quite different from that of a PRRA officer.",
+    "paragraphs": [
+     57
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's strict application of the Raza test to subsection 110(4) was unreasonable because the RAD's appellate role differs from the PRRA officer's role.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ]
+   },
+   {
+    "quote": "It was not reasonable for the RAD to conclude that the applicant should have brought the documentary evidence before the RPD.",
+    "paragraphs": [
+     60
+    ],
+    "kind": "reason",
+    "statement": "The RAD unreasonably expected the applicant to produce the diploma before the RPD despite it not being in his possession and the lawyer's failure to provide it.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ]
+   },
+   {
+    "quote": "It was unreasonable for the RAD to expect the applicant to file a complaint against his former lawyer as a prerequisite for filing the new evidence before the RAD.",
+    "paragraphs": [
+     61
+    ],
+    "kind": "reason",
+    "statement": "The RAD unreasonably required the applicant to complain about his lawyer before admitting the evidence.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ]
+   },
+   {
+    "quote": "The applicant\u2019s request to file this new evidence fell squarely, in my view, within the scope of subsection 110(4) of the Act and it met its explicit criteria.",
+    "paragraphs": [
+     62
+    ],
+    "kind": "conclusion",
+    "statement": "The applicant's new evidence met the criteria of subsection 110(4) and should have been admitted.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ]
+   },
+   {
+    "quote": "The decision of the Refugee Appeal Division of the Immigration and Refugee Board, dated September 26, 2013, is set aside and the matter is remitted back to a different member for re-determination.",
+    "paragraphs": [
+     66
+    ],
+    "kind": "remedy",
+    "statement": "The RAD decision is set aside and the matter is remitted for re-determination by a different member.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     65
+    ]
+   },
+   {
+    "quote": "The following questions of general importance are certified: What standard of review should be applied by this Court when reviewing the Refugee Appeal Division\u2019s interpretation of subsection 110(4) of the Immigration and Refugee Protection Act? In considering the role of a Pre-Removal Risk Assessment officer and that of the Refugee Appeal Division, does the test set out in Raza apply to subsection 110(4)?",
+    "paragraphs": [
+     66
+    ],
+    "kind": "remedy",
+    "statement": "The Court certifies questions of general importance regarding the standard of review and applicability of the Raza test to subsection 110(4).",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The parties both plead that the RAD owes the RPD deference and that it should review the RPD decision applying the reasonableness standard.",
+    "paragraphs": [
+     35
+    ],
+    "point": "The RAD owes deference to the RPD and applies reasonableness standard on appeal.",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court disagreed and rejected this position, holding the RAD's role is different and does not owe such deference.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Dunsmuir v New Brunswick, 2008 SCC 9 at para. 54",
+    "paragraphs": [
+     37
+    ],
+    "authority": "Dunsmuir v New Brunswick",
+    "treatment": "followed",
+    "why": "Supports reasonableness standard for tribunal's interpretation of home statute.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "\u201c Dunsmuir [v New Brunswick, 2008 SCC 9] (at para."
+   },
+   {
+    "quote": "Canada (Minister of Citizenship and Immigration) v Khosa, 2009 SCC 12 at para 44",
+    "paragraphs": [
+     37
+    ],
+    "authority": "Khosa",
+    "treatment": "followed",
+    "why": "Confirms reasonableness standard applies to tribunal's interpretation of statute.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ]
+   },
+   {
+    "quote": "Saskatchewan (Human Rights Commission) v Whatcott, 2013 SCC 11 at para 167",
+    "paragraphs": [
+     38
+    ],
+    "authority": "Whatcott",
+    "treatment": "mentioned",
+    "why": "Discusses exceptions to reasonableness standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "quote": "Alberta (Information and Privacy Commissioner) v Alberta Teachers\u2019 Association, [2011] 3 SCR 654 at para 30",
+    "paragraphs": [
+     38,
+     41
+    ],
+    "authority": "Alberta Teachers",
+    "treatment": "mentioned",
+    "why": "Sets out categories where correctness standard applies.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[38] The respondent further cites Saskatchewan (Human Rights Commission) v Whatcott, 2013 SCC 11 at para 167, interpreting Alberta (Information and Privacy Commissioner) v Alberta Teachers\u2019 Association, [2011] 3 SCR 654 [Alberta Teachers] at para 30 on the exceptions where correctness will apply: This principle [of deference] applies unless the interpretation of the home statute falls into one of the categories of questions to which the correctness standard continues to apply, i.e., \u201cconstitutional questions, questions of law that are of central importance to the legal system as a whole and that are outside the adjudicator\u2019s expertise, ."
+   },
+   {
+    "quote": "McLean v British Columbia (Securities Commission), 2013 SCC 67",
+    "paragraphs": [
+     41
+    ],
+    "authority": "McLean",
+    "treatment": "mentioned",
+    "why": "Reiterates strict limitations on exceptions to reasonableness standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ]
+   },
+   {
+    "quote": "Raza v Canada (Minister of Citizenship and Immigration), 2007 FCA 385",
+    "paragraphs": [
+     24,
+     46,
+     48,
+     56
+    ],
+    "authority": "Raza",
+    "treatment": "applied",
+    "why": "Test for admissibility of fresh evidence before PRRA officer, considered by RAD.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24,
+     65
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

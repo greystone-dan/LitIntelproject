@@ -1,0 +1,758 @@
+{
+ "case_id": 17038,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 17269,
+  "completion_tokens": 2490,
+  "usd": 0.0175076
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties and tribunal_below",
+    "paragraphs": [
+     1,
+     2
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review applicable to RAD decision",
+    "paragraphs": [
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Whether RAD reasonably concluded it must apply two standards of review (correctness and deference)",
+    "paragraphs": [
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Whether RAD reasonably identified conditions triggering deferential standard",
+    "paragraphs": [
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Whether RAD reasonably defined content of deferential standard",
+    "paragraphs": [
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120,
+     121,
+     122,
+     123,
+     124,
+     125,
+     126,
+     127,
+     128,
+     129,
+     130,
+     131,
+     132,
+     133,
+     134,
+     135,
+     136
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Whether RAD\u2019s conclusions on merits of appeal were reasonable",
+    "paragraphs": [
+     137
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Certified questions for appeal",
+    "paragraphs": [
+     138,
+     139,
+     140
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Final disposition of judicial review application",
+    "paragraphs": [
+     141
+    ],
+    "disposition": "allowed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 25,
+  "quote_exact_in_cited": 7,
+  "quote_loose_in_cited": 4,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 14,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 13,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 9,
+   "holdings": 9,
+   "rebuttals": 3,
+   "authorities": 3,
+   "left_open": 1
+  },
+  "paragraph_coverage": 0.245
+ },
+ "result": {
+  "overall": "The Federal Court allowed the judicial review application, finding that the RAD's framework for applying deferential standards of review to RPD credibility findings was unreasonable due to lack of principled guidance on when deference applies and because the RAD's concept of reasonableness duplicated judicial review standards, thus requiring redetermination by a differently constituted panel.",
+  "themes": [
+   {
+    "name": "Standard of Review Framework",
+    "summary": "The case centers on the appropriate standard of review the RAD should apply to RPD credibility findings, balancing correctness and deference.",
+    "paragraphs": [
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     60
+    ]
+   },
+   {
+    "name": "Conditions Triggering Deferential Review",
+    "summary": "The RAD's identification of when a deferential standard applies to RPD findings, especially regarding credibility and oral evidence, was challenged and found lacking principled guidance.",
+    "paragraphs": [
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107
+    ]
+   },
+   {
+    "name": "Content of Deferential Standard",
+    "summary": "The RAD's definition of its deferential standard, termed RAD reasonableness, was found to duplicate judicial review standards and thus unreasonable.",
+    "paragraphs": [
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120,
+     121,
+     122,
+     123,
+     124,
+     125,
+     126,
+     127,
+     128,
+     129,
+     130,
+     131,
+     132,
+     133,
+     134,
+     135,
+     136
+    ]
+   },
+   {
+    "name": "Merits of Appeal",
+    "summary": "The Court did not decide on the merits of the appeal given its findings on the standard of review issues.",
+    "paragraphs": [
+     137
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Applicants have asked the Federal Court to judicially review the RAD\u2019s Decision under section 72(1) of IRPA.",
+    "paragraphs": [
+     11
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD erred in its application of the standard of review to the RPD's credibility findings and the appeal outcome.",
+    "treatment": "accepted",
+    "outcome_note": "The Court accepted the need for judicial review and found errors in the RAD's approach.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "The Minister maintains that the question has already been decided by the Federal Court of Appeal in Huruglica, which, in his view, answered it by holding that the RAD is to apply a deferential standard of review to some RPD credibility findings where it has a meaningful advantage",
+    "paragraphs": [
+     34
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD should apply a deferential standard of review to some RPD credibility findings where it has a meaningful advantage.",
+    "treatment": "accepted",
+    "outcome_note": "The Court accepted that the RAD may apply two standards, correctness generally and deference in some cases.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Huruglica",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ]
+   },
+   {
+    "quote": "CARL/CCR submit that the Federal Court of Appeal\u2019s comments on deference in Huruglica refer only to the RAD\u2019s remedial power to remit a case back to the RPD for redetermination, and not to the lens it must use when examining the substantive part of a RPD decision.",
+    "paragraphs": [
+     35
+    ],
+    "made_by": "intervener",
+    "claim": "The RAD must apply a correctness standard to all RPD factual findings; deference relates only to remedial powers.",
+    "treatment": "rejected",
+    "outcome_note": "The Court rejected this narrow reading of Huruglica and accepted that deference may apply to some findings.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Huruglica",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ]
+   },
+   {
+    "quote": "The Applicants submit that the RAD must review all findings for correctness but deference can play a limited role alongside correctness review.",
+    "paragraphs": [
+     36
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD must apply correctness to all findings but may show restraint (deference) before applying correctness.",
+    "treatment": "rejected",
+    "outcome_note": "The Court rejected the idea of 'correctness with deference' as a non-sequitur.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Dunsmuir",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[36] Similar to CARL/CCR, the Applicants submit that the RAD must review all findings for correctness."
+   },
+   {
+    "quote": "The RAD majority decided that it should show deference to some findings of the RPD in specific cases.",
+    "paragraphs": [
+     30
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD applies two standards: correctness generally and deference in some credibility findings where RPD has meaningful advantage.",
+    "treatment": "accepted",
+    "outcome_note": "The Court accepted that the RAD concluded this but later found the framework unreasonable.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[30] In its majority decision, the RAD found that it should show deference to some findings of the RPD in specific cases."
+   },
+   {
+    "quote": "The RAD majority set out eight categories of RPD credibility findings to guide when deference applies.",
+    "paragraphs": [
+     66,
+     67
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD identified categories triggering deferential review based on meaningful advantage.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found the RAD's categories lacked principled guidance and were unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The RAD majority, however, then went on to set out eight categories of RPD credibility findings."
+   },
+   {
+    "quote": "The Applicants argue that the RAD majority erred in pre-emptively establishing categories of credibility findings warranting deference, ignoring case-by-case analysis.",
+    "paragraphs": [
+     75
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD's rigid categories for deference are unreasonable and ignore unique case circumstances.",
+    "treatment": "accepted",
+    "outcome_note": "The Court agreed and found the RAD's approach unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[75] The Applicants in this case argue that the RAD majority erred in pre-emptively establishing categories of credibility findings warranting deference, instead of leaving it to be determined whether the RPD truly had a meaningful advantage on a case-by-case basis."
+   },
+   {
+    "quote": "The Applicants argue that the RAD reasonableness standard is unreasonable because it duplicates judicial review and results in double deference.",
+    "paragraphs": [
+     116,
+     117,
+     118
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD's deferential standard duplicates judicial review and is thus unreasonable.",
+    "treatment": "accepted",
+    "outcome_note": "The Court agreed that the RAD's standard duplicates judicial review and is unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[116] The Applicants argue that RAD reasonableness, the RAD\u2019s concept of deference, is unreasonable because it results in a duplication of the Dunsmuir framework at the administrative level."
+   },
+   {
+    "quote": "The Minister argues that RAD reasonableness is distinct from judicial review because it involves an independent assessment of the matter before it.",
+    "paragraphs": [
+     120
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD's reasonableness standard is appropriate and distinct from judicial review.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found the RAD's standard indistinguishable from judicial review reasonableness.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[120] The Minister argues that RAD reasonableness is sufficiently distinct from judicial review because the RAD must begin with an overall, independent assessment of the matter before it, while judicial review focuses on the decision\u2011maker\u2019s reasons."
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The outcome of this judicial review turns on important but highly technical questions involving the standard of review applied by the RAD to its assessment of credibility findings made by the lower tribunal, the Refugee Protection Division.",
+    "paragraphs": [
+     1
+    ],
+    "kind": "other",
+    "statement": "The Court identifies the key issue as the standard of review applied by the RAD to RPD credibility findings.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "The Court\u2019s task on judicial review is not to retry cases but to review whether the RAD\u2019s Decision contains reviewable errors.",
+    "paragraphs": [
+     12
+    ],
+    "kind": "legal_test",
+    "statement": "Judicial review focuses on errors in the decision, not re-hearing the case.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[12] In other words, the Court\u2019s task on judicial review is not to retry cases."
+   },
+   {
+    "quote": "Today, there are only two such lenses: correctness and reasonableness.",
+    "paragraphs": [
+     14
+    ],
+    "kind": "legal_test",
+    "statement": "The two standards of review are correctness and reasonableness.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "Reasonableness is far more common than correctness and is the default standard in most cases.",
+    "paragraphs": [
+     19,
+     20
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness is the presumptive standard of review, especially for home statute interpretation.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[19] Of the two standards that comprise judicial review today, it should not be surprising, then, that reasonableness is far more common than correctness."
+   },
+   {
+    "quote": "The RAD must apply a reasonableness standard to the issues before the Court, avoiding disguised correctness review.",
+    "paragraphs": [
+     26
+    ],
+    "kind": "standard_of_review",
+    "statement": "The Court applies a reasonableness standard to the RAD's conclusions, ensuring they are justified, transparent, and intelligible.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Although I am applying a reasonableness standard of review to these issues, and although the first issue may only have a very narrow range of reasonable answers or even a single answer, I must still be careful not to conduct a disguised correctness review."
+   },
+   {
+    "quote": "The RAD reasonably concluded that it should apply two standards of review: correctness generally and deference in some credibility findings.",
+    "paragraphs": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's conclusion to apply two standards of review was reasonable and open to it.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[60] Thus, it was reasonable for the majority to conclude that, under IRPA, it should apply two standards of review to RPD findings: correctness in most cases and deference on occasion."
+   },
+   {
+    "quote": "The RAD majority erred in failing to outline when the RPD\u2019s general fact-finding advantage becomes a specific, meaningful advantage justifying deference.",
+    "paragraphs": [
+     107
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's framework for triggering deference was unreasonable due to lack of principled guidance.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[107] The RAD majority erred in failing to outline for future panels when the RPD\u2019s general fact-finding advantage becomes a specific, meaningful advantage, which in turn would justify the application of a deferential standard of review."
+   },
+   {
+    "quote": "The RAD majority\u2019s conclusions on the content of its deferential standard are not consistent with the Federal Court of Appeal\u2019s instructions that the RAD is not to review RPD decisions in the manner of a judicial review.",
+    "paragraphs": [
+     130
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's deferential standard duplicates judicial review and is unreasonable.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     130
+    ]
+   },
+   {
+    "quote": "The application for judicial review is allowed and the matter is sent back for redetermination by a differently constituted panel.",
+    "paragraphs": [
+     141
+    ],
+    "kind": "remedy",
+    "statement": "The Court allows the judicial review and orders redetermination.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "CARL/CCR argue that the RAD wrongly concluded that the RPD holds any advantage in the ability to interpret the record.",
+    "paragraphs": [
+     45
+    ],
+    "point": "The RAD wrongly concluded that the RPD has a meaningful advantage in interpreting the record.",
+    "made_by": "intervener",
+    "court_answer": "The Court rejected this and found that the RPD may have a meaningful advantage in some cases.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Based on this rationale, CARL/CCR assert that the RAD wrongly concluded that the RPD holds any advantage in the ability to interpret the record."
+   },
+   {
+    "quote": "The Applicants argue that deference can co-exist with a correctness review of all factual findings.",
+    "paragraphs": [
+     55
+    ],
+    "point": "Deference can co-exist with correctness review.",
+    "made_by": "applicant",
+    "court_answer": "The Court rejected this as a non-sequitur; correctness review excludes deference.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[55] With respect to the Applicants\u2019 position that deference can co-exist with a correctness review of all factual findings, I do not agree."
+   },
+   {
+    "quote": "The Minister argues that RAD reasonableness is sufficiently distinct from judicial review because the RAD must begin with an overall, independent assessment of the matter before it.",
+    "paragraphs": [
+     120
+    ],
+    "point": "RAD reasonableness is distinct from judicial review reasonableness.",
+    "made_by": "respondent",
+    "court_answer": "The Court found the RAD's standard indistinguishable from judicial review reasonableness and thus unreasonable.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     120
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Huruglica, 2016 FCA 93",
+    "paragraphs": [
+     5,
+     34,
+     38,
+     39,
+     40
+    ],
+    "authority": "Huruglica",
+    "treatment": "followed",
+    "why": "The Court relied on Huruglica for the standard of review framework and the RAD's role.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "Dunsmuir v New Brunswick, 2008 SCC 9",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     21,
+     22,
+     55,
+     114
+    ],
+    "authority": "Dunsmuir",
+    "treatment": "followed",
+    "why": "The Court applied Dunsmuir to explain correctness and reasonableness standards and deference.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "Singh v Canada (Minister of Employment and Immigration), [1985] 1 SCR 177",
+    "paragraphs": [
+     31
+    ],
+    "authority": "Singh",
+    "treatment": "mentioned",
+    "why": "Referenced by the RAD majority regarding credibility findings on written submissions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "Given my conclusions on the first issue, it is neither appropriate nor necessary for me to comment on the RAD\u2019s Decision insofar as it relates to the merits of the Applicants\u2019 appeal.",
+    "paragraphs": [
+     137
+    ],
+    "issue": "Merits of the appeal",
+    "reason": "The Court did not decide on the merits due to findings on the standard of review issues.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     137
+    ]
+   }
+  ]
+ }
+}

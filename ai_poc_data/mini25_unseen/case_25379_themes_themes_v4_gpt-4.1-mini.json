@@ -1,0 +1,536 @@
+{
+ "case_id": 25379,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 4485,
+  "completion_tokens": 1969,
+  "usd": 0.0061312
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Preliminary procedural context and remedy",
+    "paragraphs": [
+     1,
+     8
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Board Member's handling of evidence and credibility findings",
+    "paragraphs": [
+     2,
+     3
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Board Member's treatment of state protection issue",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     7
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Requirement for redetermination by different Board Member and separate treatment of family claims",
+    "paragraphs": [
+     8
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "No certified question and no costs ordered",
+    "paragraphs": [
+     8
+    ],
+    "disposition": "allowed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 26,
+  "quote_exact_in_cited": 23,
+  "quote_loose_in_cited": 2,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 1,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 1,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 16,
+   "holdings": 10,
+   "rebuttals": 0,
+   "authorities": 0,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.692
+ },
+ "result": {
+  "overall": "The Court allowed the judicial review application, setting aside the Refugee Protection Division decision due to unreasonable credibility findings and inadequate treatment of state protection issues, and ordered a new hearing by a different Board Member with separate consideration of the two family claims.",
+  "themes": [
+   {
+    "name": "Board Member's handling of evidence and credibility findings",
+    "summary": "The Board Member's confusion and insistence on excessive documentation led to unreasonable credibility findings regarding the applicants' claims of persecution and injuries.",
+    "paragraphs": [
+     2,
+     3
+    ]
+   },
+   {
+    "name": "Board Member's treatment of state protection issue",
+    "summary": "The Board Member inadequately addressed the issue of state protection, failing to assess the actual effectiveness of protection available to Roma in Hungary at present.",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "name": "Requirement for redetermination by different Board Member and separate treatment of family claims",
+    "summary": "The Court ordered the matter to be redetermined by a different Board Member and that the claims of the Hercegi and Fekete families be dealt with separately.",
+    "paragraphs": [
+     1,
+     8
+    ]
+   },
+   {
+    "name": "No certified question and no costs ordered",
+    "summary": "The Court declined to certify any question and did not order costs.",
+    "paragraphs": [
+     8
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Board entertained the claims of two family groups: the Hercegi family and the Fekete family.",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board heard the claims of two related Hungarian Roma families together.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "The transcript of the hearings indicates that there were a number of distractions, that the Member had difficulty in following the evidence and, at times, that the translator was overwhelmed.",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The hearing process was disrupted and the Board Member had difficulty following the evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "The reasons of the Board Member reflect confusion as to the evidence in the mind of the member.",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member's reasons show confusion about the evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "This has led to a number of findings, particularly those as to credibility, that are unreasonable.",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member made unreasonable credibility findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "I will mention the insistence of the Board Member to have further, and yet further, documentation to back up some of the evidence given by the claimants.",
+    "paragraphs": [
+     3
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member repeatedly demanded excessive documentation to support the claimants' evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The insistence by the Board Member for yet further documentation was unreasonable.",
+    "paragraphs": [
+     3
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member's demand for more documentation was unreasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The issue of state protection is completely unsatisfactorily dealt with by the Board Member.",
+    "paragraphs": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member inadequately addressed the state protection issue.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "It appears from the structure of the reasons that state protection was addressed only in respect of the Hercegi family and not the Fekete family.",
+    "paragraphs": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member addressed state protection only for the Hercegi family, not the Fekete family.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "The reasons do not address the issue of state protection properly.",
+    "paragraphs": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member failed to properly consider whether Hungary provides adequate state protection currently.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "It is not enough to say that steps are being taken that some day may result in adequate state protection.",
+    "paragraphs": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member erred by considering future efforts rather than current effectiveness of state protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "The evidence is overwhelming that Hungary is unable presently to provide adequate protection to its Roma citizens.",
+    "paragraphs": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The evidence shows Hungary currently fails to provide adequate protection to Roma citizens.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "The Board was required to justify its finding that Ms. E.Y.M.V. had not rebutted the presumption, in a transparent and intelligible way.",
+    "paragraphs": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board must provide transparent and intelligible reasons for findings on state protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ]
+   },
+   {
+    "quote": "The Board did not provide any analysis of the operational adequacy of the efforts undertaken by the government of Honduras and international actors to improve state protection in Honduras.",
+    "paragraphs": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board failed to analyze the operational effectiveness of state protection efforts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ]
+   },
+   {
+    "quote": "In the present case, the Board\u2019s reasoning as to state protection is inadequate and does not address the real issue as to adequacy of state protection for Roma in Hungary at the present time.",
+    "paragraphs": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board's reasoning on state protection for Roma in Hungary is inadequate and incomplete.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "The claimants were not satisfied with the lack of police action, but did not take any steps to register their displeasures with any higher authorities.",
+    "paragraphs": [
+     56
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimants did not complain to higher authorities about police inaction.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ]
+   },
+   {
+    "quote": "The reasons do not show whether, and if so, what, the Member considered as to provisions made by Hungary to provide adequate state protection now to its citizens.",
+    "paragraphs": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The Board Member failed to consider current provisions of state protection in Hungary.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "They do not show whether, and if so, what, the Member considered as to provisions made by Hungary to provide adequate state protection now to its citizens."
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I will set that decision aside and require a new determination by a different Member of the Board.",
+    "paragraphs": [
+     1
+    ],
+    "kind": "conclusion",
+    "statement": "The Court set aside the Board Member's decision and ordered a new hearing by a different Board Member.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "The reasons of the Board Member reflect confusion as to the evidence in the mind of the member.",
+    "paragraphs": [
+     2
+    ],
+    "kind": "reason",
+    "statement": "The Board Member's confusion about the evidence led to unreasonable credibility findings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "The insistence by the Board Member for yet further documentation was unreasonable.",
+    "paragraphs": [
+     3
+    ],
+    "kind": "reason",
+    "statement": "The Board Member's demand for excessive documentation was unreasonable and contributed to the flawed decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The issue of state protection is completely unsatisfactorily dealt with by the Board Member.",
+    "paragraphs": [
+     4
+    ],
+    "kind": "reason",
+    "statement": "The Board Member inadequately addressed the state protection issue, failing to assess current adequacy.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "The reasons do not address the issue of state protection properly.",
+    "paragraphs": [
+     5
+    ],
+    "kind": "reason",
+    "statement": "The Board Member failed to properly consider the actual effectiveness of state protection in Hungary.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   },
+   {
+    "quote": "In the present case, the Board\u2019s reasoning as to state protection is inadequate and does not address the real issue as to adequacy of state protection for Roma in Hungary at the present time.",
+    "paragraphs": [
+     7
+    ],
+    "kind": "reason",
+    "statement": "The Board's reasoning on state protection was inadequate and incomplete.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "This matter is sent back for redetermination by a different Board Member.",
+    "paragraphs": [
+     8
+    ],
+    "kind": "remedy",
+    "statement": "The Court ordered the matter to be redetermined by a different Board Member.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   },
+   {
+    "quote": "The Board should deal separately with the claims of each of the Hercegi and Fekete family.",
+    "paragraphs": [
+     8
+    ],
+    "kind": "remedy",
+    "statement": "The Court ordered separate treatment of the Hercegi and Fekete family claims.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   },
+   {
+    "quote": "There is no question to be certified.",
+    "paragraphs": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The Court declined to certify any question.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   },
+   {
+    "quote": "No costs will be ordered.",
+    "paragraphs": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The Court did not order costs.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ]
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [],
+  "left_open": []
+ }
+}

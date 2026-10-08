@@ -1,0 +1,457 @@
+{
+ "case_id": 26403,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 4775,
+  "completion_tokens": 1986,
+  "usd": 0.0063744000000000006
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties",
+    "paragraphs": [
+     1
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review",
+    "paragraphs": [
+     18
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Reasonableness of Board's findings on credibility and implausibility",
+    "paragraphs": [
+     19,
+     20,
+     22,
+     23
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Remedy: quashing decision and remitting for reconsideration",
+    "paragraphs": [
+     25
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Certification of question",
+    "paragraphs": [
+     25
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 22,
+  "quote_exact_in_cited": 16,
+  "quote_loose_in_cited": 1,
+  "quote_found_elsewhere": 4,
+  "quote_not_found": 1,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 1,
+  "paragraph_numbers_not_in_decision": 3,
+  "rows": {
+   "themes": 4,
+   "arguments": 9,
+   "holdings": 9,
+   "rebuttals": 2,
+   "authorities": 2,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.391
+ },
+ "result": {
+  "overall": "The Court allowed the judicial review, finding the Board's implausibility and credibility findings unreasonable due to lack of evidentiary support and failure to consider relevant evidence, quashing the decision and remitting for reconsideration.",
+  "themes": [
+   {
+    "name": "Credibility and Implausibility Findings",
+    "summary": "The reasonableness of the Board's findings on the applicants' credibility and the implausibility of their claim was central to the Court's review.",
+    "paragraphs": [
+     12,
+     13,
+     18,
+     19,
+     20,
+     22,
+     23
+    ]
+   },
+   {
+    "name": "Evidence Consideration",
+    "summary": "The Board failed to properly consider and analyze evidence relating to persecution risks, including documented murders of civil servants who denounced corruption.",
+    "paragraphs": [
+     20,
+     21,
+     22
+    ]
+   },
+   {
+    "name": "Speculation on Applicant's Motives",
+    "summary": "The Board speculated without evidence that the principal applicant's motive was to retire in Canada, which the Court found unfounded and unreasonable.",
+    "paragraphs": [
+     14,
+     23
+    ]
+   },
+   {
+    "name": "Standard of Review",
+    "summary": "The Court applied the reasonableness standard to the Board's findings on credibility and implausibility.",
+    "paragraphs": [
+     18
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Board rejected the applicants\u2019 refugee claim as it found that the determinative issue was the lack of credibility of their account.",
+    "paragraphs": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicants not credible, which was determinative of the claim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "The Board found it to be implausible that the applicants would be persecuted by the presidential security forces merely because the principal applicant had reported the irregularity while carrying out his duties as a civil servant.",
+    "paragraphs": [
+     13
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the persecution claim implausible based on the nature of the principal applicant's actions.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "The Board concluded that the principal applicant had no other choice but to inform his supervisor that the funds had been transferred to an account managed by the Congolese president and that he was not in possession of these funds.",
+    "paragraphs": [
+     13
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board concluded the principal applicant's reporting was a duty rather than a basis for persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "The Board noted that it was likely that after a long career in the public service, that the applicant merely wanted to retire in Canada.",
+    "paragraphs": [
+     14
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board speculated the applicant's motive was retirement in Canada.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "The Board observed that the applicants had not left the DRC in a hurry but had taken their time to plan their trip and to obtain Canadian visas.",
+    "paragraphs": [
+     14
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicants' departure was planned and not urgent, undermining the claim of persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "The Board also acknowledged that the applicants had submitted substantial documentation indicating the human rights abuses in the DRC.",
+    "paragraphs": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board recognized the existence of human rights abuses in the DRC.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "The Board affirmed that it was aware of the country\u2019s violations.",
+    "paragraphs": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board acknowledged country conditions of human rights violations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "The Board concluded that, as a government employee, the applicant had not presented any evidence which demonstrated that he had been persecuted during his long career and found it unlikely that he would be persecuted now, at the end of his career.",
+    "paragraphs": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found no evidence of past persecution and doubted future risk due to the applicant's career stage.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "The respondent argues that the Board\u2019s speculation about retirement was addressed and discussed during the hearing.",
+    "paragraphs": [
+     23
+    ],
+    "made_by": "respondent",
+    "claim": "The Board's speculation was based on issues discussed during the hearing.",
+    "treatment": "accepted",
+    "outcome_note": "The Court accepted this argument but found the Board ignored it in its decision.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Although the Court accepts the respondent\u2019s argument that this issue was addressed and discussed during the hearing (Tribunal\u2019s Record, pp 317-320 and 826-833), it was completely ignored by the Board in its decision."
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "It is trite law that the Board\u2019s findings on credibility and implausibility are questions of fact and are therefore reviewable according to the standard of reasonableness.",
+    "paragraphs": [
+     18
+    ],
+    "kind": "standard_of_review",
+    "statement": "The Court applies the reasonableness standard to the Board's findings on credibility and implausibility.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The Board could not reasonably make the implausibility finding that it did as it is not based on the documentation on record.",
+    "paragraphs": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The Board's implausibility finding was unreasonable due to lack of evidentiary support.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "The Board\u2019s implausibility finding was not adequately supported by the evidence and was not nourished by content.",
+    "paragraphs": [
+     20
+    ],
+    "kind": "reason",
+    "statement": "The implausibility finding lacked evidentiary support and reasoning.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "The Board could not dismiss this evidence out of hand.",
+    "paragraphs": [
+     22
+    ],
+    "kind": "reason",
+    "statement": "The Board had an obligation to consider evidence of murders of civil servants denouncing corruption.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "quote": "The Board\u2019s decision was unreasonable.",
+    "paragraphs": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Board's failure to consider relevant evidence rendered its decision unreasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "quote": "The Board erred in speculating that the principal applicant merely wished to stay in Canada in order to enjoy his retirement.",
+    "paragraphs": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The Board's speculation on the applicant's motive was unfounded and unreasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "The application is allowed.",
+    "paragraphs": [
+     25
+    ],
+    "kind": "remedy",
+    "statement": "The Court allowed the judicial review application.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "The decision is quashed and the matter is returned for reconsideration by a differently constituted panel of the Board.",
+    "paragraphs": [
+     25
+    ],
+    "kind": "remedy",
+    "statement": "The Court quashed the Board's decision and remitted the matter for reconsideration.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "There is no question for certification.",
+    "paragraphs": [
+     25
+    ],
+    "kind": "other",
+    "statement": "The Court declined to certify a question for appeal.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     23
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The Board found it to be implausible that the applicants would be persecuted by the presidential security forces merely because the principal applicant had reported the irregularity while carrying out his duties as a civil servant.",
+    "paragraphs": [
+     19
+    ],
+    "point": "The Board's implausibility finding on persecution risk",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court found this implausibility finding unsupported by evidence and unreasonable.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "The Board erred in speculating that the principal applicant merely wished to stay in Canada in order to enjoy his retirement.",
+    "paragraphs": [
+     23
+    ],
+    "point": "The Board's speculation on retirement motive",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court found the speculation unfounded and ignored evidence addressing this issue.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "It is trite law that the Board\u2019s findings on credibility and implausibility are questions of fact and are therefore reviewable according to the standard of reasonableness (Aguebor v Canada (Minister of Employment and Immigration) (F.C.A.), [1993] FCJ No 732, 160 NR 315; Hafeez v Canada (Minister of Citizenship and Immigration), 2012 FC 747 at para 13, [2012] FCJ No 798; Cekim v Canada (Minister of Citizenship and Immigration), 2011 FC 177 at para 6, [2011] FCJ No 221; Dunsmuir v New Brunswick, 2008 SCC 9, [2008] 1 SCR 190).",
+    "paragraphs": [
+     18
+    ],
+    "authority": "Aguebor v Canada; Hafeez v Canada; Cekim v Canada; Dunsmuir v New Brunswick",
+    "treatment": "followed",
+    "why": "These cases establish the reasonableness standard for reviewing credibility and implausibility findings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The Board is entitled to make credibility findings based on implausibility, common sense and rationality (Cooper v Canada (Minister of Citizenship and Immigration), 2012 FC 118, [2012] FCJ No 135; Hilo v Canada (Minister of Employment and Immigration) (F.C.A.), [1991] FCJ No 228, 130 NR 236; RKL v Canada (Minister of Citizenship and Immigration), 2003 FCT 116, 228 FTR 43).",
+    "paragraphs": [
+     19
+    ],
+    "authority": "Cooper v Canada; Hilo v Canada; RKL v Canada",
+    "treatment": "followed",
+    "why": "These cases confirm the Board's entitlement to base credibility findings on implausibility and common sense.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

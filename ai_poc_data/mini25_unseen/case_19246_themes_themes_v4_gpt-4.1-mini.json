@@ -1,0 +1,336 @@
+{
+ "case_id": 19246,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 6366,
+  "completion_tokens": 1305,
+  "usd": 0.006641600000000001
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties and tribunal below",
+    "paragraphs": [
+     1
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Issues to be decided by the Court",
+    "paragraphs": [
+     13
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review for credibility findings",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     17
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Issue 1: Reasonableness of Board's finding on claimant's Christian identity based on knowledge",
+    "paragraphs": [
+     18,
+     19,
+     20,
+     21,
+     22
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Issue 2: Reasonableness of Board's adverse credibility finding based on inconsistency in church membership numbers",
+    "paragraphs": [
+     23,
+     24,
+     25,
+     26,
+     27,
+     28
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Conclusion and remedy",
+    "paragraphs": [
+     29
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Certification of question for appeal",
+    "paragraphs": [
+     30
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 13,
+  "quote_exact_in_cited": 13,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 3,
+   "arguments": 4,
+   "holdings": 5,
+   "rebuttals": 1,
+   "authorities": 3,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.4
+ },
+ "result": {
+  "overall": "The Court allowed the judicial review application, finding that the Refugee Protection Division unreasonably assessed the applicant's Christian knowledge and engaged in an impermissible microscopic examination of minor inconsistencies in his testimony, leading to an unreasonable adverse credibility finding.",
+  "themes": [
+   {
+    "name": "Credibility assessment of Christian identity",
+    "summary": "The reasonableness of the Board's finding on the applicant's identity as a practicing Christian based on his knowledge of Christianity.",
+    "paragraphs": [
+     18,
+     19,
+     20,
+     21,
+     22,
+     29
+    ]
+   },
+   {
+    "name": "Adverse credibility finding based on church membership inconsistency",
+    "summary": "Whether the Board unreasonably focused on minor inconsistencies in the applicant's description of the number of members in his underground church.",
+    "paragraphs": [
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29
+    ]
+   },
+   {
+    "name": "Standard of review for credibility findings",
+    "summary": "The applicable standard of review for credibility findings is reasonableness with a high level of deference to the Board's findings.",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     17
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The applicant submits that the Board unreasonably assessed the applicant\u2019s identity as a practicing Christian based on the level of his knowledge of Christianity and the Bible.",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "applicant",
+    "claim": "The Board's assessment of the applicant's Christian knowledge was unreasonable.",
+    "treatment": "accepted",
+    "outcome_note": "The Court found the Board's finding on Christian knowledge unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The respondent submits that the Board reasonably found that the applicant\u2019s unfamiliarity of basic elements of Christianity weakened his claim he was an active member of the Christian faith, especially given the significant period of study that was undertaken in China and later in Canada.",
+    "paragraphs": [
+     19
+    ],
+    "made_by": "respondent",
+    "claim": "The Board reasonably found the applicant's lack of Christian knowledge weakened his claim.",
+    "treatment": "rejected",
+    "outcome_note": "The Court disagreed and found the Board's finding unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "The applicant submits that the Board ignored relevant evidence and engaged in a microscopic examination of the applicant\u2019s testimony with respect to the stated number of members in the applicant\u2019s underground church.",
+    "paragraphs": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The Board engaged in an impermissible microscopic examination of minor inconsistencies in church membership numbers.",
+    "treatment": "accepted",
+    "outcome_note": "The Court found the Board's focus on minor inconsistencies unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "The Board rejected those explanations and drew an adverse credibility finding from the inconsistencies.",
+    "paragraphs": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicant's explanations for inconsistencies in church membership numbers inadequate and drew an adverse credibility inference.",
+    "treatment": "accepted",
+    "outcome_note": "The Court found this adverse credibility finding unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "the appropriate standard of review applicable to credibility and plausibility assessments is that of reasonableness with a high level of curial deference",
+    "paragraphs": [
+     17
+    ],
+    "kind": "standard_of_review",
+    "statement": "The Court applies a reasonableness standard with high deference to the Board's credibility findings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "The Court finds that the Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge, and for this reason the applicant was not credible with respect to his refugee claim on the basis of his Christianity.",
+    "paragraphs": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Board's finding that the applicant lacked reasonable Christian knowledge was unreasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ]
+   },
+   {
+    "quote": "The Court finds that the Board engaged in a microscopic examination of the applicant\u2019s evidence.",
+    "paragraphs": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The Board unreasonably focused on minor inconsistencies in the applicant's testimony regarding church membership numbers.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ]
+   },
+   {
+    "quote": "The Court concludes that the Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge.",
+    "paragraphs": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The overall adverse credibility findings based on Christian knowledge and membership inconsistencies were unreasonable, allowing the judicial review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "Both parties advised the Court that this case does not present a question which ought to be certified for an appeal.",
+    "paragraphs": [
+     30
+    ],
+    "kind": "procedural_point",
+    "statement": "The Court declined to certify a question for appeal.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The Board reasonably found that the applicant\u2019s unfamiliarity of basic elements of Christianity weakened his claim he was an active member of the Christian faith",
+    "paragraphs": [
+     19
+    ],
+    "point": "The Board's finding that the applicant's lack of Christian knowledge weakened his claim",
+    "made_by": "respondent",
+    "court_answer": "The Court found the Board's finding unreasonable and that the applicant demonstrated real knowledge of Christian beliefs.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "The Board relied upon the Federal Court of Appeal\u2019s decision in Sheikh v. Canada (MEI), [1990] 3 F.C. 238 (F.C.A.), per Justice MacGuigan at paragraph 8",
+    "paragraphs": [
+     10
+    ],
+    "authority": "Sheikh v. Canada (MEI)",
+    "treatment": "mentioned",
+    "why": "The Board cited this case to support its adverse credibility findings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "In Dunsmuir v. New Brunswick, 2008 SCC 9, 372 N.R. 1, the Supreme Court of Canada held at paragraph 62 that the first step in conducting a standard of review analysis is to \u201cascertain whether the jurisprudence has already determined in a satisfactory manner the degree of (deference) to be accorded with regard to a particular category of question\u201d",
+    "paragraphs": [
+     14
+    ],
+    "authority": "Dunsmuir v. New Brunswick",
+    "treatment": "followed",
+    "why": "The Court applied the standard of review framework from Dunsmuir.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "In Penghui Wu, supra, I held at paragraph 22 that determining whether one is a genuine Christian by way of \u201ctrivia\u201d is clearly contrary to the case law",
+    "paragraphs": [
+     21
+    ],
+    "authority": "Penghui Wu v. Canada (MCI)",
+    "treatment": "followed",
+    "why": "The Court relied on this precedent to reject a microscopic analysis of Christian knowledge.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

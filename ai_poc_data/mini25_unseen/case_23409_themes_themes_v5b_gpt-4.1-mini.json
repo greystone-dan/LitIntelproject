@@ -1,0 +1,2489 @@
+{
+ "case_id": 23409,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.0291684
+ },
+ "verification": {
+  "items": 131,
+  "quote_exact_in_cited": 131,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 14,
+  "calls": 15,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.967,
+  "rows": {
+   "themes": 5,
+   "arguments": 42,
+   "holdings": 78,
+   "rebuttals": 0,
+   "authorities": 11,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application is allowed because the Refugee Appeal Division (RAD) erred by applying a judicial review standard of reasonableness instead of conducting a proper appellate review of the Refugee Protection Division's (RPD) decision, requiring the matter to be returned to the RAD for redetermination under the correct standard.",
+  "themes": [
+   {
+    "name": "Scope and standard of RAD appellate review",
+    "summary": "The decision extensively discusses the proper scope and standard of review the RAD must apply on appeal, rejecting the judicial review standard of reasonableness and favoring an appellate standard involving palpable and overriding error or a hybrid approach.",
+    "paragraphs": [
+     4,
+     6,
+     8,
+     16,
+     26,
+     29,
+     31,
+     36,
+     40,
+     41,
+     53,
+     54,
+     81
+    ]
+   },
+   {
+    "name": "Judicial comity and conflicting jurisprudence",
+    "summary": "The Court addresses the existence of conflicting decisions among Federal Court judges on the scope of RAD review and emphasizes the importance of judicial comity to maintain certainty in the law until higher courts resolve the issue.",
+    "paragraphs": [
+     42,
+     43,
+     44,
+     45,
+     46,
+     61,
+     62
+    ]
+   },
+   {
+    "name": "Role and expertise of RAD as an appellate body",
+    "summary": "The RAD is characterized as a specialized appellate tribunal with jurisdiction and expertise to conduct an appeal rather than a judicial review, requiring it to independently assess evidence and substitute its own decision if appropriate.",
+    "paragraphs": [
+     12,
+     13,
+     31,
+     36,
+     37,
+     39,
+     41,
+     50,
+     53,
+     54
+    ]
+   },
+   {
+    "name": "Standards of review for findings of fact and law",
+    "summary": "The decision reviews the standards of correctness for questions of law and palpable and overriding error for findings of fact, explaining their application in the context of RAD appeals.",
+    "paragraphs": [
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     38,
+     55,
+     56,
+     81
+    ]
+   },
+   {
+    "name": "Remedy and procedural directions",
+    "summary": "The Court orders the RAD decision set aside and remitted for redetermination under the correct appellate standard, allowing the RAD to apply either the palpable and overriding error or hybrid approach pending higher court guidance.",
+    "paragraphs": [
+     46,
+     47,
+     48,
+     50,
+     51,
+     52,
+     53,
+     54
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and context",
+    "first_paragraph": 1,
+    "last_paragraph": 3,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review applied by RAD",
+    "first_paragraph": 4,
+    "last_paragraph": 5,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Applicant's challenge to RAD's standard of review and scope of appeal",
+    "first_paragraph": 6,
+    "last_paragraph": 7,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Legal analysis of scope of RAD appellate review and standards of review",
+    "first_paragraph": 8,
+    "last_paragraph": 42,
+    "disposition": "other"
+   },
+   {
+    "label": "Judicial comity and conflicting case law among Federal Court judges",
+    "first_paragraph": 43,
+    "last_paragraph": 46,
+    "disposition": "other"
+   },
+   {
+    "label": "Application of case law to current facts and need for RAD to reassess scope of review",
+    "first_paragraph": 47,
+    "last_paragraph": 52,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Conclusion and remedy: setting aside RAD decision and remitting for redetermination",
+    "first_paragraph": 53,
+    "last_paragraph": 54,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Discussion of appellate standards for findings of fact and law",
+    "first_paragraph": 55,
+    "last_paragraph": 56,
+    "disposition": "other"
+   },
+   {
+    "label": "Decision on certification of question of general importance",
+    "first_paragraph": 57,
+    "last_paragraph": 58,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Principle of judicial comity and its exceptions",
+    "first_paragraph": 61,
+    "last_paragraph": 62,
+    "disposition": "other"
+   },
+   {
+    "label": "Summary of appellate standards for administrative tribunals",
+    "first_paragraph": 81,
+    "last_paragraph": 81,
+    "disposition": "other"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "On October 2, 2013, the RPD determined that the applicant is neither a Convention \u201crefugee\u201d or a \u201cperson in need of protection\u201d, under sections 96 and 97 of the Immigration and Refugee Protection Act, SC 2001, c 27 (IRPA).",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Refugee Protection Division determined that the applicant is neither a Convention refugee nor a person in need of protection under sections 96 and 97 of the Immigration and Refugee Protection Act.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant is challenging the legality of a decision of the Refugee Appeal Division (RAD) of the Immigration and Refugee Board (IRB) of Canada, which confirms a previous decision of the Refugee Protection Division (RPD) denying him refugee protection. The applicant appealed this decision to the RAD.",
+    "paragraphs": [
+     1,
+     3
+    ],
+    "evidence_ids": [
+     "1.1",
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1,
+     3
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Refugee Appeal Division confirmed the RPD's decision denying the applicant refugee protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant is challenging the legality of a decision of the Refugee Appeal Division (RAD) of the Immigration and Refugee Board (IRB) of Canada, which confirms a previous decision of the Refugee Protection Division (RPD) denying him refugee protection.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant challenges the legality of the RAD decision confirming the RPD's denial of refugee protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "On January 30, 2014, the sole RAD member designated to hear the matter, Stephen J. Gallagher (member), dismissed the applicant\u2019s appeal.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD member dismissed the applicant's appeal on January 30, 2014.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "First, the member asked what standard of review should be applied to issues raised on appeal by the applicant (RAD decision, paras 11 to 13). Since these are questions of fact (the applicant\u2019s credibility) or mixed fact and law (determination of a generalized risk), he found that the RPD\u2019s decision must be reviewed using the standard of judicial review of reasonableness, as defined in Dunsmuir v New Brunswick, 2008 SCC 9 at para 47 (Dunsmuir) and Newton v Criminal Trial Lawyers\u2019 Association, 2010 ABCA 399 at para 95.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2",
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD member found that the standard of review for questions of fact or mixed fact and law is reasonableness, as defined in Dunsmuir and Newton.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Second, the member refused to hold an oral hearing, being of the view that the new evidence provided by the applicant is not determinative (paras 14 to 18).",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD member refused to hold an oral hearing because the new evidence was not determinative.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "After which, he found that the RPD\u2019s conclusions are, in all respects, reasonable (para 32).",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD member found the RPD's conclusions to be reasonable in all respects.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In summary, the RPD could reasonably conclude that the risk of being enrolled in the Syrian army was speculative as long as the applicant continued to study in Canada (paras 19 to 23).",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD could reasonably conclude that the risk of being enrolled in the Syrian army was speculative as long as the applicant continued to study in Canada.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD\u2019s findings of lack of personalized risk (paras 24 and 25) and implausibility that the applicant is perceived as a political activist by the authorities (paras 26 to 34) are also reasonable.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD's findings of lack of personalized risk and implausibility that the applicant is perceived as a political activist are reasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Therefore, the RAD dismissed the applicant\u2019s appeal, hence this application for judicial review.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD dismissed the applicant's appeal, leading to this application for judicial review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This application for judicial review instead relates to the scope on appeal of the review of evidence in the RPD record that the RAD conducted under sections 110 and 111 of the IRPA. According to the applicant, the interpretation of these provisions raises a question of law, which must be reviewed on a standard of correctness (Budhai v Canada (Attorney General), 2002 FCA 298 at para 22 and Canada (Attorney General) v Hunter, 2013 FCA 12 at para 4).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2",
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The application for judicial review concerns the scope on appeal of the review of evidence in the RPD record that the RAD conducted under sections 110 and 111 of the IRPA, raising a question of law to be reviewed on a standard of correctness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this case, the member did not apply the appropriate mode of analysis. That is sufficient to set aside the RAD decision.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.4",
+     "6.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The member did not apply the appropriate mode of analysis, which is sufficient to set aside the RAD decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Alternatively, the findings regarding generalized risk and implausibility are unreasonable.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "Alternatively, the findings regarding generalized risk and implausibility are unreasonable.",
+    "treatment": "not_decided",
+    "outcome_note": "The Court does not decide this alternative ground here.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The respondent argues that the scope of the review conducted by the RAD on appeal arises from its expertise. In this case, the respondent alleges that the Court should apply the standard of reasonableness to the interpretation that the member made of the scope of the provisions in the IRPA, because although it is a question of law, it is not a question of law of \u201ccentral importance to the legal system as a whole\u201d (Dunsmuir, above at para 60; Alberta (Information and Privacy Commissioner) v Alberta Teachers\u2019 Association, 2011 SCC 61 at para 84 (Alberta Teachers\u2019 Association)).",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The scope of the review conducted by the RAD on appeal arises from its expertise, so the Court should apply the standard of reasonableness to the interpretation of the member regarding the scope of the IRPA provisions.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Moreover, the member did not commit any reviewable error.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The member did not commit any reviewable error.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Indeed, nothing requires the RAD to reassess the evidence presented by a refugee claimant before the RPD, especially since the appeal on the record prepared by the RPD is not a de novo appeal.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "Nothing requires the RAD to reassess the evidence presented by a refugee claimant before the RPD, since the appeal on the record is not a de novo appeal.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this case, both the standard of judicial review of reasonableness and the standard on appeal of palpable and overriding error lead to the same result, that the Court should not intervene.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "Both the standard of judicial review of reasonableness and the standard on appeal of palpable and overriding error lead to the same result, that the Court should not intervene.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It is also the standard of review applied by Member Gallagher in this file and by other members of the RAD up to now.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Member Gallagher and other RAD members apply the reasonableness standard of review to findings of fact and law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This first approach was rejected by the Court as we will see below, but before examining my colleagues\u2019 decisions, let us examine the second approach, which is also applied throughout Canada by the general courts of appeal.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "applicant",
+    "claim": "The first approach of applying reasonableness to findings of fact and law was rejected by the Court.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I now come to the case law of this Court on the scope of the RAD review on appeal.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "The scope of the RAD's review on appeal is limited and must be reassessed in light of case law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "That said, he nevertheless finds that \u201cthis limitation in no way diminishes the jurisdiction conferred upon the RAD to review the evidence that was before the RPD\u201d (at para 35). It follows that to determine whether the RPD\u2019s decision is \u201creasonable\u201d, the RAD must consider the evidence presented to the RPD and conduct \u201can independent assessment of all of the evidence\u201d (at paras 3 and 41).",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2",
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Justice Shore found that the RAD has jurisdiction to review the evidence before the RPD and must conduct an independent assessment of all the evidence to determine if the RPD's decision is reasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In this regard, it is a variation of the third approach proposing a composite and variable standard of review (Huruglica, above).",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Shore's approach is a variation of a composite and variable standard of review for the RAD's appellate function.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I will return to this vital point below, given that it is a finding of law that is not shared by certain members of the Court, including Justice Roy, who wanted to avoid the problem resulting from any [translation] \u201cblurring of lines\u201d (Spasoja, above at para 21).",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Shore's finding that the RAD must conduct an independent assessment of all evidence is a finding of law not shared by some judges, including Justice Roy, who wanted to avoid blurring of lines between standards.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Basing himself on what the Court of Appeal of Quebec wrote in Parizeau, above, and by analogy in the scheme of the IAD, Justice Shore reiterated that the RAD cannot be assimilated to a judicial review body and therefore must not apply the standard of judicial review (Eng, above at paras 23 to 28; Garcia Alvarez, above, at paras 22 to 27). However, this is the appellate-level standard of intervention that a specialized appeal tribunal such as the RAD must apply when reviewing a decision and not the judicial review standard of reasonableness.",
+    "paragraphs": [
+     29,
+     30
+    ],
+    "evidence_ids": [
+     "29.2",
+     "30.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29,
+     30
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Shore in Eng and Garcia Alvarez held that the RAD is not a judicial review body and must not apply the judicial review standard of reasonableness but rather an appellate standard of palpable and overriding error.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "While acknowledging that \u201can appeal before the RAD is not an appeal de novo\u201d (Garcia Alvarez, above at para 25; Eng, above at para 26), Justice Shore explains further:",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Shore acknowledged that an appeal before the RAD is not an appeal de novo.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "\u201cPalpable and overriding error\u201d is often used interchangeably with the \u201cclearly wrong\u201d or \u201cunreasonable\u201d decision test. Even though there are similarities, these standards are different.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1",
+     "30.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "applicant",
+    "claim": "The appellate standard of palpable and overriding error is different from the judicial review standard of reasonableness, though they have similarities.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In Huruglica, above, made on August 22, 2014, Justice Phelan had previously arrived at the same result as Justice Shore in Eng and Garcia Alvarez, above: \u201c[The RAD] should have done more than address the decision from the perspective of \u201creasonableness\u201d. Like Justice Shore, Justice Phelan noted that the RAD is not a judicial review body; therefore, it must not limit itself to assessing the reasonableness of the RPD\u2019s decision (paras 35 to 49).",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.3",
+     "31.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Phelan in Huruglica agreed with Justice Shore that the RAD is not a judicial review body and must do more than assess reasonableness of the RPD's decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "And if a comparison must be made with other administrative appeal schemes, that of the IAD is the most relevant (paras 50 to 53).",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Phelan considered the IAD's scheme the most relevant comparison for the RAD's appellate function.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "According to my colleague, the RAD\u2019s power of intervention in relation to the RPD\u2019s findings of fact is more important than the mere power to intervene when there is a palpable and overriding error:",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Phelan held that the RAD's power to intervene on findings of fact is greater than just intervening for palpable and overriding error.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It is this more nuanced approach that was recently endorsed by Justice Locke in two decisions made on September 10, 2014: Njeukam v Canada (Citizenship and Immigration), 2014 FC 859 (Njeukam), and Yetna v Canada (Citizenship and Immigration), 2014 FC 858 (Yetna). In short, we may speak above of a composite and variable standard of review flowing from a \u201chybrid appeal\u201d and the particular nature of the questions of fact, or mixed fact and law.",
+    "paragraphs": [
+     33,
+     34
+    ],
+    "evidence_ids": [
+     "33.1",
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33,
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Locke endorsed a nuanced composite and variable standard of review for the RAD, depending on the nature of the questions of fact or mixed fact and law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "For example, in Njeukam, above, where it was a pure question of credibility (the RPD\u2019s non-credibility finding was based on the testimony of the refugee claimant herself), the RAD had to show deference (Njeukam, above at paras 18-20). Therefore, the use of the standard of reasonableness was not determinative; Justice Locke dismissed the application for judicial review.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.2",
+     "34.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "In Njeukam, where the RPD's non-credibility finding was based solely on the claimant's testimony, the RAD had to show deference and the reasonableness standard was not determinative.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, in Yetna, above, Justice Locke determined that, since some findings of the RPD on the credibility of the applicant were not based only on her testimony, but also on evidence in the record, the RPD enjoyed no advantage over the RAD when it made its findings and the RAD had to reconsider the evidence on this topic (Yetna, above at paras 21-25). The use of the standard of reasonableness proved fatal and the application for judicial review was allowed by the Court.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.4",
+     "34.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "In Yetna, where the RPD's credibility findings were based on testimony and other evidence, the RAD had no advantage and had to reconsider the evidence; the reasonableness standard was fatal and judicial review was allowed.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The hearings in Njeukam and Yetna took place on July 15 and 16, 2014, before the Eng and Garcia Alvarez decisions were published. The parties did not argue that the decisions of Justice Shore or the standard of palpable and overriding error should be applied.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.2",
+     "35.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "applicant",
+    "claim": "The hearings in Njeukam and Yetna occurred before the publication of Eng and Garcia Alvarez and Huruglica, and the parties did not argue for the palpable and overriding error standard in those cases.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Nevertheless, nothing indicates that Justice Locke requested or received additional arguments from the parties regarding Eng, Alvarez Garcia or Huruglica.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "applicant",
+    "claim": "Nothing indicates Justice Locke requested or received additional arguments regarding Eng, Garcia Alvarez or Huruglica in Njeukam and Yetna.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Justice Roy favoured the application of the standard of palpable and overriding error and set aside the first and third approaches described above.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Roy in Spasoja favoured the palpable and overriding error standard and rejected the first and third approaches that involved deference to the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "After reviewing the legislative scheme governing the RAD, he found that it leaves no room for the RAD to show deference to the RPD: [translation] The legislative scheme does not give any indication that deference was considered by Parliament. Rather, we are facing a scheme where if there is, for example, an error of fact, the matter must be returned to the RPD if a reassessment of the evidence before the RPD is required for a decision. There is no room for deference in such a scheme.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.4",
+     "36.5",
+     "36.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Roy found the legislative scheme governing the RAD leaves no room for deference to the RPD and requires returning the matter to the RPD if reassessment of evidence is needed.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As for the ultimate result, Justice Roy stated that he shared the view of Justice Phelan in Huruglica, above, and the finding that Justice Shore made in Garcia Alvarez and Eng, above (Spasoja at para 12). Like Justice Shore, Justice Roy drew a parallel between the RAD\u2019s scheme and the legislative scheme reviewed in Parizeau, above, and, after analyzing the legislative debates relating to the creation of the RAD, he found that it exercises an appellate function and jurisdiction, not a role of judicial review.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1",
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Roy agreed with Justice Phelan and Justice Shore that the RAD exercises an appellate function and jurisdiction, not judicial review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, Justice Roy indicates that an appeal does not mean a new trial or a reconsideration of the matter in its entirety and that the standard applicable during any appeal should also be applicable to RAD appeals: [translation]",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "made_by": "applicant",
+    "claim": "Justice Roy stated that an appeal does not mean a new trial or reconsideration of the matter in its entirety and that the standard applicable during any appeal should apply to RAD appeals.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Therefore, Justice Roy found that the standards applicable by the RAD are the standards applicable on appeal, i.e. the standard of palpable and overriding error for the RPD\u2019s findings of fact, while the RAD must correct any error of law by the RPD that is determinative.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Justice Roy found that the standards applicable by the RAD are the standards applicable on appeal, i.e. the standard of palpable and overriding error for the RPD\u2019s findings of fact, while the RAD must correct any error of law by the RPD that is determinative.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In his appeal before the RAD, I note that the applicant disputes the findings of generalized risk and implausibility.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant disputes the findings of generalized risk and implausibility made by the RAD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "There is no agreement on either side of the very notion of credibility, or on the applicable test for the inferences that may be drawn by the RPD from the documentary evidence.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "applicant",
+    "claim": "There is disagreement on the notion of credibility and the applicable test for inferences drawn by the RPD from documentary evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The difficulty today is that neither counsel was really able to explain to the Court how the application of the test of palpable and overriding error or of hearing the matter as a hybrid appeal translate in practice in this case.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "applicant",
+    "claim": "Neither counsel could explain how the test of palpable and overriding error or the hybrid appeal standard applies in this case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The applicant is a Syrian national. In 2010, he came to study in Canada. In 2013, with a temporary visa, valid until January 31, 2015, he made a refugee claim.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2",
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant is a Syrian national who came to study in Canada in 2010 and made a refugee claim in 2013 with a temporary visa valid until January 31, 2015."
+   },
+   {
+    "quote": "The fear of the applicant, who is a Sunni, is based on the fact that he risks being forced to join an army accused of participating in war crimes, that he is already perceived by the authorities as a political activist because of his fundraising activities for victims of the civil war and, finally, since his family is rich, that he risks being kidnapped or extorted in Syria.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant fears being forced to join an army accused of war crimes, is perceived as a political activist due to fundraising for civil war victims, and risks kidnapping or extortion because his family is wealthy."
+   },
+   {
+    "quote": "For the reasons that follow, the application for judicial review is allowed by the Court.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "conclusion",
+    "statement": "The Court allows the application for judicial review of the RAD decision."
+   },
+   {
+    "quote": "Nevertheless, I do not believe that the choice of the standard of correctness is determinative in this case, or that it is necessary to define the exact scope of the review conducted by the RAD on appeal.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "conclusion",
+    "statement": "The choice of the standard of correctness is not determinative in this case, nor is it necessary to define the exact scope of the review conducted by the RAD on appeal."
+   },
+   {
+    "quote": "Other colleagues of the Court have ruled on this last issue. Serious questions of general importance regarding the RAD\u2019s jurisdiction and the role on appeal were or are being certified in various matters, but it must be expected that it will take several months before the Federal Court of Appeal or even the Supreme Court of Canada makes a decision.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2",
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "party_gap",
+    "statement": "Other colleagues of the Court have ruled on the issue of the scope of the RAD's review, and serious questions of general importance are pending before higher courts."
+   },
+   {
+    "quote": "It is sufficient to conclude today that the interpretation adopted by Member Gallagher is not an acceptable outcome in respect of the law, as the appeal before the RAD is simply not a judicial review, which is a reviewable error that is determinative in this case (Spasoja c Canada (Citoyennet\u00e9 et Immigration), 2014 CF 913 at paras 3, 9, 11 and 47 (Spasoja)).",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The interpretation adopted by Member Gallagher is not acceptable as the appeal before the RAD is not a judicial review, which is a reviewable error determinative in this case."
+   },
+   {
+    "quote": "Although it is clear on reading the above provisions that the RAD may set aside the RPD\u2019s decision and substitute the decision that should have been made, it must be noted that this does not settle the question of the said [translation] \u201cdeference\u201d that an appeal tribunal should or should not give to findings of fact, or mixed facts and law, by the court of first instance.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD may set aside the RPD's decision and substitute the decision that should have been made, but this does not settle the question of deference owed to findings of fact or mixed fact and law by the RPD."
+   },
+   {
+    "quote": "After all, it was the RPD who heard the witnesses and assessed the probative value of documentary evidence submitted by the parties.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "background_fact",
+    "statement": "The RPD heard witnesses and assessed the probative value of documentary evidence submitted by the parties."
+   },
+   {
+    "quote": "Moreover, the RAD exercises a specialized jurisdiction on appeal at least equal to that of the RPD at trial. Otherwise, the creation of a specialized appeal tribunal for refugee determination would serve no purpose.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.3",
+     "12.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD exercises a specialized jurisdiction on appeal at least equal to that of the RPD at trial, otherwise the creation of a specialized appeal tribunal would serve no purpose."
+   },
+   {
+    "quote": "Additionally, not all RPD decisions may be subject to an appeal to the RAD. For example, even if a country is not part of those that are excluded from an appeal, when the RPD refers in its decision to no credible basis for the refugee claim (subsection 107(2) of the IRPA), there cannot be an appeal before the RAD (paragraph 110(2)(c) of the IRPA).",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "Not all RPD decisions may be subject to an appeal to the RAD, for example, decisions referring to no credible basis for the refugee claim cannot be appealed to the RAD."
+   },
+   {
+    "quote": "Further, the RAD may enter new evidence in an appeal and decide to hold an oral hearing in cases specified by Parliament (subsections 110(3) to (6) of the IRPA). In this last case, it can probably be argued that it is a kind of de novo appeal, a point that I do not have to rule on today.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.3",
+     "13.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD may enter new evidence and hold oral hearings in cases specified by Parliament, which may amount to a kind of de novo appeal, though this is not decided here."
+   },
+   {
+    "quote": "The very concept of \u201cdeference\u201d originated in case law. When Parliament wants to limit the courts\u2019 power of intervention, it will adopt so-called \u201cprivative\u201d clauses. It could also provide that a decision may be set aside for one reason or another, as is the case at subsection 18.1(4) of the Federal Courts Act, RSC 1985, c F-7 (FCA). However, if the text of the Act allows it, the courts will not interpret the grounds for review as standards of review and will have to show more or less deference, depending on the nature of the issues raised by the parties: Dunsmuir, above, and Canada (Citizenship and Immigration) v Khosa, [2009] 1 SCR 339, 2009 SCC 12 (Khosa).",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.2",
+     "14.3",
+     "14.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "legal_test",
+    "statement": "Deference originated in case law and is influenced by privative clauses and statutory provisions, but courts will show varying degrees of deference depending on the nature of the issues raised."
+   },
+   {
+    "quote": "As the Supreme Court of Canada has already decided, with or without a privative clause, a measure of deference is appropriate where a particular decision has been allocated to an administrative decision-maker in matters relating to its role, function and expertise (Dunsmuir, above). Some deference is also owed, regardless of whether the court has had the advantage of either receiving or not receiving a statutory direction, explicit or by necessary implication. These general principles of judicial review are not displaced by section 18.1 of the FCA, which deals essentially with grounds of review of administrative action, and not of standards of review (Khosa, above).",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2",
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "legal_test",
+    "statement": "A measure of deference is appropriate where a decision has been allocated to an administrative decision-maker in matters relating to its role, function and expertise, regardless of explicit statutory direction."
+   },
+   {
+    "quote": "These general principles of judicial review are not displaced by section 18.1 of the FCA, which deals essentially with grounds of review of administrative action, and not of standards of review (Khosa, above).",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "General principles of judicial review are not displaced by section 18.1 of the Federal Courts Act, which deals with grounds of review and not standards of review."
+   },
+   {
+    "quote": "To date, with respect to the case law of the RAD and the Federal Court, on the scope of the review conducted on appeal by the RAD, three different approaches to deference owed to the RPD can be noted: (1) the standard of judicial review, or \u201creasonableness\u201d (decision of Member Gallagher and various other RAD decisions); (2) the standard of appellate review or of \u201cpalpable and overriding error\u201d (Garcia Alvarez, Eng and Spasoja, above); and (3) a composite and variable standard of review resulting from the nature of the claim before the RAD\u2014characterized as a \u201chybrid appeal\u201d\u2014and the particular nature of questions of fact, or of mixed fact and law, raised by an appellant (Huruglica, above).",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "Three different approaches to deference owed to the RPD by the RAD on appeal exist: judicial review standard of reasonableness; appellate review standard of palpable and overriding error; and a composite hybrid appeal standard depending on the nature of the claim."
+   },
+   {
+    "quote": "Deference given to findings of fact or mixed fact and law by a reviewing Court is well known. The following warning again applies: judicial review is not an appeal and is conducted exclusively by superior courts.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2",
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "Deference is given to findings of fact or mixed fact and law by a reviewing court, but judicial review is not an appeal and is conducted exclusively by superior courts."
+   },
+   {
+    "quote": "It is, above all, a review of the lawfulness of the administrative tribunal\u2019s decision, whereas the appeal relates to the merit and opportunity to make a different decision from that of the tribunal of first instance.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "Judicial review focuses on the lawfulness of the administrative tribunal\u2019s decision, whereas an appeal relates to the merit and opportunity to make a different decision from that of the tribunal of first instance."
+   },
+   {
+    "quote": "Characterizing a decision as \u201cunreasonable\u201d, thus allows a court of law, in the absence of a statutory appeal, to ensure that administrative tribunal respects the law and that a palpable injustice will not be committed, so that the legal remedy is to return the matter to the administrative decision-maker and not to make the decision that should have been made.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "Characterizing a decision as unreasonable allows a court to ensure the administrative tribunal respects the law and to remedy palpable injustice by returning the matter to the administrative decision-maker rather than making the decision itself."
+   },
+   {
+    "quote": "The role of a reviewing court is by definition limited. Its analysis will be concerned with the existence of justification, transparency and intelligibility within the decision-making process, and also with whether the decision falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and law (Dunsmuir, above at para 47).",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "legal_test",
+    "statement": "The role of a reviewing court is limited to assessing justification, transparency, intelligibility, and whether the decision falls within a range of reasonable outcomes defensible in fact and law."
+   },
+   {
+    "quote": "It even goes so far as affording great deference to the interpretation that the administrative tribunal may make of its home statute when it does not concern jurisdiction or a question of law of central importance for the system.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "legal_test",
+    "statement": "Great deference is afforded to an administrative tribunal's interpretation of its home statute unless it concerns jurisdiction or a question of law of central importance."
+   },
+   {
+    "quote": "This does not refer to a decision that another decision-maker with knowledge of the same facts and the applicable law may have made, but only to a \u201creasonable\u201d decision\u2014even if it is not the best decision in the circumstances and it opens itself to criticism.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "legal_test",
+    "statement": "A reasonable decision is one that may not be the best but is defensible and not merely a decision another decision-maker might have made."
+   },
+   {
+    "quote": "Further, this is the test that this Court applies to findings of fact, and mixed fact and law, of the RPD in cases where there was no appeal to the RAD (see for example Vitalis v Canada (Citizenship and Immigration), 2014 FC 723 at paras 3-4; Kotai v Canada (Citizenship and Immigration), 2013 FC 693 at para 10; Wei v Canada (Citizenship and Immigration), 2012 FC 854 at paras 39-41).",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "legal_test",
+    "statement": "The reasonableness test applies to findings of fact and mixed fact and law of the RPD where there was no appeal to the RAD."
+   },
+   {
+    "quote": "The standard of review applicable to pure questions of law is that of correctness, while following the standard of review applicable to findings of fact, these findings can only be overturned if it is established that the trial judge committed a palpable and overriding error: Housen v Nikolaisen, [2002] 2 SCR 235, 2002 SCC 33 (Housen).",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "legal_test",
+    "statement": "On appeals, the standard of review for pure questions of law is correctness, and for findings of fact, appellate courts may only overturn if there is a palpable and overriding error."
+   },
+   {
+    "quote": "Therefore, in Housen, the Supreme Court of Canada clearly indicated that, in principle, it is not the role of appellate courts to second-guess the weight assigned by a trial judge to the various items of evidence and it is only when the inference-drawing process itself is palpably in error that an appellate court can interfere with the trial judge\u2019s finding of fact.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "legal_test",
+    "statement": "Appellate courts should not second-guess the weight assigned to evidence by the trial judge unless the inference-drawing process is palpably in error."
+   },
+   {
+    "quote": "In passing, the same high degree of deference should apply to the trial judge\u2019s assessment of the credibility of a witness and the other findings of fact (Housen, above at paras 23 and 24).",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "legal_test",
+    "statement": "A high degree of deference applies to the trial judge's assessment of witness credibility and other findings of fact."
+   },
+   {
+    "quote": "Justice Fish also noted that: Not infrequently, different inferences may reasonably be drawn from facts found by the trial judge to have been directly proven. Appellate scrutiny determines whether inferences drawn by the judge are \u201creasonably supported by the evidence\u201d. If they are, the reviewing court cannot reweigh the evidence by substituting, for the reasonable inference preferred by the trial judge, an equally\u2014or even more\u2014persuasive inference of its own (HL, above at para 74).",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2",
+     "22.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "legal_test",
+    "statement": "Appellate scrutiny determines whether inferences drawn by the judge are reasonably supported by the evidence; courts cannot reweigh evidence by substituting their own inference if the judge's inference is reasonable."
+   },
+   {
+    "quote": "According to my understanding, a palpable and overriding error is thus a clear and discernible error that has an important influence on the outcome of the dispute.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "conclusion",
+    "statement": "A palpable and overriding error is a clear and discernible error that importantly influences the outcome of the dispute."
+   },
+   {
+    "quote": "The Court recognizes that it would be absurd, and contrary to subsection 110(3), to task the RAD with re-examining, for every instance, whether the claimants are in fact refugees or persons in need of protection within the meaning of sections 96 and 97 of the IRPA.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "It would be absurd and contrary to subsection 110(3) to task the RAD with re-examining every instance whether claimants are refugees or persons in need of protection under sections 96 and 97 of the IRPA."
+   },
+   {
+    "quote": "It is clear from the case law that an appellate body cannot substitute its own reasoning for that of a specialized tribunal of first instance, the tribunal of fact, having the advantage of having heard viva voce testimony and with its authority conferred by the Inquiries Act, unless the trial judge made a \u201cpalpable and overriding error\u201d that led to an erroneous result \u2026",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "An appellate body cannot substitute its own reasoning for that of a specialized tribunal of first instance unless the trial judge made a palpable and overriding error that led to an erroneous result."
+   },
+   {
+    "quote": "In this case, the Court is entirely in agreement with the RAD that the standard of review to be applied to findings of fact made by the RPD is reasonableness.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The standard of review to be applied to findings of fact made by the RPD is reasonableness."
+   },
+   {
+    "quote": "It is well established that an appellate body must review the findings of a tribunal of first instance by applying a correctness standard to findings that involve questions of law, and applying a reasonableness standard to those involving questions of mixed fact and law \u2026",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "An appellate body must apply a correctness standard to questions of law and a reasonableness standard to questions of mixed fact and law when reviewing findings of a tribunal of first instance."
+   },
+   {
+    "quote": "That said, the Court finds that in assessing the reasonableness of the decision, the RAD should, at the very least, have reviewed the evidence that was presented before the RPD and conducted an independent assessment of all of the evidence in order to determine whether the RPD, on the basis of the facts and the conditions of the country in question, had properly considered the evidence and reasonably justified its conclusion (Dunsmuir, above; Newfoundland and Labrador Nurses\u2019 Union, above; Alberta Teachers\u2019 Association, above).",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "In assessing reasonableness, the RAD should review the evidence presented before the RPD and conduct an independent assessment of all evidence to determine if the RPD properly considered the facts and country conditions and reasonably justified its conclusion."
+   },
+   {
+    "quote": "According to this trio of judgments by the Supreme Court of Canada, the RAD cannot exempt itself from considering the evidence as a whole.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD cannot exempt itself from considering the evidence as a whole when reviewing the RPD's decision."
+   },
+   {
+    "quote": "As we said above, standards of review are judicial creations. Nonetheless, once established, they must be respected by the courts just as any other rule of law. And what gives the rule of law its precedence is its universality: It applies equally to all; there is no place for judicial or administrative discretion.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1",
+     "42.2",
+     "42.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Standards of review are judicial creations but once established must be respected by courts as rules of law with universality and no discretion."
+   },
+   {
+    "quote": "Further, following the principle of judicial comity and, unless certain exceptions apply, a judge of this Court should not deviate from decisions made by his or her colleagues to avoid creating a situation of uncertainty in the law. It would be expected that the principle of judicial comity is particularly important in immigration matters, since under the IRPA, decisions of this Court may uniquely be subject to an appeal to the Federal Court of Appeal if a question of general importance is certified.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.4",
+     "42.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Judicial comity requires judges not to deviate from colleagues' decisions except in certain exceptions to avoid uncertainty in the law, especially important in immigration matters subject to appeal to the Federal Court of Appeal."
+   },
+   {
+    "quote": "Therefore, it is desirable to have some consistency in the Court\u2019s decisions. Yes, the judge can make the law, but when each judge makes his or her own law, the rule law that is no longer applied withers. To use descriptive language, the law loses weight and this unbearable lightness of being makes it irrelevant, leaving more room than is needed for administrative or legal discretion.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.6",
+     "42.7",
+     "42.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Consistency in the Court\u2019s decisions is desirable to maintain the rule of law and avoid excessive administrative or legal discretion."
+   },
+   {
+    "quote": "Today, I feel as though I face an Olympic dilemma: I am asked to choose between two contradictory approaches (the first approach having been eliminated) adopted by colleagues of the Court.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "kind": "background_fact",
+    "statement": "The Court faces conflicting approaches adopted by colleagues regarding the scope of appellate review by the RAD."
+   },
+   {
+    "quote": "I repeat: the principle of judicial comity aims therefore to prevent the creation of conflicting lines of jurisprudence and to encourage certainty in the law.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "The principle of judicial comity aims to prevent conflicting jurisprudence and encourage legal certainty."
+   },
+   {
+    "quote": "Generally, a judge should follow a decision on the same question of one of his or her colleagues, unless the previous decision differs in the facts, a different question is asked, the decision is clearly wrong or the application of the decision would create an injustice.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "Generally, a judge should follow a colleague's decision on the same question unless facts differ, a different question is asked, the decision is clearly wrong, or its application would create injustice."
+   },
+   {
+    "quote": "Judicial comity requires much humility and mutual respect. If the rule of law does not tolerate arbitrariness, judicial comity, its loyal companion, relies on reason and the good judgement of each person.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.3",
+     "45.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "Judicial comity requires humility, mutual respect, reason, and good judgment among judges."
+   },
+   {
+    "quote": "Failing a final judgment from the highest court, respect for the other\u2019s opinion can speak volumes.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "In absence of a final judgment from the highest court, respect for other judges' opinions is important."
+   },
+   {
+    "quote": "In short, judicial comity is elegance incarnate in the person of the magistrate who respects the value of precedents.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "Judicial comity embodies the magistrate's respect for the value of precedents."
+   },
+   {
+    "quote": "From the point of view of the facts, this case does not call for a reconsideration of the principles of law applicable or for a new interpretation of sections 110 and 111 of the IRPA.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "This case does not require reconsideration of legal principles or new interpretation of sections 110 and 111 of the IRPA."
+   },
+   {
+    "quote": "The issue is always the same question of law or of jurisdiction relating to scope of the appellate review conducted by the RAD.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The issue remains the same question of law or jurisdiction about the scope of appellate review by the RAD."
+   },
+   {
+    "quote": "Further, it cannot be said that Justices Shore, Phelan or Roy did not thoroughly canvas the relevant law or case law. However, they seemed to interpret the law differently and contradictorily, as we saw above.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.3",
+     "46.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "Justices Shore, Phelan, and Roy thoroughly considered relevant law and case law but interpreted it differently and contradictorily."
+   },
+   {
+    "quote": "The learned counsel for the respondent did not succeed in persuading me that the exclusion by my colleagues of the first approach discussed above is clearly wrong in law.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The Court is not persuaded that excluding the first approach to appellate review is clearly wrong in law."
+   },
+   {
+    "quote": "For the same reasons as my colleagues, I conclude that in applying the standard of judicial review of reasonableness, Member Gallagher committed a reviewable error in law: the RAD is an appellate body, not a judicial review body and it must not assess its role based on criteria of judicial review.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "Applying the standard of judicial review of reasonableness by Member Gallagher was a reviewable error in law because the RAD is an appellate body, not a judicial review body, and must not assess its role based on judicial review criteria."
+   },
+   {
+    "quote": "The matter must be returned to the RAD.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "remedy",
+    "statement": "The matter must be returned to the RAD for redetermination."
+   },
+   {
+    "quote": "I chose the middle path, that of wisdom: allow the RAD to apply the second or third approach as long as the question of the scope of the appellate review of the RPD\u2019s decisions has not been settled by a final judgment by the Federal Court of Appeal or the Supreme Court of Canada.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The Court adopts a middle path allowing the RAD to apply the second or third approach until the scope of appellate review is settled by a final judgment of the Federal Court of Appeal or Supreme Court of Canada."
+   },
+   {
+    "quote": "Because of its expertise, as a specialized appeal tribunal, I feel that it is the kind of question that the RAD can easily settle and should have the chance to decide, preferably before the Federal Court of Appeal or the Supreme Court of Canada do (without having perhaps the benefit of knowing the RAD\u2019s point of view).",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD, as a specialized appeal tribunal, should have the chance to settle the question of the scope of review before higher courts do."
+   },
+   {
+    "quote": "Moreover, the RAD has the power to standardize the law by decisions that have the value of precedent.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD has the power to standardize the law by decisions that have the value of precedent."
+   },
+   {
+    "quote": "In this regard, section 163 of the IRPA provides that before all divisions of the Immigration and Refugee Board (IRB), matters are heard by a single member unless the Chairperson considers it necessary to designate a three-member panel.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "background_fact",
+    "statement": "Section 163 of the IRPA provides that matters before the IRB are heard by a single member unless the Chairperson designates a three-member panel under certain criteria."
+   },
+   {
+    "quote": "According to the IRB Web site, when it concerns the RAD, the Chairperson will constitute a three-member panel if at least one of the following criteria is met: \u2022 The appeal raises unusually complex or emerging legal issues. \u2022 The appeal raises an issue in an area in which there is significant divergence or inconsistency in decision-making at either the RAD or the RPD. \u2022 The appeal raises a serious question of general importance. \u2022 The appeal raises an issue that may have a significant impact on practice and procedure at either the RAD or the RPD. \u2022 Any other relevant circumstances exist that make it appropriate that a three-member panel be designated.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "background_fact",
+    "statement": "The IRB Chairperson may designate a three-member RAD panel if the appeal raises complex legal issues, significant divergence in decision-making, serious questions of general importance, or other relevant circumstances."
+   },
+   {
+    "quote": "Member Gallagher, who made the impugned decision in January 2014, cannot be criticized for not considering the case law of the Court cited above. It simply did not exist.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.1",
+     "50.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "Member Gallagher cannot be criticized for not considering recent case law as it did not exist at the time of the decision."
+   },
+   {
+    "quote": "However, in this file and in the future the RAD should reassess the scope of the review that it conducts on appeal in light of the precedents of the Court, which propose two different approaches.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD should reassess the scope of its appellate review in light of recent Court precedents proposing two different approaches."
+   },
+   {
+    "quote": "That said, nothing prevents the Chairperson of the IRB to constitute a three-member panel of the RAD to hear the case, which could confer the value of precedent on the RAD decision under paragraph 171(c) of the IRPA, and on the approach used.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The IRB Chairperson may constitute a three-member RAD panel to confer precedent value on decisions and approaches used."
+   },
+   {
+    "quote": "For practical reasons, if we wish to be pragmatic, our Court may have to resolve\u2014so long as the Federal Court of Appeal and the Supreme Court of Canada have not ruled on the issue\u2014not to intervene in judicial review when the RAD applies the second or third approach.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "The Court may pragmatically choose not to intervene in judicial review when the RAD applies the second or third approach until higher courts rule on the issue."
+   },
+   {
+    "quote": "In this case, since it is impossible for the RAD to simultaneously follow both approaches, there would be chaos if each judge of this Court adopted one of the two approaches and referred back to the RAD the decisions that applied the other approach instead.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "It would cause chaos if different judges of this Court adopted different approaches and referred back decisions applying the other approach."
+   },
+   {
+    "quote": "In our hierarchical justice system, the RAD must give effect to the judgments of this Court and it should wait for the urbi et orbi benediction of the Federal Court of Appeal or of the Supreme Court of Canada itself, before imposing any desire to apply the reasonableness standard of judicial review in any appeal of an RPD decision.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD must give effect to this Court's judgments and await higher court rulings before applying the reasonableness standard of judicial review in RPD appeals."
+   },
+   {
+    "quote": "Prudence is required, I do not believe that it would be wise on my part to speculate on this topic, or to express a final opinion regarding the scope of the RAD\u2019s appellate review.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The Court declines to speculate or express a final opinion on the scope of the RAD's appellate review at this time."
+   },
+   {
+    "quote": "If it can be said that the first approach became moot (the standard of judicial review of reasonableness was rejected by the Court), the person who could predict today which of the other two approaches would finally prevail would be quite clever; especially since the situation could again change as other judges choose to rule on the issue.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The first approach to judicial review became moot after rejection of the reasonableness standard, and it is uncertain which of the other two approaches will prevail."
+   },
+   {
+    "quote": "In conclusion, whether it is a question of jurisdiction or a question of interpretation falling within the RAD\u2019s specialized expertise, in this case, the applicant did not have the appeal that he is allowed under the IRPA since the RAD chose to apply a standard of review of reasonableness corresponding to an application for judicial review, such that this application for judicial review must be allowed and the matter returned to the RAD for redetermination of the appeal (Spasoja, above at paras 2, 3 and 47).",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "The applicant did not have the appeal he is allowed under the IRPA because the RAD applied a standard of review of reasonableness corresponding to judicial review, so this application for judicial review must be allowed and the matter returned to the RAD for redetermination of the appeal."
+   },
+   {
+    "quote": "Having concluded that the RAD erred in reviewing the RPD\u2019s decision on the standard of reasonableness, I have further concluded that for the reasons above, the RAD is required to conduct a hybrid appeal.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD erred in reviewing the RPD's decision on the standard of reasonableness and is required to conduct a hybrid appeal."
+   },
+   {
+    "quote": "It must review all aspects of the RPD\u2019s decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection."
+   },
+   {
+    "quote": "Where its assessment departs from that of the RPD, the RAD must substitute its own decision.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "conclusion",
+    "statement": "Where the RAD's assessment departs from that of the RPD, the RAD must substitute its own decision."
+   },
+   {
+    "quote": "\u2026 [A]n appellate court will not interfere with the trial judge\u2019s findings of fact unless it can plainly identify the imputed error, and that error is shown to have affected the result.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "legal_test",
+    "statement": "An appellate court will not interfere with the trial judge\u2019s findings of fact unless it can plainly identify the imputed error, and that error is shown to have affected the result."
+   },
+   {
+    "quote": "In my respectful view, the test is met as well where the trial judge\u2019s findings of fact can properly be characterized as \u201cunreasonable\u201d or \u201cunsupported by the evidence\u201d. \u2026 [A]s a matter of principle, it seems to me that unreasonable findings of fact\u2014relating to credibility, to primary or inferred \u201cevidential\u201d facts, or to facts in issue\u2014are reviewable on appeal because they are \u201cpalpably\u201d or \u201cclearly\u201d wrong.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "The test for appellate intervention is also met where the trial judge\u2019s findings of fact are unreasonable or unsupported by the evidence, as such findings are reviewable on appeal because they are palpably or clearly wrong."
+   },
+   {
+    "quote": "The same is true of findings that are unsupported by the evidence.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "Findings of fact that are unsupported by the evidence are reviewable on appeal."
+   },
+   {
+    "quote": "I need hardly repeat, however, that appellate intervention will only be warranted where the court can explain why or in what respect the impugned finding is unreasonable or unsupported by the evidence. And the reviewing court must of course be persuaded that the impugned factual finding is likely to have affected the result.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.3",
+     "56.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "legal_test",
+    "statement": "Appellate intervention is only warranted where the court can explain why or in what respect the impugned finding is unreasonable or unsupported by the evidence, and the impugned factual finding is likely to have affected the result."
+   },
+   {
+    "quote": "Certifying the same question in all RAD files subject to judicial review with this Court would certainly not allow \u201ctimely\u201d interventions.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "kind": "conclusion",
+    "statement": "Certifying the same question in all RAD files subject to judicial review with this Court would not allow timely interventions."
+   },
+   {
+    "quote": "No question will be certified in this file by the Court.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "kind": "conclusion",
+    "statement": "No question will be certified in this file by the Court."
+   },
+   {
+    "quote": "The principle of judicial comity is well-recognized by the judiciary in Canada. Applied to decisions rendered by judges of the Federal Court, the principle is to the effect that a substantially similar decision rendered by a judge of this Court should be followed in the interest of advancing certainty in the law \u2026",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.1",
+     "61.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "legal_test",
+    "statement": "The principle of judicial comity requires that a substantially similar decision rendered by a judge of the Federal Court should be followed to advance certainty in the law."
+   },
+   {
+    "quote": "There are a number of exceptions to the principle of judicial comity as expressed above they are: 1. The existence of a different factual matrix or evidentiary basis between the two cases; 2. Where the issue to be decided is different; 3. Where the previous condition failed to consider legislation or binding authorities that would have produced a different result, i.e., was manifestly wrong; and; 4. The decision it followed would create an injustice.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.1",
+     "62.2",
+     "62.3",
+     "62.4",
+     "62.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "kind": "legal_test",
+    "statement": "There are exceptions to the principle of judicial comity, including: 1. different factual matrix or evidentiary basis; 2. different issue to be decided; 3. previous decision failed to consider legislation or binding authorities and was manifestly wrong; 4. following the decision would create an injustice."
+   },
+   {
+    "quote": "The Supreme Court and our court have consistently repeated the following instruction: the appeal tribunal may, in principle, correct any error of law in the decision under appeal or any palpable and overriding error in the determination of the facts or in the application of law (if it was correctly determined) to the facts.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal tribunal may correct any error of law or any palpable and overriding error in the facts or in the application of law to facts."
+   },
+   {
+    "quote": "This standard is just as valid for the appeals filed with administrative tribunals and the standard for intervention developed in matters of judicial appeal may certainly be transposed to the quasi-judicial appeal, with reservations and modifications required by the particular law of each case and the general rules of administrative law.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "conclusion",
+    "statement": "The standard for intervention in judicial appeals can be applied to quasi-judicial appeals with necessary reservations and modifications."
+   },
+   {
+    "quote": "The error of fact must be palpable and overriding to succeed on appeal.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "legal_test",
+    "statement": "An error of fact must be palpable and overriding to succeed on appeal."
+   },
+   {
+    "quote": "The standard of correctness prevails for questions of law.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of correctness applies to questions of law on appeal."
+   },
+   {
+    "quote": "I do not see why it should not be so in an administrative appeal.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "conclusion",
+    "statement": "The standard of correctness for questions of law should apply in administrative appeals."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "According to settled law from this Court, it seems that the standard of correctness should be applied to the scope of the review conducted by the RAD on appeal (Iyamuremye v Canada (Citizenship and Immigration), 2014 FC 494 at para 20 (Iyamuremye); Garcia Alvarez v Canada (Citizenship and Immigration), 2014 FC 702 at para 17 (Garcia Alvarez); Eng v Canada (Citizenship and Immigration), 2014 FC 711 at para 18 (Eng); Huruglica v Canada (Citizenship and Immigration), 2014 FC 799 at paras 24 to 34 (Huruglica)).",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "authority": "The standard of correctness should be applied to the scope of the review conducted by the RAD on appeal, according to settled law from this Court.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Paragraphs 110(1) and 111(1) and (2) of the IRPA state: 110. (1) Subject to subsections (1.1) and (2), a person or the Minister may appeal, in accordance with the rules of the Board, on a question of law, of fact or of mixed law and fact, to the Refugee Appeal Division against a decision of the Refugee Protection Division to allow or reject the person\u2019s claim for refugee protection. 110. (1) Sous r\u00e9serve des paragraphes (1.1) et (2), la personne en cause et le ministre peuvent, conform\u00e9ment aux r\u00e8gles de la Commission, porter en appel \u2014 relativement \u00e0 une question de droit, de fait ou mixte \u2014 aupr\u00e8s de la Section d\u2019appel des r\u00e9fugi\u00e9s la d\u00e9cision de la Section de la protection des r\u00e9fugi\u00e9s accordant ou rejetant la demande d\u2019asile. \u2026 [\u2026] 111. (1) After considering the appeal, the Refugee Appeal Division shall make one of the following decisions: (a) confirm the determination of the Refugee Protection Division; (b) set aside the determination and substitute a determination that, in its opinion, should have been made; or (c) refer the matter to the Refugee Protection Division for re-determination, giving the directions to the Refugee Protection Division that it considers appropriate. 111. (1) La Section d\u2019appel des r\u00e9fugi\u00e9s confirme la d\u00e9cision attaqu\u00e9e, casse la d\u00e9cision et y substitue la d\u00e9cision qui aurait d\u00fb \u00eatre rendue ou renvoie, conform\u00e9ment \u00e0 ses instructions, l\u2019affaire \u00e0 la Section de la protection des r\u00e9fugi\u00e9s. \u2026 [\u2026] (2) The Refugee Appeal Division may make the referral described in paragraph (1)(c) only if it is of the opinion that (2) Elle ne peut proc\u00e9der au renvoi que si elle estime, \u00e0 la fois : (a) the decision of the Refugee Protection Division is wrong in law, in fact or in mixed law and fact; and a) que la d\u00e9cision attaqu\u00e9e de la Section de la protection des r\u00e9fugi\u00e9s est erron\u00e9e en droit, en fait ou en droit et en fait; (b) it cannot make a decision under paragraph 111(1)(a) or (b) without hearing evidence that was presented to the Refugee Protection Division. b) qu\u2019elle ne peut confirmer la d\u00e9cision attaqu\u00e9e ou casser la d\u00e9cision et y substituer la d\u00e9cision qui aurait d\u00fb \u00eatre rendue sans tenir une nouvelle audience en vue du r\u00e9examen des \u00e9l\u00e9ments de preuve qui ont \u00e9t\u00e9 pr\u00e9sent\u00e9s \u00e0 la Section de la protection des r\u00e9fugi\u00e9s.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2",
+     "11.3",
+     "11.4",
+     "11.5",
+     "11.6",
+     "11.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "authority": "Paragraphs 110(1) and 111(1) and (2) of the IRPA set out the RAD's jurisdiction to hear appeals on questions of law, fact or mixed law and fact, and the powers of the RAD to confirm, set aside, substitute or refer decisions.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "More specific information as to the scope of the standard of palpable and overriding error was later provided by the Supreme Court of Canada in HL v Canada (Attorney General), 2005 SCC 25 (HL). Justice Fish, writing for the majority, explained that the standard of palpable and overriding error applies to all the trial judge\u2019s findings of fact, including those relating to credibility, the facts proven directly, the facts inferred and the overall assessment of the evidence.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "authority": "HL v Canada (Attorney General), 2005 SCC 25 explains that palpable and overriding error applies to all trial judge's findings of fact including credibility and overall evidence assessment.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "\u201cPalpable and overriding\u201d error was also defined as follows by the Court of Appeal of Quebec in Parizeau c Barreau du Qu\u00e9bec, 2011 QCCA 1498 at para 91 (Parizeau): [translation] Palpable and overriding error is an error that, in its undeniability \u2013 and therefore not a difference of opinion on the assessment of the evidence \u2013 determines the outcome of the dispute in that the conclusion of the trier of fact, i.e. the result of his or her decision, cannot hold, thus, ipso facto, making the decision unreasonable.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "authority": "Parizeau c Barreau du Qu\u00e9bec defines palpable and overriding error as an undeniable error that determines the outcome and makes the decision unreasonable.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Court of Appeal of Quebec had previously provided the following explanations in Regroupement des CHSLD Christ-Roy (Centre hospitalier, soins longue dur\u00e9e) c Comit\u00e9 provincial des malades, 2007 QCCA 1068 at para 55: [translation] An error in the determination of a fact in issue is only palpable if its immediacy or obviousness is clearly identified in the reassessment of the relevant part of the evidence and a different finding on this fact in issue ought to be mafa necessary basis in fact, thereby leading to a false operative part of the trial decision and requiring the reworking of this part for that reason.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "authority": "Regroupement des CHSLD Christ-Roy explains palpable error requires obviousness in reassessment of evidence leading to a necessary different finding affecting the trial decision.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The first decision on this topic was made on May 26, 2014, in Iyamuremye, above. In this decision, Justice Shore indicated that the role of the RAD is not that of judicial review, but rather of appeal and that the RAD had to consider all the evidence and make its own assessment (at paras 30-38). However, on questions of fact, Justice Shore indicates that a certain degree of deference is required, which corresponds to the standard of \u201creasonableness\u201d (at paras 2 and 40). It is also a question of \u201cpalpable and overriding error\u201d (at paras 1 and 39).",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1",
+     "26.2",
+     "26.3",
+     "26.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "authority": "Iyamuremye decision states the RAD's role is appellate, requiring consideration of all evidence and its own assessment, with deference on fact questions corresponding to reasonableness and palpable and overriding error standards.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As Justice Wilson stated in Re Hansard Spruce Mills Ltd, [1954] 4 DLR 590 (BCSC), the statements of which were recalled by this Court in Alfred v Canada (Minister of Citizenship and Immigration), 2005 FC 1134 at para 15: I have no power to overrule a brother Judge, I can only differ from him, and the effect of my doing so is not to settle but rather to unsettle the law, because, following such a difference of opinion, the unhappy litigant is confronted with conflicting opinions emanating from the same Court and therefore of the same legal weight.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "authority": "Justice Wilson in Re Hansard Spruce Mills Ltd stated that a judge cannot overrule a brother judge but can differ, which unsettles the law due to conflicting opinions of equal weight.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Almrei v Canada (Citizenship and Immigration), 2007 FC 1025, Justice Lemieux summarized the possible exceptions to the principle of judicial comity:",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "authority": "Justice Lemieux in Almrei summarized exceptions to judicial comity.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Xie v Canada (Minister of Employment and Immigration) (1994) 75 FTR 125 (FC) (Xie), the Court stated that even if it had the jurisdiction to refer the case back for determination in accordance with such directions as it considers to be appropriate, the Court should leave the specialized tribunals the right to exercise their jurisdiction and make decisions on merit based on the evidence before them (at para 18). Therefore, it is only in exceptional cases that the Court will give directions equivalent to a directed verdict and this power will only be rarely used when the issue is of a factual nature (Xie, above at para 18; Canada (Minister of Human Resources Development) v Rafuse, 2002 FCA 31 at para 14).",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1",
+     "48.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "authority": "In Xie v Canada, the Court stated that specialized tribunals should be allowed to exercise their jurisdiction and make merit decisions based on evidence, and courts should only rarely give directions equivalent to a directed verdict in factual matters.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "That is what the Court had resolved to do in the citizenship appeals while the citizenship judges could opt for either of the three approaches developed by Justices Muldoon and Reed, and Associate Chief Justice Thurlow (as he then was) (Lam v Canada (Minister of Citizenship and Immigration), 1999 CanLII 7776 (FC), 164 FTR 177, 87 ACWS (3d) 432).",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "authority": "The Court previously resolved not to intervene in citizenship appeals when judges applied different approaches, to avoid chaos from conflicting decisions.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As the Federal Court of Appeal stated in Varela v Canada (Citizenship and Immigration), 2009 FCA 145, the provision preventing any appeal to the Federal Court of Appeal unless a question is certified \u201cfits within a larger scheme designed to ensure that a claimant\u2019s right to seek the intervention of the courts is not invoked lightly, and that such intervention, when justified, is timely\u201d (at para 23).",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "authority": "The provision preventing any appeal to the Federal Court of Appeal unless a question is certified fits within a larger scheme designed to ensure that a claimant\u2019s right to seek the intervention of the courts is not invoked lightly, and that such intervention, when justified, is timely.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

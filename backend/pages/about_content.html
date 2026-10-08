@@ -37,6 +37,8 @@
 
 .ilit-about .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
 .ilit-about .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ilit-about .grid.glance4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:1000px){.ilit-about .grid.glance4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .ilit-about .card{padding:14px 16px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
 .ilit-about .card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
 .ilit-about a.card.go{display:block;color:inherit;text-decoration:none}
@@ -106,7 +108,7 @@
 
 @media (max-width:760px){
   .ilit-about h1{font-size:28px}
-  .ilit-about .grid,.ilit-about .grid.three,.ilit-about .soon-list{grid-template-columns:minmax(0,1fr)}
+  .ilit-about .grid,.ilit-about .grid.three,.ilit-about .grid.glance4,.ilit-about .soon-list{grid-template-columns:minmax(0,1fr)}
   .ilit-about .status-list div{grid-template-columns:minmax(0,1fr);gap:4px}
 }
 @media (max-width:520px){
@@ -137,6 +139,16 @@
     </div>
     <span class="ilit-tour-start-note">The tour walks through the real site, one step at a time, and you can leave it whenever you like.</span>
   </header>
+
+  <section id="aboutGlance">
+    <h2>At a glance</h2>
+    <div class="grid glance4">
+      <div class="card"><span class="k">What</span><p>A website to search and read Canadian immigration decisions, with the cases and laws they rely on.</p></div>
+      <div class="card"><span class="k">Who</span><p>Built for CBSA’s Hearings and Litigation Division; open to anyone who reads these decisions.</p></div>
+      <div class="card"><span class="k">Why</span><p>Litigation keeps growing, and the public information about it is scattered and hard to use.</p></div>
+      <div class="card"><span class="k">How</span><p>Public decisions are gathered into one database and read by fixed rules. No AI is used when you search.</p></div>
+    </div>
+  </section>
 
   <section id="aboutWho">
     <h2>Who it is for</h2>

@@ -1,0 +1,446 @@
+{
+ "case_id": 1046,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v4",
+ "run": "themes_loop_r3",
+ "usage": {
+  "prompt_tokens": 5460,
+  "completion_tokens": 2238,
+  "usd": 0.036789999999999996
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Standard of review",
+    "paragraphs": [
+     4
+    ],
+    "disposition": "assumed_without_deciding"
+   },
+   {
+    "label": "Extension of time for leave to appeal: error by Board member",
+    "paragraphs": [
+     18
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Leave to appeal: error by Board member",
+    "paragraphs": [
+     3
+    ],
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "Remedy: set aside and remit to different Board member",
+    "paragraphs": [
+     19
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Procedural fairness: ex parte decision and Board procedures",
+    "paragraphs": [
+     20
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Costs",
+    "paragraphs": [
+     21
+    ],
+    "disposition": "not_decided"
+   }
+  ]
+ },
+ "verification": {
+  "items": 22,
+  "quote_exact_in_cited": 21,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 1,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 4,
+   "holdings": 12,
+   "rebuttals": 2,
+   "authorities": 3,
+   "left_open": 1
+  },
+  "paragraph_coverage": 0.762
+ },
+ "result": {
+  "overall": "The Court set aside the Board member's decision granting an extension of time and leave to appeal, finding the extension was granted without a principled approach and unsupported by evidence, and remitted the matter for redetermination by a different Board member.",
+  "themes": [
+   {
+    "name": "Extension of time criteria",
+    "summary": "The Court emphasized that extensions of time are not automatic and must be granted based on established criteria, including explanation for delay and prejudice to the other party.",
+    "paragraphs": [
+     7,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Procedural fairness and Board process",
+    "summary": "The Court noted concerns about the ex parte nature of the Board's decision and the lack of reasons, but declined to require procedural changes.",
+    "paragraphs": [
+     10,
+     15,
+     16,
+     20
+    ]
+   },
+   {
+    "name": "Standard of review",
+    "summary": "The Court assumed without deciding the standard of review, finding the decision unreasonable on any standard.",
+    "paragraphs": [
+     4
+    ]
+   },
+   {
+    "name": "Remedy and directions on remittal",
+    "summary": "The Court set aside the decision and provided guidance for the Board on remittal, specifying the factors to be considered.",
+    "paragraphs": [
+     18,
+     19
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Minister alleges that the member designate of the Board erred in granting (a) an extension of time and (b) leave to appeal.",
+    "paragraphs": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The Board member erred in granting both an extension of time and leave to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "The Court agreed the member erred in extending time, which was dispositive.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "the Applicant submits that, in spite of this discretionary nature of the decision, I should apply a standard of review of reasonableness simpliciter (Callihoo v. Canada, [2000] F.C.J. No. 612 (T.D.))",
+    "paragraphs": [
+     4
+    ],
+    "made_by": "applicant",
+    "claim": "The standard of review should be reasonableness simpliciter.",
+    "treatment": "not_decided",
+    "outcome_note": "The Court did not decide the standard of review, finding the decision unreasonable on any standard.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Callihoo v. Canada",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "Her reasons, as set out in her initial letter to the Board dated February 8, 2004, were as follows: Ms. Gattellaro did not act earlier on this due to many difficulties in her life.",
+    "paragraphs": [
+     12,
+     13
+    ],
+    "made_by": "respondent",
+    "claim": "The delay was due to depression, marital problems, raising young children, lack of understanding of the process, and abandonment by her representative.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found these reasons unsupported by the evidence and inconsistent with the record.",
+    "changed_result": true,
+    "gap": "No affidavit or supporting evidence provided on judicial review.",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "No reasons were provided. Further, the decision was taken ex parte, without notice to or submissions from the Minister.",
+    "paragraphs": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The Board's ex parte decision and lack of reasons was procedurally unfair.",
+    "treatment": "not_decided",
+    "outcome_note": "The Court noted the concern but declined to require procedural changes.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     2
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I do not need to reach a conclusion on the appropriate standard since I am satisfied that, on any standard of review, the decision should not stand.",
+    "paragraphs": [
+     4
+    ],
+    "kind": "standard_of_review",
+    "statement": "The Court assumed without deciding the standard of review, finding the decision unreasonable on any standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "The authority to extend the statutory limitation must not, in my view, be exercised arbitrarily or capriciously.",
+    "paragraphs": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "Extensions of time under s. 83(1) CPP must not be granted arbitrarily or capriciously.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "the following criteria must be considered and weighed: 1. A continuing intention to pursue the application or appeal; 2. The matter discloses an arguable case; 3. There is a reasonable explanation for the delay; and 4. There is no prejudice to the other party in allowing the extension.",
+    "paragraphs": [
+     9,
+     10
+    ],
+    "kind": "legal_test",
+    "statement": "The Grewal criteria apply to extensions of time under s. 83(1) CPP: intention, arguable case, explanation for delay, and prejudice.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "quote": "Provided that the record demonstrates that there was a reasonable evidentiary basis upon which the member could assess the factors, it would not be up to this Court to re-weigh the evidence.",
+    "paragraphs": [
+     10
+    ],
+    "kind": "other",
+    "statement": "The Court will not re-weigh evidence if the record shows a reasonable evidentiary basis for the Board's assessment.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "I am prepared to assume, without deciding, that the first two criteria have been met. However, I have serious concerns with respect to the last two factors of explanation for the delay and prejudice to the Minister.",
+    "paragraphs": [
+     11
+    ],
+    "kind": "reason",
+    "statement": "The Court found the explanation for delay and consideration of prejudice to the Minister lacking.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "A conclusion that the Respondent has provided compelling or sufficient reasons for bringing the leave application seven years after the 90-day time limit of s. 83(1) is, in my view, totally unsupported by the evidence and is patently unreasonable.",
+    "paragraphs": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "The Board member's finding of sufficient reasons for delay was unsupported and unreasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "the record discloses no evidence whatsoever on the question of prejudice to the Minister. It does not appear that prejudice to the Minister was considered by the member.",
+    "paragraphs": [
+     16
+    ],
+    "kind": "reason",
+    "statement": "The Board failed to consider prejudice to the Minister.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   },
+   {
+    "quote": "An application for an extension of time - particularly for seven years beyond the statutory time limit - should not be granted as a matter of right, but should be subjected to a principled approach by the Board. In this case, that was not done.",
+    "paragraphs": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The Board failed to apply a principled approach to the extension of time request.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The decision under review will be set aside and the matter referred back to the Board for re-determination, having regard to these reasons, by a different member of the Board.",
+    "paragraphs": [
+     19
+    ],
+    "kind": "remedy",
+    "statement": "The decision is set aside and remitted to a different Board member for redetermination in accordance with the Court's reasons.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "the member designated to consider the application for the extension of time should satisfy himself that: _ The Respondent demonstrates a continuing intention to pursue the application or appeal; _ The matter discloses an arguable case; _ There is a reasonable explanation for the delay; and _ There is no prejudice to the Minister in allowing the extension.",
+    "paragraphs": [
+     19
+    ],
+    "kind": "remedy",
+    "statement": "On remittal, the Board must consider and be satisfied of all four Grewal criteria.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "I recognize that the Board is the master of its own procedures and, therefore, decline to require the Board to implement procedures that would address these shortcomings.",
+    "paragraphs": [
+     20
+    ],
+    "kind": "court_declined_to_decide",
+    "statement": "The Court declined to require the Board to change its procedures regarding ex parte decisions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "In my discretion, I decline to award costs in this application.",
+    "paragraphs": [
+     21
+    ],
+    "kind": "remedy",
+    "statement": "No costs awarded.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "A review of the record demonstrates that her reasons do not hold up to scrutiny.",
+    "paragraphs": [
+     14
+    ],
+    "point": "The delay was due to depression, marital problems, raising young children, lack of understanding of the process, and abandonment by her representative.",
+    "made_by": "respondent",
+    "court_answer": "The Court found these reasons unsupported by the evidence and inconsistent with the record.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "It is difficult to see how the Board can reach a fair, principled decision on these applications on an ex parte basis; that is, without the submissions from the Minister. In spite of this concern, I recognize that the Board is the master of its own procedures and, therefore, decline to require the Board to implement procedures that would address these shortcomings.",
+    "paragraphs": [
+     20
+    ],
+    "point": "The Board's ex parte decision and lack of reasons was procedurally unfair.",
+    "made_by": "applicant",
+    "court_answer": "The Court noted the concern but declined to require procedural changes.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "The Applicant submits that, in spite of this discretionary nature of the decision, I should apply a standard of review of reasonableness simpliciter (Callihoo v. Canada, [2000] F.C.J. No. 612 (T.D.))",
+    "paragraphs": [
+     4
+    ],
+    "authority": "Callihoo v. Canada",
+    "treatment": "mentioned",
+    "why": "Cited by the applicant for the standard of review, but the Court did not decide the standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "Jurisprudence relied on by the Minister (Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.); Baksa v. Neis (c.o.b. Brookside Transport), [2002] F.C.J. No. 832) has established that the following criteria must be considered and weighed:",
+    "paragraphs": [
+     9
+    ],
+    "authority": "Grewal v. Canada (Minister of Employment and Immigration)",
+    "treatment": "applied",
+    "why": "The Court adopted the Grewal criteria as the test for extension of time under s. 83(1) CPP.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "quote": "Jurisprudence relied on by the Minister (Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.); Baksa v. Neis (c.o.b. Brookside Transport), [2002] F.C.J. No. 832) has established that the following criteria must be considered and weighed:",
+    "paragraphs": [
+     9
+    ],
+    "authority": "Baksa v. Neis (c.o.b. Brookside Transport)",
+    "treatment": "applied",
+    "why": "Cited as supporting the Grewal criteria for extension of time.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "I do not need to reach a conclusion on the appropriate standard since I am satisfied that, on any standard of review, the decision should not stand.",
+    "paragraphs": [
+     4
+    ],
+    "issue": "Standard of review for extension of time and leave decisions under s. 83(1) CPP",
+    "reason": "Court found the decision unreasonable on any standard, so did not decide the standard of review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   }
+  ]
+ }
+}

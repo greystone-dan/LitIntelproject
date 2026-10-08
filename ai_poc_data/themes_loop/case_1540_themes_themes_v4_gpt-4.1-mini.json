@@ -1,0 +1,640 @@
+{
+ "case_id": 1540,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "themes_loop_r3",
+ "usage": {
+  "prompt_tokens": 8100,
+  "completion_tokens": 2448,
+  "usd": 0.0099524
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Nature of Application and Remedy",
+    "paragraphs": [
+     1,
+     3
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Standard of Review",
+    "paragraphs": [
+     25,
+     26
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Scope of Court's Review (Leave to Appeal vs Merits)",
+    "paragraphs": [
+     6,
+     9,
+     10
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Statutory Grounds for Leave to Appeal",
+    "paragraphs": [
+     32,
+     33
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Whether Appeal Division Erred in Finding General Division Made an Error of Law",
+    "paragraphs": [
+     37,
+     38,
+     41
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Requirement for Objective Medical Evidence to Support Disability Claim",
+    "paragraphs": [
+     39,
+     40,
+     41
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Whether Appeal Division Erred in Finding Appeal Had Reasonable Chance of Success under s.58(2)",
+    "paragraphs": [
+     39,
+     42,
+     55
+    ],
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Transparency of Appeal Division's Reasons",
+    "paragraphs": [
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     53
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Setting Aside Appeal Division Decision and Remitting for Redetermination",
+    "paragraphs": [
+     3,
+     53,
+     54,
+     55
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Costs",
+    "paragraphs": [
+     56
+    ],
+    "disposition": "allowed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 28,
+  "quote_exact_in_cited": 23,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 5,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 5,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 6,
+   "arguments": 8,
+   "holdings": 12,
+   "rebuttals": 1,
+   "authorities": 6,
+   "left_open": 1
+  },
+  "paragraph_coverage": 0.589
+ },
+ "result": {
+  "overall": "The Court allowed the judicial review application, setting aside the Appeal Division's decision granting leave to appeal due to serious shortcomings including errors of law and lack of transparency in the reasons provided, and remitted the matter for redetermination by a different member.",
+  "themes": [
+   {
+    "name": "Standard of Review",
+    "summary": "The Court applies the reasonableness standard to review the Appeal Division's decision, focusing on justification, transparency, and intelligibility of the reasons.",
+    "paragraphs": [
+     25,
+     26,
+     27,
+     28,
+     29
+    ]
+   },
+   {
+    "name": "Statutory Grounds for Leave to Appeal",
+    "summary": "The Appeal Division may grant leave to appeal only on specific grounds defined by statute, including errors of law, jurisdictional errors, or perverse findings of fact.",
+    "paragraphs": [
+     32,
+     33
+    ]
+   },
+   {
+    "name": "Requirement for Objective Medical Evidence",
+    "summary": "A claimant must provide objective medical evidence supporting disability existing on or before the MQP to qualify for CPP disability benefits.",
+    "paragraphs": [
+     39,
+     40,
+     41
+    ]
+   },
+   {
+    "name": "Transparency of Appeal Division's Reasons",
+    "summary": "The Appeal Division's reasons must clearly identify and explain the grounds for granting leave to appeal to ensure transparency and intelligibility.",
+    "paragraphs": [
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     53
+    ]
+   },
+   {
+    "name": "Setting Aside Appeal Division Decision and Remitting",
+    "summary": "Due to serious shortcomings and errors in the Appeal Division's decision, the Court sets it aside and remits the matter for a new decision by a different member.",
+    "paragraphs": [
+     3,
+     53,
+     54,
+     55
+    ]
+   },
+   {
+    "name": "Nature of Application and Remedy",
+    "summary": "The judicial review concerns the Appeal Division's decision to grant leave to appeal, not the merits of the disability claim itself.",
+    "paragraphs": [
+     1,
+     3,
+     6,
+     9,
+     10
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "the Appeal Division granted the respondent, Ms Angell, leave to appeal from a decision of the SST General Division dated March 26, 2018",
+    "paragraphs": [
+     1
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division granted leave to appeal from the General Division's denial of disability benefits",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "The General Division denied Ms. Angel\u2019s application for disability pension benefits under the Canada Pension Plan",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The General Division denied the disability benefits claim",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "the General Division concluded that Ms Angell had provided insufficient objective medical evidence of a severe disability existing on or before the MQP",
+    "paragraphs": [
+     17,
+     18,
+     19,
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The General Division found insufficient objective medical evidence to prove severe disability by the MQP",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "the Appeal Division concluded that the General Division may have erred in law",
+    "paragraphs": [
+     21,
+     22,
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Division found a possible error of law by the General Division and granted leave to appeal",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21,
+     23
+    ]
+   },
+   {
+    "quote": "the AGC submits that the Appeal Division\u2019s decision incorrectly found an error of law by the General Division",
+    "paragraphs": [
+     37
+    ],
+    "made_by": "applicant",
+    "claim": "The Appeal Division erred in law by finding an error of law in the General Division's decision",
+    "treatment": "accepted",
+    "outcome_note": "Court agrees the General Division made no error of law",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ]
+   },
+   {
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP in order to obtain disability benefits",
+    "paragraphs": [
+     39
+    ],
+    "made_by": "applicant",
+    "claim": "Objective medical evidence is required to support disability at or before the MQP",
+    "treatment": "accepted",
+    "outcome_note": "Court agrees with this legal requirement",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ]
+   },
+   {
+    "quote": "the AGC submitted that Ms Angell did not have a reasonable chance of success on the merits of the appeal",
+    "paragraphs": [
+     42
+    ],
+    "made_by": "applicant",
+    "claim": "Ms Angell's appeal has no reasonable chance of success and leave to appeal should be refused",
+    "treatment": "not_decided",
+    "outcome_note": "Court declines to decide this issue, leaving it to the Appeal Division on redetermination",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[42] The AGC also submitted that Ms Angell did not have a reasonable chance of success on the merits of the appeal, such that leave to appeal must be refused under subs."
+   },
+   {
+    "quote": "the AGC requested that the application be granted without costs",
+    "paragraphs": [
+     56
+    ],
+    "made_by": "applicant",
+    "claim": "The AGC requests no costs be awarded",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The application is allowed. The decision of the Appeal Division will be set aside and the matter remitted back to the Appeal Division for a new decision on leave to appeal made by a different member",
+    "paragraphs": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The Court allows the judicial review, sets aside the Appeal Division's decision, and remits the matter for redetermination by a different member.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The standard of review on this application is reasonableness",
+    "paragraphs": [
+     25
+    ],
+    "kind": "standard_of_review",
+    "statement": "The Court applies the reasonableness standard to review the Appeal Division's decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "quote": "The presumption of reasonableness review applies to all aspects of the decision",
+    "paragraphs": [
+     25
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness review focuses on justification, transparency, and intelligibility of the decision and its rationale.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "This presumption of reasonableness review applies to all aspects of the decision: Vavilov, at paras 16, 23 and 25."
+   },
+   {
+    "quote": "The Appeal Division was incorrect to conclude that the General Division erred in law on this issue",
+    "paragraphs": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "The Court finds no error of law by the General Division regarding the requirement that medical evidence relate directly to the MQP.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP in order to qualify for disability benefits under the CPP",
+    "paragraphs": [
+     40
+    ],
+    "kind": "legal_test",
+    "statement": "Objective medical evidence is required to establish disability at or before the MQP under the CPP.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ]
+   },
+   {
+    "quote": "the Appeal Division was incorrect in law to conclude that no objective medical evidence is required",
+    "paragraphs": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "The Court holds that the Appeal Division erred in law by suggesting objective medical evidence is not required.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[41] Thus, to the extent that the Appeal Division concluded in its reasons at paragraphs 7-8 that no such objective medical evidence is required, the Appeal Division was incorrect in law."
+   },
+   {
+    "quote": "The Appeal Division\u2019s reasons did not sufficiently communicate what it decided and why",
+    "paragraphs": [
+     48,
+     49,
+     50
+    ],
+    "kind": "reason",
+    "statement": "The Appeal Division's reasons lack transparency and fail to clearly identify the legal error justifying leave to appeal.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ]
+   },
+   {
+    "quote": "The shortcomings cause me to lose confidence in the outcome reached by the Appeal Division",
+    "paragraphs": [
+     53
+    ],
+    "kind": "reason",
+    "statement": "Serious shortcomings in the Appeal Division's decision undermine its reasoning and outcome, justifying setting it aside.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "These shortcomings cause me to lose confidence in the outcome reached by the Appeal Division: Vavilov, at para 106."
+   },
+   {
+    "quote": "The decision of the Appeal Division granting leave to appeal must be set aside",
+    "paragraphs": [
+     54
+    ],
+    "kind": "conclusion",
+    "statement": "The Court sets aside the Appeal Division's decision granting leave to appeal.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ]
+   },
+   {
+    "quote": "I have not made a new decision on whether to grant leave to appeal",
+    "paragraphs": [
+     9,
+     10
+    ],
+    "kind": "procedural_point",
+    "statement": "The Court does not decide the merits of leave to appeal or the appeal itself, leaving that to the Appeal Division on redetermination.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   },
+   {
+    "quote": "I will not address that issue in these reasons, as it is a question for the Appeal Division",
+    "paragraphs": [
+     42,
+     55
+    ],
+    "kind": "court_declined_to_decide",
+    "statement": "The Court declines to decide whether Ms Angell has a reasonable chance of success on the appeal under subs. 58(2).",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ]
+   },
+   {
+    "quote": "The AGC requested that the application be granted without costs. I agree",
+    "paragraphs": [
+     56
+    ],
+    "kind": "remedy",
+    "statement": "The Court grants the application without costs to the AGC.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "the courts do not require that the medical evidence relate directly to a claimant\u2019s condition at the MQP and thereafter",
+    "paragraphs": [
+     37,
+     38
+    ],
+    "point": "The Appeal Division incorrectly found that medical evidence need not relate directly to the claimant's condition at the MQP",
+    "made_by": "applicant",
+    "court_answer": "The Court agrees with the AGC that the Appeal Division was incorrect and that medical evidence must relate to the claimant's condition at or before the MQP.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37,
+     48,
+     49
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "the standard of review on this application is reasonableness: Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "paragraphs": [
+     25,
+     27,
+     28,
+     29,
+     48,
+     50,
+     51,
+     53
+    ],
+    "authority": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "treatment": "followed",
+    "why": "The Court applies the reasonableness standard and the principles of justification, transparency, and intelligibility from Vavilov.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP in order to obtain disability benefits: Gholipour v Canada (Attorney General), 2017 FCA 99",
+    "paragraphs": [
+     39,
+     40,
+     41
+    ],
+    "authority": "Gholipour v Canada (Attorney General), 2017 FCA 99",
+    "treatment": "followed",
+    "why": "The Court agrees that objective medical evidence is required to support disability at or before the MQP.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ]
+   },
+   {
+    "quote": "the Federal Court of Appeal has held that a claimant must demonstrate an entitlement to disability benefits by reason of a severe and prolonged disability that existed prior to the expiry of the MQP and continuously thereafter: Brennan v Attorney General of Canada, 2011 FCA 318",
+    "paragraphs": [
+     38
+    ],
+    "authority": "Brennan v Attorney General of Canada, 2011 FCA 318",
+    "treatment": "followed",
+    "why": "The Court relies on Brennan to reject the Appeal Division's contrary conclusion about medical evidence relating to the MQP.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ]
+   },
+   {
+    "quote": "paragraph 68(1)(a) of the Canada Pension Plan Regulations, CRC, c 385, provides that if an applicant claims to be disabled within the meaning of the CPP, the applicant \u201cshall supply\u201d a \u201creport of any physical or mental disability\u201d",
+    "paragraphs": [
+     40
+    ],
+    "authority": "Canada Pension Plan Regulations, CRC, c 385, paragraph 68(1)(a)",
+    "treatment": "followed",
+    "why": "The Court cites the regulation to support the requirement for objective medical evidence.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ]
+   },
+   {
+    "quote": "Vancouver Airport Authority v PSAC, 2010 FCA 158",
+    "paragraphs": [
+     44,
+     46,
+     50
+    ],
+    "authority": "Vancouver Airport Authority v PSAC, 2010 FCA 158",
+    "treatment": "followed",
+    "why": "The Court relies on this case to explain the importance of transparency and intelligibility in administrative decisions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ]
+   },
+   {
+    "quote": "Romania v Boros, 2020 ONCA 216",
+    "paragraphs": [
+     45,
+     46,
+     50
+    ],
+    "authority": "Romania v Boros, 2020 ONCA 216",
+    "treatment": "followed",
+    "why": "The Court cites this case to illustrate the requirement for transparency in administrative decision-making.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "the AGC submitted that Ms Angell did not have a reasonable chance of success on the merits of the appeal",
+    "paragraphs": [
+     42,
+     55
+    ],
+    "issue": "Whether Ms Angell had a reasonable chance of success on the appeal under subs. 58(2)",
+    "reason": "The Court declines to decide this issue, leaving it to the Appeal Division on redetermination.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[42] The AGC also submitted that Ms Angell did not have a reasonable chance of success on the merits of the appeal, such that leave to appeal must be refused under subs."
+   }
+  ]
+ }
+}

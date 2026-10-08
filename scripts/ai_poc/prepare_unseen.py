@@ -29,6 +29,7 @@ COURTS = {
 }
 # (court, min paragraphs, max paragraphs): varied lengths, none too long to send.
 SPEC = [("FCA", 20, 45), ("FCA", 60, 120), ("SCC", 30, 60), ("SCC", 80, 130), ("RPD", 15, 40), ("RAD", 20, 50)]
+SPEC_MORE = [("FCA", 20, 45), ("FCA", 20, 45), ("FCA", 60, 120), ("SCC", 30, 60), ("SCC", 80, 130), ("RPD", 15, 40), ("RPD", 15, 40), ("RAD", 20, 50), ("RAD", 20, 50), ("RAD", 20, 50)]
 MAX_TOKENS = 45000
 DEFAULT_EXCLUDE = Path("data/eval/llm_discussion_units_pilot/discussion_unit_core_300.csv")
 
@@ -39,6 +40,7 @@ def main() -> int:
 	parser.add_argument("--seed", default="unseen25")
 	parser.add_argument("--exclude-csv", type=Path, default=DEFAULT_EXCLUDE, help="case_id column; these are never picked")
 	parser.add_argument("--also-exclude", default="126,1046,1147,1292,1540")
+	parser.add_argument("--more", action="store_true", help="pick the 10-case expansion set (SPEC_MORE) instead of the first 6")
 	args = parser.parse_args()
 	exclude = {int(float(r["case_id"])) for r in csv.DictReader(args.exclude_csv.open(encoding="utf-8-sig"))}
 	exclude |= {int(x) for x in args.also_exclude.split(",") if x}
@@ -46,7 +48,7 @@ def main() -> int:
 	with SessionLocal() as session:
 		courts_seen = session.execute(select(Case.court, func.count()).group_by(Case.court).order_by(func.count().desc()).limit(25)).all()
 		print("court values in the database (top 25):", [(c, n) for c, n in courts_seen])
-		for court, lo, hi in SPEC:
+		for court, lo, hi in (SPEC_MORE if args.more else SPEC):
 			names = COURTS[court]
 			stmt = (
 				select(Case.id, Case.title, Case.citation, Case.date, Case.court,

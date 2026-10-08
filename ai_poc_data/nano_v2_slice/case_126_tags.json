@@ -1,0 +1,172 @@
+{
+ "case_id": 126,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v2",
+ "run": "nano_v2_slice",
+ "paragraph_count": 22,
+ "tagged_count": 22,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2584,
+  "completion_tokens": 1344,
+  "usd": 0.000796
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the case's procedural history, including the application for judicial review and the decision being challenged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: applicant's claim",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's nationality, age, and his claim of fear of persecution due to his homosexuality in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Decision of the Board",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Board's finding that the applicant is not a refugee or in need of protection, citing lack of subjective fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Board's focus on delay in claim",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains that the Board considered the delay in claiming refugee status as significant and potentially indicative of lack of fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Legal relevance of delay",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses how delay can suggest absence of subjective fear, depending on circumstances, and its importance in refugee law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Board's conclusion on delay",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Board found delay to be a decisive factor in this case, emphasizing its relevance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Applicant's explanation for delay",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the applicant's delayed actions, including consulting a lawyer and reasons for inaction, which the Board found unpersuasive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Applicant's mental state and inaction",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the applicant's mental fitness and interprets his inaction as evidence of no fear of harm, leading to rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Applicant's argument on delay",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicant's argument that the Board's conclusion about delay and fear was irrational.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Applicant's evidence on delay explanation",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's claim that he consulted a lawyer earlier and that his delay was due to financial and other reasons.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Psychological report interpretation",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the Board misinterpreted the psychological report regarding the applicant's mental health history.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal principle on delay",
+   "role": "legal_test",
+   "explanation": "The paragraph states that delay alone does not prove lack of fear, but it is a relevant factor in assessing refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Credibility and delay",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues that the Board failed to assess the applicant's credibility and the risk he faced, relying solely on delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Psychological report and delay",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the psychological report does not address the applicant's delay or symptoms after arriving in Canada.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Applicant's motivation for claim",
+   "role": "party_position",
+   "explanation": "The paragraph states that the applicant's decision to claim was influenced by personal relationships, not solely fear of persecution.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal standards on subjective fear",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the Board can consider the applicant's behaviour and delay as evidence of subjective fear, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Delay as a decisive factor",
+   "role": "legal_test",
+   "explanation": "The paragraph states that delay can be decisive if the applicant cannot satisfactorily explain it, which is the case here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Contradictions in applicant\u2019s explanations",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph highlights inconsistencies between the applicant's fear and his background, undermining his claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Psychological report on mental health",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the psychological report's findings that the applicant was not suffering from psychological problems at the time of the report.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Court's acceptance of Board's conclusion",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Court finds the Board's conclusion about the applicant's lack of fear and delay reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal standard on delay and subjective fear",
+   "role": "reasoning_application",
+   "explanation": "The paragraph affirms that jurisprudence links delay to lack of subjective fear, and the Board's rejection was lawful.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Dispositional ruling",
+   "role": "disposition",
+   "explanation": "The paragraph states the Court dismisses the application for judicial review, finalizing the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

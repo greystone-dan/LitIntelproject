@@ -1,0 +1,242 @@
+{
+ "case_id": 12428,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 32,
+ "tagged_count": 32,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5622,
+  "completion_tokens": 2148,
+  "usd": 0.0014214000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's claim of persecution due to her husband's political activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the husband's beating after his political candidacy, supporting the claim of persecution risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the husband's forced retirement following police accusations, further supporting persecution allegations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Notes the husband's meeting with CNRP members and police threats, reinforcing the persecution narrative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "States the applicant's and her husband's flight to Canada and her husband's death, providing context for the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Notes the applicant's appeal to the RAD following the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the RAD's negative decision and that the applicant did not request an oral hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains the RAD's standard of review as reasonableness, referencing Dunsmuir case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Frames the core issue as whether the RPD's credibility conclusion was unreasonable, and discusses the findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Analyzes background documentation on Cambodia's political situation, finding inconsistency with applicant's allegations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Concludes that the RPD's analysis was reasonable and within the acceptable range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Parties\u2019 Submissions",
+   "role": "party_position",
+   "explanation": "Presents the respondent's argument that the RAD applied the correct reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Parties\u2019 Submissions",
+   "role": "party_position",
+   "explanation": "Details the applicant's claim that the RAD erred by considering Cambodia's political context beyond the RPD record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Parties\u2019 Submissions",
+   "role": "party_position",
+   "explanation": "Respondent argues that referring to the country documentation was within the RAD's jurisdiction and proper.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Argues that an incorrect standard of review by the RAD does not affect the outcome.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Claims jurisprudence suggesting RAD must independently analyze evidence contradicts statutory language.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Details procedural rules requiring specific grounds and locations of errors for appeal, emphasizing the paper record nature of the process.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Notes the RPD's advantage in assessing witnesses and evidence, contrasting with the paper-based RAD appeal process.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "States that the RAD's role and process support applying the reasonableness standard, not correctness.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Highlights the privative clause supporting deference to the RAD on legal and factual questions.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Argues that credibility is a factual issue, thus reasonableness standard applies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "States that even if the wrong standard was applied, deference to the RPD's credibility findings is appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Defendant\u2019s Further Memorandum",
+   "role": "other",
+   "explanation": "Notes that the RAD did not need to notify the applicant about examining additional documents.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Issues",
+   "role": "issue_framing",
+   "explanation": "States that the court will focus on whether the RAD thoroughly analyzed the credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Standard of Review",
+   "role": "legal_test",
+   "explanation": "Adopts a pragmatic approach until the issue is definitively resolved, applying reasonableness for credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Standard of Review",
+   "role": "legal_test",
+   "explanation": "States that the court will review whether the RAD thoroughly examined the credibility issues based on the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning Application",
+   "role": "reasoning_application",
+   "explanation": "Summarizes case law supporting deference to the RAD's credibility findings and the RAD's own assessment process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Reasoning Application",
+   "role": "reasoning_application",
+   "explanation": "Finds that the RAD properly reviewed and assessed the evidence, including documentary evidence, and showed deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Reasoning Application",
+   "role": "reasoning_application",
+   "explanation": "Rejects the applicant's argument that the RAD exceeded its jurisdiction by considering country documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning Application",
+   "role": "reasoning_application",
+   "explanation": "Explains that referring to the record and not holding a hearing was consistent with procedural rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "Mentions the parties' suggested question for certification regarding the scope of the RAD's review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "States that it is unnecessary to address the certification question.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

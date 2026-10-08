@@ -1,0 +1,228 @@
+{
+ "case_id": 13398,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 30,
+ "tagged_count": 30,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 9391,
+  "completion_tokens": 2018,
+  "usd": 0.0017463000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's personal experiences and beliefs about Heaven and Christianity after his grandfather's death.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the Applicant's attendance at a house church, the police raid, and his subsequent flight from China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the Applicant's departure from China, his refugee claim in Canada, and the rejection and reasons for it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the standard of reasonableness for assessing the evidence, including credibility and religious beliefs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RPD's assessment of the Applicant's religious knowledge based on his tattoo and other factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph details the RPD's questioning of the Applicant and the negative inferences drawn from his responses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RPD's assessment of the Applicant's church attendance, credibility, and inferences drawn from his explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RPD's findings that the Applicant lacked knowledge and commitment to Christianity, and the weight given to evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph details the RPD's findings regarding the Applicant's practice of Christianity and the likelihood of persecution, leading to the refugee determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the court's review of the reasonableness of the RPD's decision and the grounds for it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the credibility of the Applicant's claim about leaving China without detection, referencing legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that the sincerity of religious belief, not its correctness, is the key legal issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the legal principle that the RPD should assess sincerity, not theological knowledge, when evaluating religious claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the RPD's excessive focus on theological details, which is unreasonable for assessing sincerity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RPD's conclusion was based on theological correctness rather than sincerity of belief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the RPD's questioning was too focused on doctrine rather than sincerity, undermining its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the high standard required to find fraudulent intent in religious claims, referencing legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph criticizes the RPD's dismissal of the arrest summons based on the prevalence of fraudulent documents in China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the implausibility standard and its strict application in credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the need for independent analysis of documents and proper assessment of their genuineness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the reasonableness of the Applicant's claim that his passport was not scanned, based on Chinese security systems.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph finds the Applicant's testimony about his passport not being scanned implausible and not credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that widespread forgery does not automatically mean documents are fraudulent, referencing legal authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph emphasizes the RPD's obligation to examine the actual documents rather than dismissing them outright.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that genuine documents should be examined and weighed, not automatically rejected due to the possibility of forgery.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 111,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph concludes that the Applicant was not a member of an underground church and not wanted by authorities, based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 112,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the summons should be given little weight, considering the prevalence of fraudulent documents in China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 114,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph concludes that the Applicant is not a genuine Christian and would not practice Christianity if returned to China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 115,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph finds that the Applicant's participation in Christian activities was likely fabricated to support his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 116,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the final conclusion that the Applicant is not Christian, not in China, and not wanted by the PSB, based on the evidence.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,340 @@
+{
+ "case_id": 1439,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 46,
+ "tagged_count": 46,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 9292,
+  "completion_tokens": 2852,
+  "usd": 0.0020700000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court summarizes the case and the grounds for judicial review of the RAD's decision to dismiss the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Reasonableness review of RAD decision",
+   "role": "legal_test",
+   "explanation": "The court discusses the standard of reasonableness review and the criteria for a reasonable administrative decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Dispositional order",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review based on the reasonableness of the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Issues on appeal",
+   "role": "party_position",
+   "explanation": "The Azenabors raise three issues regarding the RAD's findings on fraud, procedural fairness, and affidavit treatment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Standard of review for issues",
+   "role": "legal_test",
+   "explanation": "The court explains the reasonableness standard for review and the approach to assessing administrative decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Credibility and authenticity assessment",
+   "role": "legal_test",
+   "explanation": "The court describes the deference given to credibility findings and the scope of reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural fairness review",
+   "role": "legal_test",
+   "explanation": "The court states that procedural fairness is assessed based on whether the procedure was fair in all circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts: claimant's allegations",
+   "role": "background_facts",
+   "explanation": "Ms. Azenabor claims she was sexually assaulted and threatened by her uncle in Nigeria, prompting her to flee.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts: submitted evidence",
+   "role": "background_facts",
+   "explanation": "The Azenabors submitted affidavits and police reports supporting their refugee claim, which are central to the review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history: credibility findings",
+   "role": "procedural_history",
+   "explanation": "The RPD made adverse credibility findings, which the Azenabors challenged on appeal to the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history: concerns raised by RAD",
+   "role": "procedural_history",
+   "explanation": "The RAD identified concerns about the affidavits and police report and requested original documents from the Azenabors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Procedural history: response to concerns",
+   "role": "procedural_history",
+   "explanation": "The Azenabors responded with original affidavits and additional documents, which the RAD considered in its review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Assessment of documents' authenticity",
+   "role": "evidence_assessment",
+   "explanation": "The RAD found specific issues with the affidavits and police report, concluding they were fraudulent based on cumulative concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Conclusion on document genuineness",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded that the documents were not genuine, which led to a finding that the Azenabors lacked credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Assessment of testimonial credibility",
+   "role": "reasoning_application",
+   "explanation": "The RAD did not rely on oral testimony due to the fraudulent documents, and this reasoning was deemed reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasonableness of credibility findings",
+   "role": "party_position",
+   "explanation": "The Azenabors argue the RAD's credibility assessment was unreasonable, citing minor errors and formalities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasonableness of credibility assessment",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's articulated reasons for its credibility findings to be reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Assessment of affidavits' genuineness",
+   "role": "evidence_assessment",
+   "explanation": "The court discusses the sources and procedures for verifying affidavits in Nigeria and the relevance to the RAD's assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Verification of affidavits in Nigeria",
+   "role": "evidence_assessment",
+   "explanation": "The Azenabors argue the RAD should have verified affidavits with Nigerian authorities, citing the Affidavit RIR's statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Assessment of new arguments raised on review",
+   "role": "procedural_history",
+   "explanation": "The court notes the Azenabors did not raise before the RAD that facial assessment was impossible, and discusses the rule against new arguments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Assessment of facial assessment of affidavits",
+   "role": "evidence_assessment",
+   "explanation": "The court interprets the Affidavit RIR as not precluding facial assessment of affidavits' authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Assessment of facial assessment of affidavits",
+   "role": "evidence_assessment",
+   "explanation": "The court clarifies that appearance and contents can inform authenticity assessments without verification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "RAD's discretion in assessing authenticity",
+   "role": "reasoning_application",
+   "explanation": "The court affirms the RAD's authority to assess document authenticity based on its expertise and evidence, without verification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Obligation to verify affidavits",
+   "role": "party_position",
+   "explanation": "The court states the onus is on the claimant to prove authenticity and the RAD is not required to verify with authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Assessment of affidavit seals",
+   "role": "reasoning_application",
+   "explanation": "The court finds it reasonable for the RAD to consider the appearance of seals as an indicator of authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Assessment of affidavit seal quality",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the original affidavit was not filed, so the reasonableness of the RAD's conclusion cannot be assessed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Assessment of affidavits' photographs and stamps",
+   "role": "evidence_assessment",
+   "explanation": "The court reviews the requirements for photographs and stamps on Nigerian affidavits and the RAD's reasoning on their placement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "RAD's assessment of formal features",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's analysis of formal features like stamps and photographs to be reasonable and supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Assessment of other affidavit features",
+   "role": "evidence_assessment",
+   "explanation": "The court agrees the RAD reasonably considered minor errors and formalities in the affidavits as part of its overall assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Minor errors in documents",
+   "role": "evidence_assessment",
+   "explanation": "The court notes minor typographical errors are not sufficient alone to establish fraud, supporting the RAD's reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Assessment of font and spelling errors",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the RAD's concerns about font differences and spelling errors to be reasonable considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Prevalence of fraudulent documents",
+   "role": "party_position",
+   "explanation": "The Azenabors argue reliance on the prevalence of fraud in Nigeria is unreasonable, citing Oranye.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legitimacy of relying on country conditions",
+   "role": "party_position",
+   "explanation": "The court explains that reliance on country conditions is permissible as part of broader reasoning, not sole basis for fraud finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Conclusion on document genuineness",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the RAD's reference to Nigeria's document fraud prevalence was reasonable and not undue influence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Cumulative concerns and credibility",
+   "role": "reasoning_application",
+   "explanation": "The court affirms that the RAD's cumulative assessment of concerns about the documents was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Procedural fairness: police report concerns",
+   "role": "party_position",
+   "explanation": "The RAD raised concerns about the police report's format and title in a letter to the Azenabors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Procedural fairness: additional concerns",
+   "role": "procedural_history",
+   "explanation": "The RAD relied on concerns not explicitly raised in the letter, including issues with the police report's appearance and content.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Fairness in raising concerns",
+   "role": "party_position",
+   "explanation": "The Azenabors argue it was unfair for the RAD to rely on concerns not raised in advance, citing procedural fairness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Court's view on fairness obligations",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's approach consistent with fairness, as it raised concerns and the Azenabors had opportunity to respond.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Fairness in reliance on additional concerns",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the RAD was not obliged to give further notice about additional non-conformity issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "treatment of police report and inquiry obligation",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Azenabors' argument about police report requirements and the RAD's response, emphasizing the RAD's lack of obligation to verify the document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "RAD's treatment of affidavit",
+   "role": "party_position",
+   "explanation": "The paragraph states that the RAD gave no weight to the affidavit because the credibility of the affiant was questioned, and the Azenabors argue this was an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasonableness of RAD's assessment of affidavit",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the court finds the RAD's assessment reasonable, noting which parts of the affidavit are based on personal knowledge and which are not.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "source of information in affidavit",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the affidavit does not specify that some information came from Mr. Azenabor's visit to Nigeria, and assumptions cannot be made without evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "inference about affidavit rejection",
+   "role": "reasoning_application",
+   "explanation": "The court rejects the inference that the affidavit was rejected due to bias, stating there is no evidence of such consideration in the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "judicial review outcome and certification",
+   "role": "disposition",
+   "explanation": "The application for judicial review is dismissed, and no question for certification is proposed or arises, concluding the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

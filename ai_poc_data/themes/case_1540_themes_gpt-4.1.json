@@ -1,0 +1,176 @@
+{
+ "case_id": 1540,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1",
+ "usage": {
+  "prompt_tokens": 5975,
+  "completion_tokens": 800,
+  "usd": 0.01835
+ },
+ "verification": {
+  "arguments": 5,
+  "quotes_verified": 4,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The Federal Court set aside the Appeal Division's decision granting leave to appeal because it contained errors of law and lacked transparency in its reasoning, and remitted the matter for redetermination by a different member.",
+  "themes": [
+   {
+    "name": "Legal Standard for Leave to Appeal",
+    "summary": "The decision turns on whether the Appeal Division correctly applied the statutory grounds and standards for granting leave to appeal under the Department of Employment and Social Development Act.",
+    "paragraphs": [
+     6,
+     7,
+     22,
+     31,
+     32,
+     33,
+     47
+    ]
+   },
+   {
+    "name": "Requirement for Objective Medical Evidence",
+    "summary": "A central issue is whether objective medical evidence is required to establish disability as of the MQP for CPP benefits, and whether the Appeal Division erred in law on this point.",
+    "paragraphs": [
+     16,
+     18,
+     19,
+     20,
+     38,
+     39,
+     40,
+     41,
+     48,
+     49
+    ]
+   },
+   {
+    "name": "Transparency and Reasonableness of Reasons",
+    "summary": "The adequacy, clarity, and transparency of the Appeal Division's reasons for granting leave are scrutinized under the Vavilov reasonableness standard.",
+    "paragraphs": [
+     27,
+     28,
+     29,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53
+    ]
+   },
+   {
+    "name": "Scope of Judicial Review",
+    "summary": "The Court clarifies its role is not to decide the merits of the disability claim, but only the reasonableness of the leave to appeal decision.",
+    "paragraphs": [
+     6,
+     8,
+     9,
+     10,
+     42,
+     55
+    ]
+   },
+   {
+    "name": "Errors of Law by the Appeal Division",
+    "summary": "The Court finds the Appeal Division made errors of law regarding the requirements for medical evidence and the grounds for appeal.",
+    "paragraphs": [
+     37,
+     38,
+     41,
+     48,
+     53
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "respondent",
+    "claim": "The General Division erred in law by requiring medical evidence to relate directly to the MQP and thereafter.",
+    "treatment": "rejected",
+    "authority": "Brennan v Attorney General of Canada, 2011 FCA 318",
+    "paragraphs": [
+     21,
+     23,
+     37,
+     38,
+     48
+    ],
+    "quote": "the courts do not require that the medical evidence relate directly to a claimant\u2019s condition at the MQP and thereafter",
+    "quote_verified": true
+   },
+   {
+    "made_by": "respondent",
+    "claim": "Leave to appeal should be granted because the General Division may have erred in law.",
+    "treatment": "rejected",
+    "authority": "Department of Employment and Social Development Act, s. 58(1)(b)",
+    "paragraphs": [
+     21,
+     23,
+     38,
+     41,
+     53
+    ],
+    "quote": "the Appeal Division \u201cmay have erred in law, and this requires intervention by the Appeal Division\u201d",
+    "quote_verified": false
+   },
+   {
+    "made_by": "respondent",
+    "claim": "Objective medical evidence is not required to support a finding of disability at the MQP.",
+    "treatment": "rejected",
+    "authority": "Gholipour v Canada (Attorney General), 2017 FCA 99; Warren v Canada (Attorney General), 2008 FCA 377",
+    "paragraphs": [
+     19,
+     39,
+     40,
+     41
+    ],
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP",
+    "quote_verified": true
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The Appeal Division's reasons for granting leave were sufficient and transparent.",
+    "treatment": "rejected",
+    "authority": "Vavilov; Vancouver Airport Authority v PSAC",
+    "paragraphs": [
+     43,
+     44,
+     46,
+     47,
+     48,
+     49,
+     50,
+     53
+    ],
+    "quote": "the Appeal Division\u2019s reasons did not sufficiently communicate what it decided and why",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Appeal Division's decision to grant leave was unreasonable due to errors of law and lack of transparency.",
+    "treatment": "accepted",
+    "authority": "Vavilov; Brennan; Gholipour; Warren; Dean",
+    "paragraphs": [
+     36,
+     38,
+     40,
+     41,
+     48,
+     50,
+     52,
+     53,
+     54
+    ],
+    "quote": "the shortcomings in the Appeal Division\u2019s decision are sufficiently serious to undermine both the reasoning and the outcome",
+    "quote_verified": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,445 @@
+{
+ "case_id": 23409,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 61,
+ "tagged_count": 61,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 11803,
+  "completion_tokens": 3549,
+  "usd": 0.0025999
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court allows the application for judicial review of the RAD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background on the applicant's nationality, history, and reasons for fearing persecution, and the initial RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicant appealed the RPD decision to the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The RAD member discussed the standard of review for the appeal, applying reasonableness to factual and mixed questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD dismissed the appeal, reasoning that the new evidence was not determinative and the conclusions were reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant challenges the scope of the RAD's review of evidence, arguing for correctness review of sections 110 and 111 of IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that the RAD's scope is within its expertise and should be reviewed under reasonableness, not correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that case law suggests the scope of RAD review should be assessed under correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court notes that the choice of correctness is not determinative and that higher courts are considering the issue.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's interpretation of the scope of review to be incorrect, as the appeal is not a judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes IRPA provisions outlining the scope and conditions of appeal to the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court discusses the deference owed to findings of fact and the specialized jurisdiction of the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Not all RPD decisions are appealable; some are excluded, especially when based on no credible basis, and the RAD can consider new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the concept of deference, privative clauses, and standards of review in administrative law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Supreme Court case law indicates deference is appropriate when decisions are within the expertise of the administrative body.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Three approaches to deference in RAD review are identified: reasonableness, palpable and overriding error, and a hybrid approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that deference to findings of fact is standard, and judicial review is not an appeal on merits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes the limited role of judicial review, focusing on legality and range of acceptable outcomes, not merits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The standard of correctness applies to questions of law; palpable and overriding error applies to findings of fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "HL case clarifies that palpable and overriding error applies to all factual findings, including credibility and inference drawing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Justice Fish discusses the application of reasonableness within the palpable and overriding error standard.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes that reasonable inferences from proven facts are protected from reweighing on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Quebec Court of Appeal defines palpable and overriding error as a clear, undeniable error affecting the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Quebec Court explains that palpable error is a clearly identifiable, significant error impacting the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph summarizes the court's understanding of palpable and overriding error and introduces case law on RAD review scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Shore's 2014 decision states RAD is an appellate body that must consider all evidence and assess independently, with some deference on factual questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Shore summarizes his view that RAD is not a de novo appeal but must review all evidence independently.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Shore emphasizes that RAD's review involves considering all evidence and not just reasonableness, aligning with a hybrid approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Shore's 2014 decisions reaffirm that RAD cannot be a judicial review body and must review evidence thoroughly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that reasonableness and the standard of palpable and overriding error are related but distinct standards of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Phelan's 2014 decision states RAD should review evidence beyond reasonableness, aligning with a hybrid review standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Phelan emphasizes that RAD's power to intervene on factual findings is more significant than just applying palpable and overriding error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Locke's 2014 decisions endorse a nuanced, hybrid approach to RAD's review, considering evidence and errors more broadly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Locke's 2014 decisions illustrate that the RAD's review depends on the nature of the factual or mixed questions involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes the timing of the cases and the arguments presented, indicating no challenge to the standard of review applied.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court's recent decision in Spasoja supports applying the palpable and overriding error standard to RAD review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Roy's 2014 decision aligns with the view that RAD's review is under the palpable and overriding error standard, not deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Justice Roy concludes that RAD's review should follow the standard of palpable and overriding error for factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court recognizes that RAD should not re-examine claims as if it were a first-instance tribunal unless a palpable and overriding error occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court agrees that the appropriate standard for reviewing RPD findings is reasonableness, with legal questions reviewed for correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the RAD's obligation to review evidence independently and justify its conclusions, citing Supreme Court cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "judicial principles: consistency and comity",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the importance of respecting established standards of review and judicial comity to ensure legal consistency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "judicial philosophy and conflict",
+   "role": "other",
+   "explanation": "The paragraph describes the author's dilemma in choosing between conflicting judicial approaches and references judicial respect.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "exceptions to judicial comity",
+   "role": "legal_test",
+   "explanation": "The paragraph introduces the concept of exceptions to judicial comity, citing Almrei v Canada for context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "principles of judicial comity",
+   "role": "legal_test",
+   "explanation": "The paragraph details the purpose and principles of judicial comity, emphasizing respect for precedents and humility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "application of law and jurisdiction",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the case involves legal interpretation and jurisdiction, noting differing opinions among justices.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "evidence and tribunal competence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the applicant's dispute over findings and the RAD's capacity to resolve legal questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "judicial deference to specialized tribunals",
+   "role": "legal_test",
+   "explanation": "The paragraph cites Xie v Canada to support deference to tribunals' jurisdiction and decision-making authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "RAD's authority to set legal standards",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the RAD's power to create precedent and the criteria for panels, referencing IRPA provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "future review of appellate scope",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes that the RAD's review scope should be reassessed in light of court precedents and possible panel formation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "pragmatic approach to judicial intervention",
+   "role": "procedural_history",
+   "explanation": "The paragraph suggests courts may refrain from intervening in RAD's application of approaches until higher courts decide.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "hierarchical judicial system and prudence",
+   "role": "procedural_history",
+   "explanation": "The paragraph emphasizes respecting higher courts' decisions and advises caution in commenting on RAD's review scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "judicial review and RAD's error",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the applicant's judicial review application should be allowed due to RAD's error in standard application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "RAD's obligation on remand",
+   "role": "disposition",
+   "explanation": "The paragraph states that the RAD must conduct a full, independent review and substitute its own decision if necessary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "appellate review of factual findings",
+   "role": "legal_test",
+   "explanation": "The paragraph states that appellate courts only interfere with factual findings if errors affected the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "standards for unreasonable findings",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that unreasonable or unsupported factual findings are reviewable on appeal if they affected the result.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "certification of questions in judicial review",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the limited scope of certifying questions for judicial review to ensure timely intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "no certification in this case",
+   "role": "disposition",
+   "explanation": "The paragraph states that no questions will be certified in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "judicial comity and consistency",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms the principle of judicial comity and the importance of following similar decisions for certainty.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "exceptions to judicial comity",
+   "role": "legal_test",
+   "explanation": "The paragraph lists exceptions where judicial comity does not apply, such as different facts or manifest errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "standard of review for errors of law and fact",
+   "role": "legal_test",
+   "explanation": "The paragraph states that appellate courts can correct errors of law and palpable, overriding errors of fact, with some reservations.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

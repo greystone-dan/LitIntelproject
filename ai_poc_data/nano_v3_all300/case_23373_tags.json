@@ -1,0 +1,606 @@
+{
+ "case_id": 23373,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 84,
+ "tagged_count": 84,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 22506,
+  "completion_tokens": 5237,
+  "usd": 0.0043454
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant challenges a RAD decision upholding an RPD decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a citizen of Benin claiming refugee protection due to persecution in Togo and family pressures in Benin.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The RPD denied the claim; the applicant appealed to the RAD alleging errors in credibility assessment and reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The applicant requested an oral hearing; the RAD dismissed the appeal based on record evidence and reasons, leading to judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court reviews case law on judicial review standards and the legality of RAD's reasoning in refugee decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that RAD's consistent use of reasonableness review constitutes reviewable error, based on case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent argues that the RAD correctly applied reasonableness review and did not need to re-assess all evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's counsel seeks clarification on the scope of the RAD's review standard for future cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the standards of review (correctness vs reasonableness) and their application to administrative decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court explains the difference between correctness and reasonableness standards in judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court notes the lack of unanimity among judges on the applicable standard and leans towards reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph questions why deference is relevant in judicial review of administrative decisions.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses when deference applies, especially in interpreting statutes closely connected to the tribunal's function.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court outlines factors influencing the choice of standard of review, including tribunal expertise and statutory purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court considers whether the applicable standard of review has been established in case law, favoring reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds that the issues in this case do not fall under categories requiring correctness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The scope of the RAD's review is limited to errors of law, fact, or mixed law and fact, and the court discusses the application of the standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argues for correctness review; the respondent maintains reasonableness review suffices, emphasizing the RAD's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court considers whether the issue of standards of review is a jurisdictional question or part of the appeal process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses whether questions of law related to the statute's interpretation are subject to correctness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court reviews the narrow scope of questions of law of central importance that warrant correctness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court cites jurisprudence reaffirming reasonableness as the standard for tribunal decisions that lack broad legal significance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses the presumption of reasonableness for interpreting statutes within tribunal expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court emphasizes that interpreting statutes is generally within the tribunal's expertise and should be approached with reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court notes that decisions on costs and procedural issues are within tribunal expertise and should be reviewed for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Decisions with no precedential value outside the statutory scheme are not questions of central importance, supporting reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses the RAD's expertise in procedural and substantive law and its role in interpreting its enabling statute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The purpose of the RAD is to correct errors and promote consistency, not just to add an appeal stage.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The IRPA grants the RAD exclusive jurisdiction over questions of law and fact in refugee appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The RAD has jurisdiction over legal questions, and courts should defer to its expertise, including on standards of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses whether setting the review standard is part of the court's supervisory role or a question of law of central importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court notes it certified a legal question about the scope of the RAD's review, which is now under appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court warns against assuming the Federal Court of Appeal will review RAD decisions on a correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court adopts a pragmatic approach, avoiding final ruling on the review standard pending appeal, and finds RAD's approach unacceptable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds RAD's reasoning unreasonable because it cannot function as a judicial review body, undermining its purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court reviews statutory provisions showing RAD's broad powers and jurisdiction, including the ability to admit evidence and substitute decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court explains RAD's powers exceed those of a typical court of judicial review, emphasizing its appellate and decision-making authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court describes reasonableness as a standard focused on justification, transparency, and range of outcomes, questioning its suitability for appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court agrees with Justice Phelan's view on reasonableness as the appropriate standard for RAD review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court concludes the applicant was denied a proper appeal, which is a reviewable error, and discusses the importance of defining the appeal type.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the three types of appeals to specialized administrative tribunals, including their characteristics and legislative variations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Legal_test",
+   "role": "issue_framing",
+   "explanation": "It discusses the confusion around appeal terminology and clarifies the legal distinction between appeal de novo and true appeal, including RAD's possible appeal types.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Legal_test",
+   "role": "issue_framing",
+   "explanation": "The paragraph notes that statutes may specify appeal types and provides case law examples where appeals are heard de novo despite no explicit legislative language.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Legal_test",
+   "role": "issue_framing",
+   "explanation": "It references Justice Muldoon's statement in Kwan regarding the nature of appeal types and the scope of review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "It describes hybrid appeals that combine review of errors and de novo review, citing examples from federal court decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses considerations for considering appeals from trademark decisions, including evidence and deference, as a form of hybrid appeal.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes Member Bissonnette's analysis of the RAD process, emphasizing the need to determine whether it is a true, hybrid, or de novo appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It notes differing judicial opinions on whether RAD appeals involve re-examination of evidence, criticizing the decision for lacking this analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses scholarly views on the appropriate approach for RAD appeals, emphasizing the importance of case-specific standards and the hybrid nature.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It suggests that the RAD should consider all appeal models openly and questions the basis for Member Bissonnette's deferential approach to the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It explains that Member Bissonnette's reasoning relies on a mistaken analogy with judicial review standards, which is unreasonable in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes Member Bissonnette's consideration of public perception and the RPD's expertise as reasons for deference, deeming them unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It compares Member Bissonnette's view of the relationship between the trial and appeal judge to the refugee appeal context, finding it unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that Member Bissonnette's reasoning is unreasonable in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "It emphasizes the importance of carefully reading legislation and explains the high deference standard under paragraph 18.1(4)d) of the Federal Courts Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses statutory interpretation principles, including the limits of reading in or down words in statutes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "It states that clear statutes do not require discovering legislative intent and that errors of fact or law justify intervention without deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the degree of deference owed by the RAD depends on common law rules or administrative discretion, not on court-bound standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It discusses the objectives of the refugee protection system, emphasizing humanitarian goals and procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "It raises the question of what the RPD and RAD must do to maintain the integrity of the refugee system and the purpose of appeal processes.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It describes the unique features of refugee determination, including active member involvement and evidence rules, contrasting with traditional courts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It explains the powers and inquiry process of RPD and RAD members, highlighting their active and inquisitorial roles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It details the IRB's documentation process and the importance of country-of-origin evidence in refugee proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It discusses the assessment of subjective and objective fears in refugee claims and the evidence review process on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Legal_test",
+   "role": "issue_framing",
+   "explanation": "It criticizes Member Bissonnette for not analyzing the statutory history and the appropriate standard of review for RPD decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "It warns against importing judicial review criteria into the appeal process and emphasizes the need for RAD to develop its own standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It notes that the decision under review did not sufficiently consider relevant factors and the legislative scheme, calling for historical context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It describes the enactment and delays in establishing the RAD, including legislative amendments and their scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "It discusses the usefulness of Hansard and legislative history in understanding legislative intent, with caveats on their weight.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It reports stakeholders' support for the RAD and its intended purpose to ensure correct decisions and fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It quotes Peter Showler on the efficiency and scope of the RAD, including its powers and expected caseload.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It notes the delay in establishing the RAD and legislative efforts to implement it, citing political and systemic considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It lists reasons for the importance of the RAD, including efficiency, consistency, justice, and reputation, supported by scholarly and advocacy views.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It discusses amendments to IRPA that expand RAD powers, including presenting new evidence and holding oral hearings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It describes the Minister's support for a more powerful RAD with new powers, emphasizing fairness and procedural improvements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It reports Minister Kenney's statements on the enhanced powers of the RAD and its role in the refugee determination process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It explains that recent amendments aim to limit appeals to the RAD, especially from no credible basis decisions, but some appeal rights remain.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It notes ongoing support for a full fact-based appeal process despite new restrictions, citing political statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It summarizes the dual purpose of the RAD: correcting errors and ensuring consistency, and notes the legislative context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It criticizes Member Bissonnette's interpretation of the RAD's purpose, arguing it undermines the appeal's effectiveness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the Court's role in reviewing tribunal process and its limits in reassessing evidence or substituting its judgment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses differing opinions among courts on the appropriate standard of review for the RAD's decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the Court's view that no specific deference standard should be imposed until higher courts decide otherwise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 92,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Court allows the judicial review, sets aside the decision, and remits the case for reconsideration consistent with its reasons.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

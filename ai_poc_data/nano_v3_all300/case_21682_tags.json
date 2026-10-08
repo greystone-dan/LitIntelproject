@@ -1,0 +1,158 @@
+{
+ "case_id": 21682,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 20,
+ "tagged_count": 20,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3243,
+  "completion_tokens": 1024,
+  "usd": 0.0007339
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application and remits the matter for re-determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states that the applicant alleges certain facts.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims to be a Chinese citizen fearing persecution for religious reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant describes his dissatisfaction with China's education system and his emotional state.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant details his actions and reactions following a letter he wrote criticizing the education system.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant recounts attending a religious gathering and joining an underground church.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant describes fleeing after police warnings and being accused of illegal religious activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant states he fled China and arrived in Canada seeking refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Board decided the applicant was not a refugee due to inability to establish identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board explained its reasoning for rejecting the applicant's identity documents and credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the jurisprudence on the standard of review for legal questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews jurisprudence on the standard of reasonableness for identity findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The court states that the standard of review for identity findings is reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph emphasizes the importance of establishing identity and the burden on the claimant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The jurisprudence indicates that if identity isn't established, further analysis isn't necessary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's conclusion on the RIC credible within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the applicant provided other documents corroborating his identity, which the Board dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court observes the Board did not properly assess the authenticity of the additional documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states that dismissing all identity evidence without examining it was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court allows the application and remits the case for re-determination.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,606 @@
+{
+ "case_id": 18763,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 84,
+ "tagged_count": 84,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 12180,
+  "completion_tokens": 5190,
+  "usd": 0.003294
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The court states the case involves two applications for judicial review heard on March 23, 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: PRRA decision",
+   "role": "background_facts",
+   "explanation": "The first application concerns a 2009 PRRA decision denying refugee status and protection under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: H&C decision",
+   "role": "background_facts",
+   "explanation": "The second application concerns a 2009 decision denying humanitarian and compassionate grounds for permanent residence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position: PRRA allegations",
+   "role": "party_position",
+   "explanation": "The applicant alleges the PRRA officer erred in law by not holding a hearing, applying an incorrect test, and ignoring supportive evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: H&C allegations",
+   "role": "party_position",
+   "explanation": "The applicant alleges the H&C officer applied the wrong test, failed to hold a hearing, and ignored evidence of hardship and threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Reasoning and conclusion",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the officer did not err and dismisses both applications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts: applicant's life",
+   "role": "background_facts",
+   "explanation": "The applicant is a Turkish citizen who arrived in Canada in 2003 claiming refugee status based on ethnicity, religion, and political opinion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history: refugee claim rejection",
+   "role": "procedural_history",
+   "explanation": "The refugee claim was rejected in 2004, and judicial review was denied in 2005.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts: subsequent applications",
+   "role": "background_facts",
+   "explanation": "The applicant submitted an H&C application and a PRRA application in 2005 and 2006 based on similar risk allegations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts: additional submissions",
+   "role": "background_facts",
+   "explanation": "The applicant provided further evidence in 2008 and 2009 about threats and her husband's return to Turkey.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Evidence assessment: health centre letter",
+   "role": "evidence_assessment",
+   "explanation": "A 2008 letter states her ex-husband returned to Turkey and she was threatened by him, but she did not follow him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Evidence assessment: email exchange",
+   "role": "evidence_assessment",
+   "explanation": "The email exchange included a threat from her ex-husband, which was translated and attached to the letter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts: updated PRRA application",
+   "role": "background_facts",
+   "explanation": "In 2009, the applicant stated her ex-husband returned to Turkey in 2007, and she refused to follow due to past abuse and threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Background facts: updated H&C application",
+   "role": "background_facts",
+   "explanation": "The applicant submitted further evidence in 2009 claiming her life was at risk from threats and abuse in Turkey.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: PRRA decision",
+   "role": "legal_test",
+   "explanation": "The officer rejected the PRRA application based on the standard that the applicant did not face a significant risk of persecution, torture, or risk to life.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: assessment of risks",
+   "role": "legal_test",
+   "explanation": "The officer noted that the risks were similar to those assessed by the RPD, with exceptions for new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test: consideration of new evidence",
+   "role": "legal_test",
+   "explanation": "The officer explicitly considered the new evidence provided in the 2008 and 2009 letters and email exchange.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position: credibility",
+   "role": "party_position",
+   "explanation": "The officer did not make a credibility finding, considering it unnecessary as the key issue was state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence assessment: factual matters",
+   "role": "evidence_assessment",
+   "explanation": "The officer noted discrepancies and lack of verification regarding the ex-husband's return, threats, and divorce details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning: applicant's conduct",
+   "role": "reasoning_application",
+   "explanation": "The officer found it unreasonable that the applicant would seek communication with her husband if fearing for her safety.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning: assessment of new evidence",
+   "role": "reasoning_application",
+   "explanation": "The officer concluded that the new evidence did not support a risk of harm in Turkey, despite some resentment shown in emails.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: state protection",
+   "role": "legal_test",
+   "explanation": "The officer addressed the key issue of whether adequate state protection was available in Turkey.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence assessment: country profile",
+   "role": "evidence_assessment",
+   "explanation": "The officer reviewed country reports indicating improvements in Turkey's protection of women and general human rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment: general human rights",
+   "role": "evidence_assessment",
+   "explanation": "The officer noted that gender discrimination is not an issue and protections have improved, based on objective reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment: asylum interest",
+   "role": "evidence_assessment",
+   "explanation": "The officer cited evidence that most Turkish asylum seekers are not of interest to the government and would not be imprisoned.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: state protection conclusion",
+   "role": "reasoning_application",
+   "explanation": "The officer concluded that state protection in Turkey is adequate and the applicant has recourse if authorities act improperly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Issues raised by applicant",
+   "role": "issue_framing",
+   "explanation": "The applicant claims the officer erred by not holding a hearing, applying the wrong test, and ignoring evidence of protection failure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The court states the applicable standard of review for the first and third issues is reasonableness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Standard of review: correctness",
+   "role": "legal_test",
+   "explanation": "The court states the standard of review for the state protection test is correctness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test: hearing requirements",
+   "role": "legal_test",
+   "explanation": "Section 167 of the Immigration and Refugee Protection Regulations sets out when a hearing is required based on specific factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test: factors for hearing",
+   "role": "legal_test",
+   "explanation": "The factors for requiring a hearing are whether there is serious credibility issues, their importance, and if they justify protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test: cumulative factors",
+   "role": "legal_test",
+   "explanation": "The factors are cumulative; if all are met, a hearing is required, otherwise not, based on the presence of key factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test: state protection not met",
+   "role": "legal_test",
+   "explanation": "The factor regarding the availability of adequate state protection is not satisfied, so a hearing was not required, and the officer's conclusion was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test: credibility not established",
+   "role": "legal_test",
+   "explanation": "The factor regarding credibility was not met because the officer did not make a credibility finding, only that evidence was insufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position: credibility concerns",
+   "role": "party_position",
+   "explanation": "The court notes that the officer did not express concerns about the applicant's credibility, unlike in other cases where credibility was central.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Background facts: divorce and return",
+   "role": "background_facts",
+   "explanation": "The officer assumed the facts about the husband's return and divorce were true, noting the lack of evidence on timing was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Background facts: other noted facts",
+   "role": "background_facts",
+   "explanation": "The officer noted the applicant's email exchange and lack of details on abuse, which was reasonable given the evidence provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Reasoning: assessment of evidence",
+   "role": "reasoning_application",
+   "explanation": "The officer was justified in moving directly to weighing the evidence due to lack of additional proof of past abuse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning: sufficiency of evidence",
+   "role": "reasoning_application",
+   "explanation": "The officer reasonably concluded the applicant's statements about future harm were insufficient without further evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Reasoning: scope of analysis",
+   "role": "reasoning_application",
+   "explanation": "Since the key issue was state protection, the officer was justified in not elaborating further on other issues, including credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Standard of proof and evidence evaluation",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Applicant's failure to meet her burden of proof due to unsubstantiated statements about her past and future abuse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Issue framing: correct test for state protection",
+   "role": "issue_framing",
+   "explanation": "The paragraph presents the Applicant's claim that the Officer applied the wrong test regarding state protection, which the court disagrees with.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test: focus on adequacy of state protection",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Officer correctly focused on whether adequate state protection was available, applying the correct legal test.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Legal test: effective vs. adequate protection",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Supreme Court's interpretation that the test is whether state protection is effective, referencing Ward.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Legal test: terminology in case law",
+   "role": "legal_test",
+   "explanation": "The Court notes that the terms 'effective' and 'adequate' state protection are used interchangeably in case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Legal test: authorities' characterization",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews authorities characterizing the test as whether the state can provide 'effective' or 'adequate' protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Legal test: terminology consistency",
+   "role": "legal_test",
+   "explanation": "The Applicant's own submissions use 'effective' and 'adequate' protection interchangeably, indicating no clear distinction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Legal test: Respondent's position",
+   "role": "legal_test",
+   "explanation": "The Respondent asserts that the law is settled that the test is whether state protection is 'adequate,' citing relevant cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Legal test: burden of proof in case law",
+   "role": "legal_test",
+   "explanation": "The Court in Carrillo states that the claimant must prove that state protection is inadequate, without explicitly distinguishing 'adequate' and 'effective'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Legal test: interpretation of case law",
+   "role": "legal_test",
+   "explanation": "Justice Mosley in Flores emphasizes that the test is about 'adequacy' rather than 'effectiveness', citing Villafranca.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Legal test: subsequent case support",
+   "role": "legal_test",
+   "explanation": "Justice Lagac\u00e9 in Samuel affirms that the correct test is one of 'adequacy' because requiring full effectiveness is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Legal test: settled law on state protection",
+   "role": "legal_test",
+   "explanation": "The court agrees that the test is whether the country can provide 'adequate' protection, with the burden on the claimant to prove inability or unwillingness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Procedural considerations: evidence requirements",
+   "role": "other",
+   "explanation": "While corroborative evidence is not legally required, uncorroborated statements make rebuttal more difficult, especially if the applicant can provide more evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Evidence assessment: documentary evidence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph advises that recent, credible reports from reputable sources are more persuasive than news articles or advocacy reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Legal standard: scope of evidence for state protection",
+   "role": "issue_framing",
+   "explanation": "The paragraph explains that demonstrating inadequate protection requires showing the state is so weak or corrupt that it cannot protect its citizens, not just isolated failures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Legal standard: comparison with developed democracies",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that evidence must show protection is significantly less adequate than in established democracies, not just some shortcomings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Legal standard: forward-looking evidence",
+   "role": "issue_framing",
+   "explanation": "The court emphasizes the need for recent, reliable evidence showing ongoing inability or unwillingness to provide protection, not just past failures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Legal test: correctness of application",
+   "role": "disposition",
+   "explanation": "The court concludes that the Officer applied the correct test of adequacy of state protection in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Party position: evidence ignored",
+   "role": "party_position",
+   "explanation": "The Applicant claims the Officer ignored important evidence supporting her claim of inadequate protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Evidence assessment: specific evidence on violence law enforcement",
+   "role": "evidence_assessment",
+   "explanation": "The court finds that the Officer considered the statement about law enforcement's enforcement issues and summarized the evidence accordingly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Evidence assessment: legal mechanisms and shortcomings",
+   "role": "evidence_assessment",
+   "explanation": "The Officer acknowledged shortcomings in legal mechanisms and recognized the partial effectiveness of measures, without disregarding the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Party position: ignoring evidence",
+   "role": "party_position",
+   "explanation": "The Applicant claims the Officer ignored evidence of hardships and legal failures, but the court finds the Officer reasonably considered the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Disposition: case outcome",
+   "role": "disposition",
+   "explanation": "The application for judicial review is dismissed, with no certification question.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "H&C decision: basis for refusal",
+   "role": "background_facts",
+   "explanation": "The Officer refused the H&C application because the applicant did not establish she would face disproportionate hardship if returned to Turkey.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "H&C decision: consideration of evidence",
+   "role": "background_facts",
+   "explanation": "The Officer considered all evidence but clarified that risk is assessed in terms of hardship, not under IRPA sections 96 and 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "H&C decision: assessment of risks and hardship",
+   "role": "background_facts",
+   "explanation": "The decision discusses risks and state protection, focusing on hardship rather than persecution, with some material similar to the PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "H&C decision: community and integration",
+   "role": "background_facts",
+   "explanation": "The decision discusses the applicant's level of integration and community support, including letters of support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "H&C decision: return feasibility and family support",
+   "role": "background_facts",
+   "explanation": "The decision concludes there is insufficient evidence that the applicant would face disproportionate hardship upon return, considering her family and support network.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "H&C decision: legal framework and conclusion",
+   "role": "background_facts",
+   "explanation": "The decision explains the legal test for H&C and concludes the applicant did not meet it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Issue framing: test application in H&C",
+   "role": "issue_framing",
+   "explanation": "The applicant claims the Officer applied the wrong test, either by copying from the PRRA decision or using the wrong terminology.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Procedural fairness: hearing and credibility",
+   "role": "issue_framing",
+   "explanation": "The applicant alleges the Officer erred by not holding a hearing to address credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Party position: evidence of hardship and physical ailments",
+   "role": "party_position",
+   "explanation": "The applicant claims the Officer ignored evidence of hardships faced as a woman and her physical health issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "Reasoning: correctness of test application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Officer correctly applied the proper test in assessing the H&C application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "Procedural detail: timing of decisions",
+   "role": "other",
+   "explanation": "The paragraph notes that the H&C decision was made the day before the PRRA decision, which is relevant to timing and process.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Procedural detail: oral hearing and timing",
+   "role": "other",
+   "explanation": "Counsel argued that the H&C decision was written after the PRRA decision despite the date, but the court disagrees based on evidence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "Reasoning: timing and content of decisions",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Officer stated he rendered the H&C decision, and the content shows focus on the correct legal test, supporting the timing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "Evidence interpretation: state protection and hardship",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Officer's discussion of state protection was part of assessing hardship, not simply copying from the PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "Disposition: correctness of test application",
+   "role": "disposition",
+   "explanation": "The court concludes the Officer did not apply the wrong test in the H&C assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "Procedural fairness: hearing",
+   "role": "other",
+   "explanation": "The claim about the Officer's failure to hold a hearing is addressed earlier and does not need repetition.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "Party position: evidence of hardship as a woman",
+   "role": "party_position",
+   "explanation": "The applicant claims the Officer ignored evidence of hardships faced as a woman, especially with her health issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Officer's consideration of evidence and progress on human rights issues, and the applicant's hardships.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Officer's implicit assessment of the medical issue raised by the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the court's conclusion that the Officer did not err in the assessment process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the application for judicial review was dismissed and no certification was granted.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

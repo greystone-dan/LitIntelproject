@@ -1,0 +1,249 @@
+{
+ "case_id": 10386,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 33,
+ "tagged_count": 33,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4889,
+  "completion_tokens": 2072,
+  "usd": 0.0013177000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the applicant's drug charges and sobriety before arriving in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's past drug addiction and deportation after a 1985 drug charge in the USA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States the applicant's return to Canada using fraudulent documents and the context of President Carter's 1977 pardon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Notes the applicant's life in Canada, his community involvement, and his application for permanent residence on H&C grounds before the Kanthasamy decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "States the timing and outcome of the immigration officer\u2019s decision on the applicant's H&C application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the applicant's establishment in Canada, work history, community involvement, and volunteer activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mentions the character and reference letters supporting the applicant\u2019s community ties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's family in the USA and their inability to support him if deported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Reports the applicant's medical diagnosis of Hepatitis C and stage 4 cirrhosis and his treatment at Sherbourne.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Explains the applicant's lack of OHIP coverage, ongoing medical bills, and ability to access emergency care.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Includes a medical report emphasizing the urgency of treatment and the risks of untreated liver disease.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Provides a prior medical opinion warning of deterioration and death if healthcare access is denied in the USA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States another medical report stressing the need for health coverage to prevent death from liver complications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Notes the applicant's claim about employment difficulties in the USA and the lack of evidence supporting it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Describes the officer's recognition of the applicant's community contributions but notes the view that volunteer work can be done in the USA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Notes the officer's minimal weight given to the applicant's employment history and lack of discrimination evidence in the USA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States the officer's conclusion that family love provides some emotional support, despite the applicant's family in the USA being unable to help physically.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Highlights the officer's emphasis on the applicant's bonds with Canadian friends and the possibility of maintaining these ties if deported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Notes the officer's conclusion that there is no significant risk of discrimination or mistreatment in the USA, based on available evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Mentions the officer's observation of the applicant's medical condition but notes the lack of evidence of treatment barriers in the USA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Summarizes the officer's reasoning that years in Canada under illegal circumstances do not warrant relief, and that the applicant can access healthcare and support in the USA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that the applicant is seeking judicial review of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the correctness standard of review and the court's role in assessing whether the decision was correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Describes the review of the Minister's discretionary power and the principles from Chirwa relevant to H&C assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Quotes the Supreme Court's statement on the legal framework for hardship in H&C assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Notes the Supreme Court's clarification that hardship words are descriptive, not thresholds, and should be applied flexibly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Emphasizes that hardship adjectives are instructive but not determinative, allowing a flexible approach to humanitarian considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States the applicant's argument that the officer applied the wrong legal test by focusing solely on hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The judge agrees that the officer's assessment was improperly focused on hardship, which is incorrect law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Criticizes the officer's focus on the applicant's ability to do volunteer work in the USA as a factor reducing hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes the officer's emphasis on medical treatment options in the USA, which is a hardship-focused approach, and criticizes it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the officer employed the wrong legal test and that judicial review should be granted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Critiques the officer's requirement for additional evidence on treatment, which undermines the diagnosis.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

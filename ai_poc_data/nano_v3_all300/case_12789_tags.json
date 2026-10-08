@@ -1,0 +1,193 @@
+{
+ "case_id": 12789,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5745,
+  "completion_tokens": 1642,
+  "usd": 0.0012313
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court describes the initial Board decision rejecting the refugee claim and the applicant's allegations of persecution, leading to this judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states that the application for judicial review should be granted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant's stomach problems and medical consultations from 2009 to 2010 are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant's account of his conversion to Christianity, church attendance, and religious milestones is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant's involvement in serving the underground church and introducing others to the faith is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details of the alleged raid, arrest attempts, and detention of church members are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant's flight from China, visa smuggling, and refugee claim filing are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion that the applicant fabricated his story and was not a Christian is summarized, including inconsistencies noted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's findings that the applicant lacked corroborative evidence and that some claims were unlikely are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's view that attendance at a Canadian church does not prove genuine faith is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's skepticism about the applicant's smuggling story and leaving China undetected is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's reasoning that the applicant's US claim was unconvincing is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's assessment that persecution of Christians in Jilin is rare and unlikely to involve raids is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the Board's credibility findings are tenuous and lack transparency, especially regarding the applicant's miracle story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's misunderstanding of the applicant's timeline regarding his conversion to Christianity to be unfounded.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Board's skepticism about the applicant's faith and the inconsistency with the applicant's explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that belief in divine intervention is not required for refugee status and criticizes the Board's skepticism.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states that the applicant's wife's beliefs are irrelevant and that inconsistencies in her testimony are not material.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court criticizes the Board's focus on minor omissions and inappropriate questions about the applicant's influence over others' faith.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's reasons to be sarcastic and overly focused on insignificant inconsistencies, flawed and lacking transparency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court discusses the country documentation on arrest warrants and the Board's misinterpretation of the applicant's testimony and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court questions the Board's implausibility finding regarding the applicant's ability to leave China undetected, citing evidence of police databases and corruption.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the Board's reasonable conclusion about the rarity of persecution incidents but recognizes the potential for underreporting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the Board's reasoning on the US asylum claim to be reasonable and within its discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court discusses the Board's use of credibility to assess the bona fides of the sur place claim, noting deficiencies in the Board's reasoning.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

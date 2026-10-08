@@ -1,0 +1,410 @@
+{
+ "case_id": 1540,
+ "model": "gpt-4.1",
+ "prompt_version": "tag_v3",
+ "run": "v3_gpt41",
+ "paragraph_count": 56,
+ "tagged_count": 56,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7777,
+  "completion_tokens": 2708,
+  "usd": 0.037218
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "judicial review of SST Appeal Division leave decision",
+   "role": "procedural_history",
+   "explanation": "This paragraph describes the decision under review and the parties involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "General Division denial of CPP disability benefits",
+   "role": "procedural_history",
+   "explanation": "This paragraph states the General Division's decision to deny the disability pension benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "court disposition and remedy",
+   "role": "disposition",
+   "explanation": "This paragraph announces the court's decision to allow the application, set aside the decision, and remit the matter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "summary of decision",
+   "role": "issue_framing",
+   "explanation": "The judge introduces a summary of the decision and signals a plain-language explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "hearing procedure and party participation",
+   "role": "procedural_history",
+   "explanation": "This paragraph describes the hearing format and the participation of the parties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "scope of judicial review\u2014leave to appeal decision",
+   "role": "issue_framing",
+   "explanation": "The judge clarifies the limited scope of the court's review regarding the leave to appeal decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "statutory requirement for leave to appeal",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the legal requirement for obtaining leave to appeal and the statutory basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "remedial options on judicial review",
+   "role": "issue_framing",
+   "explanation": "The judge outlines the possible outcomes depending on whether the decision is set aside or not.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "court disposition and remedy",
+   "role": "disposition",
+   "explanation": "The judge states the decision to set aside the Appeal Division's decision and remit for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "scope of judicial review\u2014merits not decided",
+   "role": "issue_framing",
+   "explanation": "The judge clarifies that the merits of the appeal are not being decided at this stage.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "court disposition\u2014application allowed",
+   "role": "disposition",
+   "explanation": "The judge confirms the AGC succeeds on the application, summarizing the result.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Ms Angell's disability claim and medical conditions",
+   "role": "background_facts",
+   "explanation": "This paragraph describes Ms Angell's application and the medical basis for her claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Ms Angell's employment history",
+   "role": "background_facts",
+   "explanation": "This paragraph provides details of Ms Angell's work history relevant to her claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Ms Angell's medical treatment and limitations",
+   "role": "background_facts",
+   "explanation": "This paragraph describes Ms Angell's knee surgery and resulting limitations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Ms Angell's medical records and submissions",
+   "role": "background_facts",
+   "explanation": "This paragraph discusses the delay in obtaining medical records and their eventual submission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "CPP eligibility requirements and MQP",
+   "role": "legal_test",
+   "explanation": "This paragraph sets out the statutory requirements for CPP disability benefits and defines MQP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Minister and General Division decisions on claim",
+   "role": "procedural_history",
+   "explanation": "This paragraph recounts the sequence of administrative decisions leading to the present review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "General Division's legal test for disability",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the General Division's articulation of the legal test for disability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "General Division's evidentiary requirements",
+   "role": "party_position",
+   "explanation": "This paragraph describes the General Division's position on the need for objective medical evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "General Division's findings and conclusion",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the General Division's findings and its decision to dismiss the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Appeal Division grants leave to appeal",
+   "role": "procedural_history",
+   "explanation": "This paragraph describes the Appeal Division's decision to grant leave to appeal and its rationale.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "grounds for appeal under the Act",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the Appeal Division's recitation of the statutory grounds for appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Appeal Division's reasoning for granting leave",
+   "role": "party_position",
+   "explanation": "This paragraph introduces the Appeal Division's analysis and its conclusion that intervention was required.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "AGC applies for judicial review",
+   "role": "procedural_history",
+   "explanation": "This paragraph states that the AGC has applied for judicial review of the Appeal Division's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "This paragraph sets out the applicable standard of review and supporting case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "This paragraph confirms the standard of review and its consistency with prior case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasonableness review principles",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the principles and focus of reasonableness review per Vavilov and other cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasonableness review principles",
+   "role": "legal_test",
+   "explanation": "This paragraph elaborates on the criteria for intervention under reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "reasonableness review principles",
+   "role": "legal_test",
+   "explanation": "This paragraph states that a decision is unreasonable if the reasoning on a critical point is not understandable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "approach to reviewing Appeal Division decision",
+   "role": "issue_framing",
+   "explanation": "This paragraph signals the transition to applying the legal principles to the case at hand.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "statutory right and requirement for leave to appeal",
+   "role": "legal_test",
+   "explanation": "This paragraph sets out the statutory provisions governing appeals and the requirement for leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "grounds for appeal under the Act",
+   "role": "legal_test",
+   "explanation": "This paragraph quotes the statutory grounds for appeal under the Department of Employment and Social Development Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "leave to appeal\u2014reasonable chance of success",
+   "role": "legal_test",
+   "explanation": "This paragraph sets out the statutory requirement that leave be refused if there is no reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "requirement for written reasons on leave decisions",
+   "role": "legal_test",
+   "explanation": "This paragraph states the statutory requirement for written reasons when granting or refusing leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "effect of granting leave\u2014notice of appeal",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the statutory effect of granting leave to appeal under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "AGC's arguments on unreasonableness of leave decision",
+   "role": "party_position",
+   "explanation": "This paragraph introduces the AGC's arguments challenging the reasonableness of the Appeal Division's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "AGC's argument\u2014no error of law by General Division",
+   "role": "party_position",
+   "explanation": "This paragraph details the AGC's submission that the General Division made no error of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "court's agreement\u2014no error of law by General Division",
+   "role": "reasoning_application",
+   "explanation": "The judge agrees with the AGC that the Appeal Division was incorrect to find an error of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "AGC's argument\u2014lack of objective medical evidence",
+   "role": "party_position",
+   "explanation": "This paragraph presents the AGC's argument regarding the lack of objective medical evidence and the reasonableness of the leave decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "court's agreement\u2014objective medical evidence required",
+   "role": "reasoning_application",
+   "explanation": "The judge agrees with the AGC that objective medical evidence is required and cites supporting case law and regulations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "court's agreement\u2014objective medical evidence required",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Appeal Division was incorrect in law regarding the requirement for objective medical evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "AGC position\u2014merits of appeal and s. 58(2)",
+   "role": "party_position",
+   "explanation": "The court summarizes the AGC's submission about the merits and states it will not address that issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "transparency of Appeal Division\u2019s reasons",
+   "role": "issue_framing",
+   "explanation": "The court introduces an additional concern about the transparency of the Appeal Division's reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "transparency in administrative decision-making\u2014legal principles",
+   "role": "legal_test",
+   "explanation": "The court sets out the legal principles and authorities regarding transparency in administrative decision-making.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "transparency in administrative decision-making\u2014legal principles",
+   "role": "legal_test",
+   "explanation": "The court discusses a precedent (Boros) illustrating the requirement for transparency in administrative decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "transparency in administrative decision-making\u2014legal principles",
+   "role": "legal_test",
+   "explanation": "The court explains the purposes and requirements of transparency in administrative decision-making, citing authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "transparency required in leave to appeal decisions under s. 56",
+   "role": "reasoning_application",
+   "explanation": "The court applies transparency principles to what the Appeal Division should do when granting leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "transparency required in leave to appeal decisions under s. 56",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Appeal Division's reasons lack the required transparency for administrative decisions under Vavilov.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "transparency required in leave to appeal decisions under s. 56",
+   "role": "reasoning_application",
+   "explanation": "The court analyzes the Appeal Division's reasons and finds they do not explain or connect the legal issue clearly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "transparency required in leave to appeal decisions under s. 56",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the Appeal Division's reasons did not communicate its decision or identify the ground for appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "transparency required in leave to appeal decisions under s. 56",
+   "role": "reasoning_application",
+   "explanation": "The court states it cannot speculate about the Appeal Division's reasoning or fill gaps in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Vavilov test for setting aside unreasonable decisions",
+   "role": "legal_test",
+   "explanation": "The court states the Vavilov test for when a decision should be set aside for unreasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "court's conclusion\u2014serious shortcomings in Appeal Division decision",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the Appeal Division's shortcomings undermine its reasoning and outcome, referencing legal errors and lack of transparency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "court's disposition\u2014decision set aside",
+   "role": "disposition",
+   "explanation": "The court orders that the Appeal Division's decision granting leave to appeal must be set aside.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "court's disposition\u2014issues not addressed and remitted",
+   "role": "disposition",
+   "explanation": "The court declines to address certain issues, leaving them for the Appeal Division on redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "court's disposition\u2014costs",
+   "role": "disposition",
+   "explanation": "The court grants the application without costs, agreeing with the AGC's request.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,196 @@
+{
+ "case_id": 1147,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1-mini",
+ "usage": {
+  "prompt_tokens": 6800,
+  "completion_tokens": 879,
+  "usd": 0.0041264000000000006
+ },
+ "verification": {
+  "arguments": 4,
+  "quotes_verified": 3,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The judicial review application was dismissed because the Refugee Appeal Division's decision that the applicant had a reasonable internal flight alternative in Cap-Ha\u00eftien was found to be reasonable, and there was no breach of procedural fairness in how the internal flight alternative issue was raised during the hearing.",
+  "themes": [
+   {
+    "name": "Internal Flight Alternative (IFA) Analysis",
+    "summary": "The decision centers on whether the RAD reasonably determined that Cap-Ha\u00eftien was a viable and reasonable internal flight alternative for the applicant.",
+    "paragraphs": [
+     1,
+     2,
+     11,
+     12,
+     13,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37
+    ]
+   },
+   {
+    "name": "Risk of Persecution and State Protection",
+    "summary": "The court examined whether the RAD reasonably assessed the risk of sexual violence and the availability of state protection in Haiti, particularly in the proposed IFA.",
+    "paragraphs": [
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   {
+    "name": "Reasonableness of Relocation to IFA",
+    "summary": "The court considered whether it was reasonable for the applicant to relocate to Cap-Ha\u00eftien despite difficulties such as employment challenges.",
+    "paragraphs": [
+     33,
+     34,
+     35,
+     36,
+     37
+    ]
+   },
+   {
+    "name": "Procedural Fairness Regarding IFA Notice",
+    "summary": "The court analyzed whether the failure to raise the IFA issue at the outset of the hearing constituted a breach of procedural fairness.",
+    "paragraphs": [
+     2,
+     38,
+     39,
+     40,
+     41,
+     42
+    ]
+   },
+   {
+    "name": "Standards of Review Applied",
+    "summary": "The court clarified the applicable standards of review for the RAD's IFA determination (reasonableness) and procedural fairness issues (correctness/fairness).",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in its two-prong IFA analysis by failing to recognize lack of state protection and unreasonableness of the IFA due to risk of sexual violence and employment issues.",
+    "treatment": "rejected",
+    "authority": "Canada (Attorney General) v Ward; Velasquez v Canada; Dezameau; Josile; Jacinthe",
+    "paragraphs": [
+     2,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37
+    ],
+    "quote": "Ms. Ambroise alleges that the RAD erred by failing to analyze the lack of state protection in Haiti.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RPD breached procedural fairness by not warning at the outset that an IFA would be raised.",
+    "treatment": "rejected",
+    "authority": "Thirunavukkarasu; Alkhoury; Tariq; Figueroa",
+    "paragraphs": [
+     2,
+     38,
+     39,
+     40,
+     41,
+     42
+    ],
+    "quote": "Ms. Ambroise states that this was a breach of procedural fairness.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "There was no serious possibility of persecution in Cap-Ha\u00eftien and the IFA was reasonable; the applicant failed to meet the high threshold to rebut the IFA.",
+    "treatment": "accepted",
+    "authority": "Thirunavukkarasu; Olusola; Ranganathan; Mchedlishvilli",
+    "paragraphs": [
+     17,
+     18,
+     23,
+     29,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37
+    ],
+    "quote": "The RAD concluded that Ms. Ambroise failed to establish that it would be unreasonable to relocate to Cap-Ha\u00eftien.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "court",
+    "claim": "The RAD's decision was reasonable and there was no breach of procedural fairness; the applicant had opportunity to respond to the IFA issue during the hearing.",
+    "treatment": "accepted",
+    "authority": "Vavilov; CARL; Alkhoury; Tariq",
+    "paragraphs": [
+     3,
+     6,
+     7,
+     8,
+     9,
+     10,
+     41,
+     42
+    ],
+    "quote": "Although Ms. Ambroise was not warned about it at the outset of the hearing, she was informed during the hearing that an IFA would be raised.",
+    "quote_verified": false
+   }
+  ]
+ }
+}

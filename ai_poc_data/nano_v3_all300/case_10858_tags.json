@@ -1,0 +1,242 @@
+{
+ "case_id": 10858,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 32,
+ "tagged_count": 32,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4309,
+  "completion_tokens": 1745,
+  "usd": 0.0011289
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "disposition",
+   "explanation": "The court states that the refugee claim was rejected based on the applicant's Brazilian permanent resident status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The applicant challenges the decision, arguing his status was invalid or does not confer the same rights as Brazilians.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mr. Noel reports fleeing Haiti due to threats and obtaining permanent residence in Brazil in 2016.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "He worked in Brazil until June 2016, then moved to the US, and later sought refugee protection there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "He arrived in Canada in August 2017 and filed a refugee claim shortly after.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The RPD and RAD denied his claim, focusing on his Brazilian status and perceived lack of risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The RAD found that Mr. Noel had valid permanent resident status based on Brazilian documentation and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The burden shifts to the claimant to prove loss of status, which the law defines through specific circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded Mr. Noel still had his permanent resident status in Brazil at the time of the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD found that Brazilian permanent residents generally have rights similar to citizens, with some exceptions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RPD determined Mr. Noel did not face persecution or risk of harm upon return to Brazil based on evidence and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD considered the timing of Mr. Noel's claim relative to his departure from Brazil.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The judicial review focuses on whether the RAD erred in its conclusion about Mr. Noel's status under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The standard of review is reasonableness because the issue involves mixed law and fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Interpretation of foreign law is also reviewed under the reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Noel argues that leaving Brazil without informing authorities revokes his permanent residence automatically.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "He claims the absence of an exit stamp prevents him from proving his departure date and returning to Brazil.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "He asserts that Haitians in Brazil face discrimination and are not fully informed of their rights, contrary to the RAD's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Evidence shows Mr. Noel's name on a list of Haitian permanent residents and official documentation of his status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "His departure in June 2016 and the timing of the RAD decision are relevant to his status claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's conclusion that Mr. Noel had permanent residence in Brazil was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "He must prove he lost his status, which the court considers in its analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds it reasonable that Mr. Noel did not establish he lost his status by the hearing date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Brazilian law does not clearly state the effect of no exit stamp on permanent residence status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court interprets the law as not automatically revoking status without proof of loss, especially within the two-year period.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "Mr. Noel's voluntary departure does not prevent him from returning before two years pass.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court notes concerns about claimants renouncing protection in one country to claim in another, which is problematic.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Noel argues that Haitians in Brazil face discrimination and do not enjoy full rights, contrary to the RAD's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Discrimination must be serious, repeated, and have prejudicial consequences to amount to persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the discrimination alleged does not amount to persecution based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "Mr. Noel's previous claims do not mention fear of persecution in Brazil.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, affirming the decision below.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

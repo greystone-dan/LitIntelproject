@@ -1,0 +1,459 @@
+{
+ "case_id": 17226,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 63,
+ "tagged_count": 63,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8930,
+  "completion_tokens": 3815,
+  "usd": 0.002419
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The court reviews the decision of the RAD which confirmed the RPD's negative refugee determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Disposition of the application",
+   "role": "disposition",
+   "explanation": "The court states that the application for judicial review is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the Applicants",
+   "role": "background_facts",
+   "explanation": "The Applicants describe their Nigerian background, cultural obligations, and fears of persecution and harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about the Applicants",
+   "role": "background_facts",
+   "explanation": "The Applicants recount threats and harassment from family members in Nigeria related to traditional roles and rituals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about the Applicants",
+   "role": "background_facts",
+   "explanation": "The Applicants detail their travel history, family death, and reasons for seeking refugee protection in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position on credibility and IFA",
+   "role": "party_position",
+   "explanation": "The RPD rejected the claim, citing credibility issues and a viable IFA in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position on evidence credibility",
+   "role": "party_position",
+   "explanation": "The RPD discredited the newspaper article due to errors and irregularities, undermining credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position on credibility of testimony",
+   "role": "party_position",
+   "explanation": "The RPD found the Male Applicant\u2019s testimony vague and not credible regarding family rituals and threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position on supporting documents",
+   "role": "party_position",
+   "explanation": "The RPD gave little weight to other documents, concluding they did not overcome credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position on appeal grounds",
+   "role": "party_position",
+   "explanation": "The Applicants argued that the RPD erred in credibility assessment and IFA analysis on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position on RAD decision",
+   "role": "party_position",
+   "explanation": "The RAD found the Applicants have an IFA in Port Harcourt and dismissed the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position on IFA and credibility",
+   "role": "party_position",
+   "explanation": "The RAD agreed with the RPD on credibility but found error in not conducting a full IFA, which it then completed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test applied by RAD",
+   "role": "legal_test",
+   "explanation": "The RAD applied the two-prong test from Rasaratnam for assessing IFA and persecution risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test for persecution risk",
+   "role": "legal_test",
+   "explanation": "The RAD assessed whether there was a serious possibility of persecution or harm in Nigeria, finding allegations not credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test on evidence credibility",
+   "role": "legal_test",
+   "explanation": "The RAD agreed that the key evidence, including the newspaper article, lacked credibility and was given no weight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test on fear of female genital mutilation",
+   "role": "legal_test",
+   "explanation": "The RAD found the fear of FGM lacked credibility due to the Male Applicant\u2019s lack of knowledge and other evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test on reasonableness of refuge in Port Harcourt",
+   "role": "legal_test",
+   "explanation": "The RAD considered whether seeking refuge in Port Harcourt would be unreasonable, concluding it would not jeopardize their safety.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Issue framing: reasonableness of RAD decision",
+   "role": "issue_framing",
+   "explanation": "The court considers whether the RAD\u2019s decision was reasonable regarding credibility and IFA analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Standard of review: correctness and deference",
+   "role": "legal_test",
+   "explanation": "The court reviews the RAD\u2019s decision on correctness for legal issues and with deference on credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Standard of review: factual and mixed issues",
+   "role": "legal_test",
+   "explanation": "The court applies reasonableness review to the RAD\u2019s findings on facts, credibility, and mixed issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Standard of review: IFA analysis",
+   "role": "legal_test",
+   "explanation": "The court reviews the RAD\u2019s IFA analysis under the reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal standard for reasonableness",
+   "role": "legal_test",
+   "explanation": "The reasonableness standard involves justification, transparency, and whether outcomes are acceptable and lawful.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Deference to credibility assessments",
+   "role": "legal_test",
+   "explanation": "Tribunals\u2019 credibility findings are given deference because they are best placed to assess witness credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Applicants\u2019 argument on credibility",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RAD\u2019s credibility findings are unreasonable and overly skeptical, relying on the RPD\u2019s findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Applicants\u2019 argument on newspaper article",
+   "role": "party_position",
+   "explanation": "The Applicants contend the RAD erred in discrediting the newspaper article based on minor errors and formatting issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Applicants\u2019 argument on testimony about rituals",
+   "role": "party_position",
+   "explanation": "The Applicants argue the Male Applicant\u2019s testimony about rituals was sufficiently detailed given his background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Applicants\u2019 argument on psychological report",
+   "role": "party_position",
+   "explanation": "The Applicants claim the RAD erred by not considering the psychological report in credibility and IFA assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Applicants\u2019 argument on female genital mutilation evidence",
+   "role": "party_position",
+   "explanation": "The Applicants dispute the RAD\u2019s conclusion that female genital mutilation is not prevalent or enforced in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Respondent\u2019s argument on newspaper article credibility",
+   "role": "party_position",
+   "explanation": "The Respondent argues the RAD reasonably found the newspaper article lacked credibility due to errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Respondent\u2019s argument on credibility of the Male Applicant",
+   "role": "party_position",
+   "explanation": "The Respondent contends the RAD reasonably found the Male Applicant\u2019s limited knowledge about FGM undermined credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Court\u2019s view on RAD\u2019s credibility findings",
+   "role": "reasoning_application",
+   "explanation": "The court notes the RAD was entitled to rely on the RPD\u2019s credibility findings but also conducted its own review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Court\u2019s acknowledgment of evidence reliance",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes the Applicants relied mainly on the newspaper article to support their claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Court\u2019s assessment of the newspaper article",
+   "role": "reasoning_application",
+   "explanation": "The court agrees with the RAD that the newspaper article contained significant errors and lacked credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Court\u2019s discussion on document authenticity",
+   "role": "reasoning_application",
+   "explanation": "The court notes that typographical errors are not enough to prove a document is fraudulent, but the errors here were extensive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Court\u2019s view on RAD\u2019s assessment of the article",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the RAD\u2019s assessment of the article was reasonable and that it was entitled to defer to the RPD\u2019s findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Court\u2019s view on the content of the article",
+   "role": "reasoning_application",
+   "explanation": "The court observes the article criticizes traditional practices and does not support claims of persecution or threats by the uncle.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Court\u2019s view on presumption of truth",
+   "role": "reasoning_application",
+   "explanation": "The court states the presumption of truth was rebutted because the RPD had reasons to doubt the Applicants\u2019 credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Court\u2019s comment on psychological report",
+   "role": "reasoning_application",
+   "explanation": "The court finds the claim that the RAD ignored the psychological report is unfounded because the applicant declined to provide evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Court\u2019s critique of testimony about rituals",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Male Applicant\u2019s testimony about rituals not credible due to its vagueness and lack of detail.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Court\u2019s observation on the role of the Elegosi",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Male Applicant could not explain the power or influence of the Elegosi role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "evidence credibility regarding uncle's ability to find Applicants",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RAD's reasonable conclusion that the uncle lacked credible ability to find the Applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Applicants' claim of risk in Port Harcourt",
+   "role": "party_position",
+   "explanation": "The Applicants argue they would face serious risk and cannot live in Port Harcourt for personal reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Applicants' argument on risk of persecution and evidence ignored",
+   "role": "party_position",
+   "explanation": "The Applicants claim the RAD erred by ignoring evidence of the uncle\u2019s influence and the prevalence of female genital mutilation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Applicants' personal circumstances and feasibility of living in Port Harcourt",
+   "role": "party_position",
+   "explanation": "The Applicants argue that high costs and social factors make Port Harcourt an unreasonable IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "evidence about living conditions in Port Harcourt",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes evidence about high costs and difficulty finding employment in Port Harcourt.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Applicants' argument on psychological impact of IFA",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RAD ignored the psychological report and potential mental health impact of IFA in Port Harcourt.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "RAD's reasoning on the credibility of the alleged persecution",
+   "role": "party_position",
+   "explanation": "The Respondent states the RAD reasonably found no credible evidence of persecution by the uncle.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Reasonableness of relocating to Port Harcourt",
+   "role": "party_position",
+   "explanation": "The Respondent argues the Applicants failed to prove that relocation would be unreasonable or unduly harsh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "jurisprudence on the two-part test for IFA",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the two-part test for IFA from Rasaratnam and related jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "criteria for a realistic and attainable IFA",
+   "role": "legal_test",
+   "explanation": "The paragraph details the criteria for an IFA to be considered realistic and reasonably accessible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "high threshold for unreasonable IFA",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the high burden on claimants to prove an IFA is unreasonable, citing Ranganathan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "approach to assessing the reasonableness of an IFA",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes the approach from Valasquez on the burden of proof and the two-part test for IFA reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "refugee from country as a whole, not region",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that a refugee is from the entire country, not a specific region, and the claimant bears the onus of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "reasonableness of the RAD's IFA finding",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD applied the correct test and reasonably concluded the IFA was not unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "RAD's analysis of risk of persecution in the IFA",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably found no credible evidence that the uncle could find the Applicants, based on vague evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "evidence on female genital mutilation and protection",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably relied on evidence showing that state and religious protections exist against FGM.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "credibility of risk of FGM and rituals",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably found the allegation of risk from the uncle uncredible due to lack of evidence of his influence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "second part of the IFA reasonableness test",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD reasonably concluded the Applicants did not meet the high threshold for unreasonable relocation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Applicants' concerns about economic hardship and community",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably found that economic hardships did not reach the level of jeopardizing health or safety.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "consideration of psychological report in IFA reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD did not err in not considering the psychological report for the reasonableness of the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Applicants' reliance on Atay and the psychological report",
+   "role": "reasoning_application",
+   "explanation": "The court finds the reliance on Atay misplaced because the psychological report was not considered by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "credibility findings regarding Principal Applicant",
+   "role": "reasoning_application",
+   "explanation": "The court notes no credibility findings were made about the Principal Applicant, so her PTSD did not impact the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "psychological report's limitations and impact on the case",
+   "role": "reasoning_application",
+   "explanation": "The court finds the psychological report was based on limited information and did not address the impact of IFA.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

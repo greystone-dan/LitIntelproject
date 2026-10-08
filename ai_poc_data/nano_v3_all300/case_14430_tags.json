@@ -1,0 +1,263 @@
+{
+ "case_id": 14430,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4174,
+  "completion_tokens": 1841,
+  "usd": 0.0011538000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "disposition",
+   "explanation": "The court states the decision under review and the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court explains the relief sought and the scope of the judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims to be a Congolese citizen involved in political activities and fleeing his country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicant's refugee claim was rejected for identity reasons, and the application for judicial review was allowed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court notes the applicant's request for judicial review and the decision to allow it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant was neither a refugee nor in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant failed the identity determination due to lack of acceptable ID.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board expressed uncertainty about the applicant's citizenship and background due to insufficient evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board disregarded several documents and considered the applicant's testimony and form.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board rejected the driver's licence based on its issuance date conflicting with the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board noted the absence of a stamp on the marriage certificate and the missing proxy document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant's UDPS membership evidence unreliable and questioned his political knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board observed inconsistent photos across documents, undermining credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board dismissed the missing person's notice as self-serving and unconvincing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board rejected the applicant's explanation for US refugee rejection, citing credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant lacked corroborative documentation, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The issue is whether the Board's rejection of the identity claim was patently unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The standard of review for identity documents is patent unreasonableness, with deference to the Board's expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 106 of IRPA guides the assessment of identity documentation and explanations for lack thereof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant argued the Board erred in its adverse inference about photos on documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant explained that multiple uses of the same photos justified the similarity across documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court accepts the explanation but finds the error non-critical given other evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant claimed evidence of his route, including a bus ticket, but the Board focused on lack of documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant cited his US passport, but the respondent argued this undermined credibility due to inconsistency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Board's legitimate reservations about destroyed documents, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court clarifies the Board's focus on credibility and evidence, not on the applicant's intent to conceal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argued the Board should accept proxy marriage and questioned the timing of the driver's licence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the conflicting dates on the licence justified rejection of the explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The absence of a stamp and proxy document justified the Board's disregard of the marriage certificate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board doubted the authenticity of the UDPS documents, and the applicant failed to explain shortcomings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court agrees that the Board's assessment of documents was not patently unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's credibility findings based on knowledge and inconsistencies were reasonable, and the court finds no error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court affirms that the Board's decision to dismiss the claim based on identity was correct and not unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and confirms the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states no serious question of importance is certified and orders the application dismissed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

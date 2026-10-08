@@ -1,0 +1,214 @@
+{
+ "case_id": 10047,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 28,
+ "tagged_count": 28,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5815,
+  "completion_tokens": 2065,
+  "usd": 0.0014075
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Paradis's employment, drug use, termination, and initial legal steps, providing context for the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It outlines the claim for employment benefits, denial, and subsequent appeal process, including tribunal decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "This paragraph reports the tribunal hearing, decision, and the outcome of upholding the misconduct finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the applicant's attempt to appeal the tribunal decision and the refusal of leave to appeal, leading to judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "This paragraph discusses the applicant's request to introduce new evidence and the respondent's objections based on record relevance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details the medical evidence and the applicant's ADHD diagnosis and medication, relevant to his drug use claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It introduces the legal question of admissibility of new evidence in the judicial review process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "This paragraph clarifies the scope of judicial review, focusing on whether the tribunal's leave decision was reasonable, citing legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses the legal interpretation of misconduct, causation, and the tribunal's findings on the applicant's actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "This paragraph states the tribunal's interpretation of misconduct and its application to the applicant's case, including case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It explains the tribunal's findings that the applicant's actions were wilful and led to his dismissal, satisfying legal criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "This paragraph confirms the tribunal's conclusion that the drug test result was the operative cause of dismissal, constituting misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "This paragraph reports the applicant's argument about drug dependency and alleged discrimination, which was considered but not accepted as grounds for appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "It explains the legal standard for leave to appeal and the tribunal's conclusion that the applicant's case had no reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It states the general rule that judicial review records are limited to what was before the tribunal, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph discusses exceptions to the rule against new evidence, such as procedural fairness or bias claims, which do not apply here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It confirms there is no procedural fairness breach and explains the purpose of introducing new evidence in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph considers whether the employer's termination letter and background information are admissible as background evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It concludes that certain evidence, including the Alberta Human Rights policy and medical records, are inadmissible for reasons discussed below.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It states the applicant's claim of a drug dependency and the legal argument that the tribunal erred in refusing leave, which is the focus of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "This paragraph reports the employer's misstatements to the commission, which are relevant to credibility but not central to the legal issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It describes the correction of the employer's statements, clarifying the reasons for dismissal, which are relevant to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "This paragraph emphasizes that the wrongful dismissal issue is not before the court, but whether the tribunal erred in refusing leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It states that the tribunal correctly focused on the applicant's conduct and that the test for misconduct was properly applied, supporting the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the purpose of the leave to appeal process and the legal standard for granting leave, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It concludes that the applicant failed to identify reviewable errors and that the tribunal's decision was reasonable and within legal bounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "This paragraph cites case law to support that remedies for wrongful dismissal are outside the scope of unemployment benefits, leading to dismissal of the review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "It states the court's conclusion that the application is dismissed and no costs are awarded, finalizing the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,128 @@
+{
+ "case_id": 1046,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1-mini",
+ "usage": {
+  "prompt_tokens": 3520,
+  "completion_tokens": 666,
+  "usd": 0.0024736000000000003
+ },
+ "verification": {
+  "arguments": 4,
+  "quotes_verified": 3,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The court allowed the Minister's application for judicial review, finding that the Pension Appeal Board member erred in granting an extension of time for appeal without sufficient reasons or consideration of prejudice, thus the decision was set aside and referred back for re-determination.",
+  "themes": [
+   {
+    "name": "Extension of Time Criteria",
+    "summary": "The court discusses the factors that must be considered before granting an extension of time for appeal under the CPP.",
+    "paragraphs": [
+     7,
+     9,
+     10,
+     11,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Respondent's Delay Explanation",
+    "summary": "The court examines the Respondent's reasons for the significant delay in seeking leave to appeal and finds them unsupported and inconsistent.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15
+    ]
+   },
+   {
+    "name": "Prejudice to the Minister",
+    "summary": "The court highlights the lack of evidence regarding prejudice to the Minister and the importance of considering such prejudice when granting extensions.",
+    "paragraphs": [
+     16,
+     17
+    ]
+   },
+   {
+    "name": "Procedural Fairness and Ex Parte Decisions",
+    "summary": "The court notes concerns about the Board's ex parte decision-making without notice or submissions from the Minister.",
+    "paragraphs": [
+     3,
+     10,
+     20
+    ]
+   },
+   {
+    "name": "Statutory Time Limits and Discretion",
+    "summary": "The court reviews the statutory 90-day time limit for appeals and the discretionary nature of extending this period.",
+    "paragraphs": [
+     5,
+     6,
+     7,
+     8,
+     18
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "respondent",
+    "claim": "The Respondent claimed she delayed due to depression, marital problems, and lack of understanding of the appeal process.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12,
+     13,
+     14
+    ],
+    "quote": "Ms. Gattellaro did not act earlier on this due to many difficulties in her life. She was having to cope with her significant depression, her marital problems and raising her young children.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "tribunal_below",
+    "claim": "The Board member granted an extension of time and leave to appeal despite the delay and without reasons or Minister's submissions.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     1,
+     7,
+     10,
+     20
+    ],
+    "quote": "the time within which to appeal was extended and the leave to appeal was granted. No reasons were provided.",
+    "quote_verified": false
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Minister argued the Board erred in granting the extension of time and leave to appeal after the statutory limit expired.",
+    "treatment": "accepted",
+    "authority": "Grewal v. Canada; Baksa v. Neis",
+    "paragraphs": [
+     3,
+     9,
+     11,
+     18
+    ],
+    "quote": "the member erred in extending the time for bringing the appeal.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "court",
+    "claim": "The court held that extensions of time must be granted based on principled factors including intention, arguable case, explanation for delay, and absence of prejudice.",
+    "treatment": "accepted",
+    "authority": "Grewal v. Canada; Baksa v. Neis",
+    "paragraphs": [
+     7,
+     9,
+     10,
+     19
+    ],
+    "quote": "the following criteria must be considered and weighed: 1. A continuing intention to pursue the application or appeal; 2. The matter discloses an arguable case; 3. There is a reasonable explanation for the delay; and 4. There is no prejudice to the other party in allowing the extension.",
+    "quote_verified": true
+   }
+  ]
+ }
+}

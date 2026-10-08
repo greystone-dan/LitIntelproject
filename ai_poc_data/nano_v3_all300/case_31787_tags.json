@@ -1,0 +1,207 @@
+{
+ "case_id": 31787,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 27,
+ "tagged_count": 27,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4991,
+  "completion_tokens": 1470,
+  "usd": 0.0010871000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph outlines the applicant's refugee claim, its denial, and subsequent PRRA application and review process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the specific issues the court will consider regarding the PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal context",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the purpose and scope of the PRRA process within Canadian immigration law.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the purpose of the PRRA process and the legal framework guiding its application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural fairness",
+   "role": "party_position",
+   "explanation": "The paragraph states that the PRRA officer must follow rules of natural justice and avoid erroneous findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Adequacy of reasons",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's claim that the PRRA officer failed to provide adequate reasons, and the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Legal principle on reasons",
+   "role": "party_position",
+   "explanation": "The paragraph cites case law supporting the principle that reasons must include analysis, not just conclusions.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Context of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph assesses the adequacy of the PRRA officer's reasons in the context of her role and submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Analysis of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph reviews the content of the PRRA decision and finds the reasons sufficient in context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Assessment of reasoning",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the reasons are adequate when considering the entire paragraph and context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Comparison with case law",
+   "role": "background_facts",
+   "explanation": "The paragraph compares the case to other decisions, noting differences in facts and scope of assessment.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal standard on reasons",
+   "role": "background_facts",
+   "explanation": "The paragraph references case law affirming that brief reasons can be adequate in administrative decisions.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Decision on reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the reasons provided are sufficient and do not breach procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Perverse decision argument",
+   "role": "party_position",
+   "explanation": "The paragraph introduces the applicant's argument that the decision was perverse and ignored evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Standard of review on facts",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that factual findings by the PRRA officer are reviewed for patent unreasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Assessment of evidence",
+   "role": "reasoning_application",
+   "explanation": "The paragraph analyzes whether the evidence showed changed conditions and concludes it did not.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evaluation of evidence",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the evidence included positive developments and the officer understood this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Failure to consider evidence",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's claim that the officer failed to consider a friend's letter about domestic violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Assessment of evidence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph concludes that the friend's statements are hearsay and lack probative value, so no error was made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test for errors",
+   "role": "legal_test",
+   "explanation": "The paragraph states that applying the wrong legal test is reviewable on correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Application of correct test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the officer applied the correct test and understood the legal principles involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Assessment of legal application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph affirms that the officer correctly applied legal standards from case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Consideration of police document",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's claim that the officer erred by referencing a police document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Analysis of police document",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains that the police document was used to support the general presumption of state protection, not as proof of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Summary and conclusion",
+   "role": "disposition",
+   "explanation": "The paragraph summarizes that the decision was reasonable and the reasons adequate, leading to dismissal of the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Collateral attack",
+   "role": "party_position",
+   "explanation": "The paragraph states that arguments about the RPD decision are misplaced and should have been challenged earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Final order",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the application is dismissed and no certification is warranted.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

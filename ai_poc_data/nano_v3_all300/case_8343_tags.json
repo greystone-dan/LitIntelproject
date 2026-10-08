@@ -1,0 +1,74 @@
+{
+ "case_id": 8343,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 8,
+ "tagged_count": 8,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2158,
+  "completion_tokens": 443,
+  "usd": 0.000393
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the judicial review application and the Board's decision on the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background facts about the applicant's nationality, claim of fear, and relationship to Tungunga.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the applicant's argument that the Board's decision was unreasonable and the respondent's view that the decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph details the Board's findings on the applicant's credibility and the reasons for questioning his allegations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's argument about documentation and the Board's reasoning based on procedural rules and credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's conclusion to dismiss the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph presents the applicant's proposed questions for certification regarding procedural rights under Rule 7 and section 106.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states the court's decision not to certify the questions and provides the judgment details.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

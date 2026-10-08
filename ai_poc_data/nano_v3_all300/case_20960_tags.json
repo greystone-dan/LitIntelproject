@@ -1,0 +1,263 @@
+{
+ "case_id": 20960,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6116,
+  "completion_tokens": 1991,
+  "usd": 0.001408
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a Board decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The applicant requested the decision be set aside and the matter referred back for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a Mexican citizen claiming a well-founded fear of persecution based on membership in a social group.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant has known he was gay since age 13 and faced abuse and family issues related to his sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant met his partner in 2005, and his partner's father, a police officer, allegedly reacted violently upon discovering their relationship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant experienced threats, police suspicion, and violence from his family after his sexual orientation was revealed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant was assaulted and detained by men allegedly linked to his partner's father, and did not report the incident to police.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant fled Mexico in 2005, arrived in Canada, and filed a refugee claim which was rejected in 2007; this is judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board focused on whether the fear was well founded and if Mexico provided sufficient state protection, finding it did not.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board considered the alleged personal vendetta and found credible evidence of Mexico's efforts to provide protection, presuming state protection exists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board acknowledged discrimination against homosexuals but found Mexico's protections adequate and that the applicant did not seek protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant was neither a refugee nor in need of protection, rejecting his claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The applicant questioned whether the Board properly considered all evidence when stating the applicant should have sought police protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court rephrases the issues as standard of review, errors in considering state protection, and adequacy of protection in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argued the Board's failure to find credibility implied acceptance of police assault, making its conclusion unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant claimed the Board ignored specific documentary evidence indicating inadequate protection, listing several reports and articles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant cited case law criticizing the Board's failure to weigh documentary evidence properly, arguing it was a reviewable error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The respondent argued the presumption of state protection requires clear evidence to rebut, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The respondent maintained that local failures do not mean lack of state protection and that protection can come from various agencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The respondent asserted the Board considered all relevant evidence and did not ignore any, supporting its conclusion of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argued his assault by police proved the lack of protection, and that the Board failed to consider contradictory evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court states the overall finding on state protection is a question of mixed law and fact, reviewable on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Supreme Court's decision clarified reasonableness as the standard, emphasizing justification, transparency, and range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The applicant argued it was unreasonable for the Board to find he should have sought protection from police agents who persecuted him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses a case where the Board's reasonable approach was upheld despite police being agents of persecution, based on evidence of other protection avenues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board's finding that the applicant did not take all reasonable steps to seek protection was deemed reasonable, given the circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board considered alternative state protection mechanisms available in Mexico, such as reporting to other authorities besides police.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's assessment of other avenues of protection reasonable, especially given police agents' involvement in persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board's failure to expressly mention specific contradictory evidence does not constitute an error, as it considered the general evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court is satisfied the Board considered the relevant evidence and did not err in its assessment of documentary evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds the Board's conclusion that adequate protection exists in Mexico was reasonable, based on its review of the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Board's thorough review of state protection measures and their effectiveness supports the reasonableness of its findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, upholding the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "Neither party proposed a question of general importance for certification, so none was submitted.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court orders that the application for judicial review be dismissed, confirming the decision's validity.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

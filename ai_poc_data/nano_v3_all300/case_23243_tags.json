@@ -1,0 +1,221 @@
+{
+ "case_id": 23243,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 29,
+ "tagged_count": 29,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4498,
+  "completion_tokens": 1682,
+  "usd": 0.0011226
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "disposition",
+   "explanation": "The court summarizes the application for judicial review of the RAD decision and the issues involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The applicant's age, nationality, and arrival date in Canada are provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The applicant's change in basis for claim from political persecution to sexual orientation is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "Details of the applicant's residence and disclosure of sexual orientation are provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The applicant's participation in a gay pride parade is noted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The applicant's move to Vancouver and contact with the gay community are described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The RPD's oral and written decisions rejecting the claim are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position on credibility issues",
+   "role": "party_position",
+   "explanation": "The RPD's findings on the applicant's credibility and contradictions are detailed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The new evidence submitted to the RAD, including a letter and UNHCR guidelines, is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The appeal to the RAD and its affirmation of the RPD decision are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position on new evidence",
+   "role": "party_position",
+   "explanation": "The applicant argues the new evidence is relevant and material, and the RAD acknowledged its credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test for evidence admission",
+   "role": "legal_test",
+   "explanation": "Factors for admitting new evidence are outlined, including relevance and credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test for evidence admission",
+   "role": "legal_test",
+   "explanation": "The criteria for considering new evidence are specified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence assessment of new evidence",
+   "role": "evidence_assessment",
+   "explanation": "The reasonableness of admitting the new letter evidence is discussed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence assessment of new evidence",
+   "role": "evidence_assessment",
+   "explanation": "The applicant's failure to submit UNHCR evidence earlier and the RAD's reasoning are explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position on procedural fairness",
+   "role": "party_position",
+   "explanation": "The applicant's claim of unfair stereotypes and aggressive questioning is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position on procedural fairness",
+   "role": "party_position",
+   "explanation": "The applicant's argument that the BOC addressed discrepancies and procedural fairness was maintained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasonableness of the RAD's credibility findings",
+   "role": "reasoning_application",
+   "explanation": "The RPD's credibility assessment based on contradictions and other factors is supported by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position on credibility and plausibility",
+   "role": "party_position",
+   "explanation": "The applicant's concern about the RPD's findings regarding the mother is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position on evidence evaluation",
+   "role": "party_position",
+   "explanation": "The applicant's argument about Facebook evidence and verification issues is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal standards for implausibility findings",
+   "role": "legal_test",
+   "explanation": "The criteria for making implausibility findings are discussed, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Evidence assessment of credibility and implausibility",
+   "role": "evidence_assessment",
+   "explanation": "The detailed credibility issues and contradictions found by the RPD are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasonableness of the RAD's deference to the RPD",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the RAD properly deferred to the RPD's findings of fact and credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment of the mother's credibility",
+   "role": "evidence_assessment",
+   "explanation": "The reasons supporting the RPD's credibility assessment of the mother are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence assessment of Facebook printouts",
+   "role": "evidence_assessment",
+   "explanation": "The consideration and weight given to Facebook evidence by the RPD are described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal standards for implausibility findings",
+   "role": "legal_test",
+   "explanation": "The court discusses the appropriate approach to implausibility findings and their standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Cultural considerations in plausibility assessments",
+   "role": "legal_test",
+   "explanation": "The importance of cultural context in plausibility findings is emphasized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Overall credibility findings",
+   "role": "reasoning_application",
+   "explanation": "The overall reasonableness of the credibility findings and the use of 'implausible' are discussed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Summary of credibility and contradictions",
+   "role": "reasoning_application",
+   "explanation": "The panel's reliance on contradictions and the reasonableness of the RAD's decision are summarized.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

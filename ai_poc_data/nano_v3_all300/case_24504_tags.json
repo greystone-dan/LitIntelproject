@@ -1,0 +1,396 @@
+{
+ "case_id": 24504,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 54,
+ "tagged_count": 54,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 9463,
+  "completion_tokens": 2963,
+  "usd": 0.0021314999999999997
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicants' nationality, ethnicity, and reasons for fleeing Hungary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It states the Applicants' claim for refugee protection and the denial by the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RPD erred in its assessment of persecution and focus on state efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application is dismissed for the reasons that follow.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Identifies the principal Applicant and other family members involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the harassment and segregation experienced by the Applicants' children in Hungary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the attack on Mr. Ruszo and his family by skinheads and police response.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Reports the police's refusal to press charges due to inability to identify assailants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the demonstration and violence against Roma in Hungary in 2009.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States the Applicants' flight to Canada due to safety concerns and claim for refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD found Hungary was not denying basic necessities, based on their review of medical and educational conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD acknowledged discrimination against Roma but concluded it did not amount to persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD discussed Hungary's efforts to provide protection and the presumption of state capacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD concluded the Applicants did not meet the burden to prove inadequate state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The issues are whether the RPD erred in its persecution and state protection conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph introduces the legal questions about persecution in Hungary and the standard of reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that the interpretation of 'persecution' is a question of law within the RPD's expertise, reviewed on reasonableness unless exceptional.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The meaning of 'persecution' is a central legal question within the RPD's expertise, reviewed on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The term 'persecution' does not raise constitutional or jurisdictional questions, thus falls within reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The jurisprudence provides a clear test for 'persecution,' and deviation from it would be an error reviewable on correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The question of whether the conduct amounts to persecution is a mixed fact and law review on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The RPD's assessment of state protection is reviewed on correctness if it concerns the proper legal test, or reasonableness if applying it to facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The decision is based on the RPD applying settled law to the facts, thus reasonableness review applies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Applicants argued that errors in persecution assessment taint the state protection conclusion, but later conceded they are separate issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds the RPD's conclusion on state protection reasonable, so it does not need to decide on persecution error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RPD focused too much on state efforts rather than operational adequacy of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RPD failed to assess whether Hungary's efforts actually provided adequate protection, which is a legal error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Despite misunderstanding the 'adequate protection' test, the RPD's other reasonable findings support its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Legal principles state that, absent a state breakdown, protection is presumed, and the burden is on the applicant to prove inability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The applicant can show inability or unwillingness to seek protection, with the burden on proof being on the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Demonstrating local police failure alone is insufficient; the applicant must show they exhausted all reasonable efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Applicants must show they took all reasonable steps to seek protection before seeking refuge abroad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Failing to reasonably test state protection or relying on subjective reluctance does not rebut the presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Refugee protection is not refused where it is objectively unreasonable not to seek protection, based on well-founded fears.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RPD identified the issues but concluded the Applicants failed to provide sufficient objective evidence on state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RPD reviewed documentary evidence about Hungary's democratic institutions and control of security forces.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RPD noted the Applicants only made one report to police and did not pursue further steps.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RPD relied on case law to conclude that police need sufficient evidence to investigate, which the Applicants did not provide.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The case law cited shows the police's limited obligation to investigate when assailants are unknown, similar to this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Applicants argued police had an obligation to investigate, but the court finds no such obligation exists in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "evidence_assessment",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Applicants' argument about police being the main protection source in Hungary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The judge explains the legal obligations on applicants to seek protection and demonstrate efforts before applying for refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph details the reasons the RPD cited for finding the Applicants did not seek police protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses how the failure to seek additional protection distinguishes this case from others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Applicants did not justify their failure to seek protection in the specific incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The judge finds the RPD's conclusion reasonable and well-justified based on the law and facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph affirms the consistency of the RPD's decision with relevant jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The judge declines to follow a recent contrary decision and finds the RPD's emphasis on police efforts reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the jurisprudence supports the RPD's approach in the absence of compelling evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph defines what constitutes compelling evidence and the expectations for applicants seeking protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph clarifies that subjective perceptions alone are insufficient unless supported by multiple failed attempts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "evidence_assessment",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the state's responses to the alleged persecutory acts, supporting the reasonableness of the RPD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application is dismissed as a result of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states that no question for certification is proposed or arises.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

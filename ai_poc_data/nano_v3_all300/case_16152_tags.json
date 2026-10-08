@@ -1,0 +1,116 @@
+{
+ "case_id": 16152,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 14,
+ "tagged_count": 14,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 1725,
+  "completion_tokens": 798,
+  "usd": 0.0004917000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the decision under review and the context of the judicial review, describing the applicant's case and the decision's origin.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's nationality, her claim basis, and her family situation in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes her family relationships and marriage history relevant to her claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts her allegations of verbal, psychological, and physical abuse by her husband.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It explains her reasons for not reporting the abuse earlier and her eventual escape to Canada with her mother\u2019s help.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the issue that the applicant did not seek state protection despite abuse, framing the legal question.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues that her circumstances justified not seeking state protection, citing societal and personal factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "She claims the RPD erred by not considering whether Korean state protection was effective, only whether structures existed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal burden of proof and the presumption of effective state protection, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court reasons that reluctance to seek protection does not prove protection is unavailable, noting the applicant's failure to seek help.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It explains that the standard of review is patent unreasonableness and that the RPD considered relevant reports on Korea's protection system.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD's decision reasonable, noting no evidence of Korea's protection being a sham or merely formal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes there is no basis to intervene and affirms the decision, dismissing the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application for judicial review is dismissed, and no question is certified, finalizing the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,291 @@
+{
+ "case_id": 23369,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 39,
+ "tagged_count": 39,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4480,
+  "completion_tokens": 2234,
+  "usd": 0.0013416
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the scope of the judicial review application regarding the IFA in Tirana, Albania.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court announces that the application for judicial review will be granted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's alleged fear of persecution due to family violence and abuse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details the applicant's history of family violence, threats, and forced labor prior to his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicant's school absence, injury, and the family's refusal to meet with school authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes the applicant's move to a friend's home and the assistance in fleeing the country with false documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's belief that authorities could not help and the advice he received from adults.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details the applicant's travel route to Canada and the timing of his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD concluded the applicant lacked credible fear and had an IFA in Tirana, based on his ability to obtain false documents and maturity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD informed the applicant of its decision that he was neither a refugee nor in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicant appealed the RPD decision to the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The RAD confirmed the RPD's decision, and the decision is under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The RAD assessed all four questions under the reasonableness standard as they involved mixed fact and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the main issue before the RAD regarding the IFA in Tirana.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant did not specify a standard of review for the RAD's standard of intervention.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The respondent argues that questions about interpretation of statutes are reviewable on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the RAD's role and expertise suggest deference on its choice of standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The IRPA's privative clause and section 162 support deference to the RAD on all questions of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees with the respondent's position based on previous jurisprudence, including Akuffo.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court found that the RAD's interpretation did not involve questions of central importance, supporting reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The parties dispute the appropriate standard of intervention the RAD should apply.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The applicant argues for correctness standard, citing the Alberta Court of Appeal's decision on police misconduct reviews.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that both the RPD and RAD have specialized knowledge, so no deference is needed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It argues that the same tribunal cannot defer to itself, emphasizing the purpose of appeal decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD should decide if the claimant is a refugee, not whether its decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The respondent claims reasonableness applies to questions of fact and mixed law, while correctness applies to pure law questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RPD is better placed to assess factual issues due to seeing witnesses, but the RAD can review the record and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court references previous decisions on similar issues and jurisprudence for context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court notes the parties' submissions and agrees with Justice Phelan's analysis on the RAD's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RPD's IFA finding did not depend on credibility and the RAD had equal expertise, so no deference was owed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It explains that the rules of evidence and expertise differ between courts and the RPD, affecting the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant's counsel presented evidence contradicting the IFA, including lack of ties to Tirana and safety concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD ignored the contradicting evidence and merely repeated the RPD's analysis without explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD's failure to properly assess relevant evidence was an unreasonable review error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD's oversight of its reservations about the RPD's analysis constitutes a reviewable error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant's counsel proposed a question about the RAD's scope and role in reviewing RPD decisions for certification.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The respondent's counsel opposed certification, suggesting the question was too broad and not dispositive, proposing a different question.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds the proposed question of importance and certifies it as determinative of the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes the RPD's IFA finding was within the range of acceptable outcomes and did not err.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

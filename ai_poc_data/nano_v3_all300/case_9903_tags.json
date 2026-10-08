@@ -1,0 +1,158 @@
+{
+ "case_id": 9903,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 20,
+ "tagged_count": 20,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3242,
+  "completion_tokens": 1270,
+  "usd": 0.0008322
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes Mr. Parchment's injury, medical evidence, and the decision's reasonableness, leading to the application being dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details Mr. Parchment's injuries, ongoing complaints, and the impact on his employment after the accident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States Mr. Parchment's application for CPP benefits and the initial denial based on his ability to do other work.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Defines the minimum qualifying period relevant to Mr. Parchment's disability assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Summarizes the General Division's findings on Mr. Parchment's ability to work and the evidence considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Notes Mr. Parchment's appeal of the General Division's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States the Appeal Division's conclusion that procedural fairness was not breached and evidence was considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Describes the Appeal Division's refusal of leave to appeal due to lack of grounds with a reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States the Court's task to assess whether the Appeal Division's conclusions are defensible under law and facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the standard of correctness for procedural fairness issues and relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the teleconference hearing did not breach procedural fairness and was within the tribunal's discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Agrees that the argument about the hearing format lacks merit because no evidence was overlooked or technical issues shown.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "States the issue of whether the Appeal Division's decision was reasonable regarding medical evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Provides the legal framework for appeal grounds and the criteria for leave to appeal under the DESDA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Describes the limited scope of the Appeal Division's review and its authority to refuse leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Cites case law defining what constitutes a reasonable chance of success on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States that the Appeal Division correctly applied the test and reasonably found no grounds for appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes that the Appeal Division considered all evidence and did not need to reweigh it, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States Mr. Parchment's attempt to rely on post-hearing medical reports, which is not permitted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Concludes that no reviewable error was identified and dismisses the judicial review application.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

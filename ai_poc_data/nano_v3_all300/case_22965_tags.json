@@ -1,0 +1,298 @@
+{
+ "case_id": 22965,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 40,
+ "tagged_count": 40,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5411,
+  "completion_tokens": 2387,
+  "usd": 0.0014959
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Standard of review: reasonableness",
+   "role": "issue_framing",
+   "explanation": "Explains how courts analyze evidence as a whole to determine reasonableness of decisions, referencing Mobil Oil case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Reasonableness of reasons and outcome",
+   "role": "issue_framing",
+   "explanation": "States that challenges to reasons are addressed through reasonability, and reasons must be read with the outcome, citing SCC cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "Describes the judicial review of the RPD decision denying refugee status and the credibility challenge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "States the application is under subsection 72(1) of IRPA for judicial review of the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: applicant's identity",
+   "role": "background_facts",
+   "explanation": "Provides basic biographical details of the applicant, including nationality and birth year.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: alleged persecution in India",
+   "role": "background_facts",
+   "explanation": "Details the applicant's allegations of police killing his cousin and the cousin's KCF membership.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts: applicant's detention and flight",
+   "role": "background_facts",
+   "explanation": "Describes the applicant's arrest, torture, bribe, and subsequent flight to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts: immigration history",
+   "role": "background_facts",
+   "explanation": "Outlines the applicant's asylum claim in the US and his arrival in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts: criminal record",
+   "role": "background_facts",
+   "explanation": "States the applicant's conviction for sexual battery in California.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts: Canadian refugee claim",
+   "role": "background_facts",
+   "explanation": "Notes the applicant's arrival and refugee claim in Canada in 2007.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts: inadmissibility and deportation",
+   "role": "background_facts",
+   "explanation": "Mentions the inadmissibility report and deportation order issued against the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts: evidence at hearing",
+   "role": "background_facts",
+   "explanation": "States the Minister submitted evidence of the applicant's US criminal record at the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts: ongoing harassment allegations",
+   "role": "background_facts",
+   "explanation": "Notes the applicant's claim of continued police harassment in India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position: RPD credibility finding",
+   "role": "party_position",
+   "explanation": "States the RPD found the applicant not credible, leading to denial of refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position: credibility and US criminal record",
+   "role": "party_position",
+   "explanation": "Argues the RPD erred by finding the applicant's failure to disclose his US criminal record undermined credibility, despite record evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position: credibility and documentary evidence",
+   "role": "party_position",
+   "explanation": "Claims the RPD's negative credibility inferences from lack of documents and responses were unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position: implausibility of arrest scenario",
+   "role": "party_position",
+   "explanation": "Argues the RPD's conclusion about police arresting the applicant but not his father was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position: living in Kamal without detection",
+   "role": "party_position",
+   "explanation": "Contends the RPD's disbelief of the applicant's two-year residence in Kamal was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position: leaving India with passport",
+   "role": "party_position",
+   "explanation": "Argues the RPD's disbelief that the applicant left India with a passport was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position: police seeking the applicant",
+   "role": "party_position",
+   "explanation": "States the RPD's inference that police were not seeking the applicant was unreasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test: reasonableness of credibility findings",
+   "role": "legal_test",
+   "explanation": "States credibility findings are reviewable on the reasonableness standard, citing Wiesehahan case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: reasonableness standard details",
+   "role": "legal_test",
+   "explanation": "Explains the reasonableness standard requires reasons to be justified, transparent, and within a range of acceptable outcomes, citing SCC cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test: credibility based on record evidence",
+   "role": "legal_test",
+   "explanation": "States that negative credibility findings must be based on record evidence and be consistent with country conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test: adequacy of reasons",
+   "role": "legal_test",
+   "explanation": "States reasons are inadequate if they merely recite submissions without explaining reasoning, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning application: respondent's counterarguments",
+   "role": "reasoning_application",
+   "explanation": "Summarizes the respondent's view that the RPD reasonably disbelieved the applicant's allegations and required corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: reasonableness review of credibility",
+   "role": "legal_test",
+   "explanation": "States credibility findings are reviewable on the reasonableness standard, citing Wiesehahan case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test: criteria for reasonableness",
+   "role": "legal_test",
+   "explanation": "States that reasons must be justified, transparent, and fall within a range of acceptable outcomes, citing Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test: credibility and country conditions",
+   "role": "legal_test",
+   "explanation": "States credibility findings must be based on record evidence and consider country conditions and social context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning application: overall reasonableness of credibility",
+   "role": "reasoning_application",
+   "explanation": "States that despite some issues, the overall credibility finding is not unreasonable, referencing Abid case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment: US criminal record omission",
+   "role": "evidence_assessment",
+   "explanation": "Analyzes the applicant's responses about his US criminal record and finds the negative inference unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence assessment: police harassment in India",
+   "role": "evidence_assessment",
+   "explanation": "States the RPD did not consider the applicant's testimony about police harassment, which is a record-based inconsistency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Evidence assessment: release from police and corruption",
+   "role": "evidence_assessment",
+   "explanation": "Notes the applicant's evidence of bribe and police extortion, consistent with country conditions, making the RPD's disbelief unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Reasoning application: plausibility of arrest and interrogation",
+   "role": "reasoning_application",
+   "explanation": "States that overall evidence makes the applicant's claim plausible regarding police interest in his family.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Reasoning application: leaving India with passport",
+   "role": "reasoning_application",
+   "explanation": "Finds it reasonable that the applicant could leave India with a passport given country screening procedures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test: corroborating evidence requirement",
+   "role": "legal_test",
+   "explanation": "States that when credibility is in doubt, corroborating evidence may be reasonably required, citing Khazaei case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test: evidence availability and reasonableness",
+   "role": "legal_test",
+   "explanation": "States that evidence not reasonably obtainable need not be required, citing Touraji case, and notes applicant's lack of effort.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Evidence assessment: effort to obtain evidence",
+   "role": "evidence_assessment",
+   "explanation": "States the applicant made no effort to obtain newspaper clippings, which the RPD reasonably inferred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Evidence assessment: credibility and lack of copies",
+   "role": "evidence_assessment",
+   "explanation": "States the RPD could reasonably disbelieve the applicant's explanation for not retaining copies of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test: adequacy of reasons and overall reasonableness",
+   "role": "legal_test",
+   "explanation": "States that the reasons are adequate if they address the outcome and are consistent with the law, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Disposition: application dismissed",
+   "role": "disposition",
+   "explanation": "Concludes that the application for judicial review is dismissed based on the reasons discussed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,739 @@
+{
+ "case_id": 23057,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 103,
+ "tagged_count": 103,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 14995,
+  "completion_tokens": 6226,
+  "usd": 0.0039899
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's employment history and work as a translator.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicant's involvement in a motor vehicle collision and subsequent injury and treatment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports a second, more serious collision and ongoing medical issues preventing work.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the Applicant's application date for CPP Disability Benefits and her qualifying period.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the initial denial of the Applicant's CPP application and the subsequent appeal to a review tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the review tribunal dismissed the appeal and leave to appeal was denied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph reports the Applicant's second application and its denial based on res judicata.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the Applicant's appeal to a second review tribunal and request to reopen the first appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the second review tribunal denied the appeal and reopening request, citing res judicata.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the tribunal's conclusion on the new facts and their relevance to the MQP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the Applicant's application for an extension of time to appeal the second tribunal decision and its denial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the Federal Court quashed the Pension Appeals Board's decision and remanded for re-determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph reports the Pension Appeals Board's dismissal of the appeal and the judicial review outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the judicial review dismissal by the Federal Court of Appeal regarding the new facts issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the Applicant's third application for CPP benefits and its denial, followed by reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph reports the third appeal's hearing and its abeyance pending resolution of prior appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the third appeal was dismissed for lack of jurisdiction and res judicata.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the Applicant's application to the Pension Appeals Board for leave to appeal the third tribunal decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the transition to the Social Security Tribunal and the treatment of the application for leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the SST dismissed the application for leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the judicial review application transfer to the Federal Court and style of cause amendment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the issue as whether the appeal from the third tribunal had a reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph explains the basis for examining the application as a de novo appeal based on legitimate expectations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that new evidence and legal errors can demonstrate a reasonable chance of success, citing a case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the previous tribunal decisions final and outside the tribunal's jurisdiction to reconsider.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the applicant's arguments about procedural issues lacked a reasonable chance of success and no new evidence was presented.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the tribunal's obligation to have all relevant material and finds no merit in the applicant's claim of incomplete files.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph dismisses the discrimination claim as unclear and unlikely to succeed, citing a case for support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the leave to appeal was refused due to lack of new evidence or errors, ending the review process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes paragraph 42(2)(a) of the Plan defining disability and its criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states legislative provisions about the transition and ongoing application of certain laws.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the legislative framework governing the SST and the grounds of appeal, including subsections 58(1) and 58(2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the Applicant's argument that the SST erred in denying her leave to appeal and her reasons for submitting new medical reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the Applicant claims the new reports contain material facts not previously discoverable and relate to her evolving condition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Applicant's claim that procedural fairness was breached by the refusal to admit her reports, affecting her right to a fair hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph details the Applicant's complaint about missing information and procedural issues with her review tribunal file.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "standard of review: reasonableness",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the reasonableness standard for reviewing the issue of the correct test for leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "legal_test",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the change in the test for leave to appeal from 'arguable case' to 'reasonable chance of success' under subsection 58(2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the Respondent argues the Member addressed the grounds of appeal despite analyzing the application under the former test.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Respondent's argument that the decision was reasonable and that res judicata applies, preventing re-litigation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent argues the evidence is not new and the issue is res judicata, and that the complaint about the tribunal file is irrelevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent claims the procedural fairness issue raised by the Applicant is not a valid ground of appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds no procedural fairness breach regarding the tribunal record and pages not being numbered is immaterial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court clarifies that the issue of records not admitted is about the merits, not procedural fairness, and is res judicata.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states it will now consider the SST's decision to refuse leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court explains the creation of the SST as a new tribunal replacing the Pension Appeals Board in 2013.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court notes the SST shares similar functions with the Pension Appeals Board, citing Atkinson v. Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court discusses legislative changes to the grounds and process for appeal under the new legislation, but notes similarities with the previous regime.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states judicial review involves a two-step inquiry: correct test application and error in applying it, citing Consiglio.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court explains the review standards: correctness for the first question, reasonableness for the second, citing Zakaria and Consiglio.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees with the Respondent that the first question is reviewable on reasonableness; it should be correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court reasons that the test selection is binary and should be reviewed for correctness, not reasonableness, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states the Member did not select the correct test for assessing leave application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court quotes the Member's reasoning based on legitimate expectations and de novo review, which it finds incorrect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court identifies the correct test under the current legislation as the 'reasonable chance of success' from subsection 58(2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court describes the previous common law test for leave as raising an 'arguable case', citing Martin.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the previous regime's focus on whether the application raised an arguable case, including new evidence, citing Callihoo.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states the new legislation overrides the common law 'arguable case' test, referencing Sullivan on statutory interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court cites the Supreme Court that legislative provisions replace common law tests when clearly intended.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Member erred by applying the old test based on expectations at the time of filing, contrary to the current law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court notes the application was deemed filed with the SST on April 1, 2013, under section 260.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court states that under subsection 58(2), leave is refused if the appeal has no reasonable chance of success, emphasizing the importance of this standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court lists the three grounds of appeal under the current legislation: breach of natural justice, error of law, and perverse findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court explains 'only' limits appeal grounds to three specified, enumerated reasons, citing dictionary definition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states an appeal has a reasonable chance of success only if based on one of the three grounds, and that adducing new evidence is no longer a ground.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Member relied on common law factors like new evidence and legal errors, rather than the specific statutory grounds, in her decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Member erred by applying the old test and not the statutory test from section 58 of the DHRSDA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states the Member erred by considering expectations at the time of filing, which is not appropriate under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the doctrine of legitimate expectations as procedural fairness, citing the Supreme Court's decision in Reference Re Constitutional Question Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court notes the Supreme Court's ruling that no one has a vested right to the law as it was in the past.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court explains the transitional provisions of the Jobs, Growth and Long-term Prosperity Act regarding the application of the old and new legislation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court cites the Interpretation Act, stating proceedings under repealed laws continue under the new law where possible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Member erred in applying the doctrine of legitimate expectations to the leave application, which is procedural, not substantive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court considers whether the error in choosing the test is enough to justify judicial review, implying it may be.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states relief in judicial review is discretionary, citing section 18.1(3) of the Federal Courts Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes that relief may be refused if it would be futile or have no practical effect, citing Supreme Court cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that sending the matter back would have no practical effect because the final decision on disability would stand.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states that a different member applying the correct test would still find the application for leave to appeal would fail due to finality and new facts issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the issues of disability and new facts have been finally decided and are barred by res judicata and estoppel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that res judicata means the Applicant cannot succeed on appeal, as she does not meet the standard of reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "res judicata and estoppel principles",
+   "role": "legal_test",
+   "explanation": "Defines res judicata and its legal basis, including its purpose and application in law, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "public policy element of res judicata",
+   "role": "legal_test",
+   "explanation": "Explains the policy reasons behind res judicata, such as justice, efficiency, and preventing abuse, with case law support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "forms of res judicata in Canada",
+   "role": "legal_test",
+   "explanation": "States the two types of res judicata recognized in Canada, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 92,
+   "topic": "issue estoppel application",
+   "role": "legal_test",
+   "explanation": "Describes the principle of issue estoppel and its legal basis, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 93,
+   "topic": "elements of issue estoppel",
+   "role": "legal_test",
+   "explanation": "Lists the three elements required for issue estoppel as established by the Supreme Court of Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 94,
+   "topic": "finality of issues in the present case",
+   "role": "reasoning_application",
+   "explanation": "States that two issues have been finally decided: applicant\u2019s disability status and the medical reports' status as new facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 95,
+   "topic": "finality of medical report issue",
+   "role": "reasoning_application",
+   "explanation": "Confirms that the issue regarding the medical reports not being new material facts has been finally decided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 96,
+   "topic": "application of res judicata and issue estoppel",
+   "role": "reasoning_application",
+   "explanation": "Concludes that neither the disability question nor the medical reports' status can be re-litigated due to final decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 97,
+   "topic": "applicant's claim and statutory scheme",
+   "role": "background_facts",
+   "explanation": "Notes that the applicant claims disability benefits under a statutory scheme for social insurance.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 98,
+   "topic": "nature of the Plan",
+   "role": "background_facts",
+   "explanation": "References case law to clarify that the Plan is a social insurance program, not social welfare.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 99,
+   "topic": "eligibility determination process",
+   "role": "background_facts",
+   "explanation": "States that eligibility depends on a statutory definition of disability, determined by a Disability Adjudicator, not self-assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 100,
+   "topic": "statutory test for disability",
+   "role": "background_facts",
+   "explanation": "Explains that the test for disability involves severity and duration, not just health problems, per statutory criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 101,
+   "topic": "criteria for severe and prolonged disability",
+   "role": "background_facts",
+   "explanation": "Details the criteria for severity and prolongation of disability, which must both be satisfied for benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 102,
+   "topic": "history of initial decision and finality",
+   "role": "background_facts",
+   "explanation": "Describes the timeline and finality of the initial decision that the applicant was not disabled.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 103,
+   "topic": "second claim and finality of new facts decision",
+   "role": "background_facts",
+   "explanation": "Details the second claim, the attempt to re-open based on new facts, and the final decision that no new facts exist.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 104,
+   "topic": "third claim and same injuries",
+   "role": "background_facts",
+   "explanation": "States that the third claim involves the same injuries and has not changed since the first claim.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 105,
+   "topic": "finality of previous decisions",
+   "role": "background_facts",
+   "explanation": "Notes that the previous decisions on disability status and medical reports are final, involving the same parties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 106,
+   "topic": "finality of medical report issue",
+   "role": "background_facts",
+   "explanation": "States that the issue of whether the medical reports constitute new facts has been finally decided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 107,
+   "topic": "application of issue estoppel and res judicata",
+   "role": "reasoning_application",
+   "explanation": "Concludes that issue estoppel and res judicata apply, preventing re-litigation of the disability status and new facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 108,
+   "topic": "legislative changes and appeal grounds",
+   "role": "reasoning_application",
+   "explanation": "Notes legislative changes mean new facts are no longer a ground of appeal, and further re-determination is unlikely to succeed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 109,
+   "topic": "discretion and application dismissal",
+   "role": "reasoning_application",
+   "explanation": "States that the court declines to grant relief and dismisses the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 110,
+   "topic": "costs request",
+   "role": "party_position",
+   "explanation": "Reports that the respondent seeks costs due to the applicant\u2019s multiple proceedings, including the Federal Court of Appeal.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 111,
+   "topic": "costs discretion and decision",
+   "role": "party_position",
+   "explanation": "States that the court has discretion over costs and declines to order costs against the applicant.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

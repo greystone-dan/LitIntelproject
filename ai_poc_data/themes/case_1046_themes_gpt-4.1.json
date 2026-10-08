@@ -1,0 +1,111 @@
+{
+ "case_id": 1046,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1",
+ "usage": {
+  "prompt_tokens": 3520,
+  "completion_tokens": 557,
+  "usd": 0.011496
+ },
+ "verification": {
+  "arguments": 3,
+  "quotes_verified": 3,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The court allowed the Minister's application for judicial review, finding that the Board member erred in granting an extension of time for appeal without sufficient reasons or evidence, and sent the matter back for redetermination by a different member.",
+  "themes": [
+   {
+    "name": "Extension of Time Criteria",
+    "summary": "The decision turns on whether the Board properly considered the established criteria for granting an extension of time to appeal under the CPP.",
+    "paragraphs": [
+     7,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Insufficient Reasons and Evidence",
+    "summary": "The Board's decision lacked adequate reasons and evidentiary support for granting the extension, particularly regarding the explanation for delay and prejudice to the Minister.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18
+    ]
+   },
+   {
+    "name": "Procedural Fairness and Ex Parte Decisions",
+    "summary": "The Board made its decision without notice to or submissions from the Minister, raising concerns about fairness and the integrity of the process.",
+    "paragraphs": [
+     1,
+     10,
+     16,
+     20
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "respondent",
+    "claim": "She should be granted an extension of time and leave to appeal due to personal difficulties and lack of understanding of the process.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15
+    ],
+    "quote": "Her reasons do not hold up to scrutiny.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Board erred in granting an extension of time and leave to appeal without proper basis or reasons.",
+    "treatment": "accepted",
+    "authority": "Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.); Baksa v. Neis",
+    "paragraphs": [
+     3,
+     7,
+     9,
+     10,
+     11,
+     15,
+     16,
+     18,
+     19
+    ],
+    "quote": "A conclusion that the Respondent has provided compelling or sufficient reasons for bringing the leave application seven years after the 90-day time limit of s. 83(1) is, in my view, totally unsupported by the evidence and is patently unreasonable.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "court",
+    "claim": "The Board must apply a principled approach, considering all four established criteria, and provide a clear record of its reasoning.",
+    "treatment": "accepted",
+    "authority": "Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.)",
+    "paragraphs": [
+     9,
+     10,
+     18,
+     19
+    ],
+    "quote": "An application for an extension of time - particularly for seven years beyond the statutory time limit - should not be granted as a matter of right, but should be subjected to a principled approach by the Board.",
+    "quote_verified": true
+   }
+  ]
+ }
+}

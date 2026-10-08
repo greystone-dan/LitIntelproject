@@ -1,0 +1,466 @@
+{
+ "case_id": 11888,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 64,
+ "tagged_count": 64,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 11888,
+  "completion_tokens": 4307,
+  "usd": 0.0029116000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's arrival in Canada and refugee claim date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's claims of risk and persecution if returned to Malaysia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the decisions of the RPD and RAD, and the applicant's judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Dispositional order",
+   "role": "disposition",
+   "explanation": "The paragraph states the application is allowed regarding the section 97 claim and issues with the RAD's review process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's prior applications for permanent residence and humanitarian grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph summarizes the RPD's credibility and factual findings about the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the RPD's conclusion that the delay in claiming protection was fatal to the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the RPD's findings regarding the presumption of state protection and risk upon return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph lists the applicant's arguments on appeal regarding errors by the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the RAD's consideration of the appropriate standard of review and its legal basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains the RAD's review of new evidence and its relevance and admissibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD's overall conclusion that the RPD's decision was reasonable despite some unreasonable findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the RAD's conclusion that the nexus to political opinion was not reasonably established by the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reports the RAD's finding that the link between opposition and political opinion was unsupported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the applicant could pay a fine, reducing the perceived risk of harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the RPD's finding that the applicant was not personally harassed by authorities was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph summarizes the RAD's conclusion that the RPD erred in its treatment of evidence on political opinion and gangs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD's conclusion that the egregious delay finding was reasonable and unchallenged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the RAD's finding that the risk to life and torture was reasonably not established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's argument that the RAD erred in applying reasonableness as the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph argues the RAD should have held an oral hearing and deferred to the RPD's credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph claims the RAD erred in rejecting new evidence and relying on Raza, which is inapplicable here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph suggests the RAD's conduct could be perceived as bias, affecting the fairness of the process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's position that the reasonableness standard applies to the RAD's review of the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph asserts the RAD did not err in applying the reasonableness standard to questions of fact and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's view that the RAD's deference to the RPD's credibility findings was appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph argues the RAD reasonably rejected the new evidence based on the rules and the nature of the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the RAD's reasons for not accepting the new evidence, which did not address the core fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RAD's decision not to hold an oral hearing was reasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's position that there is no evidence of bias by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes the RAD's confirmation of the egregious delay finding and the applicant's agreement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that only the section 97 issues remain for consideration in the appeal and review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews recent case law supporting the application of correctness review to the RAD's choice of standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the Court's view that the RAD should apply reasonableness to its review of the RPD's law and credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms the Court's role to review the RAD's application of law and credibility findings under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the reasonableness standard applies to the admissibility of new evidence before the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Procedural fairness",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's position that the RAD did not err in its procedural approach and application of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses jurisprudence on deference to the RPD's credibility findings and the level of review applicable to the RAD's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RAD erred in applying the reasonableness standard and in its judicial review approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes that the RAD lacked recent jurisprudence guidance at the time of the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The RAD analyzed evidence and found credibility findings were unreasonable, applying an independent review standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The credibility findings were not determinative of the section 96 claim and only issues related to section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "procedural_history",
+   "role": "party_position",
+   "explanation": "The RAD erred by not allowing the applicant to make submissions on credibility concerns that were not challenged by the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Raza test should not automatically apply to subsection 110(4) determinations, as the context differs from that in Singh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The RAD referred to Raza factors but misquoted the materiality factor and based its rejection on subsection 110(4) and Rule 33.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The application should be allowed due to the RAD's error in applying the reasonableness standard; the RAD should reconsider the new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "procedural_history",
+   "role": "other",
+   "explanation": "Subsection 110(3) states the RAD proceeds without a hearing but may accept documentary evidence and written submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "procedural_history",
+   "role": "other",
+   "explanation": "Subsection 110(6) allows the RAD to hold a hearing if certain conditions regarding documentary evidence and credibility are met.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues the RAD should have held an oral hearing to respond to credibility concerns not raised on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's discretion to hold a hearing was not engaged because it relied on the RPD record, which was not central to the current decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "procedural_history",
+   "role": "other",
+   "explanation": "The issue of whether the RAD should have allowed the applicant to respond to credibility concerns requires further consideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Supreme Court's decision in Mian addresses appellate jurisdiction to raise new issues and relevant procedures, applicable beyond criminal law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "A new issue is one raising a different basis for error beyond the grounds of appeal, requiring prior notice to the parties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court concluded raising a new issue is rare and justified only to prevent injustice, considering record sufficiency and prejudice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Discretion to raise new issues involves jurisdiction, record sufficiency, and avoiding procedural prejudice, with considerations outlined in Mian.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Parties should be notified and allowed to respond when a new issue is raised on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The principles from Mian should inform the RAD's approach to new issues, requiring notice and opportunity to respond.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD should consider if credibility findings are new issues and if addressing them is necessary to avoid injustice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The main issue was delay, not credibility; the RAD's negative credibility findings could impact future decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Fundamental fairness requires parties to have an opportunity to respond to issues affecting them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The Supreme Court outlined factors affecting procedural fairness, emphasizing context-specific application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Parties should have some opportunity to respond to concerns, even if findings do not change the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Allegations of bias are serious and should be made cautiously and responsibly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "other",
+   "role": "other",
+   "explanation": "There is no record evidence suggesting bias by the RAD; its broader review was related to its appellate role.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

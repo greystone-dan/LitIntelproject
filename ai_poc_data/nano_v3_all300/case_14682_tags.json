@@ -1,0 +1,109 @@
+{
+ "case_id": 14682,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 13,
+ "tagged_count": 13,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2047,
+  "completion_tokens": 751,
+  "usd": 0.0005051000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court summarizes the immigration board's decision and the court's dismissal of the application, including reasons for non-interference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background information about Mr. Bacchus's nationality, age, and basis for claiming refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details the applicant's political background and family involvement, relevant to his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes specific incidents of crime and harassment experienced by the applicant and his family in Guyana.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's findings are summarized, noting that crime affects all citizens and is not racially motivated against Indo-Guyanese.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion that police do not discriminate and that the applicant's lack of identification of perpetrators undermines his claim is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes an administrative error in the communication of the Board's decision, which was later corrected.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states the legal issue regarding whether the Board erred in its findings on persecution and risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant's arguments about the political turmoil and violence against Indo-Guyanese are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent's position that the Board's reasons are clear and that no error was demonstrated is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees with the respondent, noting that crime is not racially or politically motivated and that the applicant's risk is not personalized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that the Board was entitled to rely on evidence showing no discrimination in protection and that the applicant failed to rebut this presumption.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states that administrative error in the notice does not justify intervention and dismisses the application.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

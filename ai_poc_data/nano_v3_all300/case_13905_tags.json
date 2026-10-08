@@ -1,0 +1,158 @@
+{
+ "case_id": 13905,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 20,
+ "tagged_count": 20,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3746,
+  "completion_tokens": 1393,
+  "usd": 0.0009318
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review and the decision being challenged, including the applicant's request for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states that the application is dismissed, indicating the outcome of the judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's personal history, including experiences in Somalia and her marriage for protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's travel to the US, detention, and the identity discrepancy found through fingerprinting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph outlines the applicant's refugee claim process in Canada, including hearings and the reasons for rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's appeal to the RAD and the evidence she submitted, as well as the RAD's findings on new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the RAD's review of the RPD's findings and its reasoning on the applicant's risk factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RAD reasonably rejected the new evidence, citing the roles of the RPD and RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that the RAD's process is not a second chance to present evidence that could have been submitted earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that responding to deficiencies in the case cannot justify new evidence that was available earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph distinguishes the Singh case from this matter, emphasizing the importance of evidence availability and honesty.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains why the psychotherapist's report cannot be admitted to explain issues with forensic evidence from the RPD hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that post-hearing forensic opinions are not appropriate to explain credibility issues and could undermine the original expert evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph cites legal authority that medical evidence cannot be used after the hearing to justify credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that there was no reviewable error in the RAD's exercise of discretion regarding new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the expert report is evidence and the RPD's discretion in weighing it, and that inconsistencies are not excused by PTSD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph affirms that the credibility findings are reasonable and based on inconsistencies that are not explained by interpretation issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the RAD's findings on inconsistencies related to identity and cultural evidence are reasonable and thoroughly considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the RAD agreed the applicant failed to establish her identity and risk profile, consistent with the RPD's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the court finds no reviewable errors and dismisses the application, with no question for appeal.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

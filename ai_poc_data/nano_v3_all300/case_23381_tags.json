@@ -1,0 +1,354 @@
+{
+ "case_id": 23381,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 48,
+ "tagged_count": 48,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7405,
+  "completion_tokens": 2902,
+  "usd": 0.0019013000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review based on the reasons discussed below.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant was in a secret relationship with Mr. Manu in Ghana for eight years.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant was assaulted and threatened by vigilantes after being caught with Mr. Manu, and he reported police refusal to help due to his sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a musician and travel agency director who applied for a Canadian visitor visa fearing for his life.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant traveled to Canada to seek financial help from his sisters and did not claim refugee status in the UK due to safety concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant not credible, citing inconsistent behavior regarding his fear and secrecy about his relationship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD believed that the applicant's failure to mention a current relationship in Canada undermined his credibility about his homosexuality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The RAD upheld the RPD's decision on September 18, 2013.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The RAD held that the RPD's credibility findings should be reviewed on a reasonableness standard, respecting deference to the first tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal found it implausible that an educated man with an eight-year relationship would be unaware of the criminality of homosexuality in Ghana.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD considered the applicant's behavior and knowledge about Canada's refugee system as inconsistent with genuine fear, reducing credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal found the applicant's explanations for his behavior in Canada unconvincing, affecting his credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal concluded the applicant's actions were inconsistent with someone fearing persecution, further undermining credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The judge states disagreement with Justice Phelan's view, indicating a divergence in legal reasoning.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court reviews the criteria for applying the correctness standard to legal questions in tribunals, referencing Alberta Human Rights case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court explains the criteria for applying a correctness standard to legal questions, emphasizing importance and expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the Supreme Court's view that only questions of broad legal importance warrant a correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal doubted the applicant's claimed homosexuality due to vague descriptions and lack of detailed knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court notes that the Supreme Court applies reasonableness review unless the issue has wide legal significance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court found that interpretation of statutory provisions generally does not require correctness review unless of central importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court determined that the specific legal question about contracts did not have broad legal significance, warranting reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the interpretation of the RAD provisions is not of central importance to the legal system, thus reasonableness review applies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The application of the RAD provisions to the facts involves mixed fact and law, which warrants reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The parties disagree on the appropriate standard of review for RPD decisions on fact and law, which the court addresses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues for a correctness standard, citing Newton, which involves expertise and structure of police misconduct tribunals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that the RAD should apply reasonableness because both RPD and RAD are specialized tribunals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent cites case law supporting reasonableness review for questions of fact and mixed law and fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Recent court decisions affirm that the RAD's role is to review RPD decisions under reasonableness, not judicial review standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court notes a consensus that judicial review standards do not apply to RAD appeals, affecting the approach to review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "There is consensus that deference is owed to RPD credibility findings when no hearing is held before the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Opinions differ on the extent and scope of deference owed to the RPD's findings by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Some justices believe deference is limited to credibility and specific advantages, while others see broader deference owed.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Other justices believe the RAD should defer on all questions of fact and law, intervening only for palpable errors.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The judge sees little difference between unreasonable and palpable errors, considering the distinction immaterial here.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court affirms that deference is only owed to credibility findings where the RPD has a particular advantage.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The applicant claims the RAD erred in assessing credibility based on three specific matters.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal found the applicant's explanations for his behavior at the party unconvincing, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD erred in finding the applicant unaware of the risks of being homosexual in Ghana, given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD erred in assessing the applicant's subjective fear, as knowledge of the asylum process is not expected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that the RAD should not re-evaluate evidence or conduct a new credibility assessment, only review reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "appellate review role of RAD",
+   "role": "other",
+   "explanation": "The paragraph explains the RAD's role in reviewing and reassessing evidence as an appellate tribunal, regardless of whether new evidence is presented.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "RAD review of evidence and credibility",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the RAD properly deferred to the RPD's credibility findings and reasonably confirmed its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "RAD consideration of applicant's explanations",
+   "role": "reasoning_application",
+   "explanation": "The court notes the RAD reviewed the applicant's explanations and reasonably assessed the claim as a whole, including the explanations' reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "credibility assessment and inferences",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD reasonably upheld the credibility assessment based on negative inferences and the applicant's vague answers, considering his background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "subjective fear assessment",
+   "role": "reasoning_application",
+   "explanation": "The RAD made its own detailed assessment of the applicant's subjective fear, providing a more thorough analysis than the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "certification of legal questions",
+   "role": "other",
+   "explanation": "The court discusses the respondent's view on certification and the implications for the applicant's rights, given the case's context.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "proposed certification question",
+   "role": "other",
+   "explanation": "The court rejects the applicant's proposed question about the RAD's appellate role as too general and not determinative.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "determinative legal questions",
+   "role": "legal_test",
+   "explanation": "The court identifies specific legal questions regarding the standard of review and deference owed to the RAD's credibility findings as determinative.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

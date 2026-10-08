@@ -1,0 +1,179 @@
+{
+ "case_id": 23995,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 23,
+ "tagged_count": 23,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2826,
+  "completion_tokens": 1282,
+  "usd": 0.0007954000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application and orders the matter to be reconsidered by a different Board member.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant describes her alleged forced marriage, her family circumstances, and her experiences of rape in Namibia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states that the decision is unreasonable and that the application is granted, indicating a review of the decision's reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board rejected the claim based on credibility, but the court finds the credibility assessment flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board focused on the lack of corroboration for certain facts, which the court discusses as potentially flawed reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court cites legal standards regarding corroboration requirements in refugee claims from Dundar v Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains when corroborative evidence can be reasonably expected and why it was unreasonable to expect it here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The record includes a photograph and a letter supporting the applicant's claims, but the Board's reasons are silent on this evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's reasoning regarding credibility and corroboration to be flawed and unsound.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's plausibility finding is challenged as unreasonable unless the testimony is clearly implausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the caution needed in assessing plausibility, referencing Valtchev and gender guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant testified about her efforts to seek help to regain custody of her child and stop the marriage.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board considered it implausible that the applicant did not pursue more legal avenues, which the court questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court criticizes the Board for not adequately considering the applicant's cultural and social context in plausibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board's findings on state protection are linked to its credibility assessment, which the court reviews.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states the legal presumption of state willingness and ability to protect, and the standard for refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant provided evidence that police considered her complaints a family matter and that traditional authorities dismissed her.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's reasoning about the applicant's awareness of legal avenues is challenged, noting her testimony about legal assistance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant's testimony about shame in seeking police protection is ignored, contrary to gender guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board acknowledged the law against spousal rape and forced marriage but noted possible enforcement issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board selectively quoted country evidence, ignoring practices like forced marriage and polygamy, which are relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board's conclusion about an internal flight alternative in Walvis Bay is challenged as unsupported by earlier findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds the Board's reasoning flawed and remands the case for reconsideration by a different member.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

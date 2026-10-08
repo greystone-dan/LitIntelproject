@@ -1,0 +1,102 @@
+{
+ "case_id": 11917,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 12,
+ "tagged_count": 12,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 1711,
+  "completion_tokens": 620,
+  "usd": 0.00041910000000000005
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the judicial review process and the decisions of the RAD and RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the Applicant's identity issues and the findings of the RPD and RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicant's hearing, representation, and lack of identity documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RPD's credibility findings and the court's view on their likely correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the appeal to the RAD and the reasons given for not calling a witness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the counsel's responsibility and preparation in the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph dismisses the excuse for the witness's absence as inadequate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph affirms the RAD's rejection of the affidavit.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the errors made by the RAD in its record review and the need for procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes the importance of notice and opportunity when the RAD makes substantive record findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph considers the potential outcomes of returning the matter and the RAD's procedural development.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that no question will be certified for appeal.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

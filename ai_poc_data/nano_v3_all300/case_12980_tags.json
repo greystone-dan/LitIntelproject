@@ -1,0 +1,193 @@
+{
+ "case_id": 12980,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4789,
+  "completion_tokens": 1928,
+  "usd": 0.0012501
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicants' argument about RAD's review and their compliance with procedural protocols.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background information about the applicants' status and their legal representation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' circumstances and events leading to their refugee claim in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph continues background facts about the applicants' flight to Canada and their protection claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the RPD's reasoning for finding the evidence not credible or reliable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's findings regarding internal flight alternatives and the agents of harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the RAD's rules requiring detailed submissions on errors in the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the RAD's conclusion that the IFA determination stands independently of other findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph details the applicants' argument that the RAD's independence finding was unreasonable due to the credibility link.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicants' alternative argument about counsel's negligence or incompetence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the respondent's legal argument that counsel's incompetence must be proven with specific evidence and impact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the respondent did not take a position on whether counsel was incompetent in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the issues raised by the application, including standards of review and errors in the IFA finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the RAD's obligation to review the credibility findings when assessing the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the link between credibility and IFA findings in the RPD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the applicants' evidence contesting the credibility findings related to the Taliban.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph mentions the applicant's statutory declaration reiterating fear of Taliban persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues the RPD's finding on Taliban agents was a condition for the IFA and was not properly addressed by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the court will allow the application due to the reviewable error identified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph comments on the RAD's role, appellant's onus, and relevant case law regarding appeal procedures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the statutory and procedural rules governing the appeal process and appellant's obligations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the court's view on respecting explicit rules and the appellant's responsibility to identify errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the RAD's role to analyze the record and the appellant's burden to show errors in the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD erred by relying solely on the IFA finding without addressing the Taliban credibility issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's judgment to grant the application, return the matter for redetermination, and not certify a question.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

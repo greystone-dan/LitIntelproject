@@ -1,0 +1,641 @@
+{
+ "case_id": 24261,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 89,
+ "tagged_count": 89,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 14197,
+  "completion_tokens": 5672,
+  "usd": 0.0036885
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review of the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes K.K.'s background, including his nationality, arrival in Canada, and reasons for leaving Sri Lanka.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "K.K. was injured in a motorcycle accident, which caused scarring and required medical documentation to explain the injury.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "K.K. was questioned frequently in Colombo due to his Tamil ethnicity and was detained for over eight hours after being questioned in Sinhalese.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "K.K. was arrested in 2007, detained for five months, and reported abuse during detention; he was released without conviction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "K.K. was arrested again in 2008 on suspicion of LTTE membership and released the next day after questioning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Fearing for safety, K.K.'s father arranged for him to travel from Sri Lanka to Canada via Malaysia and Singapore, arriving in Canada in 2009.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "K.K. testified that paramilitaries visited his family and provided affidavits supporting his claims of threats in Sri Lanka.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "K.K. learned that Canadian authorities contacted Sri Lanka about Ocean Lady passengers and believes his identity was shared, risking arrest if returned.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board reviewed K.K.'s background and focused on whether he had a well-founded fear of persecution if returned to Sri Lanka.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board noted the UNHCR Guidelines from 2010 regarding risk profiles for Sri Lankan asylum seekers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Guidelines list five risk profiles: LTTE links, journalists, activists, women and children, and LGBT individuals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board observed that no evidence showed K.K. fit or was perceived to fit profiles 2-5, but he claimed profile 1 applied, which was reviewed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "K.K. reported arrest in 2007; the Board noted inconsistency regarding whether the arrest was by TID or other police.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board accepted the arrest but found it was not based on personal targeting; K.K. was not convicted and returned to work.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "After ceasing his business, K.K. faced no further significant issues; detention was due to police procedures, not LTTE suspicion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board concluded there was insufficient evidence that K.K. was suspected of LTTE membership or links.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board noted that Sri Lanka's circumstances had changed, and individual merits should be considered for asylum claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "K.K. left Sri Lanka in 2009; by 2012, he had no recent difficulties, and the Board found no serious risk based on his ethnicity or profile.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Conditions for Tamils have improved, except for LTTE suspects; some former supporters have been released, and the region is calmer since 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Sri Lanka's laws still allow detention of LTTE suspects; human rights concerns exist, but the Board found the country generally safe for return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Returnees are screened and detained briefly; reports suggest no heightened risk for those without LTTE ties, and K.K. had no such ties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "All returnees undergo screening; the claimant had no associations with LTTE or opposition to the government, reducing risk of detention or torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "K.K. was only detained once and not suspected of LTTE support; he was never targeted or detained for such reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board found that Tamils are not targeted solely for ethnicity, but LTTE links still pose risks for some individuals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The sur place claim was considered; the Board reviewed criteria and found no evidence that Sri Lanka authorities knew K.K.'s identity or that his profile changed significantly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "No evidence indicated Sri Lankan authorities identified K.K. in media coverage of Ocean Lady, so his profile was not considered known to them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Canadian authorities' cooperation with Sri Lanka was discussed; the RCMP official clarified that no personal information was shared, reducing sur place concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board trusted the RCMP declaration and found no persuasive evidence that personal identities of Ocean Lady passengers were shared with Sri Lanka.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Statements by the Sri Lankan High Commissioner suggested not all Ocean Lady passengers had LTTE links, and the Sri Lankan government was not aware of all identities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "An expert's opinion indicated only a few Ocean Lady passengers might have LTTE ties; the Sri Lankan government was likely aware of this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "A Sri Lankan Ministry of Defence article suggested about one-third of Ocean Lady passengers had LTTE ties, implying the government did not believe all had such links.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Ministry stated that those who paid for passage were not LTTE combatants, countering claims of involvement in the war.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board found media reports did not convincingly show that Canada shared Ocean Lady passengers' identities with Sri Lanka, making the claim speculative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board reasoned that Sri Lanka would know K.K. was released after investigation, and passage on Ocean Lady did not imply LTTE membership, so no sur place claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Board analyzed whether K.K.'s fears met the standard for refugee protection, considering general risks faced by Tamils and paramilitary threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board rejected K.K.'s asylum claim, concluding he did not establish a well-founded fear of persecution based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The section lists the issues raised by the applicant regarding the Board's process and decision, including fairness and reasonableness.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court states that the key issue is whether the Board's decision was unreasonable considering the facts.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The applicant argues for correctness review on natural justice and reasonableness review on other issues, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "standard of review: reasonableness",
+   "role": "issue_framing",
+   "explanation": "The respondent argues that the standard of review for the Board's findings of fact is reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "standard of review: reasonableness",
+   "role": "disposition",
+   "explanation": "The court agrees that the standard of review is reasonableness and proceeds to analyze the case accordingly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasonableness review: foundational facts",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's foundational findings sufficient to support its reasonable decision based on the facts and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "general scope of reasonableness review",
+   "role": "issue_framing",
+   "explanation": "The court notes that it cannot reweigh or reconsider the case as a whole, affirming the reasonableness of the Board's detailed review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "assessment of risk: Board's conclusion",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the Board properly considered the applicant's risk and that its conclusion falls within its expertise and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "evidence assessment: reports on return risks",
+   "role": "evidence_assessment",
+   "explanation": "The court finds that the Board properly referenced all relevant reports and was within its discretion to prefer certain evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "consideration of omitted evidence",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the omitted evidence was not significant enough to undermine the Board's conclusion given the overall record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "evidence assessment: vague evidence",
+   "role": "reasoning_application",
+   "explanation": "The court finds the evidence about targeting and scarring too vague or lacking weight to affect the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "disjunctive vs. cumulative analysis",
+   "role": "issue_framing",
+   "explanation": "The court discusses whether the Board properly considered the applicant's profile factors cumulatively or disjunctively.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "assessment of profile factors",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the Board considered all profile factors together and did not analyze them disjunctively.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "generalized risk assessment",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Board's remarks on generalized risk do not reflect an error, as the key issue was targeted risk based on suspicion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "assessment of generalized risk",
+   "role": "issue_framing",
+   "explanation": "The applicant claims the Board erred by generalizing the risk to all Tamils rather than a subset, which the court addresses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "credibility: inconsistency in testimony",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the Board's failure to address certain inconsistencies without opportunity for response was procedurally unfair, but finds it did not affect the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "credibility: credibility findings",
+   "role": "reasoning_application",
+   "explanation": "The court finds that credibility was not a factor in the Board's decision, which was based on other circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "plausibility findings and credibility",
+   "role": "issue_framing",
+   "explanation": "The applicant argues that the Board's adverse credibility findings were actually plausibility findings, which the court examines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "plausibility findings: legal standards",
+   "role": "legal_test",
+   "explanation": "The court discusses the legal standards for making plausibility findings, especially regarding credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "plausibility findings: case law",
+   "role": "legal_test",
+   "explanation": "The court reviews case law on when plausibility findings are appropriate, emphasizing they are only in the clearest cases involving credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "plausibility as inference",
+   "role": "legal_test",
+   "explanation": "The court explains that plausibility findings are equivalent to inferences and discusses their use in legal reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "principles of inference",
+   "role": "legal_test",
+   "explanation": "The court summarizes the legal principles governing inferences, emphasizing they must be logical, reasonable, and based on established facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "drawing inferences: legal principles",
+   "role": "legal_test",
+   "explanation": "The court details the legal principles for drawing inferences, including that they must follow logically from facts and not be speculative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "plausibility and credibility",
+   "role": "legal_test",
+   "explanation": "The court distinguishes between rejecting an inference and making a credibility finding, which involves moral reflection on the act of proposing the inference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "credibility: inference rejection",
+   "role": "legal_test",
+   "explanation": "The court clarifies that rejecting an inference does not necessarily imply a credibility finding unless it involves moral judgment about the claimant's truthfulness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "credibility: inference and credibility",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the Board's rejection of the inference was about the objective evidence, not the applicant's credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "reasoning: evidence and onus",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Board's conclusion was based on all evidence and that the applicant's fear was not found to be well-founded, not on credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "principle of plausibility findings",
+   "role": "issue_framing",
+   "explanation": "The applicant argues that plausibility findings should only be made in the clearest cases, a principle the court discusses and limits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "plausibility findings: legal standards",
+   "role": "legal_test",
+   "explanation": "The court cites legal commentary that plausibility findings should be cautious and only in clear cases, especially considering cultural context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "case law on plausibility findings",
+   "role": "legal_test",
+   "explanation": "The court notes that the case law does not establish that plausibility findings can only be made in the clearest cases, especially outside credibility contexts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "credibility assessments and inferences",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that negative credibility assessments based on inferences should be cautious and only made when the gap is significant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The court states that the standard of review for plausibility findings is reasonableness, respecting the tribunal's expertise and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The court explains that deference is owed to the tribunal's specialized knowledge and that reasonableness review applies to all decisions, including inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "deference to tribunal expertise",
+   "role": "legal_test",
+   "explanation": "The court discusses the importance of deference to the tribunal's expertise, especially in culturally diverse refugee cases, under reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "tribunal's expertise in inferences",
+   "role": "legal_test",
+   "explanation": "The court notes that the tribunal's specialized experience makes it better suited than courts to assess the reasonableness of inferences involving refugees.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "reviewing tribunal's consideration of factors",
+   "role": "legal_test",
+   "explanation": "The court states that courts are comfortable reviewing whether the tribunal relied on relevant factors and did not consider irrelevant ones.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "reviewing tribunal's outcome",
+   "role": "legal_test",
+   "explanation": "The court explains that when all relevant factors are established, review focuses on whether the conclusion reasonably follows from those factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Dunsmuir and range of outcomes",
+   "role": "legal_test",
+   "explanation": "The court discusses how Dunsmuir emphasizes a range of reasonable outcomes and the importance of considering the decision from the tribunal's perspective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "Dunsmuir and appellate review",
+   "role": "disposition",
+   "explanation": "The court criticizes the appellate approach in the case where the court substituted its opinion for the tribunal's reasoning, contrary to Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "range of outcomes and appellate review",
+   "role": "disposition",
+   "explanation": "The court clarifies that the proper approach is to assess whether the scenario might reasonably be considered speculative, respecting the range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The court states that the correct question is whether the scenario might reasonably be found to be speculative, aligning with reasonableness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "reasonableness of inference: standard",
+   "role": "legal_test",
+   "explanation": "The court explains that the review is whether the inference falls within a range of reasonable decisions, not whether it is more probable than not.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "Dunsmuir restrictions on courts",
+   "role": "legal_test",
+   "explanation": "The court concludes that Dunsmuir restricts courts from substituting their own reasoning for that of the tribunal regarding inferences, emphasizing deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the court's approach to evaluating whether evidence reasonably supports an inference, akin to a trial judge assessing sufficiency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "It discusses the process of reweighing facts and the sufficiency test for supporting inferences based on evidence bridging the inferential gap.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the court assesses the 'gap-closing' evidence using common sense, avoiding hypothetical or subjective reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "It explains that the reviewing court compares the range of reasonable inferences with the Board's inference, focusing on whether the evidence supports alternative inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes assessing what additional evidence would make the inference less speculative and whether the current evidence suffices.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "It notes that the Board's cumulative factors make the decision less susceptible to reweighing by the court, simplifying the review process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the Board's factual findings about treatment in Sri Lanka support the conclusion that the applicant lacks a well-founded fear, considering other factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "disposition",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the Board's finding regarding risk due to LTTE suspicion falls within a reasonable range based on the facts and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application based on the reasoning above, finalizing the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

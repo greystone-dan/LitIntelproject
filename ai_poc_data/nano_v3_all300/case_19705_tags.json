@@ -1,0 +1,375 @@
+{
+ "case_id": 19705,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 51,
+ "tagged_count": 51,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 9707,
+  "completion_tokens": 2885,
+  "usd": 0.0021247
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review",
+   "role": "disposition",
+   "explanation": "The court states it is allowing the application for judicial review of the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history of judicial review",
+   "role": "other",
+   "explanation": "The court announces it will discuss the reasons for allowing the application.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's personal background and family immigration details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' claims of persecution and fear of violence in the Czech Republic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph lists detailed allegations supporting the family's refugee claim based on discrimination and violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "Additional allegations made by the applicant at the hearing are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: Board's credibility concerns",
+   "role": "party_position",
+   "explanation": "The Board expressed concerns about the credibility of the applicant's testimony and details of incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: Discrimination vs. persecution",
+   "role": "party_position",
+   "explanation": "The Board acknowledged systemic discrimination but distinguished it from persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: Improvements in education",
+   "role": "party_position",
+   "explanation": "The Board referenced reports indicating improvements in Roma education and anti-discrimination measures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: Discrimination not amounting to persecution",
+   "role": "party_position",
+   "explanation": "The Board concluded that ongoing discrimination did not constitute persecution due to remedial steps.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: Employment discrimination",
+   "role": "party_position",
+   "explanation": "The Board recognized some discrimination in employment but did not find it amounted to persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: Police discrimination",
+   "role": "party_position",
+   "explanation": "The Board noted a single incident of police discrimination against the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position: Assaults and violence",
+   "role": "party_position",
+   "explanation": "The Board discussed two assaults but questioned the details and evidence of the attacks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position: Definition of persecution",
+   "role": "party_position",
+   "explanation": "The Board explained that persecution involves systemic violations, which it did not find present.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position: Summary of persecution analysis",
+   "role": "party_position",
+   "explanation": "The Board summarized that the incidents did not amount to persecution individually or cumulatively.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position: State protection",
+   "role": "party_position",
+   "explanation": "The Board found that Czech state protection was sufficient and effective for the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position: Police response to incidents",
+   "role": "party_position",
+   "explanation": "The Board noted police investigations and responses to incidents, supporting available state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Procedural history of the issues",
+   "role": "other",
+   "explanation": "The Board rejected the protection claim, leading to issues for judicial review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Issue framing and standard of review",
+   "role": "issue_framing",
+   "explanation": "The court identifies the issues and the applicable reasonableness standard for review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal standard: reasonableness review",
+   "role": "legal_test",
+   "explanation": "The paragraph states the reasonableness standard applied to persecution and state protection issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal standard: reasonableness and justification",
+   "role": "legal_test",
+   "explanation": "The Supreme Court's criteria for reasonableness are summarized, focusing on justification and acceptability of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning: cumulative persecution analysis",
+   "role": "reasoning_application",
+   "explanation": "The court criticizes the Board for not properly considering the cumulative nature of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning: failure to address all incidents",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board failed to consider several incidents in its persecution analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Reasoning: evidence treatment",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Board selectively ignored evidence that could support a persecution finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment: Board's reasoning",
+   "role": "evidence_assessment",
+   "explanation": "The respondent argues the Board reasonably considered the evidence and found no persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: Convention refugee criteria",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal criteria for a well-founded fear of persecution under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal principles: cumulative conduct",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the obligation to consider the cumulative effect of discriminatory acts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal principles: legal definitions of persecution",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews legal principles defining persecution and the importance of cumulative conduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal principles: UNHCR guidance",
+   "role": "legal_test",
+   "explanation": "The UNHCR's rationale for considering cumulative past experiences is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal principles: past incidents as basis for fear",
+   "role": "legal_test",
+   "explanation": "Past incidents are part of the overall context for present fear, as explained by legal authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal analysis: Board's failure to consider cumulative effects",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board failed to analyze the cumulative impact of discrimination properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal analysis: error in considering cumulative persecution",
+   "role": "reasoning_application",
+   "explanation": "The court cites a case where the Board's failure to consider cumulative effects was an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal analysis: similar errors in other cases",
+   "role": "reasoning_application",
+   "explanation": "The court compares this case to others where failure to consider cumulative conduct was an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal obligation: explain why discrimination does not amount to persecution",
+   "role": "reasoning_application",
+   "explanation": "The Board should have explained why widespread discrimination did not amount to persecution cumulatively.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal critique: partial consideration of assaults",
+   "role": "reasoning_application",
+   "explanation": "The court criticizes the Board for only partially considering assaults in the persecution analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Evidence assessment: omitted assaults",
+   "role": "evidence_assessment",
+   "explanation": "The Board did not consider several assaults mentioned for the first time at the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Evidence treatment: documentary evidence on persecution",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the Board's limited evaluation of documentary evidence on persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Country conditions evidence: discrimination in employment and attacks",
+   "role": "evidence_assessment",
+   "explanation": "The US State Department report details discrimination and violence against Roma in the Czech Republic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Board's failure to address country conditions evidence",
+   "role": "evidence_assessment",
+   "explanation": "The Board did not adequately consider evidence of employment discrimination, which was an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "evidence_assessment",
+   "explanation": "The US report on violence against Roma was not addressed by the Board, constituting a failure to consider relevant evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's analysis unreasonable due to omissions and failure to consider all relevant evidence and incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "party_position",
+   "explanation": "The applicants argue the Board selectively ignored evidence showing inadequate state protection in the Czech Republic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "party_position",
+   "explanation": "The applicants claim the Board failed to consider their personal attempts to obtain protection and related incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "party_position",
+   "explanation": "The applicants argue that the mere existence of remedies is insufficient without practical effectiveness, criticizing the Board's analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "party_position",
+   "explanation": "The respondent contends the applicants did not meet the burden of proof to rebut the presumption of adequate state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "party_position",
+   "explanation": "The Board relied on a 2009 report indicating efforts to protect Roma, emphasizing legislative measures and reforms.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "legal_test",
+   "explanation": "The court notes that willingness to protect is not enough; protection must be effective, and a state can be unwilling or unable to provide adequate protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes objective reports indicating discrimination and police inaction against Roma, which the Board did not consider.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "reasoning_application",
+   "explanation": "The court finds it unreasonable for the Board to focus only on efforts and ignore evidence of inadequacy, requiring explanation for its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "reasoning_application",
+   "explanation": "The Board's unreasonable treatment of country evidence undermines its conclusion on state protection, making its decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Country conditions evidence: violence against Roma",
+   "role": "disposition",
+   "explanation": "The court allows the application for judicial review due to the Board's errors and unreasonable analysis, and declines certification.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

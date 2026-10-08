@@ -1,0 +1,200 @@
+{
+ "case_id": 34061,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4416,
+  "completion_tokens": 1606,
+  "usd": 0.0010840000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that this is a judicial review of a PRRA officer\u2019s decision from 2006 rejecting the protection application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts of the claim",
+   "role": "background_facts",
+   "explanation": "The applicant\u2019s protection claim was based on Palestinian nationality and imputed political opinion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The application for protection was dismissed by the PRRA officer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position: PRRA reasoning",
+   "role": "party_position",
+   "explanation": "The PRRA officer acknowledged the objective fear but denied a personalized risk due to lack of demonstrated individual danger.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: applicant\u2019s evidence",
+   "role": "party_position",
+   "explanation": "The PRRA considered the applicant\u2019s past arrests and family\u2019s destruction but found motives unestablished and credibility issues with some allegations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal standard of review",
+   "role": "legal_test",
+   "explanation": "The standard of reasonableness simpliciter applies, with correctness for statutory interpretation and deference on factual findings unless perverse or capricious.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Disposition of the case",
+   "role": "disposition",
+   "explanation": "The application is to be allowed, meaning the decision is set aside and a new assessment ordered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Reasoning: procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The court finds the PRRA violated procedural fairness by unilaterally consulting internet evidence without opportunity for comment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court questions the reliability of Wikipedia and notes the limited number of standard reports used by the PRRA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the use of other public documents that appeared after the applicant\u2019s submissions, but does not assess their novelty or significance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: misunderstanding of statutory provisions",
+   "role": "legal_test",
+   "explanation": "The PRRA officer misunderstood the different tests under sections 96 and 97 of IRPA regarding subjective and objective fears.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: section 96 of IRPA",
+   "role": "legal_test",
+   "explanation": "Section 96 refers to a well-founded fear of persecution based on protected grounds, including nationality and political opinion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: components of refugee status",
+   "role": "legal_test",
+   "explanation": "To qualify under section 96, the claimant must show both subjective and objective fears and a nexus to persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: generalized persecution",
+   "role": "legal_test",
+   "explanation": "Persecution can be established by the treatment of similarly situated individuals, not necessarily the claimant\u2019s own past or future risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: case law on generalized violence",
+   "role": "legal_test",
+   "explanation": "The Salibian case confirms that civil war does not bar refugee claims if the fear is personal or targeted, not general.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: conditions for claims in violence contexts",
+   "role": "legal_test",
+   "explanation": "Claims in widespread violence contexts must meet the same conditions as other claims, with no extra requirements under section 96.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test: factual nature of the determinations",
+   "role": "legal_test",
+   "explanation": "Once nexus is established, the fear\u2014personalized or not\u2014qualifies the applicant as a refugee under section 96.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Background facts: West Bank conditions",
+   "role": "background_facts",
+   "explanation": "The evidence states Palestinians in the West Bank lack full citizenship rights and are under Israeli control.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Background facts: previous IRB refugee determinations",
+   "role": "background_facts",
+   "explanation": "IRB has previously recognized that civil war consequences and targeted persecution can lead to refugee status for Palestinians.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Background facts: court\u2019s view on IRB and PRRA roles",
+   "role": "background_facts",
+   "explanation": "The court clarifies that PRRA decisions are not appeals but must consider new facts affecting the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal error: credibility and subjective fear analysis",
+   "role": "reasoning_application",
+   "explanation": "The decision lacked a credibility assessment and subjective fear analysis regarding new facts like home destruction and family violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal error: nexus and membership analysis",
+   "role": "reasoning_application",
+   "explanation": "The PRRA failed to determine if the applicant\u2019s acts of violence or threats amount to persecution linked to his social group or nationality, which is an error of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal error: assessment of violence and violations",
+   "role": "reasoning_application",
+   "explanation": "The PRRA did not adequately consider reports of violence and collective punishment, which are relevant to the fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal error: arbitrary findings on motives and risk",
+   "role": "reasoning_application",
+   "explanation": "The PRRA arbitrarily dismissed the applicant\u2019s reasons for home destruction and land confiscation without rationale, ignoring relevant facts like family violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Conclusion: unreasonable decision and no bias",
+   "role": "reasoning_application",
+   "explanation": "The decision was unreasonable due to procedural and legal errors, but no bias was found; a new assessment is required.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Final order",
+   "role": "disposition",
+   "explanation": "The court sets aside the decision and orders a new determination by another PRRA officer.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

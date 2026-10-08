@@ -1,0 +1,396 @@
+{
+ "case_id": 23775,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 54,
+ "tagged_count": 54,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7966,
+  "completion_tokens": 3221,
+  "usd": 0.002085
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of a decision by the Pension Appeals Board regarding an extension of time to appeal a review tribunal decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the applicant's relationship",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's marriage and separation dates from her former spouse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the deceased and his relationships",
+   "role": "background_facts",
+   "explanation": "The paragraph details the deceased's living arrangements and relationships prior to his death.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about the applicant's application",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicant's application for a survivor's pension and her statement about her relationship status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about the co-applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Ms. Morris's application and her declaration of a common-law relationship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: HRDC's decision",
+   "role": "party_position",
+   "explanation": "The paragraph reports HRDC's reason for denying the survivor's pension based on the relationship definitions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: applicant's reconsideration efforts",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's request for reconsideration and subsequent confirmation of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: appeal filing and procedural steps",
+   "role": "party_position",
+   "explanation": "The paragraph details the applicant's notice of appeal and the inclusion of the added party, Ms. Morris.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Issue framing: main legal question",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the issue of whether the applicant qualifies as a surviving spouse under the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: tribunal's decision",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the tribunal's finding that Ms. Morris was the common-law spouse and entitled to benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history: appeal and extension request",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's late appeal and the Board's criteria for granting an extension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: applicant's argument for extension",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's counsel's argument for a continued intention to appeal and reasons for delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Procedural history: Board's decision on extension",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes the Board's denial of the extension and introduces the judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: criteria for extension",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the four criteria from Gattellaro that the Board considered for extension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application: Board's assessment",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the Board's conclusion that the applicant met three criteria but lacked an arguable case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: authority for arguable case",
+   "role": "legal_test",
+   "explanation": "The paragraph cites Callihoo as authority for the test to establish an arguable case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application: conclusion on arguable case",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Board's conclusion that the applicant did not establish an arguable case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Issue framing: standard of review",
+   "role": "issue_framing",
+   "explanation": "The paragraph frames the issues including the standard of review and whether the Board erred in denying the extension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test: standard of review law",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses when a standard of review analysis is necessary based on jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Disposition: application outcome",
+   "role": "disposition",
+   "explanation": "The paragraph states that the application for extension is refused.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Issue framing: reasonableness review",
+   "role": "issue_framing",
+   "explanation": "The paragraph explains the scope of reasonableness review and the court's focus on the decision's justification and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position: arguable case standard",
+   "role": "party_position",
+   "explanation": "The paragraph describes the criteria under which an application for leave may raise an arguable case without significant new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position: applicant's submissions on new evidence",
+   "role": "party_position",
+   "explanation": "The paragraph details the applicant's argument that the Board failed to consider her specific submissions and new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position: Board's findings on arguable case",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the Board's conclusion that there was no arguable case, arguing it failed to consider the likelihood of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position: comparison to similar case",
+   "role": "party_position",
+   "explanation": "The paragraph cites a similar case where new evidence was deemed sufficient to establish an arguable case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position: respondent's view on arguable case",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's position that the Board reasonably found no arguable case based on the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position: error in legal test",
+   "role": "party_position",
+   "explanation": "The paragraph notes the respondent's view that a mistaken statement about the test's conjunctiveness was not fatal to the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position: evidence and arguable case",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the applicant did not present significant new evidence and the Board cannot rely on future evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position: evidence considered by RT",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's view that the RT properly reviewed and weighed the evidence, and the court cannot reweigh it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position: no error in RT decision",
+   "role": "party_position",
+   "explanation": "The paragraph asserts there was no error in the RT's decision that would suggest an arguable case, citing the record and evidence weighing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal framework",
+   "role": "legal_test",
+   "explanation": "The paragraph lists the relevant statutory provisions and rules applicable to the proceeding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal definition: survivor",
+   "role": "legal_test",
+   "explanation": "The paragraph defines 'survivor' under the CPP, including married and common-law partners.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal definition: common-law partner",
+   "role": "legal_test",
+   "explanation": "The paragraph defines 'common-law partner' as a person cohabiting in a conjugal relationship for at least one year.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Findings on cohabitation",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the tribunal's finding that the deceased and Ms. Morris cohabited for over a year.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Procedural requirements for extension",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the procedural steps and requirements for applying for an extension of time to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Discretionary nature of Board decisions",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the broad discretion of the Board in granting extensions and the legal basis for it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Criteria for extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph states the criteria the Board must assess, including the likelihood of success at law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Ways to establish an arguable case",
+   "role": "legal_test",
+   "explanation": "The paragraph describes methods to establish an arguable case, such as new evidence or legal errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasonableness review and record",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that courts assess reasonableness based on the record and the decision's justification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Evidence before the RT",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the evidence submitted to the RT, including declarations and letters about the relationship and living arrangements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The applicant claims she is the lawful survivor entitled to the pension based on her interpretation of her relationship with Mr. Villeneuve.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "procedural_history",
+   "role": "party_position",
+   "explanation": "The applicant submitted the Sagar Declaration and letters with her application for an extension of time, without additional evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the RT reviewed the evidence and that no new significant evidence was submitted to justify an extension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the case law regarding whether new evidence should be considered when granting an extension of time to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that unlike in Belo-Alves, the applicant did not submit new evidence but only anticipatory evidence, which is insufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that anticipatory evidence cannot establish an arguable case, and the RT's decision not to consider it was correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RT considered and weighed the evidence, including the Sagar Declaration and the Hawkins letter, and found inconsistencies and implausibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court affirms the RT's discretionary findings, noting it properly assessed the evidence and did not err in its conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Board reasonably assessed the evidence and the RT's reasons, and did not reweigh the evidence on judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the adequacy of reasons and the standard for assessing the reasonableness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes that the Board presumed it considered all evidence and that this presumption is only rebutted if probative evidence was overlooked.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's reasons were adequate, referencing the record and stating that the applicant did not raise an arguable case, despite not addressing every document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court explains that the test for extension can be met even if one criterion is not satisfied, and the Board's mistake was not fatal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, affirming the Board's decision and noting no order as to costs.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

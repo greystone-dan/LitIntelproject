@@ -1,0 +1,1719 @@
+{
+ "case_id": 2044,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 243,
+ "tagged_count": 243,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 42730,
+  "completion_tokens": 15080,
+  "usd": 0.010305000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review applications",
+   "role": "procedural_history",
+   "explanation": "Describes the consolidation and background of nineteen applications for judicial review related to IRB guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history of Thamotharem decision",
+   "role": "procedural_history",
+   "explanation": "Summarizes Justice Blanchard's decision on Guideline 7 and its legal implications, including an appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of case management",
+   "role": "procedural_history",
+   "explanation": "Details the court's management of multiple applications following Justice Blanchard's decision, including appointments of judges.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history of consolidation",
+   "role": "procedural_history",
+   "explanation": "Describes the court's order to consolidate applications and manage proceedings efficiently.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural history of hearing arrangements",
+   "role": "procedural_history",
+   "explanation": "Explains how the consolidated hearings were organized, including video conferencing and deadlines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Procedural history of hearing details",
+   "role": "procedural_history",
+   "explanation": "Provides details of the hearing process, participants, and submissions in the consolidated case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Evidence in proceedings",
+   "role": "evidence_assessment",
+   "explanation": "States that evidence from Thamotharem was also filed in these proceedings, including affidavits and cross-examinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Additional evidence filed",
+   "role": "evidence_assessment",
+   "explanation": "Mentions additional affidavits and evidence submitted after the initial evidence, including RPD decisions and transcripts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Language interpretation during hearing",
+   "role": "evidence_assessment",
+   "explanation": "Notes that simultaneous interpretation was provided, and submissions were made in both English and French.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Parties' submissions and references",
+   "role": "party_position",
+   "explanation": "States that submissions focused on Guideline 7 issues, with references to specific applicant circumstances and transcripts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Post-hearing motion",
+   "role": "party_position",
+   "explanation": "Describes a motion to amend the application record filed after the hearing, which was dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal framework overview",
+   "role": "legal_test",
+   "explanation": "Identifies key provisions of IRPA relevant to the case, including paragraphs and sections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Guideline 7 authority and purpose",
+   "role": "legal_test",
+   "explanation": "Explains the authority of the Chairperson under IRPA to issue guidelines to assist Board members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Rules respecting activities and procedures",
+   "role": "legal_test",
+   "explanation": "Describes the Chairperson's authority under IRPA to make rules on activities, practice, and procedure, requiring approval.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Rules making authority and process",
+   "role": "legal_test",
+   "explanation": "Reproduces subsection 161(1), detailing the Chairperson's rule-making powers and procedures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Procedural standards and informality",
+   "role": "legal_test",
+   "explanation": "States Parliament's intent for proceedings to be informal and swift, consistent with fairness and natural justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Mandate and procedures of the Refugee Division",
+   "role": "legal_test",
+   "explanation": "Outlines the mandate, mandatory and permissive procedures, and evidentiary standards for the Refugee Protection Division.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Historical guidelines issued by IRB",
+   "role": "background_facts",
+   "explanation": "Details the issuance and updates of various guidelines by the IRB Chairperson prior to IRPA coming into force.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Guidelines issued under IRPA",
+   "role": "background_facts",
+   "explanation": "Describes the issuance of additional guidelines, including Guideline 7, as part of an action plan to address backlog.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Purpose of guidelines from Aterman",
+   "role": "background_facts",
+   "explanation": "States that guidelines aim to address legal issues, promote consistency, and are not binding, according to Aterman.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Consultation and implementation of Guideline 7",
+   "role": "background_facts",
+   "explanation": "Describes the consultation process and phased implementation of Guideline 7, including training and consent procedures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Questioning procedure in Guideline 7",
+   "role": "background_facts",
+   "explanation": "States that Guideline 7 advises that questioning typically starts with the RPO or, if absent, the member.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Rationale for questioning order",
+   "role": "background_facts",
+   "explanation": "Explains that the questioning order helps claimants understand what evidence is needed to prove their case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Scope of questioning and disclosure",
+   "role": "background_facts",
+   "explanation": "States that the RPD will define issues through disclosure, and questioning will be limited to those issues and claimant's submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Exceptional circumstances for questioning",
+   "role": "background_facts",
+   "explanation": "Provides that the member may change questioning order in exceptional cases, supported by application and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Guideline summary and flexibility",
+   "role": "background_facts",
+   "explanation": "States that the Guideline explains the informal, efficient, and fair operation of the RPD, with discretion for exceptional cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Role of RPD members",
+   "role": "background_facts",
+   "explanation": "Describes the RPD members' role as inquisitorial, distinct from a judge, with active involvement in inquiries.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Training and conduct of RPD members",
+   "role": "background_facts",
+   "explanation": "States that training advises against adversarial techniques and emphasizes non-hostile, non-aggressive questioning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Instances of non-neutral questioning",
+   "role": "evidence_assessment",
+   "explanation": "Notes that evidence shows some RPD members have failed to maintain neutrality and non-adversarial stance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Pre-guideline questioning practices",
+   "role": "background_facts",
+   "explanation": "Describes the practice before Guideline 7 where counsel began questioning, which was more in line with a quasi-judicial hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Regional differences in questioning practices",
+   "role": "background_facts",
+   "explanation": "States that in Montreal and Ottawa, the pre-guideline practice was more common but not mandatory.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Efficiency goals of standard questioning",
+   "role": "issue_framing",
+   "explanation": "States that the standard order was introduced to improve efficiency, but applicants argue it compromised fairness and rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Judicial approach to previous decisions",
+   "role": "issue_framing",
+   "explanation": "States the court's awareness of prior judicial decisions and the importance of judicial restraint and comity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Judicial comity and legal consistency",
+   "role": "issue_framing",
+   "explanation": "Explains the concept of judicial comity and the importance of consistent legal decisions to avoid conflicting rulings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Approach to differing from prior decisions",
+   "role": "issue_framing",
+   "explanation": "States that the court will only differ from prior decisions if convinced of new evidence or legal errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Applicants' submissions on fairness",
+   "role": "party_position",
+   "explanation": "Applicants argue that Guideline 7 fetters discretion and that higher procedural fairness standards are required in refugee hearings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Claimant's right to questioning",
+   "role": "party_position",
+   "explanation": "One applicant claims that questioning by RPD members without counsel violates impartiality and bias principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Charter rights and procedural protections",
+   "role": "party_position",
+   "explanation": "Another applicant argues that procedural protections under the Charter are denied, violating equality rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Respondent's position on fairness",
+   "role": "party_position",
+   "explanation": "Respondent relies on Justice Blanchard's decision and argues that fairness does not require examination-in-chief, and issues should be reviewed individually.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal approach urged by respondent",
+   "role": "party_position",
+   "explanation": "Respondent urges resolution based on administrative law principles rather than Charter analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Procedural fairness and timely objection",
+   "role": "party_position",
+   "explanation": "The respondent argues that applicants who did not object to Guideline 7 procedures timely should not now claim procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Issues related to Guideline 7 and standard of review",
+   "role": "issue_framing",
+   "explanation": "The court lists the issues to be addressed regarding Guideline 7, including the standard of review and Charter implications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Standard of review in judicial review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the standard of review is determined by a pragmatic and functional analysis, a question of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Assessment of natural justice claims",
+   "role": "legal_test",
+   "explanation": "The court explains that natural justice claims are assessed based on specific circumstances without a pragmatic analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Standard for bias claims",
+   "role": "legal_test",
+   "explanation": "The paragraph states that breach of fairness due to bias requires a high standard of proof, especially affecting claimants' rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Constitutional issues and Charter section 7",
+   "role": "legal_test",
+   "explanation": "The paragraph details constitutional questions related to Guideline 7 and section 7 of the Charter, including procedural rights and bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Section 7 engagement in refugee process",
+   "role": "background_facts",
+   "explanation": "The court notes that section 7 is engaged in refugee determinations, but the respondent suggests natural justice principles suffice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Natural justice versus fundamental justice",
+   "role": "party_position",
+   "explanation": "The applicant argues that natural justice principles should guide the procedure, not a Charter section 7 analysis, based on Thamotharem.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Scope of section 7 and refugee rights",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that refugee claimants' rights under section 7 include procedural and substantive protections, as established in Singh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Nature of refugee proceedings and fairness",
+   "role": "party_position",
+   "explanation": "The applicants argue refugee proceedings are quasi-judicial and must meet high fairness standards, unaffected by tribunal convenience.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Right to counsel and to be heard",
+   "role": "party_position",
+   "explanation": "The applicants claim the questioning procedure undermines the right to counsel and to be heard, affecting fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Legal framing of the right to be heard",
+   "role": "party_position",
+   "explanation": "Counsel argue that the right to be heard includes counsel\u2019s ability to determine examination order, based on legal principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Questioning rights and claimant control",
+   "role": "reasoning_application",
+   "explanation": "The court questions whether the right to be heard includes claimant control over questioning order, as argued by counsel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Vulnerability of claimants and questioning",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes claimants' vulnerability and the stress caused by strangers questioning them first, affecting fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Procedural protections for vulnerable claimants",
+   "role": "reasoning_application",
+   "explanation": "The court suggests that procedural protections should be sensitive to claimant vulnerability, with experienced examiners better suited.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Respondent's view on examination-in-chief",
+   "role": "party_position",
+   "explanation": "The respondent argues that refugee proceedings are administrative and do not require examination-in-chief rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Avoiding unnecessary constitutional questions",
+   "role": "other",
+   "explanation": "The court notes that courts should avoid deciding constitutional issues unless necessary, citing relevant cases.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Scope of section 7 in immigration cases",
+   "role": "other",
+   "explanation": "The court states that section 7 can often be addressed through administrative law principles without constitutional analysis.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Principles of fundamental justice and procedural fairness",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the principles of fundamental justice, procedural fairness, and their relation to Singh and Suresh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Application of fundamental justice to Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the issue of Guideline 7's fairness can be addressed under natural justice principles without Charter invocation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Scope of fundamental justice in refugee hearings",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the questioning order does not violate fundamental justice, given the non-adversarial nature of refugee hearings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Legislative intent and hearing procedures",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that the legislation emphasizes informality and flexibility, not court-like procedures, in refugee hearings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Legislative provisions on hearing procedures",
+   "role": "background_facts",
+   "explanation": "The provisions specify that refugee hearings are informal and not bound by strict rules of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Legislative intent and procedural fairness",
+   "role": "background_facts",
+   "explanation": "The legislation indicates an intent to avoid formalities, consistent with the principles of fundamental justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Procedural standards for the Board",
+   "role": "background_facts",
+   "explanation": "The Court notes that the Board's procedures should not be confined to judicial due process standards, considering its unique role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Reasonable opportunity to present evidence",
+   "role": "reasoning_application",
+   "explanation": "The court states that the opportunity to present evidence depends on circumstances and does not require claimant control over questioning order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Guideline 7 and fair hearing",
+   "role": "reasoning_application",
+   "explanation": "The court finds that Guideline 7 does not deny the right to a fair hearing, as claimants can still present their case fully.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Section 15 discrimination argument",
+   "role": "party_position",
+   "explanation": "An argument is made that Guideline 7 discriminates against claimants under section 15 of the Charter, but lacks factual basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Comparison with other tribunals",
+   "role": "party_position",
+   "explanation": "The court notes no evidence of discrimination and that other tribunals' practices are not comparable, affecting section 15 analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Factual basis for Charter claims",
+   "role": "background_facts",
+   "explanation": "The court emphasizes that Charter claims require a factual basis, citing MacKay v. Manitoba.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Refusal to address discrimination claim",
+   "role": "disposition",
+   "explanation": "The court finds insufficient factual basis for discrimination claim and declines to address it, focusing on natural justice issues instead.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Previous decisions on questioning procedures",
+   "role": "background_facts",
+   "explanation": "The court reviews prior decisions that addressed whether reverse questioning violates fairness, generally finding no.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "Assessment of procedural fairness in past cases",
+   "role": "background_facts",
+   "explanation": "Past decisions examined whether the procedure led to unfairness, often finding that it did not alone constitute a breach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "Justice Blanchard's review of prior decisions",
+   "role": "background_facts",
+   "explanation": "Justice Blanchard revisited prior cases in light of new evidence, reassessing whether Guideline 7 conflicts with fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Review of Justice Blanchard's analysis",
+   "role": "background_facts",
+   "explanation": "The court acknowledges the thorough review conducted by Justice Blanchard and the submissions in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "Decisions citing counsel questioning order",
+   "role": "background_facts",
+   "explanation": "The court discusses decisions that questioned whether counsel questioning first is necessary for fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "Court's view on prior cases",
+   "role": "reasoning_application",
+   "explanation": "The court concludes prior cases did not establish that counsel questioning first is a natural justice requirement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "No departure from Thamotharem",
+   "role": "reasoning_application",
+   "explanation": "The court agrees with Thamotharem that the order of questioning alone does not determine fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "Decisions Herrera and Sandor",
+   "role": "background_facts",
+   "explanation": "The court references Herrera and Sandor as relevant decisions, noting Herrera was distinguished and Sandor not addressed by Blanchard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "Herrera case and unfair hearing",
+   "role": "evidence_assessment",
+   "explanation": "In Herrera, the court found the hearing unfair due to the questioning order and the conduct of the officer and member.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "Procedural fairness and hearing conduct",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the impact of a badgering cross-examination and misdescription of issues on procedural fairness, suggesting a rehearing is needed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "Procedural fairness and hearing procedures",
+   "role": "issue_framing",
+   "explanation": "The paragraph clarifies that fairness requires notice of issues and opportunity to be heard, not a specific questioning order, citing similar cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "Procedural fairness and questioning order",
+   "role": "party_position",
+   "explanation": "The paragraph states that procedural fairness was denied due to extensive questioning and cross-examination timing, but questions the importance of questioning order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "Procedural fairness and hearing conduct",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes how the hearing started with counsel questioning and the issue of fairness related to questioning order was not explicitly addressed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "Legal standards for procedural fairness",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the Baker factors for assessing procedural fairness, including decision nature, expectations, and statutory authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "Application of Baker factors",
+   "role": "reasoning_application",
+   "explanation": "The paragraph analyzes how the Baker factors apply to the questioning procedure, emphasizing the importance of fairness given security interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "Legal standards for procedural fairness",
+   "role": "party_position",
+   "explanation": "The paragraph notes the applicants' disagreement with some Baker factor analyses and their call for higher fairness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "Legal standards for procedural fairness",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the respondent's view on Baker factors, focusing on the nature of decision-making and importance of fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "Legal test: nature of decision",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the lack of appeal rights suggests a higher procedural protection is needed, referencing Baker.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "Legislative framework and fairness",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the absence of a RAD appeal process increases the duty of fairness owed to applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "Legislative framework and fairness",
+   "role": "party_position",
+   "explanation": "The paragraph distinguishes between issues related to the RAD and the current Guideline 7 procedural fairness questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 92,
+   "topic": "Legal test: legislative context",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that the unproclaimed appeal provisions do not diminish the importance of procedural fairness in judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 93,
+   "topic": "Nature of decision and process",
+   "role": "legal_test",
+   "explanation": "The paragraph finds that Parliament intended the RPD process to be inquisitorial but still requires higher fairness due to its impact on rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 94,
+   "topic": "Refugee process characterization",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the refugee process is adversarial in practice, contrasting counsel's role with that of RPOs, and citing record evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 95,
+   "topic": "Record evidence on adversarial nature",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses how the record in Benitez shows aggressive examination, challenging the non-adversarial characterization.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 96,
+   "topic": "Legislative framework and process nature",
+   "role": "party_position",
+   "explanation": "The paragraph cites the legislative framework and case law supporting the view that refugee hearings are inquisitorial, not adversarial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 97,
+   "topic": "Questioning and adversarial process",
+   "role": "party_position",
+   "explanation": "The paragraph states that questioning by RPOs does not make the process adversarial, citing case law and the Board's mandate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 98,
+   "topic": "Process nature and fairness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the process is inquisitorial by design, and aggressive questioning does not necessarily make it adversarial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 99,
+   "topic": "Questioning and fairness",
+   "role": "party_position",
+   "explanation": "The paragraph acknowledges that questioning can sometimes cross the line but emphasizes the overall fairness of the process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 100,
+   "topic": "Legitimate expectation and questioning order",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the Board's notice of Guideline 7 indicates no legitimate expectation for counsel questioning first.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 101,
+   "topic": "Legitimate expectation based on practice",
+   "role": "party_position",
+   "explanation": "The paragraph claims that applicants expected to question first based on prior practice, which varied across locations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 102,
+   "topic": "Legitimate expectation and procedural safeguards",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the removal of safeguards created a legitimate expectation that protections would be respected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 103,
+   "topic": "Applicants' expectations and notice",
+   "role": "party_position",
+   "explanation": "The paragraph contends that applicants had no prior indication they would question first, and were informed of the Guideline beforehand.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 104,
+   "topic": "Legitimate expectation doctrine",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that legitimate expectations arise from representations or practices, requiring procedural adherence if established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 105,
+   "topic": "Case law on legitimate expectation",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reviews cases where legitimate expectation was based on direct representations, not general practices.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 106,
+   "topic": "Case law on legitimate expectation",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the cited cases involved direct representations, not expectations based on practice or custom.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 107,
+   "topic": "Procedural choice and legitimacy",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that expectations based on practice do not constitute legitimate expectations under Baker, emphasizing agency choice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 108,
+   "topic": "Procedural authority and fairness",
+   "role": "legal_test",
+   "explanation": "The paragraph states that Parliament grants the Board authority to set procedures, implying a lesser standard of fairness is appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 109,
+   "topic": "Agency procedural autonomy",
+   "role": "party_position",
+   "explanation": "The paragraph acknowledges courts recognize the tribunal's authority to determine procedures when the statute is silent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 110,
+   "topic": "Procedural efficiency and evidence",
+   "role": "party_position",
+   "explanation": "The paragraph suggests that evidence about the impact of questioning order on efficiency was not considered and could influence the Baker analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 111,
+   "topic": "Agency procedure choices",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the importance of respecting the agency's procedural choices, especially when it has expertise or statutory authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 112,
+   "topic": "Parliament's delegation and procedural discretion",
+   "role": "legal_test",
+   "explanation": "The paragraph states Parliament's delegation of procedural authority to the Board and that the Court should not second-guess these choices unless fairness is at risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 113,
+   "topic": "Other considerations in procedural fairness",
+   "role": "other",
+   "explanation": "The paragraph notes that refugee claimant vulnerabilities and other factors may influence the need for higher procedural protections, but are not determinative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 114,
+   "topic": "Vulnerable claimants and procedural fairness",
+   "role": "party_position",
+   "explanation": "The paragraph lists characteristics of vulnerable claimants and argues that counsel questioning first would be fairer for them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 115,
+   "topic": "Vulnerable claimants and procedural safeguards",
+   "role": "party_position",
+   "explanation": "The paragraph states that claimants with vulnerabilities can request exemptions, and the Board can decide on such requests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 116,
+   "topic": "Guideline flexibility and fairness",
+   "role": "party_position",
+   "explanation": "The paragraph argues that Guideline 7 is not mandatory and allows for case-by-case exceptions with notice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 117,
+   "topic": "Evidence of vulnerabilities and fairness",
+   "role": "party_position",
+   "explanation": "The paragraph suggests that actual evidence of vulnerabilities could influence the weight given to this factor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 118,
+   "topic": "Case-specific evidence and fairness",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes that evidence of vulnerabilities should be considered to ensure fairness and efficiency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 119,
+   "topic": "Questioning and claimant vulnerabilities",
+   "role": "party_position",
+   "explanation": "The paragraph states that how claimants are questioned matters more than who questions them, and Court can intervene if fairness is compromised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 120,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the Court can accommodate case-specific requests for questioning order changes, ensuring fairness without rigid rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 121,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "other",
+   "explanation": "Describes the context and challenges faced by Board members regarding questioning procedures and Guideline 7.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 122,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "party_position",
+   "explanation": "Summarizes applicants' argument that Guideline 7 impairs the impartiality of Board members by encouraging them to act as advocates.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 123,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "party_position",
+   "explanation": "References a legal opinion supporting the view that questioning should not resemble advocacy and that impartiality must be maintained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 124,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "other",
+   "explanation": "Notes that the court's discussion in Rajaratnam was not fully argued and supports principles of fairness without prohibiting questioning.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 125,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "party_position",
+   "explanation": "Details applicants' argument that the short PIF preparation time increases the need for in-person examination to assess credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 126,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "other",
+   "explanation": "States that claimants can also present evidence through other means, so PIF alone does not require examination-in-chief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 127,
+   "topic": "Case-by-case approach to questioning order",
+   "role": "disposition",
+   "explanation": "Concludes that the right to question first is not a requirement of natural justice and Guideline 7 does not breach fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 128,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "issue_framing",
+   "explanation": "Agrees that the opportunity for submissions and hearings satisfies fairness and that Guideline 7 does not breach it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 129,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "Introduces the legal context of whether policies are binding rules requiring legislative authority, referencing Ainsley case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 130,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "Details factors that made a policy mandatory and regulatory, such as language and threat of sanctions, based on Ainsley decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 131,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "States that the Court of Appeal emphasized language and coercive threat as key in determining if a guideline is mandatory.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 132,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "Notes that the FCA followed Ainsley in Ha, finding that a policy fetters discretion when it is mandatory and prescriptive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 133,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "States that Guideline 7's implementation fetters discretion, which violates principles of fairness, as concluded by Justice Blanchard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 134,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "Explains that evidence shows the Guideline's language and enforcement limit Board members' discretion, leading to fettering.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 135,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Notes subsequent cases that followed Thamotharem, indicating the decision's influence on legal reasoning.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 136,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Mentions that Jin declined to follow Zaki, but agreed with Thamotharem's fettering analysis, emphasizing the central issue.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 137,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "States that Zaki did not find fettering, but Thamotharem did, based on the language and application of Guideline 7.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 138,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Notes procedural issues in Gonzalez Vazquez, with the decision relying on Thamotharem and Jin, not on new evidence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 139,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "issue_framing",
+   "explanation": "Raises the question of whether Guideline 7's implementation crosses the line into mandatory regulation, akin to a statutory rule.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 140,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "States that Blanchard focused on the language and implementation of Guideline 7 to conclude discretion was fettered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 141,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Notes lack of evidence in Thamotharem of Board members refusing to exercise discretion or being influenced by circumstances.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 142,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "States that the fettering conclusion was based on the language of the Guideline and its interpretation, not on specific case facts.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 143,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "Analyzes the language of Guideline 7, noting qualifiers that suggest it is mandatory rather than permissive, affecting discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 144,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "Argues that the language of the Guideline should be read as permissive, citing legal principles that discretion cannot be confined by policy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 145,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "References new evidence suggesting Board members do not uniformly feel bound by Guideline 7, but the evidence is limited.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 146,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Supports the view that members broadly understand the Guideline as illustrative, not mandatory, based on various examples.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 147,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Notes that members consider the Guideline's applicability case-by-case and do not appear to fear punishment for non-compliance.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 148,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Provides an example of a member objecting to the Guideline but suggesting procedural flexibility, not strict adherence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 149,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Quotes a member indicating a willingness to adapt procedures, showing some discretion in application of Guideline 7.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 150,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Notes that some members have granted exceptions based on experience or circumstances, indicating flexibility.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 151,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "States that some members do not consider the claimant's circumstances but only the Guideline's general validity.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 152,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Mentions members who explicitly reject Guideline 7, asserting their discretion to do so, showing divergence in practice.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 153,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Lists cases where members reversed questioning order due to specific vulnerabilities or circumstances, indicating discretion.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 154,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "States that some members vary questioning on their own motion, considering circumstances, not strictly following the Guideline.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 155,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Provides an example where a member granted an exception based on cultural considerations, showing flexibility.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 156,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Indicates that members interpret the 'exceptional circumstances' broadly, not rigidly, in applying the Guideline.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 157,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "Quotes a decision where the member states the procedure is dictated by the institution, suggesting pressure to conform.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 158,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "party_position",
+   "explanation": "Highlights that the excerpt suggests members may feel pressured to follow the Guideline, which could undermine independence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 159,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "party_position",
+   "explanation": "Notes that an expert's opinion supports the applicants' view but is largely speculative due to lack of direct experience.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 160,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "party_position",
+   "explanation": "States that a witness's testimony emphasizes that Board members retain discretion, countering claims of fettering.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 161,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "party_position",
+   "explanation": "The paragraph discusses how members exercise judgment regarding Guideline 7 and the support for deviations from it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 162,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "party_position",
+   "explanation": "The paragraph explains the distribution of a decision and argues it does not evidence fettering of discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 163,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph accepts that Guideline 7 could seem mandatory but does not conclude it is considered binding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 164,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph states guidelines are not invalid if they regulate conduct and remain guidelines even if practice changes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 165,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the record does not support fettering, noting Guideline 7 allows for case-specific considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 166,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states members have disregarded the standard practice for valid reasons, indicating no fettering.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 167,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes there is no evidence of coercive threats or sanctions for non-compliance with Guideline 7.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 168,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes monitoring procedures and low response rates, suggesting no coercion was involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 169,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reports monitoring emails and no consequences for ignoring guidelines, indicating lack of coercion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 170,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that application of guidelines is considered in performance appraisals, with no negative assessments for Guideline 7.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 171,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states there is more evidence of proper application of Guideline 7 and no fettering of discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 172,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses how policy guidelines may amount to unlawful fettering if applied without proper consideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 173,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the Chairperson's authority under IRPA and the scope of issuing guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 174,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph argues that punctuation does not create ambiguity in the scope of the Chairperson's authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 175,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph interprets the statute as allowing the Chairperson to both issue guidelines and identify decisions as jurisprudential guides.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 176,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph states the issue is whether the Chairperson exceeded authority by imposing a mandatory rule requiring legislative action.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 177,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph explains regulations are subject to statutory procedures and the scope of the Chairperson's authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 178,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the definition of 'guideline' and the interpretation of the statute regarding the Chairperson's powers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 179,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph states that Guideline 7 is about procedural norms, not decision-making process, and may alter Board's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 180,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph compares the specificity of Rules with the broader scope of guidelines, suggesting guidelines are not for minute procedural details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 181,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph argues procedural changes should be legislated, not made through guidelines, which are for less fundamental changes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 182,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph states the respondent's view that the Chairperson has statutory authority to issue procedural guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 183,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph states tribunals can determine their procedures within reason, respecting fairness and natural justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 184,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the statutory mechanisms for the Chairperson to issue guidelines and the lack of restrictions on procedural guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 185,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph suggests the guideline process is simpler but does not limit the Chairperson's authority to adopt procedures like Guideline 7.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 186,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that Justice Blanchard did not find Guideline 7 exceeded authority but warned against mandatory rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 187,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that Guideline 7 is not a mandatory pronouncement and thus not outside authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 188,
+   "topic": "Discretion of Board Members Fettered by Guideline 7",
+   "role": "disposition",
+   "explanation": "The paragraph concludes Guideline 7 does not fetter discretion and is within the Chairperson's authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 189,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "The paragraph discusses concerns about Board members' role and institutional bias due to diminishing RPOs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 190,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the issue affects tribunal independence and that examination by members is problematic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 191,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal standards for tribunal independence and the context of R\u0000gie and Ocean Port Hotel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 192,
+   "topic": "Question of bias in questioning",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the issue of independence is not directly raised and discusses impartiality standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 193,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that R\u0000gie found institutional bias based on detailed legislative review and staff involvement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 194,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the test for institutional bias, considering factors and legislation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 195,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that flexibility is allowed for tribunals and multiple functions are not necessarily problematic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 196,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states bias is not found unless a reasonable apprehension exists in many cases, requiring case-by-case analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 197,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states there is a presumption of impartiality absent evidence to the contrary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 198,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses considerations relevant to bias, including the Board's high duty of fairness and mandate complexity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 199,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that in Kozak, external pressures were found to create a reasonable apprehension of bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 200,
+   "topic": "Question of bias in questioning",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the circumstances of adopting Guideline 7 do not suggest improper influence or bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 201,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the lack of reasonable apprehension of bias due to questioning conduct, citing case law on aggressive questioning and fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 202,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "It explains that aggressive questioning can breach fairness but does not in itself imply bias from questioning order, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 203,
+   "topic": "Question of bias in questioning",
+   "role": "reasoning_application",
+   "explanation": "The court views bias as a case-by-case issue and notes evidence of hostile questioning, but finds no institutional bias from questioning order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 204,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It discusses waiver issues related to objections to Guideline 7 and the timing of raising such objections in proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 205,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "The court finds no procedural fairness violation from Guideline 7 itself but recognizes possible fairness issues in individual cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 206,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It reviews jurisprudence on waiver and objections to Guideline 7, including cases where objections were raised or not raised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 207,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It notes the unsettled jurisprudence on when objections should be raised and discusses cases addressing waiver of objections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 208,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It discusses a case where implied waiver was found due to lack of objection and the applicant's conduct during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 209,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It describes facts from a case where the applicant did not object and confirmed they had said everything they wanted, implying waiver.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 210,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It reviews pre-guideline cases where breach of fairness was found despite no objection, based on control of proceedings or consent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 211,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It states the jurisprudence on objections to questioning order is unsettled and that waiver principles will be applied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 212,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It cites the principle from the Federal Court of Appeal that late objections are generally not accepted, emphasizing timely raising of issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 213,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It explains the common law waiver doctrine, requiring objections to be made early, citing Justice MacGuigan's comments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 214,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It discusses a case where waiver was implied due to late objection, citing the Court of Appeal's reasoning based on timing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 215,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It notes the Supreme Court's acceptance of waiver reasoning from the Court of Appeal in a related case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 216,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It reviews the Zundel case where waiver was found despite a claim of not waiving, based on timing and opportunity to object.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 217,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It states that waiver must be made freely and with full knowledge, citing the Zundel case and background facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 218,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It emphasizes that waiver must be voluntary and informed, referencing the Kozak case and background facts suggesting bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 219,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It discusses the importance of raising bias issues early, citing Justice Pelletier on the reasonableness of the timing of objections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 220,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It summarizes that objections should be raised when the applicant is aware of relevant facts and it is reasonable to do so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 221,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It analyzes when objections to Guideline 7 should be raised, noting counsel's awareness and timing of objections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 222,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "It clarifies that waiver does not prevent arguing procedural fairness violations like badgering if properly raised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 223,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It discusses the respondent's view that issues not raised in initial pleadings should not be considered, citing procedural rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 224,
+   "topic": "Question of bias in questioning",
+   "role": "procedural_history",
+   "explanation": "It references the Native Women\u2019s case on broad relief and the statutory framework, but notes it does not support raising new grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 225,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It concludes that new grounds not pleaded in applications are generally not permissible to raise later, citing procedural rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 226,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It states that applications must include a complete statement of grounds, referencing Rule 301 of the Federal Court Rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 227,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "It affirms that courts only consider grounds raised in the initial pleadings and affidavits, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 228,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It notes that in Stumpf, the court allowed raising an issue not previously raised because the record was complete and no prejudice was shown.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 229,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It concludes that the record in the current cases may not show all relevant facts, so prejudice from late raising is possible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 230,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It discusses a case where late raising of bias issues was deemed too late, emphasizing the importance of raising issues early.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 231,
+   "topic": "Question of bias in questioning",
+   "role": "evidence_assessment",
+   "explanation": "It states that arguments not made before the tribunal are generally barred on judicial review, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 232,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It concludes that applicants who did not raise procedural fairness issues earlier are barred from raising them now, unless timely raised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 233,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It clarifies that failure to cite fairness issues in initial applications limits judicial review grounds, but late raising implies waiver.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 234,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It states that applications should specify grounds for review early, but some issues may be raised in memoranda if already identified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 235,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It notes that applicants should not be penalized for late identification of Guideline 7 issues if earlier materials show fairness concerns, but late issues imply waiver.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 236,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It lists cases where procedural fairness issues were or were not waived based on timing of objections, with conclusions on each.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 237,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It summarizes findings on procedural fairness and Guideline 7, including whether the questioning order breaches natural justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 238,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "It discusses proposed certification questions related to Guideline 7 and bias, including whether the questioning role creates bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 239,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "The court agrees to certify the questions as requested, including the third question certified in Thamotharem.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 240,
+   "topic": "Question of bias in questioning",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses rephrasing questions about Board members' independence and bias concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 241,
+   "topic": "Question of bias in questioning",
+   "role": "disposition",
+   "explanation": "The court states it has reached a finding but emphasizes the importance of the issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 242,
+   "topic": "Question of bias in questioning",
+   "role": "party_position",
+   "explanation": "The respondent argues that Guideline 7's vires is covered under discretion fettering, which the court disagrees with.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 243,
+   "topic": "Question of bias in questioning",
+   "role": "legal_test",
+   "explanation": "The judge certifies questions about Guideline 7's legality, fairness, discretion, bias, and authority, based on legal standards.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

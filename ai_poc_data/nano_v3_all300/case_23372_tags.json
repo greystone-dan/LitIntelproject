@@ -1,0 +1,130 @@
+{
+ "case_id": 23372,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 16,
+ "tagged_count": 16,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3499,
+  "completion_tokens": 949,
+  "usd": 0.0007295000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's personal circumstances and fears related to his sexual orientation and family background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicant's alleged homosexual experiences and the violent reaction from his father.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the harassment and monitoring by the Applicant's family, leading to his departure from Algeria and claim for refugee protection in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the RPD rejected the Applicant's claim and the Applicant appealed to the RAD, which confirmed the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that the RAD states the applicable standard of review for the RPD's findings is reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph summarizes the RAD's reasonable credibility findings regarding inconsistencies and contradictions in the Applicant's story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the Applicant's argument that the RAD erred by applying the reasonableness standard instead of correctness in reviewing the RPD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the RAD's legislative mandate to conduct an independent analysis and the levels of deference owed to the RPD's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that courts have found that failure to apply proper analytical framework can justify quashing the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states that the current application does not warrant quashing the RAD's decision.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph describes the RAD's role as an appellate body that can confirm or set aside decisions, with varying deference depending on the issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph supports that deference may be owed on credibility issues that are critical or determinative to the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the level of deference depends on whether credibility is a key issue, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RAD applied the appropriate deference level to credibility findings in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the judge's preference for the error of manifest and dominant error standard over reasonableness for credibility issues, citing legal principles.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the RAD can recognize the RPD's credibility conclusions but is not restricted to only intervening on palpable errors.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,284 @@
+{
+ "case_id": 13876,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7733,
+  "completion_tokens": 2394,
+  "usd": 0.0017309
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application and sets aside the SST-AD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Respondent's medical history including cancer and depression diagnoses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the Respondent's three CPP disability applications and their outcomes, including the current review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the Respondent's statements about her health issues and employment history relevant to her disability claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It explains the reconsideration process and the Respondent's notification about appealing to SST-GD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Respondent's initial appeal intent was communicated but was incomplete, lacking the ESDC decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the SST-GD's reminders and the Respondent's subsequent filings regarding her appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Respondent filed a copy of the reconsideration decision, completing her appeal record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The SST-GD advised the Respondent about the late appeal and her options for extension, which she pursued.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The SST-GD refused to extend the appeal deadline, citing no arguable case and age as a barrier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Respondent sought leave to appeal the SST-GD's decision but did not raise specific errors or grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent's appeal letter discussed her late discovery of the benefit and her health issues affecting her understanding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Respondent's statements about her lack of awareness and reasons for not applying earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The SST-AD found the appeal was timely and properly perfected with the submission of the reconsideration decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The SST-AD calculated the relevant disability period based on statutory criteria without detailed explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It discusses the legal standard for error of law and the discretion involved in granting extensions, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The SST-AD identified that the age limit was considered an absolute bar without considering exceptions like incapacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the potential for deeming incapacity under specific provisions if the applicant was continuously incapable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph details the eligibility requirements for CPP disability benefits, including age and contribution history.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It defines the deemed disability period, limiting how early a person can be considered disabled relative to application date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the process and restrictions for cancelling a retirement pension in favor of a disability pension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It discusses the legal provisions for deeming incapacity and the timing considerations involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that receipt of a retirement pension disqualifies a person from CPP disability benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It specifies that a pension can only be canceled if the disability occurs within one month of pension payment start, which is not the case here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph calculates the earliest possible date Ms. Hines could be deemed disabled based on statutory timing rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It concludes that Ms. Hines's 2013 application cannot lead to pension cancellation due to timing restrictions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the narrow interpretation of incapacity, emphasizing that lack of knowledge does not qualify.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The evidence shows Ms. Hines was capable of forming and expressing application intent, contradicting incapacity claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent's position is that she had the capacity to apply and did so when she was eligible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "She requested to appear by telephone due to her health and financial circumstances, which was permitted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Hines appeared by telephone, understood the proceedings, and responded appropriately during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Hines described her health issues and employment history, including her 'chemo brain' and inability to work since 2012.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Hines admitted she lacked evidence of continuous impairment and was unaware she could apply for benefits earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the SST-AD correctly found Ms. Hines ineligible due to age and receipt of retirement pension, with no evidence of incapacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Appeal Division's reasons lacked clarity and did not establish evidence of incapacity, making the decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The FCA affirms that capacity must be assessed based on the individual's activities and medical evidence, not mere ignorance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The decision was based on a purely theoretical basis without record support, and circumstances did not prove incapacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court allows the judicial review, sets aside the SST-AD decision, and remands for redetermination.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

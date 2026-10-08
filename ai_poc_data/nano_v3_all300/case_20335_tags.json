@@ -1,0 +1,501 @@
+{
+ "case_id": 20335,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 69,
+ "tagged_count": 69,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 11017,
+  "completion_tokens": 3927,
+  "usd": 0.0026725000000000004
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Memari's nationality, ethnicity, and reasons for fleeing Iran, as well as his arrival and refugee claim in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the Refugee Protection Division rejected his refugee claim in February 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the Applicant's grounds for setting aside the decision, including procedural fairness, bias, and reasonableness of evidence analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states that the application is allowed for the reasons that follow.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicant's political involvement with Kurdish rights groups and leftist movements in Iran.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's participation in protests, arrest, detention, beating, and interrogation in Iran.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the Applicant resumed political activity after Nowrooz 2006, including attending meetings and photocopying flyers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the Applicant's second arrest, torture, detention, and threats in Iran in January 2007.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph narrates the Applicant's escape from Iran, hiding, and departure to Canada in 2007.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports ongoing persecution of the Applicant's family and their treatment after his departure from Iran.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph adds details about the Applicant's family being targeted, his injuries, and restrictions due to torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Board identified the Applicant's credibility as the key issue in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses issues with Ms. Leggett's performance, including late submission and illness during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board notes Ms. Leggett's illness and her submission of a psychological report during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes Ms. Leggett showing a marked-up PIF and claiming she intended to amend it but forgot due to illness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Leggett apologized for her representation, and the Board stated it would not penalize the Applicant for her errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board identified inconsistencies and implausibilities in the Applicant's evidence, leading to a credibility conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board found the discrepancy between detention claims and the port of entry declaration as an inconsistency affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board rejected the Applicant's claims about interpreter difficulties based on the record and conduct during the interview.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board dismissed the Applicant's explanation about interpreter issues, citing the record and his own statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board noted inconsistent detention dates between testimony and the PIF, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board observed the Applicant's sworn statement and subsequent inconsistency about detention dates, undermining credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board noted changes in the PIF and Ms. Leggett's explanation about her intent to amend it, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board made a negative inference about credibility based on the Applicant's blame and explanations about the PIF changes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board identified inconsistent detention dates between records, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Applicant's explanation about calendar conversion errors was rejected, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Applicant's correction about the death location of Mansour Hekmat was seen as indicating limited knowledge, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The claim about the wife not revealing the Applicant's flight was deemed implausible, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Board concluded the Applicant's evidence was not credible and he would not face a risk under IRPA sections 96 or 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the standard of correctness for procedural fairness and natural justice issues under Dunsmuir and Khosa.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the reasonableness standard for the Board's evidence analysis, citing Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the principles of natural justice were breached due to Ms. Leggett's incompetence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal standard for ineffective counsel in criminal and refugee law contexts, citing R. v. G.D.B. and other cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the statutory right to counsel under IRPA and its application in refugee proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that incompetence of counsel in IRPA proceedings is only a breach of natural justice in extraordinary circumstances, with specific requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the criteria for breach of natural justice due to counsel incompetence, including specific performance and prejudice requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board acknowledged issues with Ms. Leggett's performance, including delays, errors, and her own apology.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Applicant claims Ms. Leggett's incompetence extended throughout her representation, including failure to cross-examine and obtain evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Applicant claims Ms. Leggett was responsible for the poorly prepared PIF narrative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Leggett swore an affidavit attributing errors in the PIF to her illness and interpreter mistakes, and her intent to amend the narrative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Leggett describes her illness, her efforts to participate, and her perception of the hearing process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Leggett recounts her written submissions and her illness's impact on her representation and the proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant details how Ms. Leggett's illness and inattention negatively affected his case and her competence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The summary notes Ms. Leggett's admissions of shortcomings and the consistency of the evidence supporting them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court assesses whether the claims of incompetence meet the legal standards for performance and prejudice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board stated the applicant would not be penalized for errors but found insufficient credible evidence overall.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's conclusion was compromised by Ms. Leggett's representation, leading to a miscarriage of justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court discusses how Ms. Leggett's representation affected the credibility findings based on inconsistencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court summarizes the minor inconsistencies and their lesser impact compared to others in credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court compares the impact of the minor inconsistencies to the major ones that led to rejection of the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board identified key interpretation issues involving dates that influenced credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board noted a significant inconsistency in detention dates, attributed to interpretation errors, which prejudiced the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Ms. Leggett acknowledged forgetting to change the detention dates due to her illness during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board found another significant inconsistency regarding detention dates, attributed to interpretation issues, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The hearing transcript shows the applicant's explanation of translation issues regarding detention dates.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant was prejudiced by Ms. Leggett's failure to address the detention date inconsistency earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Additional date inconsistencies were identified, with the applicant blaming interpretation errors and Ms. Leggett's oversight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant was prejudiced by Ms. Leggett's failure to review the English version of his PIF before filing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant's consistent dates were mistranslated, and he relied on Ms. Leggett for verification, leading to prejudice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Ms. Leggett's failure to obtain corroborating medical reports prejudiced the applicant's credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court believes the Board's credibility assessment might have been different without Ms. Leggett's inadequate representation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Ms. Leggett's illness and her failure to withdraw affected the applicant's preparation and representation at the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Ms. Leggett's failure to withdraw deprived the applicant of competent counsel, affecting the fairness of the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The cumulative prejudice from Ms. Leggett's actions compromised the reliability of the Board's decision, constituting a miscarriage of justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The case's facts differ from typical cases where omissions do not undermine confidence in the outcome.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application is granted due to the prejudice caused by Ms. Leggett's inadequate representation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Remaining issues are not addressed because the main issue has been resolved in favor of the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Board's decision is set aside, and the matter is remitted for redetermination by a different panel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "other",
+   "role": "other",
+   "explanation": "There is no question for certification in this case.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

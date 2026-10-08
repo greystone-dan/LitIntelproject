@@ -1,0 +1,137 @@
+{
+ "case_id": 28263,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 17,
+ "tagged_count": 17,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3052,
+  "completion_tokens": 1076,
+  "usd": 0.0007356000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and affirms the decision below.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states it will dismiss the application and explains the reasonableness of the Tribunal's conclusions, referencing the standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the issuance of a vaccination order by the Provincial Health Officer and its requirements for health care workers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details VCH's notice to employees about compliance with the vaccination order and consequences of non-compliance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Hazaparu engaged in discussions with her employer, was suspended, and later terminated for non-compliance with the vaccination order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the Canada Employment Insurance Commission denied her claim, citing misconduct under the EI Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The General Division dismissed her appeal, finding her dismissal was due to misconduct and that it lacked jurisdiction to consider policy validity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Hazaparu sought leave to appeal, which was denied, with the division citing case law that precludes review of employer policies' validity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Ms. Hazaparu is seeking judicial review of the Appeal Division's denial of leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Appeal Division's decision was reasonable and dismisses the judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court reviews Ms. Hazaparu's grounds of appeal and finds they lack reasonable chance of success, consistent with legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the appeal had no reasonable chance of success, consistent with the legal test for leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court reasons that the law precludes review of employer policy validity, citing binding case law, making the decision reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Hazaparu's arguments challenging the lawfulness of the policy are rejected as they are outside the Tribunal's scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court notes that Ms. Hazaparu did not raise the issue of misconduct not amounting to a crime in her application, so it is not reviewable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the application of 'misconduct' was reasonable and consistent with case law, including the broader meaning in the EI Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court states that the issue of clarity about the policy was not raised in the application and is not reviewable.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

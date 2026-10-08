@@ -1,0 +1,284 @@
+{
+ "case_id": 26358,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5181,
+  "completion_tokens": 2221,
+  "usd": 0.0014065000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of a refugee protection decision and the panel's conclusion that the applicants are not refugees.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph provides information about the applicants' citizenship and places of origin in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the applicants' experiences",
+   "role": "background_facts",
+   "explanation": "The paragraph details the male applicant's observations and encounters with a known drug trafficker in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about threats and incidents",
+   "role": "background_facts",
+   "explanation": "The male applicant reports being threatened and blamed by a drug trafficker near his home.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about police and psychological support",
+   "role": "background_facts",
+   "explanation": "The male applicant filed a police complaint and was advised of surveillance and psychological support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about threats and intimidation",
+   "role": "background_facts",
+   "explanation": "The applicants were threatened and intimidated by the trafficker, who claimed affiliation with a criminal group.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts about relocation",
+   "role": "background_facts",
+   "explanation": "The applicants moved to another part of Villahermosa for safety reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts about further threats and threats to family",
+   "role": "background_facts",
+   "explanation": "The applicants reported threats to police and received a threatening call from the trafficker.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts about departure and threats",
+   "role": "background_facts",
+   "explanation": "The male applicant left Mexico; the female received threats but did not report them to authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history of the claim",
+   "role": "procedural_history",
+   "explanation": "The refugee claim was heard and rejected based on availability of state protection and internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal framing of the claim",
+   "role": "legal_test",
+   "explanation": "The panel analyzed whether the applicants qualify as persons in need of protection under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Panel's conclusion on state protection",
+   "role": "reasoning_application",
+   "explanation": "The panel found that the applicants did not rebut the presumption of available state protection in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Panel's reasoning on state protection mechanisms",
+   "role": "reasoning_application",
+   "explanation": "The panel noted the existence of organizations in Mexico that provide recourse for victims of crime.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Panel's reasoning on government efforts",
+   "role": "reasoning_application",
+   "explanation": "The panel observed that the Mexican government is making efforts to address corruption and provide protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Evidence of police response",
+   "role": "evidence_assessment",
+   "explanation": "The police responded to the applicant\u2019s complaint with surveillance and psychological support, as shown in evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Panel's conclusion on state protection",
+   "role": "reasoning_application",
+   "explanation": "The panel concluded that the applicants failed to prove Mexico cannot provide adequate protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Panel's view on internal flight alternative",
+   "role": "reasoning_application",
+   "explanation": "The panel believed the applicants had an internal flight alternative in safe locations like M\u00e9rida and Mexico City.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence on safety in alternative locations",
+   "role": "evidence_assessment",
+   "explanation": "The panel found no concrete evidence that the applicants could not safely relocate to the identified cities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Conclusion on internal flight alternative",
+   "role": "reasoning_application",
+   "explanation": "The panel concluded that the applicants did not prove it would be unreasonable to relocate to safe cities in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Disposition of the case",
+   "role": "disposition",
+   "explanation": "The panel's decision was that the applicants are not refugees or persons in need of protection, and their claim was rejected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal issues on appeal",
+   "role": "issue_framing",
+   "explanation": "The issues on judicial review concern the panel's findings on state protection and internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of reasonableness review on state protection",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the reasonableness standard applies to the panel's findings on state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Standard of reasonableness review on IFA",
+   "role": "legal_test",
+   "explanation": "The same reasonableness standard applies to the panel's conclusion on internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Scope of court's review",
+   "role": "issue_framing",
+   "explanation": "The court must determine if the panel's decision is justified, transparent, and within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Applicants' argument on state protection",
+   "role": "party_position",
+   "explanation": "The applicants argue that the panel failed to consider their efforts and threats faced, claiming no further protection was available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Respondent's argument on state protection",
+   "role": "party_position",
+   "explanation": "The respondent contends the panel's decision was reasonable, citing evidence of police response and mechanisms in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Court's standard of review on factual findings",
+   "role": "legal_test",
+   "explanation": "The court may only intervene if the panel's findings are made capriciously or without regard to evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Applicants' burden of proof on state protection",
+   "role": "legal_test",
+   "explanation": "Applicants must present clear evidence of Mexico's inability to protect them; further efforts may be unreasonable if life is at risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Panel's reasoning on state protection",
+   "role": "reasoning_application",
+   "explanation": "The panel considered the efforts made, the situation in Mexico, and police responses, concluding that protection was available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Conclusion on state protection",
+   "role": "reasoning_application",
+   "explanation": "The court finds the panel's conclusion supported by evidence and within the bounds of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Applicants' argument on internal flight alternative",
+   "role": "party_position",
+   "explanation": "The applicants argue that no IFA exists because their persecutor can find them anywhere in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Respondent's argument on IFA reasonableness",
+   "role": "party_position",
+   "explanation": "The respondent claims the panel's conclusion on IFA is reasonable, citing evidence of protections and access to safe locations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal framework for IFA analysis",
+   "role": "legal_test",
+   "explanation": "The paragraph states the panel must analyze whether the applicants can live safely in safe locations and if those are accessible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal standard for IFA assessment",
+   "role": "legal_test",
+   "explanation": "The panel must determine if it is objectively reasonable for applicants to seek safety in other parts of Mexico, based on concrete evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Applicants' evidence on IFA",
+   "role": "evidence_assessment",
+   "explanation": "The applicants only asserted general corruption and failed to provide concrete evidence of inability to relocate safely.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Conclusion on IFA reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court finds the panel's conclusion reasonable due to lack of concrete evidence from the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Court's conclusion on judicial review",
+   "role": "disposition",
+   "explanation": "The court concludes the panel did not err and the decision is within a reasonable range, so intervention is not warranted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Certification of the case",
+   "role": "other",
+   "explanation": "The parties agree the case does not require certification, and the court concurs.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

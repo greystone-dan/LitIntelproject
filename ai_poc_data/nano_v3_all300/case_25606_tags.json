@@ -1,0 +1,116 @@
+{
+ "case_id": 25606,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 14,
+ "tagged_count": 14,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3167,
+  "completion_tokens": 800,
+  "usd": 0.0006367
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application for judicial review and sets aside the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant is from St. Lucia and fears her ex-boyfriend; the Board refused her claim due to credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's decision unreasonable for failing to analyze the core claim and focusing on irrelevant issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines principles for assessing credibility, including the use of implausibility, consistency, and peripheral evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board improperly relied on travel documents without specific examples or proper reasoning, making its credibility assessment unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board failed to provide clear reasons for doubting credibility and did not properly evaluate the nexus to the Convention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's focus on the applicant's failure to state the name of her persecutor was misplaced, as this information was in her PIF.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The credibility findings were based on peripheral matters rather than the core issues of the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's inference about the applicant's UK status was based on unverified assumptions, not concrete evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board created a false paradigm by linking the claim's success to undisclosed UK travel documents, which was unwarranted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's questioning aimed to establish UK residency, reflecting a bias rather than an objective assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board decided not to contact UK authorities, undermining the basis for its assumptions about the applicant's UK status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Speculation about the passport's contents was irrelevant to the core protection claim, which remained unexplored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application for judicial review, overturning the Board's decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,389 @@
+{
+ "case_id": 23327,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 53,
+ "tagged_count": 53,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8597,
+  "completion_tokens": 3364,
+  "usd": 0.0022053000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court is reviewing a decision by the RAD confirming the RPD's decision on refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal_test",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the RAD erred by not conducting an independent assessment but only reviewing for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court granted intervener status to CARL and CCR, noting the broader significance of the RAD's role.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "CARL and CCR are organizations concerned with the RAD's application of review standards in refugee appeals.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The FCA outlined factors for intervener status, including procedural compliance and relevance.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court concludes that the intervener criteria are met, emphasizing the importance of the issues and the organizations' interests.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Claims involving Halit Ramadani and Samire Emerllahu-Ramadani are background facts, not directly relevant to this review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The claimants worked for US entities and feared being considered traitors by extremists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Samire was threatened by Wahhabi extremists and sought police help without success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Samire and Halit left Kosovo after threats and traveled to Canada claiming refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Sadije was threatened and left Kosovo for the US due to extremist threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Hanife received threats and sought police help; Bujar returned from Afghanistan and also faced threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The claimants left Kosovo for the US and then Canada, seeking refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The RPD dismissed the claim due to credibility issues and lack of supporting evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD decision summarized the RPD findings and applied reasonableness as the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Newton factors outline the criteria for determining the standard of review in appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded deference to the RPD was appropriate due to its expertise and role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD preferred Newton over Dunsmuir factors and applied reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD upheld the decision on state protection, finding the evidence and decision reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "There is no clear precedent on the standard of review for this legal issue, making it a question of correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Newton supports that the court should determine the standard of review as correctness due to its supervisory role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Newton's conclusion is that the proper standard of review is correctness for this issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Nova Scotia Court of Appeal also found that the standard of review for legal questions is correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Determining the standard of review is a legal question beyond the RAD's expertise, involving statutory interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The SCC case cited is not directly applicable because it involves tribunal expertise in interpreting statutes.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The RAD lacks expertise in setting the standard of review and distinguishing legal issues from factual ones.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The process of choosing the standard of review is outside the RAD's expertise and is a broader legal question.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD erred in applying reasonableness as the standard without proper statutory analysis, acting as an appellate body.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Deference is justified mainly in credibility issues, but not in this case where credibility was not challenged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The decision was based on documentary evidence, which the RAD is qualified to interpret without deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Reviewing for reasonableness would duplicate the judicial review process and undermine legislative intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The creation of the RAD was meant to provide a full, fact-based appeal, not just a reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Hansard indicates Parliament intended the RAD to be a full, fact-based appeal body, not merely a judicial review substitute.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Case law supports that internal appeals are meant to be substantive, not just procedural or deferential.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The BC SPCA case emphasizes that internal appeals are meant to be a different process, not just judicial review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Creating an internal appeal body reduces the importance of standard of review analysis, as it is a different process from judicial review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The relationship between the RAD and RPD is more akin to appellate than judicial review, affecting the standard of review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "other",
+   "role": "other",
+   "explanation": "A standard of review analysis is inappropriate; instead, factors like purpose and expertise should guide review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The IRPA grants broad powers to the RAD, including substituting decisions, which influences the standard of review analysis.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD can substitute its own decision without error if it conducts an independent assessment, per IRPA provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the RAD's de novo appeal process is not limited by restrictions on new evidence and is not solely a reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the expertise, appointment, and function of the RAD as an appellate tribunal for refugee law decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph compares the RAD to the IAD, listing their shared features and noting the absence of a specified de novo standard in IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes that the IAD is a court of record, but this is not critical for the RAD's functions.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the Court of Appeal's conclusion that the IAD process is de novo, based on a historical case and statutory interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states that drawing analogies to other legal regimes is unhelpful due to their differing contexts.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RAD erred by not conducting a proper de novo review and must now conduct a hybrid appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RAD can respect certain findings but is not restricted to only intervening on palpable errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the RAD's approach for not going beyond reasonableness and states the matter will be referred back.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the documentary evidence and the applicants' own experiences regarding state protection in Kosovo.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' police reports and credibility findings, noting the need for a new appeal to address factual issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the certification of a legal question due to similar issues and lack of precedent, inviting further submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "procedure",
+   "role": "other",
+   "explanation": "The paragraph sets a 30-day deadline for submissions on the wording of the certified question.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

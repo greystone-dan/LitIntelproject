@@ -1,0 +1,354 @@
+{
+ "case_id": 10861,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 48,
+ "tagged_count": 48,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7604,
+  "completion_tokens": 2826,
+  "usd": 0.0018908000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Jiang is identified as a citizen of China, providing her nationality background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Jiang claims refugee protection based on fear of harm from Chinese authorities due to her religious membership.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Her refugee claim was rejected by the RPD and her appeal to the RAD was unsuccessful.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Jiang argues that the RAD erred in multiple ways, including not holding an oral hearing and disputing credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application will be dismissed for the reasons that follow.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The RAD summarized Ms. Jiang's life events, including her religious involvement and fleeing China due to police interest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Jiang raised issues before the RAD, including credibility and document authenticity concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD found Ms. Jiang's assertion about bribing customs officials not credible, based on record evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD upheld credibility findings about documents, noting Ms. Jiang's fraudulent document undermined her credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD found no reason to interfere with its credibility assessments regarding her religious knowledge and testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD rejected Ms. Jiang's sur place claim based on the credibility of her supporting documents and activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The procedural fairness issue is reviewable on a correctness standard, citing Khosa case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Other issues are reviewable on a reasonableness standard, citing Dunsmuir and Abdulmaula cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court assesses whether the decision is intelligible, transparent, justified, and falls within a reasonable range.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Ms. Jiang claims the RAD erred by not holding an oral hearing before making credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the issue was already before the RAD and was properly addressed in the record, distinguishing from case law Ms. Jiang cited.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court explains that issues related to the genuineness of documents are not 'new issues' if they are part of the existing appeal grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Ms. Jiang argues the RAD's conclusion about her ability to leave China was unreasonable and inconsistent with jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Ms. Jiang relies on Huang v Canada but the Court finds those cases distinguishable from her situation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Ms. Jiang's evidence about bribing officials was unsubstantiated and inconsistent, leading the RAD to find her not credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Court compares Ms. Jiang's minimal evidence to other cases where more detailed exit evidence was provided, supporting the credibility finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Court notes that similar general assertions in other cases were distinguished by courts, supporting the reasonableness of the RAD's approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Jiang criticizes the RAD's reliance on the Jurisprudential Guide TB6-11632, claiming inconsistency with other evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Court finds Ms. Jiang did not explain how her case differs from TB6-11632, and thus the application of the guide was not unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court emphasizes that cases are fact-driven and depend on the evidence presented, citing Yan v Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds it reasonable for the RAD to rely on TB6-11632 and related decisions to conclude Ms. Jiang could not have left China as she claimed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court notes that the IRB Chairperson's designation of TB6-11632 as a Jurisprudential Guide is authorized under IRPA, promoting consistency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "Using Jurisprudential Guides is a reasonable approach to ensure consistency and efficiency in decision-making, as per IRPA provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court concludes the RAD's findings on Ms. Jiang's ability to exit China and her credibility were reasonable and justified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Because the RAD's findings on document authenticity and being wanted by authorities are reasonable, this issue need not be addressed further.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court clarifies that microscopic analysis can be a reasonable basis for questioning document authenticity, depending on the facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The issue of Ms. Jiang's membership in the Church of Almighty God is only relevant because of its connection to her sur place claim, which is addressed later.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Jiang argues the RAD and RPD erred by focusing on answers rather than the genuineness of her religious beliefs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD found Ms. Jiang's religious knowledge superficial and inconsistent, undermining her claim of genuine religious practice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the RAD's conclusion reasonable, justified, and supported by the record, despite her young age and short practice period.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Due to the adverse credibility finding, the RAD was justified in doubting the reliability of her religious evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Jiang claims the RAD failed to independently assess her religious activities in Canada, which she argues is an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Jiang alleges the RAD made the same error in her sur place claim, failing to consider risks upon return to China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Court disagrees with Ms. Jiang's assertion that the RAD erred in its assessment of her sur place claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD addressed her submissions on religious activities in Canada and the evidence supporting her sur place claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RAD's brief assessment of Ms. Jiang's religious activities and its reasoning regarding credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the RAD found no evidence that Ms. Jiang's religious activities attracted Chinese authorities' attention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RAD's conclusion that Ms. Jiang's likelihood of practicing her religion upon return was minimal due to her not being a genuine practitioner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RAD's conclusion that Ms. Jiang is unlikely to face persecution based on her religious adherence if she returns to China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains that the RAD's limited assessment was reasonable and justified, supported by case law and its findings on Ms. Jiang's religious authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that Ms. Jiang's sur place claim was unsupported and that the RAD correctly found her evidence insufficient to meet the burden of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that, based on previous conclusions, the application will be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph confirms the court's agreement with the parties' positions and dismisses the application, with no question of general importance certified.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

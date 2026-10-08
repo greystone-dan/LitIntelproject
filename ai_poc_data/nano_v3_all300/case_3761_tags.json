@@ -1,0 +1,172 @@
+{
+ "case_id": 3761,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 22,
+ "tagged_count": 22,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4009,
+  "completion_tokens": 1201,
+  "usd": 0.0008813
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Describes the Nemeth family's attempt to change legal representation and the Board's response.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Details the hearing process and the exchange about representation between the Board and Mr. Nemeth.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that the Board dismissed the claim and issued reasons weeks later.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Lists the three issues to be considered, including the right to counsel, fairness, and legal errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Explains the legal entitlement to counsel and the last-minute change in representation, raising the question of Board's obligation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Cites legal principles about the tribunal's obligation regarding counsel and adjournments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes there was a waiver of the right to counsel based on Mr. Nemeth's statements and affidavit.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States there is no basis to claim the right to counsel was denied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Introduces the question of whether the hearing was fair despite the right to counsel being upheld.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the Board's awareness of the family's lack of preparation and the obligation to ensure fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Summarizes the record of the hearing, including the family's responses and the evidence presented.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes that counsel could have helped but their absence does not mean the hearing was unfair.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States that the obligation to ensure a fair hearing remains even without counsel, possibly more so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "References case law showing that the absence of counsel can lead to a denial of a fair hearing, especially in serious cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Finds that the Nemeths did not receive a fair hearing due to multiple procedural deficiencies and their circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the cumulative issues prejudiced the Nemeths' ability to present their case properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Decides that the Nemeths are entitled to a new hearing before a different panel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that the legal issue regarding nexus is not addressed now due to the need for a new hearing, but legal doubts exist.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Mentions the court's request for written submissions on certification and costs after the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Discusses the proposed questions for certification and reasons for not certifying or addressing costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Addresses the costs issue, noting the withdrawal of the costs claim and no order is made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Concludes the application is allowed and the Nemeths are entitled to a new hearing; no question of importance is certified.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

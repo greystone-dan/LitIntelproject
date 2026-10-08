@@ -1,0 +1,263 @@
+{
+ "case_id": 21379,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5930,
+  "completion_tokens": 2146,
+  "usd": 0.0014514
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 2007 Board decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: principal applicant's fear",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the principal applicant's fear of her former husband and her circumstances in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: male applicant\u2019s fear",
+   "role": "background_facts",
+   "explanation": "The paragraph details the male applicant's fear of the principal applicant\u2019s former husband and his experiences in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: applicants' immigration timeline",
+   "role": "background_facts",
+   "explanation": "The paragraph provides the dates when the applicants arrived in Canada and made their claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: Board's protection analysis",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Board's reasoning that Mexico's democracy presumes adequate protection unless rebutted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: principal applicant's protection claim",
+   "role": "party_position",
+   "explanation": "The paragraph states the Board's view that Mexico has legislative protections for women, but these are not always effective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: male applicant's protection claim",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Board's conclusion that local police failures do not mean lack of state protection, given available avenues for redress.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the appropriate standard of review for state protection is reasonableness simpliciter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test: standard of review and Supreme Court guidance",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Dunsmuir decision and how it affects the standard of review, emphasizing reasonableness for mixed questions of fact and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test: reasonableness standard",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms that the reasonableness standard applies to state protection findings, focusing on justification, transparency, and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Issue framing: adequacy of Mexico's protection",
+   "role": "issue_framing",
+   "explanation": "The paragraph identifies the key issue as whether Mexico can adequately protect the applicants from their persecutor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: applicants' and respondent's arguments",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicants argue the Board erred by not considering evidence of ineffective protection; the respondent defends Mexico's presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: burden of proof for rebutting presumption",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that applicants must provide clear evidence to rebut the presumption of state protection in democratic states.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: presumption of protection and state persecution",
+   "role": "legal_test",
+   "explanation": "The paragraph states that even if the state is a persecutor, the presumption of protection still applies unless rebutted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: burden of proof on claimants",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the high burden on claimants to show they exhausted all protections, with exceptions for exceptional circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning: exhaustion of protection avenues",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that claimants are not required to risk danger to exhaust all protection options unless objectively unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Background facts: Mexico's democracy and protection presumption",
+   "role": "background_facts",
+   "explanation": "The paragraph notes Mexico's status as a democracy with a strong presumption of protection, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Background facts: problems in Mexico's democracy",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses issues like corruption and drug trafficking that weaken Mexico\u2019s protection capacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Background facts: jurisprudence on presumption in Mexico",
+   "role": "background_facts",
+   "explanation": "The paragraph reviews jurisprudence indicating that Mexico's democracy and protection presumption can be challenged with evidence of problems.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning: assessment of Mexico's protection capacity",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that decision-makers must thoroughly assess evidence suggesting Mexico's inability to protect, considering country context and applicant actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Other: jurisprudence on exhaustion of protection avenues",
+   "role": "other",
+   "explanation": "The paragraph notes conflicting jurisprudence on whether applicants must exhaust all avenues of protection.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position: scope of protection efforts",
+   "role": "party_position",
+   "explanation": "The paragraph describes differing jurisprudence on whether applicants need to seek help from police or other agencies.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position: agencies considered in protection analysis",
+   "role": "party_position",
+   "explanation": "The paragraph states that some jurisprudence considers other state agencies besides police when analyzing protection options.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position: Board's proposed protection avenues",
+   "role": "party_position",
+   "explanation": "The paragraph lists the alternative institutions the Board suggested for protection, in response to applicants' concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test: effectiveness of protection",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that the Board must determine whether the protection in Mexico is effective, not just available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position: effectiveness of measures for principal applicant",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Board's conclusion that measures exist but are not effective, based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position: evidence on protection measures",
+   "role": "party_position",
+   "explanation": "The paragraph states the Board found that the evidence indicated the protection measures were ineffective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test: weighing contradictory evidence",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the Board must explain why it disregards contradictory evidence, per legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Evidence assessment: document on domestic violence in Mexico",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes evidence showing high levels of domestic violence and societal attitudes in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment: US State Department and UN reports",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reports on international reports indicating weak laws and widespread violence against women in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence assessment: effectiveness of protection efforts",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that reports show the effectiveness of law enforcement and shelters in Mexico cannot be reliably assessed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Evidence assessment: UN Special Rapporteur's findings",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph cites the UN Rapporteur's view that Mexico's government has taken steps but still falls short in protecting women.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position: protection avenues for male applicant",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Board's view that the male applicant should have exhausted additional protection avenues, including the Human Rights Commission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal error: failure to consider evidence",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the Board erred by not considering certain documents in its protection analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Disposition: application allowed and matter remanded",
+   "role": "disposition",
+   "explanation": "The paragraph states the application is allowed and the case is returned for a new hearing.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

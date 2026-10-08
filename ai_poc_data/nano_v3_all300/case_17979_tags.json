@@ -1,0 +1,151 @@
+{
+ "case_id": 17979,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 19,
+ "tagged_count": 19,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3526,
+  "completion_tokens": 1099,
+  "usd": 0.0007922000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes Mrs. Brovina's life in Albania and her reliance on her son's narrative for her claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Details the refugee claim outcomes for her son and daughter-in-law and the RPD's findings on Mrs. Brovina's safety and political activity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "States that Mrs. Brovina claims the board made errors and that the matter should be returned for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Discusses the \"compelling reasons\" exception under IRPA and the board's reasoning regarding changed country conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains that the board must find past persecution before considering compelling reasons for non-return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Analyzes the board's implicit finding that Mrs. Brovina did not suffer past persecution and the implications for section 108(4).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States Mrs. Brovina's argument that her evidence and fear were accepted, implying past persecution based on events.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Clarifies that the board did not find Mrs. Brovina experienced past persecution, unlike her son and daughter-in-law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Notes the board's forward-looking analysis and conclusion that Mrs. Brovina would not face future persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Details Mrs. Brovina's argument about the burden of proof and the thresholds under sections 96 and 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the board's findings on the standard of proof were reasonable and that no risk was established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States Mrs. Brovina's argument that a separate section 97 analysis was required unless credibility was the sole issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "References Bouaouni case discussing the need for separate section 97 analysis when identity is undisputed but country conditions pose risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Discusses Kilic case where failure to consider section 97 evidence may require redetermination, but the error was not material here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Mentions Yorulmaz case where failure to analyze section 97 was not relevant due to lack of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Summarizes Kulendrarajah case where credibility and risk analyses supported the denial, and section 97 analysis was not necessary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that a section 97 analysis is case-dependent and only required if evidence supports it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Concludes that failure to conduct a section 97 analysis is not fatal if no evidence warrants it, and the risk was properly assessed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "States that the application for judicial review is dismissed and no question is certified.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

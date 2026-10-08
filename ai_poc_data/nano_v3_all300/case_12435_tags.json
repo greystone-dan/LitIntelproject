@@ -1,0 +1,123 @@
+{
+ "case_id": 12435,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 15,
+ "tagged_count": 15,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2861,
+  "completion_tokens": 1116,
+  "usd": 0.0007325000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the procedural history, including the applications, decisions, and the basis for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about identity documents",
+   "role": "background_facts",
+   "explanation": "It states that the Applicants made their refugee claims without initial identity documents, which were later requested and produced.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position on additional documents",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RAD's refusal to consider the additional identity documents, specifically the Letter from the Eritrean Canadian Community Centre.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test: section 110(4) of IRPA and timing of evidence",
+   "role": "legal_test",
+   "explanation": "It discusses the application of section 110(4) of IRPA and the timing of the Letter relative to the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Reasoning on the adequacy of the Letter",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded it was reasonable to expect the Applicant to have provided the Letter when asked for identity documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test: credibility and identity",
+   "role": "legal_test",
+   "explanation": "The paragraph states that credibility was not addressed because the Applicants failed to establish their identities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Issue framing: standard of review and reasonableness",
+   "role": "issue_framing",
+   "explanation": "It outlines the two issues: the standard of review applied and the reasonableness of the RAD's decision on the Letter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: appropriateness of reasonableness review",
+   "role": "legal_test",
+   "explanation": "It concludes that reasonableness is not the correct standard, citing case law and legal principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: parliamentary intent and appeal process",
+   "role": "legal_test",
+   "explanation": "It references parliamentary statements indicating the appeal is a full fact-based process, affecting the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: Hansard record of parliamentary debate",
+   "role": "legal_test",
+   "explanation": "It cites the Hansard record where the Minister described the appeal as a 'full fact-based appeal'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: interpretation of 'full fact-based appeal'",
+   "role": "legal_test",
+   "explanation": "It interprets the Minister's description as excluding judicial review or palpably erroneous review models.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: hybrid model of the RAD",
+   "role": "legal_test",
+   "explanation": "It describes the hybrid evidence model of the RAD as consistent with a 'full fact-based appeal'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: deference to the Board on questions of fact",
+   "role": "legal_test",
+   "explanation": "It concludes that no deference is owed to the Board on questions of fact because of the appeal rights and legislative intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning on the Board's assessment of the Certificates",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Board reasonably assessed the Certificates and linked their validity to the Applicants' identities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Other: conclusion on the certified question",
+   "role": "other",
+   "explanation": "It states that the question is not determinative and will not be certified, based on the case facts.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

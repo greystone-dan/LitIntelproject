@@ -1,0 +1,487 @@
+{
+ "case_id": 12402,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 67,
+ "tagged_count": 67,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 12543,
+  "completion_tokens": 4281,
+  "usd": 0.0029667
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' origin, migration, and persecution claims in Tunisia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the rejection of the refugee claim by the RPD and the subsequent appeal to the RAD, which was dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the applicants' grounds for appeal, including bias and standard of review issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court allows the applicants' application for judicial review in part.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides Ms. Aloulou's history of her ex-husband's arrest, incarceration, and divorce.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the ex-husband's release, harassment, and the applicants' flight from Tunisia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicants' visa issuance, departure, and refugee claim filing dates.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RPD's credibility findings and reasons for rejection of the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph details the applicants' appeal to the RAD and the RAD's findings on bias and credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the RAD's review standard as reasonableness and deference to the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the RAD's view that its role is to assess whether the decision falls within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the three issues to be addressed: bias, standard of review, and reasonableness of credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the court's view that the bias argument fails but the standard of review issue remains relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the correctness standard for bias and the court's review of the RAD's bias findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes there is no evidence of bias based on the hearing recording.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites the Supreme Court's test for reasonable apprehension of bias as a reasonable and informed person would conclude.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the importance of impartiality and the day-to-day conduct of RPD members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that allegations of bias require material evidence and cannot be based on suspicion or impressions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the hearing recording shows the member was methodical, respectful, and did not display bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicants' perception of a derogatory comment and its alleged impact on credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph analyzes the recording and finds no evidence of shock or bias from Ms. Aloulou.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph interprets the comment as part of the review process, not bias, and explains its purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the member's questions are part of the inquisitorial role and powers of the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes that energetic questioning does not imply bias, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph suggests that clumsy review questions do not establish bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that other comments by the member are within the bounds of proper conduct and inquiry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph concludes that the comments do not raise a reasonable apprehension of bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states bias allegations must be raised promptly; in this case, no such request was made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the applicants did not request recusal or raise concerns during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The bias argument is dismissed as without merit and untimely.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the Court's rejection of the RAD's position on the standard of review in previous cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes that the RAD's position on its review scope has not caused issues so far.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the RAD's typical process of decision-making based on the record without a hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph criticizes the RAD's position as inconsistent with Parliament's intended role for it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the RAD's reliance on a case law that equates its review to that of courts for factual questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the RAD applies a reasonableness standard when reviewing credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the RAD's view that its role is not to re-weigh evidence but to assess if decisions are within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "jurisdictional attributes of the RAD",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the jurisdiction and role of the RAD as an appellate tribunal for refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Procedural rules for RAD proceedings",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the RAD's usual process and rules for accepting evidence and submissions, referencing subsections 110(3) and 110(4).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Criteria for RAD holding a hearing",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the conditions under which the RAD may hold a hearing based on the characteristics of documentary evidence, referencing subsection 110(6).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Procedural history of RAD review of RPD decision",
+   "role": "procedural_history",
+   "explanation": "Describes the RAD's options after reviewing the RPD decision and conditions for referral to the RPD, citing subsections 111(1) and (2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Jurisdiction and procedures of RAD and RPD",
+   "role": "legal_test",
+   "explanation": "Lists the provisions governing the jurisdiction, procedures, powers, and evidentiary rules applicable to both the RAD and RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Legal effect of RAD decisions",
+   "role": "background_facts",
+   "explanation": "States that decisions of three-member RAD panels have the same precedential value as appeal court decisions, and discusses the RAD's role in standardizing law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Judicial review standard of reasonableness and RAD's role",
+   "role": "legal_test",
+   "explanation": "Summarizes Justice Phelan's reasoning rejecting the RAD's approach, emphasizing the importance of the RAD's broader powers and purpose, and the incompatibility with judicial review standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "RAD's statutory interpretation and deference",
+   "role": "reasoning_application",
+   "explanation": "Agrees with Justice Roy that the RAD's statutory duties do not include deference to RPD decisions under a reasonableness standard, based on statutory language.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Legislative intent and appeal process",
+   "role": "reasoning_application",
+   "explanation": "States that respect for legislative intent supports treating RAD appeals as distinct from judicial review and discourages deference policies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Judicial review and rule of law",
+   "role": "legal_test",
+   "explanation": "References Dunsmuir to explain that judicial review protects the rule of law and balances administrative discretion with legal oversight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Purpose of judicial review",
+   "role": "legal_test",
+   "explanation": "States that judicial review ensures legality, reasonableness, and fairness of administrative decisions, citing Dunsmuir and related cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Purpose of appellate review",
+   "role": "legal_test",
+   "explanation": "Defines appellate review as statutory, not constitutionally protected, aimed at correcting errors in law or fact, citing Spasoja.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "RAD's purpose and statutory role",
+   "role": "reasoning_application",
+   "explanation": "Views the RAD's purpose as consistent with its statutory environment and its role as a specialized administrative tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Parliament's dual purpose for RAD",
+   "role": "background_facts",
+   "explanation": "Notes that Parliament created the RAD to correct RPD errors and ensure consistency in refugee law decisions, citing Djossou.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "RAD's role versus its perceived role",
+   "role": "reasoning_application",
+   "explanation": "States that the RAD's view of its role as an appellate tribunal conflicts with its statutory purpose of correcting errors and standardizing law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "RAD's approach to review and deference",
+   "role": "reasoning_application",
+   "explanation": "Criticizes the RAD for adopting a judicial review-like role, showing deference to RPD decisions, which is inconsistent with its statutory purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Lawfulness of RAD's decision",
+   "role": "reasoning_application",
+   "explanation": "Finds that the RAD erred by not conducting a complete review of questions of fact and law, affecting the lawfulness of its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "RAD's review process and inference",
+   "role": "evidence_assessment",
+   "explanation": "States that there is no indication the RAD conducted an independent review of the refugee claim apart from listening to the hearing recording.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "RAD's assessment of the appeal",
+   "role": "evidence_assessment",
+   "explanation": "Notes that the RAD assessed the appeal on a reasonableness standard, emphasizing its role was not to re-weigh evidence but to check for acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Practical interest in judicial review",
+   "role": "party_position",
+   "explanation": "Argues that deference in the appeal process would lead to the same outcome, reducing the practical impact of judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Standards of reasonableness and palpable error",
+   "role": "party_position",
+   "explanation": "States that both standards involve deference to the first decision-maker's assessment of evidence, but are not identical.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Differences between standards of review",
+   "role": "party_position",
+   "explanation": "Explains that the standards of reasonableness and palpable and overriding error can yield nuanced results, so outcomes may differ.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "RAD's review of questions of fact and law",
+   "role": "evidence_assessment",
+   "explanation": "Criticizes the RAD for not fully addressing the questions of fact, law, or mixed law and fact raised in the appeal, as required by law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "RAD's review of the merits",
+   "role": "evidence_assessment",
+   "explanation": "States that the RAD's decision did not demonstrate a complete review of the questions of fact, law, or mixed law and fact as mandated.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Outcome of returning the matter to RAD",
+   "role": "disposition",
+   "explanation": "Indicates that returning the case to the RAD might lead to the same result but affirms the applicants' right to the appeal process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Partial allowance of judicial review",
+   "role": "disposition",
+   "explanation": "Decides to allow the application in part and remand the case for a proper review of the appeal, considering these reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Opportunity for written submissions on certification",
+   "role": "procedural_history",
+   "explanation": "Mentions that parties will be given a chance to submit on the appropriateness of certifying a question for appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "Certified question in Huruglica",
+   "role": "procedural_history",
+   "explanation": "States the certified question regarding the scope of RAD's review when considering an appeal of RPD decisions, from Huruglica.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "Similar certified questions",
+   "role": "procedural_history",
+   "explanation": "Notes that similar questions have been certified in Akuffo and Spasoja, focusing on the applicable standard for credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Deadline for submissions",
+   "role": "procedural_history",
+   "explanation": "Sets the deadline for parties to file written submissions on the appropriateness of certifying a question.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

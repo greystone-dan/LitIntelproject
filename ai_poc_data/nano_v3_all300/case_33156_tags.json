@@ -1,0 +1,116 @@
+{
+ "case_id": 33156,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 14,
+ "tagged_count": 14,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2685,
+  "completion_tokens": 829,
+  "usd": 0.0006001000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph introduces the application for judicial review and the background of the case, including the decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicants' entry into Canada, their refugee claim, and the basis of their claim involving risks from criminal elements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's alleged kidnapping, assault, rape, and the daughter's abduction, including reporting delays.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts Mr. Leon's claims of being forced off the road and pursued in Mexico, with no police reports filed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Board's findings that the Applicants did not sufficiently seek state protection and that authorities acted against criminals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the Board's conclusion that the Applicants did not make reasonable efforts to seek protection and that state protection was available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the legal issue regarding whether the Board erred in its treatment of evidence concerning state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Applicants' argument that the Board failed to properly consider evidence of deficiencies in Mexican protection services, citing the reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the Board's conclusion that assistance was available in Mexico and that the Applicants did not sufficiently attempt to access it, supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Board did not err in considering agencies outside the criminal justice system and criticizes the Applicants' lack of action.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph affirms that the Board reasonably considered evidence of systemic issues in Mexico and concluded that state protection was available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes Mexico's status as a functioning democracy with sufficient protection mechanisms, supporting the Board's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the application for judicial review is to be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes that no certified question was proposed and no issues of general importance are identified.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

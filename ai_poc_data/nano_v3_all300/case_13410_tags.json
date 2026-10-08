@@ -1,0 +1,333 @@
+{
+ "case_id": 13410,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 45,
+ "tagged_count": 45,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6560,
+  "completion_tokens": 2844,
+  "usd": 0.0017936
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the judicial review application",
+   "role": "disposition",
+   "explanation": "The court states that the application for judicial review is allowed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Court's decision on the application",
+   "role": "disposition",
+   "explanation": "The court explicitly states that the application is allowed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: medical documentation from Dr. King",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the medical report stating the respondent's inability to work due to anxiety and medication use.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: medical records from various doctors",
+   "role": "background_facts",
+   "explanation": "The paragraph details multiple medical reports and hospital records about the respondent's health history.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: 1996 hospitalization",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the respondent's 1996 hospitalization and related medical records, including the absence of records but mention in reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history: initial application denial and reconsideration",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the initial application was denied due to insufficient contributions and that reconsideration was requested.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history: contributions record and MQP",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains how contributions were allocated and the determination of the last qualifying date for the respondent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history: reconsideration outcome",
+   "role": "procedural_history",
+   "explanation": "The reconsideration confirmed the decision but found the respondent not disabled as of the MQP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history: appeal to OCRT",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the respondent appealed the decision to the OCRT.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history: explanation of the appeal decision",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes that an explanation of the decision under appeal was filed with the OCRT.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Procedural history: scheduled hearing and adjournment",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the scheduled hearing and its adjournment due to pending notes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Procedural history: transfer to SST-GD",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the appeal was transferred to the SST-GD pursuant to legislation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Procedural history: filing of Notice of Readiness",
+   "role": "procedural_history",
+   "explanation": "The paragraph reports the filing of the Notice of Readiness for hearing by the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Procedural history: SST-GD decision to decide on documents",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the SST-GD's decision to proceed based on documents and submissions, citing reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Procedural history: SST-GD dismissal of appeal",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the SST-GD dismissed the appeal, citing the respondent's capacity and timing of medical reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Procedural history: grounds of appeal to SST-AD",
+   "role": "party_position",
+   "explanation": "The paragraph outlines the respondent's grounds for leave to appeal, including medical reports and alleged errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position: correction of earlier statement",
+   "role": "party_position",
+   "explanation": "The respondent admits the earlier claim about Dr. Surti's report was incorrect and clarifies her mental disability status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position: discovery of additional reports",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent discovered additional reports not in the original record but known to all parties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Procedural history: leave to appeal granted",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that leave to appeal was granted by the SST-AD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Procedural history: basis for leave to appeal",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the basis for leave to appeal, citing errors in the SST-GD decision and reasons for granting leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test: jurisprudence on leave to appeal",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses jurisprudence requiring an arguable case for leave to appeal under the former legislation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test: issues in judicial review of PAB decision",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the issues and standards involved in judicial review of PAB decisions, including correctness and reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test: criteria for leave to appeal under DESDA",
+   "role": "legal_test",
+   "explanation": "The paragraph states the criteria for leave to appeal under section 58 of the DESDA, including reasonable chance of success and grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: standard of reasonableness for SST-AD decision",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the reasonableness standard applies to the SST-AD's decision on leave to appeal, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test: applicable standard for leave to appeal",
+   "role": "legal_test",
+   "explanation": "The paragraph confirms that the reasonableness standard applies to the leave to appeal decision from SST-GD to SST-AD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test: eligibility requirements for CPP disability pension",
+   "role": "legal_test",
+   "explanation": "The paragraph states the statutory requirements for qualifying for the CPP disability pension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test: establishing disability on or before MQP",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the need to establish a severe and prolonged disability by the MQP date, December 31, 1997.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test: definition of disability",
+   "role": "legal_test",
+   "explanation": "The paragraph defines disability as a severe and prolonged physical or mental disability, with criteria for severity and duration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test: deference in statutory interpretation",
+   "role": "legal_test",
+   "explanation": "The paragraph states that high deference applies when reviewing the SST-AD's interpretation of its own statute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test: grounds for leave to appeal under section 58",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the grounds for leave to appeal under section 58 of the DESDA and the relevant test applied by the Tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test: scope of grounds considered for leave",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses whether the Tribunal considered all relevant grounds under subsection 58(1) and (2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test: reasonableness of the Tribunal's application of the test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph suggests the Tribunal may have failed to properly exercise discretion and consider evidence and legal standards.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test: proper exercise of discretion and legal standards",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Tribunal should have examined evidence and legal standards before concluding on material ignored.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal test: legal standards for assessing evidence and error",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues the Tribunal erred by not applying the legal test for disability before assessing factual errors.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test: evidentiary record and perverse or capricious decisions",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Tribunal erred if it ignored evidence or made decisions in a perverse or capricious manner.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test: reasons requirement under subsection 58(4)",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Tribunal failed to analyze law and evidence meaningfully, breaching reasons requirement.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Legal test: adequacy of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph describes the standards for sufficient reasons: understandable, detailed, and responsive to issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Reasoning: failure to explain discounting reports",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Tribunal's decision lacked explanation for discounting certain reports, affecting reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Reasoning: sufficiency of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states reasons must be sufficient for understanding and judicial review, not a stand-alone basis for quashing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Reasoning: failure to articulate evidence relied upon",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Tribunal for not articulating what evidence supported its decision on the chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph critiques the Tribunal's failure to recognize the record's lack of medical evidence from 1997 to 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Tribunal did not consider that the medical report indicated the disorder appeared after the 2011 accident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph points out the Tribunal did not recognize that the 1992 note suggested the opposite of the Respondent's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states evidence after the MQP is irrelevant because the applicant did not prove disability before the MQP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes the Tribunal failed to provide reasons for granting leave based on an erroneous finding of fact about disability prior to the MQP.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

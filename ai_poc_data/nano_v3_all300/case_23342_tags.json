@@ -1,0 +1,438 @@
+{
+ "case_id": 23342,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 60,
+ "tagged_count": 60,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 9777,
+  "completion_tokens": 3667,
+  "usd": 0.0024445
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the case's focus on the RAD's criteria for admitting evidence, not its standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes Mr. Singh's judicial review of the RAD decision and its reasoning regarding the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph lists recent decisions related to the RAD's role and judicial review, providing context for the current case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that this Court rejected the RAD's deference position and reasonableness standard for RPD findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The principal issue is whether the RAD reasonably refused to admit a 2002 diploma not before the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the jurisprudence applied by the RAD, based on Raza, for evaluating new evidence admissibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the application for judicial review will be granted based on the reasons discussed below.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides the applicant's school history and graduation details from 2002.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's arrest, detention, torture, and hospitalisation in India in 2012.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details a second arrest and release of the applicant in India, related to Bhupinder Singh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph narrates the applicant's departure from India and arrival in Canada, with his refugee claim date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the RPD's rejection of the applicant's refugee claim for failing to establish identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes the applicant's documents and the RPD's findings regarding their relevance to identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's claim about CIC seizing his diploma and the RPD's skepticism.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the RPD's view that the birth certificate was insufficient for identity proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RPD's conclusion that credibility was lacking despite identity issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RPD's negative inferences about the medical report and the applicant's allegations of torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the RPD's disbelief that the applicant required hospital treatment after torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph mentions the RPD's conclusion that the applicant had an internal flight alternative in India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the applicant's appeal grounds to the RAD regarding identity, credibility, and IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph reports the RAD's rejection of the applicant's appeal on September 26, 2013.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the RAD's application of the Raza jurisprudence to assess evidence admissibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph details the applicant's explanation for the late submission of the diploma and its importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded the document could have been produced earlier and dismissed its admissibility accordingly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The RAD dismissed the applicant's request for a credibility reassessment due to inadmissibility of the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal obligations of the applicant's lawyer regarding the seized document and the applicant's knowledge.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the appeal grounds were reviewed under the reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The RAD found the RPD's negative conclusion on identity unreasonable and clarified its approach to review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD agreed the applicant failed to provide sufficient identity documents but found the RPD's consideration of the diploma unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD found the RPD's overall credibility assessment to be reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the RAD did not address the IFA issue as the applicant was deemed not credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the parties' views on deference and reasonableness review, with the court disagreeing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph clarifies the court's focus on whether the RAD reasonably interpreted subsection 110(4).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the appropriate standard of review for the RAD's interpretation, citing Dunsmuir and Khosa.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the exceptions where correctness review applies, based on case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph argues that admissibility of new evidence is within the tribunal's expertise and not a question of central importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph agrees with the respondent that reasonableness is the appropriate standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the limits of the 'question of central importance' exception, citing Supreme Court cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph concludes that both the interpretation and application of subsection 110(4) are to be reviewed on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues that the RAD erred in not admitting the diploma, which was credible, relevant, new, substantial, and not previously raised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues the RAD failed to properly weigh certain critical factors related to evidence and legal fault.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The respondent contends the RAD correctly interpreted subsection 110(4) of the Act in light of similar legal provisions and jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent maintains the RAD correctly found the applicant failed to show he could not reasonably provide the documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph explores whether jurisprudence related to paragraph 113(a) applies to subsection 110(4) of the Act.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the roles and powers of the RAD and RPD in the refugee claim process and appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It explains the PRRA officer's role as distinct from the RAD and the purpose of paragraph 113(a).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph compares the language of paragraph 113(a) and subsection 110(4), and discusses their interpretation in appellate review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes that an appeal to the RAD is mainly a paper-based process.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states that the RAD may only consider admissible evidence when deciding whether to grant a hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph quotes a former Minister emphasizing the importance of a full fact-based appeal before the RAD.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It discusses the need for flexible admissibility criteria to ensure a full appeal process, especially given tight evidence submission timelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph interprets Raza as indicating that certain implied questions are specific to refugee and PRRA contexts, not appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds it unreasonable for the RAD to strictly apply the Raza test without considering its different role from a PRRA officer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court discusses whether the RAD's application of subsection 110(4) was reasonable, focusing on the materiality of the evidence at issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds it unreasonable for the RAD to expect the applicant to have filed the evidence himself, given the circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court considers it unreasonable to expect the applicant to have filed a complaint against his lawyer as a prerequisite for submitting new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes the applicant's request to file new evidence falls within subsection 110(4) and meets its criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states that counsel did not propose a question of general importance for certification.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "other",
+   "role": "other",
+   "explanation": "It reports that counsel proposed a question of general importance regarding deference to RPD findings.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court identifies the key questions of review and legal interpretation that are of general importance and determinative.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

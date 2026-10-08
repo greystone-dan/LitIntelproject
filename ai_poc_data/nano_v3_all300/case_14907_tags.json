@@ -1,0 +1,109 @@
+{
+ "case_id": 14907,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 13,
+ "tagged_count": 13,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2019,
+  "completion_tokens": 735,
+  "usd": 0.0004959
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the basic facts about the applicants' nationality and the IRB decision to deny their refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the IRB's reasons for adverse credibility findings against the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the IRB's findings regarding the standard of proof for state protection and its reasoning about the applicants' failure to seek protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal standard of review for IRB credibility and state protection decisions as patent unreasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicants' attempt to blame their former counsel for omissions in their evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the court's view that the IRB was justified in drawing adverse conclusions from the evidence as presented.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicants' argument about corroboration and explains the common sense requirement for corroborative evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the applicants' claim that bank records were lost and their failure to provide evidence of such loss.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the bank records were material evidence and that the IRB's adverse inference was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the IRB's conclusion that Mexico's democratic institutions and available protections justify negative findings on state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicants' new counsel's attempt to blame former counsel for errors, which the court finds unsupported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court criticizes the new counsel for impugning former counsel's professionalism without notice or evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes there are no grounds for judicial review and no question to certify, dismissing the application.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

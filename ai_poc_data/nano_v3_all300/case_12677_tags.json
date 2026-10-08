@@ -1,0 +1,256 @@
+{
+ "case_id": 12677,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 34,
+ "tagged_count": 34,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6030,
+  "completion_tokens": 2457,
+  "usd": 0.0015858
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' personal background, their reasons for fleeing Haiti, and their initial escape in 2003.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details the applicants' return to Haiti, their change of occupation, and subsequent threats and attacks against them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the kidnapping of the applicant and the subsequent threats and blame from neighbors, leading to their displacement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It states that the applicants applied for refugee protection and the Refugee Protection Division's decision that they are not refugees or in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes the refusal of the humanitarian and compassionate application and begins the decision analysis regarding establishment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph describes the employment and volunteer activities of the applicants in Canada, relevant to their integration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It mentions the children's ages and schooling, noting the officer's lack of consideration for their best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The officer's positive comments on the applicants' community involvement are summarized, highlighting their qualities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It states the officer's conclusion that lawful activity is common in Canada, implying no special hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the officer's recognition of the applicants' community engagement but notes it could occur in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It describes the children's letters expressing fear of kidnapping and the officer's conclusion about their adaptability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph addresses the officer's consideration of risks related to return, noting the limits of jurisdiction and gender-based discrimination considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states that the reasonableness standard applies to the officer's conclusion on establishment, focusing on whether it falls within an acceptable range.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It lists factors like employment and community involvement that may support a positive establishment assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The officer's conclusion that community involvement in Canada can occur in Haiti is identified as an improper application of the establishment factor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the officer's dismissal of employment and religious involvement as factors in the establishment assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It states that the officer should have evaluated the applicants' evidence of community integration rather than dismissing it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses an unreasonable approach in a previous case where establishment was used to oppose relief, emphasizing proper analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It criticizes the flawed reasoning that equated high Canadian establishment with less likelihood of success under H&C grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph clarifies that the degree of establishment should be assessed independently of the applicants' ability to replicate activities in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the applicants' fears of violence and the impact of Haiti's crises, as presented in their submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It reports the officer's conclusion that the applicants could relocate or face no greater risk than others, based on country conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph criticizes the officer's conflation of section 97 protection criteria with the H&C hardship analysis, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It agrees with the case law that the officer's requirement to prove hardship is not generally faced by others is unreasonable and incorrect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It summarizes the applicants' argument that their submissions clearly relied on the best interests of the children, supported by their letters.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the applicants' view that the officer should have considered the children's current situation in Canada as part of the best interests analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states the respondent's position that the applicants must explicitly raise all relevant considerations, including the best interests of the children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It explains the legal duty of officers to consider children's best interests when relevant, and the burden on applicants to provide supporting evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It discusses a previous case where minimal and vague references to children's best interests were deemed insufficient for analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph contrasts the current case with the previous, noting the children's detailed letters that should have prompted an analysis of their best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It criticizes the officer's failure to consider the teenagers' access to education in Haiti, which is relevant to their best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that officers must consider children's best interests when there is evidence, regardless of whether it is explicitly raised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It states that the officer should have considered the impact of return on the teenagers, recognizing their different needs from young children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It criticizes the officer's conclusion about the burden of return given Canada's policy suspension, citing case law on the matter.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

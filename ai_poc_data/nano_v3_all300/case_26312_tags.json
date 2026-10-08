@@ -1,0 +1,151 @@
+{
+ "case_id": 26312,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 19,
+ "tagged_count": 19,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3532,
+  "completion_tokens": 1174,
+  "usd": 0.0008228
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the refugee claim",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the applicant's judicial review application of the RPD decision refusing refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the applicant's religious practice",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's introduction to Falun Gong and her health reasons for practicing it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the applicant's immigration and detention incident",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's arrival in Canada and the arrest attempt by Chinese authorities, leading to her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position: RPD credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's findings that the applicant was not credible and would not face persecution if returned.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Issue framing: reasonableness of credibility findings",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the issue is whether the RPD's credibility and plausibility findings were unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test: standard of review for credibility assessments",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal standards of correctness and reasonableness, emphasizing reasonableness for credibility determinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: applicant's argument on religious knowledge",
+   "role": "party_position",
+   "explanation": "The applicant argues the RPD's assessment of her religious knowledge was unreasonable and overly strict.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: respondent's view on assessment of religious knowledge",
+   "role": "party_position",
+   "explanation": "The respondent contends the RPD was entitled to expect the applicant to know about Falun Gong given her practice duration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test: sincerity of religious belief",
+   "role": "legal_test",
+   "explanation": "The paragraph states that courts focus on the sincerity of belief, not its objective validity, in religious assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test: courts' approach to religious knowledge",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law emphasizing that religious knowledge should not be judged by high standards and that sincerity is the key issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: low threshold for religious knowledge",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses recent case law indicating the low standard for religious knowledge and the need to consider cultural context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: sincerity of religious belief",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that sincerity is a question of fact, based on credibility and consistency with practices, not on objective validation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Evidence assessment: RPD's detailed questioning of applicant",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes the RPD's detailed and critical examination of the applicant\u2019s knowledge of Falun Gong.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment: RPD's high standard of knowledge",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the RPD's assessment of the applicant's knowledge against a high standard, which may be unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position: RPD's suspicion of fraudulent claim",
+   "role": "party_position",
+   "explanation": "The RPD's suggestion of fraud indicates a high standard of proof and may reflect an unreasonable expectation of knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: judicial interpretation of religious practice",
+   "role": "legal_test",
+   "explanation": "The paragraph states that courts should avoid interpreting the content of religious beliefs, respecting subjective sincerity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application: unreasonable high standard applied",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD applied an unrealistically high standard, making its conclusion unreasonable and unsustainable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Disposition: judicial review granted",
+   "role": "disposition",
+   "explanation": "The court concludes the application for judicial review succeeds, overturning the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Other: no certification question proposed",
+   "role": "other",
+   "explanation": "The paragraph states that no question of general importance is proposed or arises for certification.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,172 @@
+{
+ "case_id": 1292,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1-mini",
+ "usage": {
+  "prompt_tokens": 6732,
+  "completion_tokens": 690,
+  "usd": 0.0037968
+ },
+ "verification": {
+  "arguments": 4,
+  "quotes_verified": 4,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The court allowed the judicial review and set aside the Refugee Appeal Division's decision due to unreasonable implausibility findings and improper handling of corroboration requirements, requiring a redetermination.",
+  "themes": [
+   {
+    "name": "Implausibility Findings",
+    "summary": "The court found the RAD's implausibility findings unreasonable as they lacked a firm basis and involved speculation rather than clear contradictions.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20
+    ]
+   },
+   {
+    "name": "Requirement for Corroboration",
+    "summary": "The court analyzed the legal principles on corroboration, emphasizing that corroboration is only required when there is an independent reason such as credibility doubts or implausibility, and must be reasonably available.",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36
+    ]
+   },
+   {
+    "name": "Application of Corroboration Principles to Facts",
+    "summary": "The court found the RAD's requirement for corroboration unreasonable in parts, noting failure to provide reasons and to allow the claimant to explain absence of evidence.",
+    "paragraphs": [
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43
+    ]
+   },
+   {
+    "name": "Rejection of Corroborative Evidence",
+    "summary": "The court upheld the RAD's rejection of some corroborative evidence but noted the RAD failed to address a key letter from a friend, contributing to unreasonableness.",
+    "paragraphs": [
+     44,
+     45
+    ]
+   },
+   {
+    "name": "Internal Flight Alternative (IFA) Analysis",
+    "summary": "The court found the RAD confused the IFA analysis with the well-founded fear of persecution analysis, making the IFA finding unreliable as a sole basis for dismissal.",
+    "paragraphs": [
+     47,
+     48,
+     49,
+     50,
+     51
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in finding parts of his narrative implausible without a firm basis.",
+    "treatment": "accepted",
+    "authority": "Valtchev v Canada; Al Dya v Canada",
+    "paragraphs": [
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20
+    ],
+    "quote": "the RAD did not explain the basis for its implausibility findings.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD wrongly required corroboration without explaining why it was necessary or reasonably available.",
+    "treatment": "accepted",
+    "authority": "Dundar v Canada; Ortega Ayala v Canada; Maldonado v Canada",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43
+    ],
+    "quote": "a decision-maker can only require corroborative evidence if: The decision-maker clearly sets out an independent reason for requiring corroboration",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD improperly rejected some corroborative evidence without adequate reasons.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     44,
+     45
+    ],
+    "quote": "The RAD analyzed that evidence and provided reasons for giving it little weight.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The RAD's IFA finding independently justifies dismissal of the claim.",
+    "treatment": "rejected",
+    "authority": "Chaudhry v Canada",
+    "paragraphs": [
+     47,
+     48,
+     49,
+     50,
+     51
+    ],
+    "quote": "the RAD confused the two issues, at least in significant part.",
+    "quote_verified": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,277 @@
+{
+ "case_id": 10091,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 37,
+ "tagged_count": 37,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6343,
+  "completion_tokens": 2334,
+  "usd": 0.0015679000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' citizenship, family details, and arrival date in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's allegations of domestic violence and reasons for fleeing Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It details the applicants' appearance before the RPD, the credibility issues, and the psychological evidence submitted, leading to a negative decision and appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It states that the only issue is whether a viable internal flight alternative exists within Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses evidence regarding the IFA and the RAD's assessment based on the record and submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It notes the RAD's consideration of gender and child refugee guidelines in evaluating the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the RAD applied the two-pronged test from Rasaratnam, modified for IRPA section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It explains the burden of proof and the reasonableness standard for assessing the IFA's viability, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph references UK guidance indicating internal relocation is usually an option, barring exceptional circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded that Lagos is a suitable IFA based on population, employment, and local issues, with no persuasive evidence to the contrary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It assessed the reasonableness of relocating to other cities, considering social support and the applicants' testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD's conclusion that a viable IFA exists is based on the evidence and the applicants' circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "other",
+   "role": "other",
+   "explanation": "This paragraph discusses the high threshold for unreasonableness in IFA assessments, requiring concrete evidence of danger.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "other",
+   "role": "other",
+   "explanation": "It emphasizes the importance of maintaining a high threshold to preserve the refugee definition and avoid expanding the scope unjustifiably.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the RAD's standard of review for the RPD's decision is correctness, citing Huruglica.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It notes that the RAD conducted its own assessment and that the applicants did not challenge its scope of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms that the reasonableness standard applies to the IFA factual assessment, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph summarizes the Angwah case, where the RAD upheld an IFA alternative ground without reviewing credibility errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It contrasts Angwah with the current case, noting the RAD's different approach regarding credibility review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph quotes the RAD's reliance on Huruglica and its respect for credibility findings, citing Justice Phelan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the RAD's acknowledgment of credibility issues but its focus on the IFA, and questions whether this was proper without an error in credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains that the RAD in Angwah confirmed on alternative grounds after considering additional submissions, similar to the current case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It discusses Justice Bell's conclusion that the RAD had jurisdiction to decide on alternative grounds and the applicable standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the RAD did not find an error in the RPD's credibility and that its decision lacked transparency, thus failing reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "It concludes that the RAD's decision was not sufficiently transparent or reasonable, implying the application should be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph suggests that the RAD's authority does not require a prior error in the RPD's decision to consider alternative grounds, contrary to some interpretations.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RAD was justified in focusing on the IFA as the determinative issue and that there is no reason to interfere.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants contend that the RAD failed to consider the hardship and gender-specific issues related to relocating to proposed cities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "They also argue that the RAD ignored the psychological report indicating PTSD and anxiety, which would affect their ability to relocate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that claimants bear a high burden to prove an unreasonable IFA, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the RAD properly considered the evidence regarding the IFA and did not ignore relevant evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It concludes that the RAD reasonably found that living in Lagos away from the brother's house was not an unreasonable hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably concluded that the applicants could find an IFA away from the brother's influence, based on evidence about his ability to locate them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RAD considered the gender and child guidelines and found the psychological report insufficient for the IFA assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It finds that the RAD reasonably concluded the applicants could adapt and would not need to live in hiding in the IFA areas.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes that the RAD's decision was within the range of reasonable outcomes and should be upheld.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "other",
+   "role": "other",
+   "explanation": "No questions were proposed for certification, indicating no issues for certification.",
+   "confidence": 0.5
+  }
+ ],
+ "status": "complete"
+}

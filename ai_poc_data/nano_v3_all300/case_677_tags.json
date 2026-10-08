@@ -1,0 +1,284 @@
+{
+ "case_id": 677,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5753,
+  "completion_tokens": 2183,
+  "usd": 0.0014485000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The RAD determined that Abraham Gonzalez Leon was not in need of protection due to internal flight alternatives in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's decision was reasonable and justified in its assessment of evidence and lack of inappropriate speculation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The application for judicial review is dismissed, concluding the decision is reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mr. Gonzalez Leon is a Mexican farmer threatened by criminal groups who fled to Canada and claimed refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The RPD rejected the claim based on internal flight alternatives and legal grounds under IRPA sections 96 and 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The RAD confirmed the RPD's decision, focusing on the lack of evidence of persecution in the proposed IFAs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The sole issue is whether the RAD's finding on the reasonableness of the IFA was correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court reviews the RAD's findings on fact and mixed law and fact under reasonableness standard, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court explains the criteria for establishing an IFA, including no serious risk of persecution and reasonableness of seeking refuge there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The claimant bears the burden to show the RAD's finding on the IFA was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD reasonably concluded there was no serious risk of persecution based on lack of evidence of persecutors' desire to pursue Mr. Gonzalez Leon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Gonzalez Leon challenges the RAD's decision, citing evidence of criminal groups' zones of influence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes the difference between ability and desire of persecutors to pursue an individual, and that lack of desire supports no serious risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Evidence shows criminal groups have the ability to pursue Mr. Gonzalez Leon in Mexico, but the RAD found no motivation to do so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD's conclusion that lack of motivation means no serious risk is supported by the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "There is no evidence of ongoing interest or pursuit by criminal groups since Mr. Gonzalez Leon left Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Gonzalez Leon claims the RAD's decision was speculative and did not consider evidence of groups' ability to pursue him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably inferred no ongoing interest from the lack of criminal activity or contact since his departure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Gonzalez Leon compares the decision to Mendoza, arguing it was based on speculation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Justice Hughes in Mendoza found speculation invalid when credibility issues were involved, but this case differs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "In Mendoza, evidence showed ongoing pursuit, unlike here, where no such evidence exists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Mendoza clarifies that ability to pursue does not mean pursuit is likely or ongoing, supporting the reasonableness of the IFA finding here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Case law supports that an IFA can be reasonable even if criminal groups have the ability to pursue, if they lack interest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Evidence shows no ongoing pursuit of the applicant by criminal groups, supporting the IFA's reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Gonzalez Leon argues past threats imply ongoing pursuit, but the court finds this unsupported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "No evidence shows criminal groups' interest in pursuing Mr. Gonzalez Leon, supporting the reasonableness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Gonzalez Leon claims his family was not targeted because he owns the farm, but evidence shows his father owns it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "He argues criminal groups knew he was outside Mexico, but this is speculation unsupported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds no error in the RAD's conclusion that the IFA was reasonable based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The claimant bears a heavy burden to show conditions in the IFA would jeopardize his safety, which he did not meet.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mr. Gonzalez Leon argues the IFA is unreasonable due to violence in Mexico, but the RAD considered this and found the IFA reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD's finding that the criminal groups are not interested in pursuing Mr. Gonzalez Leon indicates no personal risk beyond general population risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Generalized risks do not make the IFA unreasonable, as they are excluded under IRPA subparagraph 97(1)(b)(ii).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "No concrete evidence shows Mr. Gonzalez Leon's life or safety would be endangered in the IFA, supporting the reasonableness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD reasonably concluded that relocating would not be unreasonable, given the lack of evidence of barriers to settlement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds no error in the RAD's assessment that the IFAs are reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming the reasonableness of the RAD's decision on the IFA and protection status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The style of cause is amended to correctly name the respondent, and the judgment is issued.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

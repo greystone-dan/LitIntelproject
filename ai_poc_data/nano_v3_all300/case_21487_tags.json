@@ -1,0 +1,207 @@
+{
+ "case_id": 21487,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 27,
+ "tagged_count": 27,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4178,
+  "completion_tokens": 1489,
+  "usd": 0.0010134
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 2006 IRB decision regarding refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims to have been targeted by gang violence in Haiti between 2000 and 2004.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant describes acts of persecution including vandalism, extortion, and threats of kidnapping.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant states he was targeted because he was perceived as wealthy due to his business activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant details his stay in the US and subsequent arrival in Canada before claiming asylum.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The IRB found the applicant credible and accepted his facts as alleged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board concluded the applicant's fear did not connect to the grounds for refugee status under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board explained that to qualify as a person in need of protection, the risk must be personal and specific, not generalized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board considered the applicant's statement about being targeted as wealthy and concluded he was not more at risk than others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board cited a document indicating progress by Haitian police to support the existence of state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court agrees that correctness is the standard for reviewing whether wealth perception constitutes a risk under section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant argues that wealth increases risk of kidnapping and that subgroups can face heightened risks within a generalized risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent argues the risk is general and that perceived wealth only increases the chance of victimization, not a personal risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the applicant's past victimization was uncontested and the risk was not personalized, only general.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses the interpretation of 'personally' and 'generally' in section 97(1) of the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court explains that section 97 requires a personal assessment, distinct from the general risk under section 96.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court states that general evidence of human rights violations is insufficient without linking to the individual.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court discusses the difficulty in distinguishing personalized from general risk in large-scale violations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court interprets recent case law to include segments of the population under 'generally'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The court references a recent case involving a Haitian applicant fearing violence due to perceived wealth.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court notes the applicant faced general violence, and the risk was shared by many, not personalized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court discusses a case where the applicant's risk was generalized and faced by many in Honduras.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the applicant faces a general risk, not a personalized one, based on recent jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court comments that common sense should guide the interpretation of section 97(1)(b)(ii).",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court certifies a question about whether heightened subgroup risks are covered under section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court interprets 'generally' as meaning 'prevalent' or 'widespread' and finds the Board's reasoning reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application and certifies the question about subgroup risks under section 97.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

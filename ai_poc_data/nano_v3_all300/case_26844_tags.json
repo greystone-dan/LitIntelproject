@@ -1,0 +1,2783 @@
+{
+ "case_id": 26844,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 395,
+ "tagged_count": 395,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 46965,
+  "completion_tokens": 22689,
+  "usd": 0.013772099999999999
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the funding responsibilities for child welfare services for First Nations children and others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the human rights complaint alleging discrimination due to under-funding of services for First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Summarizes the referral, hearing, and dismissal of the complaint by the Tribunal following a motion by the government.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the Tribunal's interpretation of adverse differential treatment under the Canadian Human Rights Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that the Tribunal dismissed the complaint due to lack of a proper comparator group, without a full hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Indicates that the reasons relate to three applications for judicial review of the Tribunal's decision.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the Tribunal's process was unfair because it considered extrinsic material in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Finds the decision unreasonable because the Tribunal did not explain why it could not consider the complaint under subsection 5(a).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes the Tribunal erred in its interpretation of subsection 5(b) and its rigid approach to comparison.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States the Tribunal erred by not considering the significance of the government's adoption of provincial standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Identifies the complainants who brought the human rights complaint.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Provides background on the Caring Society and its advocacy for First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the AFN as a national organization representing First Nations on various issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Explains the Commission's role in investigating and referring discrimination complaints to the Tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mentions organizations granted interested party status and their participation as interveners.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes Amnesty International's role and limited scope of participation in the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the Chiefs of Ontario's role and focus in the proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Identifies the respondent as Indian and Northern Affairs Canada, now called Aboriginal Affairs and Northern Development Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States the date the complaint was filed with the Commission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Alleges that the funding formula results in inequitable services, amounting to discrimination based on race and ethnicity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Claims that studies show less funding per child for First Nations children compared to others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Alleges that underfunding of least disruptive measures leads to disproportionate removal of children from homes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States that jurisdictional disputes cause delays and denial of services to First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Claims the discrimination is systemic and ongoing despite awareness and studies confirming inequity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Notes the Tribunal did not make detailed factual findings about service delivery or the government's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States that understanding the allegations helps contextualize the judicial review issues.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Clarifies that the following is a description of allegations, not factual findings, and factual findings are the Tribunal's responsibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Explains that child welfare is generally provincial, except for First Nations children on reserves.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the funding mechanism for First Nations child welfare services provided by the federal government.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States that Parliament adopted provincial standards, and funding involves complex arrangements and agreements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Notes the complaint initially focused on Directive 20-1 but was later expanded to include related programs and agreements.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States that the Government\u2019s Manual covers all three funding policies for First Nations child services.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Provides the objective of the program as supporting culturally appropriate services in accordance with provincial standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the different funding arrangements and agreements used to fund child welfare services.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States Directive 20-1 originally applied to provinces and Yukon, effective since 1991.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Cites the principles of Directive 20-1, emphasizing expansion of services to a comparable level off reserve.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Notes Directive 20-1's application in several provinces and Yukon, with Yukon funding all First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "States that the complaint does not address services in Nunavut or the Northwest Territories due to different funding arrangements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Explains that funding flows vary by jurisdiction and agreement specifics.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes Directive 20-1's two funding streams: maintenance and operations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the funding structure for child welfare services in Canada, distinguishing between maintenance and operational funding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes how funding for on-reserve child welfare is calculated based on population and other factors, focusing on eligible children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "This paragraph details what operational funding covers, including various expenses related to on-reserve child welfare services.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It highlights the distinction between maintenance and operational funding and introduces the discrimination claim based on funding formulas.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that higher numbers of at-risk children correlate with fewer available services, supporting the discrimination claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It discusses how the funding structure has allegedly led to increased removal of children from families and limited services on reserves.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "This paragraph introduces the development and application of the Enhanced Prevention Focussed Approach to child welfare funding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It explains the structure of the EPFA, including multi-year plans and budget categories for different types of funding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details complaints about the EPFA, including caps on maintenance funding and reductions in preventative services over time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It states that child welfare services in Ontario for First Nations children are provided under a federal-provincial agreement from 1965.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "This paragraph describes the funding arrangements under the 1965 agreement, including costs for maintenance and prevention services.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It states the objective of the 1965 agreement to meet the needs of First Nations communities according to standards for non-First Nations communities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph cites a report indicating that per capita expenditure on child care for First Nations is lower than for other provinces, suggesting discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It claims that underfunding results in fewer services for First Nations children and a higher number in care, highlighting disparities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph notes a fact sheet linking lack of prevention services to higher placement rates for First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It presents statistics claiming a high percentage of children in care are Aboriginal, emphasizing alleged systemic discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph quotes Dr. Blackstock's affidavit stating more First Nations children are in care now than during residential schools, implying a serious issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It alleges that on-reserve children receive fewer services despite greater needs caused by poverty and social issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "This paragraph links dysfunction in First Nations communities to residential school fallout, supporting claims of systemic issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It discusses a report claiming 22% less funding per child for First Nations children, with the government disputing this claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph notes that official bodies agree that child welfare services for First Nations children are underfunded.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It states that the complainants attempted to address funding inequities through negotiations but failed, leading to the human rights complaint.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph introduces the need to review the process that led to the decision under review, as the complainants challenge it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the Government's request for the Commission to decline the complaint, arguing it was outside jurisdiction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the government's argument that it does not deliver services directly, so discrimination claims are not applicable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It states the government's argument that it cannot be discriminatory because it only funds First Nations children on reserves, raising the comparator group issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Assessor recommended referring the complaint to the Tribunal for further inquiry, noting the funding issues required investigation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Commissioners accepted the Assessor's recommendation, stating the Tribunal should determine if discrimination was established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The government sought judicial review of the Commission\u2019s decision, and the complainants moved to stay that review, leading to legal proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Prothonotary refused to strike the government's application but agreed to stay it pending the Tribunal's decision, balancing interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It notes the complexity of the issues and the importance of a full record and hearing before the Tribunal, supporting the stay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The decision to stay the judicial review was upheld by a higher court, affirming the importance of a full hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The decision to stay the judicial review was confirmed on appeal, allowing the Tribunal process to proceed first.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the judicial review stay remains in effect while the Tribunal proceedings continue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the initial management of the Tribunal case, including the refusal to decide preliminary issues due to complexity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the start of the Tribunal hearing, including scheduling and procedural matters, with an anticipated timeline.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It reports the change in Tribunal Chairperson and her efforts to manage the case and streamline issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses a case management conference where the new Chairperson sought to narrow the scope and gather evidence efficiently.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the Chairperson's request for affidavits from witnesses to clarify evidence and points of dispute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes the parties' opposition to the new evidence disclosure process and concerns about burdens and fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The case management conference concluded with counsel agreeing to seek instructions and explore an agreed statement of facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "There was confusion about Mr. Sinclair's status; parties sought clarification from the Tribunal and submitted differing views.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal did not respond initially; a proposal for a panel was made, and no objections were raised to the new Chairperson's sole authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Caring Society did not seek relief on Mr. Sinclair\u2019s status; the Tribunal's discretion and Mr. Sinclair's lack of hearing are noted, so the issue is not addressed further.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal vacated hearing dates; the Caring Society raised concerns about delays and fairness, but received no response.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "A second case management conference involved a mediation process; parties agreed to participate but no substantive agreement was reached.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Government announced a motion to dismiss; the Tribunal set a hearing date but later vacated all dates without consultation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Government filed a motion to dismiss for lack of jurisdiction, supported by an affidavit, with relevant statutory provisions attached.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The motion was based on services and comparator issues; supported by an affidavit from a government director.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Caring Society filed a motion to amend the complaint to include retaliation allegations; the issue arose from a specific meeting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Government responded to the motion to amend, seeking clarification about the meeting in question.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 92,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal never addressed the motion to amend, nor did the Caring Society follow up to have it considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 93,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Caring Society noted the Tribunal's failure to address the amendment motion; it suggested possible bias but did not allege bias or seek relief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 94,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Caring Society objected to the fairness of the process, citing premature motion and insufficient evidentiary record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 95,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Parties filed affidavits and cross-examined witnesses in response to the motion to dismiss, with transcripts filed as well.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 96,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The record on the motion was about 2,000 pages plus legal authorities, relevant to the fairness of the process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 97,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The motion to dismiss was heard in June 2010; the Caring Society sought updates, but the Tribunal did not respond.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 98,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Parties exchanged submissions on Supreme Court and UN issues; the process was completed by December 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 99,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Caring Society and others expressed concern over delays; an application for mandamus was filed but discontinued after a decision was issued.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 100,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Court will discuss the Tribunal's analysis later; a brief summary is provided for context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 101,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal can dismiss complaints without a full hearing if facts are clear or issues are legal, after parties have had a full opportunity to be heard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 102,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Tribunal found the Government's services issue was fact-driven and disputed; record was insufficient to decide the issue at this stage.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 103,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The comparator group issue was a pure question of law; parties had full opportunity to be heard, and no further evidence was needed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 104,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Subsection 5(a) makes denying a service discriminatory; no comparator group is needed when a service is denied entirely.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 105,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Subsection 5(b) involves adverse differentiation; requires comparison to another recipient not sharing the attribute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 106,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Tribunal considered whether services by different providers could be compared; concluded they could not for adverse differentiation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 107,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Since the Government did not provide services to others, no adverse differentiation under subsection 5(b); complaint dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 108,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The issues for judicial review include Tribunal's authority, fairness, and interpretation of the Act; some issues are not in dispute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 109,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Standard of review for each issue will be identified later; it depends on the legal question involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 110,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Certain issues are not in dispute, such as the Tribunal's decision on the services issue, which is not before the Court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 111,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Parties did not seek judicial review of the Tribunal's decision on the services issue; it is not before the Court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 112,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The justiciability of the funding formulae is not in issue; the focus is on procedural and jurisdictional questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 113,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applications raise two procedural issues: Tribunal's authority to decide issues early and fairness of process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 114,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court will consider whether the Tribunal can decide issues preliminarily; fairness will be addressed later.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 115,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Parties' characterizations differ; the Tribunal did not dismiss without hearing but took a different approach to issue resolution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 116,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal's process was not summary or without hearing; parties addressed issues and challenged evidence; the dispute is about procedure form.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 117,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The issue is whether the Tribunal's approach to issue resolution is a jurisdictional question reviewable for correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 118,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Government views the issue as a question of statutory interpretation, reviewable on reasonableness; the court need not resolve it now.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 119,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court is satisfied the Tribunal had authority to decide procedural issues and does not always need a full hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 120,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicants argue the Act requires full inquiry; dismissals are limited to abuse of process or undue delay, which is not the case here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 121,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicants' challenge to the Tribunal's jurisdiction and decision to dismiss the complaint on a preliminary motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 122,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicants argue that the Tribunal overstepped its authority by dismissing a complaint without a full hearing, contrary to the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 123,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicants state that the case involves complex issues that require a proper factual record, which was not provided in the decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 124,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the relevant statutory provisions governing the Tribunal's inquiry and dismissal powers, and notes the lack of specific procedural requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 125,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states the procedural rights of parties during the inquiry, including the opportunity to present evidence and make representations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 126,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph details the Tribunal's authority to decide procedural issues and to receive evidence in various forms, including affidavits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 127,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It emphasizes the Tribunal's purpose to conduct proceedings informally and efficiently, consistent with natural justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 128,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the Tribunal must choose procedures that ensure a just, fair, and expeditious process, depending on the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 129,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It affirms that Tribunals are masters of their own procedure, subject to fairness and natural justice, as established by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 130,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the Tribunal's authority to establish procedural rules and to handle motions for issue resolution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 131,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states there are no statutory or regulatory limits on the types of motions the Tribunal can hear, including motions on substantive issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 132,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the Tribunal can decide motions if parties are given a full opportunity to present evidence and arguments, respecting natural justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 133,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states that jurisprudence generally limits dismissals on preliminary motions to clear cases of abuse of process, not routine dismissals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 134,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law supporting the view that the Tribunal can dismiss complaints early if justified, citing Cremasco and other decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 135,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It discusses Cremasco, where the Tribunal dismissed an old complaint as abuse of process, and the decision was upheld on judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 136,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Justice von Finckenstein stated that full hearings are not required in abuse of process cases, and the Tribunal can dismiss complaints early if justified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 137,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The decision in Cremasco does not limit dismissals to abuse of process cases; the Tribunal can dismiss complaints early when appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 138,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that Tribunal can dismiss complaints early, not only in abuse cases, and such dismissals are permissible if justified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 139,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews Harkin and Buffet, indicating they do not restrict early dismissals to abuse of process cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 140,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It agrees that dismissals should be cautious and only in clear cases, aligning with the statement in Buffet.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 141,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that highly contested cases with credibility issues may require a full hearing, not a preliminary dismissal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 142,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states that complex factual and legal issues may be better addressed at a full hearing, not in preliminary motions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 143,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph suggests some issues, like pure legal questions or undisputed facts, may be decided without a full hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 144,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It discusses the possibility of deciding issues in stages to improve hearing efficiency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 145,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph gives an example of resolving threshold issues first to streamline the case, especially if dispositive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 146,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It illustrates that deciding a threshold issue first can prevent unnecessary lengthy hearings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 147,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The example emphasizes efficiency by resolving legal status early to avoid costly proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 148,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that procedures should be case-specific, aiming for an informal and fair process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 149,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It emphasizes that the process must be fair and allow parties a full opportunity to be heard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 150,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that the Tribunal's decision on how to conduct hearings depends on fairness and rules of natural justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 151,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph rejects the applicants' claim that the Tribunal improperly reviewed the Commission's referral decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 152,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It quotes Justice von Finckenstein to support that the Tribunal's decision was not a review but a new procedural determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 153,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the Commission did not determine whether the complaint had a prima facie case, which is for the Tribunal to decide.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 154,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states that international law does not require viva voce hearings for enforcement, as long as procedures are fair and independent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 155,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph agrees that international law emphasizes effective remedies but does not specify hearing form, provided fairness is maintained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 156,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states that the Tribunal's independence and fair procedures suffice to meet international obligations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 157,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph affirms that the Tribunal can consider motions on substantive issues early, subject to fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 158,
+   "topic": "other",
+   "role": "other",
+   "explanation": "It introduces the next issue of whether the Tribunal's process was fair in this case.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 159,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states that the Court's role is to assess whether the process was fair, referencing relevant case law.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 160,
+   "topic": "other",
+   "role": "other",
+   "explanation": "It notes the Commission's argument that it was not aware the Tribunal would address the merits in the motion.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 161,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the court does not accept the argument and clarifies the grounds of the Government's motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 162,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Government's cited grounds for dismissing the complaint and the applicants' understanding of the motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 163,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court is satisfied that the Commission understood the issues related to the motion and the scope of the complaint.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 164,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicants' claim of unfair process and the court's view that no evidence of unfairness was shown.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 165,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue that the Tribunal failed to respect First Nations culture by not allowing oral evidence, which the court addresses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 166,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court notes the difficulties with the applicants' argument and questions the relevance of oral evidence to the legal issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 167,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds a procedural fairness breach due to the Tribunal considering extrinsic evidence without notice or opportunity to respond.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 168,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the filings related to the merits of the case and the continuation of submissions after the motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 169,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It states that many thousands of pages of documents were filed concerning the merits of the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 170,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the parties' lack of awareness that extrinsic material was considered in the motion record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 171,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It compares the brief government filings with the extensive applicant responses and cross-examinations, totaling about 2,000 pages.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 172,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal recognized that the motion should be decided based on the record generated by the motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 173,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal did not confine itself to the motion record and considered material outside of it in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 174,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph quotes the Tribunal's statement about the evidence filed by various parties in relation to the motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 175,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Appendix A lists 118 documents, many of which relate to the merits and were not filed for the motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 176,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses a specific expert report filed after the motion, questioning funding comparisons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 177,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Tribunal stated it vetted over 10,000 pages but found this insufficient to address the complaint's scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 178,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Tribunal claimed to have considered over 10,000 pages, which the court finds inconsistent with the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 179,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The decision was amended but the key statements about the record remained unchanged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 180,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It appears the Tribunal considered much more material than was properly before it, without parties' knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 181,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicant claims procedural fairness was denied due to the Tribunal's reliance on extrinsic evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 182,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Government filed a Rule 317 request after the decision, seeking access to the Tribunal's documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 183,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Registry provided a certified index of documents considered, excluding expert reports, which the court questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 184,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court states it will not give weight to the Registry's statement about the documents considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 185,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court notes the Tribunal's own statement that it vetted the relevant materials, including expert reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 186,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court considers the Registry's statement an improper attempt to respond to fairness arguments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 187,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph cites case law cautioning against using after-the-fact affidavits to justify decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 188,
+   "topic": "other",
+   "role": "other",
+   "explanation": "It explains that affidavits filed after the decision are problematic because they are made under oath and challengeable by cross-examination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 189,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph criticizes the statement from a Registry official as lacking explanation and challengeability, and not from the Tribunal itself.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 190,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court notes the inconsistency between the Tribunal's statement of vetting 10,000 pages and the actual record size, indicating extraneous material was considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 191,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court concludes the Tribunal considered much more material than was proper, without informing the parties, breaching fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 192,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph emphasizes the importance of procedural fairness and the need to inform affected parties of contrary information.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 193,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Government acknowledges extrinsic evidence was considered but notes no reference to the KPMG report in reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 194,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Government argues there is no evidence the extrinsic material affected the decision, so any error was not material.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 195,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states that procedural fairness can be denied even without proof of prejudice if breach may have prejudiced.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 196,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Tribunal considered thousands of pages beyond the KPMG report, raising fairness concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 197,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the large volume of extrinsic material considered, which is concerning for fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 198,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The comparator group issue has been central since the complaint was filed, with immediate government response to dismiss.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 199,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It is reasonable to assume relevant submissions on the comparator issue were filed, and the breach may have prejudiced the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 200,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Government argues that even if procedural fairness was breached, the decision should stand if the interpretation of the law was correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 201,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the Supreme Court's view that a fair hearing denial invalidates decisions regardless of outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 202,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "It emphasizes the independent nature of the right to a fair hearing and that courts should not deny it based on speculation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 203,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes an exception where procedural breaches are considered hopeless, citing legal sources and cases.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 204,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The court states it is not persuaded the case fits the exceptions and finds the tribunal erred in interpretation, leading to setting aside the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 205,
+   "topic": "other",
+   "role": "other",
+   "explanation": "This paragraph introduces the next section of reasons addressing the errors identified.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 206,
+   "topic": "issue_framing",
+   "role": "disposition",
+   "explanation": "The court concludes the tribunal erred in failing to consider the complaint under subsection 5(a) and in interpreting subsection 5(b).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 207,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the complaint's basis under section 5 of the Canadian Human Rights Act regarding funding and jurisdiction issues affecting First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 208,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It states that section 3 of the Act prohibits discrimination based on race and ethnicity.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 209,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the complaint about underfunding and jurisdiction disputes causing denial of services to First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 210,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes evidence presented to support the claim that government actions denied child welfare services to First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 211,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses concerns about funding for preventative measures and the impact on First Nations children, linking to historical issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 212,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It cites documentary evidence showing federal funding issues and their effects on service delivery to First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 213,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The report of a parliamentary committee is mentioned as supporting the claim of service unavailability.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 214,
+   "topic": "issue_framing",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the complaint form's general language and the government's motion to dismiss without specific subsection distinction.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 215,
+   "topic": "issue_framing",
+   "role": "procedural_history",
+   "explanation": "It describes discussions about whether the complaint related to subsection 5(a) or (b), and arguments focused on 5(b).",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 216,
+   "topic": "issue_framing",
+   "role": "procedural_history",
+   "explanation": "Most submissions addressed discrimination under section 5 generally, without focusing on the differences between subsections 5(a) and (b).",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 217,
+   "topic": "issue_framing",
+   "role": "procedural_history",
+   "explanation": "Parties did not address the wording differences between subsections 5(a) and (b) or their implications during the motion hearing.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 218,
+   "topic": "issue_framing",
+   "role": "party_position",
+   "explanation": "Applicants' submissions indicated the complaint was about denial of services, aligning with subsection 5(a).",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 219,
+   "topic": "issue_framing",
+   "role": "party_position",
+   "explanation": "The tribunal's paragraph notes its conclusion about the comparator group for subsection 5(a) but lacks factual findings.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 220,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The court finds the tribunal erred legally and procedurally in not explaining why the complaint couldn't be considered under subsection 5(a).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 221,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the absence of reasons makes the tribunal's decision unjustified and non-transparent, violating fairness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 222,
+   "topic": "issue_framing",
+   "role": "legal_test",
+   "explanation": "It recalls that subsection 5(b) prohibits adverse differentiation based on discrimination grounds in service provision.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 223,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's view that a comparison is necessary for subsection 5(b) discrimination was accepted, requiring analysis of treatment relative to others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 224,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal acknowledged the need for a broad interpretation but emphasized words must support the interpretation.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 225,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal noted the French wording did not necessarily require a comparison, influencing its interpretation of the English version.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 226,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal preferred the narrower English interpretation and relied on jurisprudence to support the need for a comparator in every case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 227,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal concluded no comparator group exists for the Canadian government services to First Nations children, leading to dismissal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 228,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal saw the repeal of section 67 as irrelevant, considering the current prohibitions applicable to the government and First Nations.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 229,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's conclusion was that without a comparable service, discrimination under 5(b) could not be established, resulting in dismissal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 230,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph introduces the issue of the appropriate standard of review for the tribunal's interpretation of subsection 5(b).",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 231,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "It states the need to determine the correct standard of review for the tribunal's conclusion on the comparator requirement.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 232,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The applicants argue correctness review; the court disagrees, emphasizing the interpretive nature of the tribunal's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 233,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that statutory interpretation by a tribunal is within its core expertise and should be reviewed for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 234,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "Decisions on statutory interpretation are presumed to be reviewed for reasonableness unless exceptional circumstances apply.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 235,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The court rejects the argument that the issue is jurisdictional or of general importance, affirming reasonableness review applies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 236,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the Supreme Court's recent stance on deference to tribunals' legal interpretations, reducing the scope of correctness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 237,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "It discusses the tension between judicial review policies and the deference owed to tribunal expertise, citing recent case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 238,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that courts should respect tribunal expertise and avoid over-classifying issues as of central importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 239,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "It states that the tribunal's interpretation of its enabling legislation is within its expertise and should be reviewed for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 240,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal standard of review for the Tribunal's interpretation of legislation, which is reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 241,
+   "topic": "standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court states that its conclusion on the standard of review does not affect the outcome because it finds the Tribunal's interpretation unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 242,
+   "topic": "legal_test",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the purpose of the Canadian Human Rights Act and interpretive principles relevant to the case.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 243,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses how to interpret statutes, emphasizing reading words in context and in their ordinary sense.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 244,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that the Canadian Human Rights Act is quasi-constitutional and aims to promote equality as a fundamental value.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 245,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The purpose of the legislation is to ensure equal opportunity free from discrimination based on protected grounds.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 246,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes how human rights legislation is meant to protect the disadvantaged and warns against restrictive interpretations.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 247,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Supreme Court advocates for a large, purposive, and liberal interpretation to achieve remedial goals.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 248,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ambiguous language should be interpreted to reflect the remedial purpose, even if it overrides strict grammatical analysis.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 249,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Strict grammatical analysis is inappropriate for constitutional or quasi-constitutional legislation, favoring purposive interpretation.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 250,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Interpretation must not be inconsistent with the legislation's wording; it should be reasonable and consistent with the purpose.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 251,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that the Tribunal erred in requiring a comparator group for the meaning of 'differentiates adversely' in subsection 5(b).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 252,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The term 'differentiates adversely' appears in other parts of the Act, indicating it is not unique to section 5.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 253,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The same language appears in subsection 7(b), relating to employment discrimination, showing consistency across provisions.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 254,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court interprets 'differentiates adversely' as treating someone differently because of membership in a protected group, aligning with the Act's purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 255,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal's view that a comparator is always needed leads to absurd results, which the court finds unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 256,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "An employer paying less because of gender or race would not be discriminatory under the Tribunal's interpretation, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 257,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Similarly, discriminatory conduct based on sexual orientation would not be recognized if no comparator exists, which the court finds unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 258,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Section 2 states the purpose of the Act is to promote equal opportunity free from discrimination based on protected grounds.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 259,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Individuals treated adversely because of protected membership should have recourse; the Tribunal's interpretation is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 260,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Examples show adverse differential treatment can occur even without a comparator, indicating discrimination.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 261,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "An employer hiring only foreign workers and paying less would be discriminatory, regardless of comparator availability.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 262,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "A restaurant refusing service based on skin color would be discriminatory, even if no other customers are served.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 263,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The Tribunal's interpretation would allow the government to discriminate by limiting services to certain groups, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 264,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "If the government admits discrimination in limiting services, the Tribunal's interpretation would prevent recourse, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 265,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The government agrees the Tribunal's interpretation leads to absurd results but claims it is reasonable and correct.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 266,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees, stating that such an interpretation is unreasonable and inconsistent with Parliament's purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 267,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Tribunal erred in distinguishing case law and interpreting subsections separately.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 268,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Examples show that discrimination can occur without a comparator, supporting the court's view.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 269,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The French version supports the court's interpretation and shows the Tribunal's view would cause incoherence.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 270,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Jurisprudence and legislative history support the court's interpretation, aligning with international obligations.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 271,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph introduces the discussion of the French and English versions of subsection 5(b).",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 272,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The French version states that discrimination is based on an illicit distinction, which does not necessarily require a comparator.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 273,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Tribunal noted that the French term 'd\u0000e9favoriser' does not always require a comparator.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 274,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court explains that the English version also does not require a comparison, aligning with the French version.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 275,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes that the Tribunal's interpretation creates incoherence within section 5 of the Act.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 276,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court finds that the Tribunal's interpretation would cause internal incoherence between subsections 5(a) and (b).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 277,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that the provisions of the Act should form a coherent scheme, which the Tribunal's interpretation disrupts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 278,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses how the Tribunal's interpretation would lead to illogical results based on funding levels.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 279,
+   "topic": "legal_test",
+   "role": "evidence_assessment",
+   "explanation": "The court cites jurisprudence indicating that such anomalous results are not contemplated by the legislation.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 280,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court supports its conclusion with jurisprudence on discrimination analysis and legislative intent, including international obligations.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 281,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Supreme Court of Canada's view on equality as a comparative concept and its relevance to discrimination analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 282,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It clarifies that a formal comparator group is not always necessary to establish discrimination under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 283,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph states the onus on the complainant to establish a prima facie case and describes the flexible test involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 284,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It defines what constitutes a prima facie case of discrimination according to the Supreme Court of Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 285,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph explains the shift of the burden to the respondent once a prima facie case is established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 286,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It notes the recent prominence of comparator groups in equality jurisprudence, especially under section 15 of the Charter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 287,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the interaction and cross-fertilization between Charter and human rights law frameworks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 288,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It states that comparator group analysis has been adopted in some human rights cases through Charter jurisprudence influence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 289,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes understanding whether a comparator group is necessary to establish adverse differential treatment under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 290,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It clarifies that a comparator group is an evidentiary tool, not part of the legal definition of discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 291,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph provides examples of cases where a comparator group is not required to establish discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 292,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It discusses situations where a comparator group may be unnecessary or inappropriate, such as disability accommodation cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 293,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph notes that identical treatment can sometimes lead to inequality, requiring differential treatment for equality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 294,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It describes formal equality as treating likes alike and contrasts it with substantive equality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 295,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph rejects the 'separate but equal' approach as incompatible with Canadian law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 296,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It states that comparison to others can be helpful in some discrimination cases, such as hiring.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 297,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph explains that discrimination can be established even without comparison to others, such as in individual victim cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 298,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It references case law that clarifies what a complainant must demonstrate to establish discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 299,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the definition of a prima facie case and the evidence required, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 300,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It notes that subsection 7(b) involves similar language and legal standards as subsection 5(b).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 301,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph describes a tribunal's finding of discrimination without comparative evidence, emphasizing the sufficiency of evidence of discrimination as a factor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 302,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It states that courts reject fixed formulas for prima facie cases, favoring flexible, broad approaches to discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 303,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the Tribunal has previously found comparator groups are not always necessary for establishing discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 304,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It discusses the Tribunal's reliance on a case that incorrectly suggested comparator groups are always required, which was later clarified as incorrect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 305,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph explains the context of the Singh case and its relevance to the investigation of discrimination in visa refusal cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 306,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It quotes the algebraic formulation of discrimination from Singh, which was used to justify investigation of certain complaints.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 307,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the Tribunal misunderstood Singh's formulation as a universal test, which was incorrect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 308,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It clarifies that Singh's algebraic formulation was not meant as a definitive test and was described as obiter by the Court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 309,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph states that Singh's formulation indicates discrimination can occur through adverse treatment of family members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 310,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It provides an example from Singh illustrating discrimination through differential treatment based on national or racial origins.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 311,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph agrees that Singh's example was just one illustration and did not limit other forms of discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 312,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It emphasizes that Singh did not preclude other discrimination forms, including treating someone differently based on origin.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 313,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the Tribunal's incorrect reliance on Singh as requiring a comparator group in all cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 314,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It notes that the Singh case did not address whether a comparator group is always required, making the Tribunal's reliance misplaced.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 315,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph discusses recent Supreme Court guidance on comparator groups in section 15 claims, referencing Withler.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 316,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It notes the timing of Withler's decision relative to the Tribunal's decision and its instructive value on comparator groups.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 317,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the appropriateness of importing Charter concepts into human rights law, citing Justice Rowles' dissent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 318,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It states that Charter jurisprudence on comparator groups informs understanding in statutory human rights cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 319,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the analytical frameworks under section 15 and human rights law are converging, citing R. v. Kapp.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 320,
+   "topic": "standard of review: reasonableness",
+   "role": "party_position",
+   "explanation": "It describes how Andrews' approach to discrimination aligns with statutory human rights jurisprudence, referencing Justice McIntyre.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 321,
+   "topic": "Application of comparator approach in discrimination law",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Supreme Court's view on the detrimental effects of a strict comparator approach in discrimination analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 322,
+   "topic": "Mirror comparator group analysis limitations",
+   "role": "legal_test",
+   "explanation": "It summarizes Withler's critique of mirror comparator analysis and emphasizes considering the full context of the claimant's situation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 323,
+   "topic": "Substantive equality and context in section 15(1)",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the core issue is whether the law violates substantive equality, considering the full context and impact on claimants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 324,
+   "topic": "Avoiding formalistic comparator analysis",
+   "role": "legal_test",
+   "explanation": "It cautions against formalistic comparator searches and states the main question is whether the law violates substantive equality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 325,
+   "topic": "Equality as a comparative concept",
+   "role": "legal_test",
+   "explanation": "The paragraph reiterates that equality involves comparison but warns against rigid comparator analysis, advocating full context consideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 326,
+   "topic": "Impact factors in discrimination analysis",
+   "role": "legal_test",
+   "explanation": "It emphasizes impact factors like disadvantage and stereotyping as primary indicators of discrimination, citing Kapp and Withler.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 327,
+   "topic": "No comparator group in some cases",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that some cases, like the present, may lack an appropriate comparator group, especially when no one is like the complainants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 328,
+   "topic": "Unique marginalization of First Nations",
+   "role": "background_facts",
+   "explanation": "It discusses the unique position and marginalization of First Nations within Canada, citing Professor Young's work.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 329,
+   "topic": "Limitations of mirror comparator analysis",
+   "role": "legal_test",
+   "explanation": "The paragraph states that mirror comparator analysis may fail to capture inequality and can hinder discrimination identification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 330,
+   "topic": "Flexibility in subsection 15(1) analysis",
+   "role": "legal_test",
+   "explanation": "It explains that the first stage of analysis does not require a precise comparator, allowing for broader distinctions based on grounds of discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 331,
+   "topic": "Use of circumstantial evidence when no comparator",
+   "role": "evidence_assessment",
+   "explanation": "It states that the probative value of evidence depends on circumstances, and circumstantial evidence can be used when no comparator exists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 332,
+   "topic": "Position of Aboriginal peoples in Canada",
+   "role": "background_facts",
+   "explanation": "It notes that Aboriginal peoples occupy a unique constitutional position and are identified by race for legal purposes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 333,
+   "topic": "Legal recognition of First Nations' unique status",
+   "role": "background_facts",
+   "explanation": "It references the Supreme Court's recognition of the sui generis relationship between the Crown and First Nations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 334,
+   "topic": "Disadvantage of First Nations",
+   "role": "background_facts",
+   "explanation": "It states that First Nations are among the most disadvantaged and marginalized groups in society.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 335,
+   "topic": "Federal services to First Nations",
+   "role": "background_facts",
+   "explanation": "It describes the special services First Nations receive from the federal government, including health and education.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 336,
+   "topic": "No comparator for First Nations' marginalization",
+   "role": "background_facts",
+   "explanation": "It discusses the 'no man\u2019s land' situation where no comparator exists for First Nations' experiences of marginalization.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 337,
+   "topic": "Interpretation of subsection 5(b) for First Nations",
+   "role": "legal_test",
+   "explanation": "It argues that requiring a mirror comparator group for First Nations would be unreasonable and limit their rights, which is not appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 338,
+   "topic": "O\u2019Malley test and relevant factors",
+   "role": "legal_test",
+   "explanation": "It states that the O\u2019Malley test allows consideration of various relevant factors, including historic disadvantage and stereotyping.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 339,
+   "topic": "Charter consistency in interpreting the Act",
+   "role": "legal_test",
+   "explanation": "It emphasizes that legislation should be interpreted consistently with the Charter, and a strict mirror comparator approach is incompatible with Charter values.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 340,
+   "topic": "Interpretation of subsection 5(b) and Charter values",
+   "role": "legal_test",
+   "explanation": "It supports an interpretation of subsection 5(b) that recognizes the sui generis status of First Nations and aligns with Charter values.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 341,
+   "topic": "Repeal of section 67 and its implications",
+   "role": "procedural_history",
+   "explanation": "It discusses the repeal of section 67 of the Canadian Human Rights Act as evidence of Parliament's intent regarding First Nations' discrimination claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 342,
+   "topic": "Content of former section 67",
+   "role": "other",
+   "explanation": "It states that section 67 exempted provisions of the Indian Act from the Act's application.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 343,
+   "topic": "Minister Prentice on repeal of section 67",
+   "role": "procedural_history",
+   "explanation": "It reports Minister Prentice's comments on the significance of repealing section 67, highlighting increased rights for First Nations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 344,
+   "topic": "Government's view on relevance of section 67 repeal",
+   "role": "party_position",
+   "explanation": "It states the government considers the repeal of section 67 irrelevant to the case because it applies only to decisions under the Indian Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 345,
+   "topic": "Federal funding and legal basis",
+   "role": "background_facts",
+   "explanation": "It explains that federal funding for child welfare is based on agreements, not the Indian Act, and thus not affected by section 67.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 346,
+   "topic": "Jurisdiction over child welfare",
+   "role": "background_facts",
+   "explanation": "It states that child welfare falls under provincial jurisdiction, and federal spending power is not limited to federal legislative authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 347,
+   "topic": "Relevance of international law",
+   "role": "legal_test",
+   "explanation": "It argues that Canada's international obligations should be considered in interpreting subsection 5(b), and the Tribunal erred in ignoring them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 348,
+   "topic": "International human rights instruments",
+   "role": "evidence_assessment",
+   "explanation": "It details the international instruments cited by Amnesty International that are relevant to interpreting section 5(b).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 349,
+   "topic": "UNDRIP and indigenous rights",
+   "role": "background_facts",
+   "explanation": "It notes that UNDRIP, endorsed by Canada, reflects international norms on indigenous peoples' rights and informs interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 350,
+   "topic": "International law and domestic legislation",
+   "role": "legal_test",
+   "explanation": "It states that Canadian courts presume legislation complies with international law and will interpret laws to avoid breaches.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 351,
+   "topic": "Interpretation consistent with international obligations",
+   "role": "legal_test",
+   "explanation": "It emphasizes that interpretation should reflect international norms, citing relevant cases and principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 352,
+   "topic": "Rebuttable presumption of international law compliance",
+   "role": "legal_test",
+   "explanation": "It notes that the presumption of compliance with international law can be rebutted only with clear legislative intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 353,
+   "topic": "International instruments informing interpretation",
+   "role": "legal_test",
+   "explanation": "It states that instruments like UNDRIP can inform the interpretation of statutes, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 354,
+   "topic": "Preference for interpretation reflecting international law",
+   "role": "legal_test",
+   "explanation": "It advocates for interpreting legislation in a manner consistent with international norms and principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 355,
+   "topic": "International obligations and interpretation of subsection 5(b)",
+   "role": "reasoning_application",
+   "explanation": "It concludes that the Tribunal's interpretation is unreasonable and that the Court's interpretation better aligns with Canada's international obligations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 356,
+   "topic": "Arguments on international law obligations",
+   "role": "other",
+   "explanation": "It states that some arguments about Canada's international obligations are more relevant to the merits and need not be addressed here.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 357,
+   "topic": "Focus on wording of subsection 5(b)",
+   "role": "issue_framing",
+   "explanation": "It emphasizes that the Court's focus must be on the wording of subsection 5(b) regarding adverse differentiation on prohibited grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 358,
+   "topic": "Meaning of 'differentiate adversely'",
+   "role": "issue_framing",
+   "explanation": "It explains that 'differentiate adversely' means treating someone differently based on a prohibited ground.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 359,
+   "topic": "Unreasonableness of Tribunal's comparator requirement",
+   "role": "reasoning_application",
+   "explanation": "It states that requiring a comparator group in every case contradicts the purpose and language of the Act and is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 360,
+   "topic": "Consequences of Tribunal's interpretation",
+   "role": "reasoning_application",
+   "explanation": "It argues that the Tribunal's interpretation would deny protections to victims of discrimination who cannot find a comparator, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 361,
+   "topic": "Legal_test",
+   "role": "party_position",
+   "explanation": "The Tribunal's interpretation contradicts Federal Court of Appeal and Supreme Court decisions on discrimination evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 362,
+   "topic": "Legal_test",
+   "role": "party_position",
+   "explanation": "The Tribunal's interpretation conflicts with case law recognizing that comparator groups are not always necessary for equality claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 363,
+   "topic": "Legal_test",
+   "role": "party_position",
+   "explanation": "An interpretation requiring mirror comparator groups would exclude First Nations from protections, which is unreasonable and inconsistent with law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 364,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph introduces the final issue for consideration.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 365,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal concluded that no appropriate comparator group existed, leading to dismissal of the complaint.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 366,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the Tribunal erred by not considering material evidence about comparator groups.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 367,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court concludes the Tribunal failed to address relevant submissions, making its decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 368,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal's decision involved a factual determination that no comparator existed, reviewable on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 369,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal wrongly decided it could not compare services provided by federal and provincial governments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 370,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal's interpretation of subsection 5(b) limits comparisons to within a single provider, which the Court finds restrictive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 371,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal believed cross-jurisdictional comparisons could lead to unfair treatment and future claims, which the Court questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 372,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal's finding of no comparator was a mixed fact and law determination, reviewable on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 373,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the Tribunal erred by not considering the Government's use of provincial standards as a relevant comparator.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 374,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The Government of Canada adopts provincial standards for First Nations child welfare programs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 375,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The Manual states the program's primary objective is to meet provincial standards for First Nations children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 376,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Directive 20-1 commits to expanding services to levels comparable to off-reserve services, using similar language as historical agreements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 377,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The complaint addressed the government's commitment to provincial standards, debated during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 378,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The Tribunal recognized the program aims to meet provincial standards but did not analyze its implications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 379,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal failed to consider the significance of the government's standards adoption, affecting its reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 380,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The government claims referencing provincial standards is merely a financial accountability measure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 381,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court notes the importance of the government's choice in standards as part of the context, per case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 382,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The funding arrangements are complex, and the record lacked sufficient detail on standards and delivery.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 383,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Tribunal must decide the implications of the government's standards choice with a fuller record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 384,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court warns against the view that no external comparative evidence is ever relevant for discrimination claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 385,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Expert evidence on market rates or pay disparities can be relevant in discrimination cases, the Court states.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 386,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The probative value of such evidence must be evaluated, but it can be relevant to discrimination claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 387,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Statistical evidence is useful for identifying discrimination, and relevant beyond the respondent's own workforce.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 388,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "An example of statistical comparison showing under-representation of women in certain positions is provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 389,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Discrimination often involves circumstantial evidence and trends beyond direct proof, as noted in case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 390,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph discusses the need to look beyond respondent actions to detect subtle discrimination.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 391,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Court concludes the Tribunal's process was unfair because it considered extrinsic material improperly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 392,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Tribunal erred by not providing reasons for dismissing the complaint under subsection 5(a).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 393,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Tribunal wrongly required a comparator group in every case to establish discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 394,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Tribunal erred by not considering the government's use of provincial standards as a relevant comparator.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 395,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The applications are granted, the Tribunal's decision is set aside, and the matter is remitted for re-determination.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,403 @@
+{
+ "case_id": 26946,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 55,
+ "tagged_count": 55,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8175,
+  "completion_tokens": 3159,
+  "usd": 0.0020811
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of a decision made by an immigration counsellor regarding inadmissibility due to misrepresentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background information about the applicants' citizenship, the principal applicant, and his profession.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the hiring of an unqualified immigration consultant to prepare the application and the receipt of the application in Damascus.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the principal applicant was unaware of the fraudulent IELTS test result included in his application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes that the applicant signed the application but was not allowed to review its contents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the transfer of the application to Warsaw and the subsequent request for updated information from the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the Fairness Letter and the applicant's response claiming ignorance of the false document and victimization by the consultant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the officer found the explanation uncredible and that the counsellor accepted the inadmissibility decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes the relevant law regarding inadmissibility for misrepresentation and raises a preliminary question about evidence consideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the respondent's argument that new evidence should be struck and the court's agreement not to rely on it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues to be decided: reasonableness of the misrepresentation conclusion, its materiality, and knowledge requirement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that misrepresentation is a mixed fact and law issue, reviewable on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the question of knowledge in section 40(1)(a) is a legal interpretation to be reviewed reasonably.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicant's argument that the false document was not an IELTS test report and was not a misrepresentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's view that the false document was intended to mislead and thus constitutes a misrepresentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the false document was designed to imitate an IELTS report and was intended to mislead, supporting reasonableness of the misrepresentation conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants argue that the misrepresentation was not material because it did not affect the process, citing a manual.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants cite a case where a fraudulent document was deemed immaterial, arguing similar logic applies here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants claim the officer misled them about the false document, which was not an IELTS test result, and this affects materiality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants argue the officer erred in finding their response implausible, given the fraudulent nature of the consultant's actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the false document was material because it was the only evidence of language proficiency and affected the process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the interpretation of the law should consider its wording and purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes broad interpretation of section 40(1)(a) to deter misrepresentation and include falsehoods made unknowingly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph confirms that the false document was relevant and could have induced an error in the application process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The court states that a misrepresentation is material if it can influence the process, even if not decisive, and finds this one was material.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the timing of the misrepresentation does not affect its materiality, which remains relevant throughout processing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph distinguishes this case from others where the fraudulent document was irrelevant or the facts differed, affirming relevance here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court concludes the false document was a material misrepresentation under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph introduces the question of whether knowledge of the misrepresentation is required for inadmissibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants argue that subjective knowledge is necessary for inadmissibility, citing a case with a factual scenario.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses a case where lack of knowledge did not prevent inadmissibility, but notes the case's unusual facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that misrepresentation can occur without knowledge, citing legal authority, and the Osisanwo case is not binding here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph references a case where lack of knowledge did not prevent inadmissibility, but the facts differ from this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes a legal authority emphasizing broad interpretation of section 40 and exceptions for honest, reasonable beliefs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the narrowness of exceptions to the knowledge requirement, emphasizing the importance of honest belief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the exception is narrow and depends on honest, reasonable belief of no misrepresentation, which was not present here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that foreign nationals have a duty of candour and must answer truthfully and produce relevant documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes the purpose of section 40(1)(a) to ensure honesty and that silence can also be a misrepresentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that applicants must ensure documents are complete and accurate, with exceptions only for honest, reasonable beliefs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph concludes that the applicants blame their consultant but this does not exempt them from misrepresentation liability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court adopts the respondents' argument that signed applications make the applicant responsible for their contents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court references Justice Mosley's comments in Haque for guidance on the issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court explains that misrepresentation defenses are limited and that ignorance or third-party fault is not a valid defense under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court finds that procedural fairness was satisfied as the applicants received a Fairness Letter and responded minimally, which was adequate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court notes the officer reasonably found the applicants' response not credible and that no further inquiry was required.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the standard of correctness for questions of central importance outside an adjudicator's expertise, citing Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court suggests applicants should verify consultant advice with officials before signing applications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court states that the reasonableness standard applies to the interpretation of s. 50(5) PIPA, as it involves the interpretation of the Commissioner's own statute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court clarifies that the applicants had a duty of candour, which they failed to meet, and the screening officer owed no duty of care.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court finds procedural fairness was satisfied as the officer identified issues with the false document and advised the applicants accordingly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court emphasizes that fraud by consultants does not provide a defense and that applicants can be inadmissible for misrepresentations by others without knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application and states no question of general importance is certified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court presents the certified question regarding inadmissibility without knowledge of a material fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court considers whether responsibility for supporting documentation extends to applicants unaware of its contents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court concludes the question is already settled law and declines to certify it, citing jurisprudence on questions of law of general importance.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

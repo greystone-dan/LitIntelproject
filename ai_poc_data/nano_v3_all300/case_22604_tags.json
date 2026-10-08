@@ -1,0 +1,200 @@
+{
+ "case_id": 22604,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4324,
+  "completion_tokens": 1554,
+  "usd": 0.001054
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the application is for judicial review of a refugee board decision, describing the applicant's nationality and claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "It summarizes the Board's findings that the applicant did not rebut presumption of state protection and had an internal flight alternative, leading to this review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's personal history and alleged threats and violence from gangs in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes specific incidents of violence and theft experienced by the applicant and her family in San Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "States the family\u2019s fear of reporting crimes and the perceived inability of police to protect them, with increasing gang violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Outlines the applicant's movements from El Salvador to the US and then to Canada, and her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the Board's conclusion that the applicant is neither a Convention refugee nor in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes the Board's reasoning that El Salvador has functioning security forces and is making efforts to combat gangs, thus rebutting the presumption of lack of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes the Board's recognition of ongoing gang problems but its conclusion that the applicant did not prove the government would be unable or unwilling to protect her.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the Board's finding that the applicant has a reasonable internal flight alternative and that her family\u2019s incidents were not sufficiently linked to gangs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "Lists the issues raised by counsel: the Board's consideration of evidence, the applicant's risk as a woman, and the section 97 analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Discusses the deferential standard of reasonableness for tribunal findings, especially regarding state protection and internal flight alternatives, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that the reasonableness standard applies to mixed fact and law questions about state protection, citing relevant decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Confirms that reasonableness applies to internal flight alternative assessments, which involve factual findings against legal criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains that reasonableness involves justification, transparency, and falls within an acceptable range of outcomes, with limited grounds for overturning factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that the applicant's argument about the effectiveness of state protection efforts is unsupported by case law and based on a false premise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Summarizes the presumption of state protection and the burden on the claimant to prove inability to protect with clear and convincing evidence, citing Ward.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Describes the burden of proof on the applicant to demonstrate inadequate protection, requiring evidence that meets the standard of proof, citing FCA cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "References a summary of the law on state protection from a previous case, setting the legal context for the analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Discusses the Board's consideration of evidence regarding state protection efforts and the reasonableness of its conclusions, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "States that the Board's weighing of evidence was reasonable and that not all evidence was relevant or current, but the overall assessment was proper.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes the applicant's failure to seek protection and the Board's reasonable conclusion that protection was available and adequate, based on the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "States the Board's finding of an internal flight alternative and the lack of evidence of risk in San Salvador, which are reasonable conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Concludes that the Board's failure to conduct a separate section 97 analysis was correct because there was no personalized risk established, especially as a woman.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains that general violence risk does not establish a personalized risk to the applicant, and the Board's omission was not an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "States that the application for judicial review is dismissed and no questions are certified for appeal.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

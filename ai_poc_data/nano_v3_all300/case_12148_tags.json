@@ -1,0 +1,158 @@
+{
+ "case_id": 12148,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 20,
+ "tagged_count": 20,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3474,
+  "completion_tokens": 1233,
+  "usd": 0.0008406000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and affirms the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states it will review the reasonableness of the RAD's decision and the credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr. Dowansingh claims he was attacked for not voting and reported it to the police, but no action was taken.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD identified irregularities in the applicants' narrative that undermined their credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD noted inconsistencies in the timing of visits and the applicants' residence after the alleged attack.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD found the police letter to be untrustworthy due to several deficiencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court discusses whether the RAD independently assessed the police letter and the importance of such assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that the RAD must independently assess documents and cites relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes that the RAD reviewed the police report and shared the RPD's concerns about its authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states that detailed reasons about key issues support the conclusion of independent assessment by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that succinct acknowledgment of obvious issues can suffice when findings are well-articulated.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court describes when more detailed reasoning is required for independent assessment, especially with complex evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the RAD reviewed the police letter evidence and shared the RPD's concerns, indicating independent review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes that credibility findings extend beyond the police report and include other factors like delay and implausibilities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the negative credibility findings apply to both sections 96 and 97, affecting the claim's validity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RPD found the police report untrustworthy due to inconsistencies, and the RAD agreed with this assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court cites case law that the RAD can recognize RPD credibility conclusions but is not limited to 'palpable and overriding errors'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue the RAD should have been less deferential and reviewed credibility findings more thoroughly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court states that the RAD's deference was appropriate given the inconsistencies in the applicants' narrative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and affirms the RAD's decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

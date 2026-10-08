@@ -1,0 +1,109 @@
+{
+ "case_id": 2220,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 13,
+ "tagged_count": 13,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2432,
+  "completion_tokens": 702,
+  "usd": 0.000524
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's life circumstances and the basis of her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It states the Board's decision date and the Applicant's request for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Summarizes the Board's key findings and reasoning regarding the credibility and state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses whether the Board erred in law regarding the Applicant's attempt to access state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States the Applicant's argument that she was not obliged to seek protection due to her belief about police collusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "References legal standards and case law regarding the standard of patent unreasonableness for factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Explains the Court's view on the reasonableness of considering whether it was expected for the claimant to seek protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Describes the Applicant's burden to rebut the presumption of available state protection and the objective test involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Summarizes the Supreme Court's approach to when failure to seek protection can be held against a claimant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Analyzes the Applicant's subjective belief versus the objective standard for state protection availability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the Board's conclusion reasonable based on the evidence and the Applicant's failure to rebut the presumption.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that the application is dismissed because the Board's findings were reasonable despite some procedural issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Notes that no questions were certified for review.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

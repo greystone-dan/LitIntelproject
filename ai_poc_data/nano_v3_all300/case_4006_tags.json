@@ -1,0 +1,347 @@
+{
+ "case_id": 4006,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 47,
+ "tagged_count": 47,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8946,
+  "completion_tokens": 2710,
+  "usd": 0.0019786
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the applicant, his nationality, and the court's review of the RAD decision on his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the applicant's two main grounds for appeal and the issue of reasonableness of the RAD's findings on IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph clarifies that the only issue is the reasonableness of the RAD's findings on Mr. Singh's IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, affirming the RAD's decision as reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details Mr. Singh's political involvement and his claims about his political profile.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the arrest, torture, and flight of Mr. Singh\u2019s brother from India to Australia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts Mr. Singh's political role and police questioning about his brother, leading to his decreased involvement in politics.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph narrates Mr. Singh's arrest, torture, and flight from India to Canada with the help of an immigration agent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the RPD's rejection of Mr. Singh's claim and the RAD's dismissal of his appeal, which is under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the key issue is whether the RAD's findings on Mr. Singh's IFA are reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the two-prong test for IFA, referencing relevant case law and legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph summarizes the RAD's conclusion that Mr. Singh would not be persecuted in Bangalore or Mumbai based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the RAD's reasoning regarding Mr. Singh's ability to leave India and his lack of criminal charges.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph reviews the RAD's consideration of police databases and their reliability in India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD's conclusion that Mr. Singh's personal circumstances do not make relocation unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that Mr. Singh failed to meet his burden to prove unreasonable risk or difficulty in relocating.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness is the standard of review for RAD's findings on IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the presumption of reasonableness review following Vavilov and exceptions to it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph confirms that the RAD's decision is reviewable on reasonableness and parties agree.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the content of reasonableness review, including examining the reasons and decision's justification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that reasons must justify the outcome and be transparent and intelligible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that courts should respect the decision maker's reasoning and intervene only if irrational or arbitrary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that courts intervene only in exceptional cases where the decision-maker misapprehended evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses Mr. Singh's argument that the RAD ignored nuanced evidence about police practices in India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the court's disagreement with Mr. Singh's argument and affirms the RAD's proper procedure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews the legal principles for assessing the viability of an IFA, emphasizing the last resort nature of refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the RAD's conclusion that Mr. Singh is not at serious risk in Bangalore or Mumbai reasonable based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD considered evidence about police checks and Mr. Singh\u2019s departure, and was not persuaded by his claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph details the RAD's review of evidence about police databases, the tenant registration system, and Mr. Singh's ability to leave India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph assesses the evidence regarding the tenant registry and police information systems in India, finding them unreliable or limited.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph concludes that Mr. Singh does not have the profile of a wanted criminal, based on the evidence about police systems.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the RAD's conclusions are factual, based on evidence, and within its expertise, warranting deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the RAD considered Mr. Singh\u2019s specific fears and circumstances, and reasonably concluded he would not be targeted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the RAD reasonably concluded Mr. Singh's profile does not warrant police searches in India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports Mr. Singh's argument that his public figure status increases his risk of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds no evidence that Mr. Singh\u2019s public status puts him at risk, and the RAD reasonably concluded he would not be persecuted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that minor omissions in referencing evidence do not justify court intervention, and reasons need not be perfect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains that the decision maker is presumed to have considered all evidence unless contrary is shown.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that the court should not reweigh evidence but accept the RAD's reasoning as reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RAD reasonably found relocation to Bangalore or Mumbai not unreasonable for Mr. Singh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The RAD considered Mr. Singh's profile and recent evidence, concluding he could find work in identified IFAs, showing careful case analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "legal_test",
+   "role": "party_position",
+   "explanation": "The paragraph states the legal burden of proving an IFA is unreasonable and the need for concrete evidence, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses the importance of reasons in administrative decisions, citing Vavilov and related case law, establishing legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's reasons justified, transparent, and logical, demonstrating proper reasoning and legal compliance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "issue_framing",
+   "role": "reasoning_application",
+   "explanation": "The court assesses whether the decision was unreasonable or flawed, concluding the reasoning was sound and free of fatal flaws.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming the reasonableness of the RAD's decision and finding no errors warranting intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court notes no questions of general importance are proposed for certification, and agrees.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

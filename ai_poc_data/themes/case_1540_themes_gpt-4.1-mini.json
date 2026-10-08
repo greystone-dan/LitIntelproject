@@ -1,0 +1,174 @@
+{
+ "case_id": 1540,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1-mini",
+ "usage": {
+  "prompt_tokens": 5975,
+  "completion_tokens": 733,
+  "usd": 0.0035628
+ },
+ "verification": {
+  "arguments": 5,
+  "quotes_verified": 2,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The court allowed the judicial review application, setting aside the Appeal Division's decision granting leave to appeal because it contained serious legal errors and lacked transparency in its reasoning.",
+  "themes": [
+   {
+    "name": "Judicial Review and Standard of Review",
+    "summary": "The court reviews the Appeal Division's decision for reasonableness, focusing on justification, transparency, and intelligibility.",
+    "paragraphs": [
+     25,
+     26,
+     27,
+     28,
+     29
+    ]
+   },
+   {
+    "name": "Legal Requirements for Disability Benefits",
+    "summary": "Applicants must prove a severe and prolonged disability existing on or before the MQP with objective medical evidence.",
+    "paragraphs": [
+     16,
+     18,
+     19,
+     20,
+     38,
+     39,
+     40,
+     41
+    ]
+   },
+   {
+    "name": "Appeal Division's Grounds and Decision on Leave to Appeal",
+    "summary": "The Appeal Division may grant leave to appeal only on specific grounds and must provide clear reasons for its decision.",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     31,
+     32,
+     33,
+     34,
+     35,
+     47,
+     48,
+     49,
+     50,
+     51
+    ]
+   },
+   {
+    "name": "Errors in Appeal Division's Decision",
+    "summary": "The Appeal Division erred in law by misinterpreting the requirement for medical evidence and failed to provide transparent reasons.",
+    "paragraphs": [
+     37,
+     38,
+     39,
+     40,
+     41,
+     43,
+     44,
+     45,
+     46,
+     48,
+     49,
+     50,
+     51,
+     53
+    ]
+   },
+   {
+    "name": "Transparency in Administrative Decision-Making",
+    "summary": "Transparency requires clear, understandable reasons to allow affected parties and courts to understand and review decisions.",
+    "paragraphs": [
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     53
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "respondent",
+    "claim": "The Appeal Division correctly granted leave to appeal based on a possible error of law by the General Division.",
+    "treatment": "rejected",
+    "authority": "",
+    "paragraphs": [
+     21,
+     23,
+     37,
+     38
+    ],
+    "quote": "the Appeal Division concluded that the General Division \u201cmay have erred in law, and this requires intervention by the Appeal Division\u201d.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The General Division made no error of law and the Appeal Division was incorrect to grant leave to appeal.",
+    "treatment": "accepted",
+    "authority": "Brennan v Attorney General of Canada, 2011 FCA 318",
+    "paragraphs": [
+     37,
+     38
+    ],
+    "quote": "The Appeal Division was incorrect to conclude that the General Division erred in law on this issue.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "A claimant must provide objective medical evidence of disability on or before the MQP to qualify for benefits.",
+    "treatment": "accepted",
+    "authority": "Gholipour v Canada (Attorney General), 2017 FCA 99",
+    "paragraphs": [
+     39,
+     40,
+     41
+    ],
+    "quote": "a claimant must provide objective medical evidence to support a finding of disability on or before the MQP in order to qualify for disability benefits.",
+    "quote_verified": false
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Appeal Division's decision lacked transparency and did not clearly explain the legal error it found.",
+    "treatment": "accepted",
+    "authority": "Vavilov; Vancouver Airport Authority v PSAC; Romania v Boros",
+    "paragraphs": [
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     53
+    ],
+    "quote": "the Appeal Division\u2019s reasons did not sufficiently communicate what it decided and why.",
+    "quote_verified": false
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The Appeal Division's decision must be set aside due to serious shortcomings undermining its reasoning and outcome.",
+    "treatment": "accepted",
+    "authority": "Vavilov",
+    "paragraphs": [
+     52,
+     53,
+     54
+    ],
+    "quote": "shortcomings in the Appeal Division\u2019s decision are sufficiently serious to undermine both the reasoning and the outcome.",
+    "quote_verified": false
+   }
+  ]
+ }
+}

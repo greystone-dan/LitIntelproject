@@ -1,0 +1,207 @@
+{
+ "case_id": 18729,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 27,
+ "tagged_count": 27,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5142,
+  "completion_tokens": 1509,
+  "usd": 0.0011178
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court states the case is an application for judicial review of a Board decision rejecting the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Dispositional summary",
+   "role": "disposition",
+   "explanation": "The court indicates the application for judicial review will be dismissed based on its findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a Nigerian who left Nigeria in 1991, returned in 2007, and was deported from the U.S. after being an illegal resident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant fathered children in the U.S., was convicted of forgery and fraud, and served probation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims political persecution, family violence, and fleeing Nigeria after threats, using a fraudulent passport to enter Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant not credible due to inconsistent and implausible statements about his political involvement and activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that the Board's credibility assessment was reasonable given the inconsistencies and contradictions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court summarizes the four issues raised, including standard of review and credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court states that the standard of proof under s. 97 is a question of law to be reviewed for correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Procedural fairness issues are reviewed for correctness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Credibility assessments are questions of fact, reviewed under the reasonableness standard, with supporting case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The applicant's argument about the standard of proof is dismissed as without merit, clarifying the applicable standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court explains that the standard of proof is on a balance of probabilities for sections 96 and 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court confirms that the legal test for danger under s. 97 is also on a balance of probabilities, with a detailed explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's conclusion that the applicant does not face a risk on the balance of probabilities was correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Procedural fairness",
+   "role": "party_position",
+   "explanation": "The applicant's counsel claims the Board failed to confront the applicant with inconsistencies about his employment and hiding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the Board had no duty to confront the applicant about discrepancies, given the evidence and context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph introduces the credibility assessment based on inconsistencies in the applicant's evidence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The jurisprudence supports that cumulative inconsistencies can undermine credibility, which the Board reasonably found.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board reasonably inferred lack of credibility from contradictions and discrepancies, supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's credibility assessment was justified by common sense, implausibility, and rationality considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's overall credibility finding was reasonable given the contradictions and inconsistencies in the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board reasonably gave little weight to documents based on the availability of false documents and the applicant's credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's negative inference from the applicant's failure to declare children was justified by his dishonesty and false statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's overall credibility assessment was reasonable and supported by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and notes no question for certification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Dispositional summary",
+   "role": "disposition",
+   "explanation": "The court states that the cumulative credibility concerns justify dismissing the claim due to lack of credible evidence.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

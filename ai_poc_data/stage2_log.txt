@@ -1,0 +1,72 @@
+[A] start 11:35:00 ledger=0.0463
+== A v3_nano (gpt-4.1-nano) 11:35:00
+{"case_id": 126, "status": "complete", "tagged": 22, "of": 22, "usd": 0.0007490000000000001}
+{"case_id": 1292, "status": "complete", "tagged": 52, "of": 52, "usd": 0.0020906}
+{"case_id": 1540, "status": "complete", "tagged": 56, "of": 56, "usd": 0.0020597000000000002}
+{"case_id": 1046, "status": "complete", "tagged": 21, "of": 21, "usd": 0.0009010000000000001}
+{"case_id": 1147, "status": "complete", "tagged": 43, "of": 43, "usd": 0.0018718}
+{"case_id": 62, "status": "complete", "tagged": 61, "of": 61, "usd": 0.0033737000000000003}
+{"run": "v3_nano", "model": "gpt-4.1-nano", "cases": 6, "spent_total_usd": 0.0573, "statuses": {"complete": 6}}
+== A v3_mini (gpt-4.1-mini) 11:36:12
+{"case_id": 126, "status": "complete", "tagged": 22, "of": 22, "usd": 0.0029560000000000003}
+{"case_id": 1292, "status": "complete", "tagged": 52, "of": 52, "usd": 0.0077488}
+{"case_id": 1540, "status": "complete", "tagged": 56, "of": 56, "usd": 0.007590000000000001}
+{"case_id": 1046, "status": "complete", "tagged": 21, "of": 21, "usd": 0.0032744000000000002}
+{"case_id": 1147, "status": "complete", "tagged": 43, "of": 43, "usd": 0.0070784}
+{"case_id": 62, "status": "complete", "tagged": 61, "of": 61, "usd": 0.012725199999999999}
+{"run": "v3_mini", "model": "gpt-4.1-mini", "cases": 6, "spent_total_usd": 0.0987, "statuses": {"complete": 6}}
+== A v3_gpt41 (gpt-4.1) 11:36:54
+{"case_id": 126, "status": "complete", "tagged": 22, "of": 22, "usd": 0.01458}
+{"case_id": 1292, "status": "complete", "tagged": 52, "of": 52, "usd": 0.038948}
+{"case_id": 1540, "status": "complete", "tagged": 56, "of": 56, "usd": 0.037218}
+{"case_id": 1046, "status": "complete", "tagged": 21, "of": 21, "usd": 0.017372}
+{"case_id": 1147, "status": "complete", "tagged": 43, "of": 43, "usd": 0.036334}
+{"case_id": 62, "status": "complete", "tagged": 61, "of": 61, "usd": 0.065664}
+{"run": "v3_gpt41", "model": "gpt-4.1", "cases": 6, "spent_total_usd": 0.3088, "statuses": {"complete": 6}}
+== score_roles 11:37:45
+{"run_dir": "C:\\Users\\danny\\ilit_poc_out\\nano_v2_slice", "right": 34, "of": 60, "accuracy": 0.567}
+{"run_dir": "C:\\Users\\danny\\ilit_poc_out\\v3_nano", "right": 38, "of": 60, "accuracy": 0.633}
+{"run_dir": "C:\\Users\\danny\\ilit_poc_out\\v3_mini", "right": 48, "of": 60, "accuracy": 0.8}
+{"run_dir": "C:\\Users\\danny\\ilit_poc_out\\v3_gpt41", "right": 52, "of": 60, "accuracy": 0.867}
+[B] start 11:37:45 ledger=0.3088
+== B themes_gpt-4.1-mini 11:37:45
+{"case_id": 126, "model": "gpt-4.1-mini", "usd": 0.0024, "arguments": 8, "quotes_verified": 8, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1540, "model": "gpt-4.1-mini", "usd": 0.0036, "arguments": 5, "quotes_verified": 2, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1147, "model": "gpt-4.1-mini", "usd": 0.0041, "arguments": 4, "quotes_verified": 3, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1046, "model": "gpt-4.1-mini", "usd": 0.0025, "arguments": 4, "quotes_verified": 3, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1292, "model": "gpt-4.1-mini", "usd": 0.0038, "arguments": 4, "quotes_verified": 4, "paragraph_numbers_not_in_decision": 0}
+{"spent_total_usd": 0.3251}
+== B themes_gpt-4.1 11:38:18
+{"case_id": 126, "model": "gpt-4.1", "usd": 0.0112, "arguments": 7, "quotes_verified": 5, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1540, "model": "gpt-4.1", "usd": 0.0184, "arguments": 5, "quotes_verified": 4, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1147, "model": "gpt-4.1", "usd": 0.0209, "arguments": 6, "quotes_verified": 6, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1046, "model": "gpt-4.1", "usd": 0.0115, "arguments": 3, "quotes_verified": 3, "paragraph_numbers_not_in_decision": 0}
+{"case_id": 1292, "model": "gpt-4.1", "usd": 0.0185, "arguments": 3, "quotes_verified": 3, "paragraph_numbers_not_in_decision": 0}
+{"spent_total_usd": 0.4055}
+== B themes_gpt-5-mini 11:39:06
+  File "<frozen runpy>", line 88, in _run_code
+  File "scripts/ai_poc/extract_themes.py", line 116, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "scripts/ai_poc/extract_themes.py", line 104, in main
+    data, usage = call_json(client, ledger, run=args.run, model=args.model, messages=messages, schema_name="themes_arguments",
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\danny\ilit_poc\scripts\ai_poc\common.py", line 128, in call_json
+    raise RuntimeError(f"{label}: failed after {attempts} attempts: {last_error}")
+RuntimeError: themes case 126: failed after 4 attempts: TypeError: Completions.create() got an unexpected keyword argument 'max_completion_tokens'
+[C] ledger before C = 0.4055
+== C nano_v3_all300 11:39:40
+{"case_id": 32742, "status": "complete", "tagged": 48, "of": 48, "usd": 0.0019205000000000001}
+{"case_id": 32828, "status": "complete", "tagged": 38, "of": 38, "usd": 0.0015357}
+{"case_id": 32919, "status": "complete", "tagged": 43, "of": 43, "usd": 0.0015865000000000002}
+{"case_id": 33096, "status": "complete", "tagged": 91, "of": 91, "usd": 0.003673}
+{"case_id": 33110, "status": "complete", "tagged": 20, "of": 20, "usd": 0.0009262000000000001}
+{"case_id": 33156, "status": "complete", "tagged": 14, "of": 14, "usd": 0.0006001000000000001}
+{"case_id": 33231, "status": "complete", "tagged": 18, "of": 18, "usd": 0.0006945}
+{"case_id": 33287, "status": "complete", "tagged": 11, "of": 11, "usd": 0.0004921000000000001}
+{"case_id": 33288, "status": "complete", "tagged": 19, "of": 19, "usd": 0.0008662}
+{"case_id": 33549, "status": "complete", "tagged": 41, "of": 41, "usd": 0.0013105}
+{"case_id": 34061, "status": "complete", "tagged": 26, "of": 26, "usd": 0.0010840000000000001}
+{"run": "nano_v3_all300", "model": "gpt-4.1-nano", "cases": 300, "spent_total_usd": 0.9274, "statuses": {"complete": 300}}
+ledger final = 0.9274
+STAGE2_DONE

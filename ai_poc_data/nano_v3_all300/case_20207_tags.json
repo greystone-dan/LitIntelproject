@@ -1,0 +1,298 @@
+{
+ "case_id": 20207,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 40,
+ "tagged_count": 40,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5017,
+  "completion_tokens": 2037,
+  "usd": 0.0013165
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court describes the refugee board's decision and the basis for the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court states that the application for judicial review is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's life, allegations, and events leading to his fleeing Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant's reasons for fleeing Mexico and arriving in Canada are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's focus on state protection and its findings about the applicant's efforts are described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion that the applicant did not take all reasonable steps to seek protection is explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's finding that the applicant's allegation about Los Zetas membership was speculative is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's assessment of the credibility of the applicant's responses regarding police effectiveness is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's review of documentary evidence about Mexico's efforts to address crime and corruption is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion that the applicant failed to rebut the presumption of state protection is explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The issues and standard of review to be considered are outlined.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The standard of reasonableness for credibility and evidence assessment is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The reviewability of the Board's conclusions on state protection and evidence is explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The principles of reasonableness review, including transparency and range of outcomes, are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Argument and analysis",
+   "role": "reasoning_application",
+   "explanation": "The applicant's argument that the Board's findings on credibility were unreasonable is introduced.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant's claim that the Board did not find any negative credibility is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The respondent's position that the Board made an adverse credibility finding is explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's argument that the Board erred in assessing membership in Los Zetas is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent's view that the applicant's evidence was not sufficiently persuasive is described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The details of the applicant's testimony about police identification are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Board's role as fact-finder and that it considered the evidence properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's argument that the jurisdictional finding was incorrect is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's testimony about seeking police advice in Los Choapas is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent's view on the applicant's uncertain testimony about jurisdiction is explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The reasonableness of the Board's conclusion about filing a complaint in Minatitlan is discussed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "A legal citation supporting the reasonableness of jurisdictional findings is provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court explains that even if the jurisdictional finding was unreasonable, it would not be fatal to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's argument that he took all reasonable steps is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's testimony about seeking police advice and reasons for not going to the police are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent's argument that the applicant's reasons were not convincing is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The legal burden on the applicant to rebut the presumption of state protection is explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's evidence about similarly threatened individuals is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent's view that the evidence was not detailed or consistent is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The details of the applicant's testimony about other threatened individuals and police response are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the evidence does not establish the inability of the state to protect, and finds no reviewable error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's claim that the Board erred in considering evidence is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent's argument that the Board's weighing of evidence was reasonable is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent's assertion that the Board thoroughly reviewed evidence and no error was found is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court states that no question for certification is proposed or arises.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The application for judicial review is dismissed based on the reasons above.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

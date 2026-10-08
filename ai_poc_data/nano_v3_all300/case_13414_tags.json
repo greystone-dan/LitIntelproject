@@ -1,0 +1,130 @@
+{
+ "case_id": 13414,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 16,
+ "tagged_count": 16,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6241,
+  "completion_tokens": 1512,
+  "usd": 0.0012289
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the Applicant's personal background and clan affiliation in Somalia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the Applicant's experience of violence, fleeing Somalia, and arriving in Canada seeking protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the refugee claim's rejection, the appeal, and the current judicial review application, including decisions by the RPD and RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the new evidence submitted by the Applicant and the RAD's decision to exclude it as inadmissible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the RAD's reasoning that the Applicant failed to produce sufficient secondary evidence to establish her identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RAD's view that the Applicant could have obtained evidence from relatives or authorities but did not do so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RAD's assessment of the SIAO letter and its concerns about its reliability and content.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the RAD's view that the witness testimony was of little probative value and that it reached the same conclusion as the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the RAD's conclusion that the Applicant failed to provide credible evidence of her identity, based on multiple deficiencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph points out the RAD's mistaken reasoning about the Applicant's possible citizenship based on the SIAO letter and record discrepancies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph criticizes the RAD's speculation about the Applicant obtaining citizenship after last contact with the witness, which is unsupported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph points out the RAD's misstatement about the sale of the farm and animals, which is not supported by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses additional typographical errors in the RAD's decision regarding the Applicant's identity and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's decision to grant the application, set aside the RAD's decision, and return the matter for re-determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "RAD credibility finding on identity documents",
+   "role": "reasoning_application",
+   "explanation": "The RAD concludes the witness's evidence only confirms identity and clan affiliation, not nationality or citizenship status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "RAD credibility finding on identity documents",
+   "role": "reasoning_application",
+   "explanation": "The RAD concludes the witness evidence has little probative value for establishing identity and nationality due to credibility concerns.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

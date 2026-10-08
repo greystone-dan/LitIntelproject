@@ -1,0 +1,382 @@
+{
+ "case_id": 1292,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 52,
+ "tagged_count": 52,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8578,
+  "completion_tokens": 2978,
+  "usd": 0.002049
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application because the RAD's decision was unreasonable due to errors in assessing evidence and corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states it will synthesize case law on the requirement for corroboration in refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Senadheerage's background and his claim of asylum based on persecution in Sri Lanka.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details Mr. Senadheerage's arrest, beating, and subsequent agreement to cooperate with Sri Lankan police.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes threats and his family's relocation, leading to his flight to the United States and then Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details Mr. Senadheerage's knowledge of police visits and threats from the businessman, motivating his asylum claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Summarizes the RPD's rejection of the claim based on implausibility and internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Summarizes the RAD's dismissal of the appeal, citing insufficient evidence and analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States Mr. Senadheerage is seeking judicial review of the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States the standard of reasonableness review and the requirement for decisions to be justified and rational.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the RAD erred in its assessment of implausibility and corroboration, making the decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD's reasoning that the police and thugs would have searched for family is speculative and unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the RAD's implausibility findings are based on speculation rather than evidence or legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Highlights the high threshold for implausibility findings and the need for clear, evidence-based reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Cites case law emphasizing that implausibility should only be found in the clearest cases, outside reasonable expectation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes that the main basis for the implausibility was contradicted by the national documentation, which was not considered by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD failed to explain its basis for implausibility, relying on subjective views rather than evidence or legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the assumption that the agents knew he had left the country is unsupported and speculative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the RAD's implausibility findings are speculative and not justified by the evidence or legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states that the RAD's reasoning on corroboration was unreasonable and flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD found lack of corroboration for threats and visits, but failed to consider the reasons why such evidence might be unavailable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court criticizes the RAD for assuming evidence was available without proper reasoning or explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the general principles that written corroboration is not always required, especially in foreign or dangerous contexts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that not all elements of a claim are susceptible to corroboration, especially acts of persecution or witnesses at risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Describes the purpose of corroboration requirements in maintaining system integrity and fairness, with calibration needed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Notes that corroboration is only required when credibility is in doubt for reasons other than lack of evidence, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States the presumption of truthfulness unless there is reason to doubt, making corroboration unnecessary in credible claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Outlines the two-step process for requiring corroboration: doubt and reasonable availability of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Describes a broader view where corroboration is required if evidence should be reasonably available and is absent without explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States Rule 11's requirement for documents and explanation if unavailable, which influences corroboration requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the risk of reversing the two-step process, leading to open-ended corroboration requirements and undermining presumption of truthfulness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Acknowledges the importance of corroboration and suggests balancing the two approaches with safeguards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Proposes safeguards: always identify independent grounds for corroboration, and explain reasons for requiring it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States decision-makers must explain why corroboration is required, especially on credibility or implausibility grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Recommends that decision-makers give claimants notice and opportunity to explain why evidence is unavailable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Summarizes the criteria for requiring corroborative evidence: independent reason and reasonable availability, with opportunity to explain absence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the RAD's analysis on corroboration was unreasonable and flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD's reasons for requiring corroboration of threats were insufficient and lacked explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD improperly focused on the availability of evidence and did not give Mr. Senadheerage a chance to explain absence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RAD reversed the proper approach by assuming evidence was available without giving the claimant opportunity to explain absence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Hearsay admissibility and corroboration",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RAD's concern with hearsay evidence and the legal framework for its trustworthiness, including corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "RAD credibility and legal framework",
+   "role": "reasoning_application",
+   "explanation": "The paragraph critiques the RAD's flawed credibility findings and its failure to follow legal standards, affecting its rationality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Documentary evidence and corroboration",
+   "role": "party_position",
+   "explanation": "The paragraph states that providing some evidence does not justify requiring additional corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Rejection of corroborating evidence",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RAD's reasoning for giving little weight to certain evidence and finds its conclusions reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Omission of a letter and overall reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RAD's failure to address a letter from a friend and its impact on the decision's reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Flaws in evidence analysis and case return",
+   "role": "reasoning_application",
+   "explanation": "The paragraph summarizes the flawed evidence analysis and concludes the case must be remitted for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Independent validity of IFA finding",
+   "role": "disposition",
+   "explanation": "The paragraph states the Minister's argument about the IFA's independence and the court's disagreement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Use of IFA as a ground for dismissal",
+   "role": "background_facts",
+   "explanation": "The paragraph explains how the IRB uses IFA as a main or alternative ground for dismissing claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Distinguishing IFA from persecution analysis",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal requirement to separate IFA analysis from persecution assessment when used as an alternative ground.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "RAD's confusion of IFA and persecution issues",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the RAD for conflating the IFA analysis with the persecution assessment and not addressing key questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Impact of errors on IFA decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that due to errors, the court cannot uphold the IFA decision and cannot say it would have been the same otherwise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Outcome and remand",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the decision is unreasonable and the case will be remitted for redetermination.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

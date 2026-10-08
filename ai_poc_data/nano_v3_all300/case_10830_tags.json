@@ -1,0 +1,445 @@
+{
+ "case_id": 10830,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 61,
+ "tagged_count": 61,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 12200,
+  "completion_tokens": 3617,
+  "usd": 0.0026668
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes Ms. Huang's refugee claim, its dismissal, and the appeal outcome, including credibility issues and reasons for rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Details Ms. Huang's PRRA application, its rejection, and her request for judicial review, including her arguments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "States the two legal issues raised by Ms. Huang regarding the PRRA officer\u2019s assessment and procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds no basis to overturn the decision, reasoning that the evidence assessment and procedural aspects were reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Summarizes the evidence Ms. Huang submitted, including photographs, statements, and news articles, considered by the PRRA officer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The PRRA officer determined the photographs were not new evidence as they predated the application and hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The officer concluded Ms. Huang\u2019s statements about risks were not new evidence as they repeated previous submissions and lacked objective support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The news articles were not considered new evidence as they did not relate specifically to Ms. Huang\u2019s profile or circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the officer\u2019s reasoning on the sufficiency of evidence was transparent and balanced, fitting within a reasonable range.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "States that reasonableness is the standard of review for PRRA evidence assessments, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "Explains the deference owed to PRRA officers\u2019 factual findings under reasonableness review, based on their expertise and statutory mandate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: oral hearing",
+   "role": "legal_test",
+   "explanation": "Discusses the mixed case law on the standard of review for the oral hearing issue, with some courts applying correctness and others reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: oral hearing",
+   "role": "legal_test",
+   "explanation": "Cites statutory provisions that authorize an oral hearing if certain criteria are met, including credibility issues relevant to the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: oral hearing",
+   "role": "legal_test",
+   "explanation": "Clarifies that section 167 of the IRP Regulations specifies when a hearing is required based on the presence of certain factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: reasonableness presumption",
+   "role": "legal_test",
+   "explanation": "States the presumption that reasonableness applies to statutory interpretation issues, with exceptions outlined in Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes reasonableness is the appropriate standard for the oral hearing issue, especially when the argument focuses on evidence sufficiency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "Notes that the conclusions would be the same even under procedural fairness considerations for the oral hearing issue.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Ms. Huang argues her new evidence should be considered, citing a Court decision; the court assesses whether this is reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees with Ms. Huang, finding her evidence does not meet the criteria for new evidence under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test: new evidence",
+   "role": "legal_test",
+   "explanation": "States the statutory requirement that new evidence must arise after the rejection or be unavailable at that time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test: new evidence",
+   "role": "legal_test",
+   "explanation": "Summarizes the Raza criteria for admissibility of new evidence in PRRA applications following a rejected claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: new evidence",
+   "role": "legal_test",
+   "explanation": "Explains that admissible evidence must meet criteria and then be evaluated for sufficiency and standard of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The officer rejected Ms. Huang\u2019s evidence for not being new or material and insufficient in proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The photographs were not new evidence because they predated the application and hearing, and Ms. Huang did not challenge this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Ms. Huang\u2019s statements were not new evidence as they repeated previous information and lacked significant difference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds Ms. Huang\u2019s additional statements were essentially restatements of previous risks, not new facts, citing Cho case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The officer found Ms. Huang\u2019s claim about her mother\u2019s statement unsubstantiated due to lack of objective evidence, which was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The news articles were not material as they did not relate specifically to Ms. Huang\u2019s profile or the targeted group.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the officer\u2019s reasoning on the evidence to be transparent, balanced, and reasonable overall.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test: reasonableness",
+   "role": "legal_test",
+   "explanation": "States that reasonableness review assesses justification, transparency, and intelligibility, and courts should not reweigh evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test: reasons",
+   "role": "legal_test",
+   "explanation": "Notes that reasons need only be comprehensible, and the decision was sufficiently justified and transparent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Procedural fairness: oral hearing",
+   "role": "party_position",
+   "explanation": "Ms. Huang argues an oral hearing was required due to credibility issues, citing case law and the importance of credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court disagrees with Ms. Huang\u2019s argument that an oral hearing was necessary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test: oral hearing",
+   "role": "legal_test",
+   "explanation": "Explains the statutory and regulatory provisions that specify when an oral hearing is required in PRRA applications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test: oral hearing",
+   "role": "legal_test",
+   "explanation": "States that an oral hearing is generally required when credibility is central and the evidence could justify granting protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes that insufficient evidence findings can sometimes mask credibility issues but finds this was not the case here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court reviews the language of the decision and record, concluding the findings were about evidence sufficiency, not credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "Counsel for Ms. Huang could not identify any credibility issues in the decision, supporting the court\u2019s view.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes there was no evidence that the officer doubted Ms. Huang\u2019s credibility, only that the evidence was not convincing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test: oral hearing",
+   "role": "disposition",
+   "explanation": "Since no serious credibility issue was identified, the court finds no unreasonable or unlawful failure to hold an oral hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Credibility assessment and evidence sufficiency",
+   "role": "party_position",
+   "explanation": "The paragraph explains the difference between credibility and evidence sufficiency, citing legal cases and principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Credibility and probative value of evidence",
+   "role": "legal_test",
+   "explanation": "It discusses the legal concepts of credibility, reliability, and probative value, referencing the standard of proof in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Assessment of evidence and applicant credibility",
+   "role": "party_position",
+   "explanation": "The paragraph states that the trier of fact can assess evidence weight independently of credibility, and credibility does not imply sufficiency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Weight and sufficiency of evidence",
+   "role": "party_position",
+   "explanation": "It summarizes Justice Zinn's view that evidence can be deemed insufficient in probative value without questioning credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "PRRA Officer's finding on objective evidence",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the PRRA Officer's conclusion that there was insufficient objective evidence to establish Ms. Huang's risk in China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Assessment of evidence and credibility",
+   "role": "other",
+   "explanation": "It clarifies that the evidence assessment does not question Ms. Huang's credibility and does not breach procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Credibility of evidence vs. applicant",
+   "role": "party_position",
+   "explanation": "The paragraph distinguishes between the credibility of evidence and the credibility of the applicant, noting when an oral hearing is required.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Basis of the PRRA Officer's decision",
+   "role": "reasoning_application",
+   "explanation": "It states that the decision was based on lack of persuasive evidence, not credibility findings, and procedural fairness was maintained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Standard of review on hearing requirement",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the diverging views on the standard of review for decisions about holding an oral hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Outcome of the case regardless of standard of review",
+   "role": "disposition",
+   "explanation": "It concludes that the decision should not be set aside under either reasonableness or procedural fairness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Standard of review for procedural fairness",
+   "role": "legal_test",
+   "explanation": "It discusses the correctness standard for procedural fairness and recent developments in case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Correctness in procedural fairness review",
+   "role": "legal_test",
+   "explanation": "It explains that correctness in procedural fairness means the duty to ensure fairness was met, based on circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Case-by-case nature of procedural fairness",
+   "role": "legal_test",
+   "explanation": "It emphasizes that procedural fairness depends on context and the process, not fixed rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Assessment of procedural fairness in judicial review",
+   "role": "reasoning_application",
+   "explanation": "It states that the focus is on whether the process was fair and allowed parties to respond, not correctness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Right to an oral hearing and fairness",
+   "role": "reasoning_application",
+   "explanation": "It argues that an oral hearing is not always required if the process was fair and no credibility issues arose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Reasonableness and fairness in decision",
+   "role": "disposition",
+   "explanation": "It affirms that Ms. Huang received a fair process and a reasonable decision from the PRRA Officer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Certified question about standard of review",
+   "role": "other",
+   "explanation": "The minister requests certification of a legal question regarding the review standard for hearing determinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Criteria for certifying a question of general importance",
+   "role": "legal_test",
+   "explanation": "It explains the criteria for certifying a question, including its importance and relation to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Court's decision on certification request",
+   "role": "disposition",
+   "explanation": "The court declines to certify the question, finding it not dispositive of the appeal and the outcome unchanged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Reasonableness of the PRRA decision",
+   "role": "disposition",
+   "explanation": "It concludes that the PRRA decision was reasonable, justified, and procedurally fair, and dismisses the judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "No question of importance certified",
+   "role": "other",
+   "explanation": "The court states that no question of general importance is certified in this case.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

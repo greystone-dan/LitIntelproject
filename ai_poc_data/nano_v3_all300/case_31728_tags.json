@@ -1,0 +1,242 @@
+{
+ "case_id": 31728,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 32,
+ "tagged_count": 32,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8513,
+  "completion_tokens": 1819,
+  "usd": 0.0015789
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's history of violence and her claim for protection, including the RPD's initial decision and reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the respondent's acknowledgment of reviewable errors and the decision to send the case back for re-determination with directions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal framework, including Ward and related precedents, for analyzing state protection in refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the RPD accepted the applicant's evidence as true and outlines the factual basis for the protection claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the applicant's detailed testimony about her experiences of violence and police reports in Brazil.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the evidence supports a well-founded fear but also highlights some findings that are unsupported and should be disregarded.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's reasoning for denying the claim based on the presumption of Brazil's ability to protect its citizens and the applicant's efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews case law and decisions that interpret the law on state protection, including Zalzali, Villafranca, and Ward.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses Zalzali's facts and legal principles about state protection when a government controls no part of the country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph describes Villafranca's facts and emphasizes the objective burden of showing inability of the state to protect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph analyzes the principles from Villafranca about the state's capacity and the context of failures to protect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the context of terrorism and the meaning of 'serious efforts' in state protection law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that 'serious efforts' involve actual operational capacity, not just policy or education.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph states that non-governmental efforts do not constitute effective state protection, citing guidelines and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that effective protection requires capacity and will, not just legislation or policy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph provides an example of assessing police capability and willingness to protect women in emergencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes Ward's criteria for establishing a well-founded fear and rebutting the presumption of state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph states Ward's impact on the evidence required, lowering the burden to clear and convincing evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses Ward's requirement for contextualized evaluation and its effect on previous legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph suggests that evidence of state failure to protect women can rebut the presumption under Ward.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph describes Kadenko's facts and the Court of Appeal's reasoning about police refusal and state capacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph notes that Kadenko's statements have been addressed earlier in the decision.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's efforts to seek protection and the contextual considerations for gender-based claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Gender Guidelines' approach to assessing the reasonableness of seeking state protection in gender-related claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph cites Lavallee regarding expert evidence on battered women and the importance of understanding context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph emphasizes the relevance of Lavallee to applying Kadenko's principles to gender-based claims.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses Lavallee's insights on domestic violence, societal attitudes, and the importance of expert evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal law",
+   "role": "legal_test",
+   "explanation": "The paragraph criticizes the RPD's understanding of law on state protection, emphasizing legal errors in its reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph analyzes the RPD's findings on the applicant's efforts to seek protection and the application of Kadenko, noting reviewable errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Dispositional",
+   "role": "disposition",
+   "explanation": "The paragraph states that due to errors, the case should be remitted for re-determination with directions, not a finding of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph directs that a new panel re-evaluate the case applying legal principles and considering the existing record and new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Dispositional",
+   "role": "disposition",
+   "explanation": "The paragraph awards costs to the applicant due to the RPD's legal errors and sets out the order for re-determination and costs.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

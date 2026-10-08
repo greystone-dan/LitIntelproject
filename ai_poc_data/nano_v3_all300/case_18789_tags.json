@@ -1,0 +1,242 @@
+{
+ "case_id": 18789,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 32,
+ "tagged_count": 32,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4791,
+  "completion_tokens": 1768,
+  "usd": 0.0011863000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 2009 IRB decision regarding refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a Mexican citizen claiming fear of persecution by police officers in his hometown.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant's friend was allegedly beaten by police, and they filed a complaint on the same day.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant was arrested, received medical care, and was advised to report the incident, but did not receive a copy of the charge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant made multiple complaints, but officials refused to listen or told him others needed to file the complaint.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant moved to Guadalajara, and his lawyer informed him complaints were inactive and copies could not be obtained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant recognized police involved in a car following him and fled Mexico shortly after.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The applicant left Mexico and claimed refugee protection in Canada the next day.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The panel found the applicant not credible due to lack of corroborating evidence and contradictory explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The panel concluded that even if credible, the applicant failed to prove the state was unwilling or unable to protect him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues on judicial review: credibility and access to protection, and mentions the standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that credibility assessment is under reasonableness review post-Dunsmuir, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The applicable standard for state protection questions is reasonableness, as established in case law including Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court states credibility and fact assessment are within the tribunal's discretion and not for the court to re-evaluate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argues the panel failed to consider documentary evidence about police corruption, which was essential.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The panel identified inconsistencies and omissions in the applicant's testimony and PIF regarding complaints and medical reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant provided no evidence for his claim of persecution and no explanation for the lack of corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the panel could reasonably infer lack of credibility from the absence of corroborating evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that credibility assessments are within the tribunal's expertise and the applicant's explanations are unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Dispositional conclusion",
+   "role": "disposition",
+   "explanation": "The court finds the panel's factual findings were not perverse or without regard to evidence, and the applicant's credibility was properly assessed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant claims the panel failed to consider evidence of Mexico's corruption when assessing protection availability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The respondent states the applicant must prove Mexico's inability to protect with clear, convincing evidence, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The panel considered that Mexico can provide protection despite corruption issues, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The panel noted the applicant did not seek protection from higher authorities, which was reasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The panel acknowledged efforts against corruption in Mexico, citing reports and government actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court rejects the applicant's subjective fear as a basis to rebut state protection, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The applicant must provide clear, relevant, and reliable evidence to rebut the presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "State protection need only be adequate, not perfect, as established in case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Applicants in democratic states must show they exhausted all options to obtain protection, which the applicant did not do.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the applicant failed to take all measures to seek protection, thus rebutting the presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the evidence shows avenues for protection in Mexico, and the applicant did not pursue them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, with no question for certification proposed or necessary.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

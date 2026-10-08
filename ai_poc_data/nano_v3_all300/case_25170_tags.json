@@ -1,0 +1,501 @@
+{
+ "case_id": 25170,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 69,
+ "tagged_count": 69,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 12293,
+  "completion_tokens": 4242,
+  "usd": 0.0029261
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the procedural history of the refugee claim and judicial review application, including the decision date and basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background details about the applicant's nationality, age, and fear of persecution in Turkey.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Applicant's family and support",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's family support for Kurdish rights and their refugee claims in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Applicant's early experiences in Turkey",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's experiences of discrimination, humiliation, and mistreatment in Turkey and during military service.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Political activism and detention",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's support for pro-Kurdish parties, protests attended, and alleged detention and torture incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Refugee claim process",
+   "role": "background_facts",
+   "explanation": "The paragraph outlines the applicant's travel to the US and Canada, and the refugee claim process including hearings and decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Refugee Protection Division's credibility finding",
+   "role": "party_position",
+   "explanation": "The paragraph states the RPD's conclusion that the applicant lacked subjective and objective fear of persecution and was not credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "RPD's assessment of allegations and evidence",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RPD's reasoning that the applicant did not corroborate his allegations and attempted to mislead.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Applicant's attendance at demonstrations",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RPD's observation that the applicant's declaration only mentions one incident in 1998, not multiple events.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Omissions from POE statement",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's rejection of the applicant's explanation for omissions in his POE statement and its findings on the completeness of the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Lack of documentary evidence for claims",
+   "role": "party_position",
+   "explanation": "The paragraph states the RPD's conclusion that the applicant failed to produce documentary evidence supporting his claims of participation and torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Fabrication of protest attendance",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RPD's finding that the applicant fabricated evidence of protest participation, leading to no objective basis for fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Delay in leaving Turkey and credibility",
+   "role": "party_position",
+   "explanation": "The paragraph details the RPD's reasoning that the delay and lack of evidence undermine the applicant's subjective fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal definitions from the Act",
+   "role": "legal_test",
+   "explanation": "The paragraph reproduces the statutory definitions of refugee and person in need of protection from the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Issues raised by the applicant",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues the applicant raises regarding credibility, torture, and reasons, and states the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Standard of review jurisprudence",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Supreme Court's approach to standard of review analysis in judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Credibility findings and standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that credibility findings are generally reviewed on a reasonableness standard based on case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Definition of torture",
+   "role": "legal_test",
+   "explanation": "The paragraph cites the Supreme Court's definition of torture from Suresh v Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Law application to acts of torture",
+   "role": "legal_test",
+   "explanation": "The paragraph states that whether an act like falaka constitutes torture is a question of law applied to the facts, reviewed on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Findings of fact regarding torture",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that whether the applicant was tortured is a factual finding, reviewed on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasonableness of decision review",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the reasonableness standard for reviewing the decision, focusing on justification, transparency, and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasons and adequacy review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasons are part of the reasonableness review and that inadequacy alone does not justify quashing a decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Applicant's argument on test for torture",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's claim that the RPD used an incorrect test for torture and disputes his admission at hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Applicant's interpretation of torture definition",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's argument that torture does not require severe injury or signs, citing the Convention definition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Applicant's evidence of torture",
+   "role": "party_position",
+   "explanation": "The paragraph argues that deprivation of sleep and water and falaka are sufficient to meet the torture definition, and the RPD's conclusion was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Credibility and lack of medical evidence",
+   "role": "party_position",
+   "explanation": "The paragraph claims it was unreasonable for the RPD to reject his testimony solely due to lack of medical reports, given his fear and circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence supporting applicant\u2019s claims",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's evidence from documentation showing Kurdish arrests and protests, supporting his credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Claim form and consistency",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the consistency of the applicant's story across documents and the RPD's error in assessing the claim form details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "POE interview and credibility",
+   "role": "party_position",
+   "explanation": "The paragraph argues that the POE interview is not part of the claim and should not be used to disbelieve the applicant's credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Presumption of truth in sworn evidence",
+   "role": "party_position",
+   "explanation": "The paragraph states that sworn evidence should be presumed true unless specifically disbelieved on adequate grounds, criticizing the RPD's approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Delay in leaving Turkey",
+   "role": "party_position",
+   "explanation": "The paragraph claims the RPD erred in finding a delay of 10 years after 1998, as the applicant's testimony indicates the first threat was in 2008.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Reasons for inadequate reasons",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the RPD's reasons as inadequate for not explaining why it found the applicant not credible, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Failure to consider credible evidence",
+   "role": "party_position",
+   "explanation": "The paragraph states the RPD failed to consider credible evidence and did not explain why it rejected evidence and country conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Ignoring post-hearing evidence",
+   "role": "party_position",
+   "explanation": "The paragraph claims the RPD ignored evidence submitted after the hearing, such as financial and affidavit evidence, without explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Reasonableness of credibility finding",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the respondent's argument that the credibility finding was reasonable based on the evidence and omissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasonableness of credibility assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the RPD's credibility assessment was reasonable based on lack of corroboration and omissions, making the overall finding reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Objective basis for fear and delay",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the RPD's conclusion that lack of evidence and delay undermine the applicant's subjective and objective fear, which was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Wrong test for torture",
+   "role": "disposition",
+   "explanation": "The paragraph states the RPD did not apply the wrong test for torture, as the applicant claims, and the reasons were reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Corroborating evidence and credibility",
+   "role": "disposition",
+   "explanation": "The paragraph explains that the RPD's conclusion that lack of corroboration indicates embellishment was reasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Post-1998 evidence and attendance",
+   "role": "disposition",
+   "explanation": "The paragraph states that without credible testimony, the evidence does not establish the applicant's attendance at protests after 1998, which is reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Standard of credibility assessment based on documents",
+   "role": "party_position",
+   "explanation": "The respondent argues that lack of documents without explanation affects credibility and supports adverse findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Credibility: inconsistencies between POE statements and testimony",
+   "role": "party_position",
+   "explanation": "The RPD considered discrepancies between POE statements and testimony as relevant to credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "RPD's evaluation of Applicant's explanations for inconsistencies",
+   "role": "party_position",
+   "explanation": "The RPD rejected the Applicant's explanations for inconsistencies and provided reasons for this rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Post-hearing evidence and its relevance",
+   "role": "other",
+   "explanation": "The respondent claims post-hearing evidence about delay is immaterial because it relates only to delay, not fabrication.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Errors in the Decision",
+   "role": "other",
+   "explanation": "The court finds reviewable errors in the Decision that make it unreasonable and warrant reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Use of POE notes in credibility assessment",
+   "role": "legal_test",
+   "explanation": "The RPD relied heavily on POE notes to assess credibility, but this approach is scrutinized for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Applicant's attempt to explain absence of medical evidence",
+   "role": "party_position",
+   "explanation": "The RPD states the Applicant tried to explain the lack of medical documents regarding torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Applicant's testimony on torture and factual mistake",
+   "role": "party_position",
+   "explanation": "The record shows the Applicant never denied being tortured; the RPD made a factual error in this regard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Rejection of claim form evidence regarding torture",
+   "role": "party_position",
+   "explanation": "The RPD rejected the claim form evidence because it lacked specific dates and the Applicant admitted he was not tortured.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Reliability of POE statements",
+   "role": "legal_test",
+   "explanation": "The court cites a case warning against undue reliance on POE statements due to reliability issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "POE interview's purpose and limitations",
+   "role": "legal_test",
+   "explanation": "The POE interview is not part of the claim and should not be expected to contain all claim details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Applicant's alleged admission about torture",
+   "role": "party_position",
+   "explanation": "The RPD considered the Applicant's explanation unreasonable because it claimed he admitted he was not tortured, which he did not.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Applicant's detailed account of being beaten",
+   "role": "party_position",
+   "explanation": "The Applicant testified he was beaten and severely hurt, but the RPD dismissed this as not amounting to torture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "RPD's rejection of explanation for omission of dates",
+   "role": "party_position",
+   "explanation": "The RPD rejected the Applicant's explanation for not providing dates of police encounters for various reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Applicant's declaration and its completeness",
+   "role": "party_position",
+   "explanation": "The Applicant's signature indicates belief in truthfulness but does not attest to a complete story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Content of the claim for protection and PIF",
+   "role": "party_position",
+   "explanation": "The claim form and PIF contain detailed allegations of torture, which the RPD failed to fully consider as true.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Crucial finding about post-1998 police encounters",
+   "role": "party_position",
+   "explanation": "The RPD's key finding that there is no evidence of post-1998 police encounters is based on multiple errors of fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Unreasonableness of credibility finding",
+   "role": "reasoning_application",
+   "explanation": "The credibility finding is unreasonable because it relies on a flawed factual basis and must be reconsidered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Alternative finding regarding documentary evidence",
+   "role": "party_position",
+   "explanation": "The RPD stated that lack of documentary evidence post-1998 undermines credibility, but this overlooks evidence of police actions during that period.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Evidence of police arrests during Newroz",
+   "role": "evidence_assessment",
+   "explanation": "The evidence shows police arrests during Newroz, supporting the Applicant's claims, contrary to the RPD's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Post-hearing evidence about Newroz celebrations",
+   "role": "evidence_assessment",
+   "explanation": "Post-hearing evidence confirms that Newroz celebrations often involve protests and arrests, consistent with the Applicant's account.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "RPD's acknowledgment of evidence timing but denial of participation",
+   "role": "party_position",
+   "explanation": "The RPD admits evidence shows celebrations coincided with alleged arrests but denies Applicant's participation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Applicant's reasonable explanation for lack of evidence",
+   "role": "reasoning_application",
+   "explanation": "The Applicant's fear of police explains why he did not seek medical evidence, which the RPD did not adequately consider.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Context of police repression of Kurds in Turkey",
+   "role": "evidence_assessment",
+   "explanation": "Evidence shows widespread police repression of Kurds, supporting the Applicant's fears and experiences during protests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Applicant's consistent testimony about detention reasons",
+   "role": "reasoning_application",
+   "explanation": "The Applicant's testimony about detention for Kurdish activities aligns with documentary evidence and is reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Failure to address significant evidence",
+   "role": "legal_test",
+   "explanation": "The RPD failed to explain why it ignored significant evidence that supported the Applicant's claims, making the decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Ignoring evidence of financial support",
+   "role": "party_position",
+   "explanation": "The post-hearing evidence of a money transfer and affidavit was ignored by the RPD without explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Unreasonable delay finding based on evidence",
+   "role": "reasoning_application",
+   "explanation": "The RPD's conclusion of a 10-year delay is unreasonable because it ignored evidence of threats and detention up to 2008.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "No certification question",
+   "role": "disposition",
+   "explanation": "The Court agrees there is no question for certification and the application is dismissed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

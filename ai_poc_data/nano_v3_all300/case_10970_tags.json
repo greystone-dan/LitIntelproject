@@ -1,0 +1,305 @@
+{
+ "case_id": 10970,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 41,
+ "tagged_count": 41,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8180,
+  "completion_tokens": 2671,
+  "usd": 0.0018864
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's judicial review of the RAD decision confirming the RPD's negative refugee determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: applicant's nationality and travel",
+   "role": "background_facts",
+   "explanation": "The applicant is a Ghanaian who fled Ghana, traveled through several countries, and made refugee claims in the US and Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: refugee claim details in Canada",
+   "role": "background_facts",
+   "explanation": "The applicant claimed fear of persecution in Ghana due to sexual orientation and land dispute, but did not mention political opinion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: applicant's sexual orientation",
+   "role": "background_facts",
+   "explanation": "The applicant states he has been attracted to men since age 11 and engaged in homosexual activity for support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: land dispute and attack",
+   "role": "background_facts",
+   "explanation": "The applicant describes a land dispute with his uncle, threats, and an attack requiring medical treatment, with police inaction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: subsequent attacks and travel",
+   "role": "background_facts",
+   "explanation": "The applicant reports further attacks, fleeing to Tamale and Accra, and obtaining a visa to Brazil from a friend.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts: US detention and non-disclosure",
+   "role": "background_facts",
+   "explanation": "The applicant claims he was detained in the US and did not disclose his homosexuality due to fear of harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts: media interview and sur place claim",
+   "role": "background_facts",
+   "explanation": "The applicant was interviewed on TV, which he claims led to a sur place refugee claim due to dissemination of his image in Ghana.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history: refugee hearing and decisions",
+   "role": "procedural_history",
+   "explanation": "The applicant's refugee claim was heard by the RPD, rejected, and the appeal was dismissed by the RAD, which is under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: credibility issues identified by the RPD",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant lacked credibility due to inconsistencies and omissions, especially regarding sexual orientation and key events.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: omissions in US asylum claim",
+   "role": "party_position",
+   "explanation": "The RPD rejected the applicant's explanations for not mentioning his sexual orientation in the US asylum process, citing multiple opportunities to do so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: omissions regarding traumatic events",
+   "role": "party_position",
+   "explanation": "The RPD noted the applicant failed to mention a traumatic event involving threats and violence in his US claim and supporting letter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position: inconsistencies in travel and hospitalization dates",
+   "role": "party_position",
+   "explanation": "The RPD observed discrepancies in the applicant's travel dates, hospitalization, and statements, which he attributed to errors or delays.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position: evaluation of documentary evidence",
+   "role": "party_position",
+   "explanation": "The RPD found supporting documents from the applicant and Ghana to be uncredible or suspicious, undermining their weight in the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position: analysis of specific evidence",
+   "role": "party_position",
+   "explanation": "The RPD scrutinized the legitimacy of posters and photos, concluding some were likely staged or manipulated, affecting their evidentiary value.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position: sur place claim and media evidence",
+   "role": "party_position",
+   "explanation": "The RPD rejected the sur place claim, considering the media evidence speculative and insufficient to establish a serious issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position: general credibility and protection findings",
+   "role": "party_position",
+   "explanation": "The RPD concluded the applicant was neither a Convention refugee nor in need of protection based on the evidence and country conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test: standard of correctness for new evidence",
+   "role": "legal_test",
+   "explanation": "The RAD applied a correctness standard when reviewing new evidence and the RPD's record, per relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test: admissibility of new evidence",
+   "role": "legal_test",
+   "explanation": "The RAD considered whether new evidence met statutory criteria for admissibility, focusing on timing, availability, and relevance, under IRPA and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test: evaluation of new evidence submissions",
+   "role": "legal_test",
+   "explanation": "The RAD noted the applicant did not sufficiently argue how the new evidence met admissibility criteria, leading to rejection of the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test: assessment of affidavits and documents",
+   "role": "legal_test",
+   "explanation": "The RAD found affidavits and letters either predated the decision or lacked credible explanation for their late submission, thus not qualifying as new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: timing of new photos",
+   "role": "legal_test",
+   "explanation": "The RAD determined that photos taken after the hearing did not qualify as new evidence because they were available before the decision, or their availability was unclear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test: criteria for oral hearing",
+   "role": "legal_test",
+   "explanation": "The RAD concluded that the applicant did not meet the criteria for an oral hearing, as no new evidence or serious credibility issues were identified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test: merits and procedural issues",
+   "role": "legal_test",
+   "explanation": "The RAD identified the applicant's claims of errors but found the submissions insufficiently detailed or specific to warrant a different outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning application: credibility assessment",
+   "role": "reasoning_application",
+   "explanation": "The RAD concluded the RPD's credibility findings were justified based on contradictions and omissions that were not reasonably explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning application: sur place findings",
+   "role": "reasoning_application",
+   "explanation": "The RAD found the decision not to consider the sur place claim was justified, transparent, and within an acceptable range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal provisions",
+   "role": "other",
+   "explanation": "The paragraph lists relevant IRPA sections and RAD Rules applicable to the case, as referenced in the decision.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph states the court reviews the RAD's decisions on new evidence and credibility under the reasonableness standard, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The court emphasizes its role is to assess whether the RAD's findings on admissibility and credibility are reasonable, not to re-determine facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The court explains that decisions on admissibility and credibility are reviewed for reasonableness, considering justification, transparency, and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test: reasonableness review criteria",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness review involves assessing whether the decision is justifiable, transparent, and falls within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test: admissibility of new evidence",
+   "role": "legal_test",
+   "explanation": "The court finds the RAD reasonably concluded the new evidence did not meet the criteria of subsection 110(4), based on the applicant's explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test: timing and availability of evidence",
+   "role": "legal_test",
+   "explanation": "The court agrees the RAD correctly applied the test for new evidence, requiring it to be reasonably available or not reasonably expected before the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test: new grounds and evidence",
+   "role": "legal_test",
+   "explanation": "The court notes that new arguments or evidence not raised before the RAD cannot be introduced at this stage, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test: admissibility of documents",
+   "role": "legal_test",
+   "explanation": "The court finds the RAD's conclusion that the documents were not new was reasonable, based on their timing and availability, consistent with case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Credibility assessment",
+   "role": "reasoning_application",
+   "explanation": "The applicant claims he provided credible testimony on key points, despite some incomplete statements, and disputes the RAD's reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Credibility: evidence evaluation",
+   "role": "reasoning_application",
+   "explanation": "The applicant argues the RAD should have isolated his sexual orientation testimony, but the court finds the credibility findings were based on evidence and rational inference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Credibility: inference from omissions and inconsistencies",
+   "role": "reasoning_application",
+   "explanation": "The RAD reasonably inferred lack of credibility from the omission of key elements and inconsistencies, which justified its negative credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Sur place claim: procedural correctness",
+   "role": "party_position",
+   "explanation": "The court agrees the applicant did not challenge the RPD's sur place finding, and the RAD's decision not to consider it was justified and proper.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Sur place claim: reasonableness of decision",
+   "role": "reasoning_application",
+   "explanation": "The RAD's decision not to consider the sur place claim was justified, transparent, and within an acceptable range of outcomes, according to the court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and states no question is certified for appeal.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

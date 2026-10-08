@@ -1,0 +1,215 @@
+{
+ "case_id": 1147,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1",
+ "usage": {
+  "prompt_tokens": 6800,
+  "completion_tokens": 909,
+  "usd": 0.020871999999999998
+ },
+ "verification": {
+  "arguments": 6,
+  "quotes_verified": 6,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The application for judicial review is dismissed because the RAD's decision was found reasonable and there was no breach of procedural fairness; Ms. Ambroise did not meet the burden to show the IFA was not viable or that fairness was denied.",
+  "themes": [
+   {
+    "name": "Internal Flight Alternative (IFA) Analysis",
+    "summary": "The viability and reasonableness of Cap-Ha\u00eftien as an IFA for Ms. Ambroise was central, including both risk of persecution and reasonableness of relocation.",
+    "paragraphs": [
+     5,
+     6,
+     11,
+     12,
+     13,
+     14,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37
+    ]
+   },
+   {
+    "name": "Risk of Gender-Based Violence and State Protection",
+    "summary": "Ms. Ambroise argued that she faced a serious risk of sexual violence throughout Haiti and that state protection for women is inadequate.",
+    "paragraphs": [
+     2,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32
+    ]
+   },
+   {
+    "name": "Procedural Fairness in Raising IFA",
+    "summary": "Ms. Ambroise claimed a breach of procedural fairness because the IFA was not raised at the outset of the RPD hearing.",
+    "paragraphs": [
+     2,
+     7,
+     8,
+     9,
+     10,
+     38,
+     39,
+     40,
+     41,
+     42
+    ]
+   },
+   {
+    "name": "Standard of Review",
+    "summary": "The court discussed the applicable standards of review for reasonableness (IFA merits) and correctness/fairness (procedural fairness).",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in its IFA analysis by failing to recognize lack of state protection and serious risk of sexual violence in Cap-Ha\u00eftien.",
+    "treatment": "rejected",
+    "authority": "Ward; Velasquez; Dezameau; Josile; Jacinthe",
+    "paragraphs": [
+     2,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32
+    ],
+    "quote": "the RAD was not required to analyze state protection.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD's decision was unreasonable given evidence of sexual violence and criminal impunity in Haiti.",
+    "treatment": "rejected",
+    "authority": "Dezameau; Josile; Jean; Jacinthe",
+    "paragraphs": [
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ],
+    "quote": "the RAD did not make the error described in Dezameau, Josile or Desire.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in concluding her attackers could not find her in Cap-Ha\u00eftien.",
+    "treatment": "rejected",
+    "authority": "Dominguez Bando",
+    "paragraphs": [
+     32
+    ],
+    "quote": "there was no established connection between this incident and another incident at work in April 2016",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in finding Cap-Ha\u00eftien reasonable despite her inability to work as a nurse.",
+    "treatment": "rejected",
+    "authority": "Thirunavukkarasu; Mchedlishvilli; Mora Alcca; Fernandez Cuevas",
+    "paragraphs": [
+     34,
+     35,
+     36,
+     37
+    ],
+    "quote": "it is only in exceptional circumstances that a mere lack of employment opportunities in the identified IFA would be sufficient",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "Procedural fairness was breached because the IFA was not raised at the outset of the RPD hearing.",
+    "treatment": "rejected",
+    "authority": "Thirunavukkarasu; Alkhoury; Tariq; Figueroa",
+    "paragraphs": [
+     2,
+     38,
+     39,
+     40,
+     41,
+     42
+    ],
+    "quote": "procedural fairness does not require that an IFA be raised at the outset of the hearing",
+    "quote_verified": true
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The RAD's decision was reasonable and there was no breach of procedural fairness.",
+    "treatment": "accepted",
+    "authority": "Vavilov; CARL; Thirunavukkarasu; Alkhoury; Tariq",
+    "paragraphs": [
+     3,
+     6,
+     7,
+     9,
+     10,
+     17,
+     18,
+     29,
+     30,
+     37,
+     41,
+     42
+    ],
+    "quote": "the RAD reasonably concluded that Ms. Ambroise failed to discharge that burden.",
+    "quote_verified": true
+   }
+  ]
+ }
+}

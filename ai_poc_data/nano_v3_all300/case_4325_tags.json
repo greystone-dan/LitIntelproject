@@ -1,0 +1,445 @@
+{
+ "case_id": 4325,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 61,
+ "tagged_count": 61,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 10918,
+  "completion_tokens": 3596,
+  "usd": 0.0025302000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of the RAD's decision dismissing the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: Applicants' nationality and family",
+   "role": "background_facts",
+   "explanation": "The Applicants are Pakistani citizens married in 2013 with three children born in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: Immigration history",
+   "role": "background_facts",
+   "explanation": "Mr. Ali arrived as a temporary worker in 2009, married in Pakistan in 2013, and returned to Canada in 2014.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: Threats from TTP",
+   "role": "background_facts",
+   "explanation": "The Applicants learned of threats from TTP while planning to visit Pakistan in 2016.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: Threatening incidents",
+   "role": "background_facts",
+   "explanation": "Armed men threatened the Applicants and their family in Pakistan, demanding money and warning of harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: TTP's view of Applicants",
+   "role": "background_facts",
+   "explanation": "Mr. Ali's testimony suggests TTP considers the Applicants enemies due to their Canadian ties and activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts: Refugee claim filing",
+   "role": "background_facts",
+   "explanation": "The Applicants canceled their travel plans and filed refugee claims in January 2017.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history: RPD decision",
+   "role": "procedural_history",
+   "explanation": "The RPD denied the refugee claims, accepting credibility but finding an internal flight alternative in Hyderabad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history: RAD decision",
+   "role": "procedural_history",
+   "explanation": "The RAD dismissed the appeal, agreeing that Hyderabad was a reasonable internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history: Evidence admissibility",
+   "role": "procedural_history",
+   "explanation": "The RAD considered the admissibility of new evidence based on credibility, relevance, and newness criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history: Evidence admission",
+   "role": "procedural_history",
+   "explanation": "The RAD admitted new evidence because it was not available earlier and was central to the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Procedural history: Evidence review",
+   "role": "procedural_history",
+   "explanation": "The RAD declined to hold a new hearing as the evidence was not sufficiently relevant or persuasive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: Rasaratnam two-prong test",
+   "role": "legal_test",
+   "explanation": "The RAD applied the Rasaratnam test to assess the reasonableness of the internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: Risk assessment",
+   "role": "legal_test",
+   "explanation": "The RAD justified its finding that the Applicants face no personal risk in Hyderabad based on various factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: TTP's capacity and reach",
+   "role": "legal_test",
+   "explanation": "The RAD found that TTP lacks the capacity and reach to locate the Applicants in Hyderabad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: Profile of targeted individuals",
+   "role": "legal_test",
+   "explanation": "The RAD concluded the Applicants' profile does not match those typically targeted by TTP in Hyderabad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test: Reports supporting IFA",
+   "role": "legal_test",
+   "explanation": "The RAD cited international reports supporting Hyderabad as a reasonable internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test: Family contact and security",
+   "role": "legal_test",
+   "explanation": "The RAD considered and found it reasonable for the Applicants to maintain contact with family in Pakistan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test: Reasonableness of relocation",
+   "role": "legal_test",
+   "explanation": "The RAD found no social or economic barriers making relocation to Hyderabad unreasonable, citing the Thirunavukkarasu test.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test: Reasonableness factors",
+   "role": "legal_test",
+   "explanation": "The RAD concluded the Applicants' language skills and experience make relocation to Hyderabad reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Issue framing: Unreasonableness of RAD's decision",
+   "role": "issue_framing",
+   "explanation": "The issues concern whether the RAD's decision on the IFA was unreasonable regarding the Applicants' risk and capacity of TTP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of review: reasonableness",
+   "role": "issue_framing",
+   "explanation": "The court applied the reasonableness standard, referencing Vavilov and Dunsmuir, to review the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Standard of review: Vavilov framework",
+   "role": "issue_framing",
+   "explanation": "The court explains the Vavilov approach to selecting the standard of reasonableness as the default.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Standard of review: presumption of reasonableness",
+   "role": "issue_framing",
+   "explanation": "The parties agree that the reasonableness standard applies; no rebuttal to this presumption is presented.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Standard of review: application of reasonableness",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that applying reasonableness is consistent with prior jurisprudence and the Vavilov framework.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: reasonableness review",
+   "role": "legal_test",
+   "explanation": "The court reviews whether the decision exhibits justification, transparency, and intelligibility, and is justified within legal constraints.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal provisions: IRPA definitions",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes the IRPA definitions of a Convention refugee and a person in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Applicant's argument: Unreasonableness of decision",
+   "role": "party_position",
+   "explanation": "The Applicants argue the decision is unreasonable due to speculative analysis and failure to consider critical information.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Applicants' profile concerns",
+   "role": "party_position",
+   "explanation": "The Applicants claim the RAD ignored evidence that they are already targeted by the TTP and at risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Profile and threats",
+   "role": "party_position",
+   "explanation": "The Applicants argue there is no indication TTP has lost interest or will not follow through, making their profile a target.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Case law: Qaddafi",
+   "role": "party_position",
+   "explanation": "The Applicants cite Qaddafi to argue the RAD's analysis was unreasonable given the threats they face.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Case law: Mendoza",
+   "role": "party_position",
+   "explanation": "The Applicants cite Mendoza to support that speculation about risk is unreasonable when threats are explicit.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Evidence analysis: Recent reports",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RAD ignored recent evidence showing TTP's capacity and threats in Hyderabad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Hiding and family safety",
+   "role": "party_position",
+   "explanation": "The Applicants contend the decision forces them into hiding and endangers their family, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Visibility and security risks",
+   "role": "party_position",
+   "explanation": "The Applicants argue their accents and children\u2019s appearance would make them visible and unsafe in Hyderabad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Respondent's argument: Reasonableness of RAD's decision",
+   "role": "party_position",
+   "explanation": "The Respondent claims the RAD's decision was reasonable and within the proper legal framework.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Respondent's legal overview",
+   "role": "party_position",
+   "explanation": "The Respondent cites case law supporting the reasonableness of the RAD's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Respondent's evidence review",
+   "role": "party_position",
+   "explanation": "The Respondent states the RAD reasonably found TTP lacks capacity to target Applicants in Hyderabad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal standard: high onus",
+   "role": "legal_test",
+   "explanation": "The Respondent emphasizes the high burden on applicants to prove the IFA is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test: two-part IFA test",
+   "role": "legal_test",
+   "explanation": "The two-part test for IFA requires showing no serious risk and reasonableness of refuge location.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph references a case or source called Thirunavukkarasu.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Legal test: burden of proof on reasonableness of relocation",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the applicant bears the objective evidence burden to prove unreasonable relocation, citing Argote case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The Applicants have been targeted and threatened by the TTP, and their primary target status is established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The decision depends on whether the RAD's conclusion about the Taliban's capacity and reach is supported by credible evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The TTP has shown willingness to threaten the Applicants and views them as supporting a Western war against Islam.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The issue is whether the TTP can or will find the Applicants in Hyderabad, not just upon arrival at a port of entry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the RAD's findings on TTP's structure, activity, and capacity in Hyderabad, citing evidence and reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD considers the likelihood that family members will disclose the Applicants' location and finds it reasonable to expect discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court finds that family members are unlikely to disclose the Applicants' location, but the TTP could still seek them out.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Hiding from family and friends due to risks is unreasonable and invalidates the IFA finding, referencing Zamora Huerta.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The Applicants have lived in Canada since 2009, have Canadian children, and their Canadian links are likely to become known.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The TTP is aware of the Applicants' presence in Canada and has not approached family since 2017, but interest remains.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Legal test: capacity and reach of TTP",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the RAD's conclusion that the TTP lacks operational capacity and reach in Pakistan, citing evidence and reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The issue is whether the TTP can discover the Applicants' location in Hyderabad if they return there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Applicants have been explicitly threatened and the TTP has not lost interest, making it likely they will target them if they return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Legal test: TTP's operational capacity and motivation",
+   "role": "legal_test",
+   "explanation": "The paragraph criticizes the RAD's conclusion about TTP's capacity, citing evidence of reorganization and increased activity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph compares 2014 and 2017 evidence showing TTP's evolution from fractious to more organized and active.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph criticizes the RAD for ignoring evidence of TTP's reorganization and the Applicants' targeted profile.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph argues the RAD ignored evidence that the TTP's reach and capacity are outdated, constituting reviewable error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the RAD did not reasonably address the first prong of the Rasaratnam test and must reconsider.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court agrees there is no question for certification and the case is dismissed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,445 @@
+{
+ "case_id": 62,
+ "model": "gpt-4.1",
+ "prompt_version": "tag_v3",
+ "run": "v3_gpt41",
+ "paragraph_count": 61,
+ "tagged_count": 61,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 18620,
+  "completion_tokens": 3553,
+  "usd": 0.065664
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "PRRA decision under review and statutory context",
+   "role": "procedural_history",
+   "explanation": "This paragraph introduces the application for judicial review, identifies the decision under review, and sets out the statutory context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "applicant's alleged persecution in Sri Lanka",
+   "role": "background_facts",
+   "explanation": "This paragraph describes the applicant's personal experiences and alleged persecution in Sri Lanka leading to his flight to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "prior refugee claim and Board's rejection",
+   "role": "procedural_history",
+   "explanation": "This paragraph recounts the applicant's prior refugee claim and its rejection by the Immigration and Refugee Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "PDRCC application and transition to PRRA",
+   "role": "procedural_history",
+   "explanation": "This paragraph details the applicant's PDRCC application and how it transitioned to a PRRA application under new regulations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "applicant's submissions to PRRA officer",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the applicant's submissions and arguments made to the PRRA officer regarding ongoing risk and desire for permanent residence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "PRRA officer's negative risk assessment",
+   "role": "procedural_history",
+   "explanation": "This paragraph states the PRRA officer's decision that the applicant would not face risk if returned to Sri Lanka.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "notification of PRRA decision and removal order",
+   "role": "procedural_history",
+   "explanation": "This paragraph describes the notification of the negative PRRA decision and the enforcement of the removal order against the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "judicial review application and stay motion outcome",
+   "role": "procedural_history",
+   "explanation": "This paragraph outlines the applicant's request for judicial review, the failed stay motion, and the fact of removal from Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "mootness issue due to applicant's removal",
+   "role": "issue_framing",
+   "explanation": "This paragraph frames the preliminary issue of mootness arising from the applicant's removal and sets out the legal context for deciding it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "applicant's position on mootness and discretion",
+   "role": "party_position",
+   "explanation": "This paragraph presents the applicant's arguments regarding mootness and why the Court should still hear the matter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "applicant's position on remedies after removal",
+   "role": "party_position",
+   "explanation": "This paragraph details the applicant's submissions on the Court's power to order meaningful remedies, including return to Canada, after removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "respondent's position on mootness and redetermination",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the respondent's argument that judicial review is not moot after removal and that redetermination is possible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "respondent's position on Court's power to order return",
+   "role": "party_position",
+   "explanation": "This paragraph sets out the respondent's argument that the Court lacks authority to order the applicant's return to Canada after removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "respondent's position on redetermination while abroad",
+   "role": "party_position",
+   "explanation": "This paragraph explains the respondent's view that redetermination can occur while the applicant is abroad and that a positive PRRA would allow re-entry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "jurisprudence on mootness after removal",
+   "role": "issue_framing",
+   "explanation": "This paragraph introduces the lack of unanimity in the jurisprudence regarding mootness after removal and previews a review of relevant cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Toth case on stays and nugatory appeals",
+   "role": "legal_test",
+   "explanation": "This paragraph summarizes the Toth case, which established the Court's implied jurisdiction to stay removal to prevent appeals from being rendered nugatory.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "irreparable harm and mootness in Toth and Suresh",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses how irreparable harm and mootness were addressed in Toth and Suresh, focusing on loss of benefit as irreparable harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "De Medeiros and Hosein on irreparable harm and stays",
+   "role": "legal_test",
+   "explanation": "This paragraph reviews De Medeiros and Hosein, illustrating when irreparable harm and mootness justify a stay of removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Hosein case on timing of irreparable harm",
+   "role": "legal_test",
+   "explanation": "This paragraph analyzes Hosein, emphasizing that irreparable harm does not arise until removal is imminent and judicial review opportunities remain.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Ramoutar case on mootness and prejudice after removal",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses Ramoutar, where the Court found that removal did not moot the case due to potential prejudice from procedural unfairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Ramoutar on accrued rights and discretion to decide moot cases",
+   "role": "legal_test",
+   "explanation": "This paragraph quotes Ramoutar, highlighting that deportation does not eliminate all rights and that the Court may exercise discretion to decide moot cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "limits of accrued rights in immigration context",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses the limited nature of accrued rights for non-citizens and frames the question of mootness after removal under the IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Ramoutar on necessity of return for redetermination",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses whether the Court may order a removed applicant's return for redetermination, referencing Ramoutar's comments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Freitas case on mootness and meaningful remedies",
+   "role": "legal_test",
+   "explanation": "This paragraph summarizes Freitas, where the Court found judicial review not moot after removal and discussed meaningful remedies, including possible return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Freitas on Court's authority to order return and live controversy",
+   "role": "legal_test",
+   "explanation": "This paragraph quotes Freitas, emphasizing the Court's authority to order return if necessary and the existence of a live controversy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "limits on Court's power to order return under IRPA",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses the current limits on the Court's power to order return under the IRPA and relevant appellate decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Court's lack of power to order return under IRPA",
+   "role": "reasoning_application",
+   "explanation": "This paragraph expresses the judge's inclination to accept that the Court cannot order return under the IRPA and cannot direct a positive PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Melo case on irreparable harm and stays for judicial review",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses Melo, where the Court found that loss of the benefit of judicial review can constitute irreparable harm justifying a stay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Ero case on mootness after removal under former Act",
+   "role": "legal_test",
+   "explanation": "This paragraph summarizes Ero, where the Court found judicial review moot after removal because a PRRA could not be ordered post-removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Ero on lack of practical remedy and Borowski test",
+   "role": "legal_test",
+   "explanation": "This paragraph quotes Ero, explaining why the case was moot and why discretion to hear it was not exercised under Borowski factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Ero's assumption about PRRA timing and redetermination",
+   "role": "legal_test",
+   "explanation": "This paragraph analyzes Ero's assumption that PRRA can only occur pre-removal and that redetermination requires presence in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Kim case distinguishing Ero on PRRA redetermination",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses Kim, where the Court found that PRRA redetermination is possible after removal, distinguishing Ero.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Resulaj case on irreparable harm from removal before review",
+   "role": "legal_test",
+   "explanation": "This paragraph summarizes Resulaj, where the Court found that removal before judicial review constitutes irreparable harm and justifies a stay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "divergence in case law on irreparable harm and PRRA",
+   "role": "legal_test",
+   "explanation": "This paragraph notes that not all judges agree with the reasoning in Resulaj and Melo regarding irreparable harm from loss of PRRA review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Selliah case on stay pending appeal after PRRA refusal",
+   "role": "legal_test",
+   "explanation": "This paragraph introduces Selliah, where the Federal Court of Appeal considered a stay pending appeal after PRRA and H&C refusals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Selliah on irreparable harm and ability to appeal after removal",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses Selliah's finding that removal does not render appeal rights nugatory if counsel can conduct the appeal and return is possible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "applicability of Selliah to present case and Minister's position",
+   "role": "reasoning_application",
+   "explanation": "This paragraph applies Selliah to the present case, noting the respondent's refusal to concede return at public expense and limits of subsection 52(2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "El Ouardi case on irreparable harm and mootness",
+   "role": "legal_test",
+   "explanation": "This paragraph summarizes El Ouardi, where the Court found that removal does not always result in irreparable harm or mootness justifying a stay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "El Ouardi's approach to irreparable harm and mootness",
+   "role": "legal_test",
+   "explanation": "This paragraph analyzes El Ouardi's nuanced approach, suggesting that mootness alone does not always justify a stay; individual effects must be considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "purpose and timing of PRRA process under IRPA",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the legislative purpose and timing of the PRRA process, linking it to non-refoulement obligations and Charter compliance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "purpose and timing of PRRA process under IRPA",
+   "role": "reasoning_application",
+   "explanation": "The paragraph analyzes the legislative intent and practical consequences of removal before PRRA completion, concluding on irreparable harm and mootness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "purpose and timing of PRRA process under IRPA",
+   "role": "legal_test",
+   "explanation": "The paragraph sets out legal principles and case law regarding irreparable harm and mootness in the context of removal and PRRA judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "purpose and timing of PRRA process under IRPA",
+   "role": "reasoning_application",
+   "explanation": "The paragraph applies the law to the facts, finding force in the argument that judicial review becomes moot after removal and discussing non-refoulement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "purpose and timing of PRRA process under IRPA",
+   "role": "reasoning_application",
+   "explanation": "The paragraph evaluates and rejects the respondent's argument about Parliament's intent regarding stays and mootness in PRRA judicial reviews.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "purpose and timing of PRRA process under IRPA",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains when a stay should be granted in PRRA cases and why the present case is exceptional regarding mootness and judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "scope of judicial review in PRRA cases",
+   "role": "issue_framing",
+   "explanation": "The paragraph frames the issue before the Court, clarifying its limited role in reviewing PRRA decisions and not substituting its own risk assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "scope of judicial review in PRRA cases",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the limited practical benefit of judicial review after removal and the hypothetical nature of any advantage to the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "scope of judicial review in PRRA cases",
+   "role": "reasoning_application",
+   "explanation": "The paragraph questions whether ordering a PRRA redetermination after removal exceeds the Court's traditional adjudicative role and discusses statutory categories of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "mootness and discretion to hear judicial review",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the Court's discretionary decision to hear the case on its merits despite mootness, referencing the Borowski criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "PRRA officer's assessment of risk and evidence",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the applicant's arguments and the respondent's position that no reviewable error occurred, with the Court's preliminary acceptance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "standard of review for PRRA decisions",
+   "role": "legal_test",
+   "explanation": "The paragraph sets out the applicable standard of review for PRRA decisions and findings of fact, citing relevant case law and statutory provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "purpose and evidentiary scope of PRRA process",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal purpose of the PRRA process, the definition of new evidence, and the factual nature of changed circumstances determinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "PRRA officer's assessment of country conditions and risk",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the PRRA officer's reasoning and reliance on documentary evidence regarding Sri Lanka's conditions and the applicant's situation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "PRRA officer's assessment of country conditions and risk",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the PRRA decision is reasonable, supported by evidence, and not reviewable for legal or procedural error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "PRRA officer's assessment of risk from LTTE",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the applicant's argument about LTTE risk unfounded, explaining how the PRRA officer addressed risks from both sides and distinguished case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "PRRA officer's assessment of risk from LTTE",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the PRRA officer considered all relevant and contrary evidence regarding risk from the LTTE and ordinary Tamils, citing supporting case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "PRRA officer's assessment of state protection",
+   "role": "legal_test",
+   "explanation": "The paragraph sets out the legal standard for state protection and the evidentiary burden on applicants, citing Supreme Court authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "PRRA officer's assessment of state protection",
+   "role": "reasoning_application",
+   "explanation": "The paragraph applies the law to the facts, finding the applicant failed to prove lack of state protection or LTTE involvement, and upholds the PRRA officer's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "PRRA officer's assessment of risk from authorities and LTTE",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes the applicant failed to prove he was at particular risk, and the PRRA officer's decision was reasonable and evidence-based.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "certification of questions for appeal",
+   "role": "party_position",
+   "explanation": "The paragraph sets out the two legal questions the applicant seeks to have certified for appeal by the Court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "certification of questions for appeal and disposition",
+   "role": "disposition",
+   "explanation": "The paragraph refuses certification of questions and dismisses the application for judicial review, stating the Court's order and signature block.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

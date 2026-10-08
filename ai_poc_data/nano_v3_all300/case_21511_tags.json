@@ -1,0 +1,186 @@
+{
+ "case_id": 21511,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 24,
+ "tagged_count": 24,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3914,
+  "completion_tokens": 1480,
+  "usd": 0.0009834
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the refugee claim",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the origin of the judicial review application and the Board's decision to refuse refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Standard of review: reasonableness",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the court's conclusion that the Board's decision was reasonable and should be upheld.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: applicants' personal details and circumstances",
+   "role": "background_facts",
+   "explanation": "The paragraph provides details about the applicants' identities, origins, and their connection to their brother-in-law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: previous refugee determination",
+   "role": "background_facts",
+   "explanation": "The paragraph notes that the brother-in-law was previously denied refugee protection and that his application was dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: threats and attacks in Mexico",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts threats and an attack on the principal applicant following their brother-in-law's departure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: applicants' flight to Canada",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the applicants fled Mexico and arrived in Canada after threats and attacks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: Board's rejection of refugee claim",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Board's reasons for rejecting the applicants' refugee application based on protection and internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: assessment of state protection",
+   "role": "party_position",
+   "explanation": "The paragraph details the Board's reasoning that the applicants did not sufficiently demonstrate the inability of the Mexican state to protect them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: internal flight alternative",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Board's reasoning that the applicants could relocate within Mexico without fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Issues raised on judicial review",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the two main questions regarding the Board's conclusions on protection and internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: standard of reasonableness for state protection",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal standard of reasonableness for decisions on state protection, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: standard of reasonableness for internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the standard of reasonableness for assessing internal flight alternatives, referencing recent jurisprudence and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: implications of a single reasonableness standard",
+   "role": "legal_test",
+   "explanation": "The paragraph interprets the effect of the Dunsmuir decision on the application of reasonableness review and judicial deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: scope of deference under reasonableness review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the scope of deference courts must show when reviewing administrative decisions under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application: Board's conclusions on protection and internal flight",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that, given the standard of reasonableness, the Board's conclusions were not in error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment: applicants' efforts to seek protection",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph assesses the applicants' lack of sufficient steps to demonstrate inability of state protection before fleeing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application: sufficiency of evidence on state protection",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the applicants' explanations were insufficient to rebut the presumption of state protection, supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application: role of the Board's expertise and evidence",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes the Board's expertise and the documentary evidence supporting its conclusion on protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application: internal flight alternative analysis",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the Board's reasoning that the applicants had an internal flight alternative based on evidence and country conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test: definition and threshold of internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal standards and evidence required to establish an internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment: Board's findings on internal flight",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the Board's findings that the applicants could relocate within Mexico based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Disposition: application dismissed",
+   "role": "disposition",
+   "explanation": "The paragraph states that the application for judicial review is dismissed and no questions are certified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Standard of review: deference in administrative law",
+   "role": "other",
+   "explanation": "The paragraph discusses the concept of deference in judicial review and its importance in administrative law.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Role of deference: respect for legislative choices and expertise",
+   "role": "other",
+   "explanation": "The paragraph emphasizes that deference involves respecting legislative choices and the expertise of administrative bodies.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

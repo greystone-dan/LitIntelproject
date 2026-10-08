@@ -1,0 +1,144 @@
+{
+ "case_id": 22517,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 18,
+ "tagged_count": 18,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3347,
+  "completion_tokens": 1056,
+  "usd": 0.0007571000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court introduces the case, the decision under review, and the grounds of appeal, including the legal context and the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details Mr. Acosta's personal background, employment, and circumstances before fleeing Honduras.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It describes the applicant's routine and the gang's extortion demands, including a specific incident involving the gang.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts a gang attack on the applicant's employer and gang members' inquiry about his whereabouts, indicating a threat.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It narrates the applicant's flight from Honduras due to gang threats and his journey to Canada, including the date of crossing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports the applicant's phone calls to his mother, who received threats from gang members seeking him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "It states the Board's decision to reject the claim, citing general violence in Honduras and lack of specific risk to the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The applicant challenges the Board's reasoning, arguing it failed to consider his specific circumstances and risk, and the legal interpretation of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the standard of reasonableness review for mixed fact and law questions, citing Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It discusses the legal interpretation of section 97 of the Act, citing Proph\u00e8te and the correctness standard, and the question of subgroup risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the Federal Court of Appeal's refusal to answer the broad legal question, emphasizing case-specific inquiry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It explains the reasonableness standard as involving justification, transparency, and acceptable outcomes within the law and facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court assesses whether the Board properly considered the ongoing and specific nature of the applicant's risk, concluding it did not ignore evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the Board's consideration of evidence showing the applicant's ongoing risk and addresses the general violence argument.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It discusses legal principles from case law that general violence risks are not sufficiently particularized to qualify as individual threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court compares evidence of targeted extortion to general gang violence, affirming the Board's conclusion on generalized violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph contrasts the applicant's situation with other cases, emphasizing the Board's consideration of his personal circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Disposition",
+   "role": "other",
+   "explanation": "The court states no question for certification and concludes the case is fact-specific, with no further legal questions to certify.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

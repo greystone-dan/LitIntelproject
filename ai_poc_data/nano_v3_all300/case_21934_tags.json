@@ -1,0 +1,228 @@
+{
+ "case_id": 21934,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 30,
+ "tagged_count": 30,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4303,
+  "completion_tokens": 1689,
+  "usd": 0.0011059
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the citizenship of the family members of the applicant from El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the family\u2019s refugee claim, the Board\u2019s decision, and the applicant's request for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the family\u2019s experiences of violence and threats from the MS gang in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It recounts the threats and extortion attempts Jose Antonio received from gang members in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes that the family did not report the threats to police or authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It explains the family\u2019s flight from El Salvador to Canada and their subsequent refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the family credible but rejected their refugee claims due to the nature of the crimes and protection failure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found no nexus to a Convention ground and analyzed the claim under section 97(1); the applicants do not challenge the nexus finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board relied on documentation and testimony to conclude the risk was generally experienced by all El Salvadorians.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board concluded that businesspeople face widespread extortion risk, which could lead to violence if resisted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board cited jurisprudence to support that indiscriminate or random risks do not meet the specific risk requirement under section 97(1).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board held that the applicants failed to rebut the presumption of state protection due to lack of police reporting or assistance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board explained the legal standard for state protection, citing cases and the efforts of the El Salvadorian government.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board noted that El Salvador has functioning security and judiciary, and the applicants did not exhaust protection options.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Board concluded the applicants are neither refugees nor in need of protection, leading to dismissal of the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the issues on appeal: whether the risk was generalized and whether the protection finding was based on an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The applicants argue their risk was targeted due to wealth, citing Salibian on subcategory risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The respondent cites jurisprudence establishing that criminal targeting of businesspeople is generally considered a generalized risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the standard of reasonableness applies when assessing whether risk is personalized or generalized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph clarifies that the case involves section 97(1) and not the section 96 risk based on an enumerated ground.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It discusses jurisprudence on personalized versus generalized risk, emphasizing the shared nature of risks in civil conflict contexts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that widespread risk to a large subgroup constitutes a generalized risk, not a personal one.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board\u2019s finding that businesspeople in El Salvador face widespread extortion risk was reasonable and supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph suggests that common sense should guide the interpretation of section 97(1)(b)(ii).",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court distinguishes personal targeting from group-based risk, emphasizing the applicants were not personally targeted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that 'generally' means widespread, and the Board\u2019s conclusion was reasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court agrees the applicants failed to rebut the presumption of state protection, and the Board\u2019s consideration was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue their evidence shows ineffective protection, but the Board found they did not rebut the presumption.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The documentary evidence shows ongoing gang violence but does not prove the applicants would not receive police protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application is dismissed, and no certified question is proposed or identified.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

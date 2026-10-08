@@ -1,0 +1,144 @@
+{
+ "case_id": 23224,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 18,
+ "tagged_count": 18,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2915,
+  "completion_tokens": 1312,
+  "usd": 0.0008163000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's departure date from Cameroon to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's claims about her marriage, mistreatment, hospitalisation, and family pressure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims she would be forced to return to her husband and lose her freedom and education if sent back to Cameroon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the RPD's decision rejecting the claim mainly on credibility, citing inconsistencies and weak evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant appealed, arguing the RPD erred on credibility and failed to consider all evidence, including new evidence on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the standard of review applicable to the RAD's decision, referencing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph agrees with Justice Phelan that the RAD's finding on the standard of review was incorrect and should be correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the RAD should not defer to the RPD's analysis unless credibility is critical, emphasizing its own expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that under IRPA, the RAD has the authority to substitute its own decision after independent analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph references Justice Phelan's statements in Huruglica regarding the standard of review.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph agrees with Justice Phelan that the standard of review for the RPD's decision is correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RPD's credibility assessment was based on testimony, and the RAD was correct to defer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph mentions the RAD's independent analysis of a contradiction in paragraph 60 of its decision.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RAD was not required to independently analyze the credibility of other documents because they were not central.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the RAD's analysis was sufficient and the application should be rejected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the standard of review issue is not decisive and no certification is proposed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RAD erred on the standard of review and must conduct a full independent review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RAD can respect the RPD's conclusions on certain issues but must otherwise conduct an independent assessment.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

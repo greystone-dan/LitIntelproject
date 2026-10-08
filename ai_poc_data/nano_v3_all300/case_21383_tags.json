@@ -1,0 +1,123 @@
+{
+ "case_id": 21383,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 15,
+ "tagged_count": 15,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2587,
+  "completion_tokens": 897,
+  "usd": 0.0006175
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Standard of review: reasonableness",
+   "role": "disposition",
+   "explanation": "The court states the application is allowed due to improper grounding of the Board's inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Drawing inferences vs. speculation",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal distinction between inference and speculation, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Difference between inference and speculation",
+   "role": "legal_test",
+   "explanation": "It further clarifies the legal difference, emphasizing inference must be grounded in proven facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: Ms. Zhang's claim",
+   "role": "background_facts",
+   "explanation": "Ms. Zhang testified she is a Falun Gong practitioner fearing persecution in China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: Board's findings on Ms. Zhang",
+   "role": "party_position",
+   "explanation": "The Board concluded Ms. Zhang is not a Falun Gong practitioner based on two negative inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: Knowledge of Falun Gong texts",
+   "role": "party_position",
+   "explanation": "The Board noted Ms. Zhang's limited knowledge of the Falun Gong book 'Zhuan Falun'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: Ms. Zhang's demonstration of knowledge",
+   "role": "party_position",
+   "explanation": "Ms. Zhang answered some questions and demonstrated exercises, but the Board doubted her sincerity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test: Inference from Nine Commentaries",
+   "role": "legal_test",
+   "explanation": "The Board's inference that Ms. Zhang is not a Falun Gong practitioner based on the Nine Commentaries was not properly grounded in evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Evidence assessment: Smuggling network",
+   "role": "evidence_assessment",
+   "explanation": "The report describes the role of corrupt officials in Chinese smuggling networks, supporting the inference about bribery.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Evidence assessment: Exit procedures at Beijing airport",
+   "role": "evidence_assessment",
+   "explanation": "Details the exit control procedures at Beijing airport, relevant to the inference about bribery plausibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Reasoning application: Speculation about bribing officials",
+   "role": "reasoning_application",
+   "explanation": "The Board's conclusion about the number of officials bribed was speculative and not sufficiently supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: Ms. Zhang's knowledge of 'Zhuan Falun'",
+   "role": "party_position",
+   "explanation": "Ms. Zhang listed topics from the book, but was not asked detailed questions, limiting the evidence of her knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning application: Knowledge acquisition",
+   "role": "reasoning_application",
+   "explanation": "The Board's inference that Ms. Zhang's knowledge was acquired in Canada was speculative and not supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court concludes the application for judicial review should be allowed due to errors in inference grounding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Other: Certification question",
+   "role": "other",
+   "explanation": "The court notes no question for certification and agrees that none arises.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

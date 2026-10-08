@@ -1,0 +1,95 @@
+{
+ "case_id": 12123,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 11,
+ "tagged_count": 11,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2551,
+  "completion_tokens": 724,
+  "usd": 0.0005447000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the RAD's consideration of new evidence and its decision not to hold an oral hearing, including the context of credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Mr Zhou argues the RAD was obliged to hold an oral hearing under IRPA s 110(6), and seeks judicial review to quash the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court agrees the RAD should have held an oral hearing and allows the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr Zhou's claims about persecution and his circumstances are summarized, with new evidence contradicting his account.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The RAD acknowledged the criteria for an oral hearing under IRPA s 110(6) but decided discretion was not exercised in favor of a hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RAD concluded that Mr Zhou's claim of persecution was not credible based on new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the general requirement for oral hearings in similar contexts when credibility issues are central.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that the RAD should generally be required to hold a hearing when conditions are present, and discretion must be exercised reasonably.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds that the RAD should have convened an oral hearing before dismissing the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Counsel for Mr Zhou proposes a certification question about the RAD's obligation to hold an oral hearing under s 110(6) IRPA.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Minister's counsel argues that the RAD's discretion is case-specific and should not be limited by a certified question, which the court agrees with.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

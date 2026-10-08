@@ -1,0 +1,291 @@
+{
+ "case_id": 10796,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 39,
+ "tagged_count": 39,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8230,
+  "completion_tokens": 2340,
+  "usd": 0.001759
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Ms. Lawani's refugee claim, her grounds, and the RPD's credibility rejection, providing context for the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Ms. Lawani seeks judicial review of the RPD's credibility-based rejection of her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that the sole issue is whether the RPD's credibility findings were reasonable, and the court's conclusion to dismiss the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Lawani's alleged grounds for refugee protection are domestic abuse and her bisexuality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph details Ms. Lawani's allegations of domestic abuse and her relationship history with Mr. Omoruyi.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Lawani disclosed her bisexuality late, claiming it was advised by her previous counsel, and provided supporting documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD's reasons for rejecting the claim are summarized, focusing on credibility issues related to sexual orientation and domestic abuse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RPD questioned the timing of Ms. Lawani's bisexuality claim and the supporting documents' dates, finding explanations unsatisfactory.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD doubted Ms. Lawani's use of 'bisexual' based on her behavior, knowledge, and lack of corroboration, raising credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD discredited the psychological report and Ms. Lawani's demeanor, considering them inconsistent with her claimed distress.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD found Ms. Lawani's domestic abuse allegations implausible based on her relationship description and circumcision inquiry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The RPD considered all credibility issues cumulatively and rejected Ms. Lawani's refugee claim based on core credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness is the applicable standard for assessing credibility, citing relevant jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It explains that reasonableness requires deference to the tribunal's expertise and approach, especially on mixed fact and law questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the high deference owed to credibility findings, given the RPD's opportunity to observe witnesses and assess evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states that courts cannot reweigh evidence or substitute their judgment if the decision is transparent, justifiable, and within the range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Analysis",
+   "role": "reasoning_application",
+   "explanation": "The court finds Ms. Lawani's arguments about credibility and her sexual orientation claim unpersuasive, affirming the reasonableness of the RPD's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Analysis",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the RPD properly considered the late disclosure, the psychological report, and domestic abuse evidence, finding no error in its reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Analysis",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the RPD's detailed reasons support its credibility findings, and that the applicant's objections are essentially reweighing of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes principles governing credibility assessment, including presumption of truth and the importance of consistency and plausibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states that sworn testimony is presumed truthful but can be rebutted by inconsistencies or unsatisfactory explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that contradictions and omissions can support negative credibility findings, and that the RPD is best placed to assess credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It warns against negative credibility findings based on minor or peripheral contradictions, emphasizing a balanced approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that credibility issues can affect the entire claim and related evidence, including reports and assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states that lack of corroborative evidence alone does not justify credibility findings, but unexplained absence can support negative inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses that implausibilities, common sense, and rationality can inform credibility assessments, provided reasons are clear and reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds that the RPD followed proper principles, identified inconsistencies, and provided sufficient reasons for credibility rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court finds no error in the RPD's choice to examine the bisexuality claim first and confirms both claims were properly assessed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that the 'sur place' concept is not a separate claim but an aspect of the assessment, which the RPD properly considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court disagrees with Ms. Lawani that the RPD's assessment of her sexual identity was outside its expertise, affirming it as within its competence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the RPD's expertise in assessing sexual orientation and the importance of deference to its experience.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court notes that the RPD's comments on its expertise and experience are within the scope of reasonableness, despite some imprecise wording.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court affirms that the RPD reasonably declined to give weight to the late-disclosed bisexuality claim, considering the explanations and timing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The RPD's decision not to weight the psychological report is reasonable given its credibility findings and expertise, which the court upholds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD reasonably doubted the plausibility of the domestic abuse allegations based on inconsistencies about Mr. Omoruyi's behavior and knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court recognizes that implausibility findings must be clear, culturally sensitive, and well-reasoned, which the RPD's findings in this case are.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court concludes that the RPD's reasons are thorough, reasonable, and that its overall decision falls within the acceptable range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses Ms. Lawani's application, affirming the reasonableness of the RPD's credibility findings and decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court finds no questions of general importance for certification and agrees with the parties on this point.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,319 @@
+{
+ "case_id": 1147,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "tag_v3",
+ "run": "v3_mini",
+ "paragraph_count": 43,
+ "tagged_count": 43,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8632,
+  "completion_tokens": 2266,
+  "usd": 0.0070784
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "case background and claim summary",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Ms. Ambroise's background, her sexual assault, refugee claim, and the RAD's rejection based on an internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "applicant's allegations of RAD errors",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise alleges errors in the RAD's IFA analysis and procedural fairness breach regarding notice of IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "court's overall opinion on RAD decision",
+   "role": "reasoning_application",
+   "explanation": "The court states its view that the RAD's decision was reasonable and no procedural fairness breach occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "judicial review application dismissal",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review.",
+   "confidence": 0.95
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "issues raised by applicant",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the two main issues raised by Ms. Ambroise regarding the RAD's IFA analysis and procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "standard of review for IFA analysis",
+   "role": "legal_test",
+   "explanation": "The paragraph sets out the reasonableness standard for reviewing the RAD's IFA determination with case references.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "standard of review for procedural fairness",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that procedural fairness issues are reviewed on a correctness standard with supporting case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "dispute on standard of review for RAD procedural fairness",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses conflicting case law on whether correctness or reasonableness applies to RAD procedural fairness issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "court's view on procedural fairness standard",
+   "role": "reasoning_application",
+   "explanation": "The court adopts the view that procedural fairness is analyzed outside judicial review standards, consistent with recent appellate decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "applicable standard for procedural fairness issue",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the correctness or fairness standard applies to procedural fairness, but it does not affect the outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal principles on internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the legal principles defining IFA and its relevance to refugee claims under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal principles on risk in all parts of country",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the requirement that risk must exist in every part of the country for protection under section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "two-prong test for rebutting IFA viability",
+   "role": "legal_test",
+   "explanation": "The paragraph states the two-prong test claimant must satisfy to rebut an IFA's viability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "applicant's challenge to RAD's IFA analysis",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise alleges the RAD's analysis of both prongs of the IFA test was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "facts of assault and claim",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the assault incident and Ms. Ambroise's fear of attackers and sexual violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "RPD's IFA proposal and claimant's objections",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RPD's proposed IFA and Ms. Ambroise's arguments against its viability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "RAD's findings on IFA viability",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the RAD's findings rejecting serious possibility of persecution and unreasonableness of IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "RAD's findings on general gender-based violence risk",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RAD's separate analysis of general gender-based violence risk and its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "applicant's argument on risk and state protection",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise emphasizes risk of sexual violence and lack of police protection in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "applicant's argument on RAD's failure to analyze state protection",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise argues the RAD erred by not analyzing state protection effectiveness before concluding IFA viability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "court's rejection of state protection analysis requirement",
+   "role": "reasoning_application",
+   "explanation": "The court explains that state protection analysis is not required if fear of persecution is not established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "court's interpretation of Velasquez on state protection",
+   "role": "reasoning_application",
+   "explanation": "The court cites Velasquez to show state protection analysis depends on identifying the particular risk first.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "court's conclusion on RAD's state protection analysis",
+   "role": "reasoning_application",
+   "explanation": "The court concludes RAD was not required to analyze state protection since no serious possibility of persecution was found.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "applicant's argument on unreasonableness of RAD decision",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise argues RAD's decision is unreasonable given evidence of sexual violence and impunity in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "court's summary of prior cases on sexual violence claims",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes prior court decisions requiring examination of evidence for sexual violence risk beyond general criminality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "court's clarification on risk threshold in sexual violence claims",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that membership in a social group alone is insufficient; evidence must show more than a mere possibility of risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "importance of up-to-date evidence and personal circumstances",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the importance of current evidence and applicant's personal situation in assessing risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "recent case on sexual violence risk and RPD findings",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses Jacinthe decision distinguishing reasonable RPD findings on sexual violence risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "court's agreement with RAD's approach to sexual violence risk",
+   "role": "reasoning_application",
+   "explanation": "The court agrees RAD did not err in its approach and did not treat sexual violence as a general risk without nexus.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "court's rejection of applicant's request to reweigh evidence",
+   "role": "reasoning_application",
+   "explanation": "The court rejects Ms. Ambroise's arguments as a request to reanalyze evidence beyond reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "court's view on RAD's analysis of personal risk",
+   "role": "reasoning_application",
+   "explanation": "The court finds RAD's prospective analysis of Ms. Ambroise's personal risk was reasonable despite general risk concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "court's assessment of RAD's conclusion on attackers' risk",
+   "role": "reasoning_application",
+   "explanation": "The court finds RAD's conclusion that attackers lack ability or interest to pursue Ms. Ambroise in IFA reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal threshold for second prong of IFA test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the high threshold for unreasonableness of IFA requiring actual evidence jeopardizing life or safety.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "applicant's submissions on second prong and RAD's response",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise raised employment concerns; RAD found inability to find nursing work does not jeopardize safety.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "case law on reasonableness of IFA and employment",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law that dislike of location or lack of work is generally insufficient to render IFA unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "applicant's argument on employment and IFA reasonableness",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise argues inability to find work in profession may make IFA unreasonable, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "court's conclusion on second prong and employment issue",
+   "role": "reasoning_application",
+   "explanation": "The court finds RAD reasonably concluded IFA is not unreasonable despite employment limitations, given high burden.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "procedural fairness complaint on IFA notice timing",
+   "role": "party_position",
+   "explanation": "Ms. Ambroise alleges breach of procedural fairness because IFA was not raised at hearing outset.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "legal requirement to warn claimant of IFA",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the onus on Minister and RPD to warn claimant if IFA will be raised to protect right to be heard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "case law on timing of IFA notice",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses case law ambiguity on whether IFA notice must be before or during hearing, citing Tariq.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "timing of IFA notice and procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The court explains that procedural fairness does not require IFA to be raised at the hearing's start but the applicant must have opportunity to respond.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "applicant's opportunity to respond to IFA",
+   "role": "reasoning_application",
+   "explanation": "The court finds the applicant was reasonably informed and had opportunity to respond to the IFA despite it being raised late in the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "judicial review application dismissal and no certification",
+   "role": "disposition",
+   "explanation": "The court dismisses the judicial review application and finds no certifiable question arises.",
+   "confidence": 0.95
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,340 @@
+{
+ "case_id": 356,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 46,
+ "tagged_count": 46,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7314,
+  "completion_tokens": 2521,
+  "usd": 0.0017398000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph introduces the case, the applicant's challenge, and the tribunal's credibility finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the legal issue regarding the tribunal's credibility findings and the standard of review under the Federal Courts Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's political activities and reasons for leaving Bangladesh as described in the tribunal's summary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal expressed disbelief in the applicant's story, citing contradictions and lack of credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal identified specific contradictions in the applicant's testimony and documentation regarding his political roles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal concluded the contradictions indicated the applicant was not politically active as claimed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal emphasized the importance of initial declarations and rejected explanations for discrepancies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal analyzed the applicant's detention claims and the supporting documents, finding inconsistencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal noted the absence of references to detention in the letters and questioned their relevance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal concluded the detention was a major element of persecution that was not supported by the documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal found the applicant's modified testimony about his arrest to be uncredible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal viewed the applicant's explanation for going into hiding as unreasonable given prior incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal questioned the timing of the lawyer's involvement and the applicant\u2019s explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal discussed the applicant's travel documents and credibility issues related to illegal entry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that credibility findings are entitled to deference and the standard of review is reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the standard under section 18.1(4)(d) for overturning a tribunal decision based on erroneous findings of fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph references case law on reviewing tribunal findings of fact and credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the court's view on the tribunal's authority to assess credibility and the reasonableness of its inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the high deference owed to tribunal factual findings and the limits of judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law illustrating the tribunal's discretion in identifying contradictions and inconsistencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's counsel argued the tribunal misread evidence and drew contradictions from misinterpretations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the applicant's description of Mr. Aman as linked to Monir Hajee and involved in political activity.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the review must be allowed because the tribunal's decision was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes case law on the tribunal's obligation to avoid over-vigilance and unreasonable credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph lists reasons why credibility findings can be flawed, including lack of evidence and overemphasis on minor inconsistencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the tribunal was overzealous, failing to consider the substance of the applicant's fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's overzealousness led to dismissing explanations and evidence supporting the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's conclusions about contradictions and explanations are unjustified and overly harsh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Many contradictions stem from the applicant's written dates and positions, which the tribunal misinterpreted as fixed facts.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal assumed the applicant held positions from the dates he first joined, ignoring his explanations and documentary evidence.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal failed to consider the applicant's testimony that he became an ordinary member before being elected to positions, which was consistent with documents.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Contradictions about when the applicant ceased certain positions are minor and do not undermine his political activity claim.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Counsel for the respondent pointed to evidence not relied upon by the tribunal, but the tribunal had not considered or relied on it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The applicant's testimony about his arrest and detention was documented in his PIF and POE, supported by exhibits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The tribunal noted the letters did not mention detention, questioning its relevance, despite the detention being a key persecution element.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the tribunal's treatment of the letters was unreasonable, misreading evidence and ignoring favorable evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The lawyer's letter was about current police interest, not past arrest, which the tribunal overlooked.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The letters from the political party emphasize current fear, and their lack of mention of detention does not negate this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's answer about police problems prior to August 2004 was consistent with his testimony, but the tribunal focused on the contradiction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the contradiction does not support the tribunal's inference that the applicant adjusted his testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal rejected the applicant's explanation for not fleeing Bangladesh before 2004, citing previous threats and attacks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's reasoning is contradictory because it relies on a detained fact it previously dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant's testimony about political violence in Bangladesh was reasonable and consistent with his statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant explained that threats and violence are common in Bangladesh and did not prevent political activity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The tribunal misread the evidence regarding the lawyer's letter and the applicant's reasons for needing legal help.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The errors identified justify a new review of the applicant's protection claim.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

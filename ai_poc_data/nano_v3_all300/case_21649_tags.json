@@ -1,0 +1,130 @@
+{
+ "case_id": 21649,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 16,
+ "tagged_count": 16,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2408,
+  "completion_tokens": 900,
+  "usd": 0.0006008000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review and the decision under review by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's personal history of abuse and her divorce from her ex-husband.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the specific incident of rape and assault, police response, and the subsequent legal proceedings in Saint Vincent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the ongoing threats from the ex-husband and the applicant's and her son's flight to Canada seeking protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the disjoining of refugee claims due to HIV status and involvement of child protection services.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph summarizes the Board's decision and the legal basis for its findings regarding protection and discrimination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the legal issue on whether the panel erred in its finding about state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the standard of reasonableness review for findings of fact about state protection in Canadian law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the criteria for judicial review, including transparency and range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies the burden of proof on the claimant regarding state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues that she was not obliged to pursue police action and criticizes the Board's assessment of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the Board's view that state protection was available based on the applicant's own account and actions taken by authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the standard for assessing state protection is adequacy, not full effectiveness, and applies this reasoning to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes the court's role to review reasonableness and not to substitute its own judgment for the Board's.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the Board's decision was reasonable and dismisses the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states there is no question of certification and dismisses the application.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

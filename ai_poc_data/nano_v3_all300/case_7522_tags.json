@@ -1,0 +1,655 @@
+{
+ "case_id": 7522,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 91,
+ "tagged_count": 91,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 17125,
+  "completion_tokens": 5435,
+  "usd": 0.0038865
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts of the refugee claim",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the respondents' refugee claim and the initial RPD decision rejecting it due to identity issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history: appeal and RAD decision",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the respondents' appeal to the RAD and the RAD's decision to overturn the RPD on identity and refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history: Minister's intervention",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the Minister intervened before the RPD but not in the appeal to the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Issue framing: judicial review application",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the Minister's grounds for judicial review, challenging the RAD's decision on substance and procedure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Legal standard and court's preliminary view",
+   "role": "reasoning_application",
+   "explanation": "The court explains its view on the reasonableness of the RAD's findings and procedural fairness, and its decision to set aside the RAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: basis of claim",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the basis of the respondents' refugee claim, including their personal history and fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts: claimant's personal details",
+   "role": "background_facts",
+   "explanation": "The paragraph provides details about Ms. Alazar's birth, ethnicity, and Eritrea's independence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts: family details",
+   "role": "background_facts",
+   "explanation": "The paragraph states the marriage details and children's birth information relevant to the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts: detention and arrest",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts Ms. Alazar's arrest, detention, and alleged abuse in Eritrea, supporting her fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts: conditions after release",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Ms. Alazar's reporting obligations and threats after her release from detention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts: escape from Eritrea",
+   "role": "background_facts",
+   "explanation": "The paragraph details the family's illegal departure from Eritrea and travel arrangements to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts: husband's situation",
+   "role": "background_facts",
+   "explanation": "The paragraph explains Mr. Nablush's detention, subsequent departure, and inability to join his family in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts: fear of return",
+   "role": "background_facts",
+   "explanation": "The paragraph states Ms. Alazar's fear of arrest, imprisonment, and torture if she returns to Eritrea.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position: Minister's intervention",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Minister's notice to intervene, raising issues about Article 1F(b) and credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Procedural history: legal representation",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that a third-party representative was appointed for the minors and they were represented at the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Procedural history: hearing details",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the hearing date, prior adjournment, and participation of counsel for both sides.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence relating to Article 1F(b) exclusion",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states Ms. Alazar's testimony that she left Eritrea with her husband's permission and maintained contact since arriving in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence of identity: family support",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph mentions Mr. Nablush's letter confirming no objection to the family leaving Eritrea and his identity document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence of identity: documentary evidence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the documentary evidence provided to establish identity, including birth certificates, letters, photographs, and church membership.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence of identity: additional evidence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the reliance on Mr. Nablush's letter as further evidence of identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence of identity: identity card",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reports Ms. Alazar's testimony that her national ID was seized and not replaced.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence of identity: difficulties in obtaining documents",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains Ms. Alazar's inability to obtain new documents or contact Eritrean authorities due to her illegal departure and concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence of identity: minor claimants' testimony",
+   "role": "party_position",
+   "explanation": "The paragraph states the minor claimants' representative's assertion that the children are from Eritrea and lived there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence analysis: CBSA report",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses CBSA's inconclusive analysis of the birth certificates and their lack of security features or authenticity indicators.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Post-hearing submissions",
+   "role": "other",
+   "explanation": "The paragraph notes the submission of post-hearing written arguments by both the Minister and respondents.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Parties' arguments on identity and credibility",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Minister's criticisms of the evidence and credibility of the claimants, and the respondents' defense of their credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Parties' arguments on subjective fear",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondents' counsel's emphasis on Ms. Alazar's credible testimony of her fear and suffering, and the importance of her subjective fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Parties' arguments on illegal departure and asylum",
+   "role": "party_position",
+   "explanation": "The paragraph notes that respondents' counsel did not specifically argue fear based on illegal departure or asylum seeking.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Decision under review: identity as threshold issue",
+   "role": "disposition",
+   "explanation": "The paragraph states that the RPD rejected the claims primarily on the basis of identity failure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Decision under review: reasons for rejection",
+   "role": "disposition",
+   "explanation": "The paragraph summarizes the RPD's reasons for finding the respondents failed to establish their identities, including lack of authentic documents and credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Implication of identity failure",
+   "role": "disposition",
+   "explanation": "The paragraph explains that because identity was not established, the claims failed without the RPD addressing their substance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Procedural history: appeal to RAD",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the respondents appealed to the RAD and were represented by counsel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Evidence submitted on appeal",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes the affidavits, declarations, and photographs submitted by the respondents to support their appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Procedural steps: evidence admission",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the respondents' request to admit new evidence and seek a hearing if credibility was challenged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Arguments in support of appeal",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondents' argument that the new evidence supports their identity claim and that the RPD erred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Procedural compliance: record sharing",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes that the record was provided to the Minister as required by the rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Procedural history: Minister's intervention",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that the Minister did not intervene in the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Admissibility of new evidence",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the RAD's assessment of the credibility and admissibility of the new statutory declarations and photographs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Admissibility of photographs",
+   "role": "legal_test",
+   "explanation": "The paragraph states the RAD admitted the photographs as new evidence because they could not have been reasonably presented earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Decision on hearing and evidence",
+   "role": "disposition",
+   "explanation": "The paragraph explains that the RAD admitted the new evidence but denied a hearing, concluding it was not justified to accept or reject the claims based on it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "RAD error in assessment of documents",
+   "role": "party_position",
+   "explanation": "The RAD agreed the RPD erred in assessing the birth certificates and related inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Birth certificate authenticity",
+   "role": "party_position",
+   "explanation": "The RAD agreed the RPD erred in its assessment of the birth certificates' authenticity, citing lack of security features and credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Failure to seek family assistance",
+   "role": "party_position",
+   "explanation": "The RAD found Ms. Alazar's explanation credible and erred in negative inference about her not seeking family help.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Marriage and identity evidence",
+   "role": "party_position",
+   "explanation": "The RAD found Ms. Alazar established her marriage and that the driver's license supported family presence, erred in its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Identity finding",
+   "role": "disposition",
+   "explanation": "The RAD found the respondents established their identities as Eritrean citizens.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Refugee claim basis",
+   "role": "background_facts",
+   "explanation": "The RAD's reasons for refugee status included fear of persecution and risks upon return to Eritrea, supported by country evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Refugee status determination",
+   "role": "disposition",
+   "explanation": "The RAD allowed the appeal and found the respondents to be Convention refugees, setting aside the RPD decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Standard of review",
+   "role": "legal_test",
+   "explanation": "The decision is reviewed on a reasonableness standard, especially for identity and fact-driven determinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Reasonableness standard",
+   "role": "legal_test",
+   "explanation": "Canada v Vavilov affirms reasonableness as the presumptive standard of review for administrative decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Reasonableness criteria",
+   "role": "reasoning_application",
+   "explanation": "A reasonable decision is coherent, rational, justified, and entitled to deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Transparency and justification",
+   "role": "reasoning_application",
+   "explanation": "Decisions must be justified, transparent, and intelligible to those affected, per Vavilov.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Onus of unreasonable decision",
+   "role": "reasoning_application",
+   "explanation": "The Minister must show the RAD's decision is unreasonable, with serious shortcomings affecting justification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Jurisdiction over sur place claims",
+   "role": "legal_test",
+   "explanation": "The Minister argues the RAD lacked jurisdiction to consider sur place claims; the court examines this issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Jurisdiction standard of correctness",
+   "role": "legal_test",
+   "explanation": "Questions about the RAD's jurisdiction are generally reviewed on a correctness standard, but this case does not require a conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Procedural fairness review",
+   "role": "legal_test",
+   "explanation": "Procedural fairness is assessed by analyzing the process followed, similar to correctness review, with the burden on the Minister.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Issues for judicial review",
+   "role": "issue_framing",
+   "explanation": "The issues include reasonableness of identity, jurisdiction, procedural fairness, and refugee determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Identity findings reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Minister's arguments about identity credibility are not required to be addressed by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Arguments not addressed",
+   "role": "reasoning_application",
+   "explanation": "The RAD was not required to address all arguments made earlier in the process, especially if not adopted in reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Core identity issues",
+   "role": "reasoning_application",
+   "explanation": "The RAD made its own findings on identity, based on new evidence, and the Minister's challenge is unpersuasive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Jurisdiction over sur place claims",
+   "role": "issue_framing",
+   "explanation": "The court examines whether the RAD had jurisdiction to consider sur place claims, given the nature of the claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Sur place claim definition",
+   "role": "background_facts",
+   "explanation": "A sur place refugee is someone who cannot safely return to their country, even if they left for reasons other than persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Sur place claim elements",
+   "role": "background_facts",
+   "explanation": "Ms. Alazar's claims include risks from political activities and illegal departure, which have sur place elements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "RAD's basis for refugee status",
+   "role": "disposition",
+   "explanation": "The RAD's decision can be characterized as a finding that the respondents are sur place refugees.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Jurisdiction to consider sur place claims",
+   "role": "issue_framing",
+   "explanation": "The Minister argues the RAD lacked jurisdiction to consider sur place claims because the RPD did not decide on them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Jurisdiction case law",
+   "role": "legal_test",
+   "explanation": "Jianzhu case supports the view that the RAD lacked jurisdiction to decide sur place claims not addressed by the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Jurisdiction case law",
+   "role": "legal_test",
+   "explanation": "Ojarikre case similarly states the RAD cannot decide issues not relied upon by the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Jurisdiction vs procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The court distinguishes jurisdictional limits from procedural fairness concerns regarding RAD's decision-making scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Statutory provisions on RAD's powers",
+   "role": "legal_test",
+   "explanation": "Subsection 111(1) of IRPA outlines the RAD's powers to confirm, set aside, or refer cases, with conditions for referral.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Interpretation of IRPA powers",
+   "role": "legal_test",
+   "explanation": "The court interprets that the RAD's powers are limited to the ultimate issue of refugee status, not subsidiary findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "RAD's authority to confirm or set aside",
+   "role": "legal_test",
+   "explanation": "The RAD can confirm or set aside decisions on the ultimate refugee issue, even if errors are found, under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Jurisdictional constraints",
+   "role": "legal_test",
+   "explanation": "The only jurisdictional constraint is the conditions for referral back to the RPD, not the RAD's power to decide on the merits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Case law history",
+   "role": "other",
+   "explanation": "Jianzhu and Ojarikre cases were decided before Huruglica and are relevant for jurisdictional analysis.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "Summary of jurisdiction interpretation",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that IRPA's language allows the RAD to decide on the ultimate refugee issue even if not addressed by the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "Procedural fairness and new issues",
+   "role": "issue_framing",
+   "explanation": "The court discusses whether the RAD breached procedural fairness by deciding on a new issue without notice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Notice requirement for new issues",
+   "role": "legal_test",
+   "explanation": "The court reviews when procedural fairness requires notice and opportunity to respond to new issues in appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "Procedural fairness in similar cases",
+   "role": "legal_test",
+   "explanation": "Cases show that fairness requires notice when the RAD raises new grounds or bases for decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "Application of Mian and GF tests",
+   "role": "reasoning_application",
+   "explanation": "The Mian and GF tests guide when the RAD must give notice for new issues raised in decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "Balancing fairness and correctness",
+   "role": "reasoning_application",
+   "explanation": "The RAD must balance adversarial fairness with the need for correct protection decisions, as shown in Mian.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "Procedural fairness for sur place decisions",
+   "role": "reasoning_application",
+   "explanation": "When the RAD finds a refugee status on a new basis, fairness requires notice and opportunity to respond, even if not a party.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "Notice rights of the Minister",
+   "role": "reasoning_application",
+   "explanation": "The Minister has procedural rights under Baker to notice and opportunity to make submissions, even without intervening in the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "Notice rights of the Minister",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Minister's right to appeal and procedural fairness considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "Notice rights of the Minister",
+   "role": "party_position",
+   "explanation": "The paragraph details the Minister's broad interests and procedural rights in appeals under the RAD Rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "Notice rights of the Minister",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes the Minister's procedural fairness rights, including notice of material developments in appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "Legal test: new issue in appeal",
+   "role": "legal_test",
+   "explanation": "The paragraph states the Mian test for determining if a new issue in an appeal requires notice to the Minister.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "Application of the Mian test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes the sur place claim is a new issue requiring Minister notice and opportunity to be heard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "Application of the Mian test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph clarifies that sur place claims were part of the case but not part of the grounds of appeal as framed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "Application of the Mian test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RAD breached procedural fairness by deciding on a new issue without notice to the Minister.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "Dispositional ruling: procedural fairness breach",
+   "role": "disposition",
+   "explanation": "The paragraph sets aside the RAD's decision due to breach of procedural fairness, citing Baker case principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "Unnecessary issue",
+   "role": "other",
+   "explanation": "The paragraph states that addressing the reasonableness of the refugee determination is unnecessary.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "Dispositional ruling: outcome",
+   "role": "disposition",
+   "explanation": "The paragraph allows the judicial review, sets aside the RAD decision, and remits the matter for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "Certification of questions",
+   "role": "other",
+   "explanation": "The paragraph states no questions of general importance are proposed for certification.",
+   "confidence": 0.5
+  }
+ ],
+ "status": "complete"
+}

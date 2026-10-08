@@ -1,0 +1,193 @@
+{
+ "case_id": 27234,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3807,
+  "completion_tokens": 1327,
+  "usd": 0.0009115000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the applicants seek to overturn a decision rejecting their H&C application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background on the applicants' citizenship, family, and child.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' entry, overstay, and detention in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports the refugee claim and its dismissal by the IRB.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' H&C application, community ties, and reasons for staying in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the applicants' PRRA application and its rejection by the Officer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Officer's refusal of the H&C application and reasons given.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Officer's findings on the applicants' establishment and its weight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Officer's conclusion on the hardship faced by the applicants in Brazil.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Officer's findings on Leticia's opportunities and support in Brazil.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Officer's assessment of risks in Brazil and their general nature.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the main issue is whether the Officer's analysis of Leticia's best interests was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the duty to consider children's best interests in H&C decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph summarizes the Officer's analysis of Leticia's best interests and support in Brazil.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Officer's use of 'basic amenities' as an improper criterion for best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues the proper test is what is in the child's best interests, not minimum standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that hardship language alone is not reviewable error if the test was applied properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the Officer did not fully analyze what was in Leticia's best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes the decision is unreasonable and the application should be returned, with additional comments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Officer's consideration of Brazil's crime levels in assessing Leticia's best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph questions the Officer's assessment of the applicants' establishment based on due process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the Officer's comment on the applicants' investments and knowledge of potential return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Officer's view that investments made with knowledge of possible removal are irrelevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the proper inquiry is about the steps taken, legality, and impact if left behind, not knowledge at the time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes that neither party proposed a question for certification.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,165 @@
+{
+ "case_id": 25626,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 21,
+ "tagged_count": 21,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4410,
+  "completion_tokens": 1203,
+  "usd": 0.0009222
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application and sets aside the visa refusal decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The application was heard alongside a related case, and the reasons will apply to both; applications are granted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The respondent moved to strike the applications as moot because the applicants reapplied after the initial rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court finds the applications are not moot because the controversy remains and the decision could have practical effects.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicants applied for a TWV based on a positive Labour Market Opinion for domestic work in Calgary, Alberta.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicants' past employment and proposed wages, hours, and benefits are detailed from the employer\u2019s letter and records.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The visa officer refused the applications citing concerns about the applicants' experience, ties to home country, and purpose of travel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officer refused the TWV for the second applicant based on similar concerns, emphasizing ties and purpose of travel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court explains the deference owed to visa officers' assessments and the legal standards under IRPA and the Regulations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Foreign nationals are entitled to minimal procedural fairness, with no obligation for officers to advise of deficiencies or conduct interviews.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the visa officer's reliance on irrelevant criteria, such as wage disparities, was an error affecting reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Economic incentives alone cannot justify a refusal; the officer should consider cost of living and assets, as in prior case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court cites other decisions applying the principle that economic incentives are not sole grounds for refusal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The analysis should focus on the applicant\u2019s ties to the home country versus incentives to overstay, supported by objective evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The officer's conclusions about employer nationality and language ability were inconsistent with the record and require proper assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The job duties did not require fluent English, and visa officers may consider language requirements beyond the LMO if relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Visa officers can consider factors related to employment and bona fides, but the officer failed to analyze the applicants' language ability properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The officer overlooked the applicant's child in Nepal and was unclear on the genuineness of employment proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The officer's assumption that the job offer was a means to access Canada was unsupported by evidence, constituting an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "While there were concerns about ties and travel history, the decision lacked sufficient justification and clarity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application and remits the case for re-determination by a different visa officer.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

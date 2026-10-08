@@ -1,0 +1,179 @@
+{
+ "case_id": 25345,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 23,
+ "tagged_count": 23,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3268,
+  "completion_tokens": 1334,
+  "usd": 0.0008604000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application for judicial review of the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court states that the application is granted and introduces the background section.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Varela arrived in Canada and claimed refugee protection based on her membership in a social group and risk to her life.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Varela's claim arose from a gang-related assault and rape, with details of her attack and injuries provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Varela reported the attack to police, received threats, and sought refuge with her aunt due to ongoing threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Board dismissed her refugee claim, finding she did not rebut the presumption of state protection, with no adverse credibility finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found that Honduras provides state protection and has taken steps to address judicial weaknesses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board acknowledged gang violence but noted some measures to combat it, with mixed evidence on success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board concluded Ms. Varela did not do enough to seek protection, as she made only one police report and left town.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board believed police assistance was offered and that failure to succeed in apprehending attackers does not negate protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The issues concern whether the Board applied the correct test and considered the evidence properly, with mention of the standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The standard of review for the state protection issue is reasonableness, based on jurisprudence including Dunsmuir and Hinzman.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Legal principles from case law require evidence to show state protection is inadequate; it need not be perfect but must be sufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board used the term 'measure' of protection, which may indicate a lower standard, and did not properly apply the correct legal test.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board failed to justify its findings transparently, which is required for reasonableness, and thus erred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board did not analyze how efforts to improve protection translated into actual safety for women like Ms. Varela.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board acknowledged police failure but did not assess whether efforts to address gang violence effectively protected women from sexual assault.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Evidence shows gang violence is pervasive and international support does not ensure adequate protection, supporting Ms. Varela's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board failed to consider post-attack political changes in Honduras that could affect state protection availability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's conclusion about Ms. Varela's attempts to access protection was unreasonable and did not consider all evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board ignored Ms. Varela's evidence about police unwillingness and her leaving town, making its assessment unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board did not adequately consider gender-based violence issues, such as increased killings of women, in its reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The decision was unreasonable, and the case is remitted for reconsideration by a different panel; no certification of questions.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

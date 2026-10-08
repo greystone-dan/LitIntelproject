@@ -1,0 +1,529 @@
+{
+ "case_id": 9900,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 73,
+ "tagged_count": 73,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 12773,
+  "completion_tokens": 4303,
+  "usd": 0.0029985000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of the RAD decision and the background of the refugee claim, including the decision date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the Applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph states the Applicants' citizenship, relationship, and their fear of persecution related to Falun Gong practice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the Principal Applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Principal Applicant's initiation into Falun Gong, her reasons, and her practice routine.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about the arrest and fleeing China",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the Principal Applicant's travel, her arrest threat, her hiding, and her escape to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural history of the refugee claim",
+   "role": "procedural_history",
+   "explanation": "The paragraph outlines the Applicants' arrival, their refugee claim, and the decisions of the RPD and RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Decision under review",
+   "role": "disposition",
+   "explanation": "The paragraph states the RAD confirmed and dismissed the Applicants' appeal in a December 2016 decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "RAD's reasoning on Falun Gong practice",
+   "role": "party_position",
+   "explanation": "The RAD agreed with the RPD that lack of corroboration about the Principal Applicant's reasons for joining Falun Gong questioned her claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "RAD's credibility on practice frequency",
+   "role": "party_position",
+   "explanation": "The RAD found inconsistency in the Applicant's testimony about practice frequency and rejected her explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "RAD's reasoning on omission of co-practitioners",
+   "role": "party_position",
+   "explanation": "The RAD agreed it was unreasonable for the Applicant to omit mentioning her co-practitioners and rejected her explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "RAD's reasoning on the Zhuan Falun book",
+   "role": "party_position",
+   "explanation": "The RAD questioned whether the Applicant had a copy of the book based on inconsistent testimony about reading it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "RAD's findings on hiding in China",
+   "role": "party_position",
+   "explanation": "The RAD agreed with the RPD that the Applicant was not in hiding, based on inconsistent testimony and lack of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "RAD's findings on son's expulsion",
+   "role": "party_position",
+   "explanation": "The RAD found no evidence of expulsion or harm to the Applicant\u2019s family, and rejected her explanation for not mentioning it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "RAD's reasoning on summons",
+   "role": "party_position",
+   "explanation": "The RAD drew a negative inference from the lack of a PSB summons, considering the context of frequent visits and arrests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "RAD's reasoning on exit credibility",
+   "role": "party_position",
+   "explanation": "The RAD found it not credible that the Applicant left China using her own passport after PSB attention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Documentation on China's Golden Shield",
+   "role": "party_position",
+   "explanation": "The RAD noted the Golden Shield's use in tracking and detaining Falun Gong practitioners, supporting the credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal framework on exit controls in China",
+   "role": "party_position",
+   "explanation": "The RAD referenced Chinese laws and procedures that restrict exit, undermining the Applicant's credibility about her departure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence on smuggling and passport examination",
+   "role": "party_position",
+   "explanation": "The RAD found the Applicant's evidence on using a smuggler vague and improbable given the extensive controls and passport checks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Case law supporting exit improbability",
+   "role": "party_position",
+   "explanation": "The RAD cited a previous case that found it unlikely to depart China using one's own passport, supporting its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "RAD's reasoning on Golden Shield and pursuit",
+   "role": "party_position",
+   "explanation": "The RAD concluded that the Applicant's information about her pursuit was not credible given China's security measures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "RAD's assessment of sur place evidence",
+   "role": "party_position",
+   "explanation": "The RAD found insufficient credible evidence of the Applicant's identity or Chinese authorities' awareness of her activities in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Issues in the case",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues raised by the Applicants, including bias, jurisdiction, and credibility findings, and the applicable standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of review law",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal principles from Dunsmuir and other cases on standards of review and when they apply.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Bias allegations and correctness review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that bias allegations are reviewed under the correctness standard, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Credibility and evidence assessment standard",
+   "role": "legal_test",
+   "explanation": "The paragraph states that credibility and evidence findings by the RAD are reviewed for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasonableness standard details",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the reasonableness standard, focusing on justification, transparency, and range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Relevant statutory provisions",
+   "role": "legal_test",
+   "explanation": "The paragraph cites the IRPA provisions defining a refugee and a person in need of protection, including criteria for each.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Bias argument summary",
+   "role": "party_position",
+   "explanation": "The Applicants argue that the RAD's analysis shows a reasonable apprehension of bias and jurisdictional error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Applicants' evidence of bias",
+   "role": "party_position",
+   "explanation": "The Applicants claim the RAD member ignored jurisprudence on exit plausibility, demonstrating bias and jurisdictional overreach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Bias standard and perception",
+   "role": "legal_test",
+   "explanation": "The paragraph states the test for bias involves whether a reasonable person would doubt the decision-maker's fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Alternative argument on credibility",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RAD's credibility findings on exit from China are unreasonable and unsupported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Arguments on plausibility of exit",
+   "role": "party_position",
+   "explanation": "The Applicants contend that the RAD wrongly dismissed the possibility of bypassing security controls, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal support for exit plausibility",
+   "role": "party_position",
+   "explanation": "The Applicants cite case law supporting their position that exit on own passports is plausible in China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Unreasonableness of rejection on husband's departure",
+   "role": "party_position",
+   "explanation": "The Applicants argue the RAD's rejection of their explanation about the husband's departure was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Rejection of credibility on summons",
+   "role": "party_position",
+   "explanation": "The Applicants claim the RAD's conclusion that the Applicant lacked credibility due to no summons was arbitrary and speculative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Zhuan Falun book testimony",
+   "role": "party_position",
+   "explanation": "The Applicants argue the testimony about the book's whereabouts was not contradictory and should not harm credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Expulsion issue and misunderstanding",
+   "role": "party_position",
+   "explanation": "The Applicants state the Applicant misunderstood the question about her son's expulsion, making the RAD's rejection unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Sur place evidence assessment",
+   "role": "party_position",
+   "explanation": "The Applicants contend the RAD's sur place credibility assessment was unreasonable and failed to consider monitoring evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Respondent's position on credibility",
+   "role": "party_position",
+   "explanation": "The Respondent argues the RAD's credibility findings are reasonable based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Respondent's reasoning on exit controls",
+   "role": "party_position",
+   "explanation": "The Respondent states that the RAD's conclusion on the unlikelihood of bypassing Chinese security controls was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Respondent's view on alternative inferences",
+   "role": "party_position",
+   "explanation": "The Respondent argues that the Applicants failed to prove the RAD's inferences were unsupported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent argues the RAD's findings on the Applicant's vague evidence about the smuggler are reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent contends the Applicants' reliance on outdated or inapplicable evidence is misplaced and the evidence about the Golden Shield system is credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent states that jurisprudence does not prevent the RAD from drawing adverse inferences and cites relevant decisions supporting this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent argues the lack of evidence about her husband's disappearance undermines the Applicant\u2019s motives for practicing Falun Gong.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent claims it was reasonable to conclude that a summons would have been issued if the allegations were true, given the Applicant's communication and the PSB's visits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent states that other inconsistencies support the credibility finding, and errors here would not invalidate the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent argues the inconsistency about the Zhuan Falun book is reasonable given her testimony about reading it daily.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent maintains the RAD's findings on the Minor Applicant's expulsion are reasonable due to lack of corroborative evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent claims the credibility issues are reasonable based on unchallenged discrepancies in the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent argues the Applicants have not met the high standard to establish a reasonable apprehension of bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent defends the detailed factual analysis of the decision and its adherence to relevant jurisprudence, denying bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent states that the RAD's weighing of evidence was reasonable and that ambiguous evidence does not warrant intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent argues the RAD's assessment of the sur place claim was reasonable given the evidence and credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "apprehension of bias",
+   "role": "other",
+   "explanation": "The Applicants argue the RAD's failure to consider conflicting jurisprudence does not amount to re-weighing evidence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "apprehension of bias",
+   "role": "other",
+   "explanation": "The Applicants dispute the materiality of the RAD's omission of certain decisions and jurisprudence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court discusses the similarity of decisions regarding exit from China and the relevance of jurisprudence like Yang and Yao.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court agrees that the RAD's findings are based on facts and not solely on X(Re), and considers jurisprudence relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the RAD's reasoning about the smuggler's capabilities and evidence credible and reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the Applicant's explanation about the Zhuan Falun book to be reasonable given her testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court considers the lack of evidence about the son's expulsion reasonable given her lack of knowledge at the time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Court notes the evidence about the sur place claim includes more than photos, supporting the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the RAD's credibility assessment reasonable, based on inconsistencies and the totality of evidence, leading to a reasonable conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Court highlights the central issue of whether the RAD's credibility findings about exit from China were unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The Court notes the RAD's detailed analysis of the Applicant's ability to leave China and the relevant jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court discusses the Applicants' argument that the RAD omitted relevant jurisprudence and the Court's obligation to consider contradictory case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court agrees the RAD's findings are based on facts and not solely on X(Re), and discusses the importance of considering all relevant jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the RAD's approach does not give rise to a reasonable apprehension of bias, emphasizing reasonableness of factual assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court criticizes the RAD for not considering evidence of systemic corruption and for making unsupported speculations about security measures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court identifies material errors in the RAD's characterization of the Applicant's explanations and the evidence about her husband's disappearance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Court concludes the decision is unsafe and unreasonable based on the review of errors and issues identified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Court states the sur place claim must be reconsidered due to the errors in credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Court notes the variability of decisions on exit from China and emphasizes the need for case-specific review, requiring reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Court agrees there is no question or certification and the case is ready for review or reconsideration.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

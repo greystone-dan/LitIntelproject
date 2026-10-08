@@ -1,0 +1,200 @@
+{
+ "case_id": 26176,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5716,
+  "completion_tokens": 1463,
+  "usd": 0.0011568
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "case overview and applicant background",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the case, the applicant's background, and the initial decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "procedural history and previous court decisions",
+   "role": "procedural_history",
+   "explanation": "It details the prior decisions, including the first RPD decision and its vacatur, and the remittal for re-determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural history and current decision",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the second RPD decision, its credibility finding, and the court's view on the reasoning errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant's account of his work, extortion, threats, and the escalation of violence by the MS.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's report to police, continued extortion, and threats from MS members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the murder of Mr. Vicente, the applicant's subsequent fears, and his eventual flight to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant's relocation to his in-laws' village and his move to Canada due to safety concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "issue and standard of review",
+   "role": "issue_framing",
+   "explanation": "States the Board's brief mention of state protection and internal flight options and the focus on credibility review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the reasonableness standard for credibility findings and the deference owed to the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Discusses the caution against plausibility findings and the need for clear, reasonable inferences in credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Describes when allegations are deemed implausible and the importance of a reliable evidentiary base for plausibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "States that the Board's speculation was unreasonable and its credibility findings were flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Analyzes the Board's first implausibility finding about the timing of extortion and finds it unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Argues that the Board's conclusion about the timing of extortion is unreasonable and not supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Critiques the Board's second implausibility finding about threats and the likelihood of violence, deeming it unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Highlights the applicant's reasonable explanation and the error in the Board's conclusion about the threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "Finds the Board's conclusion about the two nicknames unsupported and unreasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence assessment",
+   "role": "other",
+   "explanation": "Notes that the Board's other credibility bases are unfounded or flawed.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Examines the inconsistency about police reporting and explains why the applicant's account remains credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Clarifies that affidavits about police reporting are consistent with the applicant's testimony, countering the Board's concern.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Analyzes the press report and concludes the alleged contradiction does not undermine credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Addresses the Board's reasoning about the applicant's subjective fear and the movement of his family.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "States that the central credibility issues are unreasonable, warranting a review and possible setting aside of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Critiques the Board's use of demeanour in credibility assessment as inappropriate and overly subjective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Concludes that the Board's flawed credibility findings render the decision unreasonable and warrants setting aside.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that the application for judicial review is allowed and no certification question is proposed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

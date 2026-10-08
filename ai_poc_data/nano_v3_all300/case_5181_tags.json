@@ -1,0 +1,417 @@
+{
+ "case_id": 5181,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 57,
+ "tagged_count": 57,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7094,
+  "completion_tokens": 3207,
+  "usd": 0.0019922000000000004
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's judicial review of a CRA benefits decision regarding her eligibility for the CRB.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the CRB was created in 2020 by the government in response to COVID-19.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the eligibility criteria for the CRB under the Canada Recovery Benefits Act relevant to this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph states a procedural rule change regarding the style of cause to reflect the Attorney General of Canada.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that the applicant applied for and received CRB based on her consulting work in the hospitality industry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the applicant's submission of invoices, receipts, and an email as part of her eligibility review evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports that the eligibility review found the applicant did not meet the income requirement and notified her of ineligibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the review report's remarks about the applicant's income documents and the reasons for her ineligibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the denial letter explained how to request a second review with new evidence or facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes that the applicant requested a second review of her CRB eligibility on March 16, 2021.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the second review process, including a telephone call where the applicant was advised on documentation needed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the second officer confirmed the initial findings and listed reasons for the applicant's failure to meet eligibility criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that the main issue is whether the decision is reasonable, which both parties agree upon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's allegation that the officer was biased and unfair during the telephone call.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the Supreme Court presumes reasonableness as the standard of review for administrative decisions, barring exceptions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness review does not involve substituting the court's judgment or de novo analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that courts generally do not reweigh evidence unless there are exceptional circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph defines a reasonable decision as coherent, rational, and justified, with courts deferring to it under reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that procedural fairness is assessed based on whether the applicant had a fair opportunity to respond and understand the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph concludes that the applicant was properly informed of the case and given an opportunity to respond, meeting procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the applicant was asked for specific documents during the second review telephone call, which she did not provide.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's claim that language barriers and hospital noise affected her understanding during the call.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the applicant indicated no questions and agreed to try to obtain the documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the applicant resubmitted some documents but did not provide bank statements or evidence of cash payments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the applicant was properly informed and had a fair opportunity, satisfying procedural fairness, with no evidence of unfairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph introduces the applicant's arguments challenging the reasonableness of the officer\u2019s findings and the court's analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the applicant's claim that her 2020 tax return and invoices prove she met the income threshold, challenging the officer's finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the respondent argues the applicant did not provide sufficient proof of actual payment for her income claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the applicant's memorandum only claimed invoices and receipts as sufficient proof, not requesting additional documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses a similar case where the court found CRA's request for supporting documents reasonable under the CRB guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's argument that CRA should accept self-reported income and that additional proof is unnecessary during COVID-19 recovery.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reports that the court found CRA's request for further documentation reasonable and consistent with guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the same issue of self-reported income without supporting documents was present in the Aryan case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes the CRBA requirement that applicants must provide any information the Minister requests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the officer reasonably requested proof, and the applicant failed to provide it, making the decision reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the Canadian tax system relies on self-assessment, citing relevant cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the obligation to provide information or explain inability to do so under section 6 of the CRBA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds that the officer's conclusion about the applicant's income was reasonable based on the evidence and guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the income issue alone warrants dismissing the application, but other arguments will also be considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's explanation of her COVID-19 impact and her efforts to seek employment in the hospitality industry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's submission of job application evidence and the CRA's rejection of it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Reasoning application",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the officer's reasoning for not accepting the applicant's arguments, including inconsistencies and suspicions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the officer's uncertainty about when the applicant stopped self-employment, referencing the eligibility checklist.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Reasoning application",
+   "role": "party_position",
+   "explanation": "The paragraph discusses concerns about the applicant's documentation and the legitimacy of her business activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Reasoning application",
+   "role": "party_position",
+   "explanation": "The paragraph states that the applicant's claim of continuous employment seeking is not supported by her submitted documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reports that the Indeed printout did not substantiate continuous job seeking, showing limited applications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the applicant did not provide additional evidence of her job search efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that insufficient evidence led the officer to reasonably find the applicant not actively seeking employment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant claims she did not apply under the 50% income reduction criteria and questions its inclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains that the applicant misreads the legislation regarding the 50% income reduction criterion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes the relevant legislative provision defining eligibility for CRB based on COVID-19 related employment reduction or income loss.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that the test for CRB eligibility is disjunctive, allowing qualification through either loss of employment or income reduction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the officer reasonably considered both eligibility pathways and concluded the applicant failed both.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The paragraph affirms that the decision was reasonable after reviewing all evidence and arguments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that the evidence was insufficient to prove the applicant's CRB eligibility and discusses record-keeping importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the judicial review application is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The paragraph notes that costs are not awarded in this case, exercising the court\u2019s discretion.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

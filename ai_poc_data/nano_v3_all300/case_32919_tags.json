@@ -1,0 +1,319 @@
+{
+ "case_id": 32919,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 43,
+ "tagged_count": 43,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6361,
+  "completion_tokens": 2376,
+  "usd": 0.0015865000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of a Board decision and the issues involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the three issues raised by the applicant regarding the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's personal background and the abuse she claims to have suffered in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's report to police and her subsequent actions following the alleged assault.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the applicant did not seek medical attention or report witnesses after the incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicant's decision to travel to Canada due to threats and harassment from Mr. San Juan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's testimony about Mr. San Juan's involvement in smuggling and threats against her.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the date the applicant claimed refugee protection and introduces the decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Board's findings on credibility and the applicant's description of the assault.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the Board's reasoning for rejecting the claim based on state protection and IFA, citing legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph details the Board's conclusion that an IFA exists in Mexico and the reasons supporting this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the Board's conclusion that persecution in Mexico is only a mere possibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the standard of review for the Board's findings on state protection, emphasizing deference and reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicant's argument that the Board failed to address negative evidence about Mexico's protection system.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the Board for ignoring evidence suggesting ineffective mechanisms for protecting women in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph quotes a Human Rights Watch article describing systemic failures in Mexico's justice system regarding violence against women.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the Court's established requirement for the Board to explain why certain evidence is preferred over others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reaffirms the obligation of the Board to justify its evidentiary preferences, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that the effectiveness of state protection must be evaluated, not just its existence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds that the Board failed to consider the effectiveness of Mexico's protection and ignored contradictory evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that state protection does not need to be perfect and references a case supporting the presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that the principle of presumption of protection is especially relevant when persecution is by individuals, not the state.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the applicant's limited efforts to seek police assistance and the impact on police investigation capability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the Board failed to address contradictory evidence about the applicant's failure to seek protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the Board must justify its evidentiary preferences on central issues like state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the presumption that the Board considered all evidence unless contrary is shown.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph concludes that the Board was entitled to find the applicant did not rebut the presumption of protection, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes the parties' reference to a recent case where judicial review was granted regarding state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph summarizes the facts of the Carrillo case, involving fear of murder and issues with police protection in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal presumption of state protection and the burden of proof as explained in a case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that the burden is evidentiary, to produce reliable evidence, not a higher standard of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the applicant relied on Lopez and emphasizes case-specific decision-making.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph lists recent court decisions that granted judicial reviews of Mexico's state protection system.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph mentions decisions dismissing reviews where Mexico's protection system was deemed functioning despite flaws.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the standard of review for IFA is patent unreasonableness, a factual determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's argument that Mr. San Juan's links to organized crime increase her risk, based on deposition evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the Board discussed Mr. San Juan's links but the applicant's argument was not before the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the Board considered the psychological report and found no reviewable error in its treatment of her state.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that violations of natural justice are reviewed on a correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph claims the Board violated natural justice by not addressing a central argument.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues psychological harm can be persecution or cruel treatment, but the court finds this argument legally unfounded and discusses jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds the Board correctly analyzed the claim under sections 96 and 97 and concludes no reviewable error was made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application and notes the parties' request for time to produce questions for certification.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,172 @@
+{
+ "case_id": 26456,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 22,
+ "tagged_count": 22,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5049,
+  "completion_tokens": 1370,
+  "usd": 0.0010529
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Case background and decision under review",
+   "role": "procedural_history",
+   "explanation": "The paragraph introduces the applicant's nationality and the decision being challenged, including the date and the grounds for the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Board's grounds for decision and focus of review",
+   "role": "issue_framing",
+   "explanation": "The paragraph explains the Board's two reasons for its decision and states that only the state protection issue will be addressed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Board's reasoning on state protection",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Board's reasoning regarding the applicant's failure to seek police assistance and the evidence about Colombia's protection capacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Applicant's argument on omitted evidence",
+   "role": "party_position",
+   "explanation": "The applicant claims the Board failed to consider key reports indicating Colombia's inability to protect, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Court's view on prior case law and legal change",
+   "role": "reasoning_application",
+   "explanation": "The court explains why previous cases are distinguishable and discusses the impact of the Newfoundland Nurses decision on legal standards.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Standard of review for the alleged error",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness is the applicable standard for reviewing the Board's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Applicant's legal argument on factual error",
+   "role": "party_position",
+   "explanation": "The applicant argues the Board made a reviewable error by disregarding evidence in its factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Frequency of similar arguments and judicial approach",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses how similar arguments are common and cites a case illustrating the court's approach to such claims.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal standard for failure to analyze evidence",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that failure to consider contrary evidence does not automatically make a decision unreasonable, depending on context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Recent Supreme Court guidance on evidence consideration",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that courts should be cautious in assuming evidence was disregarded when not mentioned explicitly.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Court's approach to reviewing tribunal's consideration of evidence",
+   "role": "reasoning_application",
+   "explanation": "The court states that it presumes the tribunal considered all evidence and that the burden is on the applicant to show otherwise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Impact of Newfoundland Nurses on review standards",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the significance of Newfoundland Nurses in shaping the review of tribunal reasoning and decision reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Court's interpretation of Newfoundland Nurses and Dunsmuir",
+   "role": "reasoning_application",
+   "explanation": "The court notes it must consider both the Board's reasoning and outcome, and be cautious about overemphasizing omissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Board's consideration of key reports and evidence",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds that the Board did consider the reports and evidence, distinguishing this case from others where evidence was ignored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Approach to assessing reasonableness of decision",
+   "role": "legal_test",
+   "explanation": "The court emphasizes respecting the tribunal's process and examining the record to assess reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Validity of reasons with incomplete argumentation",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that reasons do not need to address every detail as long as they explain the decision and are within acceptable bounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence supporting the Board's conclusion",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the Board had substantial evidence supporting its finding of adequate protection, making the decision reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Deference to tribunal's reasons and decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the court's approach to reviewing reasons, emphasizing that reasons need not be perfect and should be read in context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Previous cases upholding Board's consideration of reports",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph cites cases where the Board's consideration of reports was upheld, supporting the reasonableness of its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Recent cases on risk profiles and documentary evidence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph reviews recent case law emphasizing the importance of considering the applicant's profile and relevant evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Board's proper assessment of applicant\u2019s profile",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the Board properly evaluated the applicant's profile and that the argument about specific reports is without merit.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Final decision and conclusion",
+   "role": "disposition",
+   "explanation": "The court dismisses the application and states no question for certification arises.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

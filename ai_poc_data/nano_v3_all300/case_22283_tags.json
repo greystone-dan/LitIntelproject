@@ -1,0 +1,193 @@
+{
+ "case_id": 22283,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3544,
+  "completion_tokens": 1388,
+  "usd": 0.0009096000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of a Board decision regarding refugee status based on religion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's personal background, religious conversion, and circumstances leading to his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "It states the Board's decision that the applicant was not a refugee or in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's testimony about his exposure to Christianity and Bible reading habits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's observation that the applicant's knowledge of Christianity was inconsistent with his claimed exposure period.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's detailed findings on the applicant's lack of basic Christian knowledge and understanding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's adverse inference from the applicant's quick answers, inconsistencies, and credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's low valuation of the support letter due to lack of detail about involvement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's view that the applicant's history of attempts to enter Canada shows desire to stay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion that the applicant's story was not credible and that his religious participation was fabricated.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's finding that the applicant's claim of being wanted by the PSB was not true, based on evidence contradictions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the legal issues and errors the applicant alleges in the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reformulates the issues into questions about the reasonableness of the Board's findings and legal errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It discusses the Supreme Court's guidance on the degree of deference owed in judicial review, focusing on jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the criteria for challenging credibility findings and the applicable standards of review pre- and post-Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It clarifies that the standard of patent unreasonableness has been replaced by reasonableness and correctness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that credibility and plausibility assessments are factual and reviewed under reasonableness with deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It summarizes the issue under review: whether the Board's credibility determination was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the Board's conclusion about the applicant's credibility reasonable based on inconsistent testimony, which the applicant concedes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court addresses the applicant's argument about the Board's assessment of Christian knowledge, deeming the error non-material but noting it for future reference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the appropriate standard for assessing Christian knowledge and the Court's view on the applicant's education level.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court criticizes the Board's apparent requirement for encyclopedic Bible knowledge to be a genuine Christian, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the Board's dismissal of the church support letter unreasonable, as it only confirmed attendance and baptism.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The Court concludes that the Board's credibility finding was reasonably open, and dismisses the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The Court notes that neither party considers this case of sufficient importance to warrant certification for appeal.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

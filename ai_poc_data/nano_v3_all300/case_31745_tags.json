@@ -1,0 +1,207 @@
+{
+ "case_id": 31745,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 27,
+ "tagged_count": 27,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4107,
+  "completion_tokens": 1432,
+  "usd": 0.0009835
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court describes the application for judicial review and the decision being challenged by the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' nationality, their visit to Canada, and their family connections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicants' claim of persecution based on an incident involving police and religious practices.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the applicants' efforts to seek religious accommodation and their subsequent move to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court summarizes the evidence presented at the hearing and the conduct of the Board's questioning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Board's adverse credibility findings despite acknowledging the applicants' lack of education.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph details the Board's concerns about the applicant's memory and knowledge of religious details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph lists additional reasons the Board found the applicant not credible, including inconsistencies and implausibilities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion on the presumption of state protection and country conditions is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "issue_framing",
+   "explanation": "The court sets out the issues regarding the standard of review and reviewable errors in the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the deferential standard of patent unreasonableness for credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness is the standard for state protection findings, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph confirms the applicable standards of review for evidence and credibility assessments based on case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the Board's primary role in assessing evidence and credibility, with a high standard of deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms the tribunal's expertise in assessing testimony and the limited scope of judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the standard of patent unreasonableness for documentary evidence and plausibility of testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph critiques the Board's unwarranted attribution of non-practice of religion based on the applicant's own words.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that minor omissions in the PIF are not grounds for adverse credibility findings, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the PIF is a summary and minor omissions should not be overly scrutinized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph argues that small discrepancies in attendance details are not unreasonable to ignore.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph contends that the police targeting the applicant was plausible and not unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph concludes that the cumulative errors in credibility are sufficient to find the Board's conclusion unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph links the credibility assessment to the state protection conclusion, noting errors undermine both.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "other",
+   "explanation": "The court expresses concern about the Board's selective approach to country condition evidence.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses reports on harassment and police brutality against Muslims in Bulgaria relevant to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application and remits the matter for reconsideration by a different Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court notes that no certified question was proposed and no issue of general importance is identified.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

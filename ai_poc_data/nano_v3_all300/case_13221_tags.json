@@ -1,0 +1,375 @@
+{
+ "case_id": 13221,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 51,
+ "tagged_count": 51,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 10499,
+  "completion_tokens": 3811,
+  "usd": 0.0025743000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history of inadmissibility and removal order",
+   "role": "procedural_history",
+   "explanation": "Describes Mrs. Semana's inadmissibility for misrepresentation and the subsequent removal order issued against her.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of appeal and tribunal decision",
+   "role": "procedural_history",
+   "explanation": "Details Mrs. Semana's appeal to the IAD and the tribunal's dismissal based on insufficient H&C considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history of judicial review application",
+   "role": "procedural_history",
+   "explanation": "States Mrs. Semana's grounds for judicial review and her request for the court to quash the IAD decision and reconsider her case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural history and tribunal findings",
+   "role": "procedural_history",
+   "explanation": "The judge's summary of the court's decision to dismiss the application after reviewing the tribunal's findings and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: seriousness of misrepresentation",
+   "role": "party_position",
+   "explanation": "Reports the IAD's findings that Mrs. Semana lied multiple times and the misrepresentation was deliberate and serious.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: remorse",
+   "role": "party_position",
+   "explanation": "States the IAD's view that Mrs. Semana's continued blame on others and lack of acceptance of responsibility indicated a lack of remorse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: establishment in Canada",
+   "role": "party_position",
+   "explanation": "Notes the IAD's acknowledgment of some establishment but also its view that illegal status diminishes this factor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: impact on family and BIOC",
+   "role": "party_position",
+   "explanation": "Describes the IAD's assessment that Mrs. Semana's family would not be significantly affected by her removal and her limited involvement with the children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: hardship from removal",
+   "role": "party_position",
+   "explanation": "States the IAD's conclusion that Mrs. Semana could work abroad and support her family, so hardship was not sufficient for relief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: overall weighing of factors",
+   "role": "party_position",
+   "explanation": "Summarizes the IAD's overall balancing of positive and negative factors, emphasizing the seriousness of misrepresentation and limited H&C grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position: conclusion on H&C considerations",
+   "role": "party_position",
+   "explanation": "States the IAD's finding that there were insufficient H&C considerations to justify relief, leading to dismissal of the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: nature of H&C relief",
+   "role": "legal_test",
+   "explanation": "States that H&C relief is an exceptional, discretionary remedy outside normal immigration streams, not an appeal mechanism.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: burden of proof for H&C",
+   "role": "legal_test",
+   "explanation": "States that the applicant bears the burden to establish that H&C relief is warranted, with failure to provide evidence being at their risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test: applicability of principles",
+   "role": "legal_test",
+   "explanation": "Notes that principles for H&C considerations under section 25 of IRPA apply equally to paragraph 67(1)(c) appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Standard of review: reasonableness analysis",
+   "role": "legal_test",
+   "explanation": "Explains that reasonableness review involves justification, transparency, and whether outcomes are within a range of acceptable decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Analysis: assessment of children's interests",
+   "role": "reasoning_application",
+   "explanation": "Mrs. Semana claims the IAD did not properly analyze the children's best interests and based its conclusion on speculation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Analysis: legal standards for BIOC",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees, citing jurisprudence that the IAD was not required to follow the Williams three-step process and that the Supreme Court's recent decisions do not mandate it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Analysis: flexibility of BIOC analysis",
+   "role": "reasoning_application",
+   "explanation": "States that no rigid formula exists for BIOC analysis, and substance over form is the guiding principle.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Analysis: Supreme Court's references to Williams",
+   "role": "reasoning_application",
+   "explanation": "Notes that the Supreme Court's decision in Kanthasamy did not adopt the Williams three-step approach, only referencing it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Analysis: correct legal test for BIOC",
+   "role": "reasoning_application",
+   "explanation": "The correct test is whether the IAD was alert, alive, and sensitive to the children's best interests, considering their unique consequences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Analysis: addressing the child's best interests",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that the IAD's analysis was sufficient and within reason, even if not highly detailed, and supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Analysis: weighing the BIOC factor",
+   "role": "reasoning_application",
+   "explanation": "The court finds the IAD's assessment of the BIOC factor reasonable, given the limited involvement and evidence from Mrs. Semana.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Analysis: IAD's consideration of children's situation",
+   "role": "reasoning_application",
+   "explanation": "The IAD properly considered the children's situation and did not err in its assessment of their best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Analysis: conclusion on BIOC assessment",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the IAD's BIOC assessment was reasonable, noting the limited evidence and Mrs. Semana's minimal involvement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Background: Mrs. Semana's involvement with children",
+   "role": "background_facts",
+   "explanation": "Details Mrs. Semana's limited involvement with her cousin's children, mainly babysitting a few hours bi-weekly, which is atypical for BIOC considerations.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Background: nature of relationship",
+   "role": "background_facts",
+   "explanation": "States Mrs. Semana was not a primary caregiver and had a distant relationship with the children, which affects BIOC weight.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Background: relationship considerations in BIOC",
+   "role": "background_facts",
+   "explanation": "Explains that a close, ongoing relationship is relevant for BIOC, but a distant relationship like Mrs. Semana's is less significant.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Background: BIOC relevance to relationship proximity",
+   "role": "background_facts",
+   "explanation": "States that the BIOC factor is not meant to support claims where the relationship is distant or marginal, as in Mrs. Semana's case.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Background: IAD's conclusion on relationship",
+   "role": "background_facts",
+   "explanation": "The IAD concluded that Mrs. Semana's limited involvement was insufficient to establish the need for her presence in Canada based on BIOC.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Background: evidence limitations",
+   "role": "background_facts",
+   "explanation": "Notes the lack of objective evidence supporting Mrs. Semana's claims about the children's needs and her qualifications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Background: evidence on children's needs",
+   "role": "background_facts",
+   "explanation": "Highlights the absence of evidence on the children's current condition, needs, or Mrs. Semana's qualifications to help with special needs children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Background: evidence on impact of removal",
+   "role": "background_facts",
+   "explanation": "States that Mrs. Semana failed to provide evidence on the impact of her removal on the children, weakening her BIOC claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Background: court's view on evidence",
+   "role": "background_facts",
+   "explanation": "The court notes the IAD's decision was not perfect but sufficiently justified and that the limited evidence did not warrant intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Background: assessment of Mrs. Semana's establishment",
+   "role": "background_facts",
+   "explanation": "States the IAD considered Mrs. Semana's establishment in Canada and acknowledged her some degree of establishment, despite her illegal status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Background: purpose of H&C considerations",
+   "role": "background_facts",
+   "explanation": "States that H&C considerations are meant for those without status for reasons beyond their control, not for those with legal status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Background: court's disagreement",
+   "role": "other",
+   "explanation": "The court disagrees with Mrs. Semana's argument regarding her establishment status and the purpose of H&C considerations.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Background: IAD's recognition of establishment",
+   "role": "background_facts",
+   "explanation": "Notes that the IAD explicitly recognized Mrs. Semana's some establishment and considered it a positive factor, despite her illegal status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Background: weight of evidence",
+   "role": "background_facts",
+   "explanation": "States that the court's role is not to reweigh evidence or the factors' importance but to review reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Background: legality and public interest",
+   "role": "background_facts",
+   "explanation": "Emphasizes that the IAD's decision aligns with jurisprudence and the principle that illegal conduct should not be rewarded, serving the public interest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Background: principle of good faith in immigration",
+   "role": "background_facts",
+   "explanation": "States that the IRPA principles require applicants to come in good faith and comply with immigration laws, which supports the IAD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mrs. Semana's circumstances, emphasizing her illegal stay and the circumstances of her presence in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the IAD's conclusion on Mrs. Semana's illegal circumstances and references a legal case to support this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the reasonableness of the IAD's decision based on process, outcome, and supporting evidence, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mrs. Semana argues the IAD's findings are unreasonable regarding her family's impact and her employment, claiming errors in evidence evaluation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court states it is not persuaded by Mrs. Semana's arguments, indicating a rejection of her claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the IAD's reasoning about the absence of recent evidence and the non-family status of employers to be reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds nothing unreasonable in the IAD's conclusion that Mrs. Semana can work overseas and support her family from abroad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court defers to the IAD's weighing of humanitarian and compassionate factors, emphasizing the limits of judicial review in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the approach to reading reasons as a whole and the limits of judicial review, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the IAD did not err in its assessment of the evidence regarding the adverse effects of removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court states that neither party proposed a question of importance for certification and agrees there is none.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

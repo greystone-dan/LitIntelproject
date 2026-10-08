@@ -1,0 +1,319 @@
+{
+ "case_id": 21540,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 43,
+ "tagged_count": 43,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8578,
+  "completion_tokens": 2688,
+  "usd": 0.0019330000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 2007 Board decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' Pakistani citizenship, tribal affiliations, and their fear of persecution by Najma's family.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicants' alleged assault in 1989 and Muhammad's subsequent flight to Rawalpindi.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph details Muhammad's work in Dubai, their marriage, and an alleged attack on Muhammad's parents' house during their honeymoon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the couple's hiding in Lahore, Muhammad's return to Dubai, and his parents' alleged threats against Najma.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph states the couple's visits to Pakistan and Muhammad's business activities in Lahore in 2004.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts about the applicants",
+   "role": "background_facts",
+   "explanation": "The paragraph reports an alleged attempted attack on the couple's home in 2005 and police interactions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains the applicants' departure from Pakistan and their refugee claim in Canada filed in April 2006.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: Board's decision",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicants lacked a well-founded fear of persecution and would not face serious risks if returned.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: Board's credibility findings",
+   "role": "party_position",
+   "explanation": "The Board found the applicants' evidence not credible due to inconsistencies and implausibilities, listing specific issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: Convention refugee and internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The Board applied the test from Thirunavukkuransu and considered an internal flight alternative in Pakistan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: Board's assessment of emotional evidence",
+   "role": "party_position",
+   "explanation": "The Board found Najma's emotional reaction did not indicate a risk of harm in Pakistan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position: Summary of Board's findings",
+   "role": "party_position",
+   "explanation": "The Board dismissed Muhammad's claim, rejected Najma's claim, and found no credible risk to the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Issue framing: issues on judicial review",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues raised by the applicants regarding the Board's legal and factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: standard of correctness",
+   "role": "legal_test",
+   "explanation": "The court finds no error in the Board's interpretation of the refugee definition, applying the correct legal standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Issue framing: review of factual errors and cumulative errors",
+   "role": "issue_framing",
+   "explanation": "The paragraph rephrases the issues as whether the Board erred in credibility, internal flight alternative, and cumulatively.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the Dunsmuir framework and the two-step process for determining the standard of review, favoring reasonableness for factual questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Standard of review: factual findings",
+   "role": "legal_test",
+   "explanation": "The paragraph states that credibility and implausibility findings are reviewed under the reasonableness standard, with high deference to the tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Standard of review: credibility findings",
+   "role": "legal_test",
+   "explanation": "The paragraph notes courts may intervene if credibility reasons are unsupported by evidence, especially when based on implausibilities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Standard of review: credibility presumption",
+   "role": "legal_test",
+   "explanation": "The paragraph states that allegations are presumed true unless there are reasons to doubt their truthfulness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Standard of review: internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the viability of an internal flight alternative is a factual question reviewed under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of review: reasonableness for factual questions",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms that factual questions like credibility and IFA are reviewed for reasonableness, focusing on justification and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Standard of review: overall reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the overall reasonableness standard applies to the Board's decision, including cumulative errors, and that the findings are consistent under both standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position: credibility assessment of Muhammad",
+   "role": "party_position",
+   "explanation": "The applicants argue the Board's credibility findings were overly strict and based on speculation, especially regarding the lack of attacks between 1998 and 2005.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning: Board's credibility findings",
+   "role": "reasoning_application",
+   "explanation": "The Board found Muhammad's multiple returns to Pakistan without problems implausible, supporting its credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning: credibility and subjective fear",
+   "role": "reasoning_application",
+   "explanation": "The Board concluded Muhammad's repeated visits and lack of problems showed a lack of subjective fear, which was reasonable given the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning: re-availment and subjective fear",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably inferred that Muhammad's frequent returns indicated no subjective fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning: plausibility of harm and inaction",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably found it implausible that the family would not have harmed the couple earlier given their power and previous attack.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning: plausibility of initial harm",
+   "role": "reasoning_application",
+   "explanation": "The Board found it plausible that the family did not attempt harm earlier because they did not locate Najma or act during her residence with Muhammad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position: police reports and newspaper articles",
+   "role": "party_position",
+   "explanation": "The applicants argue the Board erred by requiring corroborative police reports and articles, which they claim is an undue standard of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal standard: burden of proof",
+   "role": "legal_test",
+   "explanation": "The paragraph states the burden of proof is on the claimant and the standard is balance of probabilities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position: Board's evidentiary finding",
+   "role": "party_position",
+   "explanation": "The Board noted the absence of corroborative evidence and inferred the incident did not happen.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal error: documentary evidence requirement",
+   "role": "legal_test",
+   "explanation": "The paragraph states the Board erred by disbelieving testimony solely due to lack of documentary corroboration, which is not required.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal error: corroboration and credibility",
+   "role": "legal_test",
+   "explanation": "The paragraph cites jurisprudence that the absence of documentary evidence alone cannot discredit credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal error: medical evidence",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses that lack of medical reports does not automatically discredit a claim, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position: police report and newspaper evidence",
+   "role": "party_position",
+   "explanation": "The Board focused on the lack of police reports and articles despite Muhammad's testimony about police refusal, which was an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position: affidavit as corroborative evidence",
+   "role": "party_position",
+   "explanation": "Muhammad's affidavit described the attack and his and Najma's fear, supporting their claim of the 2005 incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Reasoning: evidentiary weight and reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the affidavit was relevant and the Board should have explained its rejection, which was an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning: key event and credibility",
+   "role": "reasoning_application",
+   "explanation": "The Board's failure to address the affidavit and its conclusion that the attack never occurred was an error, but the overall decision may still stand.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test: internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The paragraph states the test for IFA involves assessing the risk of persecution and reasonableness of seeking refuge there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "legal_test: internal flight alternative",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the Board's conclusion on IFA was reasonable and supported by evidence, citing relevant legal standards and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "issue_framing",
+   "role": "legal_test",
+   "explanation": "The paragraph states that a valid IFA is determinative of the refugee claim, referencing legal authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, finding the IFA issue dispositive and no need to consider other issues.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

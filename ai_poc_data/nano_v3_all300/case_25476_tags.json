@@ -1,0 +1,459 @@
+{
+ "case_id": 25476,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 63,
+ "tagged_count": 63,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 10633,
+  "completion_tokens": 3553,
+  "usd": 0.0024845
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of the RPD's decision refusing refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides personal details about the Applicant and his connection to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicant's introduction to Falun Gong and the subsequent raid and his need to hide.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the Applicant's fleeing from China due to fear of imprisonment and his travel to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states when the Applicant claimed protection and the timeline of the hearing and decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes what the RPD reviewed regarding the Applicant's story about Falun Gong.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Identity",
+   "role": "party_position",
+   "explanation": "The paragraph describes the documents submitted by the Applicant to prove identity and the forensic analysis conducted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Identity",
+   "role": "party_position",
+   "explanation": "The paragraph details the Applicant's response to the forensic report and the RPD's conclusion on the RIC's authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Identity",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RPD's findings on the Hukou, Divorce Certificate, and outpatient record based on document analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Other documents",
+   "role": "party_position",
+   "explanation": "The paragraph notes the affidavit from the Applicant's daughter and its influence on the RPD's decision on citizenship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Other documents",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's concerns about the Notice's content and its legal basis in Chinese law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Other documents",
+   "role": "party_position",
+   "explanation": "The paragraph compares the Notice with examples from a RIR and notes discrepancies, questioning its authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Other documents",
+   "role": "party_position",
+   "explanation": "The paragraph discusses translation issues and the RPD's reasoning for deeming the Notice fraudulent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Other documents",
+   "role": "party_position",
+   "explanation": "The paragraph states the Visiting Card was submitted but found not to prove arrest, based on other fraudulent documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the RPD's conclusion that the Applicant was not a Falun Gong practitioner in China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Falun Gong Practice",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Applicant's testimony about his practice and the RPD's consideration of his education and practice duration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Falun Gong Practice",
+   "role": "party_position",
+   "explanation": "The paragraph details the Applicant's vague answers about his knowledge of Falun Gong and the RPD's conclusion he is not a genuine practitioner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the RPD's finding that the Applicant did not meet the burden to establish a risk if returned to China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the statutory definitions of refugee and person in need of protection under Canadian law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues on which the Applicant seeks judicial review and mentions the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Supreme Court's approach to applying the standard of reasonableness in judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the issues challenge the RPD's findings of fact and the applicable reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the scope of reasonableness review concerning the RPD's decision on credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the Applicant's argument that the RPD improperly evaluated his documents' validity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph critiques the RPD's conclusion about the RIC's authenticity and the basis for its fraud finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses how the RPD's finding on the RIC influenced its conclusions on other documents, which the Applicant disputes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph argues that the RPD's rejection of the Notice was unreasonable due to outdated examples and misinterpretation of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the RPD's rejection of the Notice and Visiting Card based on document fraud was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the unreasonable findings on documents tainted the credibility assessment, requiring reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the Applicant's argument that the RPD's conclusion on his Falun Gong practice was unreasonable given his background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph cites legal cases supporting the low standard for demonstrating religious knowledge for Falun Gong practitioners.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the RPD's microscopic examination of the Applicant's beliefs and argues for reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph quotes the RPD's reasoning that the Applicant's failure to understand core principles indicates he is not a genuine practitioner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the RPD's analysis was tainted by its unreasonable document findings, making the entire decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Respondent's view that the RPD reasonably identified credibility concerns based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains that the RPD was entitled to prefer documentary evidence over testimony, which was reasonable here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the RPD's reliance on the fraudulent nature of the documents was reasonable and supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the RPD's reliance on the RIR was reasonable and that regional variations do not undermine this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the RPD's conclusion on the Applicant's Falun Gong practice was based on concerns about his knowledge and sincerity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains that the RPD reasonably considered the Applicant's circumstances and evidence in assessing his practice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court defers to the RPD's factual finding on the applicant's Falun Gong practice as within its expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court agrees with the applicant that reviewable errors exist in the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the forensic report's findings and the RPD's rejection of the RIC as genuine.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD states it gives more weight to the forensic report due to its expert source.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD's reliance on the forensic report's inconsistencies unreasonable and unsupported by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The forensic report's contradictions undermine its credibility, making the RPD's conclusion about the RIC's inauthenticity unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the RPD's inauthenticity finding about the RIC lacks a reasonable basis and taints other findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses case law emphasizing that a fraudulent RIC does not automatically invalidate other documents.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds it unreasonable for the RPD to dismiss the applicant's citizenship based on an inauthentic RIC without considering his citizenship status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The unreasonable RIC finding improperly influenced the assessment of other identity documents, making the overall reasoning flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argues the RPD wrongly rejected his documents based on translation errors and comparison with outdated samples.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains the unreliability of the outdated sample document and regional variations in Chinese law enforcement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court agrees the RPD erred in rejecting the applicant's Notice based on an overly strict interpretation of outdated evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The RPD's finding that the Notice was not genuine is clearly erroneous because both documents refer to the same article.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD's rejection of the Notice was based on its prior unreasonable findings about other documents, tainting its analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD's findings on inauthentic documents, including the Notice, support its conclusion that the applicant is not a genuine Falun Gong practitioner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD's reasoning links the applicant's alleged fraudulent documents to his supposed lack of adherence to Falun Gong principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant's credible testimony about his knowledge and practice of Falun Gong is summarized, despite not persuading the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses jurisprudence that sets a low standard for religious knowledge in refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court reviews case law indicating the RPD's overly strict approach to assessing religious knowledge was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds the RPD's examination of the applicant's religious knowledge overly stringent and unreasonable, contrary to jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court concludes the decision is unreasonable and must be returned for reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court notes counsel agree there is no question for certification and concurs with that view.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

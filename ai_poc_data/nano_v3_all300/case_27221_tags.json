@@ -1,0 +1,151 @@
+{
+ "case_id": 27221,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 19,
+ "tagged_count": 19,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4714,
+  "completion_tokens": 1176,
+  "usd": 0.0009418
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the case's procedural history, including the decisions of the RT, PAB, and the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Legal framework: CPP survivor benefits",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the statutory provisions and definitions relevant to survivor benefits under the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal presumption regarding marriage and common-law status",
+   "role": "legal_test",
+   "explanation": "It explains the legal presumption that marriage entitles a survivor to benefits unless a common-law relationship exists for at least a year.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: applicant and Ms. Gunderman's claims",
+   "role": "background_facts",
+   "explanation": "The paragraph details the claims and arguments of the applicant and Ms. Gunderman regarding survivor benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: RT's findings on Ms. Gunderman",
+   "role": "party_position",
+   "explanation": "The RT found Ms. Gunderman met the statutory definition of a common-law partner based on various factual criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: applicant's leave application and prior evidence",
+   "role": "party_position",
+   "explanation": "The applicant's application for leave to appeal and the PAB's dismissal are described, including references to prior evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Issue framing: issues for judicial review",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the three issues raised in the judicial review application, including the question about the affidavit.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test: evidence admissibility in judicial review",
+   "role": "legal_test",
+   "explanation": "It states the general rule and exceptions regarding the admissibility of evidence in judicial review proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: respondent and applicant on evidence",
+   "role": "party_position",
+   "explanation": "The respondent argues most of the affidavit should be struck; the applicant argues many facts were before the PAB.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Reasoning: court's view on evidence",
+   "role": "reasoning_application",
+   "explanation": "The court finds many of the affidavit's paragraphs contain facts already before the PAB and discusses which should be struck.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: natural justice and reasons",
+   "role": "legal_test",
+   "explanation": "It summarizes the Supreme Court's ruling that inadequate reasons do not breach natural justice if some reasons are provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal standard: reasonableness review of PAB decision",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the standard of review and the legal principles for assessing the PAB's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning: correctness of PAB's legal test application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the PAB applied the correct legal test in its decision, contrary to the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasoning: merits of applicant\u2019s case and alleged fraud",
+   "role": "reasoning_application",
+   "explanation": "The applicant's argument about fraud and the need for multi-factored analysis is rejected as unsupported by authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: factors for common-law relationship",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the factors used to determine a common-law relationship, based on case law and statutory criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal authority: Supreme Court on common-law factors",
+   "role": "legal_test",
+   "explanation": "It confirms the Supreme Court's endorsement of the factors for assessing a common-law relationship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning: reasonableness of PAB's conclusion",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the PAB's decision that the applicant had no arguable case was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Disposition: application dismissed",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review and states that the case must be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Costs and final order",
+   "role": "disposition",
+   "explanation": "The respondent does not seek costs; the court orders no costs and dismisses the application.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,158 @@
+{
+ "case_id": 23295,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 20,
+ "tagged_count": 20,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4130,
+  "completion_tokens": 1466,
+  "usd": 0.0009994
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review and the background of the refugee claim decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details Mr. Malhotra\u2019s family dispute and threats from his brother in India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts threats faced by the applicants and their departure from India to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the evidence filed by the applicants and the RPD\u2019s request for proof of relocation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states that the RPD did not disbelieve the applicants and found no IFA in Bangalore.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the RPD\u2019s reasoning on the applicants\u2019 ability to be located and the verification process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RPD\u2019s doubts about the brother\u2019s interest if the applicants moved away from Chandigarh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicants\u2019 argument that the RPD failed to consider evidence about risks in other cities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicants\u2019 claim that the RPD breached procedural fairness by ignoring affidavits filed after the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the reasonableness standard applied by the RAD and its reliance on Cepeda-Gutierrez case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the RAD\u2019s conclusion that the RPD reasonably considered the evidence about the brother\u2019s motive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the RAD\u2019s view that affidavits filed after the hearing were not crucial to the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the court\u2019s view that the RAD\u2019s assessment of the evidence was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph agrees that the RAD correctly interpreted the RPD\u2019s consideration of the evidence, despite not mentioning all details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds the RAD\u2019s conclusion about the motive evidence to be reasonable and consistent with the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains why the evidence about police connections and registration was not crucial to the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes the review of the hearing CD and form, supporting the conclusion that affidavits added no new information.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph analyzes Mr. Malhotra\u2019s statements and the affidavit, concluding the RPD did not rely on credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds it reasonable to analyze the IFA based on the assumption that Mr. Malhotra would abandon his inheritance efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the RAD did not err and the application should be dismissed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

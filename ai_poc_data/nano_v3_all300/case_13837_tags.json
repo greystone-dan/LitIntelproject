@@ -1,0 +1,137 @@
+{
+ "case_id": 13837,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 17,
+ "tagged_count": 17,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4504,
+  "completion_tokens": 1265,
+  "usd": 0.0009564
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review of the immigration decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's personal background, education, and employment history in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the CIC's follow-up review process, including database searches and interviews, regarding the applicant's employment claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports CIC's concerns about the applicant's claimed employment and the procedural fairness letter issued to him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's response and the final decision to refuse his permanent residence application, along with judicial review permission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the standard of reasonableness review as set out by the Supreme Court of Canada in Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the criteria for reviewing procedural fairness decisions under the correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the procedural fairness obligations regarding credibility and extrinsic evidence, and the applicant's response rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes the clarity of the officer\u2019s communication of concerns about the applicant\u2019s experience.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the procedural fairness was maintained as the applicant was given proper notice of concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph details the various searches conducted by CIC and their inconclusiveness, affecting the evidence record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court concludes the D&B searches were not relied upon in making the decision, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that routine internet searches were foreseeable and did not breach procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph affirms that the internet searches did not violate procedural fairness principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the officer's expectations regarding the company's website and structure were reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the decision was justified, transparent, and within the range of acceptable outcomes under Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes no questions are proposed for certification and none are necessary.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

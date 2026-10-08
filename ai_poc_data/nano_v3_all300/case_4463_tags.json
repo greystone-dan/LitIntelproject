@@ -1,0 +1,179 @@
+{
+ "case_id": 4463,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 23,
+ "tagged_count": 23,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4103,
+  "completion_tokens": 1239,
+  "usd": 0.0009059000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application due to flaws in the decision, returning the matter for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Patel's personal background, education, and previous visa applications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details Mr. Patel's second application, including a lawyer\u2019s cover letter and his statement of purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "States the date and nature of the decision refusing Mr. Patel's study permit application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Summarizes the reasons for refusal, focusing on English scores and cost considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Introduces the issues of procedural fairness and legal error in the decision, and the applicable standards of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States the standards of correctness and reasonableness review, referencing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Explains the court's approach to reasonableness review, including justification and transparency requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Describes the criteria for assessing whether a decision is reasonable, emphasizing coherence and understanding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Agrees that the officer violated procedural fairness by not providing an opportunity to address credibility concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "References a similar case where a credibility concern was found to be speculative and veiled.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Concludes that the officer's failure to give Mr. Patel a chance to respond breached procedural fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States that the procedural fairness flaw alone warrants returning the case for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Critiques the officer's reasons for doubt about Mr. Patel's bona fides, citing lack of responsiveness to evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Explains the importance of responsive reasons and how the decision failed to meaningfully address key issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes that responsiveness of reasons is a balance between procedural fairness and reasonableness, requiring coherence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Emphasizes that operational pressures do not exempt decisions from being responsive to evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "States that the potential benefits of studying in Canada include improving English skills.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Argues that lower-cost English programs abroad do not make Canadian enrollment unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes Mr. Patel's academic background aligns with his pursuit of further studies in business.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Points out the officer did not justify or explain the 'personal circumstances' cited as a concern.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes the officer's reasoning was insufficient and the decision was not justified by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States the decision was flawed and the case is returned for redetermination.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,298 @@
+{
+ "case_id": 4871,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 40,
+ "tagged_count": 40,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7226,
+  "completion_tokens": 2325,
+  "usd": 0.0016526000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's identity, the decision under review, and the basis for the decision, including the rejection of her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Ms. Adeleye seeks judicial review, alleging errors in the RAD's analysis and reasoning regarding her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court states that the only issue is whether the RAD's decision is reasonable and explains its intention to dismiss the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides Ms. Adeleye's birth date, marital status, and her father's occupation and properties in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Adeleye reports attacks and assaults by her extended family related to her inheritance, claiming she was targeted for her father's estate documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "She describes her travel history, attacks, harassment, and her current PTSD, as part of her life circumstances in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Adeleye left Nigeria for the US, then returned, and later traveled to Canada to claim asylum in 2019.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The RPD found she did not qualify for refugee status due to a viable internal flight alternative in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Ms. Adeleye appealed to the RAD, which upheld the RPD's decision, confirming her lack of refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD found no ongoing motivation of her persecutors to find her and questioned her evidence of contact since 2017.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD reviewed her procedural fairness argument and found she was given an opportunity to respond, dismissing unfairness claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD assessed her claims about bribery and corruption, concluding her allegations were speculative and not supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD considered her mental health claim and found she could access mental health services in Nigeria, giving little weight to her psychological report.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the reasonableness standard for judicial review of the RAD's findings on the IFA, citing relevant case law and principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It explains the court's role in reviewing reasons for reasonableness, focusing on justification, transparency, and intelligibility of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court emphasizes restraint in review, examining reasons respectfully and only intervening if the decision is irrational or arbitrary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Analysis",
+   "role": "other",
+   "explanation": "The court introduces Ms. Adeleye's main arguments challenging the RAD's decision, starting with her IFA analysis claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Ms. Adeleye argues the RAD erred by analyzing her agents' motivation despite her credibility, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court states disagreement with Ms. Adeleye's interpretation of the RAD's reasons and the decision's content.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court clarifies that the RAD found her credible on past persecution but did not find ongoing motivation of her persecutors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that the motivation of agents is a separate element and the RAD found no evidence of ongoing interest since 2017.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the RAD can consider the future motivation of persecutors even if the applicant's credibility is established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court clarifies that Hamid supports independent assessment of risk without questioning credibility, not that credibility precludes motivation analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses the IFA test, emphasizing the applicant's burden to prove unreasonable risk of persecution throughout the country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the RAD's factual findings on the IFA, emphasizing deference to its expertise and reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Ms. Adeleye claims the RAD conducted a microscopic review of evidence on corruption in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court disagrees with Ms. Adeleye's characterization of the RAD's review as microscopic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court explains the distinction between general corruption and specific allegations of bribery for information access.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the RAD reasonably assessed the evidence and found Ms. Adeleye's claims about bribery speculative and unsupported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court states that the RAD's analysis was not microscopic but thorough, focusing on relevant issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court affirms that the RAD's focus was on specific allegations relevant to her refugee claim and found no supporting evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Ms. Adeleye claims the RAD unreasonably assessed her mental health and overstepped its competence regarding her medical evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "She argues the RAD should have considered her medical report and properly weighed her mental health issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds no error in the RAD's handling of her mental health evidence and dismisses her arguments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the RAD thoroughly considered her psychological report and the importance of access to mental health treatment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court observes the RAD accurately described the report and did not overstep its competence, considering the evidence properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes the psychologist was unaware of her prior return to Nigeria, which justified giving less weight to the report.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court emphasizes the claimant's burden to prove an unreasonable IFA with concrete evidence, which Ms. Adeleye failed to do.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming the reasonableness of the RAD's decision and its lawful reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court states that no question of general importance is proposed for certification, and none is found to arise.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

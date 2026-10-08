@@ -1,0 +1,200 @@
+{
+ "case_id": 9491,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3542,
+  "completion_tokens": 1523,
+  "usd": 0.0009634000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Hideq's arrival, employment history, and work at Casino Windsor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details Mr. Hideq's car accidents and resulting injuries, and his employment adjustments due to injuries.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It outlines Mr. Hideq's application for CPP benefits, the denial, and the judicial review process including SST decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The applicant seeks a court order to reverse the SST-AD decision and award benefits; the respondent suggests remitting the matter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states that Mr. Hideq's submissions focus on errors in the SST-GD decision, which is not the decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the sole issue is whether the SST-AD decision denying leave was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It clarifies that the issue is the reasonableness of the SST-AD's decision to deny leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It discusses the standard of reasonableness applied to the SST-AD's decision, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legislative_framework",
+   "role": "legal_test",
+   "explanation": "It mentions the relevant legislative provisions and references the appendix for details.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the procedural transfer of Mr. Hideq's case to the SST-GD from the Office of the Commissioner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It notes the respondent's counsel's argument about the proper naming of the respondent and the applicant's agreement to amend.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It explains the legal requirements for naming respondents and the amendment to name the Attorney General of Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states the test for leave to appeal under s. 58 of DESDA, including grounds and success criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It describes how the SST-AD reviews the record to determine if the SST-GD erred in considering evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It notes that Mr. Hideq's submissions focused on a single alleged error in the evidence consideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It summarizes Mr. Hideq's argument that the SST-GD erred in considering a vocational assessment, which had a reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It states that the SST-GD summarized Mr. Hideq's medical and work history, including the vocational assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "It notes the SST-GD's conclusion based on the vocational assessment and other evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It explains the SST-GD's reasoning for giving less weight to the vocational assessment, citing multiple medical reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It states the SST-AD's review of the grounds of appeal and its reasoning for dismissing the appeal based on evidence weighing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It concludes that the SST-AD reasonably decided the appeal lacked a reasonable chance of success, emphasizing the role of the court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It discusses the other grounds of appeal and the SST-AD's reasonableness in dismissing them, citing the evidence and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "It summarizes that the SST decisions meet legal standards and are within the range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "It states that no costs are awarded as neither party sought costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It reports the October 12, 2017 assessment by J. Kobayashi stating Mr. Hideq's total disability from a rehabilitative perspective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes the October 12, 2007 assessment by J. Kobayashi, noting the reasons for giving less weight to her opinion.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

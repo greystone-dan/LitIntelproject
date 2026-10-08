@@ -1,0 +1,354 @@
+{
+ "case_id": 32742,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 48,
+ "tagged_count": 48,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8353,
+  "completion_tokens": 2713,
+  "usd": 0.0019205000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court introduces the application for judicial review of a Board decision regarding refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court reframes the issues concerning errors by the Board on legal and factual grounds, including bias and evidence consideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant's personal history in Haiti, including his work and involvement in community organization, is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant fled Haiti after his store was set on fire by Cocodama members, due to a dispute over pricing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant's immigration history includes rejection of refugee status in the U.S. and subsequent move to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims fears of violence from gangs and criminals targeting Haitians abroad and wealthy individuals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's oral reasons for disbelieving the applicant's credibility are detailed, including contradictions and inconsistencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board rejected the claim based on the applicant not being part of a particular social group and lacking a particularized risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant sought to reopen the hearing on natural justice grounds, citing failure to follow legal precedents and allow evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board rejected the reopening request, finding no violation of natural justice occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The legislation allows the Board to take judicial notice of facts and specialized knowledge in proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Rules require the Board to notify claimants when relying on specialized knowledge and allow them to respond or present evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court states that whether Haitians returning from abroad constitute a social group is a legal question reviewable for correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The applicant argues that returnees form a particular social group based on immutable characteristics, citing Ward's definition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Counsel argues that having traveled or sought asylum abroad is an immutable characteristic, supporting the social group claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The respondent counters that the group is perceived as wealthy, not an immutable characteristic, and thus not a social group.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court discusses Ward's emphasis on anti-discrimination principles and marginalization in defining social groups, rejecting the applicant's immutable past argument.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The violence faced by returnees is generalized criminal activity, not targeted discrimination, so they do not form a social group under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court notes that protection under the Convention is based on human rights and anti-discrimination, not general criminality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court concludes that the Board did not err in finding returnees do not constitute a particular social group under section 96.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court considers whether the Board erred in finding the applicant did not face a particularized risk under section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The question of whether perceived wealth constitutes a particularized risk is a legal issue reviewable for correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the risk faced by the applicant is generalized violence, not a specific threat linked to Convention grounds, and thus not a particularized risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Travel advisories show risks in Haiti but do not specify risks to returnees or those perceived as wealthy, supporting the Board's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The evidence indicates general risks in Haiti, not specific threats to returnees or perceived wealth, so no particularized risk is established.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court examines whether the Board erred in claiming the Board relied on specialized knowledge without proper notice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Legal requirements for reliance on specialized knowledge include notice and opportunity to respond, as outlined in legislation and rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's statement about kidnappings in Haiti was a mischaracterization of evidence as specialized knowledge, which is discussed as an error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The respondent argues the statement was based on evidence and not truly specialized knowledge, citing case law on mischaracterization.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees that the mischaracterization was immaterial and that the applicant had the opportunity to notice facts himself.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court notes that oral decisions can be less precise, referencing a case warning about oral reasons being clumsy.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court finds no failure to consider evidence, as the record shows evidence was considered by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The Board's failure to reference other decisions is deemed immaterial because the decision was based on the evidence and credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The Board's decision not to reference other similar cases is not material, as each decision is based on its own evidence and credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The respondent states that the Board is not bound by other decisions, and the credibility assessment was based on the evidence before it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court considers whether the hearing conduct created a reasonable apprehension of bias, based on the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The applicant claims the questioning during the hearing was sarcastic and showed bias, raising concern about impartiality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The respondent argues that the bias claim is waived or unsupported, as the issue was not raised during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The legal standard for reasonable apprehension of bias is explained, involving an objective, informed viewer\u2019s perspective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Defines the test for establishing a reasonable apprehension of bias based on a realistic and practical perspective.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal standard for raising a bias question and cites relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that raising bias before the court is sufficient and discusses the burden of raising it during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "legal_test",
+   "role": "party_position",
+   "explanation": "The paragraph reports the argument that the hearing's conduct may have breached fairness principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the court's conclusion that there is no reasonable apprehension of bias based on the transcript review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the application for judicial review will be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the applicant's proposed questions for certification regarding social group characteristics and collegiality.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the respondent's objection to the certification and the court's agreement that the questions are not of general importance.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 222,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the doctrine of waiver and its relation to arguing fairness breaches during hearings.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

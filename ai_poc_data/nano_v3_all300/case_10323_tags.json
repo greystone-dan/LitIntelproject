@@ -1,0 +1,193 @@
+{
+ "case_id": 10323,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4930,
+  "completion_tokens": 1550,
+  "usd": 0.0011129999999999998
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the Applicants' immigration history, refugee claims, and appeals, including decisions by the RPD and RAD, and the judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the Applicants' marriage, children, and experiences with China's family planning policies, including their escape from China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the RPD's findings that the Applicants' documents were not genuine and their allegations not credible, undermining their claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Applicants' appeal to the RAD, their new evidence, and the relevance of the medical note and article to their case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RAD's decision to dismiss the appeal, its consideration of new evidence, and the criteria for accepting evidence as new.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the RAD's respect for the RPD's credibility findings and its reasons for doing so, including the Applicants' failure to provide certain documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the RAD's acknowledgment of the RPD's findings on the documents and the conclusion that the Applicants did not meet their burden of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues raised by the Applicants and the question of the standard of review to be applied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the standard of review for the RAD's decision is reasonableness, citing relevant case law and criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the Applicants' argument that the LifeNews article is new, relevant, and based on reputable sources, and should have been admitted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Respondent's view that the article was not relevant or new, as it was based on easily available sources and conjecture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph concludes that it was reasonable for the RAD to refuse the article as new evidence because it was available before the RPD's decision and contained conjecture.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the Applicants' claim that the RAD failed to independently assess the evidence and merely endorsed the RPD's findings, citing Madava.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Respondent's argument that the RAD conducted an independent and reasonable assessment, including addressing the RPD's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that the RAD's brief reasons do not mean it failed to exercise independent judgment if it clearly reviewed the evidence and reasons.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes Huruglica's requirement that the RAD applies the correctness standard when reviewing legal, factual, and mixed findings without credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph references Ghauri's summary of Huruglica's principles regarding the review of RPD findings by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that in credibility cases, the RAD may apply a more deferential approach if the RPD has a meaningful advantage in making factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the RAD did review the RPD's findings extensively and conducted its own assessment, making its decision reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the Applicants' argument that the RAD's conclusion about the two-child policy was speculative and that sterilization notices remain outstanding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the Respondent's view that the RAD reasonably found no evidence of future sterilization risk and that the Applicants' speculation was unsupported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the sterilization notices' fraudulence undermines the Applicants' protection claim, making the sterilization risk irrelevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the RAD applies the correctness standard to non-credibility factual and legal findings, following Huruglica.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph notes that no question of general importance is proposed for certification, and thus none is certified.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 103,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that the RAD reviews RPD decisions on factual and mixed findings without credibility issues using the correctness standard and conducts its own analysis.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

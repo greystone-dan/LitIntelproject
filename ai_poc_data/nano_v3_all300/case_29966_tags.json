@@ -1,0 +1,284 @@
+{
+ "case_id": 29966,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5934,
+  "completion_tokens": 2425,
+  "usd": 0.0015634
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the implementation of a COVID-19 vaccine policy by UHN under section 77.7 of the Health Protection and Promotion Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Details the UHN's email communications about the vaccination requirement and exceptions for remote workers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States the Applicant's exemption request and its rejection, and the threat of termination for non-compliance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Notes the Applicant's failure to get vaccinated and subsequent employment termination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Explains the Applicant's application for EI benefits and relevant statutory provisions about involuntary employment loss.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Describes the denial and upholding of the Applicant's EI benefits claim and the appeal to the SST-GD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States the SST-GD's finding that the Applicant's refusal to vaccinate was misconduct due to breach of employment obligations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "References case law and principles regarding misconduct and reviewability of decisions under the EIA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Confirms the SST-GD's conclusion that the Applicant's deliberate choice not to vaccinate was misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Describes the criteria for leave to appeal and the reasonableness standard under Vavilov.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "States the general rule that only the record before the decision-maker is admissible on judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Lists exceptions to the rule against new evidence on judicial review, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Concludes that the exhibits do not fit exceptions and are irrelevant, so they will not be considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Describes the grounds on which the SST-AD can set aside the SST-GD decision, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the standard for granting leave to appeal, requiring some arguable ground of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that misconduct involves a causal link to employment and an objective assessment of foreseeability of dismissal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Presents the Applicant's argument that the SST-AD misinterpreted misconduct and erred in its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Supports the decision that the Applicant's refusal was misconduct, citing case law about knowledge and voluntary decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Finds it reasonable that the SST-AD upheld the misconduct conclusion based on the Applicant's awareness and decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States that the key issue was the Applicant's knowledge of consequences, which the SST-AD reasonably found he had.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Notes the SST-AD's conclusion that there was no reviewable error and that leave to appeal was rightly denied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States the SST-AD's finding that the employer's policy is part of workplace safety obligations, not necessarily a contractual term.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Explains that the employment letter included immunization requirements and policies evolving over time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "References a recent decision supporting the view that refusal to vaccinate can constitute misconduct affecting EI eligibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States that the Applicant was aware of the consequences of non-compliance, making his misconduct voluntary, as supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the Applicant's arguments about lack of success in contesting misconduct have no reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Mentions the Applicant's claim about unpaid work days and its irrelevance to the EI benefits decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "other",
+   "role": "other",
+   "explanation": "States that arguments about wrongful dismissal and accommodation are outside the scope of the EI misconduct review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Clarifies that the focus is on whether the Applicant intentionally breached employment obligations, not on justifiability under labour law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Reaffirms that arguments about employment contract and constructive dismissal are unlikely to succeed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "other",
+   "role": "other",
+   "explanation": "States that the argument about the policy forcing medical treatment is not relevant to the EI decision, but rather a labour law issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Notes that issues with exemption application are not relevant to the misconduct determination for EI benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "procedural_fairness",
+   "role": "procedural_history",
+   "explanation": "States the Applicant's claim of procedural fairness breach due to alleged short cycling analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "relevance",
+   "role": "other",
+   "explanation": "States that the SST-AD and SST-GD addressed many arguments, and irrelevant ones were not considered within their mandate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "relevance",
+   "role": "other",
+   "explanation": "Further emphasizes that certain legal and factual arguments are beyond the scope of the decision and will not be addressed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "relevance",
+   "role": "other",
+   "explanation": "Acknowledges that the applicant may find the decision frustrating but notes the scope limits the decision's scope.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "relevance",
+   "role": "other",
+   "explanation": "States that the Tribunal's role was limited to assessing the reason for dismissal and misconduct, which it did properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Concludes that the application should be dismissed without costs based on the reasonableness of the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

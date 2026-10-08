@@ -1,0 +1,501 @@
+{
+ "case_id": 18083,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 69,
+ "tagged_count": 69,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 10867,
+  "completion_tokens": 3851,
+  "usd": 0.0026271000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the initial refusal to work by correctional officers due to a new order at Kent penitentiary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Details the health and safety officer\u2019s decision that there was no danger but a contravention of s. 124.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Summarizes the appeal process and the outcomes of the decisions regarding danger and contravention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States Mr. Verville\u2019s grounds for judicial review, including issues with legal interpretation and evidence ignored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Notes the purpose of the order was to ensure compliance with security protocols.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Explains the prior practices regarding handcuff use at Kent penitentiary before the order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes testimonies of officers who wore handcuffs regularly due to past incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Provides details about Officer Bussey\u2019s experience with handcuffs following an injury incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details Officer Peck\u2019s testimony about his use of handcuffs after an attack incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Notes Officer Maclean\u2019s reasons for carrying handcuffs after witnessing an incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes Officer Verville\u2019s experience with handcuffs and a personal incident involving injury prevention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "States that officers in certain units were routinely allowed to wear handcuffs at the time of the hearing.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the availability of handcuffs in control post bubbles for response purposes.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes a memorandum restricting routine carrying of handcuffs and the need for risk assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mentions a later risk assessment to formalize the practice of issuing handcuffs to supervisors.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Summarizes the findings of the risk assessment supporting continued issuance of handcuffs to supervisors.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "States the risk assessment for living unit posts and the recommendation against routine equipment issuance.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes that no expert evidence was filed but officers testified based on their experience.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Acknowledges that current measures are sufficient for predictable situations, but not spontaneous incidents.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States Mr. Verville\u2019s argument that current measures are inadequate for spontaneous assaults.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Reports Warden Urmson\u2019s acknowledgment of the potential for injury during altercations and lack of specific incidents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States Urmson\u2019s view that cuffs are available for spontaneous eruptions.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Issue_framing",
+   "role": "issue_framing",
+   "explanation": "Identifies the dispute over response time to spontaneous assaults and whether it constitutes a danger under s. 128(1).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Discusses the standard of reasonableness for mixed questions of fact and law based on recent case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Notes the recent legal approach to reviewing the legal interpretation of danger in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Expresses agreement with the approach to reviewing the legal interpretation under reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "States that the correctness standard applies to legal questions, but the decision here is correct, and fact findings are reviewed for unreasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Provides the statutory definition of danger in the Canada Labour Code and its limitations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Details the recent amendment to the definition of danger, including potential hazards and activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "States the previous, narrower definition of danger before the recent amendments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "References a case explaining the focus on immediate hazards and short-term well-being in danger assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Notes that the amended definition includes potential and future activities, broadening the scope of danger.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "States the appeal officer\u2019s reliance on his previous decision regarding the legal criteria for danger.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Clarifies that injury may not be immediate but must be reasonably expected to occur before intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Explains that the definition does not require injury to occur every time the activity happens, only that it could be reasonably expected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "States that precise timing of the hazard is not necessary, only the circumstances under which injury could occur.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Contrasts the hypothetical nature of the previous case with the specific facts here involving spontaneous assault risk.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Indicates the flawed reasoning of the appeal officer\u2019s legal interpretation but emphasizes the need to assess material impact.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Analyzes the reasons given by the appeal officer, finding them insufficient to establish danger based on the evidence.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Summarizes the court\u2019s reasoning that the risk of spontaneous assault does not meet the legal definition of danger.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that hazards capable of coming into being are included in the definition, emphasizing the unpredictability of inmate assaults.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The paragraph reports the risk assessment findings and the correctional facility's expectations regarding inmate assaults.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It clarifies that assaults causing injury are within the danger definition unless they are a normal employment condition, and unpredictability does not exclude danger.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicant's reference to transcript evidence supporting the argument that the appeal officer ignored relevant testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "It details the cross-examination of Correctional Officer Hnetka, emphasizing her opinion that handcuffs would have prevented injuries.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal principle that reasons should be read as a whole and all evidence is presumed considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "It discusses the legal standard for assessing whether a finding of fact disregards evidence, especially when evidence contradicts conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The paragraph notes the appeal officer's statement that there is no evidence linking unavailability of handcuffs to injury, which the court questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It suggests that the appeal officer's failure to consider relevant evidence affects the understanding of his grasp of the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the appeal officer did not consider relevant experience-based evidence from correctional officers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that reasonable expectation of injury can be based on various types of evidence, not only direct proof of injury.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Reasoning_application",
+   "role": "background_facts",
+   "explanation": "The applicant argues that the order increased the risk beyond normal employment hazards, citing relevant Board decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The paragraph states that the appeal officer did not consider the argument that the increased risk was outside normal employment conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "It notes the limited jurisprudence on the issue and that the Court in Lavoie did not analyze the standard of proof in section 124.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph interprets 'normal' in paragraph 128(2)(b) as referring to typical conditions, excluding non-essential risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Reasoning_application",
+   "role": "other",
+   "explanation": "The paragraph clarifies that the reasons should not be taken as an opinion on the specific case's circumstances.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Reasoning_application",
+   "role": "disposition",
+   "explanation": "The court finds the decision unreasonable due to the appeal officer's failure to consider core evidence and orders a new determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the appeal officer's statement that there is no evidence linking unavailability of handcuffs to injury, citing the record evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The respondent argues that the error regarding the evidence's consideration is not material because the conclusion was that no contravention existed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The court agrees that the statement about the importance of proper risk assessment is correct and relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the court is not convinced that considering all evidence would necessarily change the conclusion about increased risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The applicant argues that the standard for assessing increased risk was applied too high, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Reasoning_application",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the appeal officer's statements suggest a duty to take reasonable steps to identify and minimize risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "It observes that there is limited jurisprudence on the standard of proof under section 124 and that the cited case does not clearly define the obligation beyond minimum standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes the Westcoast Energy case, where compliance with safety measures was found when the employer provided and mandated use of safety equipment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "It states that the safety officer's suggestion of random inspections was unsupported by evidence and not a standard requirement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Canadian National Railway case, emphasizing that compelling evidence is needed when regulations impose specific safety standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Reasoning_application",
+   "role": "legal_test",
+   "explanation": "It interprets the appeal officer's statements as indicating a duty to take reasonable steps to identify and mitigate risks once they are known.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that, overall, the appeal officer did not apply the wrong standard or test despite some questionable comments.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

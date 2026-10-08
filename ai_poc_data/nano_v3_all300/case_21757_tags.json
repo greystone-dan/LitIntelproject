@@ -1,0 +1,186 @@
+{
+ "case_id": 21757,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 24,
+ "tagged_count": 24,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3683,
+  "completion_tokens": 1527,
+  "usd": 0.0009791000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the judicial review of a Refugee Protection Division decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the claimants",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' citizenship, family composition, and the basis of their refugee claim related to political involvement in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about threats and attacks",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts threats and an attack on Mr. Mendez and his family in Mexico, which they allege were related to his political activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about fleeing Mexico",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that the family moved to Mexico City and fled the country after threats, obtaining passports in the process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: credibility findings",
+   "role": "party_position",
+   "explanation": "The panel found adverse credibility against Mr. Mendez based on inconsistencies and vague police reports, which the applicant disputes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: state protection",
+   "role": "party_position",
+   "explanation": "The panel concluded the applicants did not rebut the presumption of state protection, despite issues with Mexican security forces, which the applicants contest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Legal issue and standard of review",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the issues on appeal and introduces the standard of reasonableness review for the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test: Dunsmuir standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Dunsmuir case and the two-step process for determining the appropriate standard of review in administrative law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test: factual findings deference",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that factual findings by tribunals are entitled to deference unless made perversely or capriciously, referencing Mugesera.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test: factual findings post-Dunsmuir",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that recent case law affirms factual findings remain subject to the same deference after Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: standard for state protection findings",
+   "role": "legal_test",
+   "explanation": "The paragraph states that factual findings on state protection are assessed under the same deferential standard, applying Ward\u2019s test for clear and convincing evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: reasonableness of protection decision",
+   "role": "legal_test",
+   "explanation": "The paragraph affirms that the reasonableness standard continues to apply to state protection decisions, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: reasonableness review of credibility",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses that credibility findings are reviewable on reasonableness, focusing on justification, transparency, and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment: credibility challenge",
+   "role": "evidence_assessment",
+   "explanation": "The applicant argues that the credibility findings were flawed due to plausible explanations for inconsistencies, which the court considers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Evidence assessment: interpreter considerations",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the applicant's evidence was interpreted, but the court finds the credibility findings were not made in a perverse manner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning: reweighing evidence",
+   "role": "reasoning_application",
+   "explanation": "The court states it would have reached a different conclusion but cannot reweigh evidence or substitute its judgment for the tribunal\u2019s.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning: credibility findings and presumption",
+   "role": "reasoning_application",
+   "explanation": "The court finds the credibility findings reasonable and that they do not warrant overturning the decision regarding state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position: effectiveness of protection",
+   "role": "party_position",
+   "explanation": "The applicants argue the panel erred by not considering the effectiveness of Mexican state protection, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal standard: effectiveness vs. adequacy",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that effectiveness is a high standard, and the law recognizes adequacy as the relevant measure for protection claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal standard: proof of inability to protect",
+   "role": "legal_test",
+   "explanation": "The paragraph states that claimants must provide clear and convincing evidence of the state's inability to protect, but protection need not be perfect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal standard: burden of proof",
+   "role": "legal_test",
+   "explanation": "The paragraph references recent case law clarifying the burden and standard of proof for establishing inadequate protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: evidence required to rebut presumption",
+   "role": "legal_test",
+   "explanation": "The paragraph details the evidentiary and legal burden on claimants to prove inadequate protection by a balance of probabilities, with relevant criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal conclusion: burden on applicants",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the panel's finding that the applicants did not rebut the presumption of protection was reasonable given Mexico's democratic context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Other: case conclusion",
+   "role": "other",
+   "explanation": "The paragraph states that no questions of importance are proposed for certification and no further issues are identified.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

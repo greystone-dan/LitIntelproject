@@ -1,0 +1,627 @@
+{
+ "case_id": 7567,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 87,
+ "tagged_count": 87,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 14982,
+  "completion_tokens": 5082,
+  "usd": 0.003531
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph introduces the case's focus on costs related to a patent infringement and counterclaim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Dispositional order",
+   "role": "disposition",
+   "explanation": "The court orders Allergan to pay Sandoz a lump sum for costs, including legal fees and adjustments for settlement offers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Dispositional order",
+   "role": "disposition",
+   "explanation": "Kissei is awarded costs for defending the counterclaim, calculated according to the Federal Courts Rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Allergan holds a patent for RAPAFLO, owned by Kissei, which is relevant to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Sandoz sought approval for a generic drug and filed a Notice of Allegation, leading to the infringement and validity issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The dispute over a second patent was discontinued, and costs related to it are excluded from the current proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The court previously addressed the merits of the case, including infringement, evidence, and patent validity issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court found in favor of Sandoz on infringement and in favor of Allergan on validity and evidence issues, then discussed costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Sandoz claims it should recover costs based on its success, requesting a lump sum of $462,876.45.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Sandoz offers an alternative, lower-cost lump sum of $327,567.99.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "A further alternative is a high-end tariff-based award of $265,958.13, with double costs from the offer date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Allergan seeks costs for prevailing on the counterclaim, offset against Sandoz's costs, totaling $201,277.73.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Allergan proposes a cost offset based on its costs for the counterclaim, calculated using Tariff B.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Allergan suggests reducing Sandoz's claimed costs by two-thirds because it succeeded on two of three issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Allergan argues that costs should be based on Tariff B with a two-thirds discount, not a percentage of actual fees.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Allergan supports full assessment of Dr. Felton's fees, partial for Ms. Wilson, and reductions for other experts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Kissei, which did not participate in the trial, seeks costs for defending the invalidity claims, excluding costs related to the second patent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Kissei argues that if it does not get costs, it should not be assessed costs because it was successful on some issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court outlines principles for awarding costs, including indemnification, penalization, and access to justice, citing relevant cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Costs serve as a disincentive to vexatious litigation and promote efficient justice, as supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court has broad discretion over costs, which must be exercised according to established principles unless justified otherwise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Costs may be fixed by Tariff B or lump sum, with recent trends favoring lump sums to reduce assessment time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Lump sum awards promote efficiency and are preferred when they can reduce costs and time in litigation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Parties are encouraged to address costs early, ideally by agreement, to facilitate efficient resolution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The default costs are the mid-point of Column III of Tariff B, providing partial indemnification for typical cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "In IP cases, higher costs are often awarded due to complexity, with the high end of Column IV being reasonable for patent disputes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "In IP cases, lump sums of 25-50% of actual fees are common, with the range reflecting complexity and case specifics.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The tariff has been increased by 25% to better reflect the costs in IP litigation, especially patent cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Factors for determining costs include those listed in Rule 400(3), which is non-exhaustive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The successful party is generally entitled to costs, but this can be adjusted in cases of divided or mixed success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "There is split authority on whether partial success on invalidity grounds constitutes divided success affecting costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "When a defendant prevails on infringement or invalidity, a lump sum starting point is mid-range, adjusted for factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Recent case law suggests starting at the lower end of the 25-50% range, but the court prefers the mid-point for complex cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "In complex patent cases, starting at the mid-point of 25-50% incentivizes efficient litigation and reflects case complexity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Using the mid-range percentage encourages parties to conduct shorter, more efficient trials in patent disputes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court considers all circumstances and submissions to determine the appropriate costs award.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court assesses whether a lump sum or Tariff B assessment is appropriate, considering case complexity and parties' sophistication.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court finds a lump sum based on a percentage of legal fees appropriate due to case complexity and high legal costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court adopts the middle of the 25-50% range, aligning with the proportion of successful claims in the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Sandoz succeeded on infringement but failed on validity issues, illustrating mixed results in the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph describes Allergan's position on costs for defending a counterclaim and prosecution history issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The judge discusses the rationale for awarding costs for issues Allergan successfully defended, citing legal principles and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "background_facts",
+   "role": "legal_test",
+   "explanation": "The paragraph states the jurisprudence that limits cost awards to issues on which a party succeeded, referencing paragraph 31.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph explains Kissei's limited participation and success in the proceedings, emphasizing its role as a successful party.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The paragraph discusses the starting point for calculating a lump sum award based on the complexity of the issues.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The paragraph notes that the proceeding involved complex patent issues, justifying the initial cost calculation range.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Sandoz's offers to settle are described, including their timing and the legal basis for doubling costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "background_facts",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the conditions under which Rule 420(2) applies for cost doubling, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "evidence_assessment",
+   "explanation": "The judge confirms that Sandoz's offers met the timing requirements of Rule 420(3).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the content of Sandoz's settlement offers and their monetary terms.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Allergan argues Offer #1 does not trigger Rule 420 because liability was not determined, and Sandoz's damages are unspecified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The judge agrees that without a judgment on damages, Offer #1 does not meet the criteria for cost doubling.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Allergan claims Offer #2 was a demand to surrender, not a genuine offer of compromise, and did not address the counterclaim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Sandoz argues Offer #2 would have benefited Allergan by avoiding litigation costs and reducing damages claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The judge finds Offer #2 to be a demand to surrender, with a nominal monetary value, and thus a genuine offer of compromise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "background_facts",
+   "role": "evidence_assessment",
+   "explanation": "The judge notes Allergan's failure to provide evidence supporting its claim that Offer #2 was a demand to surrender.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "background_facts",
+   "role": "disposition",
+   "explanation": "The judge concludes Offer #2 meets the criteria for cost doubling and awards Sandoz double costs from the offer date to judgment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge states that even if Offer #2 did not meet Rule 420, discretion allows for a cost increase, which would be similar to the awarded amount.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Sandoz claims it should be credited for cooperation and settlement efforts that shortened proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The paragraph states that cooperative conduct should be considered positively in costs decisions.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The paragraph notes that similar conduct by others should also be given consideration.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge considers Sandoz's abandonment of certain claims and limited evidence on overbreadth and insufficiency issues.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge reflects that greater costs on abandoned issues could lead to downward adjustments, encouraging change in litigation culture.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "background_facts",
+   "role": "disposition",
+   "explanation": "The judge sets the lump sum costs award at 37.5% of Sandoz's reasonable legal fees, totaling $225,000, after adjustments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge states no further adjustments are made for issues prevailed or conduct, as the starting point already reflects complexity.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "background_facts",
+   "role": "disposition",
+   "explanation": "The judge increases the lump sum award by $47,000 for Offer #2, totaling $272,000, plus HST of $35,360, for a total of $307,360.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge states that only disbursements will be addressed here, as no costs are awarded to Allergan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "background_facts",
+   "role": "evidence_assessment",
+   "explanation": "The judge finds Sandoz's disbursement claim of $124,605.30 reasonable after adjustments to exclude unrelated patent costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "background_facts",
+   "role": "evidence_assessment",
+   "explanation": "The disbursements include fees for Dr. Stewart and 75% of Dr. Fassihi's fees, as claimed by Sandoz.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The judge declines to award Dr. Stewart's fees, as his evidence was not relevant to the merits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The judge discounts Dr. Fassihi's fees by 65%, awarding only 35% of his total fees based on relevance and court findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "background_facts",
+   "role": "evidence_assessment",
+   "explanation": "The total disbursements are reduced by the amounts for Dr. Stewart and the discounted portion of Dr. Fassihi's fees.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "background_facts",
+   "role": "disposition",
+   "explanation": "The final disbursement award to Sandoz is $77,145.69, with all claimed disbursements deemed reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "Kissei seeks costs and disbursements, which are specified in the claim, for the proceedings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Kissei's limited participation and costs incurred are described, noting its role as a successful party.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "background_facts",
+   "role": "disposition",
+   "explanation": "The judge considers Kissei a successful party and approves its costs with minor adjustments, noting costs follow the event.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Sandoz argues Kissei cannot seek costs due to procedural failure, but the judge notes leave was granted for submissions on costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Sandoz claims costs should be borne by Allergan, but the judge finds this argument irrelevant and based on speculation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "background_facts",
+   "role": "evidence_assessment",
+   "explanation": "The judge finds Kissei's claimed fees reasonable, covering various procedural and preparatory activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge notes objections to Kissei's disbursements for travel and accommodation, but does not specify the outcome.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the travel distance and the reasonableness of business class travel claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the claim for hotel accommodation expenses and the court's view on their excessiveness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It explains the travel and attendance details, including the number of days and the reimbursement limits set by Sandoz.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "background_facts",
+   "role": "reasoning_application",
+   "explanation": "The court agrees with the limit on accommodation days and adjusts the claims accordingly, calculating the new total.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court orders Sandoz to indemnify Kissei for specified legal fees and disbursements, totaling $40,296.34.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court orders Allergan to pay a lump sum to Sandoz, including legal fees, HST, and disbursements, totaling $384,505.69.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Kissei is awarded its costs, including legal fees and disbursements, totaling $40,296.34, as it fully prevailed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,207 @@
+{
+ "case_id": 18859,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 27,
+ "tagged_count": 27,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3751,
+  "completion_tokens": 1484,
+  "usd": 0.0009687000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 2009 IRB decision on refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides the citizenship and family details of the applicants from Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's account of a party incident and threats made against him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts Gabriel Cervantes being stabbed and threats against the applicant, according to the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicants filed a complaint that was ineffective due to alleged judicial police bias.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's departure from Mexico fearing for his life and subsequent violence against Gabriel Cervantes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the wife's threats and her arrival in Canada with her daughter seeking protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph summarizes the IRB panel's conclusions on the applicants' credibility and internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues on credibility and internal flight alternative, and mentions the standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the tribunal's authority to assess credibility and evidence, citing Dunsmuir and related case law, and the reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that questions of state protection are reviewed under reasonableness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes the burden on applicants to provide all relevant evidence to establish their claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph affirms the tribunal's authority to assess evidence and identify implausibilities in the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the panel identified several points undermining the applicants' credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the medical certificate not submitted and the panel's reasoning on diligence and evidence submission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the claimant's duty to provide documents as per the rules, citing the Refugee Protection Division Rules.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the applicant's omission of threats in his PIF and the importance of full disclosure in credibility assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph describes the applicant's vague responses about Gabriel Cervantes' stabbing, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the wife's testimony and the panel's reasonable conclusion about her lack of subjective fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the panel considered explanations and inconsistencies but found them unsatisfactory.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes the court finds the panel's credibility assessment within acceptable range based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's conclusion that the credibility finding was reasonable and no error was made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph explains the burden of proof regarding internal flight alternative and high threshold for unreasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph quotes legal standards requiring concrete evidence for internal flight alternative assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the panel reasonably found no credible evidence that the applicants could not live in Sonora, citing Gabriel Cervantes' residence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes the court finds the panel's identification of internal flight alternative reasonable and supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the judicial review application is dismissed, with no serious question of importance involved.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,214 @@
+{
+ "case_id": 18624,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 28,
+ "tagged_count": 28,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4332,
+  "completion_tokens": 1659,
+  "usd": 0.0010968
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the refugee claim",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review and the RPD's decision rejecting the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the applicant",
+   "role": "background_facts",
+   "explanation": "The applicant is an Indian Sikh from Uttranchal, with his origin and religion specified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about alleged persecution",
+   "role": "background_facts",
+   "explanation": "The applicant claims Sikh extremists forced his family to shelter them at gunpoint, then left.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about police arrest",
+   "role": "background_facts",
+   "explanation": "The applicant alleges police arrested him, believing he supported extremists, and he fled the scene.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about detention and torture",
+   "role": "background_facts",
+   "explanation": "He claims police detained, beat, tortured him, and released him after a bribe, with medical treatment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about subsequent harassment and arrest",
+   "role": "background_facts",
+   "explanation": "The applicant reports continued police harassment, arrest, torture, and bribe payments after terrorist attacks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts about fleeing to Punjab and Delhi",
+   "role": "background_facts",
+   "explanation": "He moved to Punjab, then Delhi, where his family sought his departure due to police harassment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts about immigration to Canada",
+   "role": "background_facts",
+   "explanation": "The applicant obtained a student visa, moved to Canada, and filed a refugee claim in 2006.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: credibility as the key issue",
+   "role": "issue_framing",
+   "explanation": "The RPD's credibility assessment was the key issue, leading to rejection of the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: credibility assessment and evidence",
+   "role": "party_position",
+   "explanation": "The RPD did not find the affidavit credible, considering it a repetition of uncredible facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Issue framing: credibility as the sole issue",
+   "role": "issue_framing",
+   "explanation": "The judicial review focuses solely on whether the RPD erred in its credibility finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The standard of review is reasonableness, assessing if the decision falls within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning: deference to the panel's credibility assessment",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes the panel's discretion in assessing credibility and will not intervene unless unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment: credibility findings supported",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the RPD's credibility findings are based on relevant and significant evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position: contradictions in visa and refugee claim",
+   "role": "party_position",
+   "explanation": "The applicant argues contradictions are normal and signed the visa application without issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: credibility undermined by contradictions",
+   "role": "legal_test",
+   "explanation": "The court agrees that signing a complete and true visa application can undermine credibility if contradictions exist.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position: medical evidence and absence of reports",
+   "role": "party_position",
+   "explanation": "The applicant explains the lack of medical reports due to treatment refusal and no after-effects felt.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal standard: documentation requirements and confidentiality",
+   "role": "legal_test",
+   "explanation": "The RPD's rejection of the explanation for lack of medical reports is based on confidentiality rules, which the court finds unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position: plausibility of medical evidence",
+   "role": "party_position",
+   "explanation": "The applicant argues that the absence of Canadian medical reports is less credible given the context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning: RPD's expertise on after-effects of torture",
+   "role": "reasoning_application",
+   "explanation": "The court accepts the RPD's expertise and finds it reasonable to doubt the applicant's claim of no after-effects.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position: failure to seek police protection",
+   "role": "party_position",
+   "explanation": "The applicant claims fear of police prevented seeking protection, and the RPD erred in dismissing this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal reasoning: assessment of police protection and credibility",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD reasonably concluded the applicant did not prove persecution or fear, given credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position: delay in claiming refugee status",
+   "role": "party_position",
+   "explanation": "The applicant argues the delay was justified due to visa status and other options.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal standard: delay as relevant factor",
+   "role": "legal_test",
+   "explanation": "The court recognizes delay as a relevant factor but not decisive, especially given the applicant's limited stay in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position: probative value of affidavit",
+   "role": "party_position",
+   "explanation": "The applicant claims the affidavit should have been given probative value, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal principles: consideration of all evidence",
+   "role": "legal_test",
+   "explanation": "The court notes that credibility findings can extend to all evidence, and the RPD's rejection was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Conclusion: reasonableness of credibility finding",
+   "role": "disposition",
+   "explanation": "The court concludes the RPD's credibility assessment was reasonable and the application is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Other: no question for certification",
+   "role": "other",
+   "explanation": "Counsel did not propose any question for certification, and none is certified.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

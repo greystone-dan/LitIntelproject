@@ -1,0 +1,284 @@
+{
+ "case_id": 32828,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6997,
+  "completion_tokens": 2090,
+  "usd": 0.0015357
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the case's background, the decision under review, and the issue before the court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides details about Dr. Frazee's employment and responsibilities at Larsen Packers Ltd.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts complaints about condemnation rates and Larsen's demands for Dr. Frazee's removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It notes the dispute involving Larsen, its customers, and Dr. Frazee within the CFIA management context.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the plan for an external review and Dr. Frazee's temporary removal from final condemnations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It explains that Dr. Frazee's continued involvement was due to a misunderstanding despite instructions to stay off inspections.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Larsen's continued pressure and an inflammatory email demanding Dr. Frazee's removal.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It details an email exchange showing Dr. Frazee's union representative's concerns about his treatment.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports on delays in the external review and management's instructions for Dr. Frazee to refrain from duties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "It states that Dr. Frazee was again instructed not to participate in final dispositions until a review was completed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes the completion of internal reviews and Dr. Frazee's return to full duties with relationship rebuilding instructions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the legal issues, standard of review, and the questions on jurisdiction and error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states the statutory provisions governing the Adjudicator's jurisdiction under s. 92 of the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Standard of review: reasonableness",
+   "role": "other",
+   "explanation": "The paragraph discusses the applicable standard of review for mixed fact and law issues and legal standards.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Standard of review: correctness",
+   "role": "other",
+   "explanation": "It states that applying the correct legal principles to evidence warrants correctness review.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Standard of review: correctness or reasonableness",
+   "role": "other",
+   "explanation": "The paragraph concludes that regardless of the standard, the decision is flawed and must be set aside.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "It summarizes the Adjudicator's reasoning for characterizing the actions as disciplinary and the jurisdictional conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the legal question about whether the removal was administrative or disciplinary, requiring application of standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It reviews principles from authorities on what constitutes disciplinary action, focusing on purpose and effect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes legal principles about what actions are considered discipline, citing authorities and examples.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "It emphasizes that not all adverse employer actions are disciplinary, citing case law and principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the importance of employer intent and how feelings of unfairness do not equate to discipline.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "It explains that employer intent to impose discipline is key, and employer characterizations are not conclusive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes how disproportionate effects can indicate disguised discipline, depending on operational context.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "It lists factors like career impact and culpability to consider when defining discipline.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "The paragraph states that the above principles are relevant to assessing the Adjudicator's decision.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "It summarizes the Adjudicator's four reasons for concluding the removal was disciplinary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that the Adjudicator upheld the grievance after finding the allegations unfounded.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "It criticizes the Adjudicator for not applying legal principles to determine if the removal was disciplinary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Adjudicator for ignoring the CFIA's non-disciplinary characterization and effects on Dr. Frazee.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "It states the Adjudicator wrongly attributed Larsen's allegations to the CFIA without evidence of their influence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph comments on the significance of Dr. Frazee being the only employee affected, given his role.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "It criticizes the Adjudicator's circular reasoning in equating removal with discipline without considering operational rationale.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "The paragraph states the Adjudicator erred by ignoring legal principles and relevant matters, leading to setting aside the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Discretionary jurisdiction",
+   "role": "disposition",
+   "explanation": "It discusses the court's view on jurisdiction, noting removal of duties may or may not constitute suspension.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the lack of clear facts on whether the removal was disproportionate or disguised discipline.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The case is remitted to a different adjudicator for reconsideration on the merits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The applicant is awarded costs for the application.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

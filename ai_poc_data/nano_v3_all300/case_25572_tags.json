@@ -1,0 +1,522 @@
+{
+ "case_id": 25572,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 72,
+ "tagged_count": 72,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 11463,
+  "completion_tokens": 4186,
+  "usd": 0.0028207
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the procedural history of the application for judicial review of the immigration decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts of the applicant and her family",
+   "role": "background_facts",
+   "explanation": "The paragraph provides background information about the applicant's citizenship, visits to Canada, and refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of refugee and H&C applications",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the refugee claim denial, judicial review, and subsequent applications leading to the H&C decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Applicant's grounds for H&C application",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicant's reasons for her H&C application, including abuse, medical needs, and family support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Applicant's submissions and supporting evidence",
+   "role": "background_facts",
+   "explanation": "The paragraph lists the applicant's additional submissions and evidence provided to support her H&C claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Decision under review",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the date and nature of the decision made by the Officer that is being reviewed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Components of the decision",
+   "role": "other",
+   "explanation": "The paragraph notes that the decision includes both the Officer's letter and the application narrative form.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Outcome of the H&C application",
+   "role": "disposition",
+   "explanation": "The paragraph states that the Officer rejected the application because she did not suffer disproportionate hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Officer's review of applicant's history and submissions",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Officer's review of the applicant's immigration history and her submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Officer's consideration of other evidence",
+   "role": "party_position",
+   "explanation": "The paragraph details the Officer's review of the applicant's education, employment, and social support, and his conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Assessment of applicant's financial situation",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Officer's findings regarding the applicant's financial status and her decision to return to Grenada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Assessment of risk of abuse",
+   "role": "party_position",
+   "explanation": "The paragraph states the Officer's conclusion that the applicant did not face a risk of abuse from her husband.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Consideration of Omar's interests and medical condition",
+   "role": "party_position",
+   "explanation": "The paragraph describes the Officer's findings on Omar's medical condition and his best interests, including the treatment and support available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Conclusion on hardship and decision",
+   "role": "disposition",
+   "explanation": "The paragraph states that the Officer found no undue hardship and denied the H&C application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Issues raised by the applicant",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists the issues the applicant raises regarding the Officer's assessment and reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Supreme Court's approach to the standard of review in legal appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasonableness of hardship assessment",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law on how officers should assess hardship to the child in H&C cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasonableness of best interests determination",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal standard for determining the weight of the child's best interests and the reasonableness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Deference to officers' discretion",
+   "role": "legal_test",
+   "explanation": "The paragraph states that courts should defer to officers' discretion in H&C decisions, with reasons for the decision being important.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Adequacy of reasons and outcome",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses how reasons must be read with the outcome and the standard for adequacy of reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasonableness review criteria",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the criteria for reviewing decisions under reasonableness, including justification and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of correctness for legal questions",
+   "role": "legal_test",
+   "explanation": "The paragraph states that legal questions are reviewed on the correctness standard, not reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal framework: section 25 of the Act",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes the statutory provision governing H&C applications and exemptions based on humanitarian considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Applicant's evidence on Omar's asthma",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the applicant's argument that Omar's asthma worsens in Grenada and the evidence supporting this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence from Dr. Thomas",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the submission of a medical letter indicating Omar's treatment for asthma.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Officer's duty to consider all evidence",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes the officer's obligation to consider all relevant evidence, including the applicant's concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal precedent on consideration of evidence",
+   "role": "party_position",
+   "explanation": "The paragraph cites case law stating that officers must consider all relevant factors and not act contrary to manual guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Unreasonableness of the Officer's findings on Omar's asthma",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues that the Officer failed to address the evidence of Omar's severe asthma and applied an incorrect standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Unreasonableness of findings on family assistance and Omar's condition",
+   "role": "reasoning_application",
+   "explanation": "The paragraph claims the Officer's conclusions about family support and Omar's health are unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Unreasonableness of the finding on return and Omar's health",
+   "role": "reasoning_application",
+   "explanation": "The paragraph challenges the Officer's reasoning regarding the applicant's return to Grenada and Omar's health condition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Unreasonableness of the finding on Omar's asthma severity",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Officer's conclusion that Omar's asthma is not severe, given the evidence of hospitalizations and medication use.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Incorrect assessment of the applicant's ability to afford medication",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues that the Officer improperly equated family willingness to pay for airfare with ongoing support for Omar's medication.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Incorrect test applied to Omar's best interests",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Officer used the wrong legal test by requiring disproportionate hardship to assess Omar's interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal requirement to analyze child's best interests separately",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that officers must analyze the child's best interests separately from hardship considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Inappropriate application of hardship threshold to best interests",
+   "role": "reasoning_application",
+   "explanation": "The paragraph criticizes the Officer for conflating hardship with the child's best interests, leading to an incorrect conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal principles on assessing child's best interests",
+   "role": "reasoning_application",
+   "explanation": "The paragraph cites legal authorities on how to properly assess and weigh the child's best interests in H&C cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Right question for assessing child's best interests",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Officer failed to consider the correct question regarding Omar's best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Impact of minimizing child's interests",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that minimizing the child's interests violates Canada's humanitarian principles and makes the decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Conclusion on the decision's reasonableness",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the decision was unreasonable due to the Officer's errors and must be reconsidered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Respondent's position on H&C applications",
+   "role": "party_position",
+   "explanation": "The paragraph states the legal standard that H&C exemptions are discretionary and only address disproportionate hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the legal background and how the officer considered Omar's best interests and related concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the officer's findings on Omar's medical condition and the evidence regarding treatment and medication costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal standard regarding the language of hardship and proper analysis as established by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph analyzes the reasonableness of the officer's decision and the improper re-weighing of factors by the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the applicant's argument that the officer failed to consider her submissions on the climate impact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's argument that the officer's statement about asthma was irrelevant and a reviewable error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's view that the officer did not sufficiently consider Omar's interests in exercising discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's argument that the hardship was unduly and undeservedly applied, citing UK case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's claim that the officer dismissed Omar's condition without proper consideration of its seriousness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal principles from case law regarding the analysis of hardship and best interests of the child.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that the law prohibits incorporating hardship thresholds into the best interests analysis, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reaffirms that the officer's analysis was flawed for not properly considering Omar's best interests and climate impact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's disagreement with the reasonableness of the officer's consideration of Omar's best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the decision is flawed and must be returned for reconsideration due to the officer's lack of awareness of legal principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph identifies the specific legal error of applying the wrong test for the child's best interests based on the officer's statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph agrees that the officer erred by using hardship as the test for Omar's best interests and failed to properly analyze his situation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the intention to outline the correct legal principles and process for reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the legal requirement for officers to be alert and sensitive to a child's best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that best interests analysis is separate from hardship standards and must be conducted with sensitivity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses jurisprudence that prohibits using hardship thresholds in the best interests analysis of children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph reaffirms that including hardship thresholds in the best interests analysis is a legal error, citing recent case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that the officer minimized the impact on children and did not properly analyze Omar's best interests, constituting legal error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the proper steps for assessing a child's best interests in decision-making.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that there is no threshold or minimum hardship level that determines a child's best interests, only the question of what is in the child's best interest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that officers must consider the child's circumstances from the child's perspective when determining best interests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that hardship thresholds are not appropriate for determining a child's best interests, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that best interests are one factor among many and must be considered with sensitivity, not minimized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites the Supreme Court of Canada's decision emphasizing the importance of considering children's best interests with substantial weight and sensitivity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal requirement for decision-makers to be attentive and sensitive to children's interests, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that sensitivity involves understanding the real impact on the child and articulating whether it warrants relief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Procedural history",
+   "role": "disposition",
+   "explanation": "The paragraph states that the decision is returned for reconsideration by a new officer following proper principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph notes that there is no issue for certification and the court agrees.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

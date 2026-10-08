@@ -1,0 +1,256 @@
+{
+ "case_id": 26315,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 34,
+ "tagged_count": 34,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7253,
+  "completion_tokens": 1932,
+  "usd": 0.0014981
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the case is a judicial review of a Board decision dismissing refugee claims under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims to have been persecuted in China due to his Christian faith and fled to Canada in 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant joined a church in Canada and claims his beliefs would put him at risk if returned to China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board found no credible basis for the applicant's claims, citing inconsistencies and fraudulent documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board discovered the fraudulent visa application through official records and disbelieved the applicant's denial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board questioned the applicant about Christianity and found his failure to recall Easter significant for credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant was not a practicing Christian and dismissed the claims, doubting the alleged raid and arrest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board assessed the applicant's sur place claim and cited a non-authentic quote from Hathaway, noting it does not affect reasonableness.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant joined a church solely to support a fraudulent claim and doubted his sincerity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the issues: standard of review, reasonableness of credibility, motive consideration, and sincerity assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argues the credibility findings were unreasonable, especially regarding the Easter question and religious evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent defends the Board's reasoning, emphasizing the significance of the Easter question and credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph lists four issues: applicable standard of review, reasonableness of credibility, motive consideration, and sincerity assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The reasonableness standard applies to credibility and mixed fact-law issues, with references to relevant case law and standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the reasonableness standard's application, emphasizing deference and supportability of reasons and results.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the applicant's challenges to the Board's credibility findings unmerited, supporting the reasonableness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board reasonably inferred the fraudulent nature of the visa application and its impact on credibility and sincerity findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's reliance on the Easter question was reasonable, as it undermined the applicant's credibility regarding his church attendance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph introduces the question of whether the Board reasonably assessed the applicant's sincerity in Christianity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The law permits consideration of motive in assessing sincerity, but motive alone cannot invalidate a sur place claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Genuine religious belief is key; initial motivation may evolve into sincere practice, as in the Ejtehadian case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Ghazizadeh established that sur place claims require assessment of post-departure circumstances, not just exit visas or initial departure reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Ejtehadian clarified that the Board must assess the genuineness of religious practice, not just motives, in sur place claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Recent cases show the Board must evaluate the sincerity of religious practice, not just motives, to determine risk upon return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The assertion about manipulative motives does not reflect Canadian law; Hathaway's views support assessing actual risk, not motives alone.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Hathaway's approach considers imputed political opinions and potential risks, even if activities are fraudulent, for refugee assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Board's consideration of motive does not invalidate its reasonable conclusion that the applicant is not a genuine Christian.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The reasons given by the Board are understandable and supportable, so the decision should be upheld under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably concluded the applicant lacked sincerity based on credibility issues and lack of convincing evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant claims the Board erred by relying on his knowledge of Christianity, but the Board found his knowledge sufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent defends the Board's reasoning, emphasizing credibility and the sufficiency of evidence for sincerity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The respondent argues the Board's reasons were grounded in facts and that its assessment of sincerity was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming the reasonableness of the Board's decision and denying relief.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "No certification question was raised or relevant in this case, so the paragraph states no issue for certification.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

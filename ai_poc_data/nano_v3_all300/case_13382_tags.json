@@ -1,0 +1,144 @@
+{
+ "case_id": 13382,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 18,
+ "tagged_count": 18,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3527,
+  "completion_tokens": 1254,
+  "usd": 0.0008543000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review application",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's judicial review of the Appeal Division's decision and the background of the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about employment and accommodations",
+   "role": "background_facts",
+   "explanation": "The paragraph details Mr. Griffin's employment start date, his assumptions about accommodations, and his actions after being hired.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: employment reporting",
+   "role": "background_facts",
+   "explanation": "The paragraph states Mr. Griffin did not report his employment in his report to Service Canada, affecting his EI benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: reasons for leaving employment and EI decision",
+   "role": "background_facts",
+   "explanation": "The paragraph explains Mr. Griffin's reasons for leaving and the subsequent EI disqualification and penalties imposed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: reconsideration and tribunal appeal",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Griffin's request for reconsideration, its denial, and his appeal to the General Division.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test: standard for leave to appeal",
+   "role": "legal_test",
+   "explanation": "The paragraph states that leave to appeal is refused if the appeal has no reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: appeal re-weighing evidence",
+   "role": "party_position",
+   "explanation": "The paragraph reports that the Appeal Division found the applicant was asking to re-weigh evidence, which it rejected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: reasonableness of the appeal division's decision",
+   "role": "party_position",
+   "explanation": "The paragraph states the respondent's view that the main issue is whether the appeal division's decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position: new evidence in affidavit",
+   "role": "party_position",
+   "explanation": "The paragraph notes the issue of new evidence introduced by Mr. Griffin's affidavit and its potential impact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Evidence assessment: deference to appeal division's reasoning",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the court's deference to the appeal division's evidence assessment and the criteria for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment: inadmissibility of new evidence",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph agrees that the new evidence was not before the appeal division and cannot be considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence assessment: court's view on additional arguments",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states the court will not consider Mr. Griffin's argument about debt write-off as it is not part of the appeal record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test: reasonableness of the appeal division's decision",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the statutory requirement for the appeal division to find a reasonable chance of success for leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning: on the burden of proof for leave to appeal",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the applicant's burden to demonstrate grounds for appeal and the appellate review process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning: applicant's failure to establish grounds of appeal",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states Mr. Griffin's failure to identify evidence or grounds that the General Division erred, thus no valid appeal ground exists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning: reasonableness of the appeal division's decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that because no grounds were established, the appeal division's decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Conclusion: application dismissed",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's conclusion that the appeal division's decision was reasonable and the judicial review is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Other: costs",
+   "role": "other",
+   "explanation": "The paragraph states that no costs are awarded in this case, given the circumstances.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

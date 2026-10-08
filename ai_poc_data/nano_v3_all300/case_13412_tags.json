@@ -1,0 +1,382 @@
+{
+ "case_id": 13412,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 52,
+ "tagged_count": 52,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7206,
+  "completion_tokens": 3346,
+  "usd": 0.002059
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The applicant seeks judicial review of a decision dismissing his refugee appeal and denying protection based on identity issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The application raises issues about credibility assessment, use of false documents, and risk assessment upon return, with the standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court identifies the RAD's error in relying on false documents to assess credibility, leading to the application being allowed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant arrived with a false passport and no supporting documentation, and was detained until June 2014.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Additional documents sent by family were found to be unverifiable or fraudulent, and the applicant acknowledged the fraud.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant failed to prove his identity, considering the authenticity of documents and inconsistencies in his story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant's testimony about his name uncertain and inconsistent across documents and forms.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD found the explanation for not disclosing prior visa applications unreasonable and questioned the plausibility of the fraudulent passport.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD gave little weight to the birth certificate due to fraud and credibility concerns, considering the record as a whole.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD admitted the new evidence in accordance with statutory provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD gave little weight to the uncle's affidavit due to his involvement in sending fraudulent documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD accepted the applicant's explanation for name inconsistencies based on the new article provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD denied an oral hearing, stating the new evidence did not meet criteria to justify one.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD stated it would conduct an independent assessment of the evidence per jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD found that name order differences are not indicative of fraud but considered the reliability of documents given the applicant's history.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD acknowledged the applicant's reliance on fraudulent documents but still considered his propensity to rely on such documents as credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD agreed that the applicant's delayed admission of his identity undermines his credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD noted the applicant's fraudulent identity documents and the involvement of his uncle in obtaining them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD recognized that claimants may lack authentic documents but found the applicant's documents unreliable due to fraud concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD rejected the argument that the applicant was not responsible for his uncle's actions, emphasizing the burden to prove identity credibly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD concluded that the only relevant document was fraudulent and the birth certificate unverifiable, thus insufficient to establish identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD found no breach of Charter rights, as the applicant's identity was not established, so risk assessment was unnecessary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The reasonableness standard assesses justification, transparency, and acceptability of the decision within legal bounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Jurisdiction recognizes that the RAD may defer to the RPD on credibility but should conduct its own analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Case law supports that the RAD should analyze credibility findings, especially on appeal, with some deference to the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court notes that the RAD's role involves both deference and independent analysis of credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court emphasizes that the RAD must both defer and independently assess credibility findings on judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The RAD's approach involved assessing evidence, deferring, and making its own credibility findings, which is appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court considers whether the RAD's credibility findings are reasonable, given the record and absence of an oral hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The statute allows discretion for hearings; the RAD's decision not to hold one was lawful and consistent with fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The court views the discretion as not requiring a hearing when criteria are met, and the applicant was aware of the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The court notes the importance of the RAD's credibility findings being subject to review, but finds no procedural breach here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The RAD did not ignore evidence or make unknown findings, so no procedural fairness breach occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the RAD did not breach fairness as the applicant knew the case and had opportunity to respond.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Procedural fairness",
+   "role": "reasoning_application",
+   "explanation": "The RAD's credibility findings based on evidence without hearing directly from the applicant affect deference but do not breach fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Credibility assessment",
+   "role": "evidence_assessment",
+   "explanation": "Legal jurisprudence cautions against negative credibility inferences solely from false documents if fleeing persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Credibility assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Court in Gulamsakhi noted the need for caution in negative credibility inferences from false documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Credibility assessment",
+   "role": "evidence_assessment",
+   "explanation": "In Rasheed, the Court emphasized that fleeing with false documents does not automatically justify negative credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Credibility assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds that reliance on false documents to flee, in this case, does not justify negative credibility inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Credibility assessment",
+   "role": "evidence_assessment",
+   "explanation": "The respondent cites jurisprudence supporting the consideration of document authenticity and the context of fleeing in Cameroon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the RPD's findings in Sertkaya and compares them to the present case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RAD's reasoning about the applicant's delay in revealing his identity and clarifies the record of his actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RAD's approach to the use of false documents and criticizes its reliance on negative inferences from their use.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph details the RAD's consideration of the evidence, including the weight given to fraudulent and secondary documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the RAD's reasoning for relying on false documents to infer propensity and diminish the weight of other evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Legislative framework",
+   "role": "party_position",
+   "explanation": "The paragraph states that legislation requires a refugee claimant to establish their identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Legal test: identity",
+   "role": "party_position",
+   "explanation": "The paragraph cites jurisprudence emphasizing the importance of identity as a threshold issue for the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Legal test: burden of proof",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the burden to establish identity is high, referencing case law on the matter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Establishing identity",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the applicant's difficulty in establishing identity due to reliance on fraudulent documents and the need for reliable evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Unreasonableness of credibility finding",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues that the negative credibility finding based on false documents was unreasonable and improperly influenced other findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Risk assessment limitations",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the applicant's risk has not been assessed and may not be before removal to Cameroon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Discretion on remand",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the issue of risk assessment need not be decided now, as the appeal will be re-determined by a different panel.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

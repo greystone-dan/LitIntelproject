@@ -1,0 +1,270 @@
+{
+ "case_id": 7983,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 36,
+ "tagged_count": 36,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4833,
+  "completion_tokens": 1933,
+  "usd": 0.0012565
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the facts of Ms. Karval's claim and the decisions made by the Commission and tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Details Ms. Karval's attempt to appeal the tribunal's decision and the tribunal's refusal to grant leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes Ms. Karval's arguments on the application, mirroring her previous submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "States that the court reviews the decision for reasonableness, not for correctness, emphasizing deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "References the Supreme Court's description of the deference level in such reviews.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "Cites previous cases describing the high level of deference in tribunal reviews.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural fairness",
+   "role": "party_position",
+   "explanation": "Indicates that procedural fairness complaints will be assessed on the correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "Concludes the tribunal's decision was reasonable and justified based on the evidence and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Finds Ms. Karval elected extended parental benefits and cannot change her election after benefits paid.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes ambiguity in evidence about the type of parental benefits elected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that the court must decide what is most likely based on all evidence, on a balance of probabilities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Provides details of Ms. Karval's last day of work and her unknown return date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes Ms. Karval's statements about her expected time off work during reconsideration and at the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details her statements about her original plan, actual return, and duration of her leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "Finds the earlier statements more reliable and supports her election to extended benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Notes her election for maximum extended parental benefits and the total weeks requested.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "States her statements about not knowing her return date and requesting maximum benefits are consistent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Expresses skepticism about her explanation of requesting benefits for a year, suggesting she wanted longer benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Explains the difference in benefit rates for standard and extended parental benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes her benefit rate dropped and she did not seek explanation until later.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States her reason for not contacting the Commission was her assumption of correct calculation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Expresses doubt about her explanation, suggesting she understood the benefit rate change.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Analyzes her statement about not knowing the deadline, suggesting she would have admitted a mistake if relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes her election and benefit collection, supporting her election to extended benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mentions her later confusion but considers her statements less credible due to timing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "Concludes it is more likely she elected extended benefits based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States she cannot change her election after benefits have been paid, citing law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Notes the employer letter was not accepted by the General Division and was part of a separate appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the employer letter was not considered in this appeal because it was new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Notes the General Division found no evidence of an agreement to return to work and considered her testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the application and ROE indicated she did not know her return date, and the division considered this evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Explains the division's entitlement to consider the application and ROE as evidence of her unknown return date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the burden of proof was on her to show the decision was wrong, and the division based its decision on the evidence before it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "Describes the focus of reasonableness review on the decision and reasoning process, not on substituting the court's judgment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "States reasons are the primary means of understanding the decision and must be examined respectfully.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "Standard of review: reasonableness",
+   "role": "legal_test",
+   "explanation": "Explains that understanding the reasoning helps assess whether the decision is reasonable, based on coherence and law.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

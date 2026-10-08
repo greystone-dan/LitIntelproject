@@ -1,0 +1,116 @@
+{
+ "case_id": 10200,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 14,
+ "tagged_count": 14,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2936,
+  "completion_tokens": 1003,
+  "usd": 0.0006948000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes the appeal division's dismissal was unreasonable and allows the judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The General Division found Ms. Ingram's MQP date and updated earnings record, maintaining the initial MQP but noting two years of valid earnings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The General Division considered Ms. Ingram's disability severity and her efforts to return to work, including her medical treatment and pain management.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph contains only a heading or introductory statement with no substantive content.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The General Division found that the severity test was not met and dismissed the appeal, leading Ms. Ingram to seek leave to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the legal criteria for CPP disability and the historical test for severity prior to 2014 reforms.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Appeals from the General Division to the Appeal Division are governed by the DESDA, with criteria for leave to appeal and grounds for review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Ingram argues the Appeal Division unreasonably concluded the correct legal test was applied and that the evidence was not properly weighed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent defends the reasonableness of the Appeal Division's decision, asserting proper legal and factual considerations were made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The General Division accepted Ms. Ingram's severe disability status and her efforts to work despite pain, but ultimately denied her application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the internal inconsistencies in the General Division's decision and the unreasonable conclusion about her severity level.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application for judicial review is granted, and the matter is remitted for reconsideration by a different panel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The Tribunal views Ms. Ingram's personal characteristics as advantageous for employability, with broader scope of work options.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "To establish severe disability, the applicant must show a serious health problem and unsuccessful effort to obtain employment due to health.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

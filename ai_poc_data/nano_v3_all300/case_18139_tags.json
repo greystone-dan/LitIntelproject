@@ -1,0 +1,382 @@
+{
+ "case_id": 18139,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 52,
+ "tagged_count": 52,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 9770,
+  "completion_tokens": 3155,
+  "usd": 0.002239
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 1999 tribunal decision that denied refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts of the applicant's claim",
+   "role": "background_facts",
+   "explanation": "The paragraph summarizes the applicant's personal background, allegations of discrimination, and persecution in Bulgaria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing and tribunal's credibility and ethnicity assessment",
+   "role": "issue_framing",
+   "explanation": "The tribunal questioned the applicant's credibility, ethnicity, delay in claiming refugee status, and potential bias, and made findings on these points.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Tribunal's credibility and ethnicity findings",
+   "role": "party_position",
+   "explanation": "The tribunal found the applicant not credible and skeptical of his ethnicity, citing specific pages and statements from the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Standard of review on credibility assessments",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the court's role in reviewing credibility findings, emphasizing deference unless patently unreasonable or erroneous.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Application of Maldonado presumption and tribunal's disregard",
+   "role": "party_position",
+   "explanation": "The tribunal failed to apply the Maldonado presumption and disregarded the applicant's testimony, substituting its own version without evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Limits on plausibility findings in credibility assessments",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that plausibility should only be found in clear cases, considering cultural context and evidence, citing legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Reference to Leung case",
+   "role": "other",
+   "explanation": "The paragraph references a case but does not contain substantive content for assessment.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Reference to Bains case on plausibility errors",
+   "role": "other",
+   "explanation": "The paragraph references a case about tribunal errors in plausibility findings based on documentary evidence.",
+   "confidence": 0.5
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Applicant's detailed testimony of persecution",
+   "role": "party_position",
+   "explanation": "The applicant described police persecution, eviction, and violence, supported by his own testimony about his experiences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Tribunal's rejection of applicant's credibility based on implausibility",
+   "role": "party_position",
+   "explanation": "The tribunal found the applicant's story implausible, questioning the logic of his claims, and the paragraph questions if this was a misapplication of standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Further implausibility assessments by tribunal",
+   "role": "party_position",
+   "explanation": "The tribunal dismissed the applicant's explanations about searches and government actions as nonsensical, conflicting with his evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Applicant's explanation of authorities' actions and tribunal's rejection",
+   "role": "party_position",
+   "explanation": "The applicant argued that authorities targeted him because of his Roma ethnicity; the tribunal rejected this without sufficient evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Tribunal's duty to justify credibility findings",
+   "role": "legal_test",
+   "explanation": "The paragraph states that tribunals must clearly justify credibility assessments with specific evidence references.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Subjectivity of plausibility assessments and evidentiary requirements",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that plausibility findings are subjective and require clear evidence to support them, especially in complex cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Tribunal's repeated rejection of applicant's explanations",
+   "role": "party_position",
+   "explanation": "The tribunal again rejected the applicant's explanations about interrogations and police actions, without proper basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Errors of fact and mischaracterization of evidence",
+   "role": "other",
+   "explanation": "The tribunal failed to apply Maldonado and improperly replaced evidence with its own unsupported version, blaming the applicant unjustly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Omission of evidence supporting applicant's claim",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal ignored evidence, such as the registry card indicating Roma ethnicity, which supported the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Mischaracterization of ethnicity evidence",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal incorrectly stated there was no reference to ethnicity on the registry card, despite evidence to the contrary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Mischaracterization of evidence regarding children's interrogation",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal wrongly stated the applicant did not respond to questions about his children's interrogations, ignoring the transcript evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Applicant's response to tribunal's mischaracterization",
+   "role": "evidence_assessment",
+   "explanation": "The transcript shows the applicant did respond and was discussing his minor daughter, contradicting the tribunal's statement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Mischaracterization of applicant's testimony",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal misrepresented the applicant's testimony about his daughter's age and the context of his responses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Applicant's demeanor and tribunal's evaluation",
+   "role": "party_position",
+   "explanation": "The tribunal assessed the applicant's demeanor as verbose and assertive, which the paragraph criticizes as inappropriate and prejudicial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Demeanor as a credibility factor",
+   "role": "party_position",
+   "explanation": "The paragraph discusses how demeanor can be evaluated but cautions about cultural differences and trauma affecting testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Critique of tribunal's personality-based credibility assessment",
+   "role": "party_position",
+   "explanation": "The paragraph criticizes the tribunal for improperly judging the applicant's personality traits and style as evidence of lack of credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Questioning the tribunal's credibility conclusion",
+   "role": "issue_framing",
+   "explanation": "The paragraph argues that the tribunal's credibility conclusion is flawed due to multiple errors and improper inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evaluation of documentary evidence on ethnicity",
+   "role": "party_position",
+   "explanation": "The paragraph notes the tribunal's failure to review relevant documents and its limited consideration of evidence on ethnicity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Omission of documents and tribunal's reasoning",
+   "role": "party_position",
+   "explanation": "The tribunal did not explain why it omitted certain documents, including forensic analysis results, affecting its decision's transparency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Assessment of documents regarding ethnicity",
+   "role": "party_position",
+   "explanation": "The tribunal found documents problematic for reasons not fully explained, despite their relevance to the applicant's ethnicity claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Lack of explanation for document categorization and rejection",
+   "role": "party_position",
+   "explanation": "The tribunal failed to justify its separation and rejection of documents, undermining the evidentiary basis of its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Review of baptismal certificate evidence",
+   "role": "evidence_assessment",
+   "explanation": "The applicant's baptismal certificate indicated his Roma parents, but the tribunal mischaracterized the evidence about its origin.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Mischaracterization of birth certificate evidence",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal incorrectly stated the applicant did not know the whereabouts of his birth certificate, contrary to the transcript.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Speculation about obtaining a baptism certificate",
+   "role": "party_position",
+   "explanation": "The tribunal questioned why the applicant obtained a baptism certificate in 1985, implying inconsistency, but the paragraph notes the applicant's explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Lack of direct quote from transcript",
+   "role": "evidence_assessment",
+   "explanation": "The court could not find the quote where the applicant said he needed proof of his Roma identity, raising questions about the tribunal's record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Analysis of mayor's letter on ethnicity",
+   "role": "party_position",
+   "explanation": "The tribunal considered a 1997 letter certifying the applicant as Roma but discounted it due to lack of personal knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Omission of a key supporting document",
+   "role": "party_position",
+   "explanation": "The tribunal failed to consider a letter from a former MP supporting the applicant's Roma identity, despite having requested it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Assessment of applicant's physical appearance",
+   "role": "party_position",
+   "explanation": "The tribunal questioned the applicant's appearance, noting he had blue eyes and a fair complexion, which it used to doubt his Roma identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Incorrect remarks on appearance and cultural bias",
+   "role": "party_position",
+   "explanation": "The tribunal incorrectly stated the applicant had blue eyes and dismissed his claim based on appearance, ignoring cultural diversity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Perception of Roma based on appearance",
+   "role": "party_position",
+   "explanation": "The tribunal suggested that only those with certain physical features would be perceived as Roma, which is a biased and narrow view.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Assimilation and perception of Roma identity",
+   "role": "party_position",
+   "explanation": "The tribunal concluded that the applicant's appearance would not lead others to perceive him as Roma, implying he is assimilated.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the claimant's perceived social and physical integration and the risk of persecution based on ethnicity.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The tribunal's analysis is criticized for ignoring the fact that authorities already identified the claimant as Roma, affecting risk assessment.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the tribunal's omission of favorable documents and speculation about the baptismal certificate unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The tribunal doubted the applicant's delay explanation, implying dishonesty, which the court finds unwarranted.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court notes the applicant's credible explanation for the delay and challenges the tribunal's negative characterizations.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's unfounded speculation about the applicant's motives and background is criticized as lacking evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the tribunal's speculation about the applicant's intentions and background unreasonable and biased.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "issue_framing",
+   "role": "reasoning_application",
+   "explanation": "The court considers whether the tribunal's comments on demeanor indicate a reasonable apprehension of bias.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "issue_framing",
+   "role": "reasoning_application",
+   "explanation": "The court lists factors indicating a reasonable apprehension of bias based on tribunal errors and unfounded assumptions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "disposition",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that tribunal errors and bias justify setting aside the decision and remitting the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court orders the Minister to pay costs due to tribunal misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court allows the application, remits the case, and orders costs, noting no question for certification.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

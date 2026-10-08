@@ -1,0 +1,165 @@
+{
+ "case_id": 22873,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 21,
+ "tagged_count": 21,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2612,
+  "completion_tokens": 1131,
+  "usd": 0.0007136
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of a 2008 IRB decision that denied refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It raises the question of whether the panel erred in finding no reasonable fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court will dismiss the application for judicial review based on the reasons provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' identities, ages, citizenship, and refugee claim basis, including the mother\u2019s role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states the applicant alleges being targeted by the EZLN, which is relevant to the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel found no genuine fear and that an internal flight alternative was available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant's testimony about threats was considered not serious by the panel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant expressed concerns about contact with her ex-husband risking EZLN discovery, which the panel considered relevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel rejected the argument that contact with the father posed a risk, affecting the internal flight alternative assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel believed that EZLN would not pursue the applicants in another city, supporting the IFA finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes demographic evidence about Mexico used to support the IFA conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Applicants argue the panel misunderstood the benefit of domestic protection, challenging the IFA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent notes the applicants did not challenge the panel's finding on their subjective fear, which is a key legal point.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that conduct related to persecution can undermine the applicant's genuine fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that the lack of challenge to the fear finding warrants dismissal of the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It explains the burden of proof for establishing a Convention refugee and the need for both subjective and objective fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds it reasonable that the panel concluded no subjective fear given the delay in leaving Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes the applicants did not challenge the panel's lack of fear findings, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states that errors of fact or law must be demonstrated with evidence, not just asserted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Since the subjective fear element is not established, the court finds it unnecessary to discuss the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "disposition",
+   "role": "other",
+   "explanation": "No certification question was proposed; the application does not raise any.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

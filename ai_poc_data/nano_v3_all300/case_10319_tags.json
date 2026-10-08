@@ -1,0 +1,221 @@
+{
+ "case_id": 10319,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 29,
+ "tagged_count": 29,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4123,
+  "completion_tokens": 1815,
+  "usd": 0.0011383
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court describes the decision under review and the background of Ms. Miter's appeal process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Miter recounts her medical history and her application for CPP disability benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Details the denial of her application and reconsideration based on contribution requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Ms. Miter appealed to the General Division, which dismissed her appeal for lack of reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Ms. Miter appealed to the Appeal Division, alleging procedural errors and factual mistakes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Appeal Division confirmed the correct application of the summary dismissal test and its conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Appeal Division explained that medical records were unnecessary given the contribution requirements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The standard of review for the decision is reasonableness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court describes the criteria for assessing reasonableness, including justification and transparency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court clarifies that reasonableness is a legal concept, not based on everyday notions of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Miter provided detailed medical and procedural records to support her case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Miter notes her past contributions and questions why her historical contributions are not considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent states Ms. Miter's contribution record and the strict eligibility criteria of the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Miter did not meet the contribution requirements for the relevant period, regardless of her claimed disability onset.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Respondent defends the Appeal Division's decision as correct and lawful.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that the legal question is whether the Appeal Division erred in law, not the merits of her health condition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Appeal Division correctly applied the law to the facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the statutory requirements for CPP disability benefits as outlined by the Appeal Division.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Minimum Qualifying Period (MQP) requirements are explained, including contribution criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Ms. Miter's contribution record and the timing of her application are discussed, showing she did not meet the contribution criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Appeal Division's legal reasoning in dismissing the appeal is summarized as consistent with the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The legal grounds for appeal are outlined, including natural justice, legal error, and factual error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The grounds of appeal are simplified into procedural fairness, legal error, and factual error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "A legal citation is provided to support the discussion of appeal standards.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court of Appeal's decision in a similar case is referenced to support the legal framework.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Court emphasizes that eligibility is determined by law, not by the severity of health conditions alone.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The requirement to meet contribution thresholds is reiterated as essential for eligibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the Appeal Division's decision was lawful and reasonable based on the law and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court acknowledges Ms. Miter's frustration but affirms the application of the law as correct.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,200 @@
+{
+ "case_id": 11561,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4225,
+  "completion_tokens": 1390,
+  "usd": 0.0009785
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court describes the Applicants' judicial review of the RAD decision and the decision's outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court states the issues are whether the RAD erred in credibility assessment and whether the decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The Applicants' background includes their residence, eviction, and journey to Canada seeking protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD accepted their identity but found they were not credible and not at risk if returned to Hungary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD was concerned about lack of documentary evidence due to records being disposed of by a friend.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD found contradictions regarding Mr. Horvath's blindness and its cause.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD acknowledged discrimination but found it did not amount to persecution for the Applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The appeal to the RAD included new evidence, which was accepted and confirmed residence details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD noted evidence of Mr. Horvath's glaucoma but was not convinced it was caused by a racially motivated assault.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "An updated psychological report was admitted but given little weight as it did not establish credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD rejected the explanation for lack of eviction documents and found contradictions in Mr. Horvath's evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD was concerned about the Applicants' failure to mention incidents at the Port of Entry.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court states the standard of reasonableness review and relevant case law for deference and credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court identifies the sole issue as whether the decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The relevant IRPA provisions regarding appeal procedures and evidence are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Applicants did not request a hearing but argued that proceeding without one was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The RAD may hold a hearing if new evidence raises a serious credibility issue and is central to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Appellants can request a hearing in writing; the burden is on the RAD to reasonably consider criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD should have held an oral hearing due to credibility issues and new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD accepted contradictory evidence and found Mr. Horvath's credibility undermined regarding his blindness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Applicants' account was consistent and minor discrepancies were reasonable given circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court notes caution against overreliance on Port of Entry notes due to their circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RAD accepted the municipality's demolition but rejected the lack of documentary evidence without corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Corroborative evidence was only required if the RAD doubted the claim and such evidence was reasonably available.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD's credibility findings were unsupported, and the decision was not within a reasonable range, warranting remand.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "No serious question of general importance was proposed or certified for review.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

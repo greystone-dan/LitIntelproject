@@ -1,0 +1,263 @@
+{
+ "case_id": 19841,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5220,
+  "completion_tokens": 1956,
+  "usd": 0.0013044
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the applicant, his nationality, and his claim of danger in Honduras, including his refugee claim details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "It states that the Refugee Protection Division rejected the applicant\u2019s claim in May 2010.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "It identifies the legal issue regarding whether the risks are faced generally by others in Honduras under paragraph 97(1)(b)(ii) of IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The judge concludes that the risks are generally faced by others in Honduras, leading to dismissal of the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant\u2019s business, gang demands, and his response to extortion in Honduras.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the applicant\u2019s assault, police report, and threats from gang members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the applicant fled to the US and later came to Canada to claim refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Mentions the RPD\u2019s assessment and legal principles from Ventura De Parada regarding risk generalization.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes documentary evidence of gang violence and structure in Honduras, including MS-13 and MS-18.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the RPD\u2019s acceptance that the applicant faced a personal risk and threat from MS-18.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD concluded that extortion is widespread and not specific to the applicant, thus not meeting the legal criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains the standard of reasonableness for mixed fact and law questions, citing Acosta and Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States the RPD\u2019s need to interpret the phrase 'not faced generally' in paragraph 97(1)(b)(ii).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Summarizes Dunsmuir factors supporting deference and reasonableness in tribunal decisions, especially in specialized areas.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Quotes Justice Binnie on deference to tribunal interpretations and the rational support required for decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Notes that Khosa applied reasonableness as the standard for IRPA paragraph 67(1)(c) interpretations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Mentions SCC reaffirming reasonableness as the usual standard for tribunal statutory interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The judge finds reasonableness appropriate for reviewing the RPD\u2019s interpretation, even if correctness were considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "Introduces the specific legal question about whether the risks are generally faced by others in Honduras.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the applicant\u2019s argument that the RPD erred by finding a generalized risk, which the court disagrees with.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Contrasts the current case with Pineda, emphasizing the RPD\u2019s acknowledgment of personal risk in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Refers to Proph\u00e8te as relevant jurisprudence addressing the second element of paragraph 97(1)(b)(ii).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Quotes Justice Tremblay-Lamer on the general risk of violence faced by all Haitians, even if some are targeted more often.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Explains the approach of treating heightened subgroup risks as generalized risks, supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Details Justice Snider\u2019s reasoning that the word 'generally' means widespread, and the risk can be reasonably characterized as such.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes Justice Beaudry\u2019s conclusion that the risk to wealthy persons is generalized, based on the case law approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "States Justice O\u2019Keefe\u2019s finding that targeting based on wealth does not establish a specific risk under section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Mentions Justice Gauthier\u2019s similar reasoning in Acosta regarding subgroup risks.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Refers to Justice Zinn\u2019s application of the same reasoning in Ventura De Parada.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The judge agrees with the case law approach, concluding the applicant\u2019s risk is generally faced by many in Honduras with perceived wealth.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes the applicant\u2019s acknowledgment that Mara 18 targeted people with money, supporting the RPD\u2019s conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that the applicant must show a personal risk not faced generally, and that widespread risks can justify rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Summarizes the law on when claims based on past or future targeting meet the criteria, emphasizing subgroup size and prevalence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "States there is no question for certification, concluding the decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

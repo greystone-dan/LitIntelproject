@@ -1,0 +1,130 @@
+{
+ "case_id": 13459,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 16,
+ "tagged_count": 16,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2825,
+  "completion_tokens": 1186,
+  "usd": 0.0007569
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Case overview and decision",
+   "role": "disposition",
+   "explanation": "The court states the application is dismissed based on the decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Summary of outcome",
+   "role": "disposition",
+   "explanation": "The court announces that the application is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history and issue",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the previous decisions and states the issue regarding the RAD's consideration of evidence on IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Assessment of evidence on government treatment",
+   "role": "party_position",
+   "explanation": "The Applicants argued the government\u2019s efforts were not sufficiently considered; the court discusses the evidence and its relevance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Analysis of country evidence",
+   "role": "reasoning_application",
+   "explanation": "The court finds the country evidence does not relate to the IFA issue of avoiding detection by thugs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "USSD report critique",
+   "role": "party_position",
+   "explanation": "The Applicants argue the USSD report was misrepresented; the court clarifies the report's content.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Details of USSD report",
+   "role": "evidence_assessment",
+   "explanation": "The court summarizes the USSD report's findings on Nigeria's efforts against trafficking.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Relevance of country evidence",
+   "role": "reasoning_application",
+   "explanation": "The court states the country evidence is not relevant to the IFA issue of avoiding detection in Port Harcourt.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasonableness of RAD's conclusion on IFA",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RAD's conclusion reasonable as the Applicants did not provide concrete evidence of likely discovery.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Additional applicant testimony",
+   "role": "party_position",
+   "explanation": "The Applicant testified she does not speak the language, has no family there, and no job prospects.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reports on women's vulnerability",
+   "role": "party_position",
+   "explanation": "The Applicants cited reports on women's vulnerability to abuse and trafficking in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Assessment of evidence on risk and resources",
+   "role": "evidence_assessment",
+   "explanation": "The RPD found the Applicant resourceful and capable of employment in Port Harcourt.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Application of Gender Guidelines",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Gender Guidelines were properly applied and did not indicate unmet criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Comparison with other cases",
+   "role": "legal_test",
+   "explanation": "The court distinguishes this case from others involving ethnic violence and the first prong of the test.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Relevance of adaptability cases",
+   "role": "legal_test",
+   "explanation": "The court distinguishes this case from Utoh, emphasizing adaptability relates to avoiding danger, not integration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Conclusion on reasonableness",
+   "role": "disposition",
+   "explanation": "The court concludes the RAD's decision is within the range of reasonable outcomes and justified.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

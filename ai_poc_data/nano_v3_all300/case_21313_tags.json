@@ -1,0 +1,284 @@
+{
+ "case_id": 21313,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4227,
+  "completion_tokens": 2237,
+  "usd": 0.0013175
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's judicial review of a refugee claim decision and the decision's outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: persecution and relationship",
+   "role": "background_facts",
+   "explanation": "The applicant is a Mexican citizen allegedly persecuted by her ex-spouse, an officer employed by the Public Prosecutor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: relationship and violence",
+   "role": "background_facts",
+   "explanation": "The applicant's relationship with her ex-spouse began in June 2005, with assaults starting in December 2005 and continuing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: reporting and seeking help",
+   "role": "background_facts",
+   "explanation": "The applicant reported her ex-spouse to authorities but did not follow up or seek assistance from organizations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: fleeing Mexico",
+   "role": "background_facts",
+   "explanation": "The applicant left Mexico on July 11, 2006, after temporary refuge with family, to claim refugee status in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: credibility assessment",
+   "role": "party_position",
+   "explanation": "The panel found it difficult to reconcile the applicant's behavior with her claimed fear and disbelieved her story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: state protection",
+   "role": "party_position",
+   "explanation": "The panel noted her failure to take reasonable steps to seek protection in Mexico, rebutting the presumption of state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: internal flight alternative",
+   "role": "party_position",
+   "explanation": "The panel believed the applicant could find safety in other parts of Mexico without risking her life.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Issue framing: standard of review and issues",
+   "role": "issue_framing",
+   "explanation": "The court will assess whether the panel erred in its credibility assessment and protection findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: credibility and Guideline",
+   "role": "party_position",
+   "explanation": "The applicant argues the panel erred by ignoring the Guideline and evidence supporting her credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: respondent's defense",
+   "role": "party_position",
+   "explanation": "The respondent defends the panel's findings as justified and based on evidence and expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: deference to tribunals",
+   "role": "legal_test",
+   "explanation": "Courts must defer to specialized tribunals' decisions due to their expertise, as established in Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: reasonableness standard",
+   "role": "legal_test",
+   "explanation": "The reasonableness standard applies; the court assesses if the decision is within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: error in credibility and protection",
+   "role": "legal_test",
+   "explanation": "The court considers whether the panel erred in its credibility and protection assessments under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application: credibility inference",
+   "role": "reasoning_application",
+   "explanation": "The court notes the panel's negative credibility inference based on evidence it found unreliable or implausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application: evidence consideration",
+   "role": "reasoning_application",
+   "explanation": "The applicant claims the panel did not consider all relevant evidence, which is challenged as unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application: presumption of consideration",
+   "role": "reasoning_application",
+   "explanation": "The court explains the presumption that the panel considered all evidence and that it is not required to consider all evidence supporting the opposite view.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application: court's role in review",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes it should not reweigh evidence but only assess if the decision was justified and reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application: deference on credibility",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes the panel's credibility assessment as within its discretion and entitled to deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment: credibility findings",
+   "role": "evidence_assessment",
+   "explanation": "The panel found the applicant not credible based on uncorroborated reports and implausible elements in her story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment: credibility and documentation",
+   "role": "evidence_assessment",
+   "explanation": "The court notes that improbabilities and lack of documentation can negatively impact credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position: Guideline on battered women",
+   "role": "party_position",
+   "explanation": "The applicant argues the panel failed to consider the Guideline on women refugees fearing gender persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Party position: panel's consideration of Guideline",
+   "role": "party_position",
+   "explanation": "The court finds the panel stated it considered the Guideline and did not fail to follow it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position: sensitivity and evidence",
+   "role": "party_position",
+   "explanation": "The applicant did not demonstrate the panel failed to show sensitivity or that the evidence was insufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test: credibility findings",
+   "role": "legal_test",
+   "explanation": "The court concludes the credibility finding was reasonable and not subject to intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position: state protection",
+   "role": "party_position",
+   "explanation": "The panel found that state protection was available in Mexico and the applicant did not prove otherwise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position: follow-up on protection",
+   "role": "party_position",
+   "explanation": "The applicant did not follow up on her report or seek assistance, questioning the effectiveness of Mexican protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position: burden of proof on protection",
+   "role": "party_position",
+   "explanation": "The applicant's failure to test the protection system does not rebut the presumption of state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position: panel's protection finding",
+   "role": "party_position",
+   "explanation": "The court finds the panel's conclusion on state protection was reasonable given the circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test: internal flight alternative",
+   "role": "legal_test",
+   "explanation": "The court discusses the claimant's burden to establish the reasonableness of an internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position: internal flight alternative",
+   "role": "party_position",
+   "explanation": "The panel found the applicant could relocate within Mexico, which the court considers a reasonable finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test: burden of proof on IFA",
+   "role": "legal_test",
+   "explanation": "The claimant bears the burden to prove that an internal flight alternative is unreasonable or impossible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position: considerations on IFA",
+   "role": "party_position",
+   "explanation": "The applicant did not consider relocating to cities suggested by the panel, but this does not make the IFA unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test: reasonableness of IFA",
+   "role": "legal_test",
+   "explanation": "The court finds the panel's decision on the IFA within a reasonable range and not subject to intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position: persuasive decisions",
+   "role": "party_position",
+   "explanation": "The applicant argues the panel improperly used persuasive decisions not filed as evidence, which the court rejects.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position: use of jurisprudence",
+   "role": "party_position",
+   "explanation": "The court explains that referencing jurisprudential decisions is permissible and not binding evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal conclusion: reasonableness of decision",
+   "role": "disposition",
+   "explanation": "The court concludes the decision was reasonable and within an acceptable range, dismissing the review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Other: no certification of questions",
+   "role": "other",
+   "explanation": "The court states no questions of importance are certified for appeal.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,116 @@
+{
+ "case_id": 15317,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 14,
+ "tagged_count": 14,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2875,
+  "completion_tokens": 817,
+  "usd": 0.0006143
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's personal background and claims of persecution due to his sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details specific incidents of police violence and harassment the applicant experienced in Romania.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicant's reasons for leaving Romania and arriving in Canada claiming refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant's claim of being homosexual not credible and questioned his involvement in the gay community.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the legal issue regarding whether the Board's findings were patently unreasonable based on stereotypes and unfounded conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the standard of review for factual and credibility findings is patent unreasonableness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues that the Board's credibility findings are based on stereotypes and unsupported factual conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the Board's reasoning about the applicant's knowledge of gay organizations and the implications for credibility, citing case law on stereotypes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph analyzes the Board's reasoning, comparing it to case law, and concludes that the Board's inferences were unreasonable and stereotypical.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph distinguishes the current case from prior stereotypes, emphasizing the applicant's evidence and the need to establish homosexuality credibly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the Board's findings based on implausibility and common sense are permissible, and the applicant bears the burden to rebut them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes that even if some findings were mistaken, they are secondary to the main conclusion about credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph compares the case to a previous decision, affirming that the Board's conclusion on credibility was reasonable and not unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming that the Board's credibility findings were not patently unreasonable.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

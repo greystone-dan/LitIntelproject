@@ -1,0 +1,193 @@
+{
+ "case_id": 13816,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4922,
+  "completion_tokens": 1470,
+  "usd": 0.0010802
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The application for judicial review is dismissed based on the court's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's relationship with Monica Gallo and related events.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details alleged threats and violence from Monica's parents and their political affiliations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states that Monica's father convinced her to give up the baby for adoption.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant fled Hungary fearing for his life and claimed refugee protection in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant lacked credibility due to inconsistencies and contradictions in his testimony and records.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD concluded the applicant failed to establish his Roma ethnicity due to lack of documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant's claims about Magyar-Garda membership to be fabricated and implausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD determined the applicant did not have a subjective fear based on his delayed departure and responses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The RPD found the applicant had internal flight alternatives in Hungary, reducing his risk of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argued the RPD erred in its ethnicity credibility assessment and in evaluating delays and internal flight options.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant claimed procedural fairness was breached due to lack of representation and opportunity to submit evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The standard of reasonableness applies to credibility and plausibility findings, with deference to the RPD's expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD's credibility assessment reasonable and within its expertise, not open to review unless unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court views the applicant's translation explanation as an alternative reasoning, not undermining the RPD's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the applicant's ethnicity claim is not established solely by country conditions evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD's inference about fabrications regarding Magyar-Garda membership reasonable based on the applicant's testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the RPD reasonably considered the applicant's delay in leaving Hungary and his responses about fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The reasons provided by the RPD are adequate and do not require detailed reference to every contradiction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the RPD's reasons are justifiable and not based on microscopic analysis, but on contradictions in key facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The RPD's finding of a viable internal flight alternative is reasonable given the evidence and applicant\u2019s testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The hearing was conducted fairly with interpreter support and clear explanations to the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court notes the RPD's discretion not to adjourn in the absence of a request, which is consistent with law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Even if the RPD should have allowed post-hearing evidence, the inconsistencies in the evidence make this non-material.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "No question is certified for appeal or further review.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

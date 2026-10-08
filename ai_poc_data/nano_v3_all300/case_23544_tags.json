@@ -1,0 +1,186 @@
+{
+ "case_id": 23544,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 24,
+ "tagged_count": 24,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3214,
+  "completion_tokens": 1339,
+  "usd": 0.0008570000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application and refers the matter back for reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant describes his background, religious persecution, and fleeing China.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant arrived in Canada, made a refugee claim, and learned about ongoing persecution of church members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant not credible and dismissed his protection claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board considered his testimony inconsistent with country condition evidence and doubted the raid occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The evidence shows sporadic persecution of underground churches, mainly priests and bishops, with limited persecution of parishioners.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board examined deficiencies in the applicant's summons and questioned its validity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board rejected the prison visiting card as fraudulent, citing the raid did not occur and document proliferation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant's religious practice in Canada was considered to be for his refugee claim, not genuine religious activity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant could practice Catholicism freely in China, citing mixed evidence and limited persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court considers whether the Board reasonably decided the applicant is not a refugee or in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court applies the standard from Dunsmuir v New Brunswick to review the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board erred in disbelieving the applicant based solely on country evidence, which is contextual, not determinative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The evidence about arrests in Fujian is scarce and not specific, so does not contradict the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board did not find inconsistencies in the testimony but rejected it based on preconceptions about Fujian Catholics.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board wrongly compared the summons to an arrest summons despite providing a different document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's reasoning that an arrest summons would have been issued was speculative; a notice of summons is plausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board should have acknowledged the summons did not claim to be an arrest summons and could differ from the sample.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board wrongly dismissed the prison card because the raid did not occur, without considering its evidentiary value.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board inverted the evidentiary assessment, dismissing the prison card based solely on credibility issues, which is methodologically flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board did not find a basis to conclude the prison card was fraudulent, only noting inconsistency with credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board summarily rejected the applicant's religious evidence without proper assessment, putting the conclusion before the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's conclusion that the applicant could freely practice in China was tainted by earlier errors and insufficient evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board based its decision mainly on documentary evidence, improperly dismissing the applicant's testimony and documents without proper assessment.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

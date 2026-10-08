@@ -1,0 +1,480 @@
+{
+ "case_id": 26616,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 66,
+ "tagged_count": 66,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 10801,
+  "completion_tokens": 3654,
+  "usd": 0.0025417
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the applicant, her background, and the context of her refugee claim, including the decisions under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's disclosure of her sexual orientation and her military service, including alleged harassment and abuse.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the threats and harassment the applicant faced after being seen with another woman, including threatening notes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant attempted to disclose her sexual orientation to her superiors and describes their subsequent treatment and her deployment concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant fled the base fearing for her life and received threats after leaving, which she reports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Outlines the applicant's entry into Canada, her refugee claim, and the initial and subsequent decisions by the Board, including judicial review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Describes the Board's new hearing, the intervention by the Minister, and the decision to reject the claim which is under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The applicant argues that returning to the US would lead to unfair prosecution and lack of state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Details the Board Member's consideration of procedural fairness and review of relevant guidelines and reports during the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States that the Board rejected the claim based on credibility and state protection issues, citing specific reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Details the Board's findings that credibility was undermined by inconsistencies and lack of evidence, affecting the harassment claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes the Board's law on state protection, its assessment of the US legal system, and the credibility of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes the Board's view that the applicant could have taken further steps to seek protection or discharge, which she did not do.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board concluded that potential prosecution in the US would not amount to persecution and US military justice was adequate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Considers the impact of the repeal of 'Don\u2019t Ask, Don\u2019t Tell' on the applicant's claim, noting legal developments in the US.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States the issues raised on appeal, including credibility, application of the Charter, expert evidence, and state protection findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Sets out the standard of review for questions of fact and mixed law and fact, primarily reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains that the reasonableness standard applies to the Board's findings on facts and law, including credibility and state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Defines reasonableness as justification, transparency, and range of acceptable outcomes within the decision process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Summarizes the Board's main reasons for disbelieving the applicant's credibility, based on inconsistencies and implausibilities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Details the applicant's arguments that the credibility findings were flawed and not supported by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Argues that the Board failed to properly consider documentary and expert evidence on US military treatment of homosexuals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes that credibility is a factual, case-specific determination, and the court should not reweigh evidence unless findings are unsupported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Mentions that inconsistencies in testimony over time are expected but more pronounced discrepancies were found.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Provides an example of inconsistency regarding harassment incidents and the lack of explanation for the discrepancy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Describes the Board's assessment of evasive answers and the impact on credibility regarding disclosure of sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Details the applicant's testimony about assaults, her failure to contact authorities, and the Board's view on reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Discusses the applicant's explanation for not reporting threats and assaults, and the Board's view on her reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes the applicant's ignorance of remedies available to military personnel and the reasonableness of her explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Describes the contradiction in the applicant's account of receiving a death threat and the Board's conclusion on credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Board considered the guidelines and case law, but found the applicant not credible due to the accumulation of issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the credibility assessment within the Board's margin of appreciation and defers to its judgment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States the applicant's argument that the Board erred by not applying the Charter and international instruments in its analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Argues that the Board should have considered the consistency of the US system with Canada's international obligations under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "References prior judicial findings that the constitutionality of foreign laws can be considered when relevant to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Clarifies that IRPA's section 3 requires consistency with international human rights, not a constitutional review of foreign laws.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Cites case law emphasizing that international human rights law aids interpretation of domestic law, but Charter does not apply to foreign laws.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Notes that the previous judicial review did not address the constitutionality of the US military law, but the Board must assess non-discriminatory enforcement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that the Board was correct in not applying the Charter to US law and that the applicant must show she exhausted remedies in the US.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The Board found the US military justice system adequate and that the applicant did not exhaust US remedies, which was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains how the Board assessed expert evidence and credibility in the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "This paragraph discusses the discretion tribunals have in admitting expert evidence and the context of US policy changes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states the principle that expert opinions cannot replace a tribunal's assessment of credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the Board's assessment of credibility and an error made in the first decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "It explains the Board's reasoning for rejecting certain evidence based on credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph details why expert opinions on state protection were deemed irrelevant after credibility was rejected.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "It distinguishes this case from others where expert evidence was improperly discounted without objective support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph notes the expert opinion retained and its role in assessing the claimant's awareness of remedies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "It states the Court's deference to the Board's factual assessment and its discretion in weighing evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "This paragraph states the evidentiary burden on the claimant to prove inadequate state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It explains the standard of proof and what constitutes sufficient evidence to rebut the presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the requirement for claimants to seek protection and the presumption of state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states the Board's duty to consider all relevant evidence and whether the claimant exhausted protection avenues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph clarifies the Board's reasoning regarding internal flight alternatives and protection seeking.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It discusses the application of gender-specific guidelines and international law regarding persecution based on sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph assesses the Board's sensitivity to the applicant's context and the application of guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "It concludes that the applicant did not prove she could not seek protection within the US before fleeing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph commends the thoroughness of the Board's credibility assessment and defers to its factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Legal test",
+   "role": "reasoning_application",
+   "explanation": "It summarizes the Board's conclusion that the applicant's fear was not objectively well-founded and not persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Legal test",
+   "role": "disposition",
+   "explanation": "The paragraph states that the Board's decision is justified and the application is dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "It explains the legal standards for certifying questions of general importance in appeals.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "The applicant proposes questions for certification regarding tribunal discretion, expert evidence, and exhaustion of remedies.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "It concludes that the first proposed question is not dispositive as the Board did not fetter discretion.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "It states that the second question is fact-dependent and not of general application.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "It notes that the third issue was addressed in a prior case, Hinzman.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Legal test",
+   "role": "other",
+   "explanation": "It concludes that no questions are appropriate for certification based on the analysis above.",
+   "confidence": 0.8
+  }
+ ],
+ "status": "complete"
+}

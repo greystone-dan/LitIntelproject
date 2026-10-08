@@ -1,0 +1,81 @@
+{
+ "case_id": 23841,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 9,
+ "tagged_count": 9,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2502,
+  "completion_tokens": 519,
+  "usd": 0.00045780000000000007
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the issue in the application regarding the supportability of the IFA based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's personal history and experiences of abuse and fleeing her country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the availability of state protection in Ghana as found by the Member.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the factual issue regarding Kwaku's potential search efforts and the applicant's considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Member's finding that Kwaku would not likely search outside her home area, based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph presents the applicant's brother's letter as evidence that contradicts the Member's conclusion about Kwaku's search efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph agrees that the issue is whether Kwaku has the means and motivation to search for the applicant, based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph discusses the proper application of the gender guidelines and the emotional impact on the applicant in the IFA analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the Member's IFA determination was made in reviewable error, leading to a decision to overturn or remand.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

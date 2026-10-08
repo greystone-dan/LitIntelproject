@@ -1,0 +1,249 @@
+{
+ "case_id": 7820,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 33,
+ "tagged_count": 33,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6805,
+  "completion_tokens": 1972,
+  "usd": 0.0014693000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court reviews the application for judicial review of a decision by an immigration officer regarding permanent residence eligibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' citizenship, family members, and their arrival in Canada, including their children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The principal applicant worked as a remis driver in Argentina, facing conflict with taxi drivers and escalating violence from 1996 to 2000.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Threats and violence against the applicant and his family in Argentina led to their decision to relocate for safety reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicants moved to the U.S. for security, then to Canada in 2002, fearing deportation to Argentina, and did not apply for refugee status in the U.S.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Their refugee claims were denied in 2003, and they did not seek judicial review of that decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicants' PRRA application was denied in 2005, and they did not seek judicial review of that decision either.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicants submitted a Humanitarian and Compassionate application, which was denied in 2005, leading to this judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The immigration officer found insufficient evidence of undue hardship and considered factors like establishment and risk, giving them limited weight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court identifies issues regarding discretion, fairness, and the best interests of children, and states the standard of reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The Supreme Court's decision in Baker establishes reasonableness as the standard of review for H & C decisions, which this court follows.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court states its role is to determine if the decision is supportable and withstands scrutiny, not to substitute its judgment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue the officer erred in fettering discretion by ignoring relevant law and the applicants' establishment in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officer explained her reliance on manual guidelines and her focus on the case-specific review, dismissing the relevance of foreign case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the officer applied relevant principles and did not fetter her discretion, and foreign decisions have limited legal value here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue the officer erred in not giving weight to their establishment in Canada due to their violation of removal orders.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court explains that the removal order was stayed when the applicants applied for PRRA, citing relevant regulations and legal principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants contend it was unreasonable for the officer to infer they could have effected their own removal, given their right to PRRA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court notes that a stayed removal order does not negate the validity of the order, and applicants' choices do not equate to prolonged inability to leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 25 of the Act allows exceptional processing within Canada for humanitarian reasons, with guidelines on what constitutes undue hardship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that living illegally in Canada does not improve chances of permanent residence, and the officer's reasoning was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants rely on manual provisions to argue their establishment should be considered, but the court finds this argument unpersuasive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that the manual's policy considerations are not binding and that legal remedies are not beyond the applicant's control.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The officer did consider the applicants' establishment in Canada but gave it little weight, exercising her discretion properly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue the officer erred by relying on a PRRA report based on extrinsic evidence not reviewed by them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court states that the PRRA decision was valid and that the applicants should have challenged it through judicial review, not this process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants claim the officer failed to consider evidence contradicting her conclusions, citing a case about evidence omission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the officer was attentive to the best interests of the children and her reasoning was reasonable and consistent with case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court clarifies that the case cited involved personal psychological reports, not country condition documents, and the officer considered relevant evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the officer referred to the psychological assessment and presumes she considered all submitted evidence, and that disagreement does not warrant intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue conditions in Argentina are poor, but the court states that general desirability of living in Canada does not determine H & C eligibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review based on the reasons discussed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The court declines to certify the applicants' proposed questions, citing their lack of importance and previous rulings.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,116 @@
+{
+ "case_id": 31804,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 14,
+ "tagged_count": 14,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2260,
+  "completion_tokens": 806,
+  "usd": 0.0005484
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the applicant's request for judicial review of the IRB decision rejecting his asylum claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph provides the applicant's birth details, nationality, education, and religious background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's visit to the US, his stay, and his exposure to Mormon members before returning to Iran.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's conversion to Mormonism in Canada and his religious involvement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's claim that his father-in-law demanded he abandon his faith or divorce his wife.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's claim of risk of persecution or death if he returns to Iran due to his religion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the date of the applicant's refugee claim and the hearing date.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the IRB's acknowledgment of the sur place claim and its reasoning for rejecting it based on credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the IRB's findings on the applicant's religious background and the risks associated with apostasy in Iran.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph quotes the IRB's understanding of how to assess a sur-place claim and its focus on motives for conversion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph criticizes the IRB's articulation of the legal test, citing relevant case law and emphasizing the need to consider activities in Canada regardless of motives.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that applying the wrong legal test is an error of law and reviewable on correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the application is allowed, the IRB decision is set aside, and the matter is remitted for reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that no serious question of general importance is certified and orders the application to be allowed and remitted.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

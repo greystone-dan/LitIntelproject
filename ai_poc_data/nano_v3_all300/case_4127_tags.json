@@ -1,0 +1,536 @@
+{
+ "case_id": 4127,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 74,
+ "tagged_count": 74,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 11387,
+  "completion_tokens": 4244,
+  "usd": 0.0028363
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes Mr. Kim's personal history, refugee status, and immigration background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details Mr. Kim's criminal convictions, sentencing, and deportation order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States Mr. Kim's application for PRRA and the allegations made in it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Explains the officer's consideration of the application under section 97 and the reasons for declining to consider other factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes the officer's findings regarding the risk from violence and state authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the officer's conclusion that there is insufficient evidence of danger to Mr. Kim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "Lists the issues and questions before the court regarding the PRRA officer\u2019s decision and legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Discusses the approach to determining the appropriate standard of review for PRRA decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Outlines the four factors to consider in judicial review of tribunal decisions according to case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Analyzes the statutory framework for judicial review and the scope of judicial oversight over PRRA decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains the legislative purpose of IRPA and the objectives of the PRRA process related to refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Notes that Mr. Kim is excluded from refugee consideration due to statutory provisions, affecting the purpose of the PRRA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that the purpose of PRRA is to fulfill Canada's obligations under the torture convention and human rights protections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Quotes case law emphasizing that refugee status determination is based on personal circumstances and country conditions, not policy balancing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Expertise of the decision-maker",
+   "role": "reasoning_application",
+   "explanation": "Analyzes the PRRA officer's expertise in country conditions, law, and law application, and the appropriate deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Expertise of the decision-maker",
+   "role": "reasoning_application",
+   "explanation": "Contrasts the officer's expertise in country conditions with limited legal expertise, advocating for less deference on legal questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Expertise of the decision-maker",
+   "role": "reasoning_application",
+   "explanation": "States that the court should show little deference to legal questions decided by PRRA officers due to their limited legal training.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Expertise of the decision-maker",
+   "role": "reasoning_application",
+   "explanation": "Indicates that questions of law and mixed law and fact should be reviewed with less deference, especially outside the officer's expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Standard of review",
+   "role": "reasoning_application",
+   "explanation": "Concludes the appropriate standards of review for factual, mixed, and legal questions in PRRA decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "References case law on the standard of review for credibility and factual findings by PRRA officers.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "States that legal questions decided by PRRA officers are reviewed for correctness, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of review",
+   "role": "reasoning_application",
+   "explanation": "Notes that the overall reasonableness standard applies when reviewing the entire PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Procedural history",
+   "role": "other",
+   "explanation": "Discusses the admissibility of an affidavit explaining immigration policy, not a legal issue.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the applicant's argument that Mr. Kim's refugee status should have granted him protection from removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Defines protected persons under IRPA and the criteria for similar circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains the regulations and the historical context of Mr. Kim's entry and status in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "States that UNHCR's refugee definition aligns with the refugee definition in IRPA and the Refugee Convention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Notes that the recognition of the Indochinese class was not explicitly disbanded by regulations or law, supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Argues Mr. Kim has not lost his displaced and persecuted status and that no danger to public was declared, so PRRA lacked jurisdiction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the respondent's position that Mr. Kim is neither a refugee nor protected person under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Clarifies that mandate refugees are recognized by UNHCR, not by Canada, and Mr. Kim's status was not based on mandate refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States Mr. Kim is not a protected person because he has not been recognized as a refugee by any country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes that Mr. Kim's class status was not recognized under current regulations, and the class was repealed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Argues Mr. Kim's rights under the class were limited to landed status, which was later converted, and are not protected from removal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States that criminal inadmissibility and deportation are consistent with immigration law and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Argues that even if Mr. Kim were protected, he could still be deported under the relevant statutory provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the PRRA officer's jurisdiction was correctly exercised, and criminal convictions limit protection considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Agrees with the respondent that Parliament did not explicitly recognize the class as refugees, affecting the jurisdiction argument.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes that recognition of the class as refugees was not required, and many members could still face persecution if returned.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States that Mr. Kim's landed status was not a vested right but was revoked due to his own actions, not law changes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph states the facts about Mr. Kim's entry and the refugee process, and the evidence needed for protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses Mr. Kim's argument about international recognition of refugees and the legal differences under Canadian law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the legal distinction between mandate refugees and Convention refugees regarding non-refoulement obligations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "issue_framing",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that Mr. Kim is not protected from refoulement under section 115 and that the PRAA officer had jurisdiction.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the court will not address the issue further because the correct standard was applied, referencing Li v. Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports Mr. Kim's claim that evidence about detention and allegations of high risk in Cambodia was ignored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that the officer examined relevant evidence and that the court should not reweigh the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the respondent's evidence that the Cambodian government can supply food and that lack of support is not a PRRA concern.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees with the respondent that the evidence was properly assessed and no obligation existed to address the specific point.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes the omission of the Prime Minister's statement but concludes it does not affect the outcome given the contrary evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the omission of the police treatment evidence not reviewable, as there was no current government interest in Mr. Kim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the officer did not improperly ignore evidence of risk to Mr. Kim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Mr. Kim argues the officer erred in not considering H & C factors related to risk of cruel or unusual treatment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites legal standards for cruel or unusual treatment from the Supreme Court and legal texts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Mr. Kim claims his personal circumstances should have been considered in assessing risk of cruel or unusual treatment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues the Charter is not engaged and jurisprudence does not require consideration of H & C factors in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent states the officer did not consider H & C factors because no such request was made, and the court will address this further.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds no reviewable error in the officer's conclusion that no risk was established, thus section 12 was not engaged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Mr. Kim argues the officer should have considered H & C factors under subsection 25(1) of IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent claims no H & C application was made, so the officer had no obligation to consider such factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officer states that H & C factors are not within the scope of this risk assessment and are not evaluated here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the legal or jurisdictional nature of the officer's finding should be reviewed on correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court agrees that Zolotareva is distinguishable because it involved a different procedural context for H & C considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the legal argument that subsection 25(1) requires consideration of H & C factors upon request, citing the relevant statutory language.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that H & C considerations are often linked to risk assessments but are not necessarily always considered together.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes the lack of clear jurisprudence on whether PRRA officers must consider H & C factors if requested, citing recent cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph mentions judicial comments suggesting PRRA officers may not have a duty to consider H & C factors, based on previous cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph reviews recent decisions indicating limited discretion for officers to consider H & C factors in risk assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses a case where an officer was not required to consider H & C factors before certain statutory reports, emphasizing limited discretion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that PRRA officers do not need to consider H & C factors because their role is limited to risk assessment, and the proper forum is H & C mechanisms.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, finding no reviewable error in the officer's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant proposes a legal question about the effect of UNHCR designation and previous applications on protected person status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The respondent suggests a question about whether the applicant is a protected person under IRPA based on his status as a former Indochinese refugee.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court finds both proposed questions too broad or too narrow and instead certifies questions about the legal effect of UNHCR designation and previous residence applications.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

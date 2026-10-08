@@ -1,0 +1,291 @@
+{
+ "case_id": 5465,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 39,
+ "tagged_count": 39,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6105,
+  "completion_tokens": 2251,
+  "usd": 0.0015109000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The court summarizes the applicant's request for judicial review of the Board's decision and the reasons for that decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts of the applicant's claim",
+   "role": "background_facts",
+   "explanation": "The applicant's nationality, claim for refugee status, and basis for her claim are described.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts of the applicant's personal life",
+   "role": "background_facts",
+   "explanation": "Details about the applicant's origin, age, and relationship history are provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts of the applicant's relationship with Farideh",
+   "role": "background_facts",
+   "explanation": "The applicant describes her relationship with Farideh and the suspicions of others.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about family awareness",
+   "role": "background_facts",
+   "explanation": "The applicant states her family knew but did not discuss her relationship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about her refusal of marriage proposal",
+   "role": "background_facts",
+   "explanation": "The applicant refused a marriage proposal, which caused family strain, and she continued her relationship with Farideh.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts about police discovery",
+   "role": "background_facts",
+   "explanation": "Farideh's landlord found evidence of their relationship, leading to police involvement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts about arrest and detention",
+   "role": "background_facts",
+   "explanation": "The applicant was arrested, detained, and released after her father paid a bribe; Farideh was also arrested.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts about family reaction and housing",
+   "role": "background_facts",
+   "explanation": "The applicant's family reacted negatively, and she moved out to live independently.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts about Farideh's living situation",
+   "role": "background_facts",
+   "explanation": "Farideh moved in with the applicant after her release, and the applicant feared repercussions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts about the raid and fleeing Iran",
+   "role": "background_facts",
+   "explanation": "The applicant's family helped her hide after a raid, and she fled Iran to Turkey.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts about travel to Canada",
+   "role": "background_facts",
+   "explanation": "The applicant traveled through Turkey and the US to Canada, claiming refugee status shortly after arrival.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts about Farideh\u2019s imprisonment",
+   "role": "background_facts",
+   "explanation": "The applicant heard about Farideh's imprisonment and her attempt to leave Iran.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Procedural history of the hearing and decision",
+   "role": "procedural_history",
+   "explanation": "The hearing date and the Board's rejection of the applicant's claim are noted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party_position: Board's conclusion on facts",
+   "role": "party_position",
+   "explanation": "The Board found the applicant's claims implausible based on cultural and factual reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party_position: Document authenticity",
+   "role": "party_position",
+   "explanation": "The Board questioned the authenticity of a key document, considering it possibly forged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party_position: Evidence of sexual orientation",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant failed to provide corroborating evidence of her sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test: issues for judicial review",
+   "role": "legal_test",
+   "explanation": "The court lists the issues to be considered, including factual errors and legal errors by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning: implausibility findings",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's implausibility findings unsupported by evidence and unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning: characteristics of applicant's situation",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Board ignored evidence suggesting the applicant's situation was less restrictive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning: applicant's testimony as evidence",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes the applicant's credible testimony and the presumption of truthfulness under Maldonado.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning: cultural evidence and plausibility",
+   "role": "reasoning_application",
+   "explanation": "The court criticizes the Board for making speculative plausibility findings without supporting evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal: Board's expertise and notice provisions",
+   "role": "legal_test",
+   "explanation": "The court discusses the Board's authority to take notice of facts and the procedural safeguards involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Reasoning: reliance on country conditions",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the Board can rely on country conditions but must support observations with evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal: opportunity to make representations",
+   "role": "legal_test",
+   "explanation": "The applicant should have been given a chance to respond to the Board's opinions based on specialized knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Reasoning: opportunity for response",
+   "role": "reasoning_application",
+   "explanation": "The court notes the Board did not give the applicant a chance to respond to certain opinions based on specialized knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning: misconception about family background",
+   "role": "reasoning_application",
+   "explanation": "The Board misinterpreted the applicant's testimony about her family background, affecting its plausibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party_position: fear of persecution",
+   "role": "party_position",
+   "explanation": "The applicant argues the Board erred in concluding she could avoid persecution by secrecy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal: definition of persecution",
+   "role": "legal_test",
+   "explanation": "The court reviews the legal standard for persecution and its application to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasoning: Board's conclusion on fear of persecution",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's conclusion on fear of persecution was based on implausibility, not evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party_position: document authenticity assessment",
+   "role": "party_position",
+   "explanation": "The Board considered the document possibly forged, based on its appearance and lack of supporting evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Party_position: applicant's evidence on document",
+   "role": "party_position",
+   "explanation": "The applicant claims the document is genuine and criticizes the Board for not asking her about it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party_position: hearing on the document",
+   "role": "party_position",
+   "explanation": "The hearing record shows the applicant's original document was questioned but not further examined.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Party_position: document nature",
+   "role": "party_position",
+   "explanation": "The applicant argues the document is either the original or a photocopy, and the Board did not clarify this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal: case law on document validity",
+   "role": "legal_test",
+   "explanation": "The court cites a case illustrating the error of the Board challenging a document's validity without evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal: expertise in document evaluation",
+   "role": "legal_test",
+   "explanation": "The court notes the Board lacked specialized knowledge to assess Iranian documents and should have notified the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Procedural: filing of new evidence",
+   "role": "procedural_history",
+   "explanation": "The applicant sought to file the original document once obtained, but the court declined to accept it as new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal: standard of proof for sexual orientation",
+   "role": "legal_test",
+   "explanation": "The court discusses the appropriate standard of proof regarding the applicant's sexual orientation and corroboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Other: bias considerations",
+   "role": "other",
+   "explanation": "The court concludes that there is no reasonable apprehension of bias based on the Board's conduct.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

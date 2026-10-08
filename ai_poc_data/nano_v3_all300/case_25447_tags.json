@@ -1,0 +1,508 @@
+{
+ "case_id": 25447,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 70,
+ "tagged_count": 70,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 13808,
+  "completion_tokens": 4102,
+  "usd": 0.0030216
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the refugee claim",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's judicial review application and the Board's decision rejecting her refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Applicant's alleged errors in the decision",
+   "role": "party_position",
+   "explanation": "The paragraph lists the seven errors the applicant claims the Board made in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Irrelevance of one alleged error",
+   "role": "party_position",
+   "explanation": "The paragraph states that one of the alleged errors is irrelevant because it was not a basis for the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Legal issues to be reviewed",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the key legal issues and questions regarding the standard of review and reasonableness of factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Need for detailed factual review",
+   "role": "background_facts",
+   "explanation": "The paragraph emphasizes the necessity of a detailed factual review due to the numerous alleged errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Applicant's background and entry into Canada",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's attempt to enter Canada with forged documents and her claim for refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Applicant's original PIF and allegations",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's initial PIF, her allegations of detention and assault, and her family details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Applicant's attestation of PIF",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the applicant attested to the authenticity of her original PIF and was represented by counsel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Amended PIF and new allegations",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the applicant's amended PIF, with changed dates, education, and new details about her alleged detention and assault.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Supporting evidence filed by the applicant",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph lists various pieces of supporting evidence submitted by the applicant, including medical and character letters, affidavits, and certificates.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Additional documentation considered",
+   "role": "background_facts",
+   "explanation": "The paragraph notes the Board's review of extensive documentation about India and the situation in Punjab relevant to the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Review of fraudulent documents and records",
+   "role": "background_facts",
+   "explanation": "The paragraph explains that the Board examined the applicant's passport, ration card, birth certificate, and visa file, which contained discrepancies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Applicant's testimony at hearing",
+   "role": "background_facts",
+   "explanation": "The paragraph states that the applicant testified at the hearing and was questioned on her claim and alleged errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Board's outline of reasons for rejection",
+   "role": "disposition",
+   "explanation": "The paragraph summarizes that the Board rejected the claim based on credibility and internal flight alternative issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Board's credibility and identity findings",
+   "role": "party_position",
+   "explanation": "The paragraph details the Board's reasons for disbelieving the applicant, citing falsified documents and inconsistent statements.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Board's assessment of explanations and property risk",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Board's view that the applicant's explanations were unbelievable and her father's alleged risk was implausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evaluation of supporting evidence",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Board's view that some of the applicant's supporting evidence was of little probative value, based on second-hand information.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Contradictions in detention dates",
+   "role": "party_position",
+   "explanation": "The paragraph highlights the contradictions in the applicant's detention dates and sexual assault allegations, which the Board did not address.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Assessment of internal flight alternative",
+   "role": "party_position",
+   "explanation": "The paragraph explains the Board's reasoning that the applicant's education and location made an internal flight alternative reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Conclusion on IFA reasonableness",
+   "role": "party_position",
+   "explanation": "The paragraph states that the Board concluded the IFA was reasonable and that the applicant could relocate within India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Irrelevance of the Convention ground finding",
+   "role": "party_position",
+   "explanation": "The paragraph notes that the Board's comment on the property dispute was obiter and not relevant to the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Standard of reasonableness review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that reasonableness is the standard of review for credibility and IFA findings, with deference to tribunal decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal standard for factual findings",
+   "role": "legal_test",
+   "explanation": "The paragraph introduces the legal framework for assessing the reasonableness of tribunal factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Dunsmuir and reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the Dunsmuir case's definition of reasonableness, emphasizing justification, transparency, and range of outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Further elaboration on reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph explains subsequent case law elaborating on what constitutes a reasonable decision and the importance of reasons and outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Judicial review principles from Khosa",
+   "role": "legal_test",
+   "explanation": "The paragraph states that judicial review of factual findings is governed by Dunsmuir and the FCA, with a focus on material errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Deference to factual findings",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that factual findings are afforded deference under reasonableness, more so than on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Assessing reasonableness of tribunal record",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses how courts assess whether tribunal findings are reasonable, emphasizing the importance of reasons and record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Tribunal reasons and record",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that tribunals need not mention every piece of evidence, only critical evidence that contradicts their conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Standards for reviewing tribunal decisions",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes principles for reviewing tribunal decisions, emphasizing respect for reasons and outcomes under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Summary of reasonableness review principles",
+   "role": "legal_test",
+   "explanation": "The paragraph distills key principles: deference, consideration of reasons and record, and the legal standard in FCA for factual errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Errors under section 18.1(4)(d)",
+   "role": "legal_test",
+   "explanation": "The paragraph states that errors must be truly or palpably erroneous, capricious, or made without regard to evidence to warrant review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Criteria for errors under FCA",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the three criteria for errors under section 18.1(4)(d): palpably erroneous, capricious, or without regard to evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Comparison of standards of error",
+   "role": "legal_test",
+   "explanation": "The paragraph compares the FCA standard to appellate review, noting FCA's more stringent requirements for errors to justify intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Nature of errors meeting the standard",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the types of errors that are considered perverse, capricious, or made without regard, with principles from case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Definition of perversity",
+   "role": "legal_test",
+   "explanation": "The paragraph defines perversity as willfully contradicting the evidence, which is rarely found in decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Definition of capriciousness",
+   "role": "legal_test",
+   "explanation": "The paragraph explains capriciousness as being guided by whim or irregular, often based on conjecture rather than evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Findings without regard to evidence",
+   "role": "legal_test",
+   "explanation": "The paragraph states that findings made without regard to evidence can be overturned, especially if critical evidence is ignored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Limitations on overturning decisions",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that decisions are not overturned simply because evidence was not explicitly discussed, unless critical evidence was ignored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Summary of standards for unreasonable findings",
+   "role": "legal_test",
+   "explanation": "The paragraph summarizes that factual findings are only unreasonable if palpably erroneous, capricious, or made without regard to evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph summarizes the case law on credibility review in immigration tribunals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Legal test",
+   "role": "party_position",
+   "explanation": "It explains the limited role of courts in reviewing credibility findings and the tribunal's expertise and deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test",
+   "role": "party_position",
+   "explanation": "Contradictions in testimony can justify credibility findings if they are real and not trivial, as discussed in case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Legal test",
+   "role": "party_position",
+   "explanation": "Sworn testimony is presumed true but can be rejected if implausible, considering cultural differences and reasons must be clear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Legal test",
+   "role": "party_position",
+   "explanation": "Demeanor and subjective impressions can support credibility findings, ideally with additional objective evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Legal test",
+   "role": "party_position",
+   "explanation": "Decisions based on credibility must include reasons; vague conclusions are subject to review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The court considers whether the Board's identity determination was reasonable based on statutory criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Board's identity conclusion was reasonable given the evidence and reasons provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the Board's identity finding was reasonable based on the record and reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes a holistic review of the Board's reasoning rather than cherry-picking evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The passport tampering was a key fact supporting the identity finding, and the Board reasonably discounted the applicant's testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The passport was the only photo ID, and other documents lacked pictures, supporting the Board's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Failure to mention non-photo ID documents does not render the identity finding unreasonable given the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Missing details about the applicant's family and address undermined her credibility and supported the Board's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Contradictions in educational history further undermined the applicant's credibility and supported the identity finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues that submitting false documents should not heavily impact credibility, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court clarifies that the Board used false documents to assess identity, not as a general credibility issue, and focused on conduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the identity determination reasonable and dismisses the application on that basis, briefly noting other grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Party_position",
+   "role": "party_position",
+   "explanation": "The applicant claims the credibility finding is unreasonable due to alleged errors involving evidence and implausibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The court states that credibility findings are reasonable if supported by evidence and reasons, even if reasons are imperfect.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds ample evidence supporting the Board's credibility conclusion, including multiple points of inconsistency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board reasonably found the applicant's explanation for not amending her PIF implausible, and the general claim was also implausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues omission of the police officer detail should undermine credibility, but the court finds it immaterial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Failure to mention the medical certificate does not make the credibility finding unreasonable if other evidence supports it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "Contradictions in the applicant's event dates and the Board's own statements support the credibility finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The medical certificate is hearsay and less reliable, but its absence does not invalidate the credibility finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the credibility finding was reasonable and the Board did not err in its assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Legal test",
+   "role": "disposition",
+   "explanation": "The court finds the IFA finding reasonable, as the evidence did not support the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming the Board's decision was free of reviewable errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "No certification question was raised or relevant in this case.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

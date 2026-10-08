@@ -1,0 +1,165 @@
+{
+ "case_id": 4538,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 21,
+ "tagged_count": 21,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2604,
+  "completion_tokens": 1121,
+  "usd": 0.0007088000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the procedural history of the case, including the original decision and the judicial review sought.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It states the citizenship and claims of the Applicants, and the rules under which their claims are being heard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details the basis of the Principal Applicant's and her daughter's claims for refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It recounts the Principal Applicant's abusive relationship and her seeking medical and police assistance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes further abuse, medical treatment, and legal advice sought by the Principal Applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It reports the Principal Applicant's pregnancy and ongoing abuse after learning of it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It mentions the Principal Applicant's employment and police visits related to Mr. Ramos.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It recounts a severe assault, hospital treatment, police report, and lack of action against Mr. Ramos.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It details continued violence, threats, and the Applicants' flight from Argentina.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It describes the Principal Applicant's flight to Canada via the US with her daughter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "It states the adult daughter's stay in Argentina and her arrival in Canada due to threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It reports the Board's credibility finding and its reasoning about Argentine laws and protections.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states the Board's conclusion that adequate protection exists in Argentina and the reasoning behind it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It quotes the Board's conclusion that the Applicants did not show lack of protection in Argentina.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It summarizes the Applicants' argument that the Board ignored evidence about law implementation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It summarizes the Applicants' argument that the Board used the wrong legal test for state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It states the Respondent's legal argument that Argentina is not required to provide perfect protection and that the Board's conclusion was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It discusses the Court's view that the Board applied the wrong legal test, citing case law and explaining the error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It states that applying the wrong legal test justifies setting aside the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "It concludes with quashing the Board's decision and remitting the matter for reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "other",
+   "role": "other",
+   "explanation": "It notes that no question of general importance is arising or will be certified.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

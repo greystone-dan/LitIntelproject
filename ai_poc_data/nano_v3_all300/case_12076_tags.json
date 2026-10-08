@@ -1,0 +1,214 @@
+{
+ "case_id": 12076,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 28,
+ "tagged_count": 28,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7646,
+  "completion_tokens": 1688,
+  "usd": 0.0014398000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review",
+   "role": "procedural_history",
+   "explanation": "The court is reviewing a 2014 IRB decision denying refugee status based on credibility and religious identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of hearing and service",
+   "role": "procedural_history",
+   "explanation": "The court discusses the respondent's position on abandonment and the court's decision to proceed based on written submissions and proper notice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: applicant's religious activities",
+   "role": "background_facts",
+   "explanation": "The applicant's religious background includes attending a house church, fleeing China after discovery, and arriving in Canada in 2013.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: applicant's life in Canada",
+   "role": "background_facts",
+   "explanation": "After arriving in Canada, the applicant joined a church, was baptized, and continued religious activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: Board's credibility assessment",
+   "role": "party_position",
+   "explanation": "The Board accepted the applicant's nationality but doubted his Christian faith due to limited religious knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: Board's reasoning on religious knowledge",
+   "role": "party_position",
+   "explanation": "The Board drew negative inferences from the applicant's limited knowledge of Christian practices and beliefs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: Evidence on Christian identity",
+   "role": "party_position",
+   "explanation": "The Board disregarded the baptism certificate and church letter as credible evidence of Christian identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: Board's credibility and protection decision",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicant was not credible and therefore not eligible for refugee protection under IRPA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: religious knowledge and fairness",
+   "role": "legal_test",
+   "explanation": "The court discusses the reasonableness of assessing religious knowledge and procedural fairness in religious credibility testing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "The applicable standard of review is reasonableness for evidence and credibility, with correctness for procedural fairness issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: standard of review acceptance",
+   "role": "legal_test",
+   "explanation": "The court accepts the parties' agreement on the applicable standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: sincerity of religious belief",
+   "role": "legal_test",
+   "explanation": "The court explains that the Board's role is to assess sincerity, not correctness, of religious beliefs, referencing Amselem and Zhu.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning: Board's assessment of Christian identity",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's reliance on the applicant's knowledge and answers to be reasonable and consistent with jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning: Board's understanding of Pentecostalism",
+   "role": "reasoning_application",
+   "explanation": "The court notes the applicant's argument that the Board lacked understanding of Pentecostalism, but finds the assessment reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning: Board's application of credibility test",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the Board properly applied the credibility test and did not rely on specialized knowledge improperly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence assessment: documentary evidence",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the Board's rejection of the baptismal certificate and church letters reasonable given the context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment: probative value of evidence",
+   "role": "evidence_assessment",
+   "explanation": "The court agrees the Board reasonably determined there was no credible evidence supporting the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Disposition: application dismissal",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, affirming the Board's decision and noting no question of general importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "case law citation",
+   "role": "other",
+   "explanation": "The paragraph cites a legal decision to support a point, referencing Justice Gleason's statement in Hou.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "case law citation",
+   "role": "other",
+   "explanation": "The paragraph references a legal decision by Justice Pinard in Jin to support a point.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "case law citation",
+   "role": "other",
+   "explanation": "The paragraph mentions Justice Rennie's statement in Wang as capturing the applicable principle.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "religious questioning standard",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that religious questioning should focus on genuineness, not theological correctness, and discusses the Board's approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains the court's view that the Board's approach to assessing the applicant's religious belief was reasonable and based on the applicant's responses.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the court's conclusion that the applicant's procedural fairness argument lacks merit and the questioning was appropriate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph indicates the court's finding that the Board's decision under section 107(2) was correct and no fault was found.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes how the Board evaluated the documentary evidence and found it unpersuasive, consistent with legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph affirms the reasonableness of the Board's treatment of evidence and its legal conclusion under section 107(2).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Reasonableness: deference to Board's expertise",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes deference to the Board's expertise in assessing religious beliefs and the difficulty of such assessments.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

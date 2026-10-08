@@ -1,0 +1,172 @@
+{
+ "case_id": 10710,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 22,
+ "tagged_count": 22,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5378,
+  "completion_tokens": 1205,
+  "usd": 0.0010198
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's disability benefits and the issue of retroactivity, based on her incapacity to apply earlier.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "It states the applicant's claim for additional benefits and the issue on judicial review regarding the Appeal Division's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It explains the legal basis for the Appeal Division's decision and the standard of review under the DESDA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "It notes the court's decision to dismiss the judicial review application and introduces background section.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's traumatic incident, medical diagnosis, life circumstances, and her late application for benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the medical adjudicator's conclusion on the applicant's disability and the established date of onset.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's declaration of incapacity and the legal provisions invoked to support her late application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes the adjudicator's reasoning for denying retroactive benefits based on capacity and incapacity evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Reports the second adjudicator's conclusion that the applicant was capable of applying earlier, based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States that the applicant appealed the date of onset to the General Division.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Describes the General Division's findings that the applicant was capable of forming or expressing the intention to apply.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Details the evidence considered by the General Division supporting capacity and the legal provisions involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Summarizes the applicant's testimony about her life circumstances and mental health, and her ability to make decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The General Division found the evidence questioned incapacity, citing her ability to live independently and manage affairs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the applicant's request for leave to appeal and the current judicial review proceeding.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Explains the criteria for granting leave to appeal and the deference owed to the Appeal Division's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "Notes the applicant's self-represented status and her arguments for leave based on her circumstances and feelings.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "States the respondent's view that the Appeal Division's decision was reasonable and based on the law and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Details the applicant's burden to prove a reasonable chance of success on appeal and the legal standards for incapacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "Further elaborates on the legal criteria for assessing capacity and the deference to the General Division's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "Acknowledges the applicant's suffering but states equitable and compassionate grounds are not relevant to incapacity under the law.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "Concludes the court dismisses the application and notes no costs are sought by the respondent.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

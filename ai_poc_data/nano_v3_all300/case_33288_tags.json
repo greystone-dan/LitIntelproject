@@ -1,0 +1,151 @@
+{
+ "case_id": 33288,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 19,
+ "tagged_count": 19,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4322,
+  "completion_tokens": 1085,
+  "usd": 0.0008662
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court states this is a judicial review of a negative IRB decision from July 12, 2006.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicants' claimed identity, reasons for fleeing China, and their travel details including false passports.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board doubted the authenticity of documents and Ms. Liu's explanation about forged documents and discrepancies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board indicated it would rely on specialized knowledge regarding Chinese birth certificates, and counsel expressed reservations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The Board rejected the applicants' claims due to insufficient credible identity documents and declined to assess persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found Ms. Liu's testimony not credible and concluded the documents were false based on specific findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court sets out the issues: standard of review and whether the Board erred in assessing identity documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the standard of review for identity assessment is patent unreasonableness, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains that the Board's rejection was based on the improbability of Ms. Liu's explanation, which is a permissible factual finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court discusses that factual findings based on probabilities do not require excluding all other possibilities, affirming the Board's approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court reviews the Board's findings on specialized knowledge about birth certificates and the weight given to documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court notes that the applicants did not challenge the Board's specialized knowledge with evidence or request an adjournment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds that the applicants waived their opportunity to challenge the Board's specialized knowledge and lacks evidence to do so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court mentions the applicants' failure to address other documents that could support their claims, noting the Board's omission was not prejudicial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court adopts the view that the Board was not required to comment on collateral documents not raised by counsel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court states that the Board's concerns about Ms. Liu's forged documents did not require warning or additional evidence from the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court finds the Board's observations about the hukou's condition to be common-sense and supported by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that identity proof is essential for refugee claims and the Board's conclusion was justified.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, noting no certified question or issue of importance arises.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

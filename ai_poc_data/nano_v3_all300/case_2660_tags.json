@@ -1,0 +1,298 @@
+{
+ "case_id": 2660,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 40,
+ "tagged_count": 40,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7195,
+  "completion_tokens": 2579,
+  "usd": 0.0017511000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The Minister seeks judicial review of a tribunal decision on Mrs. Chhabu's residency date for Old Age Security purposes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about Mrs. Chhabu",
+   "role": "background_facts",
+   "explanation": "Mrs. Chhabu is from India, lives in Edmonton, and has been a Canadian citizen since 2003, arriving in Canada in 1982.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts about Mrs. Chhabu's immigration status",
+   "role": "background_facts",
+   "explanation": "Mrs. Chhabu re-entered Canada twice, once in 1986 and again in 1987, with her immigration status based on family sponsorship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts about Mrs. Chhabu's travel history",
+   "role": "background_facts",
+   "explanation": "Mrs. Chhabu traveled to various countries, with her passport stamps and her son's account of her visits, including a 1994 return to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts about Mrs. Chhabu's application for benefits",
+   "role": "background_facts",
+   "explanation": "Mrs. Chhabu applied for Old Age Security in 1994, and her application did not disclose her second immigration status; she received partial benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts about subsequent travel",
+   "role": "background_facts",
+   "explanation": "Mrs. Chhabu traveled to South Africa and England, with her last travel noted in 1998 due to health reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts about Mrs. Chhabu's passports",
+   "role": "background_facts",
+   "explanation": "Mrs. Chhabu held an Indian passport issued in 1982 and renewed in 1992, listing her residence in India and her citizenship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history of benefit overpayment review",
+   "role": "procedural_history",
+   "explanation": "In 1997, HRDC reviewed her eligibility, found she was overpaid, and sought reimbursement; her appeal was initially allowed but later reversed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history of further review and investigation",
+   "role": "procedural_history",
+   "explanation": "In 2001, her eligibility was reviewed again, with findings questioning her residency due to her Indian address and sponsorship status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position regarding investigation and interview",
+   "role": "party_position",
+   "explanation": "Mrs. Chhabu claimed ownership of property in India and residence in England; her responses during interview were sometimes evasive, possibly due to dementia.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position on residency and overpayment",
+   "role": "party_position",
+   "explanation": "The investigation concluded she had not severed ties with India; she was overpaid benefits and appealed, with her appeal being allowed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position on tribunal's residency finding",
+   "role": "party_position",
+   "explanation": "The Review Tribunal found she became a resident in 1986 and remained so, despite the Minister's argument of greater ties to India.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal provisions relevant to the case",
+   "role": "legal_test",
+   "explanation": "The statutory provisions relevant to residency and benefits are attached and discussed in the reasons.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test for partial OAS pension",
+   "role": "legal_test",
+   "explanation": "Subsection 3(2) of the Act sets out the eligibility criteria for partial Old Age Security benefits based on residence and age.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Definition of residence in the regulations",
+   "role": "legal_test",
+   "explanation": "The regulations define \"resided\" as making one's home in Canada and being physically present, with exceptions for temporary absences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Standard of review applicable to tribunal decisions",
+   "role": "legal_test",
+   "explanation": "The Court discusses the applicable standard of review, noting the tribunal's de novo hearing and the Minister's argument for correctness or reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Standard of review for tribunal decision",
+   "role": "legal_test",
+   "explanation": "The parties agree the appeal is de novo; the Minister argues for correctness on law and reasonableness on mixed questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Standard of review for residency questions",
+   "role": "legal_test",
+   "explanation": "Mrs. Chhabu argues that residency involves mixed fact and law, warranting reasonableness review, while the Minister seeks correctness or reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test for residency based on intention",
+   "role": "legal_test",
+   "explanation": "The case Ding is cited, where reliance on intention was deemed incorrect; a pragmatic and functional approach is suggested for residency questions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Powers and judicial review of the Review Tribunal",
+   "role": "legal_test",
+   "explanation": "The powers of the Review Tribunal are established under the CPP, with a privative clause and provisions for judicial review, indicating deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Deference to tribunal on residency facts",
+   "role": "legal_test",
+   "explanation": "Residency is a factual issue often within the tribunal's expertise, warranting deference, but legal interpretation of residency is for the court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Nature of the benefits and adjudication",
+   "role": "legal_test",
+   "explanation": "The Act confers benefits based on entitlement, balancing fairness and fiscal responsibility, which influences the degree of deference owed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Question of mixed fact and law",
+   "role": "legal_test",
+   "explanation": "Residency involves applying legal criteria to facts, making it a mixed question, which generally favors deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Standard of review: reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court adopts reasonableness as the standard, citing Ryan, where a decision is unreasonable if no reasonable line of analysis exists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Minister's contention on consideration of intention",
+   "role": "party_position",
+   "explanation": "The Minister argues the tribunal erred by considering Mrs. Chhabu's intention to reside in Canada, which should be based on objective factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Court's view on intention",
+   "role": "reasoning_application",
+   "explanation": "The court finds the tribunal's mention of intention was just describing evidence and not determinative, and did not rely solely on it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Failure to assess relevant factors",
+   "role": "party_position",
+   "explanation": "The Minister criticizes the tribunal for not considering other relevant factors like property, bank accounts, and absences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Lack of evidence for dementia finding",
+   "role": "party_position",
+   "explanation": "The Minister disputes the tribunal's mention of dementia, asserting no supporting documents were filed for such a diagnosis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Failure to analyze evidence",
+   "role": "party_position",
+   "explanation": "The Minister claims the tribunal ignored the investigation report and did not provide reasons for rejecting it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Adequacy of reasons",
+   "role": "legal_test",
+   "explanation": "The tribunal is required to provide reasons; their reasons are brief but must be sufficient to understand the decision's basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Case law on reasons",
+   "role": "legal_test",
+   "explanation": "Case law states reasons must explain the decision and be sufficient for the court to review, which the tribunal's reasons lack here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Factors in residency determination",
+   "role": "legal_test",
+   "explanation": "The Minister emphasizes various factors like property and absences, but the ultimate decision depends on all circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Support for property finding",
+   "role": "evidence_assessment",
+   "explanation": "Evidence shows the property in India is shared among family members, supporting the tribunal's conclusion that she did not own it outright.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Assessment of dementia and capacity",
+   "role": "reasoning_application",
+   "explanation": "The tribunal did not diagnose dementia but described her capacity issues; evidence of capacity was considered during voir dire.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Assessment of evidence on incapacity",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's conclusion about her incapacity was based on her responses and demeanor, but lacked detailed reasoning, making it unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Failure to address other evidence",
+   "role": "reasoning_application",
+   "explanation": "The tribunal did not consider evidence about her passport and bank accounts, which was an unreasonable omission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Unexplained findings on absences",
+   "role": "reasoning_application",
+   "explanation": "The tribunal's conclusion about her absences being temporary lacked explanation, especially regarding her 1992-1994 whereabouts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Analysis of reasons and conclusion",
+   "role": "reasoning_application",
+   "explanation": "The reasons are inadequate because they lack analysis connecting evidence to conclusions, making the decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Equity in reasons",
+   "role": "reasoning_application",
+   "explanation": "The court notes that both parties' rights to clear reasons are equal, and the tribunal's reasons are insufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Final conclusion on standard of review",
+   "role": "reasoning_application",
+   "explanation": "Even if the standard is different, the outcome would be the same under reasonableness, supporting the decision's reasonableness.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

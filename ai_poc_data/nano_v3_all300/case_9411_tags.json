@@ -1,0 +1,193 @@
+{
+ "case_id": 9411,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4256,
+  "completion_tokens": 1620,
+  "usd": 0.0010736
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the origin and basis of the judicial review application, including the decision under review and the key issue of credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts of the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph provides the applicant's personal background and her claim of fearing persecution due to her sexual orientation in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts of the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's relationship, her concealment of her sexuality, and societal attitudes in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts of the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the alleged attack on the applicant's family and her fleeing circumstances in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts of the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's subsequent living arrangements following threats and her move to Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts of the applicant",
+   "role": "background_facts",
+   "explanation": "The paragraph narrates the applicant's travel to the U.S., her internship, and her subsequent migration to Canada and refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the RPD's assessment of the applicant's credibility regarding her relationship in Haiti.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's view on the lack of detail and consistency in the applicant's supporting letter and testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RPD's concern over the absence of evidence of ongoing communication with the alleged partner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph highlights the RPD's doubts about the incident of May 19, 2015, due to lack of supporting evidence from family members.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph states the RPD's conclusion that the applicant did not prove the incident or its connection to her sexual orientation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the RPD's reasoning for disbelieving the applicant's explanation for not seeking asylum in the U.S.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph emphasizes the RPD's view that the applicant's explanation for returning to Haiti is weak and unconvincing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the RPD's concerns about the applicant's reluctance to discuss her sexual orientation and its impact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the RPD's dismissal of the third-party letter as uncredible and not independent evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that the court must defer to the RPD's findings if they are within a range of acceptable outcomes under reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The paragraph references a judicial opinion that supports the use of experience in credibility assessments.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The paragraph mentions a summary of authorities on credibility assessment provided by Justice Brown.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the RPD's decision is reasonable and justified based on the evidence and law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph evaluates the applicant's minimal and vague evidence regarding her relationship and incident of violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes discrepancies and lack of detail in the partner's letter, affecting its credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the applicant's inconsistent explanations for her actions and circumstances in the U.S. and Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the court finds no error in the RPD's credibility assessment and emphasizes deference to expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The paragraph affirms that the RPD provided sufficient justification and transparency for its findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the application for judicial review should be dismissed and no question is certified.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,179 @@
+{
+ "case_id": 19451,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 23,
+ "tagged_count": 23,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3547,
+  "completion_tokens": 1293,
+  "usd": 0.0008719000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "This paragraph states the case is a judicial review of a 2008 IRB decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states that the application is allowed and the decision is set aside.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "This paragraph provides the applicant's personal details and her family situation in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's claim of abuse, custody issues, and threats from her ex-husband.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board's reasoning on credibility, domestic violence, custody, and internal flight alternative is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant's issues regarding state protection and IFA application are outlined.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the standard of reasonableness for assessing the issues, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues the Board failed to consider her claim for state protection despite credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent claims that a viable IFA negates the need to assess state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that an IFA's existence precludes a finding of refugee status, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes that the Board's focus on IFA means it didn't need to assess state protection, and examines the reasonableness of the IFA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant contends the IFA was unreasonable because threats from her ex-husband affect her contact with her children.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that deference applies to factual findings of a viable IFA and the test was applied reasonably.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the two-part test for assessing IFA viability, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's conclusion that the applicant was not at risk in Mexico unless she tried to regain custody was deemed reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's finding that the IFA was unavailable if she attempted to re-gain custody was summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that expecting the applicant to forego custody efforts is unreasonable, making the IFA decision flawed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes case law emphasizing whether it is unduly harsh to expect a person to seek safety in another part of their country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court discusses the reasonableness of family separation and humanitarian considerations in IFA assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court highlights the importance of family bonds and the need to consider the applicant's children in IFA analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues the applicant's current separation from her children is not relevant; the court rejects this reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent claims the separation is due to court order, but the court finds threats justify the separation, supporting the applicant's claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the Board's focus on the custody order was unreasonable and sets aside the decision, ordering a new hearing.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

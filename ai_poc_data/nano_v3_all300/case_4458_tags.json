@@ -1,0 +1,445 @@
+{
+ "case_id": 4458,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 61,
+ "tagged_count": 61,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8696,
+  "completion_tokens": 3520,
+  "usd": 0.0022776
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph introduces the case, the applicants' background, and the RAD's decision to dismiss the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicants' family and their employment background in Nigeria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the incident where the Principal Applicant overheard threats against oil pipelines and was threatened for intervening.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "States that the applicants received threats after NDA members were arrested, possibly blaming the Principal Applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Chronicles the applicants' flight from Nigeria due to threats and their arrival in Canada to seek refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mentions an affidavit from a friend indicating NDA members searched for the applicants in Lagos.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Details the initial refusal of the refugee claim and the court's finding that the decision was unreasonable, leading to a re-determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Describes the appeal to the RAD, the submissions made, and the issues raised regarding the IFA locations and credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "States the RAD's refusal of the refugee claims, noting its limited reasoning and the connection to the IFA issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Issue_framing",
+   "role": "issue_framing",
+   "explanation": "Summarizes the RAD's findings on the IFA in Ibadan and the mental health considerations for the principal applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "Notes the extension granted for filing the judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Issue_framing",
+   "role": "issue_framing",
+   "explanation": "States that the main issue is whether the RAD decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Confirms the standard of reasonableness review and cites relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Explains the importance of the IFA concept within refugee law and its legal basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Describes the two-prong test for establishing an IFA based on case law and international guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States the applicants' challenge to the RAD's analysis of the NDA's capacity and the mental health impact on the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Indicates the applicants' claim that the RAD erred in its assessment of the NDA's risk capacity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Addresses the alleged error regarding the NDA's capacity to operate outside the Niger Delta, despite evidence of searches in Lagos.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Quotes the RAD's reasoning that NDA activities are limited to the Delta region, not extending to Ibadan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes that the NDA's active areas are in the southern Niger Delta, along Nigeria's coast.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Highlights the applicants' argument that the NDA's search in Lagos shows capacity outside the known regions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Emphasizes that the NDA's search in Lagos indicates capacity to operate outside their usual areas, challenging the RAD's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "States the respondent's view that the evidence does not sufficiently prove NDA's capacity outside the Delta since 2016.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Mentions the applicants' map comparison and argument that distance alone shouldn't determine risk in Ibadan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes that the RAD did not rely solely on distance, but on the known operational regions of the NDA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Argues that simple distance comparison is insufficient to establish NDA's motivation or capacity to operate in Ibadan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "References Ikechi case where unreasonable to dismiss new evidence about the agents' ability to locate the applicant elsewhere.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Contrasts this case with Ikechi, noting the RAD's consideration of evidence regarding risk in the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "Explains that if the applicant is in a place where the assailants wouldn't think to find her, that can be a reasonable IFA, referencing Ikechi.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal_test",
+   "role": "legal_test",
+   "explanation": "States the burden shifts to the applicant once a viable IFA is identified, which the RAD found in Ibadan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Mentions Zablon case where uncertainty about the NDA's reach makes the RAD's decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "States that the evidence in this case shows NDA activities are limited to the Delta, unlike Zablon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Notes the NDA's search in Lagos was due to the Applicants' location, not because they normally operate there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Distinguishes between NDA's capacity and actual activity outside their traditional regions, with no evidence of recent activity outside the Delta.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Discusses the need for further analysis of the kidnapping location to assess risk in other cities, noting record gaps.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "States the burden was on the applicants to prove Ibadan was unsafe, and they provided no evidence of risk there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the RAD's analysis was sufficient and the evidence did not disprove Ibadan as a viable IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Addresses the second alleged error regarding NDA's motivation, noting no evidence of searches outside the Delta since 2016.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Quotes the RAD's reasoning that the NDA's continued searches are limited to the Delta, not outside since December 2016.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "States the applicants' argument that the lack of evidence outside December 2016 does not prove no ongoing risk in Ibadan.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Issue framing: relevance of search efforts",
+   "role": "party_position",
+   "explanation": "The Applicants argue the timing of search efforts is irrelevant; focus should be on NDA's means and motivation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Party position: burden of proof",
+   "role": "party_position",
+   "explanation": "The Applicants claim the RAD imposes an excessive burden to prove ongoing persecution interest despite their non-residence in the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test: Nimako case",
+   "role": "party_position",
+   "explanation": "The Applicants rely on Nimako but the case is not directly applicable due to different evidence of ongoing search intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Reasoning application: case comparison",
+   "role": "reasoning_application",
+   "explanation": "The court finds Nimako inapplicable because there is no evidence of ongoing search efforts in this case, unlike Nimako.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Disposition: no intervention",
+   "role": "disposition",
+   "explanation": "The court concludes there is no reason to intervene in the RAD's decision based on the evidence and reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Issue framing: mental health concerns",
+   "role": "issue_framing",
+   "explanation": "The Applicants argue the RAD erred in assessing the impact of the Principal Applicant's mental health on the IFA.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Party position: mental health assessment",
+   "role": "party_position",
+   "explanation": "The RAD acknowledged mental health issues but found relocation not unreasonable; Applicants dispute this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Evidence assessment: mental health diagnosis",
+   "role": "evidence_assessment",
+   "explanation": "The psychological report confirms the mental health diagnoses and risk of deterioration if exposed to threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Party position: mental health risk",
+   "role": "party_position",
+   "explanation": "The Applicants argue that returning would harm mental health, which the RAD failed to recognize, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Party position: RAD's consideration of evidence",
+   "role": "party_position",
+   "explanation": "The Respondent states the RAD considered the psychological report and reasonably concluded no risk of harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Evidence assessment: psychological evidence",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the RAD did not ignore relevant psychological evidence, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Evidence assessment: psychological diagnosis",
+   "role": "evidence_assessment",
+   "explanation": "The psychological report states the mental health conditions would worsen with exposure to threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Reasoning application: location safety",
+   "role": "reasoning_application",
+   "explanation": "The RAD's point is that Ibadan does not pose further threats, mitigating mental health concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Party position: subjective vs objective fear",
+   "role": "party_position",
+   "explanation": "The Applicants argue the issue is subjective fear, not objective risk, and concede safety in Nigeria is limited.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Legal test: case law on mental health",
+   "role": "legal_test",
+   "explanation": "The court clarifies that the Cartagena case's reasoning on mental health does not apply here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Legal test: harm from removal",
+   "role": "legal_test",
+   "explanation": "Konat\u00e9 involved irreparable harm from removal due to mental health, which is not the case here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Evidence assessment: psychological report scope",
+   "role": "evidence_assessment",
+   "explanation": "The psychological report does not specify risks in specific Nigerian cities, only general threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Reasoning application: relevance of psychological assessment",
+   "role": "reasoning_application",
+   "explanation": "The court considers the psychological assessment relevant to the reasonableness of the IFA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Legal test: reasonableness of RAD's assessment",
+   "role": "legal_test",
+   "explanation": "The court finds the RAD's evaluation of mental health and relocation impact was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Disposition: application dismissed",
+   "role": "disposition",
+   "explanation": "The court concludes there is no unreasonable aspect in the RAD's analysis and dismisses the review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Disposition: application for judicial review",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review of the RAD's decision.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

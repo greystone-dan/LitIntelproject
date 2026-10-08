@@ -1,0 +1,102 @@
+{
+ "case_id": 12414,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 12,
+ "tagged_count": 12,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2432,
+  "completion_tokens": 740,
+  "usd": 0.0005392
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Yani Meilina, a citizen of Indonesia, seeks judicial review of a decision dismissing her refugee claim and findings about internal flight alternative.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The RAD applied the reasonableness standard to the RPD's findings, and the issue is whether this was correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argues that even if the RAD erred, the outcome would be the same under the correctness standard, so the application should be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The court disagrees with the respondent, stating that if the RAD erred, the application should be granted and the matter remitted for a new decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the standards of review for legal errors, including when correctness or reasonableness applies, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses jurisprudence on the standard of review, noting that some cases favor correctness for legal questions of general interest.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court expresses disagreement with applying correctness to the interpretation of RAD provisions, viewing it as a question of specific statutory interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the choice of standard does not affect the outcome, as the same conclusion would be reached under either standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court notes that further issues regarding deference and scope of questions of fact will be addressed by the FCA.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds the applicant was denied proper appeal rights, quashes the RAD decision, and remits the case for re-determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court certifies a question about whether the RAD owes deference to RPD findings within its statutory framework.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application, sets aside the RAD decision, remits the case, and certifies the key legal question.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

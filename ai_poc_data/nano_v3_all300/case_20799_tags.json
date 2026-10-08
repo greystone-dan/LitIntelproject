@@ -1,0 +1,179 @@
+{
+ "case_id": 20799,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 23,
+ "tagged_count": 23,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 5291,
+  "completion_tokens": 1378,
+  "usd": 0.0010803000000000002
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the application is for judicial review of the Board's decision on refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts: applicant's nationality",
+   "role": "background_facts",
+   "explanation": "The applicant is a citizen of China, which is relevant to the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Background facts: applicant's claim about Falun Gong practice",
+   "role": "background_facts",
+   "explanation": "The applicant claims to practice Falun Gong and describes his health issues and reasons for practicing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: applicant's travel and alleged threats",
+   "role": "background_facts",
+   "explanation": "The applicant describes his travel to Canada, passport issues, and alleged threats from Chinese authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Procedural history of the Board's decision",
+   "role": "procedural_history",
+   "explanation": "The Board decided the applicant was not credible and not a refugee or person in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position: Board's credibility findings",
+   "role": "party_position",
+   "explanation": "The Board found inconsistencies in the applicant's evidence regarding identity, health, and persecution, and drew negative inferences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: implausibility of passport confiscation",
+   "role": "party_position",
+   "explanation": "The Board found the applicant's account of passport confiscation and its connection to persecution implausible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Party position: timing of PIF amendment",
+   "role": "party_position",
+   "explanation": "The Board questioned the delay in amending the PIF to include information about police visits, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Party position: knowledge of Falun Gong practice",
+   "role": "party_position",
+   "explanation": "The Board inferred the applicant's knowledge of Falun Gong was acquired in Canada to support the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Issue framing: standard of review",
+   "role": "issue_framing",
+   "explanation": "The issue is whether the Board's findings were unreasonable regarding the refugee and protection status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: refugee and protection criteria",
+   "role": "legal_test",
+   "explanation": "The paragraph states the legal criteria for refugee status and person in need of protection under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "The Supreme Court's decision in Dunsmuir established the standards of correctness and reasonableness for review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test: credibility and reasonableness",
+   "role": "legal_test",
+   "explanation": "Credibility assessments are reviewed on a reasonableness standard, as established post-Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test: applying reasonableness standard",
+   "role": "legal_test",
+   "explanation": "Reasonableness involves justification, transparency, and whether the decision is within a range of acceptable outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application: credibility and inconsistencies",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably drew negative inferences from inconsistencies in the applicant's evidence regarding health and knowledge.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application: medical advice and PIF inconsistency",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably inferred inconsistency between oral testimony and PIF regarding medical advice response.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application: timing of PIF amendment",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably considered the delay in amending the PIF as a credibility concern.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasoning application: awareness of risks",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably inferred inconsistency in the applicant's awareness of risks based on evidence and context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Reasoning application: plausibility of practicing Falun Gong",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably concluded that practicing Falun Gong to reduce stress was implausible given risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application: passport return and connection to persecution",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably assessed the implausibility of the passport event and its connection to persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application: knowledge of Falun Gong for claim support",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably found that knowledge of Falun Gong was likely acquired to support the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Disposition: application dismissal",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, affirming the Board's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Other: case conclusion and certification",
+   "role": "other",
+   "explanation": "The case is concluded with no question of importance for certification, and the application is dismissed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

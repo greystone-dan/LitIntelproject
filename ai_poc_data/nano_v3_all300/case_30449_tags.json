@@ -1,0 +1,228 @@
+{
+ "case_id": 30449,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 30,
+ "tagged_count": 30,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4404,
+  "completion_tokens": 1659,
+  "usd": 0.001104
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "disposition",
+   "explanation": "The court states the applicant's request to set aside a tribunal decision regarding EI benefits and misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Overall decision and reasoning",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, finding the decision under review was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The respondent argues some documents in the record were not before the tribunal and should be disregarded.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The court considers and finds the documents do not add new relevant facts and can be excluded.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Legal test for new evidence",
+   "role": "legal_test",
+   "explanation": "The court explains the general rule that only evidence before the decision-maker can be considered, with exceptions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Jurisdiction and evidence",
+   "role": "legal_test",
+   "explanation": "The court notes no jurisdiction challenge was made, so the documents are not considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Milovac's employment and the employer\u2019s COVID-19 vaccination policy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The employer's communication about vaccination requirements and consequences is summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mr. Milovac applied for an exemption based on Charter rights, which was denied, and he did not report his vaccination status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The employer placed Mr. Milovac on unpaid leave and warned him of dismissal for non-reporting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mr. Milovac was dismissed for not disclosing his vaccination status by the deadline.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Mr. Milovac applied for EI benefits; the commission denied due to misconduct and disqualification under section 30.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The court states the only issue is whether Mr. Milovac's dismissal was due to misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The tribunal found Mr. Milovac's actions were deliberate and misconduct, which the court upholds as reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning and application of law",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the tribunal properly found misconduct based on Mr. Milovac\u2019s deliberate refusal to comply.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Standard of review",
+   "role": "legal_test",
+   "explanation": "The court states that leave to appeal decisions are reviewed for reasonableness, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court summarizes Mr. Milovac's arguments that the appeal division ignored his Charter and contractual rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court notes the appeal division's decision was based on the record and binding law, not on errors of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Standard of review",
+   "role": "legal_test",
+   "explanation": "The court confirms the reasonableness standard applies to leave to appeal decisions, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Party submissions",
+   "role": "party_position",
+   "explanation": "Mr. Milovac argues the appeal division ignored his reasons for refusing vaccination and Charter rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "He claims the appeal division merely repeated the general division's reasoning without independent analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal standard for leave to appeal",
+   "role": "legal_test",
+   "explanation": "The court states the only question is whether Mr. Milovac raised a reasonable argument in his leave application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasonableness of response",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the appeal division reasonably found no arguable error in the general division's response.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence support for findings",
+   "role": "reasoning_application",
+   "explanation": "The appeal division's findings were supported by evidence and not material to the misconduct issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal analysis",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the legal analysis of the general division was consistent with binding authority.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Conclusion on misconduct",
+   "role": "reasoning_application",
+   "explanation": "The court finds the decision that Mr. Milovac's misconduct led to dismissal was reasonable and supported by the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Court's view on applicant's beliefs",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes Mr. Milovac's beliefs but notes Charter and contractual issues were properly addressed elsewhere.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Jurisdiction on policy legality",
+   "role": "reasoning_application",
+   "explanation": "The court states the appeal division correctly did not assess the legality of the vaccination policy itself.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Conclusion on reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the finding that Mr. Milovac's misconduct caused his dismissal was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Costs",
+   "role": "disposition",
+   "explanation": "The parties agreed no costs would be awarded in this case.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

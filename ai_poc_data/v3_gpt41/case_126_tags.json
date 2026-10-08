@@ -1,0 +1,172 @@
+{
+ "case_id": 126,
+ "model": "gpt-4.1",
+ "prompt_version": "tag_v3",
+ "run": "v3_gpt41",
+ "paragraph_count": 22,
+ "tagged_count": 22,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2886,
+  "completion_tokens": 1101,
+  "usd": 0.01458
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural history and Board decision summary",
+   "role": "procedural_history",
+   "explanation": "This paragraph introduces the application for judicial review and summarizes the Board's decision under review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "applicant's background and alleged persecution",
+   "role": "background_facts",
+   "explanation": "This paragraph describes the applicant's personal background and the basis for his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Board finding on subjective fear and refugee status",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the Board's finding that the applicant lacked a subjective fear and was not a refugee.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Board reasoning on delay in making claim",
+   "role": "party_position",
+   "explanation": "This paragraph details the Board's focus on the applicant's delay in making a refugee claim and its significance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Board reasoning on legal relevance of delay",
+   "role": "party_position",
+   "explanation": "This paragraph explains the Board's view on the legal significance of delay in refugee claims, referencing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Board reasoning on decisive role of delay",
+   "role": "party_position",
+   "explanation": "This paragraph states the Board's conclusion that delay was decisive in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Board assessment of applicant's explanations for delay",
+   "role": "party_position",
+   "explanation": "This paragraph details the Board's assessment of the applicant's explanations for delay and his background.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Board conclusion on lack of subjective fear",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the Board's conclusion that the applicant's inaction showed no fear of harm, rejecting the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "applicant's argument on Board's reasoning about delay",
+   "role": "party_position",
+   "explanation": "This paragraph presents the applicant's argument that the Board's conclusion about delay was irrational.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "applicant's argument on timing and financial explanation for delay",
+   "role": "party_position",
+   "explanation": "This paragraph outlines the applicant's arguments about the timing of legal consultation and financial reasons for delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "applicant's argument on Board's treatment of psychological report",
+   "role": "party_position",
+   "explanation": "This paragraph presents the applicant's argument that the Board misconstrued the psychological report evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "applicant's argument on Board's error regarding timing of claims",
+   "role": "party_position",
+   "explanation": "This paragraph states the applicant's argument that the Board erred in assuming all claimants act immediately.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "applicant's argument on weight of delay and lack of credibility assessment",
+   "role": "party_position",
+   "explanation": "This paragraph summarizes the applicant's argument that delay should not be decisive and that credibility was not assessed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "respondent's position on psychological report and delay",
+   "role": "party_position",
+   "explanation": "This paragraph presents the respondent's argument that the psychological report does not explain the applicant's delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "respondent's position on applicant's motivation and affidavit",
+   "role": "party_position",
+   "explanation": "This paragraph outlines the respondent's argument that the applicant's motivation was not fear but a relationship in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal test for delay as evidence of subjective fear",
+   "role": "legal_test",
+   "explanation": "This paragraph sets out the legal principle that delay is relevant to subjective fear, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal test for when delay is decisive",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the legal test that delay can be decisive if not satisfactorily explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "court's reasoning on applicant's explanations for delay",
+   "role": "reasoning_application",
+   "explanation": "This paragraph applies the law to the facts, finding the applicant's explanations for delay unpersuasive.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "court's assessment of psychological report evidence",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph assesses the psychological report and finds it does not justify the applicant's delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "court's conclusion on Board's reasonableness and jurisprudence",
+   "role": "reasoning_application",
+   "explanation": "This paragraph concludes that the Board's decision was reasonable and jurisprudence was correctly applied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "court's conclusion on law and Board's findings",
+   "role": "reasoning_application",
+   "explanation": "This paragraph affirms the Board's rejection of the applicant's evidence and finds no legal error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "dismissal of application for judicial review",
+   "role": "disposition",
+   "explanation": "This paragraph states the court's order dismissing the application for judicial review.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

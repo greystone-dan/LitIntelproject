@@ -1,0 +1,249 @@
+{
+ "case_id": 32524,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 33,
+ "tagged_count": 33,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6000,
+  "completion_tokens": 1883,
+  "usd": 0.0013532000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court summarizes the applicants' challenge to the PRRA decision and the grounds of their appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' nationality, arrival, and basis for refugee claim related to persecution of their community.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It describes the Board's decision dismissing the claim and the subsequent judicial review denial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the submission of the PRRA request, the evidence provided, and the officer's initial findings on relevance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officer found the new evidence was not sufficient or truly new, and that no significant change in country conditions had occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officer did not consider the affidavits and letter as new evidence, citing their similarity to previous information and lack of objectivity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officer viewed the news articles as generalized and not specifically relevant or indicating new risks to the applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court states the overarching reasonableness standard and the specific issues to be addressed in the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the relevant statutory provisions and their language regarding protection applications and new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains the deference owed to PRAA officers' fact-finding and the legal basis for reviewing their conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The standard of review for factual questions by a PRAA officer is reasonableness, as established in prior case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The overall reasonableness of the PRAA decision is affirmed based on case law that supports this standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicants argue the officer applied the wrong standard for new evidence under IRPA section 113(a).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants contend that all post-decision evidence should be considered new evidence without requiring an explanation for its unavailability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants cite Mendez as supporting their interpretation of the evidence admissibility standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue the news reports are recent and demonstrate ongoing risks, making the rejection unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent claims the affidavits and letter are similar to previous evidence and distinguishes Mendez based on timing of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent notes the centrality of the new evidence in Mendez and its impact on the reasonableness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Counsel for the applicants admits the only support for their interpretation is a sentence from Mendez.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue that IRPA section 113(a) should be read as providing three separate grounds for new evidence admissibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants contend that evidence created after the Board's decision should be considered new evidence without further explanation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court discusses the importance of whether the new evidence is substantively different from previous evidence, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The court finds the evidence was not substantially different from prior evidence and thus not new in a meaningful sense.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court affirms the officer's findings as within their expertise and not subject to interference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants argue the officer erred by requiring risk to be personalized, citing case law on group persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicants claim the officer misunderstood the evidence about sectarian violence and risk to Shia individuals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent emphasizes the need for personalized risk evidence and claims the applicants failed to provide it.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the purpose of the PRRA process as assessing new risks since the refugee hearing, not a second hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The officers' assessment of new risks must consider sections 96-98, emphasizing the need for personal risk evidence, especially after a negative refugee decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The officer reasonably concluded the evidence did not demonstrate new or increased risk to the applicants specifically.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court interprets the officer's comments as indicating the evidence was generalized and not indicative of new personal risk, which was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The evidence shows risk to Shia in Pakistan but also state efforts to control violence, supporting the reasonableness of the officer's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court concludes the overall decision was reasonable and dismisses the appeal, with procedural instructions for questions of importance.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,305 @@
+{
+ "case_id": 33549,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 41,
+ "tagged_count": 41,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4421,
+  "completion_tokens": 2171,
+  "usd": 0.0013105
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "standard of review: reasonableness",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's conclusion that the stay application is dismissed due to lack of evidence of irreparable harm.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports that the applicants have not provided evidence of personal risk if they return to Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the legal standard that claimants must connect evidence to their personal situation to qualify for refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that general country situation evidence alone does not establish a well-founded claim, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the court's role in weighing evidence and the legal standards for assessing evidence in refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph outlines the procedural context, including the stay application and the challenge to the PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicants' citizenship and family status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the date the applicants arrived in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the date the applicants claimed refugee protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports the IRB's denial of the claim, citing credibility issues and availability of Mexican protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the Federal Court's dismissal of the judicial review of the IRB decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicants' submission and denial of a PRRA application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the filing of an application for leave and judicial review of the PRRA decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states the court's task to evaluate the stay application based on established legal tests.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph describes the three tests from case law used to assess the stay application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes the applicants failed to meet the tests for a stay, including serious issue, irreparable harm, and balance of convenience.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "serious issue",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the risk assessment is a factual question requiring deference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the applicants reiterated the same facts and fears previously found not credible.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the PRRA officer noted contradictions and omissions in the applicants' account.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the IRB found the applicants did not demonstrate lack of protection in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states it was the applicants' burden to prove Mexico's inability to protect them.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicants did not exhaust all avenues of protection in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the documentary evidence analyzed by the RPD remains essentially the same.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the objective documentary evidence does not support the applicants' claims of inability of Mexican protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph cites case law indicating the presumption of state protection cannot be easily rebutted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that state protection need only be adequate, not perfect, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states recent case law supports that Mexico provides available state protection and efforts to address issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the PRRA officer considered Mexico's efforts to address corruption and crime.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes it was not unreasonable for the officer to find the applicants could have used state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicants referred to documentary evidence about violence in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reiterates the legal standard that claimants must connect evidence to their personal situation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that general country situation evidence alone does not establish a well-founded claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph claims the applicants allege the officer disregarded some evidence in their support.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the officer mentioned all documents submitted by the applicants in his decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes there is no evidence that the documents were submitted to the officer, so the argument is not accepted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the court's role in weighing evidence and making findings, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "irreparable_harm",
+   "role": "reasoning_application",
+   "explanation": "The paragraph defines irreparable harm as risking safety or life upon return, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicants have not provided evidence of personal risk in Mexico.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the lack of evidence of irreparable harm justifies dismissing the stay application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph introduces a discussion on the balance of convenience and public interest in stay applications.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "other",
+   "role": "disposition",
+   "explanation": "The paragraph states the applicants used all legal avenues and the respondent's interest in enforcement takes precedence.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

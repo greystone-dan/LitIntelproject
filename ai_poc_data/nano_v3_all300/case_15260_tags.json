@@ -1,0 +1,109 @@
+{
+ "case_id": 15260,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 13,
+ "tagged_count": 13,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2247,
+  "completion_tokens": 713,
+  "usd": 0.0005099
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states this is a judicial review of a Board decision on credibility from June 4, 2003.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant claims a fear of return to Sri Lanka due to political involvement and threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board rejected the claim due to lack of corroborating documents and found the story to be fabricated.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph summarizes the Board's credibility finding and the rejection of the claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant's issue is whether the Board can reject a claim solely for lack of corroborative documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argues that his testimony should be sufficient and that the Board erred in relying on section 7.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent defends the Board's discretion to assess credibility and reject claims based on inconsistencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 7 of the Rules requires documents but allows explanations for non-production; the Board can consider this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 7 makes documentation necessary for identity and other elements, but reasonable explanations can suffice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court notes that failure to produce documents alone cannot lead to negative inference unless credibility is already doubted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board reasonably expected documents about the applicant's involvement, and failure to produce them affects credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The applicant did not meet the burden of proof, and the Board's credibility assessment was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application, stating corroborative evidence was necessary in this case.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

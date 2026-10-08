@@ -1,0 +1,263 @@
+{
+ "case_id": 23892,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6664,
+  "completion_tokens": 2009,
+  "usd": 0.00147
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the judicial review application and the Tribunal's decision dismissing the appeal, including the date and subject matter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's birth, travel history, entry to Canada, and citizenship status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph outlines the applicant's alleged residences in Quebec and Montreal from 1986 to 2007.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's use of a Montreal address linked to his travel agency, Decatour International Inc.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's business interests in Italy and his spouse's roles in various companies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports the applicant's social security contributions in Italy and subsequent voluntary contributions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph notes the issuance of a Canadian passport to the applicant in 2002.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's 2003 application for Old Age Security benefits and his address details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the investigation into the applicant's residency, including his Italy trip and statements made during the investigation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph summarizes Ms. Breton's statement about her relationship with the applicant and her interaction with the investigator.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the applicant's 2008 interview statements about his passports, residence, and travel habits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph lists addresses provided by the applicant without dates, indicating his alleged residences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the investigator's report, including the applicant's inability to provide residence evidence and the findings about his ties abroad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the investigation results, including the overpayment and the denial of benefits based on residence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph details the applicant's requests for review, the decisions made, and the Tribunal's dismissal of the appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the Tribunal hearing date and the witnesses who testified, including the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the applicant's claim of residence since 1976 and his relationship with Ms. Breton, including her denial of cohabitation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the Tribunal's observation of the applicant's ongoing ties to Italy and his business interests there.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes Ms. Diamant's and the applicant's testimonies about his living arrangements and residence claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states the Tribunal's conclusion that the applicant arrived in Canada but has not been a resident since, and is only present.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph frames the judicial review issue as whether the Tribunal's dismissal of the appeal was reasonable given its findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites the statutory requirements for a partial pension under the Old Age Security Act and the residence criteria involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph defines residence and presence under the regulations, clarifying legal distinctions relevant to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph states the Minister's authority to investigate and gather evidence regarding eligibility for benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the reasonableness standard applies to mixed fact and law questions like residence, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph discusses the Court's decision to disregard new evidence (power of attorney) not before the Tribunal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states the applicant's argument that he proved residence and that the Tribunal erred, including the burden of proof issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the respondent's view that residence requires making one's home in Canada and that it is a factual issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Tribunal's view on the applicant's relationship evidence and its distinction from residence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph notes the applicant's argument that the Tribunal ignored Mr. Fogagnolo's testimony about his knowledge of the applicant's residence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the Tribunal is not required to mention all evidence and that its omission of Fogagnolo's testimony is not fatal, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph lists factors for establishing residence and notes the applicant's insufficient evidence to prove residence in Canada for ten years.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph assesses the evidence showing the applicant's tax filings, property ownership, and travel, indicating mixed ties to Canada and abroad.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Tribunal's conclusion was reasonable and within its discretion, and that the Court cannot reweigh evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the Court's intervention is unwarranted and the application should be dismissed.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

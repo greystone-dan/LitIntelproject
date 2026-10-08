@@ -1,0 +1,200 @@
+{
+ "case_id": 4090,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3753,
+  "completion_tokens": 1429,
+  "usd": 0.0009469000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicants' citizenship and their basis for seeking refugee protection in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the principal applicant's experiences and threats from Bilal Akar and his associates in Lebanon.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The applicants submitted a refugee claim with legal and interpretive assistance, and the paragraph describes this process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph reports the hearing date and representation details before the RPD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The RPD rejected the claim due to credibility issues, despite some corroborative evidence, and explains the reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants appealed to the RAD, which dismissed the appeal and upheld the RPD's decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The applicants sought judicial review of the RAD decision under the relevant statute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court states that the application for judicial review will be dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the reasonableness standard for reviewing the RAD's decision, citing relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test: standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the application of the reasonableness standard as clarified in Vavilov and jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test: reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph outlines the principles for assessing reasonableness, including justification, transparency, and rationality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants argue that the RAD's decision to uphold credibility findings and dismiss corroborative documents was unreasonable; the court disagrees.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes the importance of context and how the appeal was framed in assessing reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants' letter to the RAD raised specific alleged errors related to credibility and advice, but these are not grounds of appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants reiterated their alleged errors in the appeal memorandum without elaboration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The RAD member found the alleged errors unsubstantiated and confirmed the credibility issues based on the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The member noted the lack of evidence identifying who gave incorrect advice, supporting her conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph discusses the importance of complete narratives and how omissions can impact credibility, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The RAD upheld the credibility finding based on material omissions, with reasoning about the applicant's employment details.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The conclusion that the omissions were central and justified the credibility findings is reasonable; no interference is warranted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants do not challenge the RAD's decision regarding their claim of being ill-advised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicants argue that the RAD erred in not considering corroborative documents, which the court disagrees with.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test: scope of review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the RAD's decision is assessed based on how the appeal was framed and that it is not required to consider unraised errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test: scope of review",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the RAD addressed the specific errors raised by the applicants and was not unreasonable in doing so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review based on the reasoning provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court notes that the parties did not raise any questions of general importance for certification.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

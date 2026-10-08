@@ -1,0 +1,536 @@
+{
+ "case_id": 22347,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 74,
+ "tagged_count": 74,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 10798,
+  "completion_tokens": 4252,
+  "usd": 0.0027806000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Innocent is a Haitian citizen living in Laval with her daughter, a Canadian permanent resident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Ms. Innocent arrived in Canada on a temporary resident visa to visit her daughter, which was later extended multiple times.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Her visa extension was refused in January 2007, leading her to apply for refugee status in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "A hearing was held in December 2008, and the panel denied her refugee claim in January 2009.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Ms. Innocent sought judicial review, which was granted leave by Justice Lemieux in June 2009.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The judicial review hearing took place in Montreal on September 15, 2009.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel did not question her credibility and gave her the benefit of the doubt regarding her allegations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel accepted Ms. Innocent\u2019s narrative as true, and the Minister did not challenge this in court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel summarized the facts it considered relevant in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The panel accepted these facts and focused on whether the risk was personalized or generalized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The tribunal addressed this key question in its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The tribunal did not consider internal flight alternatives, possibly due to the general violence affecting Haiti or the lack of personalized risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The evidence shows violence affects all of Haiti, but business persons are not a particular social group under Ward.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Recent case law indicates that risks are considered generalized if they affect the entire population, even if some groups face higher risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Documentary evidence confirms widespread insecurity and gang activity in Port-au-Prince and surrounding neighborhoods.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The entire population is victimized, but the claimant\u2019s testimony about police fear and gang invasion was noted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The panel found no nexus between her fear and a protected ground under section 96 of the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The panel concluded the risk was generalized and not personalized, so section 97(1)(b) does not apply.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The law states that only risks specific to a subgroup, not the entire population, qualify for protection under this provision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The case of Proph\u00e8te illustrates that generalized violence does not automatically confer protected status, especially if the risk is not targeted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Other jurisprudence supports that only personalized or subgroup-specific risks qualify for protection, not generalized risks affecting all Haitians.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Counsel argued that interpreting the law to exclude generalized risks would lead to arbitrary results and is problematic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Court agrees that the risk faced by all Haitians is generalized, not personalized, based on recent jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Common sense supports interpreting the statutory language to reflect its plain meaning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Counsel for the applicant referenced Justice Dawson\u2019s dicta in Surajnarain regarding the interpretation of 'generally'.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The word 'generally' in the statute means widespread, and the Board\u2019s reasonable conclusion should not be disturbed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Counsel argued that even if the first interpretation is accepted, the decision was unreasonable in application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The case differs from targeted threats, as Ms. Proph\u00e8te was personally targeted, unlike the applicant in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr. Pineda was threatened by gangs, but his risk was considered similar to the general population, leading to denial of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Minister\u2019s counsel argued the decision was about applying the law to the facts, not interpreting the law itself.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Each case depends on its facts, and the panel\u2019s factual findings should be reviewed under reasonableness unless they violate legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The jurisprudence supports the decision in Proph\u00e8te, which has been upheld in subsequent cases, emphasizing deference to factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "Justice Dawson\u2019s dissent in Surajnarain was obiter and based on an older case, thus not binding or directly applicable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Supreme Court decisions establish that correctness and reasonableness are the two standards of judicial review, depending on the question.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Errors of law are reviewed for correctness; questions about refugee status are generally reviewed for correctness, but factual findings are reviewed for reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Application of subparagraph 97(1)(b)(ii) is a question of fact, reviewed on reasonableness, but interpretation of section 97 is a question of law, reviewed on correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Court will apply correctness to the legal interpretation of section 97 and reasonableness to the factual findings of the panel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The case requires an individualized assessment of the risk faced by the applicant, based on specific facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The analysis involves assessing whether the risk is personalized and whether it exists throughout the country or only in segments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The risk analysis may consider only segments of the population if justified by the case\u2019s circumstances and the Act\u2019s objectives.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "issue_framing",
+   "role": "procedural_history",
+   "explanation": "The paragraph discusses the reasonableness of analyses and conclusions in refugee decisions and references case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "issue_framing",
+   "role": "legal_test",
+   "explanation": "It states that the analysis under subsection 97(1)(b)(ii) involves a case-by-case threat assessment consistent with the Act's objectives.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "issue_framing",
+   "role": "other",
+   "explanation": "The paragraph introduces the analyses on which findings are based, specifically textual analysis.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It cites Supreme Court principles on statutory interpretation, emphasizing textual, contextual, and purposive analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph analyzes the wording of subparagraph 97(1)(b)(ii), indicating it does not require risk to all individuals in the country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It explains that the provision requires risk in every part of the country, emphasizing internal flight options.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that the risk must not be generally faced by others from the country, based on legislative language.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "It discusses grammatical and interpretive analysis showing the risk is not faced generally, emphasizing the indefinite article's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "The paragraph states that generalized risks, even if more likely for some, do not qualify for protection unless specific criteria are met.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "It describes the legislative history of the provision, including its initial inclusion and subsequent amendments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes that the legislative history supports a requirement for personalized risk, as stated in official documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "It discusses 1994 guidelines that broaden the risk concept to include risks shared by similarly situated individuals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The paragraph notes that the guidelines do not bind the court and that legislative amendments have occurred since then.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "It summarizes a 1997 Auditor General report criticizing the risk assessment process and describing the creation of the PDRCC class.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "The paragraph explains that the report led to amendments and the enactment of the current Immigration and Refugee Protection Act in 2001.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "It states that the new statute changed the scheme, combining refugee and protection decisions under the IRB.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "background_facts",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes a 2002 IRB document interpreting section 97(1)(b) with a focus on specific risk, differing from previous guidelines.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "issue_framing",
+   "role": "legal_test",
+   "explanation": "It states that decisions on paragraph 97(1)(b) depend on whether there is a personalized risk, based on factual analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph provides examples of cases where applicants failed to establish personalized risk, which was properly dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It notes that one case succeeded in establishing a particularized risk despite general violence, affecting the application of the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The paragraph discusses the outdated nature of the 1994 guidelines in light of current legislation.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "It mentions a proposed certified question about whether the subsection applies to subgroups facing heightened risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that the FCA declined to answer the broad question but acknowledged evidence supporting the lower court's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "issue_framing",
+   "role": "other",
+   "explanation": "It notes that the reasons in the FCA decision align with the section 97 analysis in this case.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant's argument that her perceived affluence increases her risk is rejected based on detailed reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "An alternative argument that she was directly targeted by gangs is presented, suggesting a personal risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It states that being a crime victim alone does not establish a protected risk; circumstances matter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the risk is generalized and unlikely to be personal after several years, based on the panel's findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "It explains that reasonableness review involves assessing justification, transparency, and whether outcomes are within a rational range.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review based on the reasonableness of the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The applicant's counsel proposes a certified question about whether subsection 97(1)(b)(ii) applies to subgroups or the entire population.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The Minister's counsel opposes the question, arguing it is too broad and that the provision is an implementation measure.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The judge finds the question improperly framed but notes the subject is similar to a previous unresolved question.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court declines to certify a question, citing the FCA's prior indication it would not answer it.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

@@ -1,0 +1,704 @@
+{
+ "case_id": 16997,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 98,
+ "tagged_count": 98,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 17683,
+  "completion_tokens": 5593,
+  "usd": 0.0040055
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "disposition",
+   "explanation": "The court allows Ms. Magonza's judicial review because the PRRA decision was unreasonable in weighing her evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph discusses the challenges of fact-finding in refugee law and balancing IRPA goals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "legal test",
+   "role": "other",
+   "explanation": "The paragraph introduces the concepts of credibility, probative value, weight, and sufficiency for fact-finding.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Magonza's refugee claim was dismissed due to credibility issues and inconsistent evidence, confirmed by the RAD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Magonza applied for PRRA to review facts after her claim was dismissed, under IRPA sections 113, 96, and 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background facts",
+   "role": "background_facts",
+   "explanation": "Ms. Magonza provided evidence of incidents involving her ex-husband after her refugee claim was dismissed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party position",
+   "role": "party_position",
+   "explanation": "The PRRA officer gave little weight to Ms. Magonza's evidence, citing insufficient objective evidence and state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph states Ms. Magonza's current legal action seeking judicial review of the PRRA decision.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "issue framing",
+   "role": "issue_framing",
+   "explanation": "Ms. Magonza challenges the reasonableness of the PRRA officer\u2019s assessment of her risk evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the PRRA officer's risk analysis unreasonable due to lack of intelligible reasons and flawed conclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court emphasizes the need for justification, transparency, and intelligibility in PRRA decisions, citing Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph discusses the importance of a common language and concepts in fact-finding, noting limited rules in refugee law evidence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Fact-finding relies on methods and guidelines rather than strict rules, with limited formal study in the area.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Basic concepts like credibility, probative value, and weight are used in fact-finding but are not fixed in law.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The paragraph reviews definitions of credibility, probative value, weight, and sufficiency, focusing on refugee law context.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph explains credibility as worthiness of belief, the first step in fact-finding.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Credibility involves trustworthiness and believability, including honesty and accuracy of testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Distinction between honesty (credibility) and accuracy (reliability) in assessing witness testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Factors affecting credibility include observation ability, consistency, corroboration, plausibility, bias, and demeanor.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Debates exist on biases and credibility factors, but they are not addressed in this case.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Probative value measures how well evidence can establish a fact, often through inference from known facts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Relevance is a binary concept; relevant evidence has some probative value connecting it to the fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Probative value is a matter of degree, relevance is a binary concept; relevance often affects admissibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "In refugee law, credibility and probative value are kept separate; evidence must be credible to have probative value.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Materiality relates to whether evidence would likely affect the success of a claim; it is linked to probative value.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Probative value depends on the likelihood that evidence proves or disproves a fact, based on logical inference.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Weight of evidence is its persuasiveness relative to other evidence, influencing the overall conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Weight and probative value are often synonyms, but in refugee law, they are distinguished to consider credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Weight is a function of credibility and probative value; both must be assessed first.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The case illustrates how authenticity affects the weight of evidence, with weight being zero if not authentic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Authenticity influences weight; inauthentic evidence has zero weight, authentic evidence can have significant weight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Sufficiency refers to whether the total evidence is enough to prove a fact, often involving inference and judgment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Sufficiency may involve corroboration; it is a practical judgment, not a fixed standard, about the adequacy of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "other",
+   "role": "other",
+   "explanation": "In refugee law, proving more than a mere possibility of persecution is required, usually through indirect evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Decisions on sufficiency are given deference; findings must be explained and avoid disguised credibility assessments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The court reviews five incidents involving Mr. Haule, analyzing the evidence and the PRRA officer's treatment of each.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Details of the first incident, including evidence and the PRRA officer's evaluation, are summarized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The PRRA officer accepts the last three categories of evidence, relying on them to assess state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The second incident's evidence is summarized, with the officer noting lack of police report or attempt to report.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The third and fourth incidents involving Ms. Kalinga are summarized, with the officer noting lack of corroboration and police report.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Summarizes the evidence and the PRRA officer's reasoning for assigning little weight to a handwritten letter.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Analyzes the reasonableness of the PRRA officer's credibility findings, noting they are unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Describes the officer's doubts about the letters' contents based on timing and authorship, relating to credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States that dismissing family evidence solely due to self-interest is unreasonable, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Lists other cases where the court found dismissing family evidence unreasonable, supporting this view.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Argues that delay in writing letters does not justify discounting them, as they may have been written for the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes that the reasons for discounting the letters are related to credibility, not probative value.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States that the lack of police report does not necessarily undermine the evidence, which is unreasonable to dismiss.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Explains that evidence should be assessed based on its content, not on what it omits, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Provides an example where lack of police report details was unreasonable to dismiss evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States that incidents may not have been reported due to lack of injury or other reasons, making non-reporting reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Concludes that the failure to consider certain incidents reasonably is unreasonable, as reasons are not related to credibility or probative value.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Notes that the PRRA officer was mistaken about the absence of evidence of origin for the letter, which is actually accompanied by a sworn affidavit.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Disagrees with the Minister that the mistake was minor, as it affected the assessment of additional corroborating evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "States that the overall assessment of evidence sufficiency was unreasonable, based on the officer's assertion of insufficient objective evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Emphasizes that evidence weight assessments must be minimally defensible in reasons and substance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Summarizes the evidence provided, noting its strong probative value regarding Mr. Haule's interest in harming Ms. Magonza.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Discusses the reasonableness of expecting corroborative evidence and finds it difficult to see what more could be provided.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Notes that the officer provided no reasons for finding evidence insufficient, which is unreasonable given previous errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Concludes that the decision was unreasonable and warrants being sent back for redetermination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "other",
+   "role": "other",
+   "explanation": "States that the court's review of reasons is limited but can be supplemented by record flaws, without rewriting the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that the court cannot accept the alternative that Ms. Magonza fabricated her claim and the documents are forged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Notes that the officer did not express credibility concerns about the first incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "States that there is no specific reason to believe the documents are forged, as suspicion alone is insufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Explains that documents from foreign authorities are presumed genuine, and suspicion of forgery requires more than a country\u2019s document availability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that negative credibility findings from previous proceedings can be relied upon if properly explained, but not automatically.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Notes that different evidence requires a separate credibility assessment unless prior findings are properly explained.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that credibility findings from prior proceedings only apply if the evidence is different and properly explained; here, no such explanation was given.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "Summarizes that the reasons for discounting evidence are objectionable, making the decision unreasonable and warranting review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Mentions that the court will not decide on whether a hearing was necessary, as the case is being remanded anyway.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "States that the Minister argues about state protection, and the court finds the officer's analysis unreasonable and inconsistent with the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Summarizes principles for assessing state protection, including burden of proof and effectiveness of protection, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "States that the officer did not apply the correct test of operational adequacy, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States that decision-makers must apply the correct legal test and cannot substitute their own, or the decision is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Notes that courts have struck down decisions that did not apply the correct test of operational adequacy, citing cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "disregarding the overwhelming evidence",
+   "role": "disposition",
+   "explanation": "States that the officer disregarded key evidence about Tanzania's lack of protection, which is unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Describes the purpose and contents of the national documentation packages used in refugee determinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "other",
+   "role": "other",
+   "explanation": "States that IRP documentation is used in proceedings and that the usual practice is to rely on the NDP, which was likely followed here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "other",
+   "role": "other",
+   "explanation": "Notes that documents from the NDP are often relied upon even if not explicitly referenced by claimants, but not to the extent of examining every document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "other",
+   "role": "other",
+   "explanation": "States that the officer refused to consider two specific documents from the NDP, which was an error given their relevance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "consideration of NDP documents and evidence",
+   "role": "legal_test",
+   "explanation": "Explains the legal distinction between evidence and generally recognized facts in the NDP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "consideration of documents at PRRA stage",
+   "role": "issue_framing",
+   "explanation": "States that PRRA officers can consider relevant documents regardless of mention in previous decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "unreasonableness of PRRA refusal to consider documents",
+   "role": "reasoning_application",
+   "explanation": "Finds the PRRA officer's refusal to consider certain documents unreasonable, affecting case disposal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "PRRA's interpretation of country condition evidence",
+   "role": "party_position",
+   "explanation": "Describes the PRRA officer's reliance on a single DOS report excerpt to assess state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "misstatement of the test for state protection",
+   "role": "party_position",
+   "explanation": "Notes the officer's conclusion misstates the legal standard for assessing state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "severity of the situation in Tanzania",
+   "role": "party_position",
+   "explanation": "Provides detailed report findings showing widespread gender-based violence and police ineffectiveness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "reliance on isolated report excerpt",
+   "role": "reasoning_application",
+   "explanation": "Concludes it was unreasonable to rely on a single quote that contradicts the report's overall findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "CEDAW and RIR reports on gender violence in Tanzania",
+   "role": "party_position",
+   "explanation": "Summarizes findings from CEDAW and RIR indicating ongoing issues with gender violence and police impunity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "effectiveness of police 'gender desks'",
+   "role": "party_position",
+   "explanation": "Highlights that CEDAW finds the police measures ineffective, emphasizing impunity and lack of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "effectiveness of state protection in Tanzania",
+   "role": "party_position",
+   "explanation": "Details the 2015 RIR's findings that show barriers to reporting and police corruption, questioning protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "evidence assessment role of decision-makers",
+   "role": "legal_test",
+   "explanation": "States that evidence assessment is primarily for decision-makers but must meet reasonableness standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 92,
+   "topic": "unreasonable inference about police involvement",
+   "role": "reasoning_application",
+   "explanation": "Finds the officer's inference unreasonable because it ignored the difference between police statements and actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 93,
+   "topic": "intervention in state protection findings",
+   "role": "other",
+   "explanation": "Notes that courts have previously overturned findings based on selective evidence reading.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 94,
+   "topic": "inference about police investigation and due process",
+   "role": "party_position",
+   "explanation": "Describes the officer's conclusion that police involvement indicates available protection, which is problematic.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 95,
+   "topic": "reasonableness of drawing inferences",
+   "role": "legal_test",
+   "explanation": "States that inferences are reasonable if they are based on known facts and proper reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 96,
+   "topic": "unreasonable inference about police action",
+   "role": "reasoning_application",
+   "explanation": "Concludes the inference was unreasonable because it ignored the difference between police claims and actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 97,
+   "topic": "failure of PRRA officer's analysis",
+   "role": "reasoning_application",
+   "explanation": "Finds the officer's analysis flawed due to ignoring evidence and misapplying legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 98,
+   "topic": "unreasonableness of the decision and outcome",
+   "role": "disposition",
+   "explanation": "States the overall decision was unreasonable and the application is allowed, with case remitted for redetermination.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

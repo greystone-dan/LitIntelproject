@@ -1,0 +1,655 @@
+{
+ "case_id": 33096,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 91,
+ "tagged_count": 91,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 15130,
+  "completion_tokens": 5400,
+  "usd": 0.003673
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of judicial review",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application and the challenged decision regarding the extension of time to appeal under the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts about the Office of the Commissioner",
+   "role": "background_facts",
+   "explanation": "It provides context about the Office of the Commissioner, its role, and appeal statistics under the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Party position: Mr. Pentney's representation",
+   "role": "party_position",
+   "explanation": "Mr. Pentney was self-represented but adopted the Commissioner\u2019s legal position.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Legal test: extension of time under CPP",
+   "role": "legal_test",
+   "explanation": "It explains the statutory framework for appealing decisions under subsection 82(1) of the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position: intervention and public policy",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the scope of the Commissioner\u2019s intervention and the public policy considerations involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Procedural issue: scope of intervention",
+   "role": "procedural_history",
+   "explanation": "Counsel for the Minister raised a preliminary objection about the scope of the Commissioner\u2019s intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Party position: objections to memorandum",
+   "role": "party_position",
+   "explanation": "The Minister objected to the Commissioner\u2019s memorandum, which was resolved by Mr. Pentney adopting the submissions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Issues in judicial review",
+   "role": "issue_framing",
+   "explanation": "The paragraph outlines the three legal issues raised in the judicial review concerning the Commissioner\u2019s decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts: Mr. Pentney\u2019s application",
+   "role": "background_facts",
+   "explanation": "Details Mr. Pentney\u2019s late application for an extension of time and his reasons for delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts: HRDC\u2019s decision",
+   "role": "background_facts",
+   "explanation": "Summarizes the reasons given by HRDC for denying Mr. Pentney\u2019s disability claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts: HRDC\u2019s advice",
+   "role": "background_facts",
+   "explanation": "Describes HRDC\u2019s advice to Mr. Pentney regarding his disability status and appeal rights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts: appeal rights and instructions",
+   "role": "background_facts",
+   "explanation": "States the instructions given to Mr. Pentney about appealing and reapplying for benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Evidence: affidavits supporting intervention",
+   "role": "evidence_assessment",
+   "explanation": "Mentions affidavits supporting the Commissioner\u2019s intervention, primarily from Philippe Rabot.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Background facts: file contents",
+   "role": "background_facts",
+   "explanation": "Lists the documents in Mr. Pentney\u2019s file with the Office of the Commissioner relevant to the case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Evidence: affidavit explanation of initial confusion",
+   "role": "evidence_assessment",
+   "explanation": "The Commissioner explained initial confusion about the date of Mr. Pentney\u2019s letter and its receipt.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Background facts: Mr. Pentney\u2019s further explanation",
+   "role": "background_facts",
+   "explanation": "Mr. Pentney\u2019s undated letter to the Commissioner reiterates reasons for late appeal and medical conditions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Evidence: reasons for late appeal recommendation",
+   "role": "evidence_assessment",
+   "explanation": "The Commissioner\u2019s affidavit states reasons why Mr. Iannitti recommended accepting the late appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test: factors for extension of time",
+   "role": "legal_test",
+   "explanation": "The affidavit cites the four factors from Gattellaro that should be considered for extension of time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test: context of Gattellaro",
+   "role": "legal_test",
+   "explanation": "The Commissioner explained the importance of distinguishing between appeal levels and their procedures.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test: appeal procedures and resources",
+   "role": "legal_test",
+   "explanation": "The affidavit discusses differences in resources and procedures between the OCRT and PAB.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test: contextual factors specific to Review Tribunal",
+   "role": "legal_test",
+   "explanation": "Additional contextual factors specific to the Review Tribunal are identified as relevant for considering late appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Evidence: additional considerations for late appeals",
+   "role": "evidence_assessment",
+   "explanation": "The affidavit lists specific considerations such as resource imbalance and appellant difficulties affecting late appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Evidence: sources supporting considerations",
+   "role": "evidence_assessment",
+   "explanation": "The sources for the additional considerations include surveys and reports on the appeal process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Evidence: statistics on late appeals",
+   "role": "evidence_assessment",
+   "explanation": "Statistics show the volume and delay of late appeal requests received by the Office of the Commissioner.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test: balancing fairness and efficiency",
+   "role": "reasoning_application",
+   "explanation": "The Commissioner states he balances fairness and efficiency in exercising discretion, considering resource disparities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Standard of review",
+   "role": "legal_test",
+   "explanation": "The paragraph states the issues are legal, focusing on whether the Commissioner properly considered relevant factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Standard of review: correctness",
+   "role": "legal_test",
+   "explanation": "The court\u2019s role is to review whether the Commissioner correctly exercised his discretion, applying the correctness standard.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test: application of Gattellaro factors",
+   "role": "issue_framing",
+   "explanation": "The memorandum discusses the application of Gattellaro\u2019s four factors in the context of late appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test: differences between appeal bodies",
+   "role": "issue_framing",
+   "explanation": "The paragraph compares appeal procedures and rules between the Review Tribunal and PAB, emphasizing procedural differences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test: contextual factors specific to Review Tribunal",
+   "role": "issue_framing",
+   "explanation": "Additional contextual factors specific to the Review Tribunal are considered relevant for late appeal decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test: principles from Hogervorst",
+   "role": "legal_test",
+   "explanation": "The paragraph references Hogervorst\u2019s articulation of the legal principles for extension of time, including the four-part test.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test: four-part test for extension of time",
+   "role": "legal_test",
+   "explanation": "It states the four criteria from Hogervorst for granting an extension of time to appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Legal test: flexibility of the four-part test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the four-part test is flexible and can be satisfied even if one criterion is not met, to ensure justice.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal test: justice as underlying principle",
+   "role": "legal_test",
+   "explanation": "The Hogervorst decision emphasizes that extension decisions should serve justice between parties, with flexibility in criteria.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal test: discretionary power and flexibility",
+   "role": "legal_test",
+   "explanation": "The paragraph cautions against rigid rules, advocating for a flexible, case-specific approach to extensions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Legal test: jurisprudence review",
+   "role": "background_facts",
+   "explanation": "The court reviewed recent jurisprudence on extension of time for judicial review applications in the Federal Court.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal test: court\u2019s reasoning",
+   "role": "background_facts",
+   "explanation": "The court\u2019s reasoning on the principles for extension of time is summarized from a previous decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Legal test: principles for extension of time",
+   "role": "issue_framing",
+   "explanation": "Counsel for the Attorney General outlines the four principles for extension of time, emphasizing their importance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal test: exclusivity of the four-part test",
+   "role": "issue_framing",
+   "explanation": "Counsel suggests the four-part test is the only consideration for extension of time, requiring all four to be satisfied.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "reasoning_application",
+   "explanation": "The court rejects inflexibility, endorsing a contextual, flexible approach that considers all relevant factors and their weights.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the relevance of the four-part Gattellaro test to decisions on extension of time for appeals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph explains that the four-part test applies broadly to all extension of time decisions, including administrative tribunals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph states that the factors in the four-part test can be weighted differently depending on case specifics.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph notes that additional, general considerations are not sufficient alone to justify an extension of time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes that case-specific facts determine the relevance of additional considerations for extension decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "legal_test",
+   "explanation": "The paragraph mentions the argument that the Commissioner did not record applying the Gattellaro test, which will be addressed later.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "Legal test: flexible approach to extension of time",
+   "role": "other",
+   "explanation": "The paragraph states that the court's intervention on the first issue is not warranted.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "party_position",
+   "explanation": "The paragraph reports the Minister's argument that the Commissioner failed to provide reasons for extending time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "party_position",
+   "explanation": "The paragraph presents the Commissioner's argument that reasons are not required for preliminary decisions, citing case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Supreme Court's recognition that reasons are necessary in significant or appealable decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "party_position",
+   "explanation": "The paragraph states that reasons should be provided to both the Minister and the applicant for transparency.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "disposition",
+   "explanation": "The paragraph concludes that the Commissioner was obliged to provide reasons for the extension, especially given the delay.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 53,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "legal_test",
+   "explanation": "The paragraph cites Justice Dawson's view that discretionary decisions require supporting reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 54,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the importance of record demonstrating all relevant factors were addressed in ex parte extensions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the Commissioner did give reasons, but their adequacy is a separate issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the reasons in the record are similar to those in Baker, fulfilling the reasons requirement.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph argues that recommendations from officials can constitute the Commissioner\u2019s reasons in high-volume decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "other",
+   "explanation": "The paragraph introduces the question of whether the reasons in the record are adequate.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph quotes legal standards on what constitutes adequate reasons, emphasizing factual findings and relevant considerations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the adequacy of reasons depends on whether the record shows all relevant considerations were addressed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 61,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph finds that the recommendations and record do not show all relevant factors were considered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 62,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that the record lacks a clear explanation for the delay in the case of Mr. Pentney.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 63,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the record does not support a consideration of arguable case or prejudice for Mr. Pentney.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 64,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph suggests some reasons might be relevant but are not clearly identified as such in the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 65,
+   "topic": "Duty to provide reasons: adequacy of reasons",
+   "role": "disposition",
+   "explanation": "The court concludes the record fails to disclose adequate reasons, warranting intervention, but cannot review the discretion exercised.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 66,
+   "topic": "Collateral attack on final decision",
+   "role": "issue_framing",
+   "explanation": "The paragraph states that Hogervorst's case will be considered to address whether the extension constitutes a collateral attack.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 67,
+   "topic": "Collateral attack on final decision",
+   "role": "background_facts",
+   "explanation": "The paragraph summarizes the facts of Hogervorst's case involving multiple decisions and finality under the CPP.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 68,
+   "topic": "Collateral attack on final decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that the Federal Court of Appeal found the leave to appeal RT-1 was a collateral attack on RT-2, which was final.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 69,
+   "topic": "Collateral attack on final decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that subsequent decisions on the same issue cannot be attacked collaterally, only directly.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 70,
+   "topic": "Collateral attack on final decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that inconsistent findings on the same issue undermine finality and legal stability.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 71,
+   "topic": "Collateral attack on final decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states that finality principles prevent challenges that could lead to contradictory decisions on the same issue.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 72,
+   "topic": "Collateral attack on final decision",
+   "role": "reasoning_application",
+   "explanation": "The paragraph applies Hogervorst's rationale, arguing that allowing late challenges to final decisions undermines finality and fairness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 73,
+   "topic": "Collateral attack on final decision",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph notes that Mr. Pentney did not seek judicial review of the Minister's late refusal, affecting finality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 74,
+   "topic": "Collateral attack on final decision",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph describes the confusion over Mr. Pentney's late application, which was later recognized as such.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 75,
+   "topic": "Collateral attack on final decision",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the Minister's decision on the late application became final because no judicial review was sought.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 76,
+   "topic": "Collateral attack on final decision",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the argument that the late application does not prevent subsequent applications for benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 77,
+   "topic": "Collateral attack on final decision",
+   "role": "party_position",
+   "explanation": "The paragraph states that decisions denying benefits without appeal do not bar future applications, citing jurisprudence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 78,
+   "topic": "Collateral attack on final decision",
+   "role": "party_position",
+   "explanation": "The paragraph distinguishes Hogervorst, noting that the applicant there had multiple full hearings, unlike Mr. Pentney.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 79,
+   "topic": "Collateral attack on final decision",
+   "role": "party_position",
+   "explanation": "The paragraph states Mr. Pentney did not appeal the initial decision within the time limit, affecting finality.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 80,
+   "topic": "Collateral attack on final decision",
+   "role": "party_position",
+   "explanation": "The paragraph notes Mr. Pentney's late reapplication after the initial denial, which was not appealed or reconsidered.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 81,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Mr. Pentney's receipt of disability payments and his application history.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 82,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It details Mr. Pentney's failure to seek reconsideration within the statutory period after being advised of the denial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 83,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "It explains Mr. Pentney's late attempt to appeal the denial of his disability benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 84,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph recounts Mr. Pentney's explanation for his late appeal and his communication with the government.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 85,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "It clarifies that the February 6, 2006 letter was a denial of the reconsideration request.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 86,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Mr. Pentney requests to be allowed to appeal late due to extenuating circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 87,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph references legal principles and case law regarding finality and collateral attacks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 88,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds that the principles of finality and non-collateral attack are breached in this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 89,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes Mr. Pentney cannot extend time to challenge the denial of his second application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 90,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph states Mr. Pentney's alternative remedies, including re-application and invoking subsection 66(4).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 91,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court allows the judicial review, quashes the extension of time, and awards no costs.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

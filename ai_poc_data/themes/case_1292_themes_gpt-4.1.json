@@ -1,0 +1,135 @@
+{
+ "case_id": 1292,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v1",
+ "run": "themes_gpt-4.1",
+ "usage": {
+  "prompt_tokens": 6732,
+  "completion_tokens": 628,
+  "usd": 0.018488
+ },
+ "verification": {
+  "arguments": 3,
+  "quotes_verified": 3,
+  "paragraph_numbers_not_in_decision": 0
+ },
+ "result": {
+  "overall": "The court granted Mr. Senadheerage's application for judicial review, finding the RAD's decision unreasonable due to unsupported implausibility findings and improper requirements for corroboration, and remitted the matter for redetermination.",
+  "themes": [
+   {
+    "name": "Implausibility Findings",
+    "summary": "The RAD's findings that parts of Mr. Senadheerage's narrative were implausible lacked a firm evidentiary basis and relied on speculation rather than clear contradictions or impossibilities.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20
+    ]
+   },
+   {
+    "name": "Requirement for Corroboration",
+    "summary": "The RAD improperly required corroborative evidence without explaining why it was necessary or whether it was reasonably available, contrary to established legal principles.",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43
+    ]
+   },
+   {
+    "name": "Assessment and Rejection of Evidence",
+    "summary": "The RAD unreasonably rejected or failed to address certain corroborative evidence, including a friend's letter, and did not provide adequate reasons for its evidentiary assessments.",
+    "paragraphs": [
+     44,
+     45,
+     46
+    ]
+   },
+   {
+    "name": "Internal Flight Alternative (IFA) Analysis",
+    "summary": "The RAD conflated the IFA analysis with the persecution analysis, failing to properly assume a well-founded fear of persecution when considering the viability of an IFA.",
+    "paragraphs": [
+     47,
+     48,
+     49,
+     50,
+     51
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "made_by": "applicant",
+    "claim": "The RAD erred in finding his story implausible and in requiring corroboration without justification.",
+    "treatment": "accepted",
+    "authority": "Valtchev v Canada (Minister of Citizenship and Immigration), 2001 FCT 776; Al Dya v Canada (Citizenship and Immigration), 2020 FC 901; Vavilov, 2019 SCC 65",
+    "paragraphs": [
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20
+    ],
+    "quote": "the RAD assumes too many unknown facts and, in doing so, leaves the realm of reasoning to enter that of speculation.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "applicant",
+    "claim": "The RAD improperly rejected corroborative evidence and failed to address a friend's letter.",
+    "treatment": "accepted",
+    "authority": "",
+    "paragraphs": [
+     44,
+     45,
+     46
+    ],
+    "quote": "The RAD should have responded to this argument. Its failure to do so may not, alone, have rendered its decision unreasonable.",
+    "quote_verified": true
+   },
+   {
+    "made_by": "respondent",
+    "claim": "The IFA finding stands independently and justifies dismissal of the claim regardless of errors in the persecution analysis.",
+    "treatment": "rejected",
+    "authority": "Chaudhry v Canada (Citizenship and Immigration), 2020 FC 902",
+    "paragraphs": [
+     47,
+     48,
+     49,
+     50,
+     51
+    ],
+    "quote": "The RAD had to assume the opposite. The real question is, what if the agents of persecution still want to harm Mr. Senadheerage?",
+    "quote_verified": true
+   }
+  ]
+ }
+}

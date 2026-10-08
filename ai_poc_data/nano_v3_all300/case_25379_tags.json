@@ -1,0 +1,109 @@
+{
+ "case_id": 25379,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 13,
+ "tagged_count": 13,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3031,
+  "completion_tokens": 743,
+  "usd": 0.0006003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the court's review of a refugee protection decision and the court's intention to set it aside and order a new hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the families involved, their background, and issues with the hearing process, including confusion and translator difficulties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph reports the claimants' evidence of violence and the Board's unreasonable demand for further documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph discusses the Board's incomplete and unclear analysis of the state protection issue for the families.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph reviews legal standards and case law regarding the assessment of state protection and the adequacy of government efforts.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph continues to analyze legal standards, emphasizing the need for actual, effective state protection and proper reasoning by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the Board's reasoning on state protection was inadequate and failed to address current conditions in Hungary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states the court's decision to allow the application, set aside the decision, and remand for a new hearing, with no costs awarded.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 56,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph describes the claimants' lack of action to escalate police complaints and their distrust of police investigation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 57,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph explains the existence of independent police oversight and mechanisms for citizens to seek protection today.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 58,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph acknowledges some failures in anti-corruption efforts but notes that Hungary's institutional framework is considered adequate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 59,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph states that claimants did not attempt to escalate police dissatisfaction to higher authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 60,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph finds that despite imperfections, state protection in Hungary is adequate and police inaction does not imply a breakdown.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

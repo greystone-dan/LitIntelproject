@@ -1,0 +1,263 @@
+{
+ "case_id": 26003,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 6387,
+  "completion_tokens": 2030,
+  "usd": 0.0014507
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's background, claims, and the decision of the Refugee Protection Division, including the legal basis and scope of the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The applicant argues that the Board erred in its understanding of the risk and in its legal conclusion regarding s. 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal test: standard of reasonableness",
+   "role": "legal_test",
+   "explanation": "The paragraph states that questions of mixed fact and law are reviewable under the reasonableness standard, citing Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court allows the application, sets aside the Board's decision, and remands the matter for reconsideration due to errors in factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant credible but made factual errors by omitting or misrepresenting evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph summarizes the sources of the applicant's evidence and notes discrepancies with the Board's recitation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's residence, age, and the location of his childhood, clarifying the record's accuracy.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the applicant's family situation and his aspirations before the incident.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the initial encounter with Los Lorenzanas and the applicant's refusal to participate in drug trafficking.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Identifies the criminal group involved in the applicant's case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the subsequent threat and coercion by Los Lorenzanas and the warning of deadly consequences.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Narrates the attack on the applicant's grandmother, her death, and the violence involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's description of the attack as retaliation is challenged; evidence shows no offer of recruitment or incentives.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Board's mischaracterization of the interaction with Los Lorenzanas is identified as an error affecting its findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Board's conclusion that the grandmother's death was incidental is challenged; evidence indicates she was deliberately targeted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph assesses the evidence regarding the attack, emphasizing the deliberate nature of the violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Details the applicant's escape from Guatemala after the threats and attack, and his attempt to return.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "Describes the applicant's travel route from Guatemala to Canada and the timing of his protection claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board considers a letter from the applicant's friends confirming the group's identity and activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph corrects the Board's misstatement about the content of the friends' letter and clarifies the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's conclusion that the harm was not linked to a Convention ground is challenged; the applicant's fear is of targeted death, not general recruitment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The Board's analysis of the risk under s. 97 is critiqued for mischaracterizing the applicant's specific targeting and fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph emphasizes that the applicant's circumstances are more personal and targeted than the Board recognized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court finds the Board's decision unreasonable and remands the case for a proper determination.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test: statutory definition",
+   "role": "legal_test",
+   "explanation": "The paragraph states the statutory criteria for a person in need of protection under s. 97(1)(b)(ii).",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: criteria for protection",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the four elements that must be established to meet the statutory definition of a person in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Legal test: generality of risk",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the importance of whether the risk is personal or generally faced by others, clarifying legal standards.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal test: risk description",
+   "role": "legal_test",
+   "explanation": "The paragraph emphasizes the need for decision-makers to clearly state and analyze the specific risk faced by the claimant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Legal test: risk description",
+   "role": "legal_test",
+   "explanation": "The paragraph critiques a Board decision for conflating the reason for the risk with the risk itself, which is legally improper.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Legal test: individualized inquiry",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law emphasizing the need for an individualized assessment based on the claimant's circumstances and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Legal test: nature of risk",
+   "role": "legal_test",
+   "explanation": "The paragraph elaborates on what an individualized inquiry involves, including assessing the nature of the risk and the agent of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Legal test: case law on general vs personal risk",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses case law rejecting the idea that all violence in gang-affected countries is a general risk, emphasizing personal risk analysis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The court questions the respondent's interpretation of Baires Sanchez and notes that targeted killing by gangs is a personal risk under s. 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The court clarifies that protection is available if the applicant is specifically targeted for death, not just if there is general violence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The court considers whether to certify a legal question but declines due to its non-dispositive nature, and issues the final judgment.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

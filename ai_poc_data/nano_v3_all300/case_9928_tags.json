@@ -1,0 +1,284 @@
+{
+ "case_id": 9928,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 38,
+ "tagged_count": 38,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4962,
+  "completion_tokens": 2234,
+  "usd": 0.0013898
+ },
+ "assessments": [
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the basis of the judicial review related to employment insurance benefits and the decision by the Social Security Commission.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph explains that the judicial review is governed by administrative law principles and the standard of reasonableness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the current legal process cannot overturn the employment insurance repayment or resolve the employment relationship.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the importance of understanding the background facts without detailing the specific individuals involved.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia contacted a residential employee about union business, breaching privacy policies, though she was unaware at the time.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia sought to resolve the issue informally but was unaware of the seriousness of the breach and declined union representation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia was shocked by the disciplinary letter and felt her trust was broken, affecting her relationship with her employer.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia left her office distraught after her supervisor left during a phone call, feeling abandoned and upset.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia experienced stress and took leave, feeling her integrity was questioned and her employment relationship damaged.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia believed her only option was to quit due to her inability to access medical disability benefits because of her age.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia resigned, feeling trust was broken, and her resignation was accepted without further discussion or contact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia focused on client transition during her notice period and did not seek other employment at that time.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia did not attempt to correct errors or seek further discussion during her final weeks of work, prioritizing client care.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the timeline of Ms. Marcia's employment insurance claim, benefits decision, and subsequent appeal process.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Appeal Division reviewed the grounds for appeal and found Ms. Marcia was reweighing evidence already considered, with no new reviewable errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The Appeal Division refused leave to appeal, citing no reasonable chance of success based on the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court will proceed with the judicial review based on the record before the tribunal, excluding the new evidence from the motion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The judicial review will be based on the certified record that was before the decision-maker.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Procedural fairness breaches are reviewed under the correctness standard as per relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia feels unfairly treated by her employer, union, and tribunal, and believes her evidence was ignored.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia argues that she should have been allowed to present new medical and union evidence to correct the record.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia contends that her original benefits decision was correct and should be reinstated based on her doctor\u2019s clarification.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The test for leave to appeal involves showing the appeal has a reasonable chance of success based on specific legal grounds.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The respondent argues that Ms. Marcia did not meet the criteria for a reasonable chance of success on appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "Ms. Marcia did not demonstrate a reasonable chance of success, and the court explains the criteria for such a showing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal criteria for benefits eligibility under the EI Act and the burden of proof on the claimant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The case law states that employees must attempt to resolve disputes or seek other employment before quitting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "New evidence is generally not admissible at the appeal stage unless it falls within specific exceptions, which it does not here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia claims the doctor\u2019s note is merely a clarification and the union letters verify facts, so they should be considered.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees with Ms. Marcia, stating that the documents are indeed new evidence and cannot be considered as non-new evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Appeal Division reasonably did not reweigh evidence or consider new evidence not before the General Division.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Appeal Division\u2019s refusal to grant leave was reasonable because Ms. Marcia did not identify a reviewable error.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia claims procedural unfairness due to the Appeal Division not allowing her medical evidence to be clarified.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "Ms. Marcia filed union letters and documents that could have affected the outcome, but the court notes they are not considered here.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The tribunal correctly classified the documents as new evidence, which they could not consider, so no procedural fairness breach occurred.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds the tribunal\u2019s decision not to grant leave to appeal was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The judge offers personal observations about potential resolutions and emphasizes they have no legal authority.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states there will be no order as to costs, as the respondent did not request any.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

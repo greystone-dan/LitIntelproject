@@ -1,0 +1,375 @@
+{
+ "case_id": 31126,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 51,
+ "tagged_count": 51,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 8093,
+  "completion_tokens": 3110,
+  "usd": 0.0020533000000000005
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the case",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the applicant's judicial review of the SST-AD decision regarding his EI benefits appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Party position: applicant's arguments",
+   "role": "party_position",
+   "explanation": "The applicant argues the decisions are wrong because they ignore his legal questions about medical procedures and factual findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Party position: respondent's argument",
+   "role": "party_position",
+   "explanation": "The respondent claims the decision is reasonable given the tribunal's limited jurisdiction and correct application of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Background facts: applicant's employment",
+   "role": "background_facts",
+   "explanation": "The applicant was employed at Lakeridge Health and was terminated for non-compliance with COVID-19 policies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Background facts: policy details",
+   "role": "background_facts",
+   "explanation": "The paragraph details the vaccination directive and testing requirements under Ontario law that applied to the applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: applicant's participation",
+   "role": "background_facts",
+   "explanation": "The applicant attended an education session but did not vaccinate or test, leading to unpaid leave and dismissal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Procedural history: EI application",
+   "role": "procedural_history",
+   "explanation": "The applicant applied for EI, which was denied on the grounds of misconduct, and the decision was not changed after reconsideration.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Procedural history: appeal to SST-GD",
+   "role": "procedural_history",
+   "explanation": "The applicant appealed the EI denial, claiming coercion and disputing the safety of vaccines, submitting supporting documents.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Procedural history: SST-GD decision",
+   "role": "procedural_history",
+   "explanation": "The SST-GD dismissed the appeal, focusing on why the applicant was suspended and whether that constituted misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Party position: evidence on notification",
+   "role": "party_position",
+   "explanation": "The SST-GD found the applicant was aware of the policy and had been notified multiple times, contradicting his denial.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Party position: findings on credibility and misconduct",
+   "role": "party_position",
+   "explanation": "The SST-GD accepted employer evidence that the applicant was aware of the policy and found his denial lacked credibility, concluding misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test: misconduct under EI law",
+   "role": "legal_test",
+   "explanation": "The SST-GD determined that misconduct, as legally defined, was proven, leading to denial of EI benefits.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Procedural history: leave to appeal",
+   "role": "procedural_history",
+   "explanation": "The applicant sought leave to appeal to the Appeal Division, which described his grounds of appeal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Procedural history: appeal division's analysis",
+   "role": "procedural_history",
+   "explanation": "The Appeal Division denied leave, explaining the legal standards and that the applicant only needed a reasonable chance of success.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: leave to appeal criteria",
+   "role": "legal_test",
+   "explanation": "The Appeal Division relied on the law that leave is granted if the appeal has a reasonable chance of success, based on the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Reasoning: application of law to facts",
+   "role": "reasoning_application",
+   "explanation": "The Appeal Division found the applicant failed to demonstrate a reasonable chance of success because the facts supported misconduct due to non-compliance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test: binding legal principles",
+   "role": "legal_test",
+   "explanation": "The Appeal Division noted it could not re-evaluate the law or other legislation, only the facts and law applied by the SST-GD.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Disposition: leave to appeal denied",
+   "role": "disposition",
+   "explanation": "The Appeal Division denied leave to appeal, and the applicant seeks judicial review of this decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Procedural history: court record",
+   "role": "procedural_history",
+   "explanation": "The applicant did not submit a formal record but provided an affidavit, which the court accepted, and reiterated his points at the hearing.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Issue framing: reasonableness standard",
+   "role": "issue_framing",
+   "explanation": "The issue is whether the Appeal Division's decision was reasonable, applying the reasonableness standard from Vavilov and Gauvreau.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test: reasonableness review",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the legal framework for reasonableness review, emphasizing rationality, justification, and judicial restraint.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: statutory authority",
+   "role": "legal_test",
+   "explanation": "The SST-AD's authority to review the SST-GD's decision is limited to legal errors, as set out in the relevant statutes and case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test: criteria for leave",
+   "role": "legal_test",
+   "explanation": "Leave is granted only if the applicant shows the appeal has a reasonable chance of success, meaning some arguable ground exists.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test: misconduct definition",
+   "role": "legal_test",
+   "explanation": "Misconduct in this context requires a conscious, deliberate, or intentional breach of employment rules, as established by case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Party position: applicant's submissions",
+   "role": "party_position",
+   "explanation": "The applicant claims discrimination, lack of consent, and questions the safety and efficacy of vaccines, citing legal and policy arguments.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Party position: further submissions",
+   "role": "party_position",
+   "explanation": "The applicant reiterates his arguments, emphasizing his attempts to comply and his unanswered questions about vaccine safety.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Party position: key questions",
+   "role": "party_position",
+   "explanation": "The applicant highlights unanswered questions about misconduct and bodily integrity, claiming these are fundamental issues affecting many Canadians.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Party position: respondent's argument",
+   "role": "party_position",
+   "explanation": "The respondent argues the appeal was reasonably denied because the applicant did not raise an arguable case and the tribunal applied settled principles.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Party position: evidence reweighing",
+   "role": "party_position",
+   "explanation": "The respondent states the tribunal reasonably refused leave because the applicant sought to reweigh evidence and re-assess facts, which is not permissible on leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Party position: misconduct explanation",
+   "role": "party_position",
+   "explanation": "The respondent explains that deliberate violation of policy constitutes misconduct, citing case law that supports this interpretation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Party position: tribunal's role",
+   "role": "party_position",
+   "explanation": "The respondent states the tribunal correctly focused on whether the applicant was guilty of misconduct leading to dismissal, which it did.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Reasoning: applicant's legal issues",
+   "role": "reasoning_application",
+   "explanation": "The court finds the applicant's frustration with unaddressed legal questions does not make the decision unreasonable, as tribunals are limited by law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Reasoning: court's review",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the tribunal's decision was reasonable, properly applying the law and considering the facts, under the Vavilov framework.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Reasoning: key findings",
+   "role": "reasoning_application",
+   "explanation": "The tribunal found the applicant was dismissed for knowingly failing to follow a lawful policy, constituting misconduct under the law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Party position: applicant's disagreement",
+   "role": "party_position",
+   "explanation": "The applicant disputes the findings, claiming he did not fail to follow the policy and was not disciplined, but the tribunal's findings are based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning: factual errors",
+   "role": "reasoning_application",
+   "explanation": "The court finds no factual errors in the tribunal's decision, which was based on evidence and proper legal reasoning, making it reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Legal principles on misconduct",
+   "role": "legal_test",
+   "explanation": "The tribunal's interpretation of misconduct aligns with case law, requiring conscious, deliberate, or intentional conduct, not malicious intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Factual findings on misconduct",
+   "role": "evidence_assessment",
+   "explanation": "The tribunal considered evidence that the applicant faced multiple disciplinary steps before termination, supporting misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Legal standard for misconduct",
+   "role": "legal_test",
+   "explanation": "The court cites case law that misconduct involves knowing or ought to have known that conduct could impair duties and lead to dismissal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Legal standard: leave denial",
+   "role": "legal_test",
+   "explanation": "The tribunal reasonably concluded the applicant did not raise reviewable errors and his appeal lacked a reasonable chance of success, justifying denial of leave.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "issue_framing",
+   "role": "party_position",
+   "explanation": "The applicant argues that a recent SST-GD decision supports his claim that refusing a vaccine policy is not misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court explains why the SST-GD decision in AL is not relevant due to different facts, especially regarding the vaccine policy and exemptions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes the differences between the AL case and the current case, particularly the nature of the vaccination requirement and exemptions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court states it is not persuaded that the AL case justifies overturning the decision below.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the applicant's judicial review application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge notes that the reasons do not address the applicant's broader legal and ethical questions, which are outside the case's scope.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The court describes the narrow role of the SST-GD and Appeal Division in determining misconduct related to employment dismissal.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court cites case law to support that the Appeal Division's mandate does not include assessing the legality of directives like Directive 6.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "background_facts",
+   "role": "other",
+   "explanation": "The judge mentions ongoing legal challenges to COVID-19 policies and the rights issues involved, indicating avenues for the applicant's claims.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the judicial review application and states that each party bears its own costs.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "other",
+   "role": "other",
+   "explanation": "The judge commends court staff for facilitating the hearing despite challenges, and states the judgment explicitly.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

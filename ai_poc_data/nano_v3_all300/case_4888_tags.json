@@ -1,0 +1,228 @@
+{
+ "case_id": 4888,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 30,
+ "tagged_count": 30,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4656,
+  "completion_tokens": 1726,
+  "usd": 0.0011560000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "disposition",
+   "explanation": "The court states this is a judicial review of a 2004 IRB decision denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a Syrian citizen and former accountant who claims to have faced persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant alleges he uncovered tax fraud, refused to conceal it, and faced threats and transfer, leading to his persecution claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "He reports being detained, beaten, and searched by Syrian secret service, then seeking medical treatment and reporting injuries.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "He returned to work, resigned, was granted unpaid leave, and then traveled to Canada, fearing persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "After arriving in Canada, he was ordered to report to Syrian authorities, and a warrant was issued for his arrest, leading to his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant's credibility was undermined by evasiveness, contradictions, and implausibilities in his testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board doubted the applicant's story based on vagueness, implausibility, and likelihood of leaving Syria if wanted, rejecting his subjective fear.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant argued he lacked proper legal representation and was prejudiced by counsel's deficiencies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "He also claimed the Board failed to assess the risk of return and acted arbitrarily in dismissing his story.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argued the applicant did not prove counsel's incompetence and that credibility issues stemmed from his testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent's counsel reviewed contradictions and supported the Board's credibility findings, emphasizing the applicant's evasiveness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent maintained the summons and warrant lacked weight due to the applicant's credibility issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The respondent argued the delay in claiming refugee status was inconsistent with genuine fear, undermining credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The court discusses the law on representation, prejudice, and the standard for intervention in refugee cases.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds no prejudice from counsel's alleged deficiencies, and the Board's impatience was due to evasiveness, not incompetence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes the reasonableness of the Board's credibility assessment, which is within its expertise.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board was entitled to find the applicant's testimony evasive and arduous, supporting adverse credibility findings.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Contradictions and implausibilities in the applicant's form and testimony justified the Board's adverse credibility conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board was not required to disclose doubts during the hearing; the burden of proof remains on the claimant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's reliance on Syria's knowledge and Rule 18 was flawed, but its overall reasoning was supported by other evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's multiple reasons, taken together, support its decision, even if one point was not fully supported.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The applicant must show subjective fear and objective evidence of persecution; general human rights violations are insufficient alone.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The delay in claiming refugee status and leaving Syria after detention undermined the applicant's subjective fear, as the Board found.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The applicant argued the Board erred by not separately considering section 97, but the law treats credibility findings as not conclusive for section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 97 requires a different standard, focusing on personal risk, and credibility issues do not automatically determine its outcome.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 96 involves both objective and subjective components; section 97(1)(a) requires a balance of probabilities for persecution risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Assessment of risk under section 97 must be individualized; credibility issues can affect both sections' evaluations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The respondent conceded the applicant could rely on section 97 if the arrest warrant was from secret service, but doubts remain.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court finds no patently unreasonable error and dismisses the application for judicial review.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

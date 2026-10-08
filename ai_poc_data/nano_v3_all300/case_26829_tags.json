@@ -1,0 +1,382 @@
+{
+ "case_id": 26829,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 52,
+ "tagged_count": 52,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 13608,
+  "completion_tokens": 3217,
+  "usd": 0.0026476
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the application",
+   "role": "procedural_history",
+   "explanation": "The paragraph states that this is a judicial review of a 2011 IRB decision rejecting the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts of the applicant's life and threats",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicant's experiences with gang violence and the Board's reasons for rejecting his refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Party position: applicant's arguments",
+   "role": "party_position",
+   "explanation": "The applicant argues the Board's credibility, nexus, and section 97 findings are flawed and reviewable errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position: respondent's argument",
+   "role": "party_position",
+   "explanation": "The respondent claims the Board's decision was reasonable and supported by the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Legal error and reasons for intervention",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's decision flawed regarding section 97 and one aspect of section 96, warranting review and setting aside.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Background facts: applicant's early life and gang threats",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's childhood, gang threats, and violent attacks in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Background facts: police response and suspicion",
+   "role": "background_facts",
+   "explanation": "The applicant and his parents reported the attack, but police did not pursue it and suspected gang ties.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Background facts: further threats and gang involvement",
+   "role": "background_facts",
+   "explanation": "The applicant learned about Carlos's threats and gang involvement, with police inaction and further threats from the gang.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Background facts: continued threats and police interactions",
+   "role": "background_facts",
+   "explanation": "The applicant was assaulted again, and police accused him of being associated with the gang, demanding money from his family.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Background facts: police threats and gang threats",
+   "role": "background_facts",
+   "explanation": "Carlos, now an MS member, threatened the applicant, and police sought him out, threatening to kill him.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Background facts: fleeing and asylum journey",
+   "role": "background_facts",
+   "explanation": "The applicant fled to the US and then Canada, avoiding police and gang threats, based on legal advice not to claim in the US.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Background facts: ongoing threats to family",
+   "role": "background_facts",
+   "explanation": "The applicant's family continues to be threatened and linked to the gang and police in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Background facts: evidence of gang and police corruption",
+   "role": "background_facts",
+   "explanation": "Evidence shows widespread gang presence and police corruption, affecting all Salvadorans, as noted by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Procedural history: credibility concerns",
+   "role": "procedural_history",
+   "explanation": "The Board identified credibility issues but accepted the applicant's version of events, not relying solely on credibility for its decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test: nexus and Convention grounds",
+   "role": "legal_test",
+   "explanation": "The Board found no nexus to Convention grounds and that police fears were not credible, applying legal standards for section 96.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test: section 97 and generalized risk",
+   "role": "legal_test",
+   "explanation": "The Board found the applicant faced a generalized risk, not a personalized one, under section 97, based on gang activity in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Standard of review: credibility and police treatment",
+   "role": "issue_framing",
+   "explanation": "The court agrees the reasonableness standard applies to credibility and police treatment findings, as they are factual determinations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Standard of review: section 97 interpretation",
+   "role": "issue_framing",
+   "explanation": "The court considers whether the standard of reasonableness or correctness applies to the interpretation of section 97, given its legal implications.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test: conflicting standards of review",
+   "role": "legal_test",
+   "explanation": "There is a split in case law on whether reasonableness or correctness applies to sections 96 and 97 interpretations by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Legal test: correctness standard in appeals",
+   "role": "legal_test",
+   "explanation": "The FCA often applies correctness to legal interpretations, especially on questions of law and constitutional issues, but not always.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Legal test: Supreme Court on standard of review",
+   "role": "legal_test",
+   "explanation": "The Supreme Court indicates reasonableness is usually standard, but correctness may apply for questions of central importance or law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Legal test: Dunsmuir framework",
+   "role": "legal_test",
+   "explanation": "Dunsmuir establishes that deference applies to statutory interpretation closely connected to the tribunal's function, correctness for central legal issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Legal test: Supreme Court on legal errors",
+   "role": "legal_test",
+   "explanation": "The Court reaffirmed that legal errors are generally reviewed on a correctness standard, especially for questions of law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Legal test: principles for standard of review",
+   "role": "legal_test",
+   "explanation": "The Court emphasizes the importance of context and the nature of the question in determining the standard of review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Legal test: balancing deference and correctness",
+   "role": "legal_test",
+   "explanation": "The Court discusses the tension between deference and correctness in questions of law, especially in human rights tribunals.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Legal test: interpretation of sections 96 and 97",
+   "role": "legal_test",
+   "explanation": "The interpretation of sections 96 and 97 may be reviewed on a correctness standard due to their legal significance and international treaty obligations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Analysis: scope of review for credibility and facts",
+   "role": "reasoning_application",
+   "explanation": "The court finds the credibility issues do not affect the outcome, so they do not justify intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Analysis: credibility findings and their relevance",
+   "role": "reasoning_application",
+   "explanation": "The Board's credibility findings are not central to the decision, so errors there are irrelevant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Analysis: factual error in police treatment",
+   "role": "reasoning_application",
+   "explanation": "The Board's conclusion about police conduct is unreasonable given the evidence of assaults and police misconduct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Analysis: police conduct and future risk",
+   "role": "reasoning_application",
+   "explanation": "The Board's characterization of police conduct is unreasonable because it ignores evidence of assaults and threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Analysis: need for further analysis of police risk",
+   "role": "reasoning_application",
+   "explanation": "The Board failed to analyze whether the applicant's fear of police justified protection, requiring remand.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 32,
+   "topic": "Analysis: police assaults and applicant's fear",
+   "role": "reasoning_application",
+   "explanation": "The Board's conclusion that police did not act inappropriately is contrary to evidence of assaults, making it unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Analysis: need for further section 96 analysis",
+   "role": "reasoning_application",
+   "explanation": "The Board's failure to analyze the police threat under section 96 warrants remand for proper assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Legal interpretation: section 97 and generalized risk",
+   "role": "legal_test",
+   "explanation": "The Board's reasoning that a personal risk can be generalized under section 97 is incorrect and unreasonable, as it undermines the section's purpose.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Legal provisions: section 97 of IRPA",
+   "role": "legal_test",
+   "explanation": "The paragraph reproduces the text of section 97, defining the criteria for a person in need of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Reasoning: interpretation of section 97",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's interpretation of section 97 to be both incorrect and unreasonable, as it conflates personal and generalized risks.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Background: recent case law on section 97",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses recent case law on the interpretation of generalized risk under section 97, noting different outcomes.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Background: case law on personal targeting",
+   "role": "background_facts",
+   "explanation": "The paragraph reviews cases where the Court overturned decisions where claimants were personally targeted, contrasting with cases where threats were generalized.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Background: contrasting case law outcomes",
+   "role": "background_facts",
+   "explanation": "The paragraph describes cases with different conclusions based on whether the claimant was personally targeted or faced generalized threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Background: analysis of risk under section 97",
+   "role": "background_facts",
+   "explanation": "The paragraph emphasizes the importance of accurately characterizing the nature of the risk faced by the claimant under section 97.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 41,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Describes the legal requirement to compare risks faced by the claimant to those faced by others in the country.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Provides a case example where the court found the Board mischaracterized the risk and emphasizes the need for personal risk assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 43,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Summarizes a case where the court found the Board minimized the threat and failed to recognize personal targeting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 44,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Details a case where the applicant was personally targeted after defying gang threats, showing the risk went beyond general threats.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 45,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Describes a case where the applicant was personally targeted due to his role in anti-gang efforts, increasing his risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 46,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Explains a case where the applicant was personally targeted after denouncing a gang member, showing individualized risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 47,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "Summarizes cases where individuals faced threats due to reporting crimes, with the court emphasizing personal targeting.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 48,
+   "topic": "background_facts",
+   "role": "party_position",
+   "explanation": "States that the Board failed to properly analyze the specific personal risk faced by the applicant, conflating it with general risk.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 49,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "States the reasonableness standard for judicial review and why the Board's decision was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 50,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the applicant faced a distinct, personal risk that was more severe than the general risk in El Salvador.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 51,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court sets aside the Board's decision and remits the claim for re-determination by a new panel.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 52,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "States that no question of certification is raised and summarizes the court's order granting judicial review.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

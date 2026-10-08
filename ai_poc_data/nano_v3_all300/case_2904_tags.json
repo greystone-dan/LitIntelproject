@@ -1,0 +1,151 @@
+{
+ "case_id": 2904,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 19,
+ "tagged_count": 19,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3439,
+  "completion_tokens": 1122,
+  "usd": 0.0007927
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes Pablo Baez's medical condition, his family, and their claim of fear of persecution in Argentina.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The CRDD found the claimants were not refugees because their fear was discrimination, not persecution, and they should have sought police protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph outlines the applicants' judicial review application and the specific errors they allege the CRDD made, with a note on the record basis.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph provides the definition of 'Convention refugee' from the Immigration Act, including criteria and exclusions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph states it is appropriate to consider the CRDD's conclusions within the context of the definition of a Convention refugee.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the requirement for a well-founded fear of persecution and the CRDD's finding that discrimination was not persecution, which the applicants dispute.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph reviews legal standards for persecution, noting the difficulty in distinguishing persecution from discrimination, and the standard of review for CRDD decisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Evidence assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph summarizes the evidence regarding Pablo's treatment in Argentina, noting the lack of specific discrimination evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Reasoning and application",
+   "role": "reasoning_application",
+   "explanation": "The paragraph concludes that the treatment Pablo received did not amount to persecution under the Convention definition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph states that persecution must be connected to a Convention ground, and this connection must be proven by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph notes the CRDD found no nexus between the fear and a Convention ground, and no challenge to that finding was made.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the requirement to assess whether the claimant can obtain state protection, which is part of the refugee definition.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the presumption that states can protect their citizens unless evidence shows otherwise, referencing a Supreme Court case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the applicants did not report concerns to police, claiming police were part of the problem, affecting the state protection assessment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law requiring claimants in democratic states to exhaust all avenues of protection before claiming inability to seek protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph clarifies that police misconduct does not eliminate the need to seek protection, and discrimination by police does not prove unwillingness of the state.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph states the CRDD's conclusion on state protection was based on evidence, and the applicants did not show it was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review based on the reasoning above.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph details procedural steps for questions of importance and the court's order, including signatures and filing instructions.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

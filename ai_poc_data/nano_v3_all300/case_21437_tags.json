@@ -1,0 +1,200 @@
+{
+ "case_id": 21437,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3818,
+  "completion_tokens": 1402,
+  "usd": 0.0009426
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the application for judicial review of a Board decision rejecting the refugee claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph states the applicant's nationality and previous refugee status determination by the Board.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Procedural history",
+   "role": "procedural_history",
+   "explanation": "It details the respondent's application to the Board to determine if the refugee status had ceased.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Party position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the Board's reasoning for finding refugee status ceased, based on the applicant's actions and explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "It states the sole issue of whether the Board erred in its determination about reavailment of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the absence of a specified standard of review and the Court's interpretation of the Board's consideration of explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It explains the Dunsmuir decision's impact on standards of review, focusing on reasonableness and correctness.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph quotes Dunsmuir regarding the standards of review, emphasizing the factors involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states the Court's finding that reasonableness is the appropriate standard for this case, based on the facts and expertise involved.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Issue framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph identifies the core legal issue concerning the interpretation of reavailment under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It reproduces the relevant statutory language regarding reavailment of protection under the Act.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the interpretation of reavailment in the context of the 1951 Convention and UNHCR guidance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It outlines the three requirements for reavailment as per the Convention and UNHCR guidance.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph highlights the presumption of intention to reavail when applying for a passport, with possible rebuttal.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It states that passport application creates a presumption of reavailment, which can be rebutted by evidence to the contrary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph notes the consistency of this interpretation with previous Court decisions.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It discusses a Court case where passport renewal indicated an intent to reavail, affecting refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites Hathaway on the importance of genuine intent behind reavailment actions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Legal test",
+   "role": "legal_test",
+   "explanation": "It emphasizes the need to analyze the applicant's motivation for passport renewal to determine reavailment intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Background facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the applicant's explanation for obtaining a Congolese passport and related circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court finds the applicant's possession of the passport when his Canadian document was stolen irrelevant to reavailment.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court criticizes the Board for failing to adequately justify why the applicant's explanation was insufficient.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Reasoning application",
+   "role": "reasoning_application",
+   "explanation": "The Court concludes the Board's implied reasoning about possession of the passport and refusal to return it was unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Disposition",
+   "role": "disposition",
+   "explanation": "The Court declares the Board's decision unreasonable and likely to be overturned.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "The paragraph states there is no certification of a question of general interest.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 55,
+   "topic": "Other",
+   "role": "other",
+   "explanation": "It discusses factors supporting deference and reasonableness in decision-making standards.",
+   "confidence": 0.8
+  }
+ ],
+ "status": "complete"
+}

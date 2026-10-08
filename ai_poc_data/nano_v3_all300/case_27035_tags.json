@@ -1,0 +1,200 @@
+{
+ "case_id": 27035,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 26,
+ "tagged_count": 26,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3683,
+  "completion_tokens": 1475,
+  "usd": 0.0009583
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "Procedural history of the refugee claim and Board decision",
+   "role": "procedural_history",
+   "explanation": "This paragraph describes the refugee claim, the Board's decision, and the basis for rejection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "Issue framing: reasonableness of the Board's decision",
+   "role": "issue_framing",
+   "explanation": "This paragraph states the Applicants seek to overturn the Board's decision as unreasonable and the Court's conclusion.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Legal requirement for proof of identity in refugee claims",
+   "role": "background_facts",
+   "explanation": "This paragraph explains the importance of identity proof and relevant legal provisions for refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Legal standard: burden of proof for identity documents",
+   "role": "legal_test",
+   "explanation": "This paragraph states the high burden on claimants to produce acceptable identity documentation.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "Legal standard: reasonableness review of Board decisions",
+   "role": "legal_test",
+   "explanation": "This paragraph explains the reasonableness standard for reviewing Board decisions based on Dunsmuir.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Evidence consideration: record of identity evidence",
+   "role": "reasoning_application",
+   "explanation": "This paragraph discusses the evidence record and the Court's approach to considering it.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Evidence categories considered by the Board",
+   "role": "reasoning_application",
+   "explanation": "This paragraph outlines the three categories of evidence the Board considered.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Primary document: false passport",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph states that a false passport cannot establish identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "Primary document: absence of RIC",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph notes the Principal Applicant's failure to provide her RIC, an important identity document.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Primary document: household register and forensic testing",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph discusses the inconclusive forensic test results and the altered document, leading to a conclusion about authenticity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "Primary document: birth certificate and forensic testing",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph reports inconclusive forensic results and the questionable nature of the birth certificate.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Burden of proof and forensic results",
+   "role": "reasoning_application",
+   "explanation": "This paragraph agrees that inconclusive forensic results do not prove fraud but emphasizes the burden on the Applicants.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Summary of primary document issues",
+   "role": "reasoning_application",
+   "explanation": "This paragraph summarizes the lack of reliable primary documents establishing identity.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "Secondary documents: additional evidence",
+   "role": "reasoning_application",
+   "explanation": "This paragraph discusses the secondary documents provided and their lack of security features.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Board's assessment of secondary documents",
+   "role": "reasoning_application",
+   "explanation": "This paragraph explains the Board's reasoning for giving little weight to secondary documents, citing fraud concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Board's conclusion on secondary documents",
+   "role": "reasoning_application",
+   "explanation": "This paragraph states the Board's reasonable conclusion to give secondary documents little weight.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Photograph evidence and citizenship",
+   "role": "reasoning_application",
+   "explanation": "This paragraph notes the Board's conclusion that a class photograph does not establish citizenship.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Viva voce evidence: witnesses",
+   "role": "reasoning_application",
+   "explanation": "This paragraph introduces the viva voce witnesses and their relevance to identity evidence.",
+   "confidence": 0.7
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Witness 1: secondary school friend",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph reports the Board's skepticism about the first witness's testimony due to implausibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Witness 2: cousin's lack of corroboration",
+   "role": "evidence_assessment",
+   "explanation": "This paragraph notes the second witness's inability to corroborate or provide documentary evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Assessment of witness testimony",
+   "role": "reasoning_application",
+   "explanation": "This paragraph states that the Board's conclusion to give little weight to witnesses was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Overall conclusion on identity evidence",
+   "role": "reasoning_application",
+   "explanation": "This paragraph concludes that the Applicants failed to establish their identities and the decision was reasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Applicants' request for declaration and order",
+   "role": "party_position",
+   "explanation": "This paragraph states the Applicants' request for a declaration and prohibition order if the decision is upheld.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Court's jurisdiction and scope of relief",
+   "role": "party_position",
+   "explanation": "This paragraph explains why the Court cannot grant the requested declaration or prohibition order.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Uncertainty about future removal actions",
+   "role": "party_position",
+   "explanation": "This paragraph notes the uncertainty regarding the actions of CBSA in removal proceedings.",
+   "confidence": 0.8
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Court's decision and certification",
+   "role": "disposition",
+   "explanation": "This paragraph states the Court's dismissal of the application and the decision not to certify a question.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

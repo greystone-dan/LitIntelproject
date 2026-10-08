@@ -1,0 +1,144 @@
+{
+ "case_id": 33231,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 18,
+ "tagged_count": 18,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 2677,
+  "completion_tokens": 1067,
+  "usd": 0.0006945
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The court introduces the case as an application for judicial review of a refugee protection decision by the IRB.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicants are Mexican citizens claiming persecution based on events involving Mr. Salazar from 1995 to 2005.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr. Salazar's 1995 arrest was allegedly fabricated, with no explanation for why he was targeted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr. Salazar was released after legal action and faced retaliation, prompting him to leave Mexico City and challenge his apprehension.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr. Salazar obtained protection from the Federal Court, which ordered authorities to cease prosecution efforts, leading to his vindication.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Mr. Salazar experienced ongoing harassment and received extortion letters, prompting his and his family's departure to Canada in 2005.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board was unsure if the conduct amounted to persecution but found the applicants failed to rebut available state protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board acknowledged systemic issues in Mexico but found the state was not wholly dysfunctional and evidence supported this.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board concluded the applicants did not make reasonable efforts to seek protection in Mexico, thus facing no persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The court considers the standard of review and whether the Board's decision contains reviewable errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The judge states that no error is identified in the Board's decision, so a detailed legal analysis is unnecessary.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's conclusion on state protection was reasonable and supported by evidence, and reweighing evidence is not the court's role.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court agrees the Board's conclusion that the applicants failed to pursue protection reasonably was reasonable and correct.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court emphasizes that even with systemic issues, claimants must take reasonable steps to access protection, absent compelling reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Mr. Salazar's failure to act despite previous success and suspicion of local police involvement was unreasonable, and local failure doesn't mean protection is unavailable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The Board's finding that Mr. Salazar's conduct was unreasonable was correct, as mere reluctance does not rebut the presumption of protection.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court cites authorities emphasizing the need to seek protection in the home state before claiming refugee status, especially in democratic countries.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court dismisses the application for judicial review, affirming the Board's decision as reasonable and correct.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

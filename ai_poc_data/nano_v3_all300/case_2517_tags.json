@@ -1,0 +1,186 @@
+{
+ "case_id": 2517,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 24,
+ "tagged_count": 24,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 3761,
+  "completion_tokens": 1341,
+  "usd": 0.0009125000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The paragraph describes the judicial review application and the decision under review by the Refugee Protection Division.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details the applicants' background, including their origin, reasons for fleeing, and fears of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph recounts the assassination of the female applicant's father, a political figure in Albania.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the male applicant's career pressures and subsequent relocation in Albania in 1974.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicants' transfers within Albania and their return to Tirana in 1990.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph discusses the male applicant's political involvement after the fall of communism and his employment at the university.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph reports threats received by the male applicant due to his political activities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph details mistreatment of the male applicant and his son's refugee status in Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph describes the rape of the female applicant's daughter and a shooting incident involving the male applicant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The paragraph explains the applicants' flight to Canada and their daughter's refugee status in France.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The paragraph summarizes the panel's findings on the applicants' credibility and inconsistencies in their testimony.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "issue_framing",
+   "role": "issue_framing",
+   "explanation": "The paragraph questions whether the panel's decision was patently unreasonable or made without considering all evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph states that the panel's decision is not patently unreasonable and dismisses the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph explains the standard of review for factual findings as patent unreasonableness and references relevant case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the panel's reasoning on the relevance of other family members' refugee claims and the burden of proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph cites case law dismissing the principle of family unity as a basis for refugee claims.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The paragraph concludes that the argument based on the refugee status of the applicants' children must fail.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph states that the panel considered all evidence and that the court should not interfere with its weighing of evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The paragraph emphasizes that the burden of proof lies with the applicants and the panel's discretion in evaluating evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "preferred evidence",
+   "role": "legal_test",
+   "explanation": "The paragraph discusses the panel's discretion in accepting documentary evidence and the legal standards for establishing fear of persecution.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "behavior of the applicants",
+   "role": "party_position",
+   "explanation": "The paragraph reviews the panel's consideration of the applicants' demeanor and behavior during testimony as credibility factors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "reasoning_application",
+   "explanation": "The paragraph explains that the panel's credibility assessment based on demeanor and testimony is within its discretion and not unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "conclusion",
+   "role": "disposition",
+   "explanation": "The paragraph states that the court finds no reason to interfere with the panel's fact-finding and dismisses the application.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The paragraph concludes the decision by dismissing the judicial review application due to lack of evidence of unreasonableness.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

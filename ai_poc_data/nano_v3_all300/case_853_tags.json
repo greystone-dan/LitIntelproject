@@ -1,0 +1,193 @@
+{
+ "case_id": 853,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 25,
+ "tagged_count": 25,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 4984,
+  "completion_tokens": 1509,
+  "usd": 0.0011020000000000001
+ },
+ "assessments": [
+  {
+   "paragraph_index": 1,
+   "topic": "procedural_history",
+   "role": "procedural_history",
+   "explanation": "The applicant seeks judicial review of the Board's decision from February 21, 2003, denying refugee status.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 2,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant is a Pakistani citizen claiming a well-founded fear of persecution based on political opinions, with identity being central.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant entered Canada using a false passport and provided different names, ultimately claiming Sohail Rasheed as his correct name.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant submitted various identity documents under the name Sohail Rasheed, including a photocopy of a Pakistani passport and a duplicate NIC.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 5,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "The applicant described political involvement in Karachi, supported by newspaper photos, party membership, and an arrest warrant.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board found the applicant lacked credibility and did not meet his burden of establishing identity, leading to rejection of his claim.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The Board dismissed the documentary evidence due to lack of explanation for misleading authorities, timing of NIC, ease of forging documents, and photocopy issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The standard of review for credibility is patent unreasonableness, with some courts suggesting review only if findings are patently unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 9,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The applicant argues foreign documents are generally admissible under Canadian law, citing Quebec Civil Code and Evidence Act provisions.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant claims the Board's improper rejection of identification papers is an error of law, warranting correctness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 11,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes that the identity determination should be reviewed on a reasonableness standard based on the pragmatic and functional approach.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "Questions of law are generally reviewed for correctness, but the identity issue involves a mixed question of fact and law, so reasonableness applies.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "The claimant must establish identity, and the Board must consider explanations for lack of documents and steps taken to obtain them, affecting credibility.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 14,
+   "topic": "legal_test",
+   "role": "legal_test",
+   "explanation": "Section 106 of the Act requires the Board to consider whether the claimant has acceptable documents or reasonable explanations for their absence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court finds the Board's identity determination should be reviewed on a reasonableness standard, consistent with prior case law.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "reasoning_application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the Board's reasons are unreasonable and the decision cannot stand after examining the hearing transcripts and evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "party_position",
+   "role": "party_position",
+   "explanation": "The applicant explained that he followed his agent\u2019s instructions to lie about his name due to fear and mistrust of authorities.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Lying about travel documents is considered peripheral and of limited value in assessing overall credibility, especially under duress.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "background_facts",
+   "role": "background_facts",
+   "explanation": "Despite initial lies, the applicant later provided multiple documents to establish his identity, which should be accepted unless doubted.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "Foreign identity documents are presumed valid unless evidence suggests otherwise, and the duplicate NIC should have been accepted as proof.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's rejection of the duplicate NIC was arbitrary; the document appears authentic and was verified as probably genuine.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's reasons for dismissing the duplicate NIC are capricious; recent evidence shows such NICs can be issued to family members with authorization.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's reasons for dismissing other documents are weak; the birth and school certificates appear to be issued by the Pakistani government.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "evidence_assessment",
+   "role": "evidence_assessment",
+   "explanation": "The Board's credibility finding is based solely on the initial lie, and its reasons are not sufficiently supported by the evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "disposition",
+   "role": "disposition",
+   "explanation": "The court grants the application, quashes the Board's decision, and remits the matter for redetermination by a different panel.",
+   "confidence": 0.9
+  }
+ ],
+ "status": "complete"
+}

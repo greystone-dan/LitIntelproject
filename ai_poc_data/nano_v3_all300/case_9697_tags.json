@@ -1,0 +1,263 @@
+{
+ "case_id": 9697,
+ "model": "gpt-4.1-nano",
+ "prompt_version": "tag_v3",
+ "run": "nano_v3_all300",
+ "paragraph_count": 35,
+ "tagged_count": 35,
+ "missing_paragraph_indices": [],
+ "errors": [],
+ "usage": {
+  "prompt_tokens": 7457,
+  "completion_tokens": 2483,
+  "usd": 0.0017389000000000003
+ },
+ "assessments": [
+  {
+   "paragraph_index": 2,
+   "topic": "Procedural fairness and unreasonable decision",
+   "role": "disposition",
+   "explanation": "The court grants the application, finds the decision unreasonable, and orders it to be redetermined, while dismissing procedural fairness concerns.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 3,
+   "topic": "Issues framed for review",
+   "role": "issue_framing",
+   "explanation": "The court identifies the issues of reasonableness of the decision and procedural fairness breach, and states the applicable standard of reasonableness review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 4,
+   "topic": "Court's conclusion on the application",
+   "role": "reasoning_application",
+   "explanation": "The court concludes the decision was unreasonable due to ignored evidence and lack of support, and dismisses procedural fairness issues.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 6,
+   "topic": "Details of the decision rationale",
+   "role": "party_position",
+   "explanation": "The officer checked one factor and identified other reasons for denial, citing Ms. Penez's qualifications and plans as reasons.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 7,
+   "topic": "Further reasons from GCMS notes",
+   "role": "party_position",
+   "explanation": "GCMS notes reveal the officer's belief that Ms. Penez's purpose was unreasonable based on her employment history and academic choices.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 8,
+   "topic": "Ms. Penez's motivation letters",
+   "role": "background_facts",
+   "explanation": "Ms. Penez expressed her intent to study in Canada and return to Turkey in her motivation letters, supporting her genuine intent.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 10,
+   "topic": "Burden of proof on applicants",
+   "role": "legal_test",
+   "explanation": "The law states that applicants must prove they will leave Canada, and decisions are based on reasonable findings of fact.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 12,
+   "topic": "Reasonableness review criteria",
+   "role": "legal_test",
+   "explanation": "Reasonableness review assesses justification, transparency, and whether the decision falls within an acceptable range based on evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 13,
+   "topic": "Procedural fairness standard",
+   "role": "legal_test",
+   "explanation": "Procedural fairness is reviewed for correctness, focusing on whether the process was fair given the circumstances.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 15,
+   "topic": "Court's disagreement with Minister",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees with the Minister, indicating the decision was unreasonable and warrants intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 16,
+   "topic": "Deference to visa officers' decisions",
+   "role": "reasoning_application",
+   "explanation": "The court recognizes the discretion and expertise of visa officers but emphasizes decisions must be reasonable and not irrational.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 17,
+   "topic": "Detecting irrationality in decisions",
+   "role": "reasoning_application",
+   "explanation": "The court finds the officer's decision irrational due to lack of acceptable basis and logical reasoning, warranting intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 18,
+   "topic": "Reasons must be comprehensible",
+   "role": "reasoning_application",
+   "explanation": "The court states reasons must be understandable and supportable by evidence, which was lacking here.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 19,
+   "topic": "Decision was outside acceptable range",
+   "role": "reasoning_application",
+   "explanation": "The court finds the decision was arbitrary and outside the range of reasonable outcomes due to multiple errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 20,
+   "topic": "Unreasonableness of the decision based on evidence",
+   "role": "reasoning_application",
+   "explanation": "The officer's conclusion about Ms. Penez's genuineness was illogical given her academic background and employment history.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 21,
+   "topic": "Inconsistency in the decision regarding her studies",
+   "role": "reasoning_application",
+   "explanation": "The decision was unreasonable because her academic history aligned with her proposed studies, contradicting the officer's reasoning.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 22,
+   "topic": "Failure to consider her stated intentions",
+   "role": "reasoning_application",
+   "explanation": "The officer failed to properly consider Ms. Penez's expressed intent to return to Turkey, making the decision unreasonable.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 23,
+   "topic": "Lack of evidence supporting the refusal reasons",
+   "role": "evidence_assessment",
+   "explanation": "There was no evidence to support the reasons given for refusal, and the officer ignored evidence showing she would leave Canada.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 24,
+   "topic": "Failure to consider contradictory evidence",
+   "role": "evidence_assessment",
+   "explanation": "The officer's failure to address explicit evidence of her intent to leave indicates a disregard of material evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 25,
+   "topic": "Overlooking material evidence",
+   "role": "evidence_assessment",
+   "explanation": "The decision overlooked key evidence contradicting the reasons for refusal, which is grounds for intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 26,
+   "topic": "Obligation to address contradictory evidence",
+   "role": "reasoning_application",
+   "explanation": "The officer was obliged to discuss the evidence of her intent to leave but failed to do so.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 27,
+   "topic": "Lack of evidence for 'other reasons'",
+   "role": "evidence_assessment",
+   "explanation": "There was no evidence supporting the officer's additional reasons for denial related to her educational level and prospects.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 28,
+   "topic": "Legal standard on evidence and findings",
+   "role": "legal_test",
+   "explanation": "Decisions based on no evidence violate legal standards and can be overturned on review.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 29,
+   "topic": "Decision outside the range of reasonableness",
+   "role": "reasoning_application",
+   "explanation": "The court finds the decision was outside the range of acceptable outcomes due to multiple errors.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 30,
+   "topic": "Reasons must be comprehensible",
+   "role": "reasoning_application",
+   "explanation": "Reasons must be understandable and supportable; the officer's reasons here were not, leading to intervention.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 31,
+   "topic": "Reasons are incomprehensible and arbitrary",
+   "role": "reasoning_application",
+   "explanation": "The reasons are incomprehensible and arbitrary, showing unreasonableness and warranting overturning the decision.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 33,
+   "topic": "Applicant's argument on procedural fairness",
+   "role": "party_position",
+   "explanation": "Ms. Penez argues the officer should have provided a fairness letter to respond to concerns, which she claims would have helped her.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 34,
+   "topic": "Court's view on procedural fairness argument",
+   "role": "reasoning_application",
+   "explanation": "The court disagrees with Ms. Penez, indicating no obligation to provide a fairness letter in this context.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 35,
+   "topic": "Onus on applicants for application completeness",
+   "role": "legal_test",
+   "explanation": "The law states applicants must provide convincing applications; officers are not required to seek additional explanations.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 36,
+   "topic": "Scope of procedural fairness",
+   "role": "legal_test",
+   "explanation": "Procedural fairness depends on context; applicants for study permits have a low level of fairness owed, which is relaxed.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 37,
+   "topic": "Officers' obligations regarding explanations",
+   "role": "legal_test",
+   "explanation": "Visa officers are not required to seek explanations or provide fairness letters; applicants must supply all necessary info.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 38,
+   "topic": "Applicant's responsibility to satisfy the officer",
+   "role": "legal_test",
+   "explanation": "Ms. Penez was responsible for providing evidence to satisfy the officer she would leave, not for the officer to seek it out.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 39,
+   "topic": "Case law on procedural fairness",
+   "role": "party_position",
+   "explanation": "Case law cited by Ms. Penez is not relevant to study permits and is fact-specific, with distinctions from this case.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 40,
+   "topic": "Decision not required to be detailed",
+   "role": "reasoning_application",
+   "explanation": "The officer was not required to provide detailed reasons or conduct an interview; the decision must be reasonable and supported by evidence.",
+   "confidence": 0.9
+  },
+  {
+   "paragraph_index": 42,
+   "topic": "Certification of questions for appeal",
+   "role": "other",
+   "explanation": "Neither party proposed a question of importance; the court agrees there is none to certify.",
+   "confidence": 0.7
+  }
+ ],
+ "status": "complete"
+}

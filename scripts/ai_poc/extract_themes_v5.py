@@ -30,7 +30,7 @@ for entry in (PROJECT_ROOT, PROJECT_ROOT / "scripts" / "ai_poc"):
 from common import PRICES, SpendLedger, call_json, cost_usd, make_client  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
-PROMPT_VERSION = "themes_v5b"  # v5 + smaller chunks, uncovered-paragraph pass, left_open relabel, applicant rule
+PROMPT_VERSION = "themes_v5c"  # v5b + rebuttal / left_open rules with an "answers" link to the party sentence
 META: dict[int, dict] = {}
 CHUNK_TRIGGER = 14  # an issue range longer than this many paragraphs is split (v5 used 25)
 CHUNK = 10  # paragraphs per call when split (v5 used 20)
@@ -143,7 +143,7 @@ EXAMPLE = (
 	"6.1 I need not decide whether the officer used the wrong version of the Guidelines.\n6.2 The result would be the same.\n"
 	"Rows: "
 	"{kind party_argument, by applicant, text 'The officer ignored his brother's letter', result rejected, evidence [3.1]}; "
-	"{kind rebuttal, by court, text 'The letter was short and repeated his affidavit', result none, evidence [4.2]}; "
+	"{kind rebuttal, by court, text 'The letter was short and repeated his affidavit', result none, evidence [4.2], answers '3.1'}; "
 	"{kind party_argument, by applicant, text 'He was not told about the officer's concerns', result partly_accepted, note 'right that they should have been raised, but harmless', evidence [3.2]}; "
 	"{kind court_holding, by court, text 'The failure to raise the concerns did not matter because he answered them later', result none, evidence [5.2]}; "
 	"{kind left_open, by court, text 'Whether the wrong version of the Guidelines was used', result not_decided, note 'the result would be the same', evidence [6.1, 6.2]}.\n"
@@ -191,19 +191,24 @@ SYSTEM_ISSUE = (
 	"rebuttal = the Court answering one specific party point (one row per point). authority = a case or provision the Court relies on; text says how it is treated (followed, applied, distinguished, rejected) and why. "
 	"left_open = an issue the Court does not decide or assumes without deciding. remedy = the order, costs, certified question. "
 	"party_gap = something a party failed to do or file that the Court relies on. background_fact = a fact about the claimant that the Court treats as important to the result.\n"
+	"REBUTTAL vs COURT_HOLDING. Use rebuttal (not court_holding) for every sentence where the Court responds to something a party or the decision below said: 'I disagree', 'I am not persuaded', 'I cannot accept', 'does not assist', 'without merit', 'the Minister has not persuaded me', 'fails because'. "
+	"For a rebuttal, set answers to the id of the sentence in this text where that party point is made (a party_argument row's evidence id), or an empty string if the point is not in this text. For all other rows answers is an empty string. "
+	"Use court_holding only for the Court's own final answer on an issue, with no party point being answered. "
+	"LEFT_OPEN. Use left_open (not court_holding) whenever the Court says it does not decide, need not decide, does not have to decide, assumes without deciding, declines to consider, or leaves something for the decision-maker or another day; put the reason in note.\n"
 	"Give one row for each separate point, reason or step; do not merge them. Include every row type that the text contains, and no row the text does not support. "
 	"If the part states a rule and then applies it to several findings, give one legal_test row and one row for each application.\n"
 	+ EXAMPLE
 )
 SCHEMA_ROWS = {
 	"type": "object", "additionalProperties": False, "required": ["rows"],
-	"properties": {"rows": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["kind", "by", "text", "result", "note", "evidence"], "properties": {
+	"properties": {"rows": {"type": "array", "items": {"type": "object", "additionalProperties": False, "required": ["kind", "by", "text", "result", "note", "evidence", "answers"], "properties": {
 		"kind": {"type": "string", "enum": KINDS},
 		"by": {"type": "string", "enum": ["applicant", "respondent", "tribunal_below", "intervener", "court"]},
 		"text": {"type": "string"},
 		"result": {"type": "string", "enum": ["accepted", "partly_accepted", "rejected", "not_decided", "none"]},
 		"note": {"type": "string"},
-		"evidence": {"type": "array", "items": {"type": "string"}}}}}},
+		"evidence": {"type": "array", "items": {"type": "string"}},
+		"answers": {"type": "string"}}}}},
 }
 SYSTEM_REPAIR = (
 	"Some rows from an extraction have no valid evidence ids. For each row, choose 1 or 2 sentence ids from the candidate sentences that best support the row's text. "
@@ -265,7 +270,9 @@ def build_result(map_result: dict, rows: list[dict], table: dict[str, dict]) -> 
 			result["arguments"].append({**common, "made_by": by if by != "court" else "tribunal_below", "claim": row["text"], "treatment": row["result"] if row["result"] != "none" else "accepted",
 				"outcome_note": row["note"], "kind": kind})
 		elif kind == "rebuttal":
-			result["rebuttals"].append({**common, "point": "", "made_by": by, "court_answer": row["text"]})
+			ans = row.get("answers", "")
+			result["rebuttals"].append({**common, "point": "", "made_by": by, "court_answer": row["text"],
+				"answers_evidence_id": ans if ans in table else "", "answers_paragraph": table[ans]["para"] if ans in table else None})
 		elif kind == "authority":
 			result["authorities"].append({**common, "authority": row["text"], "treatment": "", "why": row["note"]})
 		elif kind == "left_open":

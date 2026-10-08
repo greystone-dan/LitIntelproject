@@ -1,0 +1,328 @@
+{
+ "case_id": 1046,
+ "model": "gpt-4.1",
+ "prompt_version": "themes_v3",
+ "run": "themes_loop_r2",
+ "usage": {
+  "prompt_tokens": 4999,
+  "completion_tokens": 1416,
+  "usd": 0.021325999999999998
+ },
+ "issue_map": null,
+ "verification": {
+  "items": 16,
+  "quote_exact_in_cited": 15,
+  "quote_loose_in_cited": 1,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 1,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 4,
+   "holdings": 6,
+   "rebuttals": 2,
+   "authorities": 2,
+   "left_open": 2
+  },
+  "paragraph_coverage": 0.571
+ },
+ "result": {
+  "overall": "The Court allowed the Minister's application for judicial review, finding the Board member erred in granting an extension of time to appeal without sufficient reasons or evidence, and remitted the matter for redetermination by a different member.",
+  "themes": [
+   {
+    "name": "Extension of Time Criteria",
+    "summary": "The Court emphasized that extensions of time to appeal are not automatic and must be based on established criteria, including explanation for delay and prejudice to the other party.",
+    "paragraphs": [
+     7,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Procedural Fairness and Evidence",
+    "summary": "The Court found the Board failed to address inconsistencies and lacked evidentiary support for the respondent's reasons for delay, undermining the fairness and reasonableness of the decision.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Standard of Review",
+    "summary": "The Court noted the standard of review for discretionary decisions but found the decision unreasonable on any standard, so did not decide the precise standard.",
+    "paragraphs": [
+     4
+    ]
+   },
+   {
+    "name": "Prejudice and Finality",
+    "summary": "The Court highlighted the prejudice to the Minister and the importance of finality and consistency in administrative processes when considering late appeals.",
+    "paragraphs": [
+     16,
+     17,
+     18,
+     19
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Minister alleges that the member designate of the Board erred in granting (a) an extension of time and (b) leave to appeal.",
+    "paragraphs": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The Board member erred in granting an extension of time and leave to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "The Court agreed the extension of time was granted in error and allowed the application.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "the Applicant submits that, in spite of this discretionary nature of the decision, I should apply a standard of review of reasonableness simpliciter",
+    "paragraphs": [
+     4
+    ],
+    "made_by": "applicant",
+    "claim": "The standard of review should be reasonableness simpliciter.",
+    "treatment": "not_decided",
+    "outcome_note": "The Court did not decide the standard as the decision was unreasonable on any standard.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Callihoo v. Canada",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "the Respondent provided very little rationale for bringing her leave application so late",
+    "paragraphs": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The respondent provided sufficient reasons for delay in her application for extension of time.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found the reasons unsupported by evidence and patently unreasonable.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "the record discloses no evidence whatsoever on the question of prejudice to the Minister",
+    "paragraphs": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There was no prejudice to the Minister in granting the extension of time.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found no evidence of consideration of prejudice and held this was an error.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "the member erred in extending the time for bringing the appeal",
+    "paragraphs": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The Board member erred in granting an extension of time for appeal.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3,
+     18
+    ]
+   },
+   {
+    "quote": "the decision under review will be set aside and the matter referred back to the Board for re-determination, having regard to these reasons, by a different member of the Board",
+    "paragraphs": [
+     19
+    ],
+    "kind": "remedy",
+    "statement": "The decision is set aside and remitted to a different Board member for redetermination.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "the member designated to consider the application for the extension of time should satisfy himself that: ...",
+    "paragraphs": [
+     19
+    ],
+    "kind": "legal_test",
+    "statement": "The Board must consider: (1) continuing intention to appeal, (2) arguable case, (3) reasonable explanation for delay, (4) no prejudice to the Minister.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "it would not be up to this Court to re-weigh the evidence",
+    "paragraphs": [
+     10
+    ],
+    "kind": "other",
+    "statement": "The Court will not reweigh evidence if the record shows a reasonable evidentiary basis for the Board's decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "I am prepared to assume, without deciding, that the first two criteria have been met",
+    "paragraphs": [
+     11
+    ],
+    "kind": "court_declined_to_decide",
+    "statement": "The Court assumes, without deciding, that the respondent had a continuing intention to appeal and an arguable case.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "I decline to award costs in this application",
+    "paragraphs": [
+     21
+    ],
+    "kind": "remedy",
+    "statement": "No costs awarded.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "her reasons do not hold up to scrutiny",
+    "paragraphs": [
+     14,
+     15
+    ],
+    "point": "The respondent provided sufficient reasons for delay in her application for extension of time.",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court found the respondent's reasons unsupported by evidence and inconsistent with the record.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "the record discloses no evidence whatsoever on the question of prejudice to the Minister",
+    "paragraphs": [
+     16
+    ],
+    "point": "There was no prejudice to the Minister in granting the extension of time.",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court found no evidence that prejudice was considered and held this was an error.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Callihoo v. Canada, [2000] F.C.J. No. 612 (T.D.)",
+    "paragraphs": [
+     4
+    ],
+    "authority": "Callihoo v. Canada",
+    "treatment": "mentioned",
+    "why": "Cited by the applicant regarding standard of review, but the Court did not decide the standard.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "Grewal v. Canada (Minister of Employment and Immigration), [1985] 2 F.C. 263 (F.C.A.); Baksa v. Neis (c.o.b. Brookside Transport), [2002] F.C.J. No. 832",
+    "paragraphs": [
+     9
+    ],
+    "authority": "Grewal v. Canada; Baksa v. Neis",
+    "treatment": "applied",
+    "why": "The Court applied the four-factor test for extension of time from these cases.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "I am prepared to assume, without deciding, that the first two criteria have been met",
+    "paragraphs": [
+     11
+    ],
+    "issue": "Whether the respondent had a continuing intention to appeal and an arguable case.",
+    "reason": "The Court assumed these criteria were met and decided the case on the other two factors.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "I do not need to reach a conclusion on the appropriate standard since I am satisfied that, on any standard of review, the decision should not stand.",
+    "paragraphs": [
+     4
+    ],
+    "issue": "The appropriate standard of review for the Board's decision.",
+    "reason": "The Court found the decision unreasonable on any standard and did not decide the issue.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   }
+  ]
+ }
+}

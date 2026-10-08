@@ -1,0 +1,429 @@
+{
+ "case_id": 1147,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v3",
+ "run": "themes_loop_r2",
+ "usage": {
+  "prompt_tokens": 8283,
+  "completion_tokens": 1950,
+  "usd": 0.0064332
+ },
+ "issue_map": null,
+ "verification": {
+  "items": 23,
+  "quote_exact_in_cited": 12,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 11,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 2,
+   "arguments": 5,
+   "holdings": 8,
+   "rebuttals": 5,
+   "authorities": 5,
+   "left_open": 0
+  },
+  "paragraph_coverage": 0.674
+ },
+ "result": {
+  "overall": "The Court dismissed the judicial review application, finding the Refugee Appeal Division's decision reasonable on the internal flight alternative and no breach of procedural fairness by the Refugee Protection Division.",
+  "themes": [
+   {
+    "name": "Internal Flight Alternative (IFA) Analysis",
+    "summary": "The Court examined the reasonableness of the RAD's two-prong test application regarding the viability and reasonableness of the IFA in Cap-Ha\u00eftien for the claimant.",
+    "paragraphs": [
+     2,
+     3,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37
+    ]
+   },
+   {
+    "name": "Procedural Fairness",
+    "summary": "The Court considered whether the RPD breached procedural fairness by not warning the claimant at the outset of the hearing that an IFA would be raised, and whether the claimant had a reasonable opportunity to respond.",
+    "paragraphs": [
+     2,
+     3,
+     7,
+     8,
+     9,
+     10,
+     38,
+     39,
+     40,
+     41,
+     42
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "Ms. Ambroise alleges that the RAD erred in its analysis of the two-prong IFA test",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD failed to recognize lack of state protection and unreasonableness of IFA due to risk of sexual violence and employment issues",
+    "treatment": "rejected",
+    "outcome_note": "The Court found the RAD's analysis reasonable and did not require state protection analysis when no serious possibility of persecution was found",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ]
+   },
+   {
+    "quote": "Ms. Ambroise argues that the RAD\u2019s decision breached procedural fairness because the RPD member failed to state at the outset of the hearing that an IFA would be raised",
+    "paragraphs": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "Failure to warn about IFA at hearing outset breached procedural fairness",
+    "treatment": "rejected",
+    "outcome_note": "The Court found no breach as the IFA was raised during the hearing and the claimant had opportunity to respond",
+    "changed_result": false,
+    "gap": "Did not request leave to present further evidence or submissions after hearing",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "The RAD rejected the refugee protection claim because it determined that Ms. Ambroise had an internal flight alternative (IFA) in Cap-Ha\u00eftien",
+    "paragraphs": [
+     1,
+     16,
+     17
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There is a viable IFA in Cap-Ha\u00eftien where claimant's family lives, and no serious possibility of persecution there",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "The RAD concluded that a refugee protection claim cannot be based solely on reports of the situation in the country",
+    "paragraphs": [
+     18,
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Country reports alone do not establish serious possibility of persecution; personal circumstances must be considered",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "The RPD did not raise the IFA at the outset of the hearing but raised it towards the end",
+    "paragraphs": [
+     38,
+     39
+    ],
+    "made_by": "tribunal_below",
+    "claim": "RPD failed to warn claimant at hearing outset about IFA",
+    "treatment": "accepted",
+    "outcome_note": "The Court found this did not breach procedural fairness as claimant had opportunity to respond",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I am of the opinion that the RAD\u2019s decision is reasonable",
+    "paragraphs": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's analysis of the IFA and conclusion that there was no serious possibility of persecution was reasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "It was reasonable for the RAD to conclude that Ms. Ambroise failed to meet the high threshold for establishing that the identified IFA is unreasonable",
+    "paragraphs": [
+     3,
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant did not establish that relocating to Cap-Ha\u00eftien would be unreasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "There was no breach of procedural fairness",
+    "paragraphs": [
+     3,
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "Although the IFA was not raised at the outset, the claimant had a reasonable opportunity to respond, so procedural fairness was not breached.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ]
+   },
+   {
+    "quote": "The standard of review for the RAD\u2019s IFA determination is reasonableness",
+    "paragraphs": [
+     6
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness review requires the decision to be justified, transparent, and intelligible based on the evidence and submissions.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "The standard of review for procedural fairness issues is correctness",
+    "paragraphs": [
+     7,
+     9,
+     10
+    ],
+    "kind": "legal_test",
+    "statement": "Procedural fairness issues are reviewed on a correctness standard, assessing whether fairness was met.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "The concept of an IFA requires that a claimant seek safety within their own country if possible",
+    "paragraphs": [
+     11,
+     12,
+     13
+    ],
+    "kind": "legal_test",
+    "statement": "A claimant must show a serious possibility of persecution or danger in the IFA and that it would be unreasonable to relocate there to rebut the IFA.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "The duty of procedural fairness is met if the applicant has the opportunity to adequately respond to the possibility of an IFA",
+    "paragraphs": [
+     41,
+     42
+    ],
+    "kind": "legal_test",
+    "statement": "IFA need not be raised at the outset if the claimant can respond adequately when it is raised during the hearing.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ]
+   },
+   {
+    "quote": "The application for judicial review is dismissed",
+    "paragraphs": [
+     4,
+     43
+    ],
+    "kind": "remedy",
+    "statement": "The Court dismissed the application for judicial review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4,
+     43
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "Ms. Ambroise argues that the RAD erred by failing to analyze the lack of state protection in Haiti",
+    "paragraphs": [
+     20
+    ],
+    "point": "RAD failed to analyze state protection",
+    "made_by": "applicant",
+    "court_answer": "The RAD was not required to analyze state protection because it found no serious possibility of persecution.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "Ms. Ambroise argues that the RAD\u2019s decision is unreasonable given the evidence of conditions in Haiti",
+    "paragraphs": [
+     24,
+     30
+    ],
+    "point": "RAD's decision unreasonable given evidence of sexual violence and criminal impunity",
+    "made_by": "applicant",
+    "court_answer": "The Court found the RAD's brief analysis reasonable and declined to reweigh evidence or substitute its own conclusions.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "Ms. Ambroise disputes the RAD\u2019s conclusion that her attackers did not have the ability or interest to find her in Cap-Ha\u00eftien",
+    "paragraphs": [
+     32
+    ],
+    "point": "RAD erred in concluding attackers would not pursue claimant in IFA",
+    "made_by": "applicant",
+    "court_answer": "Unlike Dominguez Bando, there was no evidence attackers pursued claimant elsewhere; RAD's conclusion was reasonable.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "Ms. Ambroise argues that the RAD\u2019s conclusion that the IFA is reasonable despite employment difficulties is unreasonable",
+    "paragraphs": [
+     36
+    ],
+    "point": "Employment difficulties make IFA unreasonable",
+    "made_by": "applicant",
+    "court_answer": "The Court held that lack of employment alone rarely makes an IFA unreasonable and the RAD's conclusion was reasonable.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   },
+   {
+    "quote": "Ms. Ambroise argues that the IFA must be raised at the outset of the hearing",
+    "paragraphs": [
+     38,
+     40
+    ],
+    "point": "IFA must be raised at hearing outset for procedural fairness",
+    "made_by": "applicant",
+    "court_answer": "The Court held that procedural fairness does not require IFA to be raised at outset if claimant can respond adequately when raised later.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": []
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "paragraphs": [
+     6
+    ],
+    "authority": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65",
+    "treatment": "followed",
+    "why": "Established the reasonableness standard for administrative decisions.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ]
+   },
+   {
+    "quote": "Alkhoury v Canada (Citizenship and Immigration), 2020 FC 153",
+    "paragraphs": [
+     7,
+     41
+    ],
+    "authority": "Alkhoury v Canada (Citizenship and Immigration), 2020 FC 153",
+    "treatment": "followed",
+    "why": "Confirmed correctness standard applies to procedural fairness and that opportunity to respond satisfies fairness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), [1994] 1 FC 589 (CA)",
+    "paragraphs": [
+     11,
+     13,
+     39
+    ],
+    "authority": "Thirunavukkarasu v Canada (Minister of Employment and Immigration), [1994] 1 FC 589 (CA)",
+    "treatment": "followed",
+    "why": "Defined the IFA test and the requirement to warn claimants about IFA.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "Canada (Attorney General) v Ward, [1993] 2 SCR 689",
+    "paragraphs": [
+     20,
+     21
+    ],
+    "authority": "Canada (Attorney General) v Ward, [1993] 2 SCR 689",
+    "treatment": "followed",
+    "why": "Clarified the role of state protection in assessing well-founded fear of persecution.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "Velasquez v Canada (Citizenship and Immigration), 2010 FC 1201",
+    "paragraphs": [
+     20,
+     22
+    ],
+    "authority": "Velasquez v Canada (Citizenship and Immigration), 2010 FC 1201",
+    "treatment": "followed",
+    "why": "Confirmed state protection analysis is not mandatory if no serious possibility of persecution is found.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11,
+     20
+    ]
+   }
+  ],
+  "left_open": []
+ }
+}

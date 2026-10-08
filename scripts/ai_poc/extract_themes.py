@@ -144,8 +144,9 @@ def main() -> int:
 	parser.add_argument("--out-dir", type=Path, required=True)
 	parser.add_argument("--ledger", type=Path, required=True)
 	parser.add_argument("--send", action="store_true")
+	parser.add_argument("--cap-usd", type=float, default=None, help="Stop when the ledger total would pass this (the ledger already holds earlier spend)")
 	args = parser.parse_args()
-	ledger = SpendLedger(args.ledger)
+	ledger = SpendLedger(args.ledger, args.cap_usd) if args.cap_usd else SpendLedger(args.ledger)
 	client = make_client() if args.send else None
 	args.out_dir.mkdir(parents=True, exist_ok=True)
 	for case_id in [int(x) for x in args.cases.split(",")]:

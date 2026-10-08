@@ -1,0 +1,375 @@
+{
+ "case_id": 27234,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.004854000000000001
+ },
+ "verification": {
+  "points": 22,
+  "calls": 5,
+  "answered": 3,
+  "points_returned": 22,
+  "answer_ids_dropped": 43
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The applicants seek to set aside the decision rejecting their request for permanent residence on humanitarian and compassionate grounds.",
+   "party_ids": [
+    "1.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicants seek to set aside the decision rejecting their H&C permanent residence request."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The applicants applied for permanent residence on humanitarian and compassionate grounds, citing their establishment in Canada, Mr. Sebbe's work, community involvement, and risks in Brazil including threats and crime.",
+   "party_ids": [
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court recounts the applicants' H&C application and their cited factors as stated by the applicants themselves."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The Pre-Removal Risk Assessment was rejected as the applicants did not rebut the finding that state protection was available in Brazil.",
+   "party_ids": [
+    "6.1",
+    "6.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The tribunal below rejected the PRRA because the applicants did not rebut the finding that state protection was available."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The humanitarian and compassionate application was refused because the applicants' establishment in Canada would not lead to unusual and undeserved or disproportionate hardship if they returned to Brazil.",
+   "party_ids": [
+    "7.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The tribunal refused the H&C application on the basis that the applicants' establishment would not cause unusual or disproportionate hardship."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "Conditions in Brazil would not cause hardship amounting to unusual and undeserved or disproportionate hardship for the applicants or their daughter Leticia.",
+   "party_ids": [
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The tribunal found conditions in Brazil would not cause unusual or disproportionate hardship for the applicants or Leticia."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The applicants' seven-year stay and establishment in Canada were noted, but their establishment was not exceptional and did not justify an exemption on humanitarian and compassionate grounds.",
+   "party_ids": [
+    "8.1",
+    "8.2",
+    "8.3",
+    "8.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The tribunal noted the applicants' stay and establishment but found it was not exceptional to justify H&C exemption."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The applicants have no family in Canada but have many family members in Brazil who could help them re-establish themselves.",
+   "party_ids": [
+    "9.1",
+    "9.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The tribunal noted the applicants have no family in Canada but many in Brazil who could help them re-establish."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The hardship of relocating to Brazil was not unusual, undeserved, or disproportionate and did not warrant a humanitarian and compassionate exemption.",
+   "party_ids": [
+    "9.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the tribunal's finding that the hardship of relocating to Brazil was not unusual or disproportionate."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "Leticia would have better opportunities in Canada but there was no evidence her basic needs would not be met in Brazil, where she has family support.",
+   "party_ids": [
+    "10.1",
+    "10.2",
+    "10.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that Leticia would have better opportunities in Canada but no evidence showed her basic needs wouldn't be met in Brazil where she has family support."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "Resettling in Brazil would not cause Leticia unusual and undeserved or disproportionate hardship.",
+   "party_ids": [
+    "10.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that resettling in Brazil would not cause Leticia unusual or disproportionate hardship."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The applicants' claim of risk due to being perceived as wealthy was unsupported by evidence.",
+   "party_ids": [
+    "11.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that the claim of risk due to being perceived as wealthy was unsupported by evidence."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The applicants' claims of hardship from kidnapping, extortion, and unemployment were found to be general problems faced by all Brazilians.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that claims of hardship from kidnapping, extortion, and unemployment were general problems faced by all Brazilians."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "Brazil is a democracy with free and fair elections, an independent judiciary, and mechanisms to address human rights violations.",
+   "party_ids": [
+    "11.3",
+    "11.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that Brazil is a democracy with free elections, independent judiciary, and mechanisms to address human rights violations."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "Although Brazil has crime problems, the government is making efforts to protect citizens, and any risk faced by the applicants is general and does not amount to unusual and undeserved or disproportionate hardship.",
+   "party_ids": [
+    "11.5",
+    "11.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the tribunal's finding that Brazil has crime problems but the government is making efforts and the risk is general, not unusual hardship."
+  },
+  {
+   "pid": "P15",
+   "party_by": "respondent",
+   "party_text": "The applicants provided little evidence and made few submissions as to the best interests of their daughter.",
+   "party_ids": [
+    "13.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees with the respondent that the applicants provided little evidence and few submissions about their daughter's best interests."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The Officer found that the applicant\u2019s daughter, a Canadian-born child, would not be returning to a country without social or family support and that the applicant had not established that relocating to Brazil would cause significant negative impact amounting to unusual and undeserved or disproportionate hardship.",
+   "party_ids": [
+    "14.1",
+    "14.2",
+    "14.3",
+    "14.4",
+    "14.5",
+    "14.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the tribunal's finding that the daughter would not be without social or family support and no unusual hardship was established."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "The Officer improperly used a criterion that a child\u2019s best interest lies with staying in Canada only when the alternative country fails to meet the child\u2019s basic amenities.",
+   "party_ids": [
+    "15.1",
+    "15.2",
+    "15.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the Officer improperly used a criterion about basic amenities as a test for the child's best interests."
+  },
+  {
+   "pid": "P18",
+   "party_by": "respondent",
+   "party_text": "It is not a reviewable error merely to use hardship language with respect to children.",
+   "party_ids": [
+    "17.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that using hardship language regarding children is not a reviewable error."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "The Officer found that Leticia\u2019s basic needs will be met and there would not be significant negative impact amounting to unusual and undeserved or disproportionate hardship.",
+   "party_ids": [
+    "18.1",
+    "18.2",
+    "18.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Officer's finding that Leticia's basic needs will be met and no significant unusual hardship exists."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The Officer assessed the risk to the applicants by stating that the crime risk in Brazil is faced generally by the population.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "20.2"
+   ],
+   "answer_paragraphs": [
+    20
+   ],
+   "answer_quote": "This analysis may be appropriate when looking at returning the two adult applicants to their country of origin.",
+   "why": "The court accepts the Officer's assessment that crime risk in Brazil is a general risk faced by the population."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "The Officer stated that the applicant had due process through refugee programs, which provided tools and opportunity to establish himself in Canada.",
+   "party_ids": [
+    "21.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "21.3",
+    "21.4",
+    "21.5",
+    "21.6",
+    "21.7",
+    "21.8"
+   ],
+   "answer_paragraphs": [
+    21
+   ],
+   "answer_quote": "Frankly, I fail to see how it can be said that the due process Canada offers claimants provides them with the \u201ctools and opportunity\u201d to establish themselves in Canada. I suspect that what the Officer means is that because the process has taken some time, the applicants had time to establish themselves to some degree. That is a statement with which one can agree. However, what is required is an analysis and assessment of the degree of establishment of these applicants and how it weighs in favour of granting an exemption. The Officer must not merely discount what they have done by crediting the Canadian immigration and refugee system for having given them the time to do these things without giving credit for the initiatives they undertook. The Officer must also examine whether the disruption of that establishment weighs in favour of granting the exemption.",
+   "why": "The court rejects the Officer's statement that due process provides tools and opportunity to establish, finding it insufficient and requiring a proper assessment of establishment."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The Officer noted that the applicant knowingly purchased items including a house despite being a failed refugee claimant aware of possible removal.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "23.1",
+    "23.2",
+    "23.3",
+    "23.4",
+    "23.5",
+    "23.6",
+    "23.7",
+    "23.8",
+    "24.1"
+   ],
+   "answer_paragraphs": [
+    23,
+    24
+   ],
+   "answer_quote": "The Officer has taken a perverse view of the evidence of establishment forwarded by the applicants. Is every investment, purchase, business established, residence purchased, etc. to be discounted on the basis that it was done knowing that it might have to be given up or left behind? Is the Officer suggesting that it is the preference of Canadians that failed claimants do nothing to succeed and support themselves while in Canada? Is he suggesting that any steps taken to succeed will be worthless, because they knew that they were subject to removal? In my view, the answers to these questions show that it is entirely irrelevant whether the persons knew he or she was subject to removal when they took steps to establish themselves and their families in Canada. While some may suggest that in establishing themselves applicants are using a back-door to gain entry into Canada, that view can only be valid if the applicants have no real hope to remain in the country. In virtually all these cases applicants retain hope that they will ultimately be successful in remaining here. Given the time frame most of these applicants spend in Canada, it is unrealistic to presume that they would put their lives on hold awaiting the final decision. The proper question is not what knowledge they had when they took these steps, but what were the steps they took, were they done legally, and what will the impact be if they must leave them behind.",
+   "why": "The court rejects the Officer's view that purchasing items knowing possible removal diminishes establishment, emphasizing the irrelevance of knowledge and focusing on the steps taken and their impact."
+  }
+ ]
+}

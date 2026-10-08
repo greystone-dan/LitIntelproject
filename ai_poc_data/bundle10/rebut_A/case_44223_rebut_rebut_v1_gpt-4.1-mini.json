@@ -1,0 +1,350 @@
+{
+ "case_id": 44223,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.003704
+ },
+ "verification": {
+  "points": 21,
+  "calls": 4,
+  "answered": 6,
+  "points_returned": 21,
+  "answer_ids_dropped": 24
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The appellants brought the motion to set aside the default judgment early in 2023.",
+   "party_ids": [
+    "4.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the appellants brought the motion early in 2023."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court concluded that Mr. Smith and 247 did not have a reasonable explanation for not filing a statement of defence.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the Federal Court concluded no reasonable explanation was given."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "Because the test is conjunctive, the Court saw no need to address the other two conditions and dismissed the appellants\u2019 motion.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Federal Court dismissed the motion without addressing other conditions due to the conjunctive test."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "The appellants do not allege the Federal Court erred in identifying the test for setting aside a default judgment.",
+   "party_ids": [
+    "6.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the appellants do not allege error in identifying the test."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "The Federal Court's finding there was no reasonable explanation for the failure to file a statement of defence is one of mixed fact and law, if not fact.",
+   "party_ids": [
+    "6.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the appellants concede the finding is one of mixed fact and law or fact."
+  },
+  {
+   "pid": "P8",
+   "party_by": "applicant",
+   "party_text": "Under the appellate standard of review, the Court cannot interfere with that finding absent a palpable and overriding error or an extricable error of law.",
+   "party_ids": [
+    "6.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the appellate standard limits interference absent palpable or legal error."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The Federal Court made a palpable and overriding error in failing to interpret the combined evidence as establishing that Mr. Smith and 247 reasonably believed the matter was resolved so they had no need to file a statement of defence.",
+   "party_ids": [
+    "7.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "8.1",
+    "9.1",
+    "9.2",
+    "10.1",
+    "10.2"
+   ],
+   "answer_paragraphs": [
+    8,
+    9,
+    10
+   ],
+   "answer_quote": "I disagree. Over more than six pages in its reasons, the Federal Court considered the history of the matter and the explanations the appellants offered for the failures by Mr. Smith and 247 to file a statement of defence: paras. 18-38. It reviewed and analyzed the evidence from both the appellants and the respondent said to support those explanations and concluded that evidence fell short of establishing a reasonable explanation for these failures. I see no palpable and overriding error in this finding; it was open to the Federal Court on the evidence before it on the appellants\u2019 motion. On appeal, we cannot reweigh that evidence and draw different inferences from it, nor substitute our view of the facts for that of the Federal Court: Housen v. Nikolaisen at paras. 23-25.",
+   "why": "The court disagrees and finds no palpable and overriding error in the Federal Court's interpretation of the evidence."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "Because of this error, the Federal Court erred in failing to address the remaining two conditions to set aside a default judgment.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "11.1",
+    "11.2"
+   ],
+   "answer_paragraphs": [
+    11
+   ],
+   "answer_quote": "While the appellants also assert the Federal Court erred in not addressing the second and third conditions for setting aside a default judgment, they do so on the assumption the Federal Court made a palpable and overriding error on the first condition. They have failed to establish such an error and thus I would dismiss the appeal.",
+   "why": "The court rejects the claim because the first condition was not met, so the remaining conditions need not be addressed."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court considered the history and explanations for the failures to file a statement of defence over more than six pages in its reasons.",
+   "party_ids": [
+    "9.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Federal Court considered the history and explanations over more than six pages."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court reviewed and analyzed evidence from both appellants and respondent and concluded the evidence fell short of establishing a reasonable explanation for the failures.",
+   "party_ids": [
+    "9.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "10.1"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "I see no palpable and overriding error in this finding; it was open to the Federal Court on the evidence before it on the appellants\u2019 motion.",
+   "why": "The court confirms the Federal Court reviewed and analyzed evidence from both sides and found it insufficient."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "The Federal Court erred in not addressing the second and third conditions for setting aside a default judgment, assuming it made a palpable and overriding error on the first condition.",
+   "party_ids": [
+    "11.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "11.2"
+   ],
+   "answer_paragraphs": [
+    11
+   ],
+   "answer_quote": "They have failed to establish such an error and thus I would dismiss the appeal.",
+   "why": "The court rejects the error claim on the second and third conditions because the first condition was not met."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The affidavits of Leonard Seidman and Michael Chevalier were filed in response to the appellants' assertion about settlement efforts.",
+   "party_ids": [
+    "12.2",
+    "12.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the affidavits were filed in response to the appellants' settlement assertion."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "Mr. Seidman described a telephone conversation with Mr. Smith about a settlement offer and receipt of HST remittance forms showing gross sales of $974,331.07 for 2016-2018.",
+   "party_ids": [
+    "13.1",
+    "13.2",
+    "13.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court recounts Mr. Seidman's affidavit describing the telephone conversation and receipt of HST remittance forms."
+  },
+  {
+   "pid": "P14",
+   "party_by": "respondent",
+   "party_text": "The HST remittance forms were not before the Federal Court on the motion for default judgment, only financial statements for 2015-2018 were entered via Elisa Kligman's affidavit.",
+   "party_ids": [
+    "14.1",
+    "14.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the HST remittance forms were not before the Federal Court, only financial statements were."
+  },
+  {
+   "pid": "P15",
+   "party_by": "respondent",
+   "party_text": "Mr. Chevalier's affidavit does not mention receiving the HST remittance forms or the financial statements or their source, nor details of calls with Mr. Smith.",
+   "party_ids": [
+    "14.3",
+    "14.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes Mr. Chevalier's affidavit does not mention receiving the HST forms or financial statements or details of calls."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "Neither Ms. Kligman's affidavit nor the financial statements are in the record before the Court of Appeal, and were not in the appellants' motion record before the Federal Court.",
+   "party_ids": [
+    "15.1",
+    "15.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states neither Kligman's affidavit nor financial statements are in the record before the Court of Appeal or Federal Court motion record."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court's damages award reflects net revenues of $2,277,886, more than double the gross revenues reported on the HST remittance forms.",
+   "party_ids": [
+    "15.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the damages award reflects net revenues more than double the gross revenues on the HST forms."
+  },
+  {
+   "pid": "P18",
+   "party_by": "respondent",
+   "party_text": "The respondent alleges the appellants\u2019 motion and this appeal are frivolous, vexatious, clearly unfounded and amount to an abuse of process.",
+   "party_ids": [
+    "17.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "17.4"
+   ],
+   "answer_paragraphs": [
+    17
+   ],
+   "answer_quote": "I see nothing in the record that supports that characterization of the motion or the appeal.",
+   "why": "The court rejects the respondent's allegation that the motion and appeal are frivolous or abuse of process."
+  },
+  {
+   "pid": "P19",
+   "party_by": "respondent",
+   "party_text": "The respondent seeks a declaration that the appeal is frivolous and costs on the highest scale.",
+   "party_ids": [
+    "17.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "17.4"
+   ],
+   "answer_paragraphs": [
+    17
+   ],
+   "answer_quote": "I see nothing in the record that supports that characterization of the motion or the appeal.",
+   "why": "The court rejects the respondent's claim that the appeal is frivolous and unfounded."
+  },
+  {
+   "pid": "P20",
+   "party_by": "applicant",
+   "party_text": "The appellants suggest that the respondent has not always acted appropriately in the Federal Court proceedings.",
+   "party_ids": [
+    "17.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants' suggestion about the respondent's inappropriate conduct."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "The appellants point to material subject to settlement privilege that was put before the Federal Court as an example of inappropriate conduct by the respondent.",
+   "party_ids": [
+    "17.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the appellants' example of settlement privileged material put before the Federal Court."
+  }
+ ]
+}

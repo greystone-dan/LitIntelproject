@@ -1,0 +1,507 @@
+{
+ "case_id": 46057,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0065168
+ },
+ "verification": {
+  "points": 34,
+  "calls": 7,
+  "answered": 2,
+  "points_returned": 34,
+  "answer_ids_dropped": 37
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "A Judge of the Federal Court allowed the application and remitted the matter to a different visa officer.",
+   "party_ids": [
+    "2.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Federal Court allowed the application and remitted the matter to a different visa officer."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge certified a serious question of general importance about whether visa officers should aggregate programs of study that do not each constitute two years of full-time study to award adaptability points if the total amounts to two years or more.",
+   "party_ids": [
+    "2.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the Judge certified the serious question of general importance about aggregating study programs for adaptability points."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The Minister appeals the Federal Court decision allowing judicial review and remitting the matter to a different visa officer.",
+   "party_ids": [
+    "3.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "3.2"
+   ],
+   "answer_paragraphs": [
+    3
+   ],
+   "answer_quote": "For the reasons that follow, I would allow the appeal, dismiss Mr. Patel\u2019s application for judicial review and answer the certified question in the negative. 1.",
+   "why": "The court confirms the Minister appeals the Federal Court decision and states it will allow the appeal and dismiss the application for judicial review."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The visa officer awarded no points for adaptability based on Mr. Patel's period of post-secondary study in Canada.",
+   "party_ids": [
+    "15.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the visa officer awarded no points for adaptability based on Mr. Patel's post-secondary study."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The officer's rationale was that Mr. Patel did not study at a post-secondary institution in Canada in a full-time program of at least two years duration, having completed only a one-year program at Canada Career College and one semester at Xincon College.",
+   "party_ids": [
+    "15.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the officer's rationale that Mr. Patel did not study full-time for at least two years at one institution."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The visa officer's notes explained that Mr. Patel studied a one-year diploma program at Canadian Career College and attended one semester of a Computer Systems Technology program at Xincon College.",
+   "party_ids": [
+    "16.1",
+    "16.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the visa officer's notes explaining Mr. Patel's study programs."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The transcripts from Xincon College were notarized but not dated, and no further evidence of study or graduation from that school was presented.",
+   "party_ids": [
+    "16.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the transcripts from Xincon College were notarized but not dated and no further evidence was presented."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "To receive 5 points for adaptability, Mr. Patel had to provide evidence of full-time study of at least two years at one Canadian post-secondary institution.",
+   "party_ids": [
+    "16.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that to receive 5 points, evidence of full-time study of at least two years at one institution was required."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "Mr. Patel completed a one-year program at one school and attended one semester at another, with two distinct programs and no transfer of credits between similar programs.",
+   "party_ids": [
+    "16.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Mr. Patel completed a one-year program at one school and one semester at another with distinct programs and no credit transfer."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The officer was not satisfied, based on the evidence, to assess 5 points for prior study in Canada.",
+   "party_ids": [
+    "16.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the officer was not satisfied to assess 5 points based on the evidence."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge characterized the issues before him to be the standard of review and whether the visa officer erred in his interpretation of section 83 of the Regulations.",
+   "party_ids": [
+    "17.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Judge characterized the issues as stated."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge rejected the Minister\u2019s argument that the appropriate standard of review to be applied to the officer\u2019s decision was reasonableness.",
+   "party_ids": [
+    "18.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Judge rejected the Minister's argument on the standard of review."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge viewed the primary basis of the visa officer\u2019s decision to be his interpretation of section 83 of the Regulations.",
+   "party_ids": [
+    "18.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Judge viewed the primary basis as the officer's interpretation of section 83."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "This was, in the view of the Judge, a question of law which should be reviewed on the standard of correctness.",
+   "party_ids": [
+    "18.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Judge viewed the question as one of law reviewed on correctness."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "The question of whether Mr. Patel completed two years of study as required by section 83 was, in the Judge\u2019s view, a question of mixed fact and law which attracted review on the standard of reasonableness.",
+   "party_ids": [
+    "18.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Judge viewed the question of study completion as mixed fact and law reviewed on reasonableness."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge found the officer interpreted section 83 so as to require full-time attendance for two years in a single academic program at a single accredited institution.",
+   "party_ids": [
+    "19.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats the Judge's finding about the officer's interpretation as stated."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge was satisfied that this interpretation was wrong in law.",
+   "party_ids": [
+    "19.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Judge was satisfied the interpretation was wrong in law."
+  },
+  {
+   "pid": "P18",
+   "party_by": "respondent",
+   "party_text": "The Minister argues that s 83 refers throughout to the singular (a program; a post-secondary institution; that program) and that its ordinary meaning must therefore be confined to a single two-year academic program at one institution.",
+   "party_ids": [
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the Minister's argument about singular references in s 83."
+  },
+  {
+   "pid": "P19",
+   "party_by": "applicant",
+   "party_text": "Counsel for Mr. Patel points to ss 33(2) of the Interpretation Act, R.S., 1985, c. I-21 which dictates that \u201cwords in the singular include the plural and words in the plural include the singular\u201d.",
+   "party_ids": [
+    "20.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the applicant's argument citing the Interpretation Act."
+  },
+  {
+   "pid": "P20",
+   "party_by": "applicant",
+   "party_text": "Accordingly, the references in s 83 to the singular must be taken to include \u201cprograms\u201d, \u201cinstitutions\u201d, \u201cstudy permits\u201d and \u201cthose programs\u201d: see Canada v Ward, [1993] 2 SCR 689, 103 DLR (4th) 1 at para 90.",
+   "party_ids": [
+    "20.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "20.5"
+   ],
+   "answer_paragraphs": [
+    20
+   ],
+   "answer_quote": "It seems to me that this argument has considerable merit and is also in keeping with a purposive approach to the interpretation of s 83. 21.",
+   "why": "The court accepts the applicant's argument that singular references include plural and finds merit in it."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "Both parties agree that the acquisition of an academic credential is not a requirement for the award of adaptability points, consistent with the statutory language used.",
+   "party_ids": [
+    "20.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes both parties agree that academic credential acquisition is not required for adaptability points."
+  },
+  {
+   "pid": "P22",
+   "party_by": "applicant",
+   "party_text": "This is in harmony with s 78 of the Regulations where points are awarded for academic credentials.",
+   "party_ids": [
+    "20.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees that s 78 awards points for academic credentials, consistent with the applicant's point."
+  },
+  {
+   "pid": "P23",
+   "party_by": "applicant",
+   "party_text": "On an appeal from a decision of the Federal Court on an application for judicial review, the standard of appellate review is whether the Judge of the Federal Court selected the appropriate standard of review and then applied it correctly.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the appellate standard is whether the Federal Court judge selected and applied the correct standard of review."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "The Judge wrote that the principal issue must be assessed on the standard of correctness, not reasonableness, because it involved interpretation of s 83 of the IRPA Regulations, an issue of law.",
+   "party_ids": [
+    "23.1",
+    "23.2",
+    "23.3",
+    "23.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the judge applied the correctness standard for the legal interpretation of s 83."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "The Minister asserts that the principal issue should be assessed on the standard of reasonableness.",
+   "party_ids": [
+    "23.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court disagrees with the Minister's assertion that reasonableness applies to the principal issue."
+  },
+  {
+   "pid": "P26",
+   "party_by": "applicant",
+   "party_text": "The issue of whether Mr. Patel completed two years of study as required by s 83 involves mixed fact and law attracting a standard of review of reasonableness.",
+   "party_ids": [
+    "23.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the issue of completing two years of study involves mixed fact and law, reviewed on reasonableness."
+  },
+  {
+   "pid": "P27",
+   "party_by": "applicant",
+   "party_text": "The Minister argues that the visa officer\u2019s interpretation of the Regulations should be reviewed on the standard of reasonableness, relying on Dunsmuir, Khosa, and Celgene.",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the Minister's argument for reasonableness but does not accept it, referencing prior case law."
+  },
+  {
+   "pid": "P28",
+   "party_by": "applicant",
+   "party_text": "The Minister distinguishes Shahid on the ground it was heard prior to Celgene.",
+   "party_ids": [
+    "24.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the Minister's distinction of Shahid based on timing before Celgene."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "In Shahid, this Court found that interpretation of \u201cfull-time equivalent\u201d was a pure question of statutory construction to be decided on the standard of correctness.",
+   "party_ids": [
+    "24.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Shahid found the interpretation was a pure question of statutory construction decided on correctness."
+  },
+  {
+   "pid": "P30",
+   "party_by": "respondent",
+   "party_text": "The standard of review is correctness and the Judge correctly found the officer\u2019s interpretation of the Regulations to be wrong.",
+   "party_ids": [
+    "25.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the respondent's position that the standard of review is correctness and the officer's interpretation was wrong."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "The visa officer viewed subsection 83(3) of the Regulations to require study at a post-secondary Canadian institution in a single program of full-time study of at least two years\u2019 duration.",
+   "party_ids": [
+    "29.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court quotes the officer's view of subsection 83(3) as requiring study in a single program of at least two years."
+  },
+  {
+   "pid": "P32",
+   "party_by": "tribunal_below",
+   "party_text": "The officer acknowledged the possibility of transfer from one institution to another in a similar program.",
+   "party_ids": [
+    "29.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the officer acknowledged the possibility of transfer between institutions in a similar program."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The officer expressed concern that Mr. Patel had completed a one-year program of study at one school and then completed one semester at a different school.",
+   "party_ids": [
+    "29.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the officer's concern about Mr. Patel completing one year at one school and one semester at another."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "The officer expressed further concern that the programs Mr. Patel enrolled in were two disparate, distinct programs.",
+   "party_ids": [
+    "29.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the officer's further concern that the programs were disparate and distinct."
+  }
+ ]
+}

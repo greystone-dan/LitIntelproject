@@ -1,0 +1,507 @@
+{
+ "case_id": 7161,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.005458800000000001
+ },
+ "verification": {
+  "points": 32,
+  "calls": 6,
+  "answered": 7,
+  "points_returned": 32,
+  "answer_ids_dropped": 33
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The panel concluded that the applicant did not meet the definition of a Convention refugee or that of a person in need of protection under the Act.",
+   "party_ids": [
+    "1.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel concluded the applicant did not meet the refugee or protection definitions as stated in 1.2."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The applicant questions whether his conduct is consistent with a subjective fear of persecution.",
+   "party_ids": [
+    "2.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "3.1"
+   ],
+   "answer_paragraphs": [
+    3
+   ],
+   "answer_quote": "For the following reasons, I answer the first and fourth questions in the negative, I do not need to answer the other two questions and the application for judicial review will be dismissed.",
+   "why": "The court answers the question about the applicant's conduct and fear of persecution negatively in 3.1."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The applicant argues that the alleged fear of persecution, namely personal vengeance, has a connection with one of the five Convention grounds.",
+   "party_ids": [
+    "2.3"
+   ],
+   "answered": false,
+   "verdict": "not_decided",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states it does not need to answer this question in 3.1."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The applicant submits that the panel failed to consider evidence showing that he actually sought protection from the authorities in his country.",
+   "party_ids": [
+    "2.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "3.1"
+   ],
+   "answer_paragraphs": [
+    3
+   ],
+   "answer_quote": "For the following reasons, I answer the first and fourth questions in the negative, I do not need to answer the other two questions and the application for judicial review will be dismissed.",
+   "why": "The court answers the question about failure to consider evidence of seeking protection negatively in 3.1."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "The applicant argues that the panel failed to analyze his fear of death threats under paragraph 97(1)(b) of the Act.",
+   "party_ids": [
+    "2.5"
+   ],
+   "answered": false,
+   "verdict": "not_decided",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states it does not need to answer this question in 3.1."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The panel concluded that the applicant had not established a valid fear of persecution, a risk of a threat to his life or being subject to cruel and unusual treatment.",
+   "party_ids": [
+    "13.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel explicitly concluded the applicant had not established a valid fear of persecution or risk to life."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "After the incident of December 10, 1999, the applicant went back to work at the same service station and learned his attacker's name.",
+   "party_ids": [
+    "13.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel states the applicant returned to work and learned his attacker's name after the incident."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The fact that the applicant continued working for the same employer for the next eight months and did not look for other employment because he could not get such well-paid employment to pay his debts and support his family indicated that the applicant had no serious fear for his life.",
+   "party_ids": [
+    "13.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel found the applicant's continued employment indicated no serious fear for his life."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "In the panel's opinion, Villareal's personal vengeance against the applicant had nothing to do with any of the five Convention grounds.",
+   "party_ids": [
+    "14.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel opined Villareal's vengeance was unrelated to Convention grounds."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The panel found that the applicant had not rebutted the presumption that the Mexican authorities could protect him.",
+   "party_ids": [
+    "15.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel found the applicant had not rebutted the presumption of protection by Mexican authorities."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The panel regarded as unreasonable the applicant's explanation that he had not sought protection from his country on the pretext that he was prevented from doing so by his manager.",
+   "party_ids": [
+    "15.2",
+    "15.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel regarded the applicant's explanation for not seeking protection as unreasonable."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The applicant's return to work was justified because it was only then that he learned the name of the person persecuting him.",
+   "party_ids": [
+    "16.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "21.1",
+    "21.3",
+    "21.4"
+   ],
+   "answer_paragraphs": [
+    21
+   ],
+   "answer_quote": "The panel was entirely free to assess whether a subjective fear of persecution existed in view of the claimant for asylum's actions after the events on which he based his claim. The applicant simply alleged that he had shown the existence of a reasonable fear, without providing explanations. The applicant's disagreement with the inferences drawn by the panel was not enough to show the existence of a patently unreasonable error.",
+   "why": "The court rejects the justification for return to work, finding no patently unreasonable error but insufficient explanation from applicant."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "He subsequently left because the situation became intolerable.",
+   "party_ids": [
+    "16.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not address the claim that the applicant left because the situation became intolerable."
+  },
+  {
+   "pid": "P14",
+   "party_by": "applicant",
+   "party_text": "The personal vengeance of Villareal, who was connected to the government, had a direct link to the Convention because of his alleged political opinions.",
+   "party_ids": [
+    "17.1",
+    "17.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "22.2"
+   ],
+   "answer_paragraphs": [
+    22
+   ],
+   "answer_quote": "The fear of a claimant who has been the victim of threats and reprisals from an unscrupulous individual acting for his personal advantage is not connected with any of the Convention grounds, even if that person is in collusion with certain corrupt representatives of the government (Yuen v. Canada (Minister of Employment and Immigration), [1994] F.C.J. No. 1045 (F.C.A.) (QL); Pierre-Louis v. Canada (Minister of Employment and Immigration), _1993_ F.C.J. No. 420 (F.C.A.) (QL); Cutuli v. Canada (Minister of Employment and Immigration), _1994_F.C.J. No. 1156 (F.C.T.D.) (QL)).",
+   "why": "The court rejects the link between personal vengeance and Convention grounds, citing precedent that personal advantage fears lack such connection."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "The panel made an error when it concluded that the applicant did not seek protection from the authorities in his country.",
+   "party_ids": [
+    "18.1",
+    "18.2",
+    "18.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the panel erred in concluding no protection was sought but notes police inefficiency limited protection."
+  },
+  {
+   "pid": "P16",
+   "party_by": "applicant",
+   "party_text": "The panel did not analyze the applicant's fear of death threats under paragraph 97(1)(b) of the Act.",
+   "party_ids": [
+    "19.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "21.5"
+   ],
+   "answer_paragraphs": [
+    21
+   ],
+   "answer_quote": "Additionally, the applicant in no way established that the panel failed to consider evidence relating to his fear of persecution.",
+   "why": "The court finds the panel did consider evidence of fear of death threats, rejecting the claim of failure to analyze."
+  },
+  {
+   "pid": "P17",
+   "party_by": "respondent",
+   "party_text": "To meet the definition of a Convention refugee, the applicant must satisfy all parts of that definition, including subjective and objective fear of persecution, connection to a Convention ground, and lack of government protection.",
+   "party_ids": [
+    "20.1",
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the respondent's point that all parts of the refugee definition must be satisfied."
+  },
+  {
+   "pid": "P18",
+   "party_by": "respondent",
+   "party_text": "The panel was free to assess subjective fear of persecution based on the claimant's actions after the events, and the Court should not intervene unless there is a patently unreasonable error.",
+   "party_ids": [
+    "21.1",
+    "21.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the panel's freedom to assess subjective fear and limits intervention to patently unreasonable errors."
+  },
+  {
+   "pid": "P19",
+   "party_by": "respondent",
+   "party_text": "The applicant only alleged a reasonable fear without explanations, and disagreement with the panel's inferences does not show a patently unreasonable error.",
+   "party_ids": [
+    "21.3",
+    "21.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the applicant only alleged reasonable fear without explanations and that disagreement with inferences is insufficient to show error."
+  },
+  {
+   "pid": "P20",
+   "party_by": "respondent",
+   "party_text": "The applicant did not establish that the panel failed to consider evidence relating to his fear of persecution.",
+   "party_ids": [
+    "21.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court rejects the claim that the panel failed to consider evidence relating to fear of persecution."
+  },
+  {
+   "pid": "P21",
+   "party_by": "respondent",
+   "party_text": "The existence of a connection between alleged persecution and a Convention ground is a question of fact within the panel's expertise.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the connection between persecution and Convention grounds is a factual question within the panel's expertise."
+  },
+  {
+   "pid": "P22",
+   "party_by": "respondent",
+   "party_text": "Fear from threats by an unscrupulous individual acting for personal advantage is not connected to Convention grounds, even if colluding with corrupt government representatives.",
+   "party_ids": [
+    "22.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that fear from threats by unscrupulous individuals acting for personal advantage is not connected to Convention grounds."
+  },
+  {
+   "pid": "P23",
+   "party_by": "respondent",
+   "party_text": "In this case, corrupt government employees acted with financial or criminal motives unrelated to the applicant's political opinions, unlike in Klinko where reprisals followed a complaint about government corruption.",
+   "party_ids": [
+    "23.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that corrupt government employees acted with unrelated motives, unlike in Klinko where reprisals were politically motivated."
+  },
+  {
+   "pid": "P24",
+   "party_by": "respondent",
+   "party_text": "The panel correctly concluded the applicant did not establish lack of government protection in Mexico.",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the panel correctly concluded lack of government protection was not established."
+  },
+  {
+   "pid": "P25",
+   "party_by": "respondent",
+   "party_text": "To rebut the presumption of government protection, a claimant must provide clear and persuasive evidence that the government is unable to protect him.",
+   "party_ids": [
+    "24.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the claimant must provide clear and persuasive evidence to rebut government protection presumption."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "Unless the government system has completely collapsed, it is presumed able to protect its citizens.",
+   "party_ids": [
+    "24.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the presumption that government is able to protect unless system has completely collapsed."
+  },
+  {
+   "pid": "P27",
+   "party_by": "respondent",
+   "party_text": "The panel assessed evidence about the applicant's attempts to obtain protection from authorities against Villareal and found the explanations unsatisfactory.",
+   "party_ids": [
+    "25.1",
+    "25.2",
+    "25.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the panel assessed evidence and found explanations unsatisfactory."
+  },
+  {
+   "pid": "P28",
+   "party_by": "respondent",
+   "party_text": "The panel addressed the asylum application under paragraph 97(1)(b) of the Act in its reasons, including introduction, facts, and analysis.",
+   "party_ids": [
+    "26.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the panel addressed the asylum application under paragraph 97(1)(b) in its reasons."
+  },
+  {
+   "pid": "P29",
+   "party_by": "respondent",
+   "party_text": "The analysis of subjective fear of persecution is a question of fact and credibility within the panel's jurisdiction, and the Court should not intervene unless there is a patently unreasonable error.",
+   "party_ids": [
+    "29.1",
+    "29.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees analysis of subjective fear is factual and credibility-based within panel's jurisdiction and court should not intervene absent patently unreasonable error."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "The panel found the applicant did not have a subjective fear because he remained employed by the persecuting agent for eight months after learning of his responsibility for the accident and did not seek other employment due to financial reasons, showing no serious fear for his life.",
+   "party_ids": [
+    "29.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "29.4"
+   ],
+   "answer_paragraphs": [
+    29
+   ],
+   "answer_quote": "This conclusion seems entirely reasonable to the Court and therefore cannot be the subject of any intervention by the Court.",
+   "why": "The court agrees with the panel's finding that the applicant had no serious fear for his life based on his actions."
+  },
+  {
+   "pid": "P31",
+   "party_by": "applicant",
+   "party_text": "The panel did not analyze the threat to his life and the risk of cruel or unusual treatment or punishment.",
+   "party_ids": [
+    "32.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "32.2"
+   ],
+   "answer_paragraphs": [
+    32
+   ],
+   "answer_quote": "The analysis of the applicant's actions by the panel on page 3 of its decision persuades the Court that this question was dealt with and the conclusion was not unreasonable.",
+   "why": "The court finds the panel did analyze the threat and the conclusion was not unreasonable."
+  },
+  {
+   "pid": "P32",
+   "party_by": "applicant",
+   "party_text": "The parties declined the offer to submit a serious question of general importance.",
+   "party_ids": [
+    "33.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the parties declined to submit a serious question of general importance."
+  }
+ ]
+}

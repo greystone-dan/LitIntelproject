@@ -1,0 +1,1262 @@
+{
+ "case_id": 52403,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0195484
+ },
+ "verification": {
+  "points": 75,
+  "calls": 16,
+  "answered": 12,
+  "points_returned": 75,
+  "answer_ids_dropped": 173
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The question is whether the father intended to gift the beneficial interest in the accounts to his daughter or intended her to hold the assets in trust for his estate.",
+   "party_ids": [
+    "5.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the question as whether the father intended a gift or a trust, accepting the point."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The appeal raises four issues: whether the presumptions of resulting trust and advancement continue to apply in modern times; the standard to rebut these presumptions; how courts should treat survivorship in joint accounts; and what evidence courts may consider to determine the transferor's intent.",
+   "party_ids": [
+    "6.3",
+    "7.1",
+    "8.1",
+    "9.1",
+    "10.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court lists the four issues raised by the appeal exactly as stated in the point."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found that the father actually intended a gift and held that his daughter may retain the assets in the accounts.",
+   "party_ids": [
+    "11.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the trial judge found the father intended a gift and allowed the daughter to retain the assets."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The Court of Appeal dismissed the appeal of the daughter's ex-husband.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the Court of Appeal dismissed the appeal of the daughter's ex-husband."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the presumption of advancement applied given Paula's relationship with her father and that evidence failed to rebut it, so the money in the joint accounts belonged to Paula.",
+   "party_ids": [
+    "23.1",
+    "23.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the trial judge applied the presumption of advancement and found evidence failed to rebut it, awarding the money to Paula."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found Paula's father intended to gift beneficial ownership of the assets to Paula while managing them before his death.",
+   "party_ids": [
+    "23.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the trial judge found clear evidence of the father's intention to gift beneficial ownership to Paula."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The Court of Appeal agreed there was ample evidence that Paula's father intended to give Paula beneficial interest in his investments when placed in joint ownership.",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the Court of Appeal agreed with the trial judge on the father's intention to give beneficial interest to Paula."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The Court of Appeal found it unnecessary to rely on the presumption of advancement when there is evidence of actual intention.",
+   "party_ids": [
+    "24.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the Court of Appeal's finding that actual intention evidence made the presumption unnecessary."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "While the trustee almost always has the legal title, in exceptional circumstances it is also possible that the trustee has equitable title.",
+   "party_ids": [
+    "26.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges that trustees usually have legal title but may have equitable title in exceptional cases."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "In the context of the parent-child relationship, the term advancement has also been used because the father was under a moral duty to advance his children in the world.",
+   "party_ids": [
+    "27.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explains the term advancement relates to the father's moral duty to advance his children."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "Historically, the presumption of advancement applies where the transferor is a husband to his wife or a father to his child.",
+   "party_ids": [
+    "36.1",
+    "36.2",
+    "36.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the presumption applies where transferor is husband to wife or father to child."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "Canadian courts are divided on whether the presumption of advancement applies between mother and child.",
+   "party_ids": [
+    "39.1",
+    "39.2",
+    "39.3",
+    "39.4",
+    "39.5",
+    "39.6",
+    "39.7",
+    "39.8"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "40.1",
+    "40.2",
+    "40.3",
+    "40.4",
+    "40.5",
+    "40.6",
+    "41.1",
+    "41.2",
+    "41.3"
+   ],
+   "answer_paragraphs": [
+    40,
+    41
+   ],
+   "answer_quote": "32 The question of whether the presumption applies between mother and child is not raised in these appeals, as the transfers in question occurred between a father and daughter, but I shall deal with it briefly. Unlike when the presumption of advancement was first developed, women today have their own financial resources. They also have a statutory obligation to financially support their children in the same way that fathers do. Section 26.1(2) of the Divorce Act, R.S.C. 1985, c. 3 (2nd Supp .), for instance, refers to the \u201cprinciple\u201d that spouses have a \u201cjoint financial obligation to maintain the children\u201d, and s. 31(1) of the Family Law Act, R.S.O. 1990, c. F.3, provides that \u201c[e]very parent has an obligation to provide support for his or her unmarried child who is a minor or is enrolled in a full time program of education, to the extent that the parent is capable of doing so.\u201d Oosterhoff et al. have also commented on this issue in Oosterhoff on Trusts, saying at p. 575, \u201cMothers and fathers are now under equal duties to care for their children and are equally likely to intend to make gifts to them. . . . In Canada, it is now accepted that mothers and fathers should be treated equally.\u201d 33 I agree. As women now have both the means as well as obligations to support their children, they are no less likely to intend to make gifts to their children than fathers. The presumption of advancement should thus apply equally to fathers and mothers.",
+   "why": "The court acknowledges Canadian courts are divided on mother-child presumption and concludes it should apply equally to mothers and fathers."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "Some courts have concluded the presumption of advancement should not apply between parents and adult independent children, due to modern social conditions and the common practice of adding adult children to accounts for assistance rather than as gifts.",
+   "party_ids": [
+    "42.1",
+    "42.2",
+    "42.3",
+    "42.4",
+    "42.5",
+    "42.6",
+    "42.7",
+    "42.8",
+    "42.9",
+    "42.10",
+    "42.11",
+    "42.12",
+    "42.13"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "44.1",
+    "44.2",
+    "44.3",
+    "44.4",
+    "44.5",
+    "44.6",
+    "44.7",
+    "44.8"
+   ],
+   "answer_paragraphs": [
+    44
+   ],
+   "answer_quote": "36 I am inclined to agree. First, given that a principal justification for the presumption of advancement is parental obligation to support their dependent children, it seems to me that the presumption should not apply in respect of independent adult children. As Heeney J. noted in McLear, at para. 36, parental support obligations under provincial and federal statutes normally end when the child is no longer considered by law to be a minor: see e.g. Family Law Act, s. 31. Indeed, not only do child support obligations end when a child is no longer dependent, but often the reverse is true: an obligation may be imposed on independent adult children to support their parents in accordance with need and ability to pay: see e.g. Family Law Act, s. 32. Second, I agree with Heeney J. that it is common nowadays for ageing parents to transfer their assets into joint accounts with their adult children in order to have that child assist them in managing their financial affairs. There should therefore be a rebuttable presumption that the adult child is holding the property in trust for the ageing parent to facilitate the free and efficient management of that parent\u2019s affairs.",
+   "why": "The court agrees some courts reject presumption for adult independent children due to modern social conditions and joint accounts for assistance."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The independence and living situation of adult children are factors leading some courts to reject the presumption of advancement in transfers to adult children.",
+   "party_ids": [
+    "43.1",
+    "43.2",
+    "43.3",
+    "43.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "44.1",
+    "44.2",
+    "44.3",
+    "44.4",
+    "44.5",
+    "44.6"
+   ],
+   "answer_paragraphs": [
+    44
+   ],
+   "answer_quote": "36 I am inclined to agree. First, given that a principal justification for the presumption of advancement is parental obligation to support their dependent children, it seems to me that the presumption should not apply in respect of independent adult children. As Heeney J. noted in McLear, at para. 36, parental support obligations under provincial and federal statutes normally end when the child is no longer considered by law to be a minor: see e.g. Family Law Act, s. 31. Indeed, not only do child support obligations end when a child is no longer dependent, but often the reverse is true: an obligation may be imposed on independent adult children to support their parents in accordance with need and ability to pay: see e.g. Family Law Act, s. 32.",
+   "why": "The court agrees independence and living situation of adult children are factors leading to rejection of presumption."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "Some commentators and courts argue that the presumption of advancement should apply to adult, independent children based on parental affection.",
+   "party_ids": [
+    "45.1",
+    "45.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "45.5",
+    "45.6"
+   ],
+   "answer_paragraphs": [
+    45
+   ],
+   "answer_quote": "Indeed, the factor of affection applies in other relationships as well, such as between siblings, yet the presumption of advancement would not apply in those circumstances. However, I see no reason why courts cannot consider evidence relating to the quality of the relationship between the transferor and transferee in order to determine whether the presumption of a resulting trust has been rebutted.",
+   "why": "The court rejects affection as basis for presumption but allows consideration of relationship quality to rebut resulting trust presumption."
+  },
+  {
+   "pid": "P16",
+   "party_by": "applicant",
+   "party_text": "The presumption of advancement should apply to adult dependent children.",
+   "party_ids": [
+    "46.1",
+    "46.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "47.1",
+    "47.2",
+    "47.3",
+    "47.4",
+    "47.5",
+    "47.6",
+    "48.1",
+    "48.2",
+    "48.3"
+   ],
+   "answer_paragraphs": [
+    47,
+    48
+   ],
+   "answer_quote": "39 The question of whether the presumption applies to adult dependent children begs the question of what constitutes dependency for the purpose of applying the presumption. Dependency is a term susceptible to an enormous variety of circumstances. The extent or degree of dependency can be very wide ranging. While it may be rational to presume advancement as a result of dependency in some cases, in others it will not. For example, it is not difficult to accept that in some cases a parent would feel a moral, if not legal, obligation to provide for the quality of life for an adult disabled child. This might especially be the case where the disabled adult child is under the charge and care of the parent. 40 As compelling as some cases might be, I am reluctant to apply the presumption of advancement to gratuitous transfers to \u201cdependent\u201d adult children because it would be impossible to list the wide variety of the circumstances that make someone \u201cdependent\u201d for the purpose of applying the presumption. Courts would have to determine on a case-by-case basis whether or not a particular individual is \u201cdependent\u201d, creating uncertainty and unpredictability in almost every instance. I am therefore of the opinion that the rebuttable presumption of advancement with regard to gratuitous transfers from parent to child should be preserved but be limited in application to transfers by mothers and fathers to minor children.",
+   "why": "The court rejects applying presumption to adult dependent children due to uncertainty and limits presumption to minor children only."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "Dependency justifies presumption of advancement in some cases, such as for adult disabled children under parental care.",
+   "party_ids": [
+    "47.4",
+    "47.5",
+    "47.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that dependency justifies presumption of advancement in some cases, such as adult disabled children under parental care."
+  },
+  {
+   "pid": "P18",
+   "party_by": "applicant",
+   "party_text": "The party claiming that a transfer between a parent and an adult child is a gift can rebut the presumption of resulting trust by bringing evidence to support the claim.",
+   "party_ids": [
+    "49.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the party claiming a transfer is a gift can rebut the presumption of resulting trust with evidence."
+  },
+  {
+   "pid": "P19",
+   "party_by": "applicant",
+   "party_text": "Evidence as to the degree of dependency of an adult transferee child on the transferor parent may provide strong evidence to rebut the presumption of a resulting trust, even though dependency is not a basis to apply the presumption of advancement.",
+   "party_ids": [
+    "49.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that evidence of degree of dependency may rebut the presumption of resulting trust, even if dependency doesn't apply presumption of advancement."
+  },
+  {
+   "pid": "P20",
+   "party_by": "applicant",
+   "party_text": "Some cases suggest that the criminal standard or a higher than civil standard is required to rebut the presumption of resulting trust.",
+   "party_ids": [
+    "50.2",
+    "50.3",
+    "50.4",
+    "50.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes some cases suggest a higher than civil standard is required, but later prefers the civil standard, so it partly accepts the point."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "Some cases suggest that only slight evidence is required to rebut the presumption of advancement.",
+   "party_ids": [
+    "50.6",
+    "50.7",
+    "50.8",
+    "50.9"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that some cases suggest only slight evidence is required to rebut the presumption of advancement."
+  },
+  {
+   "pid": "P22",
+   "party_by": "applicant",
+   "party_text": "Where the transferor intended to gift withdrawal rights and the balance on death through survivorship, courts find the presumption of resulting trust rebutted and the transferee entitled to the balance on death.",
+   "party_ids": [
+    "53.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that proven intention to gift withdrawal rights and balance on death rebuts presumption of resulting trust."
+  },
+  {
+   "pid": "P23",
+   "party_by": "applicant",
+   "party_text": "In some cases, transferors place assets in joint accounts intending to retain exclusive control until death, with the transferee taking the balance through survivorship.",
+   "party_ids": [
+    "54.1",
+    "54.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that in some cases transferors intend to retain control until death with survivorship to transferee."
+  },
+  {
+   "pid": "P24",
+   "party_by": "applicant",
+   "party_text": "Transferors may place assets in joint accounts to get assistance managing finances, avoid probate fees, and simplify after-death disposition.",
+   "party_ids": [
+    "55.1",
+    "55.2",
+    "55.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts these reasons as typical for placing assets in joint accounts."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "Courts have struggled whether to give effect to transferor's intention when beneficial interest arises only on death, with some judges treating survivorship gifts as testamentary and invalid if not in proper form.",
+   "party_ids": [
+    "56.1",
+    "56.2",
+    "56.3",
+    "56.4",
+    "56.5"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "56.6",
+    "56.7",
+    "56.8"
+   ],
+   "answer_paragraphs": [
+    56
+   ],
+   "answer_quote": "For the reasons that follow, however, I am of the view that the rights of survivorship, both legal and equitable, vest when the joint account is opened and the gift of those rights is therefore inter vivos in nature. This has also been the conclusion of the weight of judicial opinion in recent times: see e.g. Mordo v. Nitting, [2006] B.C.J. No. 3081 (QL), 2006 BCSC 1761, at paras. 233-38; Shaw v. MacKenzie Estate (1994), 4 E.T.R. (2d) 306 (N.S.S.C.), at para. 49; and Reber v. Reber (1988), 48 D.L.R. (4th) 376 (B.C.S.C.); see also Waters\u2019 Law of Trusts, at p. 406.",
+   "why": "The court acknowledges the struggle and some judges' views but ultimately holds survivorship rights vest inter vivos."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "Some judges argue that a gift of survivorship cannot be a complete and perfect inter vivos gift because the transferor can drain the joint account before death.",
+   "party_ids": [
+    "58.1",
+    "58.2",
+    "58.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "58.4",
+    "58.5"
+   ],
+   "answer_paragraphs": [
+    58
+   ],
+   "answer_quote": "The nature of a joint account is that the balance will fluctuate over time. The gift in these circumstances is the transferee\u2019s survivorship interest in the account balance \u2014 whatever it may be \u2014 at the time of the transferor\u2019s death, not to any particular amount.",
+   "why": "The court rejects this view, holding the gift is of the survivorship interest at death, not a fixed amount."
+  },
+  {
+   "pid": "P27",
+   "party_by": "tribunal_below",
+   "party_text": "Some courts have departed from the restrictive rule in Shephard v. Cartwright regarding admissibility of subsequent evidence.",
+   "party_ids": [
+    "66.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges some courts have departed from the restrictive rule in Shephard v. Cartwright."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "In Neazor v. Hoyle, the trial judge considered conduct of parties years after transfer to determine beneficial ownership.",
+   "party_ids": [
+    "66.2",
+    "66.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court cites Neazor v. Hoyle where conduct after transfer was considered to determine beneficial ownership."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "The rule excluding subsequent evidence has lost much of its force in England.",
+   "party_ids": [
+    "67.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the rule excluding subsequent evidence has lost much of its force in England."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "The Court of Appeal held that control of the account was not determinative of Paula's father's intentions regarding beneficial interest.",
+   "party_ids": [
+    "73.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court quotes the Court of Appeal's view that control was not determinative of intention."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "In Madsen Estate, the Court of Appeal found that the father's retention of control and payment of taxes indicated no intention to create a beneficial joint tenancy.",
+   "party_ids": [
+    "73.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states that in Madsen Estate, retention of control and payment of taxes was a main factor for no beneficial joint tenancy."
+  },
+  {
+   "pid": "P32",
+   "party_by": "tribunal_below",
+   "party_text": "In Madsen Estate, the Court of Appeal did not view granting power of attorney as negating the joint account as a tool of convenience.",
+   "party_ids": [
+    "79.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes Madsen Estate did not view power of attorney as negating joint account as a convenience tool."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The Court of Appeal in the present case placed substantial weight on the transferor granting joint ownership and power of attorney as evidence of intent to gift assets.",
+   "party_ids": [
+    "79.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the Court of Appeal placed substantial weight on joint ownership and power of attorney as evidence of intent to gift."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "Lang J.A. reasoned that power of attorney alone would suffice for managing accounts, so joint ownership indicated intent to gift and avoid probate fees.",
+   "party_ids": [
+    "79.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records Lang J.A.'s reasoning that power of attorney alone suffices for managing accounts, so joint ownership indicates intent to gift."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "Lang J.A. found that the weight of evidence is a matter within the trial judge's discretion.",
+   "party_ids": [
+    "79.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees that the weight of evidence is within the trial judge's discretion."
+  },
+  {
+   "pid": "P36",
+   "party_by": "tribunal_below",
+   "party_text": "Courts have relied to varying degrees on the transferor\u2019s tax treatment of the account in determining intent.",
+   "party_ids": [
+    "82.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states courts have relied to varying degrees on tax treatment in determining intent."
+  },
+  {
+   "pid": "P37",
+   "party_by": "tribunal_below",
+   "party_text": "In Madsen Estate, the trial judge relied in part on the fact that the transferor was the one who declared and paid income tax on the money in the joint accounts in finding that the transferor intended a resulting trust.",
+   "party_ids": [
+    "82.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the trial judge in Madsen Estate relied in part on transferor paying income tax to find intent of resulting trust."
+  },
+  {
+   "pid": "P38",
+   "party_by": "tribunal_below",
+   "party_text": "In the present case, the trial judge noted that Paula\u2019s father continued to pay taxes on the income in joint accounts but nevertheless found that he intended to gift the joint accounts to her.",
+   "party_ids": [
+    "82.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "82.4",
+    "82.5",
+    "82.6",
+    "82.7",
+    "82.8"
+   ],
+   "answer_paragraphs": [
+    82
+   ],
+   "answer_quote": "I do not find either of these approaches inappropriate. The weight to be placed on tax-related evidence in determining a transferor\u2019s intent should be left to the discretion of the trial judge. However, whether or not a transferor continues to pay taxes on the income earned in the joint accounts during his or her lifetime should not be determinative of his or her intention in the absence of other evidence. For example, it may be that the transferor made the transfer for the sole purpose of obtaining assistance in the management of his or her finances and wished to have the assets form a part of his or her estate upon his or her death. Or, as discussed above, it is open to a transferor to gift the right of survivorship to the transferee when the joint accounts are opened, but to retain control over the use of the funds in the accounts (and therefore to continue to pay taxes on them) during his or her lifetime.",
+   "why": "The court accepts the trial judge's finding that the father paid taxes but intended to gift the accounts, explaining the weight of tax evidence is discretionary."
+  },
+  {
+   "pid": "P39",
+   "party_by": "applicant",
+   "party_text": "For public policy reasons, transferors should not be permitted to transfer beneficial title while asserting to tax authorities that such title has not been passed to defer or avoid taxes on capital gains.",
+   "party_ids": [
+    "83.1"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "83.2",
+    "83.3",
+    "83.4",
+    "83.5",
+    "83.6"
+   ],
+   "answer_paragraphs": [
+    83
+   ],
+   "answer_quote": "In principle, I agree. Where, in setting up a joint account, the transferor intends to transfer full legal and equitable title to the assets in the account immediately and the value of the assets reflects a capital gain, taxes on capital gains may become payable in the year the joint account is set up. However, where the transferor\u2019s intention is to gift the right of survivorship to the transferee but retain beneficial ownership of the assets during his or her lifetime, there would appear to be no disposition at the moment of the setting up of the joint account: see s. 73 of the Income Tax Act, R.S.C. 1985, c. 1 (5th Supp .). That said, the issue of the proper treatment of capital gains in the setting up of joint accounts was not argued in this appeal. I can say no more than these are matters for determination between the Canada Revenue Agency and taxpayers in specific cases.",
+   "why": "The court agrees in principle with the public policy concern but notes the issue was not argued and leaves detailed matters to tax authorities."
+  },
+  {
+   "pid": "P40",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found Paula and her father had a very close relationship and that Paula was the person he was closest to besides his wife.",
+   "party_ids": [
+    "84.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding of a very close relationship between Paula and her father."
+  },
+  {
+   "pid": "P41",
+   "party_by": "tribunal_below",
+   "party_text": "Given Paula's financial hardships, her father preferred her over her siblings.",
+   "party_ids": [
+    "84.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the father preferred Paula over her siblings due to her financial hardships."
+  },
+  {
+   "pid": "P42",
+   "party_by": "tribunal_below",
+   "party_text": "The father was estranged from one daughter when the accounts were set up.",
+   "party_ids": [
+    "84.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the father was estranged from one daughter when the accounts were set up."
+  },
+  {
+   "pid": "P43",
+   "party_by": "tribunal_below",
+   "party_text": "The father was close to his son-in-law but they were only good friends.",
+   "party_ids": [
+    "84.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the father was close to his son-in-law but only good friends."
+  },
+  {
+   "pid": "P44",
+   "party_by": "tribunal_below",
+   "party_text": "The father\u2019s wife was seriously ill and not expected to outlive him.",
+   "party_ids": [
+    "84.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats and accepts the finding that the wife was seriously ill and not expected to outlive the father."
+  },
+  {
+   "pid": "P45",
+   "party_by": "tribunal_below",
+   "party_text": "Paula and her family relied on her father for financial assistance.",
+   "party_ids": [
+    "85.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that Paula and her family relied on her father financially."
+  },
+  {
+   "pid": "P46",
+   "party_by": "tribunal_below",
+   "party_text": "The father maintained control of the accounts and used the funds for his benefit during his life but intended to provide for Paula after his death.",
+   "party_ids": [
+    "85.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that the father controlled the accounts but intended to provide for Paula after death."
+  },
+  {
+   "pid": "P47",
+   "party_by": "tribunal_below",
+   "party_text": "This is consistent with an intention to gift a right of survivorship when the accounts were set up.",
+   "party_ids": [
+    "85.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the evidence is consistent with an intention to gift a right of survivorship."
+  },
+  {
+   "pid": "P48",
+   "party_by": "tribunal_below",
+   "party_text": "Statements of Paula\u2019s father while drafting his last will indicate his intention regarding the accounts.",
+   "party_ids": [
+    "86.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "86.4",
+    "86.5",
+    "86.6"
+   ],
+   "answer_paragraphs": [
+    86
+   ],
+   "answer_quote": "This evidence indicates that Paula\u2019s father was of the view that the accounts had already been dealt with and understood these assets would not form part of the estate. I agree with the trial judge that \u201cif [the father\u2019s] intention was to have his jointly held assets devolve through the estate, they were of such magnitude that he would have at least discussed that matter with his solicitor, since they constituted a substantial proportion of what he owned\u201d (para. 43), particularly after the lawyer asked him about life insurance policies, RRIFs and other assets. All of this evidence is consistent with Paula\u2019s father having gifted away the right of survivorship when the joint accounts were opened, and thus is relevant to his intention at the time of the transfer.",
+   "why": "The court accepts that the father's statements while drafting his will indicate his intention about the accounts."
+  },
+  {
+   "pid": "P49",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge considered the lawyer\u2019s testimony about the father\u2019s statements reliable as the lawyer had nothing to gain.",
+   "party_ids": [
+    "86.2",
+    "86.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the lawyer's testimony was reliable because he had nothing to gain."
+  },
+  {
+   "pid": "P50",
+   "party_by": "tribunal_below",
+   "party_text": "The evidence indicates the father viewed the accounts as already dealt with and not part of the estate.",
+   "party_ids": [
+    "86.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the evidence shows the father viewed the accounts as already dealt with and not part of the estate."
+  },
+  {
+   "pid": "P51",
+   "party_by": "tribunal_below",
+   "party_text": "The father wrote letters to financial institutions stating the transfers were not gifts to Paula.",
+   "party_ids": [
+    "87.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the father wrote letters to financial institutions stating the transfers were not gifts to Paula."
+  },
+  {
+   "pid": "P52",
+   "party_by": "tribunal_below",
+   "party_text": "The father continued to control the funds and paid income tax on earnings before his death.",
+   "party_ids": [
+    "87.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the father continued to control the funds and paid income tax on earnings before his death."
+  },
+  {
+   "pid": "P53",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the father\u2019s intention in writing the letters was to avoid triggering immediate deemed disposition and capital gains taxes.",
+   "party_ids": [
+    "87.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the father's intention in writing the letters was to avoid immediate capital gains taxes."
+  },
+  {
+   "pid": "P54",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge erred in applying the presumption of advancement because Paula was not a minor child.",
+   "party_ids": [
+    "88.1",
+    "88.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the trial judge erred in applying the presumption of advancement because Paula was not a minor child."
+  },
+  {
+   "pid": "P55",
+   "party_by": "applicant",
+   "party_text": "Michael Pecore asked this Court for costs throughout from Paula or the estate.",
+   "party_ids": [
+    "89.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "89.3",
+    "89.4",
+    "89.5"
+   ],
+   "answer_paragraphs": [
+    89
+   ],
+   "answer_quote": "As noted in the judgment of the Ontario Court of Appeal, at para. 48, the trial judge denied Michael costs out of the estate or from Paula. He did so because he found that on the issues raised in the divorce proceeding, success was divided, Paula made an offer to settle that exceeded the result, and Michael\u2019s conduct was \u201cless than candid\u201d. I see no reason to interfere with that disposition, or that costs should not follow the event in this Court.",
+   "why": "The court rejects the request for costs throughout, upholding the trial judge's denial of costs to Michael."
+  },
+  {
+   "pid": "P56",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge denied Michael costs out of the estate or from Paula because success was divided, Paula made an offer to settle that exceeded the result, and Michael\u2019s conduct was less than candid.",
+   "party_ids": [
+    "89.3",
+    "89.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "89.5"
+   ],
+   "answer_paragraphs": [
+    89
+   ],
+   "answer_quote": "I see no reason to interfere with that disposition, or that costs should not follow the event in this Court.",
+   "why": "The court affirms the trial judge's denial of costs to Michael due to divided success, Paula's better offer, and Michael's conduct."
+  },
+  {
+   "pid": "P57",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge applied the presumption of advancement and concluded the father intended to gift the money to his daughter, a decision upheld by the Court of Appeal.",
+   "party_ids": [
+    "91.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the trial judge applied the presumption of advancement and concluded the father intended to gift the money to his daughter."
+  },
+  {
+   "pid": "P58",
+   "party_by": "applicant",
+   "party_text": "The issue in the appeal is which presumption applies\u2014the presumption of advancement or the presumption of resulting trust\u2014and the consequences of its application.",
+   "party_ids": [
+    "91.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the issue on appeal is which presumption applies and the consequences of its application."
+  },
+  {
+   "pid": "P59",
+   "party_by": "tribunal_below",
+   "party_text": "There is ongoing debate about whether the presumptions, especially the presumption of resulting trust, should be removed from judicial consideration because modern life makes the presumption of gift more plausible than the presumption of resulting trust.",
+   "party_ids": [
+    "95.1",
+    "95.2",
+    "95.3",
+    "95.4",
+    "95.5",
+    "95.6",
+    "95.7",
+    "95.8",
+    "95.9",
+    "95.10"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges and discusses the ongoing debate and criticism about the presumption of resulting trust and its relevance in modern times."
+  },
+  {
+   "pid": "P60",
+   "party_by": "tribunal_below",
+   "party_text": "The traditional presumption of advancement as between husband and wife has been largely abandoned both judicially and legislatively.",
+   "party_ids": [
+    "100.1",
+    "100.2",
+    "100.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the presumption between husband and wife has been largely abandoned judicially and legislatively."
+  },
+  {
+   "pid": "P61",
+   "party_by": "tribunal_below",
+   "party_text": "The presumption of advancement retains much of its original vigour in the case of gratuitous transfers to children.",
+   "party_ids": [
+    "101.1",
+    "101.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the presumption retains much of its original vigour in gratuitous transfers to children."
+  },
+  {
+   "pid": "P62",
+   "party_by": "tribunal_below",
+   "party_text": "Rothstein J. rejects parental affection as a basis for the presumption, stating the principal justification is parental obligation to support dependent children.",
+   "party_ids": [
+    "102.1",
+    "102.2",
+    "102.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court rejects Rothstein J.'s narrow view, affirming parental affection as a basis for the presumption."
+  },
+  {
+   "pid": "P63",
+   "party_by": "tribunal_below",
+   "party_text": "The presumption of advancement between father and child has not been subjected to the same re-evaluation as between husband and wife because parental affection continues to exist and cannot be presumed in relationships between strangers.",
+   "party_ids": [
+    "103.1",
+    "103.2",
+    "103.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that parental affection remains a rationale for the presumption between father and child."
+  },
+  {
+   "pid": "P64",
+   "party_by": "tribunal_below",
+   "party_text": "Professor Freedman acknowledges the original rationale of the advancement rule is difficult to pin down and did not arise only from parental obligation to support dependent children.",
+   "party_ids": [
+    "104.1",
+    "104.2",
+    "104.3",
+    "104.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Professor Freedman's view that the original rationale is complex and not solely parental obligation."
+  },
+  {
+   "pid": "P65",
+   "party_by": "tribunal_below",
+   "party_text": "Cullity J. observed parental affection grounds the presumption and is the greatest indicator of the probable intent of the transferor.",
+   "party_ids": [
+    "106.1",
+    "106.2",
+    "106.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Cullity J.'s observation that parental affection grounds the presumption and indicates probable intent."
+  },
+  {
+   "pid": "P66",
+   "party_by": "tribunal_below",
+   "party_text": "Because parental affection has historically been seen as a basis for the presumption of advancement, it was routinely applied to adult as well as minor children.",
+   "party_ids": [
+    "107.1",
+    "107.2",
+    "107.3",
+    "107.4",
+    "107.5",
+    "107.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the presumption was routinely applied to adult as well as minor children based on parental affection."
+  },
+  {
+   "pid": "P67",
+   "party_by": "tribunal_below",
+   "party_text": "Some courts in the mid-90s began questioning whether the presumption of advancement should apply to transfers between parents and their adult children.",
+   "party_ids": [
+    "108.1",
+    "108.2",
+    "108.3",
+    "108.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges some courts in the mid-90s questioned the presumption's application to adult children."
+  },
+  {
+   "pid": "P68",
+   "party_by": "tribunal_below",
+   "party_text": "The Ontario Court of Appeal accepted the trial judge's application of the presumption of advancement to a transfer by a father to his adult daughter.",
+   "party_ids": [
+    "110.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the Ontario Court of Appeal accepted the presumption's application to a transfer to an adult daughter."
+  },
+  {
+   "pid": "P69",
+   "party_by": "applicant",
+   "party_text": "The presumption of advancement in gratuitous transfers to children is not solely based on financial dependency but also on natural affection.",
+   "party_ids": [
+    "111.1",
+    "111.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the presumption is based not only on financial dependency but also on natural affection."
+  },
+  {
+   "pid": "P70",
+   "party_by": "applicant",
+   "party_text": "It is flawed to argue that the presumption of advancement should not apply to adult children because elderly parents need assistance managing their finances.",
+   "party_ids": [
+    "112.1",
+    "113.1",
+    "113.2",
+    "113.3",
+    "113.4",
+    "113.5",
+    "113.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds the argument that elderly parents needing assistance negates the presumption is flawed."
+  },
+  {
+   "pid": "P71",
+   "party_by": "applicant",
+   "party_text": "The possibility of undue influence by adult children does not justify disregarding the presumption of advancement in most parent-child transfers.",
+   "party_ids": [
+    "114.1",
+    "114.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court rejects undue influence as a justification to disregard the presumption in most parent-child transfers."
+  },
+  {
+   "pid": "P72",
+   "party_by": "applicant",
+   "party_text": "The presumption of advancement should apply to all gratuitous transfers from parents to children regardless of the child's age or dependency, because parental affection persists over time.",
+   "party_ids": [
+    "115.1",
+    "115.2",
+    "115.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the presumption applies regardless of child's age or dependency due to parental affection."
+  },
+  {
+   "pid": "P73",
+   "party_by": "applicant",
+   "party_text": "The presumption of advancement is unique to the parental relationship due to its legal obligations and protective emotional ties, not just affection alone.",
+   "party_ids": [
+    "116.1",
+    "116.2",
+    "116.3",
+    "116.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the presumption is unique to the parental relationship due to legal and emotional ties, not affection alone."
+  },
+  {
+   "pid": "P74",
+   "party_by": "applicant",
+   "party_text": "Bank account documents that confirm survivorship interest should be considered evidence of the transferor's intention.",
+   "party_ids": [
+    "117.1",
+    "117.2",
+    "117.3",
+    "117.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts bank documents confirming survivorship interest as evidence of intention."
+  },
+  {
+   "pid": "P75",
+   "party_by": "applicant",
+   "party_text": "The presumption of advancement has been conceptually retained in spousal joint property despite being replaced by the presumption of resulting trust in other contexts.",
+   "party_ids": [
+    "118.1",
+    "118.2",
+    "118.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the presumption of advancement is conceptually retained in spousal joint property despite replacement elsewhere."
+  }
+ ]
+}

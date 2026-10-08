@@ -1,0 +1,464 @@
+{
+ "case_id": 40225,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0054951999999999996
+ },
+ "verification": {
+  "points": 29,
+  "calls": 6,
+  "answered": 6,
+  "points_returned": 29,
+  "answer_ids_dropped": 34
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The claimant alleges abuse by her family because she gave birth to a child whose father is Christian and she is Muslim.",
+   "party_ids": [
+    "2.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.3",
+    "5.4",
+    "6.2"
+   ],
+   "answer_paragraphs": [
+    5,
+    6
+   ],
+   "answer_quote": "As a result, the panel accepts the claimant's testimony that her problems began in 2008 when she got pregnant. Her family, who are Muslims, insulted her regularly because the father of the child was a Christian and she was not married. The panel also accepts that the claimant is mistreated by her family because she was impregnated outside of marriage and that her family as Muslims do not accept the fact that the child's father is a Christian; thus, the reason why they mistreat the claimant.",
+   "why": "The court accepts the claimant's allegation of abuse due to her child's Christian father and her Muslim background."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "Her Muslim family insults her consistently.",
+   "party_ids": [
+    "2.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.4",
+    "6.1"
+   ],
+   "answer_paragraphs": [
+    5,
+    6
+   ],
+   "answer_quote": "Her family, who are Muslims, insulted her regularly because the father of the child was a Christian and she was not married. The panel accepts the claimant's evidence that her family insults her and threatens her life because she refuses to give her child to them.",
+   "why": "The court accepts that the claimant's Muslim family insults her consistently."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "She feared for her mental health and that of her son after three years of insults.",
+   "party_ids": [
+    "2.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.5",
+    "5.6",
+    "5.7",
+    "6.1"
+   ],
+   "answer_paragraphs": [
+    5,
+    6
+   ],
+   "answer_quote": "Between 2008 and 2009, the claimant moved to a friend's house, however, her brother found her and threatened to kill her and her son if she did not return home. At the beginning of 2010, her family began trying to force her to give her son to them. The claimant refused as she feared they would kill her son. The panel accepts the claimant's evidence that her family insults her and threatens her life because she refuses to give her child to them.",
+   "why": "The court accepts the claimant feared for her and her son's mental health after years of insults and threats."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "She claimed refugee status in November 2011.",
+   "party_ids": [
+    "2.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.14"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "In March 2011 she came to Canada and claimed refugee status in November 2011.",
+   "why": "The court accepts that the claimant claimed refugee status in November 2011."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The panel finds the claimants are not Convention refugees or persons in need of protection.",
+   "party_ids": [
+    "3.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel finds the claimants are not Convention refugees or persons in need of protection."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The panel finds that the claimants are citizens of Ivory Coast.",
+   "party_ids": [
+    "4.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel finds the claimants are citizens of Ivory Coast."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The claimants established their identity and nationality through passports and birth certificates.",
+   "party_ids": [
+    "4.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts the claimants' identity and nationality through passports and birth certificates."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The panel found the claimant credible.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel explicitly found the claimant credible."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "She testified in a straightforward manner and was consistent.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel notes the claimant testified straightforwardly and consistently."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The panel accepts the claimant's testimony that her problems began in 2008 when she got pregnant.",
+   "party_ids": [
+    "5.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts the claimant's testimony about her problems beginning in 2008 with pregnancy."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "Her family, who are Muslims, insulted her regularly because the father of the child was a Christian and she was not married.",
+   "party_ids": [
+    "5.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that her Muslim family insulted her due to the child's Christian father and her unmarried status."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "Between 2008 and 2009, the claimant moved to a friend's house, but her brother found her and threatened to kill her and her son if she did not return home.",
+   "party_ids": [
+    "5.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that the claimant moved but was found and threatened by her brother."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "At the beginning of 2010, her family began trying to force her to give her son to them.",
+   "party_ids": [
+    "5.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel explicitly accepts that her family began trying to force her to give her son to them at the beginning of 2010."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant refused to give her son to her family because she feared they would kill him.",
+   "party_ids": [
+    "5.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that the claimant refused to give her son to her family because she feared they would kill him."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "She began looking for a way to leave the country.",
+   "party_ids": [
+    "5.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that she began looking for a way to leave the country."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "In August 2010, the claimant came to Canada hoping she and her son could stay permanently.",
+   "party_ids": [
+    "5.9"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that in August 2010, the claimant came to Canada hoping to stay permanently."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "After arriving in Canada, she asked a few people about the possibility to remain permanently but no one knew how to help her.",
+   "party_ids": [
+    "5.10"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that after arriving in Canada, she asked a few people about remaining permanently."
+  },
+  {
+   "pid": "P18",
+   "party_by": "tribunal_below",
+   "party_text": "When her visa expired, not knowing what to do and not wanting to stay illegally, she and her son returned to the Ivory Coast.",
+   "party_ids": [
+    "5.11"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that when her visa expired, not knowing what to do and not wanting to stay illegally, she and her son returned to Ivory Coast."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "They lived in hiding, but one month later her family found her and forced her to return home.",
+   "party_ids": [
+    "5.12"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts that after living in hiding, her family found her and forced her to return home."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "In January 2011 she found her way to Guinea to obtain a Canadian visa.",
+   "party_ids": [
+    "5.13"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel states she went to Guinea in January 2011 to obtain a Canadian visa."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "In March 2011 she came to Canada and claimed refugee status in November 2011.",
+   "party_ids": [
+    "5.14"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel confirms she came to Canada in March 2011 and claimed refugee status in November 2011."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The panel asked the claimant why she claimed refugee status approximately 8 months after her arrival.",
+   "party_ids": [
+    "5.15"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel asked why she claimed refugee status about 8 months after arrival."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant explained that she was not aware she could claim refugee status until October 2011.",
+   "party_ids": [
+    "5.16"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel records her explanation that she was unaware she could claim refugee status until October 2011."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "The panel accepts the claimant's evidence that her family insults her and threatens her life because she refuses to give her child to them.",
+   "party_ids": [
+    "6.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel accepts her evidence that her family insults and threatens her because she refuses to give her child to them."
+  },
+  {
+   "pid": "P25",
+   "party_by": "tribunal_below",
+   "party_text": "The panel also accepts that the claimant is mistreated by her family because she was impregnated outside of marriage and that her family as Muslims do not accept the fact that the child's father is a Christian; thus, the reason why they mistreat the claimant.",
+   "party_ids": [
+    "6.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel explicitly accepts the claimant is mistreated due to pregnancy outside marriage and religious differences."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "The onus lies with the claimant to prove the inadequacy of state protection.",
+   "party_ids": [
+    "7.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel states the onus lies with the claimant to prove inadequacy of state protection."
+  },
+  {
+   "pid": "P27",
+   "party_by": "respondent",
+   "party_text": "Counsel submitted a report from the Center for Gender & Refugee Studies about sexual and gender based violence, domestic violence, discrimination and violence against women.",
+   "party_ids": [
+    "7.2",
+    "7.3",
+    "7.4",
+    "7.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel rejects counsel's submissions based on the report, finding the persecution is religious, not gender-based."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant never attempted to seek state protection in Ivory Coast.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "13.1"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "In light of the evidence that the claimant never sought state protection and taking into account that there is no evidence before the panel that the state is unable or unwilling to provide adequate state protection for the claimant, the panel determines that the claimant has not rebutted the presumption of adequate state protection with clear and convincing evidence, which is fatal to the claims under both s. 96 and ss. 97 (1) of the IRPA.",
+   "why": "The tribunal accepts that the claimant never sought state protection and finds this fatal to the claim."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "The United States Department of State International Religious Freedom Report states that the constitution and laws protect religious freedom in Ivory Coast, with a diverse religious population and no indication of state inability to protect religious freedom.",
+   "party_ids": [
+    "12.3",
+    "12.4",
+    "12.5",
+    "12.6"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "13.1"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "In light of the evidence that the claimant never sought state protection and taking into account that there is no evidence before the panel that the state is unable or unwilling to provide adequate state protection for the claimant, the panel determines that the claimant has not rebutted the presumption of adequate state protection with clear and convincing evidence, which is fatal to the claims under both s. 96 and ss. 97 (1) of the IRPA.",
+   "why": "The tribunal accepts the report's findings and finds no evidence the state is unable or unwilling to protect religious freedom."
+  }
+ ]
+}

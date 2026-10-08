@@ -1,0 +1,884 @@
+{
+ "case_id": 39526,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0149036
+ },
+ "verification": {
+  "points": 50,
+  "calls": 11,
+  "answered": 14,
+  "points_returned": 50,
+  "answer_ids_dropped": 97
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The Minister argued that the Federal Court erred in not applying the Raza criteria for subsection 110(4) and that the Refugee Appeal Division was entitled to refuse to admit a grade 12 diploma seized by CBSA and not submitted before the Refugee Protection Division.",
+   "party_ids": [
+    "4.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "4.2"
+   ],
+   "answer_paragraphs": [
+    4
+   ],
+   "answer_quote": "For the reasons that follow, I am of the view that the Minister\u2019s submissions must be accepted and that the appeal must therefore be allowed.",
+   "why": "The court accepts the Minister's submissions and allows the appeal."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Protection Division found the respondent failed to establish his identity, noting probable forgery of identity documents and lack of effort to obtain genuine documents.",
+   "party_ids": [
+    "9.2",
+    "9.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD's finding that the respondent failed to establish identity due to probable forgery and lack of effort to obtain genuine documents."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Protection Division's record contained only the 2000 school certificate; the respondent's explanation for the missing 2002 diploma was rejected, leaving no evidence to corroborate his study claim.",
+   "party_ids": [
+    "10.1",
+    "10.2",
+    "10.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's rejection of the explanation and lack of evidence for the 2002 diploma."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The respondent produced a ration card and birth certificate; the ration card had been corrected a year after his sister's marriage, affecting its probative value due to the permanent photo attachment.",
+   "party_ids": [
+    "11.1",
+    "11.2",
+    "11.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that the ration card's probative value was affected by the correction and permanent photo."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "Given concerns with four identity documents, the birth certificate alone was insufficient to establish the respondent's identity.",
+   "party_ids": [
+    "11.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's conclusion that the birth certificate alone was insufficient due to concerns with other documents."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the respondent's narrative not credible due to inconsistencies in the chronology of events and discrepancies in medical reports.",
+   "party_ids": [
+    "12.1",
+    "12.2",
+    "12.3",
+    "12.4",
+    "12.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding of non-credibility based on inconsistencies and medical report discrepancies."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the respondent had an internal flight alternative despite acknowledging the Indian police's ability to pursue individuals nationwide.",
+   "party_ids": [
+    "13.1",
+    "13.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding of an internal flight alternative despite police reach."
+  },
+  {
+   "pid": "P8",
+   "party_by": "respondent",
+   "party_text": "The respondent applied to the RAD to file additional evidence, specifically a copy of the Diploma, which he claimed he was unaware of before June 11, 2013.",
+   "party_ids": [
+    "14.1",
+    "14.2",
+    "14.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the respondent's application to file the Diploma and his claim of unawareness before June 11, 2013."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD refused to admit the Diploma as new evidence, interpreting subsection 110(4) IRPA in light of Raza and finding the Diploma was available before the RPD hearing.",
+   "party_ids": [
+    "15.1",
+    "15.2",
+    "15.3",
+    "15.4",
+    "15.5",
+    "15.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court recounts the RAD's refusal to admit the Diploma, its interpretation of subsection 110(4) IRPA in light of Raza, and the finding that the Diploma was available before the hearing."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD reviewed the issues on a reasonableness standard and found the respondent's identity established based on school and birth certificates, but upheld the RPD's credibility doubts.",
+   "party_ids": [
+    "16.1",
+    "16.2",
+    "16.3",
+    "16.4",
+    "16.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RAD's reasonableness review, identity finding, and upholding of credibility doubts."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD considered it unnecessary to address the internal flight alternative issue given its findings on identity and credibility.",
+   "party_ids": [
+    "16.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the RAD found it unnecessary to address the internal flight alternative issue."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The Federal Court had to determine whether the RAD erred in applying the criteria in Raza for admissibility of new evidence and the application of those criteria to the facts, reviewing both on a reasonableness standard.",
+   "party_ids": [
+    "16.7",
+    "16.8",
+    "16.9",
+    "16.10"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Federal Court's role in reviewing the RAD's application of Raza criteria and facts under reasonableness."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "The judge noted that the role of a Pre-Removal Risk Assessment (PRRA) officer differs from that of the Refugee Appeal Division (RAD).",
+   "party_ids": [
+    "18.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the judge's observation of the differing roles of PRRA officers and the RAD."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "PRRA officers are employees of the Minister and must show deference to decisions made by the Refugee Protection Division (RPD) unless new evidence arises, whereas the RAD is a quasi-judicial administrative tribunal that hears appeals from RPD decisions and may substitute its own determination.",
+   "party_ids": [
+    "18.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the distinction between PRRA officers and the RAD as stated by the judge."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "Given the distinctive roles of PRRA officers and the RAD, the judge found it inappropriate to apply the criteria developed for paragraph 113(a) mutatis mutandis to interpret subsection 110(4).",
+   "party_ids": [
+    "18.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge's opinion that applying paragraph 113(a) criteria mutatis mutandis to subsection 110(4) is inappropriate."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The judge relied on a statement by the Minister of Citizenship and Immigration that refugee claimants must benefit from a 'full fact-based appeal' to argue that a restrictive approach to admissibility of new evidence would prevent the RAD from fulfilling its mission.",
+   "party_ids": [
+    "19.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge's reliance on the Minister's statement about a full fact-based appeal and the impact of restrictive evidence rules."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "The judge noted that the implicit factors identified by the Federal Court of Appeal in Raza originate from the purpose of paragraph 113(a) and are not transferable to appeals before the RAD under subsection 110(4).",
+   "party_ids": [
+    "19.2",
+    "19.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge's finding that Raza factors are not transferable to RAD appeals under subsection 110(4)."
+  },
+  {
+   "pid": "P18",
+   "party_by": "tribunal_below",
+   "party_text": "The judge concluded it was unreasonable for the RAD to strictly apply the criteria from Raza when interpreting subsection 110(4) of the IRPA.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge's conclusion that it was unreasonable for the RAD to strictly apply Raza criteria to subsection 110(4)."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "The judge found that the Diploma evidence could be material to show that the RPD erred in negative credibility findings about the respondent, including that the CBSA had not confiscated the Diploma and that the respondent had not established attending school with Bhupinder Singh until 2002.",
+   "party_ids": [
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge's finding that the Diploma evidence could be material to show RPD errors in credibility findings."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The judge found it unreasonable for the RAD to conclude the respondent should have brought the Diploma evidence before the RPD, given it was not in his possession and he mistakenly believed the CBSA still had it.",
+   "party_ids": [
+    "20.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The judge found it unreasonable for the RAD to require the respondent to bring the Diploma evidence before the RPD given it was not in his possession and he mistakenly believed the CBSA still had it."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "The judge found it unreasonable to require the respondent to file a complaint against former counsel as a prerequisite for filing new evidence or to expect the respondent to know the complaint procedure before the Barreau du Qu\u00e9bec.",
+   "party_ids": [
+    "20.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The judge found it unreasonable to require the respondent to file a complaint against former counsel or to expect him to know the complaint procedure before the Barreau du Qu\u00e9bec."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court judge certified two questions: (1) the standard of review to be applied when reviewing the RAD's interpretation of subsection 110(4) IRPA; and (2) whether the test set out in Raza for paragraph 113(a) applies to subsection 110(4).",
+   "party_ids": [
+    "20.5",
+    "20.6",
+    "20.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Federal Court judge certified two questions regarding the standard of review and the applicability of the Raza test to subsection 110(4)."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "The judge applied the reasonableness standard to the interpretation of subsection 110(4) of the IRPA.",
+   "party_ids": [
+    "23.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The judge applied the reasonableness standard to the interpretation of subsection 110(4) of the IRPA."
+  },
+  {
+   "pid": "P24",
+   "party_by": "respondent",
+   "party_text": "The intervener asserted that the judge erred in selecting a reasonableness standard, arguing that she had an obligation to end the differences in interpretation within the RAD regarding subsection 110(4).",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The intervener asserted the judge erred in selecting reasonableness, but the court disagreed with this argument."
+  },
+  {
+   "pid": "P25",
+   "party_by": "respondent",
+   "party_text": "The intervener relied on this Court\u2019s recent decision in Wilson to highlight different approaches by RAD members and requested the Court to end the uncertainty and conflicting results.",
+   "party_ids": [
+    "24.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "25.1",
+    "25.2",
+    "25.3",
+    "26.1",
+    "26.2",
+    "26.3",
+    "26.4"
+   ],
+   "answer_paragraphs": [
+    25,
+    26
+   ],
+   "answer_quote": "With respect, I am not persuaded by this argument. It should be noted that Wilson is an \u201cunusual\u201d case, to use the expression employed by Justice Stratas, in that the question as to whether the Canada Labour Code, R.S.C. 1985, c. L-2 permits dismissals on a without cause basis has been one of \u201cpersistent\u201d discord, to the extent that the answer to this question has largely depended on the identity of the adjudicator. Furthermore, adjudicators are not bound by the decisions of their colleagues and operate independently rather than within an institution such as an administrative tribunal, which decidedly does not favour the emergence of a consensus or a consistent interpretation. In this instance, we are not confronted with a persistent discord that has existed for many years. The RAD was established in December 2012, and only began issuing decisions in 2013. There is therefore no urgent need to intervene, especially since the principles that will emerge from the jurisprudence of this Court and the Federal Court will necessarily provide a framework within which the RAD will be able to interpret subsection 110(4) of the IRPA. Thus, there is no need to depart from the general principle that an administrative tribunal is owed deference when it interprets its enabling statute; the early, tentative steps of the RAD and its differences of opinion as to the interpretation of certain statutory provisions do not affect the rule of law and are merely the inevitable consequence of choosing to entrust a specialized tribunal with the task of adjudicating disputes arising from the implementation of a new scheme.",
+   "why": "The court rejected the intervener's request to end uncertainty and conflicting results, finding no urgent need to intervene and affirming deference to the RAD."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "The Court owed no deference to the administrative decision-maker's interpretation of the IRPA in the context of a certified question raising statutory interpretation.",
+   "party_ids": [
+    "27.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts no deference is owed on statutory interpretation questions in this context."
+  },
+  {
+   "pid": "P27",
+   "party_by": "respondent",
+   "party_text": "The Federal Court may only certify serious questions of general importance that transcend the parties' interests, warranting definitive interpretation by the Court of Appeal.",
+   "party_ids": [
+    "27.2",
+    "27.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the Federal Court may only certify serious questions of general importance warranting definitive interpretation."
+  },
+  {
+   "pid": "P28",
+   "party_by": "respondent",
+   "party_text": "Decisions such as Hilewitz, De Jong, and Pushpanathan suggest that questions of general importance require correctness standard review rather than deference.",
+   "party_ids": [
+    "27.4",
+    "27.5",
+    "27.6",
+    "27.7",
+    "27.8",
+    "27.9",
+    "27.10",
+    "27.11"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that prior decisions suggest correctness standard review applies to questions of general importance."
+  },
+  {
+   "pid": "P29",
+   "party_by": "respondent",
+   "party_text": "The respondent and intervener argue that the RAD may consider the probative value and credibility of evidence to counteract subsection 110(4) requirements.",
+   "party_ids": [
+    "36.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "36.2",
+    "37.1",
+    "37.2",
+    "37.3"
+   ],
+   "answer_paragraphs": [
+    36,
+    37
+   ],
+   "answer_quote": "With respect, I am unable to agree with this interpretation. I would first note that Elezi was issued nine months before the Court of Appeal\u2019s ruling in Raza, and is therefore no longer authoritative insofar as it departs from this later decision. In addition, in Elezi, the PRRA officer\u2019s decision not to admit some of the evidence was deemed to be unreasonable either because the evidence arose after the RPD\u2019s decision, or because the applicant could not reasonably have been expected to present that evidence to the RPD in the circumstances. As a result, the assertion that one cannot reject credible evidence on the sole ground that it is \u201ctechnically inadmissible\u201d must be considered purely as an obiter.",
+   "why": "The court disagrees with the respondent's interpretation that RAD may consider probative value and credibility to counteract subsection 110(4)."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "The judge refused to apply the implicit admissibility criteria from paragraph 113(a) to subsection 110(4), citing the different role and status of the RAD compared to a PRRA officer.",
+   "party_ids": [
+    "39.1",
+    "39.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "39.3",
+    "40.1",
+    "40.2"
+   ],
+   "answer_paragraphs": [
+    39,
+    40
+   ],
+   "answer_quote": "For the reasons that follow, I cannot subscribe to this view. It must be assumed that Parliament\u2019s decision to use near-identical wording did not happen by chance. Under a well-known rule of interpretation, it must be presumed that Parliament, when it uses the same wording as a provision that has already been interpreted by the courts, intends to rely on that interpretation: see Elmer A. Driedger, Construction of Statutes, 2nd ed., Toronto, Butterworths, 1983 at p. 125.",
+   "why": "The court rejects the judge's refusal to apply implicit admissibility criteria from paragraph 113(a) to subsection 110(4)."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "The French version of subsection 110(4) differs slightly from paragraph 113(a) but this difference is not sufficient to set aside past jurisprudence related to paragraph 113(a).",
+   "party_ids": [
+    "41.1",
+    "41.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the French version differs slightly but finds this insufficient to set aside past jurisprudence related to paragraph 113(a)."
+  },
+  {
+   "pid": "P32",
+   "party_by": "tribunal_below",
+   "party_text": "No significant inference can be drawn from the absence of the word 'new' in the English version of subsection 110(4) because the French version of paragraph 113(a) also lacks the word 'new' and evidence arising after rejection is necessarily new.",
+   "party_ids": [
+    "41.3",
+    "41.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds no significant inference from the absence of 'new' in English version since French version of paragraph 113(a) also lacks it and evidence after rejection is necessarily new."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD's status as a quasi-judicial administrative tribunal with appellate function differs from the PRRA officer's role but these distinctions do not determine the admissibility of new evidence.",
+   "party_ids": [
+    "42.1",
+    "42.2",
+    "42.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges RAD's different status but finds these distinctions do not determine admissibility of new evidence."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "The criteria used in Raza for admitting new evidence\u2014newness, relevance, credibility, and materiality\u2014are consistent with tests generally adopted by courts and administrative bodies to preserve judicial integrity.",
+   "party_ids": [
+    "43.1",
+    "43.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Raza criteria for admitting new evidence align with tests generally adopted to preserve judicial integrity."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "Rules 3(3)(g)(iii) and 5(2)(d)(ii) of the Refugee Appeal Division Rules require appellants to show how documentary evidence meets subsection 110(4) and relates to the appellant.",
+   "party_ids": [
+    "45.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly confirms these rules require appellants to show how evidence meets subsection 110(4) and relates to the appellant."
+  },
+  {
+   "pid": "P36",
+   "party_by": "tribunal_below",
+   "party_text": "Evidence that corroborates facts, contradicts RPD findings, or clarifies evidence before the RPD does not constitute 'new evidence' under subsection 110(4).",
+   "party_ids": [
+    "50.3",
+    "50.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "50.5"
+   ],
+   "answer_paragraphs": [
+    50
+   ],
+   "answer_quote": "In my opinion, this is exactly what subsection 110(4) of the Act seeks to prohibit.",
+   "why": "The court agrees that evidence corroborating or clarifying does not count as new evidence under subsection 110(4)."
+  },
+  {
+   "pid": "P37",
+   "party_by": "respondent",
+   "party_text": "A strict interpretation of subsection 110(4) would limit an applicant\u2019s access to a full fact-based appeal, contrary to the wishes expressed by the former Minister of Citizenship and Immigration.",
+   "party_ids": [
+    "52.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondent's opinion but does not accept that strict interpretation limits access to a full fact-based appeal. It only states the opinion without acceptance."
+  },
+  {
+   "pid": "P38",
+   "party_by": "applicant",
+   "party_text": "The Minister's statement supports differentiating the appeal from the narrower scope of judicial review and does not override subsection 110(4).",
+   "party_ids": [
+    "53.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court supports the appellant's argument that the Minister's statement differentiates the appeal from judicial review and does not override subsection 110(4)."
+  },
+  {
+   "pid": "P39",
+   "party_by": "respondent",
+   "party_text": "Reduced timeframes for submitting documents justify a flexible interpretation of the admissibility criteria to allow more evidence on appeal.",
+   "party_ids": [
+    "54.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "54.5"
+   ],
+   "answer_paragraphs": [
+    54
+   ],
+   "answer_quote": "However, these considerations do not suffice to set aside the clear legislative intention to not authorize any new evidence on appeal other than in very specific and carefully defined circumstances.",
+   "why": "The court acknowledges reduced timeframes but rejects that this justifies flexible interpretation of admissibility criteria."
+  },
+  {
+   "pid": "P40",
+   "party_by": "applicant",
+   "party_text": "The desire to counter abuses under previous regimes should not restrict new evidence that valid appellants seek to file before the RAD.",
+   "party_ids": [
+    "55.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees that the desire to counter abuses should not restrict new evidence valid appellants seek to file."
+  },
+  {
+   "pid": "P41",
+   "party_by": "applicant",
+   "party_text": "Parliament intended to ensure the integrity of the immigration system by setting clear rules of evidence and procedure for the RAD, which must be respected.",
+   "party_ids": [
+    "55.3",
+    "55.4",
+    "55.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Parliament intended clear rules of evidence and procedure for the RAD to ensure system integrity, which must be respected."
+  },
+  {
+   "pid": "P42",
+   "party_by": "intervener",
+   "party_text": "The RAD should apply a proportionality analysis under the Charter when ruling on admissibility of new evidence, going beyond subsection 110(4) requirements.",
+   "party_ids": [
+    "56.1",
+    "56.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "57.1",
+    "57.2",
+    "57.3",
+    "57.4",
+    "57.5",
+    "57.6"
+   ],
+   "answer_paragraphs": [
+    57
+   ],
+   "answer_quote": "With respect, I cannot agree with this argument. It is true that, in Dor\u00e9, the Supreme Court stated that it was of the opinion that an administrative decision-maker must weigh the values set out in the Charter and the statutory objectives in the exercise of his or her discretionary power. In the context of a judicial review, the Court must determine whether the decision under review is the result of a proportionate balancing of the rights and values protected by the Charter, a process that bears some resemblance to the framework of analysis established in R. v. Oakes, [1986] 1 S.C.R. 103, 26 D.L.R. (4th) 200 when the very validity of a legislative text is challenged. This approach is well summarized in the following excerpt from Dor\u00e9, at paragraph 57: On judicial review, the question becomes whether, in assessing the impact of the relevant Charter protection and given the nature of the decision and the statutory and factual contexts, the decision reflects proportionate balancing of the Charter protections at play. As LeBel J. noted in Multani, when a court is faced with reviewing an administrative decision that implicates Charter rights, \u201c[t]he issue becomes one of proportionality\u201d (para. 155) and calls for integrating the spirit of s. 1 into judicial review. Though this judicial review is conducted within the administrative framework, there is nonetheless conceptual harmony between a reasonableness review and the Oakes framework, since both contemplate giving a \u201cmargin of appreciation\u201d, or deference, to administrative and legislative bodies in balancing Charter values against broader objectives.",
+   "why": "The court rejects the argument that RAD must apply a proportionality analysis under the Charter beyond subsection 110(4)."
+  },
+  {
+   "pid": "P43",
+   "party_by": "intervener",
+   "party_text": "The proposed test requires admitting evidence if it credibly proves relevant circumstances arising after the RPD decision, or if prior circumstances evidence was not reasonably available or could not reasonably have been presented, and if not, admitting evidence that raises a prima facie risk and could change the RAD's conclusion, followed by a proportionality exercise balancing Charter rights and statutory objectives.",
+   "party_ids": [
+    "56.3",
+    "56.4",
+    "56.5",
+    "56.6",
+    "56.7",
+    "56.8"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "57.1",
+    "63.1",
+    "63.2",
+    "63.3",
+    "63.4",
+    "63.5",
+    "63.6"
+   ],
+   "answer_paragraphs": [
+    57,
+    63
+   ],
+   "answer_quote": "With respect, I cannot agree with this argument. However, subsection 110(4) is not written in an ambiguous manner and does not grant any discretion to the RAD. As mentioned above (see paras. 34, 35 and 38 above), the admissibility of fresh evidence before the RAD is subject to strict criteria and neither the wording of the subsection nor the broader framework of the section it falls under could give the impression that Parliament intended to grant the RAD the discretion to disregard the conditions carefully set out therein. Moreover, this approach complies perfectly with this Court\u2019s decision in Raza. The criteria set out in that decision regarding paragraph 113(a), which, moreover, are not necessarily cumulative, do not replace explicit legal conditions; rather they add to those conditions to the extent that they are \u201cnecessarily implied\u201d from the purpose of the provision, to reiterate this Court\u2019s words at paragraph 14 of Raza. Otherwise, this would mean ignoring the conditions set out at subsection 110(4) and then delving into a balancing exercise between Charter values and the objectives sought by Parliament. In the absence of a direct challenge to this legislation, it should be given effect and the RAD has no choice but to comply with its requirements.",
+   "why": "The court rejects the proposed test and holds that RAD must comply strictly with subsection 110(4) without a balancing exercise."
+  },
+  {
+   "pid": "P44",
+   "party_by": "intervener",
+   "party_text": "Section 7 Charter values must influence interpretation and application of subsection 110(4) IRPA, leading to admitting new evidence even if it does not meet explicit requirements.",
+   "party_ids": [
+    "58.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "58.2",
+    "62.1",
+    "62.2",
+    "62.3",
+    "62.4",
+    "62.5",
+    "63.1",
+    "63.2",
+    "63.3",
+    "63.4",
+    "63.5",
+    "63.6"
+   ],
+   "answer_paragraphs": [
+    58,
+    62,
+    63
+   ],
+   "answer_quote": "However, this thesis encounters at least two difficulties. However, there is more. A close reading of Dor\u00e9 shows that an administrative decision-maker\u2019s obligation to enforce Charter values arises only if it is exercising statutory discretion: Dor\u00e9, para. 55; Loyola, para. 35; R v. Clarke, 2014 SCC 28 at para. 16, [2014] 1 S.C.R. 612. When legislation or regulations are clear and unambiguous, it is not up to the courts to rewrite them on the pretext of ensuring conformity with Charter values (Najafi v. Canada (Minister of Public Safety and Emergency Preparedness), 2014 FCA 262 at para. 107, [2015] 4 F.C.R. 162; Febles v. Canada (Citizenship and Immigration), 2014 SCC 68 at para. 67, [2014] 3 S.C.R. 431). Except under exceptional circumstances, the courts only have the authority to declare invalid legislation that is unconstitutional, and only if the issue is explicitly raised and the Attorney General has been notified. It is up to Parliament to amend legislation that has been declared unconstitutional so as to ensure compliance with the fundamental law of the land. However, subsection 110(4) is not written in an ambiguous manner and does not grant any discretion to the RAD. As mentioned above (see paras. 34, 35 and 38 above), the admissibility of fresh evidence before the RAD is subject to strict criteria and neither the wording of the subsection nor the broader framework of the section it falls under could give the impression that Parliament intended to grant the RAD the discretion to disregard the conditions carefully set out therein. Moreover, this approach complies perfectly with this Court\u2019s decision in Raza. The criteria set out in that decision regarding paragraph 113(a), which, moreover, are not necessarily cumulative, do not replace explicit legal conditions; rather they add to those conditions to the extent that they are \u201cnecessarily implied\u201d from the purpose of the provision, to reiterate this Court\u2019s words at paragraph 14 of Raza. Otherwise, this would mean ignoring the conditions set out at subsection 110(4) and then delving into a balancing exercise between Charter values and the objectives sought by Parliament. In the absence of a direct challenge to this legislation, it should be given effect and the RAD has no choice but to comply with its requirements.",
+   "why": "The court rejects that section 7 Charter values require admitting new evidence beyond subsection 110(4) as the provision is clear and unambiguous."
+  },
+  {
+   "pid": "P45",
+   "party_by": "intervener",
+   "party_text": "Excluding credible evidence could lead to removal of the foreign national soon after claim rejection, affecting life, liberty, and security rights.",
+   "party_ids": [
+    "59.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "59.1",
+    "59.3",
+    "60.1",
+    "60.2",
+    "60.3",
+    "60.4"
+   ],
+   "answer_paragraphs": [
+    59,
+    60
+   ],
+   "answer_quote": "First of all, it has not been established in this case that the values protected by section 7 of the Charter are affected by the RAD\u2019s decision not to admit as new evidence the Diploma that the respondent wanted to adduce. However, in my view this does not seem sufficient to conclude that the decision not to admit new evidence on appeal necessarily affects the right not to be deprived of life, liberty and security of the person except in accordance with the principles of fundamental justice. It is first noteworthy that the decision made by the RPD, and on appeal before the RAD, does not pertain to the respondent\u2019s removal, but solely to whether he is genuinely a Convention refugee or a person in need of protection in accordance with sections 96 and 97 of the IRPA. I am prepared to recognize that the RAD\u2019s decision to exclude evidence on the grounds that it does not meet the criteria in subsection 110(4) will have a significant impact if a foreign national tries to submit that same evidence to a PRRA Officer or to a Removal Officer. Nevertheless, the respondent in this case failed to establish his credibility; the RAD found that the RPD could reasonably conclude that the respondent\u2019s credibility was seriously undermined, and that that conclusion would be valid even if the Diploma were admitted in evidence. For reasons set out below, I am of the opinion that that conclusion falls within a range of possible, acceptable outcomes which are defensible in respect of the facts and the law, and consequently the respondent did not establish that his life, liberty or security would be in danger if he were returned to India.",
+   "why": "The court finds excluding evidence does not necessarily affect life, liberty, or security rights in this case."
+  },
+  {
+   "pid": "P46",
+   "party_by": "intervener",
+   "party_text": "The RAD\u2019s decision not to admit new evidence engages the principles of fundamental justice.",
+   "party_ids": [
+    "61.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "61.2",
+    "61.3",
+    "61.4",
+    "61.5",
+    "61.6",
+    "61.7"
+   ],
+   "answer_paragraphs": [
+    61
+   ],
+   "answer_quote": "It must be remembered that a foreign national claiming status as a refugee or a person in need of protection benefits from an extensive, multi-stage process that enables him to assert his claims before several levels of independent and impartial quasi-judicial tribunals and administrative decision-makers, and that he can apply for judicial review of those decisions to the Federal Court. While the right of appeal has not been recognized as a principle of fundamental justice (see Medovarski v. Canada (Minister of Citizenship and Immigration), 2005 SCC 51 at para. 47, [2005] 2 S.C.R. 539; Chiarelli v. Canada (Minister of Employment and Immigration), [1992] 1 S.C.R. 711 at pp. 741-742, 90 D.L.R. (4th) 289), Parliament decided to enhance the former regime and to implement the provisions of the IRPA establishing the RAD. The legislator could have provided only for an appeal on the record without a hearing, but elected to open the door to the submission of new evidence and hearings in carefully limited circumstances. I fail to see how enhancing a system already broadly respectful of the international and constitutional obligations to which Parliament and the government are subject could jeopardize that same system, especially since the criteria used in respect of admissibility of new evidence are essentially similar to those normally used in judicial and quasi-judicial proceedings on appeal, in both civil and criminal matters. The constitutionality of subsection 110(4) of the IRPA has not been challenged in this case, so I will abstain from drawing any definitive conclusion in that regard. That said, I have not been convinced that the exclusion of the Diploma by the RAD is contrary to the principles of fundamental justice, even assuming that the exclusion of that evidence affects the respondent\u2019s right to life, liberty and security.",
+   "why": "The court rejects that RAD\u2019s decision not to admit new evidence engages fundamental justice principles here."
+  },
+  {
+   "pid": "P47",
+   "party_by": "respondent",
+   "party_text": "The respondent contends he only learned in June 2013 that his lawyer had received the Diploma in February 2013.",
+   "party_ids": [
+    "66.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "66.3",
+    "66.4"
+   ],
+   "answer_paragraphs": [
+    66
+   ],
+   "answer_quote": "However, that claim by itself is not enough to relieve the respondent of any responsibility. It is settled that an applicant must live with the consequences of the actions of his counsel: Cove c. Canada (Minister of Citizenship and Immigration), 2001 FCT 266 at paras. 6-11, [2001] F.C.J No. 482.",
+   "why": "The court rejects the respondent's claim that he only learned in June 2013, holding he must live with counsel's actions."
+  },
+  {
+   "pid": "P48",
+   "party_by": "respondent",
+   "party_text": "The judge found it unreasonable to expect the applicant to know of the complaints procedure or to attack his former counsel\u2019s competence and ethics.",
+   "party_ids": [
+    "68.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "68.2",
+    "68.3"
+   ],
+   "answer_paragraphs": [
+    68
+   ],
+   "answer_quote": "I do not share that opinion. Not only does the judge not cite any precedent to support her finding, but she also ignores the fact that the applicant was represented by experienced counsel before the RAD.",
+   "why": "The court disagrees with the judge's finding that it was unreasonable to expect the applicant to know the complaints procedure."
+  },
+  {
+   "pid": "P49",
+   "party_by": "respondent",
+   "party_text": "The judge argued that inadmissibility of evidence could cause serious procedural equity issues by denying a deserving claimant a hearing.",
+   "party_ids": [
+    "70.1",
+    "70.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "71.1",
+    "71.2",
+    "71.3",
+    "71.4",
+    "72.1",
+    "72.2"
+   ],
+   "answer_paragraphs": [
+    71,
+    72
+   ],
+   "answer_quote": "However, as mentioned above, holding a hearing is not automatic simply because new evidence is admitted before the RAD. This new evidence must still meet the three criteria set out in subsection 110(6) of the IRPA. In this case, there was not even an attempt to show how the Diploma was determinative in establishing the respondent\u2019s credibility and how it would make up for the various shortcomings that the RPD identified in his testimony and that were confirmed by the RAD. It should be recalled that the RPD found that the respondent\u2019s narrative was deficient in several respects: he contradicted himself about precisely when his father had had a heart attack; neither his allegations of torture nor his father\u2019s purported medical condition are corroborated by the medical evidence; he presented as evidence fraudulent and altered documents; and he took no steps to obtain probative, acceptable documents with which to establish his identity. Consequently, it cannot be assumed that admitting this document into evidence would have led to a hearing or that its rejection undermined procedural fairness. Nor can one invoke the possibility that a hearing might have resulted from the admission into evidence of the Diploma to argue for a flexible interpretation of subsection 110(4): not only does holding a hearing in the present case seem highly theoretical, but the admissibility of a piece of evidence cannot be assessed by taking account of the consequences that could result for the purposes of applying subsection 110(6).",
+   "why": "The court rejects the judge's argument that inadmissibility of evidence caused serious procedural equity issues, finding no hearing was guaranteed."
+  },
+  {
+   "pid": "P50",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the respondent\u2019s narrative deficient due to contradictions about his father's heart attack timing, lack of corroboration of torture and medical conditions, presentation of fraudulent and altered documents, and failure to obtain probative identity documents.",
+   "party_ids": [
+    "71.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's findings that the respondent's narrative was deficient and documents were fraudulent or uncorroborated."
+  }
+ ]
+}

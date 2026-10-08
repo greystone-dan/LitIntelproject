@@ -1,16 +1,22 @@
 """Citation-use extraction (proof of concept, report-only, open case law only).
 
-Deterministic part: find every case citation and statute section in a decision, with its sentence id and a window of
-neighbouring sentences. Model part (narrow, batched): for each citation say who cites it, what it is used for (six labels),
-which listed argument it answers (or none), a one-line reason, and the evidence sentence id. The script supplies the
-exact evidence text, so the model never types a quote and never produces a citation.
+Design (Daniel, 2026-10-08): do not ask a model why a judge cited a case. Identify what the judge is arguing or deciding
+(the v5 themes rows: arguments, rebuttals, holdings, left-open issues), find the citations with code, and PAIR each citation
+with the nearest such row by paragraph proximity, with no model call (same paragraph first, then the nearest span; ties go to the
+court's own voice, then the narrower span, then the earlier row). The nearest three rows are stored as "possible" alternatives.
+
+Model part (optional, narrow, batched; default --link proximity): a label only. For each already-paired citation the model says
+who cites it (voice), what it is used for (six labels), a one-line reason and the evidence sentence id. With --link model the
+model also picks the linked row from a numbered list (used only to compare against proximity). The script supplies the exact
+evidence text, so the model never types a quote and never produces a citation. With --no-model nothing is sent: the output is the
+deterministic pairing alone.
 
 Six uses: applied_test, followed_or_agreed, distinguished, not_followed, reported_only, background.
 
 Inputs: the same deterministic reports as extract_themes_v5.py; optionally the v5 themes output for the same case
 (--themes-dir) to give the model a short numbered list of arguments to link to.
 
-Dry run by default (no model call, no key needed): prints citation counts and a worst-case cost. Add --send to call the API.
+Dry run by default (no model call, no key needed): prints citation counts, same-paragraph pairings and a worst-case cost. Add --send to call the API (or --send --no-model to write the pairing only).
 """
 
 from __future__ import annotations
@@ -83,6 +89,22 @@ SCHEMA_CITE = {
 }
 
 
+SCHEMA_LABEL = json.loads(json.dumps(SCHEMA_CITE))
+_item = SCHEMA_LABEL["properties"]["answers"]["items"]
+_item["required"] = [k for k in _item["required"] if k != "argument"]
+del _item["properties"]["argument"]
+
+SYSTEM_LABEL = (
+	"You read short extracts from one Canadian immigration or refugee court or tribunal decision. Each item gives ONE citation that the script already found, "
+	"the sentences around it (each with an id like 17.2) and, when known, the point the Court is arguing or deciding nearby. You never write or change a citation. "
+	"For each item answer four things.\n"
+	+ SYSTEM_CITE.split("voice:", 1)[1].split("argument:", 1)[0].join(["voice:", ""])
+	+ "why: one sentence, 25 words or fewer, in your own words, saying what the citation is used for here.\n"
+	"evidence: the id of the single sentence in the extract that best shows the use (it can be the sentence with the citation).\n"
+	"confidence: high if the extract plainly shows the use, low if you are guessing. Use only the extract. Return one answer per item, in the same order, using the item number given."
+)
+
+
 def find_citations(table: dict[str, dict]) -> list[dict]:
 	"""Deterministic citation finder over the sentence table."""
 	found: list[dict] = []
@@ -129,12 +151,32 @@ def window_text(order: list[str], table: dict[str, dict], sid: str) -> tuple[str
 	return "\n".join(f"{x} {table[x]['text']}" for x in ids), ids
 
 
+UNIT_PRIORITY = {"R": 0, "H": 1, "L": 2, "A": 3}  # court's own voice first when a tie
+
+
 def load_arguments(themes_dirs: list[Path] | None, case_id: int, model: str) -> list[dict]:
+	"""What the Court is arguing or deciding: arguments, rebuttals, holdings, left-open issues from the v5 themes output."""
 	for path in sorted(p for d in themes_dirs or [] for p in d.glob(f"case_{case_id}_themes_themes_v5_*.json")):
-		data = json.loads(path.read_text(encoding="utf-8"))
-		args = data.get("result", {}).get("arguments", [])
-		return [{"id": f"A{n}", "by": a.get("made_by", ""), "claim": a.get("claim", ""), "paras": a.get("paragraphs", []), "treatment": a.get("treatment", "")} for n, a in enumerate(args[:MAX_ARGS], 1)]
+		res = json.loads(path.read_text(encoding="utf-8")).get("result", {})
+		units: list[dict] = []
+		for prefix, key, field in (("A", "arguments", "claim"), ("R", "rebuttals", "court_answer"), ("H", "holdings", "statement"), ("L", "left_open", "issue")):
+			for n, row in enumerate(res.get(key, []), 1):
+				paras = row.get("paragraphs", [])
+				if paras:
+					by = row.get("made_by", "court") if prefix in ("A", "R") else "court"
+					units.append({"id": f"{prefix}{n}", "by": by, "claim": row.get(field, ""), "paras": paras, "treatment": row.get("treatment", ""), "span": [min(paras), max(paras)]})
+		return units
 	return []
+
+
+def pair_unit(para: int, units: list[dict]) -> list[dict]:
+	"""Deterministic pairing: nearest span first (0 = same paragraph); ties go to the Court's voice, then the narrower span, then the earlier row."""
+	def key(u):
+		lo, hi = u["span"]
+		d = 0 if lo <= para <= hi else min(abs(para - lo), abs(para - hi))
+		return (d, UNIT_PRIORITY.get(u["id"][0], 9), hi - lo, lo)
+	ranked = sorted(units, key=key)
+	return [{**u, "distance": key(u)[0]} for u in ranked[:3]]
 
 
 def arg_list_text(args: list[dict]) -> str:
@@ -143,13 +185,22 @@ def arg_list_text(args: list[dict]) -> str:
 	return "arguments:\n" + "\n".join(f"{a['id']} ({a['by']}, para {','.join(str(p) for p in a['paras'][:2])}, court treatment: {a['treatment']}): {a['claim']}" for a in args)
 
 
-def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, args_list: list[dict], send: bool) -> dict | None:
+def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, units: list[dict], send: bool, link: str, use_model: bool) -> dict | None:
 	paragraphs = load_paragraphs(report)
 	table = index_sentences(paragraphs)
 	order = list(table)
 	items = find_citations(table)
 	head = header(case_id)
 	est = lambda msgs: int(sum(len(m["content"]) for m in msgs) / 3.2)  # noqa: E731
+	# deterministic pairing (no model): nearest argument / rebuttal / holding / open issue by paragraph
+	for c in items:
+		ranked = pair_unit(c["para"], units)
+		c["paired"] = ranked[0]["id"] if ranked else "none"
+		c["paired_distance"] = ranked[0]["distance"] if ranked else None
+		c["paired_text"] = ranked[0]["claim"] if ranked else ""
+		c["possible"] = [{"id": r["id"], "distance": r["distance"]} for r in ranked]
+	unit_by_id = {u["id"]: u for u in units}
+	system, schema = (SYSTEM_CITE, SCHEMA_CITE) if link == "model" else (SYSTEM_LABEL, SCHEMA_LABEL)
 	batches = [items[i:i + BATCH] for i in range(0, len(items), BATCH)]
 	messages: list[list[dict]] = []
 	for batch in batches:
@@ -157,26 +208,29 @@ def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, a
 		for c in batch:
 			text, ids = window_text(order, table, c["sentence_id"])
 			label = c["mention"] + (f" (name before it: {c['name_hint']})" if c["name_hint"] else "")
-			parts.append(f"item {c['item']}: {label}\nextract:\n{text}")
-		user = (head + "\n\n" if head else "") + arg_list_text(args_list) + "\n\n" + "\n\n".join(parts)
-		messages.append([{"role": "system", "content": SYSTEM_CITE}, {"role": "user", "content": user}])
-	if not send:
-		worst = sum(cost_usd(model, est(m), 1800) for m in messages)
+			near = f"\nthe point the Court is arguing or deciding nearby: {c['paired_text']}" if link == "proximity" and c["paired_text"] else ""
+			parts.append(f"item {c['item']}: {label}\nextract:\n{text}{near}")
+		context = arg_list_text(units) + "\n\n" if link == "model" else ""
+		messages.append([{"role": "system", "content": system}, {"role": "user", "content": (head + "\n\n" if head else "") + context + "\n\n".join(parts)}])
+	if not send or not use_model:
+		worst = sum(cost_usd(model, est(m), 1800) for m in messages) if use_model else 0.0
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "citations_found": len(items),
-			"case_citations": sum(1 for c in items if c["kind"] == "case"), "calls": len(messages),
-			"arguments_supplied": len(args_list), "est_usd_max": round(worst, 4)}))
+			"case_citations": sum(1 for c in items if c["kind"] == "case"), "calls": len(messages) if use_model else 0,
+			"units_supplied": len(units), "paired_same_paragraph": sum(1 for c in items if c["paired_distance"] == 0),
+			"est_usd_max": round(worst, 4)}))
+		if send and not use_model:
+			return {"usd": 0.0, "items": items, "arguments": units, "verification": {"citations": len(items), "calls": 0, "units_supplied": len(units)}}
 		return None
 	usd = 0.0
 	answers: dict[int, dict] = {}
 	for n, msgs in enumerate(messages, 1):
-		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="citation_use", schema=SCHEMA_CITE,
+		data, u = call_json(client, ledger, run=run, model=model, messages=msgs, schema_name="citation_use", schema=schema,
 			max_output_tokens=1800, est_input_tokens=est(msgs), label=f"citeuse case {case_id} batch {n}")
 		usd += u["usd"]
 		for a in data["answers"]:
 			answers[a["item"]] = a
-	arg_ids = {a["id"] for a in args_list}
 	out_items = []
-	missing = bad_evidence = bad_arg = 0
+	missing = bad_evidence = bad_arg = agree = 0
 	for c in items:
 		a = answers.get(c["item"])
 		_, window_ids = window_text(order, table, c["sentence_id"])
@@ -189,15 +243,22 @@ def run_case(client, ledger, run: str, model: str, case_id: int, report: dict, a
 		if not ev:
 			bad_evidence += 1
 			ev = c["sentence_id"]
-		arg = a["argument"] if a["argument"] in arg_ids else "none"
-		if a["argument"] not in arg_ids and a["argument"] not in ("none", ""):
-			bad_arg += 1
-		out_items.append({**row, "answered": True, "voice": a["voice"], "use": a["use"], "argument": arg, "why": a["why"],
+		extra = {}
+		if link == "model":
+			arg = a["argument"] if a["argument"] in unit_by_id else "none"
+			if a["argument"] not in unit_by_id and a["argument"] not in ("none", ""):
+				bad_arg += 1
+			agree += arg == c["paired"]
+			extra = {"model_link": arg}
+		out_items.append({**row, **extra, "answered": True, "voice": a["voice"], "use": a["use"], "why": a["why"],
 			"evidence_id": ev, "evidence_text": table[ev]["text"], "confidence": a["confidence"]})
-	check = {"citations": len(items), "calls": len(messages), "unanswered": missing, "evidence_id_not_in_window": bad_evidence, "argument_id_invalid": bad_arg,
-		"arguments_supplied": len(args_list), "use_counts": {u: sum(1 for i in out_items if i.get("use") == u) for u in USES},
+	check = {"citations": len(items), "calls": len(messages), "unanswered": missing, "evidence_id_not_in_window": bad_evidence,
+		"units_supplied": len(units), "paired_same_paragraph": sum(1 for c in items if c["paired_distance"] == 0),
+		"use_counts": {u: sum(1 for i in out_items if i.get("use") == u) for u in USES},
 		"voice_disagrees_with_cue": sum(1 for i in out_items if i.get("answered") and i["cue"] in ("judge", "tribunal_below") and i["voice"] not in (i["cue"], "unclear"))}
-	return {"usd": usd, "items": out_items, "arguments": args_list, "verification": check}
+	if link == "model":
+		check.update({"model_link_invalid": bad_arg, "model_link_agrees_with_proximity": agree})
+	return {"usd": usd, "items": out_items, "arguments": units, "verification": check}
 
 
 def main() -> int:
@@ -208,7 +269,9 @@ def main() -> int:
 	parser.add_argument("--out-dir", type=Path, required=True)
 	parser.add_argument("--ledger", type=Path, required=True)
 	parser.add_argument("--themes-dir", type=Path, action="append", help="Folder with the v5 themes outputs for the same cases (gives the argument list)")
-	parser.add_argument("--send", action="store_true")
+	parser.add_argument("--send", action="store_true", help="Call the API (and write outputs). Without it: dry run, nothing sent.")
+	parser.add_argument("--link", choices=["proximity", "model"], default="proximity", help="proximity (default): the pairing is code only. model: the model also picks the linked row, to compare against proximity")
+	parser.add_argument("--no-model", action="store_true", help="Pairing only: no model call at all, no key needed, writes the deterministic output")
 	parser.add_argument("--reports-dir", type=Path, action="append")
 	parser.add_argument("--meta-csv", type=Path, action="append")
 	parser.add_argument("--cap-usd", type=float, default=None)
@@ -218,14 +281,14 @@ def main() -> int:
 			META[int(float(row["case_id"]))] = row
 	report_dirs = args.reports_dir or [REPORTS]
 	ledger = SpendLedger(args.ledger, args.cap_usd) if args.cap_usd else SpendLedger(args.ledger)
-	client = make_client() if args.send else None
+	client = make_client() if (args.send and not args.no_model) else None
 	args.out_dir.mkdir(parents=True, exist_ok=True)
 	for case_id in [int(x) for x in args.cases.split(",")]:
 		path = next((d / f"case_{case_id}_deterministic.json" for d in report_dirs if (d / f"case_{case_id}_deterministic.json").exists()), None)
 		if path is None:
 			raise SystemExit(f"no report for case {case_id}")
 		report = json.loads(path.read_text(encoding="utf-8"))
-		out = run_case(client, ledger, args.run, args.model, case_id, report, load_arguments(args.themes_dir, case_id, args.model), args.send)
+		out = run_case(client, ledger, args.run, args.model, case_id, report, load_arguments(args.themes_dir, case_id, args.model), args.send, args.link, not args.no_model)
 		if out is None:
 			continue
 		(args.out_dir / f"case_{case_id}_citeuse_{PROMPT_VERSION}_{args.model}.json").write_text(json.dumps({

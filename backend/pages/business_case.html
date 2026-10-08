@@ -68,7 +68,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <dl class="meta">
 <dt>Prepared for</dt><dd>CBSA Hearings and Litigation Division (informal, unofficial)</dd>
 <dt>Prepared by</dt><dd>The builder of iLit, independently and in a personal capacity</dd>
-<dt>Date</dt><dd>7 October 2026</dd>
+<dt>Date</dt><dd>8 October 2026</dd>
 <dt>Status</dt><dd>Draft for discussion. Not an offer, not a procurement document and not legal advice.</dd>
 <dt>Information used</dt><dd>Public court decisions and public sources only. No CBSA or other protected information is held or used.</dd>
 </dl>
@@ -80,11 +80,11 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <section id="s1">
 <h2><span class="n">1</span>Executive summary</h2>
 <h3>Purpose</h3>
-<p>This report sets out the case for supporting iLit, a research tool for Canadian immigration case law that I have built independently over about two months, on public decisions only. It describes the problem it addresses, what exists today, the alternatives, what it would cost to continue, the expected value and its limits, the risks, and a staged plan to move from a public prototype to something the Division could use inside its own environment.</p>
+<p>This report makes the case for supporting iLit, a research tool for Canadian immigration case law that I built independently over about two months, using public decisions only. It covers the problem, what exists today, the alternatives, the cost of continuing, the expected value and its limits, the risks, and a staged plan to move from a public prototype to something the Division could use in its own environment.</p>
 <h3>The problem</h3>
 <p>As I understand it, the Division&rsquo;s only research tool is CanLII, which is free, reliable and now offers a plain-language AI search of its own [1,2]. CanLII helps counsel find and read a decision. It does not, as far as I could find, show how the Minister has fared on an issue across Federal Court immigration decisions, give statistics across every Federal Court immigration file, or check the authorities in a draft memo against a stored index. The same is true of the commercial platforms I reviewed (Appendix A). Those answers currently have to be assembled by hand.</p>
 <h3>The proposal</h3>
-<p>Continue developing iLit in two stages. In the short term, run it on a dedicated private computer I control, with the site hosted on an external server in Canada, using public case law only. In the long term, and only if the Division wishes, move a version inside CBSA infrastructure, where it could also search internal documents under the approvals that handling protected information requires. Nothing in the first stage touches CBSA systems or data.</p>
+<p>Continue developing iLit in two stages. In the short term, host the site on a Canadian server instead of my personal laptop and keep building on public case law. In the longer term, and only if the Division wishes, run a version on a dedicated local machine, which is what makes it possible to apply the same features to internal and private documents without that text leaving the machine. Nothing in the first stage touches CBSA systems or data.</p>
 <h3>Key findings</h3>
 <ul>
 <li><b>Gap.</b> I found no Canadian product, free or commercial, that offers Federal Court immigration outcome analytics, whole-docket statistics and an authority check on a memo in one place (Appendix A). Whether any vendor offers parts of this under a private quote is unverified.</li>
@@ -215,7 +215,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <section id="s5">
 <h2><span class="n">5</span>Evidence of what has been built</h2>
 <p>Everything below was built by one person in about two months. The code base is roughly 95,000 lines of Python in the application and scripts (a raw count including comments and blank lines), plus the web pages, with a test suite of more than 3,200 automated tests that passed in a local run on 7 October 2026. The library counts in the second table were read from the live site on 8 October 2026; the other figures come from the project&rsquo;s own reports of 28 September to 4 October 2026 and will have moved since [29].</p>
-<p class="cap">Table 4. Status of the main capabilities (7 October 2026)</p>
+<p class="cap">Table 4. Status of the main capabilities (8 October 2026)</p>
 <div class="tw"><table>
 <thead><tr><th>Capability</th><th>Status</th><th>What exists and its limits</th></tr></thead>
 <tbody>
@@ -229,7 +229,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Treatment of authorities (followed, distinguished)</td><td><span class="st no">Not built</span></td><td>On the roadmap; a large piece of work.</td></tr>
 <tr><td>Internal documents</td><td><span class="st no">Not built</span></td><td>Needs on-premises hosting, sign-in and approvals (section 9).</td></tr>
 </tbody></table></div>
-<p class="cap">Table 5. Scale (project reports, 28 September to 4 October 2026; counts have since grown)</p>
+<p class="cap">Table 5. Scale (library counts read from the live site on 8 October 2026; other figures from project reports of 28 September to 4 October 2026)</p>
 <div class="tw"><table>
 <thead><tr><th>Measure</th><th class="r">Figure</th></tr></thead>
 <tbody>
@@ -239,7 +239,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Citations pinpointed to a paragraph</td><td class="r">about 183,000</td></tr>
 <tr><td>Federal Court immigration files / docket entries</td><td class="r">316,940 / about 3.59 million</td></tr>
 </tbody></table></div>
-<div class="box note"><b>Limits stated plainly.</b> The site runs from my personal workstation. Intake of new decisions is built but run by hand. No Immigration Division or Immigration Appeal Division decisions are held. A hand-graded accuracy check of outcomes is in progress and accuracy is not yet at the standard I want.</div>
+<div class="box note"><b>Limits stated plainly.</b> The site runs from my personal workstation. Intake of new decisions is built but run by hand. No Immigration Division or Immigration Appeal Division decisions are held. A hand-graded accuracy check of outcomes is in progress, and outcome accuracy is not yet at the standard I want.</div>
 </section>
 <section id="s6">
 <h2><span class="n">6</span>Alternatives available to counsel</h2>
@@ -289,12 +289,12 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <section id="s9">
 <h2><span class="n">9</span>Deployment: short term and long term</h2>
 <p>I have researched what is published about Government of Canada requirements. I did not find CBSA-specific policy on any of this and I do not claim one. Where a step depends on a CBSA or Shared Services Canada decision, it is marked as such.</p>
-<h3><span class="n">9.1</span>Short term: private machine, external site, public law only</h3>
+<h3><span class="n">9.1</span>Short term: external site, public law only</h3>
 <ul>
-<li><b>AI machine.</b> One dedicated, powerful computer that I own, running open AI models locally to enrich public decisions. A standard work-issued laptop with integrated graphics can run only small demonstration models, which is why a separate machine is a funding item (sections 10.4 to 10.7).</li>
-<li><b>Site.</b> Hosted on an external server in Canada, serving public decisions only. No CBSA data, accounts or network are involved.</li>
+<li><b>Local machine (optional).</b> A dedicated, powerful computer running open AI models locally. It is not needed for public decisions. Its purpose is to apply iLit&rsquo;s features to internal or private documents without that text leaving the machine. A standard work-issued laptop with integrated graphics can run only small demonstration models, so this is a separate funding item (sections 10.4 to 10.7).</li>
+<li><b>Site.</b> Hosted on an external server in Canada rather than my personal laptop, serving public decisions only. No CBSA data, accounts or network are involved.</li>
 <li><b>Requirements.</b> Public data and open licences only, attribution to the Refugee Law Lab and A2AJ [17,19], backups, a domain and server. I found no Government of Canada rule that applies to a non-government site holding only public data (inferred).</li>
-<li><b>Estimated cost.</b> The machine as in section 10; a managed Canadian server in the order of C$100 to C$500 a month (my estimate, unquoted).</li>
+<li><b>Estimated cost.</b> A managed Canadian server at roughly C$100 to C$500 a month (my estimate, unquoted), included in Level 1; the local machine as in section 10.</li>
 <li><b>Decision for the Division.</b> Whether staff may use an outside site that holds only public case law for work. I have no source on this.</li>
 </ul>
 <h3><span class="n">9.2</span>Long term: CBSA internal use</h3>
@@ -468,7 +468,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tbody>
 <tr><td><b>0. Prototype</b></td><td>Done (about two months)</td><td>Library, docket layer, reader, citation analysis, memo check</td><td>Section 4 capabilities</td><td>C$841 to date</td></tr>
 <tr><td><b>1. Make it dependable</b></td><td>Months 0 to 3</td><td>Finish accuracy checks on outcomes and citations; keep the library current with newer decisions; schedule daily intake</td><td>Checked accuracy figures; current library</td><td>Level 1</td></tr>
-<tr><td><b>2. Trial with Division staff</b></td><td>Months 3 to 6</td><td>Small group of counsel uses it on real work; timed comparison against CanLII; dedicated machine and external Canadian hosting</td><td>Measured time savings; user feedback; updated business case</td><td>Level 2</td></tr>
+<tr><td><b>2. Trial with Division staff</b></td><td>Months 3 to 6</td><td>Small group of counsel uses it on real work; timed comparison against CanLII; external Canadian hosting (Level 1) and a dedicated machine (Level 2)</td><td>Measured time savings; user feedback; updated business case</td><td>Level 2</td></tr>
 <tr><td><b>3. Plan an internal home</b></td><td>Months 6 to 12</td><td>With CBSA IT, security and privacy: hosting route, owner, sign-in, assessment scope, privacy impact assessment</td><td>An agreed internal deployment plan and cost</td><td>Level 3 for the local-AI machine; CBSA process costs unpriced</td></tr>
 <tr><td><b>4. Internal deployment</b></td><td>Months 12 to 24</td><td>Hosted inside CBSA or an approved cloud; internal documents considered only after approval</td><td>A supported internal service</td><td>To be determined by CBSA</td></tr>
 </tbody></table></div>

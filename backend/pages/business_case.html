@@ -88,15 +88,15 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <h3>Key findings</h3>
 <ul>
 <li><b>Gap.</b> I found no Canadian product, free or commercial, that offers Federal Court immigration outcome analytics, whole-docket statistics and an authority check on a memo in one place (Appendix A). Whether any vendor offers parts of this under a private quote is unverified.</li>
-<li><b>Working evidence.</b> A library of more than 60,000 decisions, about 1.44 million citations and the docket history of 316,940 Federal Court immigration files is built and searchable. Some features are prototypes and some outcome labels are being corrected (sections 4 and 5).</li>
+<li><b>Working evidence.</b> The live site holds 75,677 decisions from the Federal Court, Federal Court of Appeal, Supreme Court, Refugee Protection Division and Refugee Appeal Division, about 1.6 million citations and the docket history of 316,940 Federal Court immigration files, all searchable. Some features are prototypes and some outcome labels are being corrected (sections 4 and 5).</li>
 <li><b>Cost.</b> My out-of-pocket spend to date is C$841.32. The funding I would need is C$2,000 to C$26,000 once, in three levels (section 10). A commercial AI platform for 25 seats is reported at C$104,000 to C$248,000 a year, and commissioning a comparable build at about C$1.45 million (sections 7 and 9).</li>
-<li><b>Local AI.</b> A dedicated machine would let larger open models be tested on iLit&rsquo;s tasks and, if they pass, run enrichment and any later analysis of internal documents without text leaving the machine. On public data alone, hosted AI is cheaper, so I propose releasing the money in three stages tied to evidence (sections 10.4 to 10.8).</li>
+<li><b>Local AI.</b> The reason for a dedicated machine is to apply iLit&rsquo;s features to internal or private documents without that text leaving the machine. Public decisions do not need it. I propose releasing the money in three stages tied to evidence (sections 10.4 to 10.8).</li>
 <li><b>Return.</b> On illustrative assumptions of one hour a week saved by 40% of 25 users, the value is about C$34,500 a year. No time saving has been measured yet, so I present this as a formula with labelled assumptions, not a forecast (section 11).</li>
 <li><b>Safeguards.</b> No AI is used when someone searches or reads. AI is used only to enrich public decisions when they are added. The data licence is non-commercial and is respected (section 12).</li>
 </ul>
 <div class="box"><b class="t">The request, in one paragraph</b>I ask for interest and a few hours from a small group of counsel to trial iLit on real work; an unofficial funding contribution at one of three levels, starting at C$2,000 to C$5,000; and a conversation about where an internal version could eventually be hosted and who would review security and privacy. I am not asking to be paid for my time.</div>
 <div class="kpis" role="list">
-<div role="listitem"><b>60,000+</b>decisions in the library (FC, FCA, SCC, RPD; RAD being added)</div>
+<div role="listitem"><b>75,000+</b>decisions in the library (FC, FCA, SCC, RPD, RAD)</div>
 <div role="listitem"><b>316,940</b>Federal Court immigration files with docket history</div>
 <div role="listitem"><b>C$841</b>spent to date out of pocket</div>
 <div role="listitem"><b>C$2K&ndash;20K</b>funding requested, one time, in three levels</div>
@@ -214,7 +214,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 
 <section id="s5">
 <h2><span class="n">5</span>Evidence of what has been built</h2>
-<p>Everything below was built by one person in about two months. The code base is roughly 95,000 lines of Python in the application and scripts (a raw count including comments and blank lines), plus the web pages, with a test suite of more than 3,200 automated tests that passed in a local run on 7 October 2026. The figures in the second table come from the project&rsquo;s own reports dated 28 September to 4 October 2026 and will have moved since [29].</p>
+<p>Everything below was built by one person in about two months. The code base is roughly 95,000 lines of Python in the application and scripts (a raw count including comments and blank lines), plus the web pages, with a test suite of more than 3,200 automated tests that passed in a local run on 7 October 2026. The library counts in the second table were read from the live site on 8 October 2026; the other figures come from the project&rsquo;s own reports of 28 September to 4 October 2026 and will have moved since [29].</p>
 <p class="cap">Table 4. Status of the main capabilities (7 October 2026)</p>
 <div class="tw"><table>
 <thead><tr><th>Capability</th><th>Status</th><th>What exists and its limits</th></tr></thead>
@@ -233,9 +233,9 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <div class="tw"><table>
 <thead><tr><th>Measure</th><th class="r">Figure</th></tr></thead>
 <tbody>
-<tr><td>Decisions in the library (FC, FCA, SCC, RPD; RAD being added)</td><td class="r">60,000+</td></tr>
-<tr><td>Citations extracted</td><td class="r">about 1.44 million</td></tr>
-<tr><td>Citations linked to a case in the library</td><td class="r">about 934,000</td></tr>
+<tr><td>Decisions in the library (FC 35,999; RAD 14,214; SCC 10,893; FCA 7,817; RPD 6,729)</td><td class="r">75,652 with text</td></tr>
+<tr><td>Citations extracted</td><td class="r">about 1.6 million</td></tr>
+<tr><td>Citations linked to a case in the library</td><td class="r">about 944,000</td></tr>
 <tr><td>Citations pinpointed to a paragraph</td><td class="r">about 183,000</td></tr>
 <tr><td>Federal Court immigration files / docket entries</td><td class="r">316,940 / about 3.59 million</td></tr>
 </tbody></table></div>
@@ -337,21 +337,21 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <tr><td>Claude subscription</td><td>Ongoing, per month</td><td class="r">160.00</td></tr>
 <tr class="tot"><td>Total to date, counting one month of the subscription</td><td></td><td class="r">841.32</td></tr>
 </tbody></table></div>
-<p>For that spend the project has produced the library, the docket layer and the tools described in section 5. Dividing C$841.32 by roughly 60,000 decisions gives about one and a half cents a decision; this is arithmetic on rough counts and not a unit cost.</p>
+<p>For that spend the project has produced the library, the docket layer and the tools described in section 5. Dividing C$841.32 by roughly 75,000 decisions gives about one cent a decision; this is arithmetic on rough counts and not a unit cost.</p>
 <h3><span class="n">10.2</span>Funding levels requested</h3>
 <p class="cap">Table 11. Three funding levels (one time, C$; hardware and AI figures are estimates) [3]</p>
 <div class="tw"><table>
 <thead><tr><th>Level</th><th class="r">Amount</th><th>Contents</th><th>What it buys</th></tr></thead>
 <tbody>
-<tr><td><b>1. Keep building</b></td><td class="r">about 2,000</td><td>Tool subscriptions for six months (about 850); AI credits for one full pass over the library and experiments (about 1,000); domain, tunnel and off-site backup (about 150)</td><td>The enrichment work already planned, such as issue tagging and paragraph summaries across all decisions</td></tr>
+<tr><td><b>1. Keep building</b></td><td class="r">about 2,000</td><td>Tool subscriptions for six months (about 850); AI credits for enrichment experiments (about 1,000); domain, tunnel and off-site backup (about 150)</td><td>The enrichment work already planned, such as issue tagging and paragraph summaries across all decisions</td></tr>
 <tr><td><b>2. Dedicated machine</b></td><td class="r">about 5,000</td><td>Level 1; a used 32 to 36 GB laptop (1,700 to 2,500); 4 TB external storage and a UPS (about 600)</td><td>Moves iLit off a personal workstation; runs mid-size open models locally</td></tr>
 <tr><td><b>3. Long-term platform</b></td><td class="r">14,000 to 26,000</td><td>A high-memory desktop class machine, priced at apple.ca on 8 October 2026. Reference configuration (the one in my cart): Mac Studio M5 Ultra, 256 GB, 4 TB, 36-core CPU and 80-core GPU, C$17,999 before tax, C$20,338.87 with 13% Ottawa HST, delivery 1 to 15 February 2027. Lower rung at 1 TB before tax: 96 GB 7,799; 256 GB 13,799 (15,749 with the faster chip). Add backup storage, UPS and warranty (about 1,500 plus HST) and 12 months of subscriptions and credits (3,000 to 4,000, assumed already tax-inclusive). All-in with 13% HST: about 13,500 to 14,500 for 96 GB and 1 TB; about 20,300 to 21,300 for 256 GB and 1 TB; about 25,000 to 26,000 for the reference configuration</td><td>Runs large open models fully on site, so all AI reading of decisions and memos could happen without text leaving the machine</td></tr>
 </tbody></table></div>
-<p>AI processing is a small line item. My estimate for one pass over the whole library is about C$510 to C$2,030 depending on the model, and a local model brings it to electricity only [3]. The main reason to run a local model is to keep work product off third-party servers, not cost; sections 10.4 to 10.7 set out what a local machine would add and whether it is worth buying.</p>
+<p>AI processing is a small line item and is not the reason for the larger machine. The reason is private documents: a local machine is what allows the features described in section 4 to be applied to internal or protected material, because nothing has to leave it. Sections 10.4 to 10.7 set out what that would add.</p>
 <h3><span class="n">10.3</span>Running cost</h3>
 <p>My estimate of the annual running cost is C$3,000 to C$8,000: the C$160 monthly subscription (C$1,920 a year) plus an external Canadian server at an assumed C$100 to C$500 a month (C$1,200 to C$6,000 a year). The hosting figure is unquoted. An internal deployment would have its own costs, set by CBSA processes that I have not priced.</p>
 <h3><span class="n">10.4</span>What a local AI machine would add</h3>
-<p>At present, enrichment of decisions has been run only on 300 core decisions, with a small hosted model, at a recorded cost of well under a cent a decision. A small local model has been wired in and scored 3 out of 10 on a paragraph-summary test, so the local path is built but not yet good enough [3,37]. Money for a capable machine buys the ability to test and run larger open models on iLit&rsquo;s own tasks. It does not guarantee they are good enough, and that has not been measured. Table 12 lists where a local model would be used, in each case at the time decisions are added or on request, never when someone searches.</p>
+<p>The pitch for the machine is simple: it lets iLit&rsquo;s features run on the Division&rsquo;s own internal and private documents, which cannot be sent to a public AI service. Public decisions can already be handled with hosted tools, so the machine is not needed for them. Today, AI enrichment has been run only on 300 core decisions with a small hosted model. A small local model has been wired in and scored 3 out of 10 on a paragraph-summary test, so the local path exists but is not yet good enough [3,37]. A capable machine would let me test and run larger open models on iLit&rsquo;s own tasks. It does not guarantee they are good enough; that has not been measured. Table 12 lists where a local model would be used, in each case when documents are added or on request, never when someone searches.</p>
 <p class="cap">Table 12. Where local AI would be used (what exists today and what the machine adds)</p>
 <div class="tw"><table>
 <thead><tr><th>Task</th><th>Today</th><th>With a capable local machine</th><th>Limit or dependency</th></tr></thead>
@@ -367,15 +367,15 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 </tbody></table></div>
 <h3><span class="n">10.5</span>The design rule stays the same</h3>
 <p>None of this changes how the site behaves for a user. Searching, reading and the statistics read results stored in advance and call no AI service. AI, local or hosted, is used to enrich public decisions when they are added, and its output is stored as labelled data separate from the source text. The one place a model could ever touch a query is optional search by meaning, which is off today and which would use a local model so that nothing typed leaves the system. Live Analysis reads a document in memory and keeps nothing, and on a CBSA machine nothing would leave CBSA.</p>
-<h3><span class="n">10.6</span>Is the hardware worth buying?</h3>
-<p>On public data alone, hosted AI is cheaper. My spend on AI for the project so far is C$114.24 (Anthropic C$54.24 and OpenAI C$60.00). My estimate for one hosted pass over the whole library is C$510 to C$2,030 [3]. The machine and support in Level 3 come to about C$22,000 for the reference configuration (C$20,339 machine with HST plus about C$1,700 support), which equals roughly 11 to 43 full hosted passes; the 96 GB, 1 TB rung (about C$10,500) equals roughly 5 to 20. The machine is therefore justified by other reasons, not by cost:</p>
+<h3><span class="n">10.6</span>Why a local machine</h3>
+<p>The purpose of a local machine is to apply iLit&rsquo;s features to internal or private documents without that text leaving the machine. For public decisions alone, hosted tools are enough and Levels 1 and 2 are sufficient. The machine in Level 3 is justified by what only it can do:</p>
 <ul>
-<li><b>Confidentiality.</b> Internal documents cannot be sent to a public AI service, so any AI reading of them has to be local.</li>
-<li><b>Independence and repeatability.</b> Passes can be re-run as rules and prompts improve without a per-use fee or a vendor changing a model.</li>
-<li><b>Residency.</b> Work product stays on a machine in Canada under my control now, or the Division&rsquo;s later.</li>
-<li><b>Portability.</b> The code, the models&rsquo; weights and the evaluation set move with the work, so a CBSA-hosted version could reuse them.</li>
+<li><b>Confidentiality.</b> Internal documents cannot be sent to a public AI service, so any AI reading of them has to happen locally. This is the central reason.</li>
+<li><b>Repeatability.</b> Analysis can be re-run as rules and prompts improve, with no per-use fee and no vendor changing a model underneath it.</li>
+<li><b>Residency.</b> Work product stays on a machine in Canada, under my control now and the Division&rsquo;s later.</li>
+<li><b>Portability.</b> The code, the model weights and the evaluation set move with the work, so a CBSA-hosted version could reuse them.</li>
 </ul>
-<p>If the Division does not intend to use internal documents, the hosted route for public data is the better value, and Levels 1 and 2 are enough.</p>
+<p>If the Division does not intend to use internal documents, there is little reason to buy the machine.</p>
 <p><b>Alternative: a provided machine instead of a purchase.</b> It may be possible to obtain a high-powered computer through an internal AI program or IT, rather than buying one. This is not confirmed and I have not named a program. If it happens, the cost in Level 3 falls to the support and subscription lines. The conditions I would expect: IT would need to unlock the machine, it would need to run standalone and off the network so that I can keep developing on it, and it would hold public law data only until the Division decides otherwise. I would compare it against the reference configuration above with the same pass marks.</p>
 <h3><span class="n">10.7</span>Hardware options</h3>
 <p>A rule of thumb for open models compressed to 4 bits is about 0.6 GB of memory per billion parameters, plus 4 to 8 GB for the operating system and more for long documents [33]. So a 14B model needs about 9 GB, a 32B model about 19 GB and a 70B model about 42 GB. Those are third-party rules of thumb; the real file size of the chosen model governs.</p>
@@ -396,7 +396,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <div class="tw"><table>
 <thead><tr><th>Stage</th><th class="r">Amount (C$)</th><th>Released when</th><th>What it buys</th></tr></thead>
 <tbody>
-<tr><td><b>Level 1</b></td><td class="r">about 2,000</td><td>Now. Nothing is required of the Division beyond interest.</td><td>Subscriptions, one full hosted enrichment pass, backups. Finishes the accuracy work in Phase 1.</td></tr>
+<tr><td><b>Level 1</b></td><td class="r">about 2,000</td><td>Now. Nothing is required of the Division beyond interest.</td><td>Subscriptions, AI credits for enrichment experiments, backups. Finishes the accuracy work in Phase 1.</td></tr>
 <tr><td><b>Level 2</b></td><td class="r">about 5,000 in total</td><td>Accuracy figures for outcomes and citations are published and a few counsel agree to a trial.</td><td>A dedicated machine and storage; the first local-model tests against a hand-graded set</td></tr>
 <tr><td><b>Level 3</b> (high-end option)</td><td class="r">14,000 to 26,000</td><td>Local models pass marks agreed in advance on iLit&rsquo;s tasks, or the Division decides to pursue internal documents, which need a local model on its own machine.</td><td>A high-memory machine to run larger models, with backup and a year of subscriptions</td></tr>
 </tbody></table></div>
@@ -467,7 +467,7 @@ ol.src{columns:2 300px;column-gap:28px;font:12.5px/1.5 var(--sans);padding-left:
 <thead><tr><th>Phase</th><th>Period</th><th>Scope</th><th>Outputs</th><th>Funding</th></tr></thead>
 <tbody>
 <tr><td><b>0. Prototype</b></td><td>Done (about two months)</td><td>Library, docket layer, reader, citation analysis, memo check</td><td>Section 4 capabilities</td><td>C$841 to date</td></tr>
-<tr><td><b>1. Make it dependable</b></td><td>Months 0 to 3</td><td>Finish accuracy checks on outcomes and citations; add RAD and newer Federal Court decisions; schedule daily intake</td><td>Checked accuracy figures; current library</td><td>Level 1</td></tr>
+<tr><td><b>1. Make it dependable</b></td><td>Months 0 to 3</td><td>Finish accuracy checks on outcomes and citations; keep the library current with newer decisions; schedule daily intake</td><td>Checked accuracy figures; current library</td><td>Level 1</td></tr>
 <tr><td><b>2. Trial with Division staff</b></td><td>Months 3 to 6</td><td>Small group of counsel uses it on real work; timed comparison against CanLII; dedicated machine and external Canadian hosting</td><td>Measured time savings; user feedback; updated business case</td><td>Level 2</td></tr>
 <tr><td><b>3. Plan an internal home</b></td><td>Months 6 to 12</td><td>With CBSA IT, security and privacy: hosting route, owner, sign-in, assessment scope, privacy impact assessment</td><td>An agreed internal deployment plan and cost</td><td>Level 3 for the local-AI machine; CBSA process costs unpriced</td></tr>
 <tr><td><b>4. Internal deployment</b></td><td>Months 12 to 24</td><td>Hosted inside CBSA or an approved cloud; internal documents considered only after approval</td><td>A supported internal service</td><td>To be determined by CBSA</td></tr>

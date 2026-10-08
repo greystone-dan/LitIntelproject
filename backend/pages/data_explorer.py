@@ -8,6 +8,7 @@ from .case_quick_summary import inject_case_quick_summary
 from .changelog_tab import about_panel_html
 from .case_summary_card import inject_case_summary_card
 from .pitch_nav import apply_pitch_navigation
+from .welcome import MODE_GUARD, MODE_HEAD
 
 
 def case_type_filter_html() -> str:
@@ -1793,5 +1794,9 @@ window.addEventListener('afterprint',()=>{
   html = html.replace('</head>', '<style>\n' + mobile_css + '</style>\n</head>', 1)
   if pitch_navigation:
     html = apply_pitch_navigation(html)
+  html = html.replace('</head>', MODE_HEAD + '</head>', 1)
+  marker = 'function restoreResearchNavigation(){'
+  if html.count(marker) == 1:
+    html = html.replace(marker, MODE_GUARD + marker, 1)
   html = html.replace('<script>', panel_helpers_script() + '\n<script>', 1)
   return inject_site_tour(html)

@@ -23,6 +23,7 @@ from .request_context import (
 )
 from .overruling_risk_routes import router as overruling_risk_router
 from .routes import router
+from .pages.welcome import welcome_page_html
 from .workbench import router as workbench_router
 from .security_headers import SecurityHeadersMiddleware
 
@@ -140,7 +141,12 @@ app.include_router(workbench_router)
 
 @app.get("/")
 def root():
-    return RedirectResponse(url="/data-explorer", status_code=307)
+    return RedirectResponse(url="/welcome", status_code=307)
+
+
+@app.get("/welcome", response_class=HTMLResponse, include_in_schema=False)
+def welcome_page() -> HTMLResponse:
+    return HTMLResponse(welcome_page_html())
 
 
 @app.get("/health")

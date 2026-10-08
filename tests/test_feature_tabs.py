@@ -587,7 +587,7 @@ def test_primary_navigation_has_brand_left_and_groups_right():
     assert header.index('class="brand-home"') < header.index('primary-groups')
     assert 'href="/data-explorer?tab=about&amp;group=info"' in header
     assert 'siteExperimentalToggle' not in header and 'Show experimental' not in header
-    assert header.count('<a ') == 2 and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link and the Workbench page
+    assert header.count('<a ') == 3 and 'href="/welcome"' in header and '<a class="primary-link" href="/workbench">Workbench</a>' in header  # the brand home link, the Workbench page and the Welcome link
     assert '.topbar{justify-content:flex-start;flex-wrap:wrap;' in html
     assert '.group-views{flex-wrap:wrap;overflow:visible;' in html
     for label in ('About', 'Research', 'Intelligence / Statistics', 'Coming soon', 'Development', 'Testing'):

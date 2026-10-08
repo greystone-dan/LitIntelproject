@@ -58,6 +58,7 @@ _PRIMARY = """<nav class="research-nav primary-groups" aria-label="Primary navig
 <button type="button" data-group="roadmap" aria-pressed="false" aria-controls="researchViews">Coming soon</button>
 <button type="button" data-group="soon" aria-pressed="false" aria-controls="researchViews">Development</button>
 <button type="button" data-group="testing" aria-pressed="false" aria-controls="researchViews">Testing</button>
+<a class="primary-link" id="modeSwitch" href="/welcome" title="Back to the Welcome page">Welcome</a>
 </nav>"""
 
 

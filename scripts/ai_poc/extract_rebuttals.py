@@ -124,6 +124,7 @@ def run_case(client, ledger, run, model, case_id, report, themes, send, context=
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "context": context, "points": len(points), "calls": len(calls), "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
 		return None
 	usd, out_rows, bad_ids = 0.0, [], 0
+	dropped_own = dropped_missing = dropped_on_unanswered = 0
 	for g, msgs in calls:
 		if stop_file is not None and stop_file.exists():
 			print(json.dumps({"stopped": "stop file found", "case_id": case_id}), flush=True)
@@ -137,11 +138,14 @@ def run_case(client, ledger, run, model, case_id, report, themes, send, context=
 				continue
 			ids = [x for x in r["answer_ids"] if x in table and x not in p["ids"]]
 			bad_ids += len(r["answer_ids"]) - len(ids)
+			dropped_own += sum(1 for x in r["answer_ids"] if x in p["ids"])
+			dropped_missing += sum(1 for x in r["answer_ids"] if x not in table)
+			dropped_on_unanswered += (len(r["answer_ids"]) - len(ids)) if not r["answered"] else 0
 			if r["answered"] and not ids:
 				r = {**r, "answered": False, "verdict": "none"}
 			out_rows.append({"pid": p["pid"], "party_by": p["by"], "party_text": p["text"], "party_ids": p["ids"], "answered": r["answered"], "verdict": r["verdict"],
 				"answer_ids": ids, "answer_paragraphs": sorted({table[x]["para"] for x in ids}), "answer_quote": " ".join(table[x]["text"] for x in ids), "why": r["why"]})
-	check = {"points": len(points), "calls": len(calls), "answered": sum(r["answered"] for r in out_rows), "points_returned": len(out_rows), "answer_ids_dropped": bad_ids}
+	check = {"points": len(points), "calls": len(calls), "answered": sum(r["answered"] for r in out_rows), "points_returned": len(out_rows), "answer_ids_dropped": bad_ids, "dropped_own_sentence": dropped_own, "dropped_not_in_text": dropped_missing, "dropped_on_unanswered_rows": dropped_on_unanswered}
 	return {"usd": usd, "result": out_rows, "verification": check}
 
 

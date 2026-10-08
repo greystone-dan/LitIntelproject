@@ -1,0 +1,2839 @@
+{
+ "case_id": 23057,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.030510399999999997
+ },
+ "verification": {
+  "items": 150,
+  "quote_exact_in_cited": 150,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 15,
+  "calls": 16,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.981,
+  "rows": {
+   "themes": 4,
+   "arguments": 51,
+   "holdings": 85,
+   "rebuttals": 0,
+   "authorities": 14,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application is dismissed because the tribunal's error in applying the correct test for leave to appeal was harmless given the res judicata effect of prior final decisions on the Applicant's disability status and new evidence claims.",
+  "themes": [
+   {
+    "name": "Res judicata and issue estoppel",
+    "summary": "The Applicant's disability status and the status of new medical evidence have been finally decided in prior proceedings, barring re-litigation of these issues.",
+    "paragraphs": [
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107
+    ]
+   },
+   {
+    "name": "Correct test for leave to appeal",
+    "summary": "The tribunal erred by applying the former 'arguable case' test instead of the current statutory 'reasonable chance of success' test for leave to appeal.",
+    "paragraphs": [
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     69,
+     70,
+     71,
+     72,
+     73,
+     74,
+     75
+    ]
+   },
+   {
+    "name": "Procedural fairness and legitimate expectations",
+    "summary": "The Applicant's procedural fairness complaints were dismissed, and the doctrine of legitimate expectations does not create substantive rights or preserve outdated legal tests.",
+    "paragraphs": [
+     50,
+     51,
+     52,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81
+    ]
+   },
+   {
+    "name": "Standard of review",
+    "summary": "The correctness standard applies to the question of the correct test for leave to appeal, while reasonableness applies to the application of that test.",
+    "paragraphs": [
+     50,
+     58,
+     59,
+     60
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Background and procedural history",
+    "first_paragraph": 3,
+    "last_paragraph": 23,
+    "disposition": "other"
+   },
+   {
+    "label": "Decision under review and applicable legislation",
+    "first_paragraph": 24,
+    "last_paragraph": 36,
+    "disposition": "other"
+   },
+   {
+    "label": "Issues raised on judicial review",
+    "first_paragraph": 37,
+    "last_paragraph": 37,
+    "disposition": "other"
+   },
+   {
+    "label": "Applicant's submissions",
+    "first_paragraph": 38,
+    "last_paragraph": 42,
+    "disposition": "other"
+   },
+   {
+    "label": "Respondent's submissions",
+    "first_paragraph": 43,
+    "last_paragraph": 49,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review",
+    "first_paragraph": 50,
+    "last_paragraph": 60,
+    "disposition": "other"
+   },
+   {
+    "label": "Whether the correct test for leave to appeal was applied",
+    "first_paragraph": 61,
+    "last_paragraph": 75,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Application of legitimate expectations doctrine",
+    "first_paragraph": 76,
+    "last_paragraph": 81,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Effect of error and discretion to grant relief",
+    "first_paragraph": 82,
+    "last_paragraph": 89,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Application of res judicata and issue estoppel",
+    "first_paragraph": 90,
+    "last_paragraph": 107,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Final disposition and costs",
+    "first_paragraph": 108,
+    "last_paragraph": 111,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "In a decision dated April 12, 2005, the review tribunal denied the appeal and the request to re-open the first appeal. It concluded that the issue of the Applicant\u2019s eligibility for CPP Disability Benefits was res judicata, having been finally decided in the proceedings arising out of the Applicant\u2019s first application.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The second review tribunal denied the appeal and the request to re-open the first appeal on April 12, 2005, concluding the issue was res judicata as finally decided in the first appeal proceedings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In relation to the new facts application, the review tribunal concluded that the reports presented either did not constitute new facts, or were established too long after the Applicant\u2019s MQP of December 31, 1996 to assist in evaluating her conditions at the time of her MQP.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The review tribunal found that the new medical reports either did not constitute new facts or were established too long after the MQP to assist in evaluating the Applicant's condition at that time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "That application was denied by the Pension Appeals Board in a decision dated May 1, 2007.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Pension Appeals Board denied the Applicant's application for an extension of time in a decision dated May 1, 2007.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On April 24, 2009, Justice Campbell of the Federal Court quashed the Pension Appeals Board\u2019s decision and sent the matter back for re-determination.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Justice Campbell of the Federal Court quashed the Pension Appeals Board\u2019s decision and sent the matter back for re-determination on April 24, 2009.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On May 27, 2009, the Pension Appeals Board granted the Applicant leave to appeal.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On May 27, 2009, the Pension Appeals Board granted the Applicant leave to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On September 16, 2010, the Pension Appeals Board dismissed the appeal, finding that the evidence submitted by the Applicant did not constitute \u201cnew facts.\u201d",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On September 16, 2010, the Pension Appeals Board dismissed the appeal, finding that the evidence submitted by the Applicant did not constitute \u201cnew facts.\u201d",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On May 18, 2011, the Federal Court of Appeal dismissed the application for judicial review, holding that the Pension Appeal Board\u2019s decision reasonably concluded that the reports did not constitute new facts.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On May 18, 2011, the Federal Court of Appeal dismissed the application for judicial review, holding that the Pension Appeal Board\u2019s decision reasonably concluded that the reports did not constitute new facts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The application was denied in a decision dated August 31, 2006.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The third application for CPP Disability Benefits was denied in a decision dated August 31, 2006.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In a decision dated January 30, 2007, Human Resources and Skills Development Canada upheld the denial of her application.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Human Resources and Skills Development Canada upheld the denial of the Applicant's third CPP Disability Benefits application in a decision dated January 30, 2007.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On July 31, 2012, the hearing for the denial of the Applicant\u2019s third claim for CPP Disability Benefits took place before the Review Tribunal.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On July 31, 2012, the hearing for the denial of the Applicant\u2019s third claim for CPP Disability Benefits took place before the Review Tribunal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Its decision was issued on September 21, 2012, with the Review Tribunal finding that it had no jurisdiction to review all the evidence and substitute its decision for that of the first review tribunal.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Review Tribunal issued its decision on September 21, 2012, finding it had no jurisdiction to review all the evidence and substitute its decision for that of the first review tribunal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It found that the issue was already decided, and was therefore res judicata.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Review Tribunal found the issue was already decided and was therefore res judicata.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On July 16, 2013, the SST dismissed the Applicant\u2019s application for leave to appeal.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On July 16, 2013, the Social Security Tribunal dismissed the Applicant\u2019s application for leave to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Pursuant to subsection 58(2) of the Department of Human Resources and Skills Development Act, S.C. 2005 c. 34 ( the \u201cDHRSDA\u201d) the Member identified the issue as whether the appeal from the Review Tribunal\u2019s decision of September 21, 2012 had a reasonable chance of success.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Member identified the issue as whether the appeal from the Review Tribunal\u2019s decision had a reasonable chance of success.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member held that the Application would be examined on the basis of the legitimate expectations of the Applicant at the time the leave application was filed with the Pension Appeals Board.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Application would be examined based on the legitimate expectations of the Applicant at the time the leave application was filed with the Pension Appeals Board.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "As such, the determination of whether the application had a reasonable chance of success would be evaluated as a de novo appeal, pursuant to subsection 84(1) of the Plan, as it read immediately before April 1, 2013.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The determination of whether the application had a reasonable chance of success would be evaluated as a de novo appeal, pursuant to subsection 84(1) of the Plan as it read immediately before April 1, 2013.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member noted that adducing new evidence, and demonstrating an error of law or a significant error of fact can demonstrate that an appeal has a reasonable chance of success, relying in this regard on the decision in Canada (Attorney General) v. Zakaria, 2011 FC 136.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Adducing new evidence, and demonstrating an error of law or a significant error of fact can demonstrate that an appeal has a reasonable chance of success, relying on Canada (Attorney General) v. Zakaria, 2011 FC 136.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In response to the Applicant\u2019s argument that her matter was not properly considered at prior hearings before the third Review Tribunal, the Member found that the decisions of the previous Review Tribunals were final, and that the Review Tribunal did not have jurisdiction to consider issues relating to those decisions.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The decisions of the previous Review Tribunals were final, and the Review Tribunal did not have jurisdiction to consider issues relating to those decisions.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member concluded that the Applicant\u2019s argument that the third Review Tribunal did not return the review tribunal file to her was not a ground of appeal that had a reasonable chance of success.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Applicant\u2019s argument that the third Review Tribunal did not return the review tribunal file to her was not a ground of appeal that had a reasonable chance of success.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member found there was also no reasonable chance of success for the Applicant\u2019s argument related to the administrative procedures with the Plan disability appeal process.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There was no reasonable chance of success for the Applicant\u2019s argument related to the administrative procedures with the Plan disability appeal process.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member noted that neither argument presented new evidence, nor pointed to a reviewable error in fact or law by the Review Tribunal.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Neither argument presented new evidence, nor pointed to a reviewable error in fact or law by the Review Tribunal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member found there was no merit to the Applicant\u2019s argument that the Review Tribunal did not provide a complete file for the hearing.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There was no merit to the Applicant\u2019s argument that the Review Tribunal did not provide a complete file for the hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member observed that it is the obligation of the parties to a proceeding to ensure that the tribunal has all relevant material before it.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "tribunal_below",
+    "claim": "It is the obligation of the parties to a proceeding to ensure that the tribunal has all relevant material before it.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Finally, the Member considered the Applicant\u2019s argument that the Review Tribunal discriminated against her and her children. The Member found the Applicant\u2019s arguments relative to this complaint to be unclear, and consequently, did not have a reasonable chance of success.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1",
+     "31.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Applicant\u2019s arguments that the Review Tribunal discriminated against her and her children were unclear and did not have a reasonable chance of success.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In this regard, the Member relied on the decision in Pantic v. Canada (Attorney General), 2011 FC 591.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Member relied on the decision in Pantic v. Canada (Attorney General), 2011 FC 591 regarding the discrimination complaint.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Member refused the application for leave to appeal on the basis that the Applicant had not produced any new evidence, nor pointed to an error in fact or law, nor presented any argument that would have a reasonable chance of success.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Member refused the application for leave to appeal because the Applicant had not produced any new evidence, nor pointed to an error in fact or law, nor presented any argument that would have a reasonable chance of success.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Applicant argues that the SST erred in denying her application for leave to appeal.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "applicant",
+    "claim": "The SST erred in denying her application for leave to appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She submits that she is disabled within the meaning of paragraph 42(2)(a) of the Plan, and that she should be allowed to submit certain medical reports that she considers new facts, in order to show that she is disabled.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "applicant",
+    "claim": "She is disabled within the meaning of paragraph 42(2)(a) of the Plan and should be allowed to submit certain medical reports considered new facts to show that she is disabled.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicant submits that these reports raise new material facts that were not previously discoverable with reasonable diligence.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "made_by": "applicant",
+    "claim": "The medical reports raise new material facts that were not previously discoverable with reasonable diligence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She argues that there are certain disability claims that must be assessed as a claimant\u2019s condition, treatment, and prognosis evolve.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "made_by": "applicant",
+    "claim": "Certain disability claims must be assessed as a claimant\u2019s condition, treatment, and prognosis evolve.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As well, the Applicant pleads that there have been breaches of procedural fairness.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "made_by": "applicant",
+    "claim": "There have been breaches of procedural fairness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She argues that the refusal to admit the reports has denied her the right to a fair hearing.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "made_by": "applicant",
+    "claim": "The refusal to admit the reports has denied her the right to a fair hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicant also argues that certain information that she requested from the Minister and the Office of the Commissioner of Review Tribunals was not produced.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "made_by": "applicant",
+    "claim": "Certain information requested from the Minister and the Office of the Commissioner of Review Tribunals was not produced.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As well, she submits that the condition of the review tribunal file, concerning her third application for CPP Disability Benefits, gave rise to a breach of procedural fairness because the pages were not numbered.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "made_by": "applicant",
+    "claim": "The condition of the review tribunal file, concerning her third application for CPP Disability Benefits, gave rise to a breach of procedural fairness because the pages were not numbered.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Respondent then argues that the issue of whether the Tribunal selected the correct test for granting leave to appeal is likewise reviewable on the standard of reasonableness.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "made_by": "respondent",
+    "claim": "The issue of whether the Tribunal selected the correct test for granting leave to appeal is reviewable on the standard of reasonableness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Respondent submits that previously, the test for leave to appeal was whether there was an \u201carguable case\u201d.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "respondent",
+    "claim": "Previously, the test for leave to appeal was whether there was an 'arguable case'.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Pursuant to subsection 58(2) of the DHRSDA, there is a new test for granting leave to appeal, that is whether the appeal has a \u201creasonable chance of success.\u201d",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "respondent",
+    "claim": "Under subsection 58(2) of the DHRSDA, the new test for granting leave to appeal is whether the appeal has a 'reasonable chance of success'.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Subsection 58(1) specifically sets out the grounds for appeal, that is a failure to observe a principle of natural justice; an error of law; or an erroneous finding of fact made in a perverse or capricious manner.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "respondent",
+    "claim": "Subsection 58(1) sets out the grounds for appeal as failure to observe a principle of natural justice, an error of law, or an erroneous finding of fact made in a perverse or capricious manner.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The new test does not include the submission and consideration of new evidence.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "respondent",
+    "claim": "The new test does not include the submission and consideration of new evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Respondent argues that although the Member appears to have analysed the Applicant\u2019s application for leave based on the former test, the grounds of appeal set out in subsection 58(1) of the DHRSDA were still addressed in her decision.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "made_by": "respondent",
+    "claim": "Although the Member appears to have analysed the Applicant\u2019s application for leave based on the former test, the grounds of appeal in subsection 58(1) were still addressed in her decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "He submits that the doctrine of res judicata applies, and that the Member\u2019s decision to deny leave was reasonable.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "respondent",
+    "claim": "The doctrine of res judicata applies, and the Member\u2019s decision to deny leave was reasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As well, he argues that the Applicant has failed to provide new facts that would justify re-opening the decision of the first review tribunal, and that the SST had no authority to reconsider the issues that were before the previous two review tribunals or the Pension Appeals Board.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "respondent",
+    "claim": "The Applicant has failed to provide new facts justifying re-opening the decision of the first review tribunal, and the SST had no authority to reconsider issues before previous tribunals or the Pension Appeals Board.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Further, the Respondent submits that the Applicant does not have a reasonable chance of success in the present application because previous proceedings have already determined that the evidence presented by the Applicant, specifically the reports of Drs.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "made_by": "respondent",
+    "claim": "The Applicant does not have a reasonable chance of success because previous proceedings determined that the evidence presented does not constitute new facts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "That issue is res judicata.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "made_by": "respondent",
+    "claim": "The issue of whether the evidence constitutes new facts is res judicata.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Finally, the Respondent submits that the Applicant\u2019s complaint that the third Review Tribunal did not return the tribunal file to her is an administrative complaint that is irrelevant to this application.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "made_by": "respondent",
+    "claim": "The Applicant\u2019s complaint that the third Review Tribunal did not return the tribunal file to her is an administrative complaint irrelevant to this application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Respondent argues that this complaint is not a ground of appeal that has a reasonable chance of success.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "made_by": "respondent",
+    "claim": "This complaint is not a ground of appeal that has a reasonable chance of success.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I do not agree with the submissions of the Respondent that the first question is reviewable on a standard of reasonableness.",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "made_by": "respondent",
+    "claim": "The first question (whether the correct test was applied) is reviewable on a standard of reasonableness.",
+    "treatment": "rejected",
+    "outcome_note": "The Court disagreed with this submission.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At paragraph 7 of the decision, the Member said the following To ensure fairness, the Application will be examined based on the Applicant\u2019s legitimate expectations at the time of its filing with the PAB. For this reason, the determination of whether the appeal has a reasonable chance of success will be made on the basis of an appeal de novo in accordance with subsection 84(1) of the Canada Pension Plan (CPP) as it read immediately before April 1, 2013.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.1",
+     "62.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Member said the application would be examined based on the Applicant\u2019s legitimate expectations at the time of filing with the PAB, and the determination of reasonable chance of success would be made on the basis of an appeal de novo under subsection 84(1) of the CPP as it read before April 1, 2013.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In her decision denying leave to appeal, the Member did not refer to subsection 58(1) of the DHRSDA. Rather, she relied on the common law factors of adducing new evidence, or demonstrating an error of law or significant error of fact, as addressed in Zakaria, supra.",
+    "paragraphs": [
+     74
+    ],
+    "evidence_ids": [
+     "74.1",
+     "74.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     74
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Member did not refer to subsection 58(1) of the DHRSDA when denying leave to appeal, but relied on common law factors including adducing new evidence and demonstrating an error of law or significant error of fact as addressed in Zakaria.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In the present proceedings, the Respondent submits that issue estoppel applies. Issue estoppel stands for the proposition that once a question of fact or law has been litigated and determined by a competent decision maker, the decision is final and it cannot be re-determined in subsequent proceedings; see the decision in Danyluk, supra at paragraphs 24-25.",
+    "paragraphs": [
+     92
+    ],
+    "evidence_ids": [
+     "92.1",
+     "92.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     92
+    ],
+    "made_by": "respondent",
+    "claim": "Issue estoppel applies in the present proceedings, meaning once a question of fact or law has been litigated and determined by a competent decision maker, the decision is final and cannot be re-determined in subsequent proceedings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Respondent seeks costs on the basis that that the Applicant has pursued her claim for CPP Disability Benefits through several proceedings up to and including the Federal Court of Appeal.",
+    "paragraphs": [
+     110
+    ],
+    "evidence_ids": [
+     "110.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     110
+    ],
+    "made_by": "respondent",
+    "claim": "The Respondent seeks costs because the Applicant has pursued her claim for CPP Disability Benefits through several proceedings including the Federal Court of Appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Applicant was previously employed as a \u201csystems coordinator\u201d in a dress manufacturing company and a part-time translator for the Immigration Department at the Toronto Airport.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant was previously employed as a systems coordinator and part-time translator for the Immigration Department at Toronto Airport."
+   },
+   {
+    "quote": "In September 1988, the Applicant was involved in a motor vehicle collision. As a result of the collision, the Applicant suffered a whiplash type injury. She returned to work after the injury, but required physiotherapy.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1",
+     "4.2",
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "In September 1988, the Applicant was involved in a motor vehicle collision causing a whiplash type injury, after which she returned to work but required physiotherapy."
+   },
+   {
+    "quote": "In May 1989, the Applicant was again involved in another, more serious motor vehicle collision, which resulted in serious injuries to her scalp, neck, back, left foot and knee and right hand. As a result of the injuries, the Applicant has had on-going medical issues. She has not worked as of May 6, 1989.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2",
+     "5.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "In May 1989, the Applicant was involved in a more serious motor vehicle collision resulting in serious injuries and ongoing medical issues, and she has not worked since May 6, 1989."
+   },
+   {
+    "quote": "The Applicant applied for CPP Disability Benefits for the first time on October 10, 1995. The Applicant\u2019s Minimum Qualifying Period (\u201cMQP\u201d), that is, the date by which she would have qualified for CPP Disability Benefits by demonstrating she was disabled, was, and remains, December 31, 1996.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1",
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant first applied for CPP Disability Benefits on October 10, 1995, with a Minimum Qualifying Period of December 31, 1996."
+   },
+   {
+    "quote": "The Applicant\u2019s initial application for CPP Disability Benefits was denied on December 18, 1995. In a decision dated September 10, 1997, the Minister of Human Resources and Skills Development upheld the denial.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant's initial application for CPP Disability Benefits was denied on December 18, 1995, and the denial was upheld by the Minister on September 10, 1997."
+   },
+   {
+    "quote": "The Applicant appealed this decision to a review tribunal of the Office of the Commissioner of Review Tribunals. In a decision dated February 25, 1999, the review tribunal dismissed the Applicant\u2019s appeal. The tribunal concluded that the Applicant was not precluded from performing some type of substantially gainful employment, and was therefore not disabled within the meaning of paragraph 42(2)(a) of the Plan. Leave to appeal to the Pension Appeals Board was denied.",
+    "paragraphs": [
+     7,
+     8
+    ],
+    "evidence_ids": [
+     "7.3",
+     "8.1",
+     "8.2",
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7,
+     8
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant appealed the denial to a review tribunal which dismissed the appeal on February 25, 1999, concluding she was not disabled within the meaning of the Plan, and leave to appeal to the Pension Appeals Board was denied."
+   },
+   {
+    "quote": "On May 20, 2003, the Applicant submitted a second application for CPP Disability Benefits. Human Resources and Skills Development Canada denied the Applicant\u2019s second application for CPP Disability Benefits on the grounds that the issue was res judicata, having already been determined finally by the first review tribunal.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1",
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant submitted a second application for CPP Disability Benefits on May 20, 2003, which was denied on the grounds of res judicata by Human Resources and Skills Development Canada."
+   },
+   {
+    "quote": "The Applicant applied to a second review tribunal to appeal the denial of her second CPP Disability Benefits application. At the same time, she made a request to re-open her first appeal on the basis additional medical reports, which she claimed raised new facts. The hearing before the second review tribunal took place on March 10, 2005.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2",
+     "10.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant applied to a second review tribunal to appeal the denial of her second application and requested to re-open her first appeal based on additional medical reports; the hearing was on March 10, 2005."
+   },
+   {
+    "quote": "On December 19, 2007, the Applicant applied to the Pension Appeals Board for an extension of time to file an appeal from the second review tribunal decision.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "On December 19, 2007, the Applicant applied to the Pension Appeals Board for an extension of time to file an appeal from the second review tribunal decision."
+   },
+   {
+    "quote": "The Applicant applied for judicial review of that decision.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant applied for judicial review of the Pension Appeals Board's denial decision."
+   },
+   {
+    "quote": "On October 18th, 2010, the Applicant filed a Notice of Application for judicial review of the decision of the Pension Appeals Board in the Federal Court of Appeal.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "On October 18, 2010, the Applicant filed a Notice of Application for judicial review of the Pension Appeals Board decision in the Federal Court of Appeal."
+   },
+   {
+    "quote": "On December 19, 2005, the Applicant made a third application for CPP Disability Benefits.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "On December 19, 2005, the Applicant made a third application for CPP Disability Benefits."
+   },
+   {
+    "quote": "The Applicant sought reconsideration of the denial.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant sought reconsideration of the denial of the third CPP Disability Benefits application."
+   },
+   {
+    "quote": "The Applicant once again appealed the decision to the Review Tribunal.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant appealed the denial decision to the Review Tribunal."
+   },
+   {
+    "quote": "The hearing of the third appeal was held in abeyance until various appeals in relation to her second application for CPP Disability Benefits were resolved.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "The hearing of the third appeal was held in abeyance until various appeals related to the second application for CPP Disability Benefits were resolved."
+   },
+   {
+    "quote": "On December 17, 2012, the Applicant applied to the Pension Appeals Board for leave to appeal the decision of the third Review Tribunal.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "background_fact",
+    "statement": "On December 17, 2012, the Applicant applied to the Pension Appeals Board for leave to appeal the decision of the third Review Tribunal."
+   },
+   {
+    "quote": "On April 1, 2013, the Office of the Commissioner of Review Tribunals and the Pension Appeals Board were replaced by the Social Security Tribunal \u2013 General Division and Social Security Tribunal \u2013 Appeal Division.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "background_fact",
+    "statement": "On April 1, 2013, the Office of the Commissioner of Review Tribunals and the Pension Appeals Board were replaced by the Social Security Tribunal \u2013 General Division and Social Security Tribunal \u2013 Appeal Division."
+   },
+   {
+    "quote": "Pursuant to section 260, which is a transitional provision of the enabling legislation, the Jobs, Growth and Long-term Prosperity Act, S.C. 2012 c. 19 (the \u201cJobs, Growth and Long-term Prosperity Act\u201d) the Applicant\u2019s application for leave to appeal was treated as if it had been filed with the SST on April 1, 2013.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "background_fact",
+    "statement": "Pursuant to section 260 of the Jobs, Growth and Long-term Prosperity Act, the Applicant\u2019s application for leave to appeal was treated as if filed with the Social Security Tribunal on April 1, 2013."
+   },
+   {
+    "quote": "On August 8, 2013, the Applicant filed her Notice of Application for judicial review in the Federal Court of Appeal.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant filed her Notice of Application for judicial review in the Federal Court of Appeal on August 8, 2013."
+   },
+   {
+    "quote": "In an Order dated October 31, 2013, Justice Stratas of the Federal Court of Appeal transferred the application for judicial review to the Federal Court.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "background_fact",
+    "statement": "Justice Stratas of the Federal Court of Appeal transferred the application for judicial review to the Federal Court on October 31, 2013."
+   },
+   {
+    "quote": "On November 14, 2013, Justice Roy of the Federal Court made an Order to amend the style of cause.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "background_fact",
+    "statement": "Justice Roy of the Federal Court made an Order to amend the style of cause on November 14, 2013."
+   },
+   {
+    "quote": "Paragraph 42(2)(a) of the Plan states: 42(2) For the purposes of this Act, (a) a person shall be considered to be disabled only if he is determined in prescribed manner to have a severe and prolonged mental or physical disability, and for the purposes of this paragraph, (i) a disability is severe only if by reason thereof the person in respect of whom the determination is made is incapable regularly of pursuing any substantially gainful occupation, and (ii) a disability is prolonged only if it is determined in prescribed manner that the disability is likely to be long continued and of indefinite duration or is likely to result in death; and \u2026 42(2) Pour l\u2019application de la pr\u00e9sente loi : a) une personne n\u2019est consid\u00e9r\u00e9e comme invalide que si elle est d\u00e9clar\u00e9e, de la mani\u00e8re prescrite, atteinte d\u2019une invalidit\u00e9 physique ou mentale grave et prolong\u00e9e, et pour l\u2019application du pr\u00e9sent alin\u00e9a : (i) une invalidit\u00e9 n\u2019est grave que si elle rend la personne \u00e0 laquelle se rapporte la d\u00e9claration r\u00e9guli\u00e8rement incapable de d\u00e9tenir une occupation v\u00e9ritablement r\u00e9mun\u00e9ratrice, (ii) une invalidit\u00e9 n\u2019est prolong\u00e9e que si elle est d\u00e9clar\u00e9e, de la mani\u00e8re prescrite, devoir vraisemblablement durer pendant une p\u00e9riode longue, continue et ind\u00e9finie ou devoir entra\u00eener vraisemblablement le d\u00e9c\u00e8s;",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1",
+     "34.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "background_fact",
+    "statement": "Paragraph 42(2)(a) of the Plan defines disability as severe and prolonged mental or physical disability, with specific criteria for severity and duration."
+   },
+   {
+    "quote": "Sections 260 and 262 of the Jobs, Growth and Long-term Prosperity Act state: 260. Any application for leave to appeal filed before April 1, 2013 under subsection 83(1) of the Canada Pension Plan, as it read immediately before the coming into force of section 229, is deemed to be an application for leave to appeal filed with the Appeal Division of the Social Security Tribunal on April 1, 2013, if no decision has been rendered with respect to leave to appeal. 260. Toute demande de permission d\u2019interjeter appel pr\u00e9sent\u00e9e avant le 1er avril 2013, au titre du paragraphe 83(1) du R\u00e9gime de pensions du Canada, dans sa version ant\u00e9rieure \u00e0 l\u2019entr\u00e9e en vigueur de l\u2019article 229, est r\u00e9put\u00e9e \u00eatre une demande de permission d\u2019en appeler pr\u00e9sent\u00e9e le 1er avril 2013 \u00e0 la division d\u2019appel du Tribunal de la s\u00e9curit\u00e9 sociale si aucune d\u00e9cision n\u2019a \u00e9t\u00e9 rendue relativement \u00e0 cette demande. 262. The provisions of the Canada Pension Plan and Old Age Security Act repealed by this Act, and their related regulations, continue to apply to appeals of which a Review Tribunal or the Pension Appeals Board remains seized under this Act, with any necessary adaptations. 262. Les dispositions du R\u00e9gime de pensions du Canada et de la Loi sur la s\u00e9curit\u00e9 de la vieillesse abrog\u00e9es par la pr\u00e9sente loi et leurs r\u00e8glements continuent de s\u2019appliquer, avec les adaptations n\u00e9cessaires, aux appels dont un tribunal de r\u00e9vision ou la Commission d\u2019appel des pensions demeure saisi au titre de la pr\u00e9sente loi.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1",
+     "35.2",
+     "35.3",
+     "35.4",
+     "35.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "background_fact",
+    "statement": "Sections 260 and 262 of the Jobs, Growth and Long-term Prosperity Act deem certain applications for leave to appeal filed before April 1, 2013 to be filed with the Appeal Division of the Social Security Tribunal on April 1, 2013 if no decision has been rendered."
+   },
+   {
+    "quote": "The DHRSDA, which is the legislation governing the SST has since been renamed the Department of Employment and Social Development Act, S.C. 2005 c. 34. However, the relevant provisions of the statute have not changed.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1",
+     "36.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "kind": "background_fact",
+    "statement": "The DHRSDA has been renamed the Department of Employment and Social Development Act, but relevant provisions have not changed."
+   },
+   {
+    "quote": "In any event, at the time the Member made her decision, subsections 58(1) and 58(2) of the DHRSDA read as follows: 58. (1) The only grounds of appeal are that (a) the General Division failed to observe a principle of natural justice or otherwise acted beyond or refused to exercise its jurisdiction; (b) the General Division erred in law in making its decision, whether or not the error appears on the face of the record; or (c) the General Division based its decision on an erroneous finding of fact that it made in a perverse or capricious manner or without regard for the material before it. (2) Leave to appeal is refused if the Appeal Division is satisfied that the appeal has no reasonable chance of success. 58. (1) Les seuls moyens d\u2019appel sont les suivants : a) la division g\u00e9n\u00e9rale n\u2019a pas observ\u00e9 un principe de justice naturelle ou a autrement exc\u00e9d\u00e9 ou refus\u00e9 d\u2019exercer sa comp\u00e9tence; b) elle a rendu une d\u00e9cision entach\u00e9e d\u2019une erreur de droit, que l\u2019erreur ressorte ou non \u00e0 la lecture du dossier; c) elle a fond\u00e9 sa d\u00e9cision sur une conclusion de fait erron\u00e9e, tir\u00e9e de fa\u00e7on abusive ou arbitraire ou sans tenir compte des \u00e9l\u00e9ments port\u00e9s \u00e0 sa connaissance. (2) La division d\u2019appel rejette la demande de permission d\u2019en appeler si elle est convaincue que l\u2019appel n\u2019a aucune chance raisonnable de succ\u00e8s. V. ISSUES [37] This application for judicial review raises the following two issues: 1.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.3",
+     "36.4",
+     "36.5",
+     "36.6",
+     "36.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "kind": "background_fact",
+    "statement": "At the time of the Member's decision, subsections 58(1) and 58(2) of the DHRSDA set out the grounds of appeal and the criteria for refusing leave to appeal if the appeal has no reasonable chance of success."
+   },
+   {
+    "quote": "In my opinion, there has been no breach of procedural fairness in respect of the preparation of the tribunal record.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "There has been no breach of procedural fairness regarding the preparation of the tribunal record."
+   },
+   {
+    "quote": "The fact that pages were not numbered in the review tribunal\u2019s file is immaterial and does not give rise to a breach of procedural fairness.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "The fact that pages were not numbered in the review tribunal\u2019s file is immaterial and does not constitute a breach of procedural fairness."
+   },
+   {
+    "quote": "Further, the fact that the records were not admitted into the record is an issue related to the merits of the decision since those records were deemed to not constitute new facts. That issue is res judicata. It is not a procedural fairness issue.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1",
+     "52.2",
+     "52.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The issue of records not being admitted into the record relates to the merits of the decision and is res judicata, not a procedural fairness issue."
+   },
+   {
+    "quote": "The SST is a new federal tribunal that replaced the Pension Appeals Board as of April 1, 2013 pursuant to section 260 of the Jobs, Growth and Long-term Prosperity Act.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "background_fact",
+    "statement": "The SST is a new federal tribunal that replaced the Pension Appeals Board as of April 1, 2013 pursuant to section 260 of the Jobs, Growth and Long-term Prosperity Act."
+   },
+   {
+    "quote": "Although the SST is a new tribunal, it shares similar functions with its predecessor, the Pension Appeals Board, including the interpretation and application of the Plan; see the decision in Atkinson v. Canada, 2014 FCA 187.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "background_fact",
+    "statement": "The SST shares similar functions with its predecessor, the Pension Appeals Board, including interpretation and application of the Plan."
+   },
+   {
+    "quote": "The grounds for appeal and the test for granting leave to appeal have changed under the new legislation; however, the process for applying for leave to appeal is substantially similar to that of the previous regime and as such, the same analysis will continue to apply in judicial review of decisions made under the new scheme.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "Although the grounds for appeal and the test for granting leave to appeal have changed under the new legislation, the process for applying for leave to appeal is substantially similar to the previous regime, so the same analysis applies in judicial review under the new scheme."
+   },
+   {
+    "quote": "Under the previous scheme, this Court held that judicial review of decisions to grant or refuse an application for leave to appeal involves a two-step inquiry.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "kind": "legal_test",
+    "statement": "Judicial review of decisions to grant or refuse an application for leave to appeal involves a two-step inquiry: first, whether the tribunal applied the correct test; second, whether a reviewable error was made in determining if the test's requirements were met."
+   },
+   {
+    "quote": "The first question, that is whether the correct test was applied, is reviewable on the correctness standard; see the decision in Zakaria, supra at paragraph 35.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "kind": "legal_test",
+    "statement": "The question of whether the correct test was applied is reviewable on a correctness standard."
+   },
+   {
+    "quote": "The first stage does not involve an inquiry into the merits of the decision; see the decision in Callihoo v. Canada (Attorney General), (2000) 190 F.T.R. 114 at paragraph 15.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "kind": "legal_test",
+    "statement": "The first stage does not involve an inquiry into the merits of the decision."
+   },
+   {
+    "quote": "The second question of whether the test was properly applied is subject to review on a standard of reasonableness; see the decision in Consiglio, supra at paragraph 25.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "kind": "legal_test",
+    "statement": "The question of whether the test was properly applied is subject to review on a standard of reasonableness."
+   },
+   {
+    "quote": "Although granting or refusing leave to appeal involves an interpretation of the SST\u2019s home statute, the question of whether the correct test was selected by the Member only has two possible outcomes: either the correct test was selected or it was not.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The question of whether the correct test was selected by the Member has only two possible outcomes: either the correct test was selected or it was not, so it is reviewable on correctness standard."
+   },
+   {
+    "quote": "Adoption of the reasonableness standard could lead to uncertainty as to what test is to be applied in deciding to grant leave.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "Adopting the reasonableness standard for the question of correct test selection could lead to uncertainty about which test to apply in deciding to grant leave."
+   },
+   {
+    "quote": "I will first address whether the Member selected the correct test for assessing the application for leave to appeal. In my opinion, she did not.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.1",
+     "61.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "conclusion",
+    "statement": "The Member did not select the correct test for assessing the application for leave to appeal."
+   },
+   {
+    "quote": "The test for granting leave to appeal under the current legislation is to be discerned from the provisions of the DHRSDA. The new legislation speaks of a \u201creasonable chance of success\u201d; see the DHRSDA at subsection 58(2).",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.1",
+     "63.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "kind": "conclusion",
+    "statement": "The test for granting leave to appeal under the current legislation is found in the DHRSDA, which speaks of a 'reasonable chance of success' at subsection 58(2)."
+   },
+   {
+    "quote": "The test under the former regime was one developed by the jurisprudence, that is, at common law. It required an appellant to show that an appeal raised \u201can arguable case\u201d; see the decision in Martin v. Canada (Minister of Human Resources Development) (1999), 252 N.R. 141 (F.C.A.).",
+    "paragraphs": [
+     64
+    ],
+    "evidence_ids": [
+     "64.1",
+     "64.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     64
+    ],
+    "kind": "background_fact",
+    "statement": "The former regime test was developed by jurisprudence at common law, requiring an appellant to show an 'arguable case' as in Martin v. Canada (Minister of Human Resources Development)."
+   },
+   {
+    "quote": "Under the former regime an appellant could rely on the submission of new material facts to establish an arguable case. I refer to the decision in Callihoo, supra at paragraph 15 where the Court said the following: On the basis of this recent jurisprudence, in my view the review of a decision concerning an application for leave to appeal to the PAB involves two issues, 1. whether the decision maker has applied the right test \u2013 that is, whether the application raises an arguable case without otherwise assessing the merits of the application, and 2. whether the decision maker has erred in law or in appreciation of the facts in determining whether an arguable case is raised. If new evidence is adduced with the application, if the application raises an issue of law or of relevant significant facts not appropriate considered by the Review Tribunal in its decision, an arguable issue is raised for consideration and it warrants the grant of leave.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.1",
+     "65.2",
+     "65.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "background_fact",
+    "statement": "Under the former regime, an appellant could rely on new material facts to establish an arguable case, as explained in Callihoo, involving whether the decision maker applied the right test and whether there was an error in law or fact appreciation."
+   },
+   {
+    "quote": "The test for obtaining leave to appeal has changed. Insofar as the \u201carguable case\u201d test was developed by decisions of the Courts, it is subject to statutory override.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.1",
+     "66.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "The test for obtaining leave to appeal has changed and the common law 'arguable case' test is subject to statutory override."
+   },
+   {
+    "quote": "In my opinion, the Member erred when she considered the Applicant\u2019s leave application on the basis of her expectations at the time of filing her application for leave to appeal, and in accordance with subsection 84(1) of the Plan as it read immediately before April, 1 2013.",
+    "paragraphs": [
+     68
+    ],
+    "evidence_ids": [
+     "68.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68
+    ],
+    "kind": "conclusion",
+    "statement": "The Member erred by considering the Applicant\u2019s leave application based on her expectations at the time of filing and under the old subsection 84(1) of the Plan before April 1, 2013."
+   },
+   {
+    "quote": "Pursuant to section 260, which is a transitional provision of the Jobs, Growth and Long-term Prosperity Act, the Applicant\u2019s application for leave to appeal was deemed to be filed with the SST on April 1, 2013.",
+    "paragraphs": [
+     69
+    ],
+    "evidence_ids": [
+     "69.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     69
+    ],
+    "kind": "background_fact",
+    "statement": "Section 260 of the Jobs, Growth and Long-term Prosperity Act deemed the Applicant\u2019s application for leave to appeal to be filed with the SST on April 1, 2013."
+   },
+   {
+    "quote": "Pursuant to subsection 58(2) of the DHRSDA, which is the legislation governing appeals to the SST, leave to appeal to the SST is refused if the appeal has no reasonable chance of success. This means that the critical factor in obtaining leave to appeal is a reasonable chance of success.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.1",
+     "70.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "kind": "conclusion",
+    "statement": "Under subsection 58(2) of the DHRSDA, leave to appeal to the SST is refused if the appeal has no reasonable chance of success, making reasonable chance of success the critical factor for obtaining leave."
+   },
+   {
+    "quote": "Pursuant to subsection 58(1), there are now only three grounds of appeal, first, a breach of natural justice; second, an error law; and third, an erroneous finding of fact made in a perverse and capricious manner.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "kind": "legal_test",
+    "statement": "Pursuant to subsection 58(1), there are only three grounds of appeal: breach of natural justice, an error of law, and an erroneous finding of fact made in a perverse and capricious manner."
+   },
+   {
+    "quote": "The use of the word \u201conly\u201d in subsection 58(1) of the DHRSDA means that no other grounds of appeal may be considered.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "kind": "conclusion",
+    "statement": "The use of the word 'only' in subsection 58(1) means no other grounds of appeal may be considered."
+   },
+   {
+    "quote": "Under the current legislation, an appeal will only have a reasonable chance of success if it is based on one of the three enumerated grounds. This test is narrower than the test that was previously applied, which did not list grounds of appeal.",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.1",
+     "73.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "kind": "conclusion",
+    "statement": "Under the current legislation, an appeal will only have a reasonable chance of success if based on one of the three enumerated grounds, which is a narrower test than previously applied."
+   },
+   {
+    "quote": "Adducing new evidence is no longer a ground of appeal, and the Member erred in considering it as such.",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "kind": "conclusion",
+    "statement": "Adducing new evidence is no longer a ground of appeal, and the Member erred in considering it as such."
+   },
+   {
+    "quote": "In my opinion, the Member was required to apply the test set out in section 58 of the DHRSDA. She did not have discretion to deviate from that statutory regime and apply the former test, notwithstanding the fact that the Applicant applied for leave to appeal prior to the introduction of new legislation governing applications for leave to appeal under the Plan.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.1",
+     "75.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "kind": "conclusion",
+    "statement": "The Member was required to apply the test set out in section 58 of the DHRSDA and did not have discretion to deviate from that statutory regime."
+   },
+   {
+    "quote": "I find that the Member erred by failing to apply the correct test in determining whether or not to grant the Applicant\u2019s application for leave to appeal.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "kind": "conclusion",
+    "statement": "The Member erred by failing to apply the correct test in determining whether to grant the Applicant\u2019s application for leave to appeal."
+   },
+   {
+    "quote": "Further, in my opinion and notwithstanding the fact that the Member acted out of fairness considerations for the Applicant, she erred in considering the Applicant\u2019s application based on her legitimate expectations at the time of its filing with the Pension Appeals Board.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "kind": "conclusion",
+    "statement": "The Member erred in considering the Applicant's application based on her legitimate expectations at the time of its filing with the Pension Appeals Board."
+   },
+   {
+    "quote": "It is unclear as to what the Member means by the words \u201clegitimate expectations\u201d at the time the Applicant filed the application for leave to appeal.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "It is unclear what the Member means by 'legitimate expectations' at the time the Applicant filed the application for leave to appeal."
+   },
+   {
+    "quote": "The doctrine of legitimate expectations is an aspect of procedural fairness and is limited to the rules of procedural fairness.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "kind": "legal_test",
+    "statement": "The doctrine of legitimate expectations is an aspect of procedural fairness and is limited to the rules of procedural fairness."
+   },
+   {
+    "quote": "In the present case, the transitional provisions of the Jobs, Growth and Long-term Prosperity Act provide that the provisions of the Plan repealed by that statute continue to apply to matters for which the Pension Appeals Board remains seized, that is appeals that were filed and heard before April 1, 2013; see subsection 258(1) and section 262 of the Jobs, Growth and Long-term Prosperity Act.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "kind": "conclusion",
+    "statement": "The transitional provisions of the Jobs, Growth and Long-term Prosperity Act provide that the provisions of the Plan repealed by that statute continue to apply to matters for which the Pension Appeals Board remains seized, i.e., appeals filed and heard before April 1, 2013."
+   },
+   {
+    "quote": "These provisions make it clear that Parliament intended that matters dealt with by the SST would be subject to the new legislation. The Pension Appeals Board remained subject to the former legislation during the transitional period.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.2",
+     "79.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "kind": "conclusion",
+    "statement": "Parliament intended that matters dealt with by the SST would be subject to the new legislation, while the Pension Appeals Board remained subject to the former legislation during the transitional period."
+   },
+   {
+    "quote": "In my opinion, the Member erred in assessing the Applicant\u2019s leave application in accordance with the doctrine of legitimate expectations at the time the leave application was filed. That doctrine applies to questions of procedural fairness; see the decision in Baker v. Canada (Minister of Citizenship and Immigration), [1999] 2 S.C.R. 817 at paragraph 26. It does not apply to an expectation that the law would remain unchanged.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.1",
+     "81.2",
+     "81.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "conclusion",
+    "statement": "The Member erred in assessing the Applicant's leave application in accordance with the doctrine of legitimate expectations at the time the leave application was filed, as that doctrine applies only to procedural fairness and not to an expectation that the law would remain unchanged."
+   },
+   {
+    "quote": "Pursuant to section 18.1(3) of the Federal Courts Act, relief in applications for judicial review is discretionary; see the decision in Khosa, supra at paragraph 40. \u201cDiscretionary\u201d in this context means that not every error of law will result in a remedy to an applicant.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.1",
+     "83.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "legal_test",
+    "statement": "Relief in applications for judicial review is discretionary under section 18.1(3) of the Federal Courts Act, meaning not every error of law results in a remedy."
+   },
+   {
+    "quote": "In my opinion, sending this matter back to the SST for re-determination will have no practical effect.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "kind": "conclusion",
+    "statement": "Sending the matter back to the SST for re-determination will have no practical effect."
+   },
+   {
+    "quote": "If the matter is sent back and a different member applies the correct test, the application for leave to appeal will fail because a final decision has already been made on the issue whether she is disabled within the meaning of paragraph 42(2)(a) of the Plan.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "kind": "conclusion",
+    "statement": "If the matter is sent back and a different member applies the correct test, the application for leave to appeal will fail because a final decision has already been made on the issue of disability under paragraph 42(2)(a) of the Plan."
+   },
+   {
+    "quote": "A new assessment of her application for leave to appeal will also fail for another reason, that is the Applicant\u2019s attempt to introduce \u201cnew facts\u201d to challenge the finding that she is not disabled.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "kind": "conclusion",
+    "statement": "A new assessment of the application for leave to appeal will also fail because the Applicant attempts to introduce new facts to challenge the finding that she is not disabled."
+   },
+   {
+    "quote": "Both these issues, that is the finding of no disability within the meaning of the Plan and the finding that there are no new facts, have already been finally decided and are subject to the evidentiary rule res judicata and the law of estoppel.",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "kind": "conclusion",
+    "statement": "The findings of no disability and no new facts have been finally decided and are subject to the evidentiary rule of res judicata and the law of estoppel."
+   },
+   {
+    "quote": "The application of the legal principle of res judicata means that the Applicant has no ground of appeal that would have a reasonable chance of success and that standard is the relevant standard that she must meet.",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "legal_test",
+    "statement": "The legal principle of res judicata means the Applicant has no ground of appeal with a reasonable chance of success, which is the relevant standard to meet."
+   },
+   {
+    "quote": "Res judicata is a rule of evidence and a part of the law of estoppel. Generally speaking, the law of estoppel prevents parties from proceeding with certain actions. Res judicata stands for the concept that once a dispute has been decided with finality, it cannot be re-litigated; see the decision in Danyluk v. Ainsworth Technologies Inc., [2001] 2 S.C.R. 460 at paragraph 20. When res judicata applies, a litigant is \u201cestopped\u201d by the previous proceeding.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.1",
+     "89.2",
+     "89.3",
+     "89.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "kind": "legal_test",
+    "statement": "Res judicata is a rule of evidence and part of the law of estoppel, preventing parties from re-litigating disputes decided with finality."
+   },
+   {
+    "quote": "There is a public policy element to res judicata because it is intended to advance the interests of justice and prevent abuses of the decision making process. It aims to avoid duplicative litigation, possible inconsistent results, undue cost, and vexing litigants multiple times with the same cause; see the decision in Danyluk, supra at paragraphs 18-20.",
+    "paragraphs": [
+     90
+    ],
+    "evidence_ids": [
+     "90.1",
+     "90.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     90
+    ],
+    "kind": "legal_test",
+    "statement": "Res judicata aims to advance the interests of justice and prevent abuses of the decision making process by avoiding duplicative litigation, inconsistent results, undue cost, and vexing litigants multiple times with the same cause."
+   },
+   {
+    "quote": "In Canada, res judicata has two forms: cause of action estoppel and issue estoppel; see the decision in Toronto (City) v. C.U.P.E., Local 79 [2003] 3 S.C.R. 77 at paragraph 23.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "legal_test",
+    "statement": "In Canada, res judicata has two forms: cause of action estoppel and issue estoppel."
+   },
+   {
+    "quote": "In Danyluk, supra at paragraph 25, the Supreme Court of Canada held that the elements of issue estoppel are as follows: 1. The same question has been decided; 2. The judicial decision was final; and 3. The parties to the previous decision are the same parties to the proceeding in which issue estoppel is raised.",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.1",
+     "93.2",
+     "93.3",
+     "93.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "legal_test",
+    "statement": "The elements of issue estoppel are: 1. The same question has been decided; 2. The judicial decision was final; and 3. The parties to the previous decision are the same parties to the proceeding in which issue estoppel is raised."
+   },
+   {
+    "quote": "In the present proceeding, two issues have been finally decided. The first issue that has been finally decided is the status of the Applicant as not being disabled for the purposes of the Plan. The second issue that has been finally decided is that the medical reports presented by the Applicant do not constitute new material facts.",
+    "paragraphs": [
+     94,
+     95
+    ],
+    "evidence_ids": [
+     "94.1",
+     "94.2",
+     "95.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     94,
+     95
+    ],
+    "kind": "conclusion",
+    "statement": "Two issues have been finally decided: the Applicant is not disabled for the purposes of the Plan, and the medical reports presented by the Applicant do not constitute new material facts."
+   },
+   {
+    "quote": "Applying the rule of res judicata and the principle of issue estoppel, neither the question of the Applicant\u2019s \u201cdisability\u201d nor the status of the medical reports as \u201cnew material facts\u201d can be re-litigated.",
+    "paragraphs": [
+     96
+    ],
+    "evidence_ids": [
+     "96.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     96
+    ],
+    "kind": "conclusion",
+    "statement": "Applying res judicata and issue estoppel, neither the question of the Applicant\u2019s disability nor the status of the medical reports as new material facts can be re-litigated."
+   },
+   {
+    "quote": "The Applicant is claiming disability benefits under the Plan. I note that the Plan is a statutory scheme that allows for the payment of benefits in defined situations as set out in the legislation.",
+    "paragraphs": [
+     97
+    ],
+    "evidence_ids": [
+     "97.1",
+     "97.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     97
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant is claiming disability benefits under the Plan, which is a statutory scheme allowing payment of benefits in defined situations as set out in the legislation."
+   },
+   {
+    "quote": "Whether or not a person is eligible for CPP Disability Benefits depends on whether the individual meets the definition of disability set out in paragraph 42(2)(a) of the Plan. It is not a self-assessment process. Under the Plan, \u201cdisability\u201d is determined by a Disability Adjudicator for the Plan. The decision to grant a disability benefit requires compliance with the statutory terms.",
+    "paragraphs": [
+     99
+    ],
+    "evidence_ids": [
+     "99.1",
+     "99.2",
+     "99.3",
+     "99.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     99
+    ],
+    "kind": "conclusion",
+    "statement": "Eligibility for CPP Disability Benefits depends on meeting the definition of disability set out in paragraph 42(2)(a) of the Plan; it is not a self-assessment process and disability is determined by a Disability Adjudicator under the Plan, requiring compliance with statutory terms."
+   },
+   {
+    "quote": "Under the statutory test for disability, the question is not whether an applicant has health problems, but rather, whether an applicant has a disability that is both severe and prolonged, so as to render the claimant disabled within the meaning of the Plan.",
+    "paragraphs": [
+     100
+    ],
+    "evidence_ids": [
+     "100.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     100
+    ],
+    "kind": "legal_test",
+    "statement": "Under the statutory test for disability, an applicant must have a disability that is both severe and prolonged to be considered disabled within the meaning of the Plan."
+   },
+   {
+    "quote": "A disability will only be considered severe if it renders the claimant incapable of regularly pursuing any substantially gainful employment; see subparagraph 42(2)(a)(i) of the Plan. A disability will only be considered prolonged if it is determined that it is to be long continued and of indefinite duration, or likely to result in death; see subparagraph 42(2)(a)(ii) of the Plan. Both of these elements must be satisfied to be eligible for CPP Disability Benefits.",
+    "paragraphs": [
+     101
+    ],
+    "evidence_ids": [
+     "101.1",
+     "101.2",
+     "101.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     101
+    ],
+    "kind": "legal_test",
+    "statement": "A disability is severe if it renders the claimant incapable of regularly pursuing any substantially gainful employment, and prolonged if it is long continued and of indefinite duration or likely to result in death; both elements must be satisfied for eligibility for CPP Disability Benefits."
+   },
+   {
+    "quote": "The initial decision denying the Applicant\u2019s claim was made on December 10, 1995. In that decision, it was found that the Applicant was not disabled within the meaning of the Plan because the Applicant was deemed able to perform some form of light work on a regular basis. That decision was upheld on reconsideration on September 10, 1997. It was reviewed and upheld by the first review tribunal on February 25, 1999 and the Applicant\u2019s application for leave to appeal was refused on October 29, 1999. At that point, the decision that the Applicant was not disabled within the meaning of the Plan became final.",
+    "paragraphs": [
+     102
+    ],
+    "evidence_ids": [
+     "102.1",
+     "102.2",
+     "102.3",
+     "102.4",
+     "102.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     102
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant's initial claim was denied on December 10, 1995, finding she was not disabled as she could perform some form of light work regularly; this decision was upheld on reconsideration, by the first review tribunal, and leave to appeal was refused, making the decision final."
+   },
+   {
+    "quote": "The Applicant\u2019s second claim for CPP Disability Benefits was made on May 20, 2003. This claim involved an application to re-open the decision of the first review tribunal on the basis of new facts, as set out in certain medical reports. The review tribunal concluded that the reports did not constitute new facts. This finding was ultimately upheld on appeal to the Federal Court of Appeal. At that point in the proceedings, a final decision was made that there were no new facts.",
+    "paragraphs": [
+     103
+    ],
+    "evidence_ids": [
+     "103.1",
+     "103.2",
+     "103.3",
+     "103.4",
+     "103.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     103
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicant's second claim for CPP Disability Benefits was made on May 20, 2003, seeking to reopen the first review tribunal's decision based on new medical reports, but the tribunal found the reports did not constitute new facts, a finding upheld on appeal, making that decision final."
+   },
+   {
+    "quote": "The present proceedings arise out of the Applicant\u2019s third claim for CPP Disability Benefits. The claim is in respect of the same injuries, arising from the same accident, that were assessed in her first claim. Her MQP has not changed from December 31, 1996.",
+    "paragraphs": [
+     104
+    ],
+    "evidence_ids": [
+     "104.1",
+     "104.2",
+     "104.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     104
+    ],
+    "kind": "background_fact",
+    "statement": "The present proceedings arise from the Applicant's third claim for CPP Disability Benefits, concerning the same injuries from the same accident assessed in her first claim, with no change in her MQP since December 31, 1996."
+   },
+   {
+    "quote": "As such, the question of whether the Applicant is disabled within the meaning of the Plan has been decided. That first decision, having been reviewed and appealed through all the processes available under the Plan, was final.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.1",
+     "105.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "kind": "conclusion",
+    "statement": "The question of whether the Applicant is disabled within the meaning of the Plan has already been decided and the first decision was final after all available reviews and appeals."
+   },
+   {
+    "quote": "The claims for benefits were all made pursuant to the Plan, and involved the same parties, notwithstanding the fact that the Pension Appeals Board\u2019s role is now fulfilled by the SST.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "kind": "conclusion",
+    "statement": "The claims for benefits were all made under the Plan and involved the same parties, despite the Pension Appeals Board's role now being fulfilled by the SST."
+   },
+   {
+    "quote": "Similarly, the status of the medical reports presented by the Applicant, as constituting new facts, has also been finally decided in the proceedings related to her second claim.",
+    "paragraphs": [
+     106
+    ],
+    "evidence_ids": [
+     "106.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     106
+    ],
+    "kind": "conclusion",
+    "statement": "The status of the medical reports as new facts was also finally decided in the proceedings related to the Applicant's second claim."
+   },
+   {
+    "quote": "In my opinion, the doctrine of issue estoppel applies, and the matter is res judicata. The Applicant was found not to be disabled within the meaning of paragraph 42(2)(a) of the Plan. The additional reports presented by her were found not to raise new facts in the proceedings arising from her second claim for CPP Disability Benefits.",
+    "paragraphs": [
+     107
+    ],
+    "evidence_ids": [
+     "107.1",
+     "107.2",
+     "107.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     107
+    ],
+    "kind": "conclusion",
+    "statement": "The doctrine of issue estoppel applies, and the matter is res judicata, as the Applicant was found not disabled under paragraph 42(2)(a) of the Plan and the additional reports did not raise new facts in the second claim proceedings."
+   },
+   {
+    "quote": "Further, the changes to the legislative scheme mean that adducing new facts is no longer a ground of appeal.",
+    "paragraphs": [
+     108
+    ],
+    "evidence_ids": [
+     "108.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     108
+    ],
+    "kind": "conclusion",
+    "statement": "Adducing new facts is no longer a ground of appeal due to changes in the legislative scheme."
+   },
+   {
+    "quote": "The Applicant does not have a ground of appeal with a reasonable chance of success, and sending the matter back to the SST for re-determination will make no difference to the outcome of the application for leave to appeal.",
+    "paragraphs": [
+     108
+    ],
+    "evidence_ids": [
+     "108.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     108
+    ],
+    "kind": "conclusion",
+    "statement": "The Applicant does not have a ground of appeal with a reasonable chance of success, and sending the matter back to the SST for re-determination will not affect the outcome of the application for leave to appeal."
+   },
+   {
+    "quote": "In the exercise of my discretion pursuant to subsection 18.1(3) of the Federal Courts Act, I decline to grant a remedy for the Member\u2019s error of law and this application for judicial review is dismissed.",
+    "paragraphs": [
+     109
+    ],
+    "evidence_ids": [
+     "109.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     109
+    ],
+    "kind": "conclusion",
+    "statement": "The application for judicial review is dismissed and no remedy is granted for the Member's error of law."
+   },
+   {
+    "quote": "Pursuant to Rule 400 of the Federal Courts Rules, SOR/98-106 the Court enjoys full discretion over costs.",
+    "paragraphs": [
+     111
+    ],
+    "evidence_ids": [
+     "111.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     111
+    ],
+    "kind": "legal_test",
+    "statement": "The Court has full discretion over costs pursuant to Rule 400 of the Federal Courts Rules, SOR/98-106."
+   },
+   {
+    "quote": "I am not persuaded that costs against the Applicant are justified in this case and make no Order as to costs.",
+    "paragraphs": [
+     111
+    ],
+    "evidence_ids": [
+     "111.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     111
+    ],
+    "kind": "conclusion",
+    "statement": "Costs against the Applicant are not justified and no Order as to costs is made."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "In this regard, he relies on the decisions in Alberta (Information and Privacy Commissioner) v. Alberta Teachers\u2019 Association, [2011] 3 S.C.R. 654 at paragraph 30 and Agraira v. Canada (Public Safety and Emergency Preparedness), [2013] 2 S.C.R. 559.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "authority": "Relies on Alberta (Information and Privacy Commissioner) v. Alberta Teachers\u2019 Association and Agraira v. Canada for the standard of review of reasonableness.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Under the previous scheme, this Court held that judicial review of decisions to grant or refuse an application for leave to appeal involves a two-step inquiry.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "authority": "The two-step inquiry for judicial review is supported by Consiglio v. Canada (Minister of Human Resources and Skills Development), 2014 FC 485 at paragraph 20.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The first question, that is whether the correct test was applied, is reviewable on the correctness standard; see the decision in Zakaria, supra at paragraph 35.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "authority": "The correctness standard for the first question is supported by Zakaria at paragraph 35.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The first stage does not involve an inquiry into the merits of the decision; see the decision in Callihoo v. Canada (Attorney General), (2000) 190 F.T.R. 114 at paragraph 15.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "authority": "The first stage not involving merits inquiry is supported by Callihoo v. Canada (Attorney General), (2000) 190 F.T.R. 114 at paragraph 15.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The second question of whether the test was properly applied is subject to review on a standard of reasonableness; see the decision in Consiglio, supra at paragraph 25.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "authority": "The reasonableness standard for the second question is supported by Consiglio at paragraph 25.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Earlier jurisprudence applied the correctness standard of review to the question of choosing the right test.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "authority": "Earlier jurisprudence applied the correctness standard of review to the question of choosing the right test.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In the event of a conflict between legislation and the common law, the legislation will prevail; see Ruth Sullivan, Statutory Interpretation, 2d ed (Toronto: Irwin Law Inc., 2007) at 313-14.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "authority": "In case of conflict between legislation and common law, legislation prevails, as explained by Ruth Sullivan in Statutory Interpretation.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Supreme Court of Canada has held that there is no basis for imputing common law tests into statutory provisions where the legislature has clearly designed the provisions so as to replace the common law; see the decision in Prebushewkski v. Dodge City Auto (1984) Ltd., [2005] 1 S.C.R. 649 at paragraph 37.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "authority": "The Supreme Court of Canada held there is no basis for imputing common law tests into statutory provisions where the legislature clearly intended to replace the common law, as in Prebushewkski v. Dodge City Auto.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Oxford English Dictionary, Vol. X, 2nd ed sub verbo \u201conly\u201d, defines \u201conly\u201d as \u201ca single solitary thing or fact; no one or nothing more or else than\u2026 Only may limit the statement to a single or defined person, thing, or number (a) as distinguished from more, or (b) as opposed to any other.\u201d",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "authority": "The Oxford English Dictionary defines 'only' as limiting the statement to a single or defined person, thing, or number, excluding others.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In this regard, I refer to the decision in Reference Re Constitutional Question Act (B.C.) (1991), 127 N.R. 161 (S.C.C.) at paragraphs 56 and 57 as follows: 56. The doctrine of legitimate expectations was discussed in the reasons of the majority in Old St. Boniface Residents Assn. Inc. v. Winnipeg (City), [1990] 3 S.C.R. 1170, 116 N.R. 46, 69 Man. R. (2d) 134. That judgment cites seven cases dealing with the doctrine, and then goes on: The principle developed in these cases is simply an extension of the rules of natural justice and procedural fairness. It afford a party affected by the decision of a public official an opportunity to make representations in circumstances in which there otherwise would be no such opportunity. The court supplies the omission where, based on the conduct of the public official, a party has been led to believe that his or her rights would not be affected without consultation. (At p. 1204 S.C.R.): \u2026 57. There is no support in Canadian or English cases for the position that the doctrine of legitimate expectations can create substantive rights. It is a part of the rules of procedural fairness which can govern administrative bodies. Where it is applicable, it can create a right to make representations or to be consulted. It does not fetter the decision following the representation or consultation.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.3",
+     "77.4",
+     "77.5",
+     "77.6",
+     "77.7",
+     "77.8",
+     "77.9",
+     "77.10",
+     "77.11",
+     "77.12",
+     "77.13",
+     "77.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "authority": "The doctrine of legitimate expectations is an extension of the rules of natural justice and procedural fairness, affording a party an opportunity to make representations where there otherwise would be none, and does not create substantive rights.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Supreme Court of Canada has held that no one has a vested right to continuance of the law as it stood in the past; see the decision in Gustavson Drilling (1964) Ltd. v. Minister of National Revenue, [1977] 1 S.C.R. 271 at 282.",
+    "paragraphs": [
+     78
+    ],
+    "evidence_ids": [
+     "78.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78
+    ],
+    "authority": "No one has a vested right to continuance of the law as it stood in the past, as held in Gustavson Drilling (1964) Ltd. v. Minister of National Revenue.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "I note that subsection 44(c) of the Interpretation Act, R.S.C. 1985 c I-21 states that where a former enactment is repealed and replaced by a new enactment, proceedings commenced under the former enactment are to be continued in conformity with the new enactment, insofar as it is possible to do so consistently with the new enactment.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "authority": "Subsection 44(c) of the Interpretation Act states that where a former enactment is repealed and replaced by a new enactment, proceedings commenced under the former enactment are to be continued in conformity with the new enactment, insofar as possible.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Supreme Court of Canada has held that prerogative relief, such as setting aside the decision under review, may be refused on the ground of futility in circumstances where issuing the relief will be of no value or have no practical effect; see the decisions in Friends of the Oldman River Society v. Canada (Minister of Transport), [1992] 1 S.C.R. 3 at 80 and Lavoie v. Canada (Minister of the Environment) (2002), 291 N.R. 282 (F.C.A.) at paragraphs 18-19.",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "authority": "Prerogative relief may be refused on the ground of futility where issuing relief will have no practical effect, as held in Friends of the Oldman River Society v. Canada and Lavoie v. Canada.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As discussed in Granovsky v. Canada (Minister of Employment and Immigration), [2000] 1 S.C.R. 703, the Plan is not a social welfare scheme, but a program to provide social insurance to eligible Canadians who lose earnings due to disability, among other things.",
+    "paragraphs": [
+     98
+    ],
+    "evidence_ids": [
+     "98.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     98
+    ],
+    "authority": "The Plan is not a social welfare scheme but a social insurance program to provide benefits to eligible Canadians who lose earnings due to disability, as discussed in Granovsky v. Canada (Minister of Employment and Immigration).",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

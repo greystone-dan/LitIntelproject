@@ -1,0 +1,677 @@
+{
+ "case_id": 38873,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "K",
+ "run": "bundle_rebut_K",
+ "usage": {
+  "usd": 0.011169600000000002
+ },
+ "verification": {
+  "points": 40,
+  "calls": 13,
+  "answered": 10,
+  "points_returned": 40,
+  "answer_ids_dropped": 36
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The Board held that the land and cable system were 'in the reserve' and properly assessed by the appellant.",
+   "party_ids": [
+    "2.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Board held the land and cable system were in the reserve and properly assessed by the appellant."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court Trial Division allowed the respondent's appeal, holding the property was not 'in the reserve' and thus not taxable by the Band.",
+   "party_ids": [
+    "2.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Federal Court Trial Division allowed the respondent's appeal, holding the property was not in the reserve and not taxable by the Band."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "Whether the fibre optic cable system is \"in the reserve\" depends mainly on the interpretation of the 1956 Order in Council, which authorized the province of British Columbia to take land from the Reserve for road purposes.",
+   "party_ids": [
+    "3.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The interpretation of the 1956 Order in Council is central to whether the cable system is in the reserve."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The appellant made a motion to introduce new factual evidence that part of the Lougheed Highway rests on lands leased from Canadian Pacific Limited and now from the Crown, not owned absolutely by the province.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.2"
+   ],
+   "answer_paragraphs": [
+    12
+   ],
+   "answer_quote": "I will discuss the appellant's motion in further detail below, however, I mention it here because, if accepted, such evidence contributes to the factual background underlying this appeal.",
+   "why": "The court acknowledges the appellant's motion to introduce new evidence about the highway lands being leased, not owned absolutely."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "On August 4, 1998 the Board denied the respondent's appeal and upheld the appellant's 1997 and 1998 assessments, on the basis that the province only had the right to use the transferred land for road purposes and did not have fee simple title to the transferred land.",
+   "party_ids": [
+    "19.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats the Board's finding that the province only had the right to use the land for road purposes and no fee simple title."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found that if the transferred land should cease to be used for road purposes, then the land would revert to the Band.",
+   "party_ids": [
+    "19.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court restates the Board's finding that if the land ceases to be used for road purposes, it reverts to the Band."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "If the province ceased to use a portion of the transferred land, used it for another purpose or if someone else occupied and used a portion of that land, then the land would no longer be used for the purpose granted and would revert back to the Band.",
+   "party_ids": [
+    "19.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Board's conclusion that if the land is used for other purposes or occupied by others, it reverts to the Band."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The Board concluded that the lands occupied by the respondent's fibre optic cable system were not being used for road purposes and, consequently, even if the land had been removed from the Reserve by the 1956 Order in Council, it had reverted back to the Band as it was not used for the purpose granted.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats the Board's conclusion that the land occupied by the fibre optic cable was not used for road purposes and reverted to the Band."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "According to the Board, the respondent's system was in the Reserve and subject to assessment and taxation by the Band.",
+   "party_ids": [
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court restates the Board's finding that the respondent's system was in the Reserve and subject to Band taxation."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The respondent appealed the Board's decision to the Federal Court Trial Division on September 18, 1998 pursuant to section 24 of the Federal Court Act and section 60 of the Band's assessment bylaws.",
+   "party_ids": [
+    "21.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the respondent appealed the Board's decision to the Federal Court Trial Division."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The Federal Court Trial Division allowed the appeal and concluded that the transferred land on which the fibre optic cable was installed was not part of the Reserve and, therefore, not subject to taxation by the appellant.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's conclusion that the land was not part of the Reserve and not subject to taxation."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge indicated that to extinguish the Band's interest in the Reserve land, the Crown's intention must be clear and plain, as determined by the Supreme Court in Opetchesaht Indian Band v. Canada and this Court in Canadian National Railway Co. v. Matsqui Indian Band.",
+   "party_ids": [
+    "23.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the principle that Crown's intention must be clear and plain to extinguish the Band's interest."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge reasoned that since the transfer depended on what the province wanted to take, it was necessary to look at the province's intention to discover what the federal government consented to.",
+   "party_ids": [
+    "23.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the reasoning that the province's intention must be examined to understand federal consent."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge examined sections 5, 8, 9 and 11 of the B.C. Highway Act in force in 1956 to determine that the province's intention was to acquire fee simple title.",
+   "party_ids": [
+    "23.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's examination of the Highway Act to determine the province's intention."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge was not convinced that anything less than fee simple title would enable a province to build and maintain a highway.",
+   "party_ids": [
+    "23.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's view that fee simple title was necessary for highway construction and maintenance."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge referred to the fact that the Band had never attempted to exercise control over the corridor.",
+   "party_ids": [
+    "23.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's reference to the Band's lack of control over the corridor."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge determined that the language used in the Order in Council did not detract from the clarity of the province's intention to acquire absolute title.",
+   "party_ids": [
+    "23.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's determination about the clarity of the province's intention."
+  },
+  {
+   "pid": "P18",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge rejected the argument that the land was no longer being used for road purposes.",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's rejection of the argument about land use."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge noted that the corridor continues to be used for road purposes notwithstanding the presence of the fibre optic cable system over the transferred land.",
+   "party_ids": [
+    "24.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's note on continued road use despite the fibre optic cable."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge held that the land would not revert to the Band even if it had ceased to be used for road purposes.",
+   "party_ids": [
+    "24.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Appeal Judge's holding that the land would not revert to the Band."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "The broad issue in this appeal is whether the respondent's fibre optic cable system was properly assessed pursuant to the Band's bylaws.",
+   "party_ids": [
+    "25.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the broad issue as raised by the applicant."
+  },
+  {
+   "pid": "P22",
+   "party_by": "applicant",
+   "party_text": "The appellants raise two underlying questions regarding the assessment issue.",
+   "party_ids": [
+    "25.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the two underlying questions raised by the appellants."
+  },
+  {
+   "pid": "P23",
+   "party_by": "applicant",
+   "party_text": "Whether Order in Council 1956-1659 extinguished the entire aboriginal interest in land in the corridor, so that the Lougheed Highway corridor is no longer 'in the reserve' within the meaning of s. 83(1)(a).",
+   "party_ids": [
+    "25.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text states the question but does not answer whether the Order in Council extinguished the aboriginal interest."
+  },
+  {
+   "pid": "P24",
+   "party_by": "applicant",
+   "party_text": "If the aboriginal interest was extinguished, whether the land upon which the fibre optic cable system lies ceased to be used for road purposes and reverted back to the Band, becoming 'in the reserve' again within the meaning of s. 83(1)(a).",
+   "party_ids": [
+    "25.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text states the question but does not answer whether the land reverted back to the Band."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "The appellant sought to introduce new factual evidence that a part of the Lougheed Highway rests on lands leased from Canadian Pacific Limited and now from Her Majesty the Queen in right of Canada, despite the provisions of the B.C. Highway Act.",
+   "party_ids": [
+    "27.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the appellant sought to introduce new factual evidence about the highway resting on leased lands."
+  },
+  {
+   "pid": "P26",
+   "party_by": "applicant",
+   "party_text": "The appellant argued that the fact the province constructed and maintains the highway on leased lands rebuts the Appeals Judge's finding and the respondent's argument that a fee simple was absolutely necessary to construct and maintain a major highway under B.C. law.",
+   "party_ids": [
+    "27.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "29.5",
+    "29.6"
+   ],
+   "answer_paragraphs": [
+    29
+   ],
+   "answer_quote": "To me, it is clearly reasonable to expect that evidence of this fact would have affected the Appeal Judge's finding, at para. 30, that \"[t]he Court is not convinced, however, that anything less than a fee simple interest, in 1956, could allow a province to build and maintain one of its major highways.\" It is impossible to say for certain whether this would have changed the outcome of the case, but I have no doubt that, on the correct legal analysis, this evidence would have been valuable and influential, and \"could reasonably be expected to affect the result of the trial\"(Chippewas, supra at para. 20).",
+   "why": "The court accepts the appellant's argument that the leased lands evidence rebuts the finding that fee simple was necessary, stating it could have influenced the decision."
+  },
+  {
+   "pid": "P27",
+   "party_by": "tribunal_below",
+   "party_text": "Gonthier J. held that section 35 allowed expropriation of full ownership and that the Osoyoos Order was unambiguous, granting full ownership.",
+   "party_ids": [
+    "33.6",
+    "33.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Gonthier J.'s view that s. 35 allows expropriation of full ownership and that the Osoyoos Order was unambiguous."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "Gonthier J. viewed that the fiduciary duty did not include preserving the band's taxation jurisdiction because the power to tax arose after the Osoyoos Order.",
+   "party_ids": [
+    "35.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Gonthier J.'s view that fiduciary duty did not include preserving taxation jurisdiction as the power arose after the Osoyoos Order."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "Gonthier J. disagreed, suggesting that aboriginal interests in reserve land granted by statute lack the constitutional protection of other aboriginal rights and do not arise from pre-sovereignty relationships with land.",
+   "party_ids": [
+    "38.1",
+    "38.2",
+    "38.3",
+    "38.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states Gonthier J.'s disagreement that aboriginal interests in reserve land lack constitutional protection and do not arise from pre-sovereignty relationships."
+  },
+  {
+   "pid": "P30",
+   "party_by": "applicant",
+   "party_text": "The Seabird Order in Council should be interpreted to determine if it evinces a clear and plain intention to completely extinguish the Band's interest in the corridor.",
+   "party_ids": [
+    "40.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court raises the question of whether the Seabird Order in Council shows a clear and plain intention to extinguish the Band's interest."
+  },
+  {
+   "pid": "P31",
+   "party_by": "respondent",
+   "party_text": "The reservation of mines and minerals suggests that aboriginal interest may have been extinguished if the Order contemplated a transfer of absolute title of surface rights.",
+   "party_ids": [
+    "52.3",
+    "52.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the reservation but is not convinced it is determinative of extinguishment."
+  },
+  {
+   "pid": "P32",
+   "party_by": "respondent",
+   "party_text": "Contextual evidence is sufficient to infer a clear and plain intention to extinguish aboriginal interests even without express language.",
+   "party_ids": [
+    "54.1",
+    "54.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "54.3"
+   ],
+   "answer_paragraphs": [
+    54
+   ],
+   "answer_quote": "Yet, as further explained in Osoyoos, supra at para. 84, \"[w]hile express language is not strictly necessary, courts should not take away an aboriginal interest in land by implication unless clearly and plainly supported by the context.\"",
+   "why": "The court notes express language is not necessary but extinguishment must be clearly and plainly supported by context, which is not established here."
+  },
+  {
+   "pid": "P33",
+   "party_by": "respondent",
+   "party_text": "The language of the Highway Act provisions is quite different from the provincial statute in Osoyoos and shows clear intention to extinguish all other interests and transfer fee simple to the province.",
+   "party_ids": [
+    "58.1",
+    "58.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "58.4",
+    "59.1",
+    "59.2",
+    "59.3",
+    "59.4",
+    "60.1",
+    "60.2",
+    "60.3",
+    "60.4",
+    "60.5",
+    "60.6",
+    "60.7"
+   ],
+   "answer_paragraphs": [
+    58,
+    59,
+    60
+   ],
+   "answer_quote": "In this respect, according to the Supreme Court's decision in Osoyoos, supra, the Appeal Judge erred. In correcting the same error made by the majority of the British Columbia Court of Appeal in Osoyoos Indian Band v. Oliver (Town), 1999 BCCA 297 (B.C.C.A.), the Supreme Court of Canada commented that \"this approach is contrary to the clear and plain intention test for extinguishment\" (Osoyoos, supra at para. 84). The Appeal Judge's error was in assuming that the terms of the transfer are, prima facie, determined by the language of the provincial legislation. Rather, as explained in Osoyoos, supra at para. 69 (emphasis added), \"the scope of the statutory power to transfer interests in land is constrained by the terms of the [provincial legislation]\". The Governor in Council cannot grant more than the province is empowered to take, but can grant less (Osoyoos, supra at paras. 62, 69 ,136). The language of the provincial legislation is not determinative of, nor does it establish a presumption regarding the federal government's intention. As Iacobucci J. explained (ibid. at para. 80):the only intention relevant to the inquiry is that of the grantor of the interest. Section 35 of the Indian Act gives the Governor in Council the absolute discretion to define the terms of the transfer, and thus the relevant inquiry is one of determining the intention of the Governor in Council, as evidenced by the Order in Council. Gonthier J. also mentioned that \"[i]t is for the government to decide, governed by its fiduciary obligation, the appropriate limits to the amount of land and the nature of the interest in land that it is transferring\" (Osoyoos, supra at para. 134). The federal government's fiduciary obligation is owed to the aboriginals, not to the province. Therefore, it is incorrect to presume, absent an indication to the contrary, that the federal government intended to grant to the province what it wanted. In short, the province may not have received what its legislation might normally have empowered it to take in the context of non-aboriginal interests in land.",
+   "why": "The court rejects the respondent's point, explaining the Appeal Judge erred and the federal government's intention governs, not just the provincial statute language."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge held that the Highway Act provisions make clear and plain the province's intention to transfer fee simple and extinguish other interests.",
+   "party_ids": [
+    "58.2",
+    "58.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "58.4",
+    "59.1",
+    "59.2",
+    "59.3",
+    "59.4",
+    "60.1",
+    "60.2",
+    "60.3",
+    "60.4",
+    "60.5",
+    "60.6",
+    "60.7"
+   ],
+   "answer_paragraphs": [
+    58,
+    59,
+    60
+   ],
+   "answer_quote": "In this respect, according to the Supreme Court's decision in Osoyoos, supra, the Appeal Judge erred. In correcting the same error made by the majority of the British Columbia Court of Appeal in Osoyoos Indian Band v. Oliver (Town), 1999 BCCA 297 (B.C.C.A.), the Supreme Court of Canada commented that \"this approach is contrary to the clear and plain intention test for extinguishment\" (Osoyoos, supra at para. 84). The Appeal Judge's error was in assuming that the terms of the transfer are, prima facie, determined by the language of the provincial legislation. Rather, as explained in Osoyoos, supra at para. 69 (emphasis added), \"the scope of the statutory power to transfer interests in land is constrained by the terms of the [provincial legislation]\". The Governor in Council cannot grant more than the province is empowered to take, but can grant less (Osoyoos, supra at paras. 62, 69 ,136). The language of the provincial legislation is not determinative of, nor does it establish a presumption regarding the federal government's intention. As Iacobucci J. explained (ibid. at para. 80):the only intention relevant to the inquiry is that of the grantor of the interest. Section 35 of the Indian Act gives the Governor in Council the absolute discretion to define the terms of the transfer, and thus the relevant inquiry is one of determining the intention of the Governor in Council, as evidenced by the Order in Council. Gonthier J. also mentioned that \"[i]t is for the government to decide, governed by its fiduciary obligation, the appropriate limits to the amount of land and the nature of the interest in land that it is transferring\" (Osoyoos, supra at para. 134). The federal government's fiduciary obligation is owed to the aboriginals, not to the province. Therefore, it is incorrect to presume, absent an indication to the contrary, that the federal government intended to grant to the province what it wanted. In short, the province may not have received what its legislation might normally have empowered it to take in the context of non-aboriginal interests in land.",
+   "why": "The court finds the Appeal Judge erred in assuming the provincial legislation language alone determines the transfer terms, emphasizing the federal government's discretion and fiduciary duty."
+  },
+  {
+   "pid": "P35",
+   "party_by": "respondent",
+   "party_text": "The Lougheed Highway was not built at the time of the grant, indicating the Crown intended absolute extinguishment of the aboriginal interest in the corridor.",
+   "party_ids": [
+    "63.1",
+    "63.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "63.3",
+    "64.1",
+    "64.4",
+    "65.1",
+    "65.3"
+   ],
+   "answer_paragraphs": [
+    63,
+    64,
+    65
+   ],
+   "answer_quote": "However, such a conclusion relies upon correctness of the assumption that nothing less than that could suffice to construct and maintain the highway. I note, however, that there is and never was any evidence submitted in support of this position. The onus, if any, is on the respondent to establish that only an absolute extinguishment of the aboriginal interest in the corridor would do. In fact, the only contextual evidence in this case, including the new evidence submitted to this Court, suggests that it was not necessary to completely extinguish the Band's interest in the corridor to construct and maintain the Lougheed Highway. In the absence of evidence to the contrary, the same can be said of a highway.",
+   "why": "The court rejects the assumption that absolute extinguishment was intended, noting lack of evidence and that less than absolute title can suffice."
+  },
+  {
+   "pid": "P36",
+   "party_by": "tribunal_below",
+   "party_text": "The Appeal Judge was not convinced that anything less than a fee simple interest could allow the province to build and maintain the highway.",
+   "party_ids": [
+    "63.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "64.1",
+    "64.4",
+    "65.2"
+   ],
+   "answer_paragraphs": [
+    64,
+    65
+   ],
+   "answer_quote": "I note, however, that there is and never was any evidence submitted in support of this position. The onus, if any, is on the respondent to establish that only an absolute extinguishment of the aboriginal interest in the corridor would do. The Supreme Court of Canada has found that less than absolute title can certainly suffice for the purposes of operating and maintaining a canal and, more importantly, building and maintaining a railway (see Canadian Pacific Ltd. v. Paul, [1998] 2 S.C.R. 654 at 671; and Osoyoos, supra).",
+   "why": "The court rejects the Appeal Judge's view, noting no evidence supports it and precedent shows less than fee simple can suffice."
+  },
+  {
+   "pid": "P37",
+   "party_by": "respondent",
+   "party_text": "Absolute extinguishment of the aboriginal interest was necessary for constitutional reasons under s. 91(24) of the Constitution Act, 1867.",
+   "party_ids": [
+    "67.1",
+    "67.2",
+    "67.3",
+    "67.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "67.5",
+    "67.6"
+   ],
+   "answer_paragraphs": [
+    67
+   ],
+   "answer_quote": "I cannot accept this argument. Section 88 of the Indian Act as it now reads (s. 87 of the Act as it read in 1952) expressly states that all provincial laws are applicable to reserve lands except to the extent they are inconsistent with or already addressed by the Indian Act.",
+   "why": "The court explicitly rejects the argument that absolute extinguishment was necessary for constitutional reasons."
+  },
+  {
+   "pid": "P38",
+   "party_by": "respondent",
+   "party_text": "If the federal government intended to grant less than an absolute interest, it would have used language similar to the 1953 Order in Council granting an easement.",
+   "party_ids": [
+    "68.2",
+    "68.3",
+    "69.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "69.2",
+    "69.3",
+    "69.4",
+    "70.6",
+    "70.7",
+    "71.4"
+   ],
+   "answer_paragraphs": [
+    69,
+    70,
+    71
+   ],
+   "answer_quote": "On the other hand, using this reasoning, one must conclude that if the federal government intended to grant a different interest to the province of British Columbia in this case than it did in Osoyoos, supra, it would have used different language in each of the Orders, which it did not. That is, the necessary corollary of the respondent's argument is that by using the same language in different Orders, the federal government intended to achieve the same result. If that is indeed the case, then the Seabird Order must be seen to confer an identical interest as the Osoyoos Order. Although the 1953 Order provides an example of one type of language that may be used to transfer less than an absolute interest in land, it does not clearly and plainly follow that different language cannot achieve a similar result. Thus, although the 1953 Order may be relevant, it is not determinative of the matter. Consequently, I am not persuaded that there was a clear and plain intention to entirely extinguish the aboriginal interest in this land.",
+   "why": "The court finds the 1953 Order language not determinative and is not persuaded there was clear intention to grant less than absolute interest based on language comparison."
+  },
+  {
+   "pid": "P39",
+   "party_by": "applicant",
+   "party_text": "The appellant acknowledges it is not entitled to tax the province for land in the corridor.",
+   "party_ids": [
+    "78.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly states the appellant's acknowledgment that it cannot tax the province for the corridor land."
+  },
+  {
+   "pid": "P40",
+   "party_by": "tribunal_below",
+   "party_text": "The Governor in Council authorized the transfer of the lands to the Province subject to the exception of mines and minerals ownership.",
+   "party_ids": [
+    "94.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "96.1"
+   ],
+   "answer_paragraphs": [
+    96
+   ],
+   "answer_quote": "In my view, it has not been shown when regard is had to the reasons of the Supreme Court in Osoyoos that a genuine ambiguity exists in this case or that the Appeal Judge erred in concluding that it was plain and obvious that the federal government by its Order in Council transferred to the Province absolute ownership of the subject lands save and except for the mines and minerals found to exist within, upon or under these lands.",
+   "why": "The court agrees the Governor in Council authorized the transfer subject to the exception of mines and minerals ownership."
+  }
+ ]
+}

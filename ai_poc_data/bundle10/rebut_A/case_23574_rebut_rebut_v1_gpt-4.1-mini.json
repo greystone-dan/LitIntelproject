@@ -1,0 +1,527 @@
+{
+ "case_id": 23574,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0071968
+ },
+ "verification": {
+  "points": 33,
+  "calls": 6,
+  "answered": 8,
+  "points_returned": 33,
+  "answer_ids_dropped": 37
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The visa officer refused Mr Hamza's application at the screening stage because he did not provide sufficient independent documentation to demonstrate his experience as a general practitioner or family physician.",
+   "party_ids": [
+    "1.3",
+    "6.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the officer's finding that the applicant did not provide sufficient independent documentation."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The officer found that the duties Mr Hamza listed did not indicate he performed the lead statement actions or all essential duties required by the NOC for his occupation.",
+   "party_ids": [
+    "6.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the officer's finding that the duties listed did not indicate performance of lead statement actions or all essential duties."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The officer concluded that Mr Hamza did not meet the requirements of the Ministerial Instructions and was therefore ineligible for processing.",
+   "party_ids": [
+    "6.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the officer's conclusion that the applicant did not meet the Ministerial Instructions and was ineligible."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The officer's notes indicated that Mr Hamza provided only two references: one self-prepared and one from the medical superintendent's office, which appeared self-serving and lacked other supporting documents.",
+   "party_ids": [
+    "7.1",
+    "7.2",
+    "7.4",
+    "7.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the officer's notes that only two references were provided, one self-prepared and one self-serving, lacking other supporting documents."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "The Officer breached her duty of procedural fairness by not providing the applicant an opportunity to address concerns about the employment letter.",
+   "party_ids": [
+    "9.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not yet address whether the officer breached procedural fairness."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "It was not reasonably open for the Officer to conclude that the applicant had not satisfactorily established his work experience as a family physician based on the evidence submitted.",
+   "party_ids": [
+    "11.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not yet address whether the officer's conclusion was reasonably open based on the evidence."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "The parties agree on the appropriate standards of review.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the parties agree on the standards of review."
+  },
+  {
+   "pid": "P8",
+   "party_by": "applicant",
+   "party_text": "The applicant initially alleged that the Officer unreasonably relied on a checklist to reject the applicant's certificate listing his duties at his own clinic due to lack of third-party corroboration.",
+   "party_ids": [
+    "15.2",
+    "15.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The applicant abandoned this argument at the hearing, relying only on other arguments."
+  },
+  {
+   "pid": "P9",
+   "party_by": "applicant",
+   "party_text": "The applicant argues it was unreasonable and an abuse of process for the Officer to give no weight to the employment letter from his supervisor simply because it mirrored the NOC description.",
+   "party_ids": [
+    "16.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant's argument that the Officer's rejection was unreasonable and an abuse of process."
+  },
+  {
+   "pid": "P10",
+   "party_by": "applicant",
+   "party_text": "The applicant contends that the Officer's concerns were about the credibility and veracity of the employment letter, not the sufficiency of the documentation provided.",
+   "party_ids": [
+    "17.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the applicant's contention about the Officer's concerns being about credibility, not sufficiency."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "The applicant insists it is normal that the employment letter was prepared for the application and was self-serving, as it was provided to meet checklist requirements.",
+   "party_ids": [
+    "17.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the applicant's insistence that a self-serving letter prepared for the application is normal."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The applicant insists the employment letter is independent and objective because it was prepared by a government officer.",
+   "party_ids": [
+    "17.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the applicant's insistence that the letter is independent and objective as prepared by a government officer."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "The applicant contends the CAIPS notes suggest the Officer questioned the credibility of the evidence, not its sufficiency.",
+   "party_ids": [
+    "17.4"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "17.1",
+    "18.2"
+   ],
+   "answer_paragraphs": [
+    17,
+    18
+   ],
+   "answer_quote": "Further, the applicant contends that the CAIPS notes reveal that the Officer\u2019s concerns were related to the credibility and veracity of the employment letter, as opposed to the sufficiency of the documentation that he provided. The respondent contends that the Officer did not question the credibility of the evidence provided by the applicant, but was concerned with the sufficiency of that evidence.",
+   "why": "The court notes the applicant's contention that the Officer questioned credibility, but the respondent argues the Officer was concerned with sufficiency, showing a dispute over the nature of the concern."
+  },
+  {
+   "pid": "P14",
+   "party_by": "applicant",
+   "party_text": "The applicant argues the Officer should have given him an opportunity to address her concerns about the employment letter.",
+   "party_ids": [
+    "17.5"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "19.3"
+   ],
+   "answer_paragraphs": [
+    19
+   ],
+   "answer_quote": "Further, the respondent submits that when the evidence provided in support of an application is insufficient, a visa officer is not required to inform the applicant of his or her concerns before making a negative determination.",
+   "why": "The court records the applicant's argument for an opportunity to address concerns but the respondent submits no such opportunity is required when evidence is insufficient."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "By failing to provide an opportunity to address concerns, the Officer breached her duty of procedural fairness.",
+   "party_ids": [
+    "17.6"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "19.3"
+   ],
+   "answer_paragraphs": [
+    19
+   ],
+   "answer_quote": "Further, the respondent submits that when the evidence provided in support of an application is insufficient, a visa officer is not required to inform the applicant of his or her concerns before making a negative determination.",
+   "why": "The court notes the applicant's claim of breach of procedural fairness but the respondent argues no breach occurred as no duty to inform arises with insufficient evidence."
+  },
+  {
+   "pid": "P16",
+   "party_by": "applicant",
+   "party_text": "The applicant relies on jurisprudence recognizing the duty of procedural fairness, mainly Patel v Canada and Hassani v Canada.",
+   "party_ids": [
+    "17.7"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "19.4"
+   ],
+   "answer_paragraphs": [
+    19
+   ],
+   "answer_quote": "The respondent suggests that the circumstances in Patel, above, are distinguishable as it was clear in that case that the officer\u2019s concerns were related to the authenticity of the evidence, which is not the case here.",
+   "why": "The court acknowledges the applicant's reliance on jurisprudence but the respondent distinguishes those cases as not applicable here."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "At the hearing, counsel acknowledged that Obeta departed from this principle but argued the circumstances in Obeta differ from this case.",
+   "party_ids": [
+    "17.8"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "20.1"
+   ],
+   "answer_paragraphs": [
+    20
+   ],
+   "answer_quote": "In the alternative, the respondent relies on Obeta, above, to establish that even if the Court is of the view that the Officer\u2019s concerns were related to the credibility of the employment letter, it does not establish that the Officer had an obligation to provide the applicant with an opportunity to address these concerns.",
+   "why": "The court notes the applicant's counsel acknowledges Obeta departs from the principle but argues different circumstances; the respondent relies on Obeta to reject the duty to provide opportunity."
+  },
+  {
+   "pid": "P18",
+   "party_by": "respondent",
+   "party_text": "The Officer\u2019s decision is reasonable and did not breach the applicant\u2019s right to procedural fairness.",
+   "party_ids": [
+    "18.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the respondent's argument that the Officer's decision is reasonable and did not breach procedural fairness."
+  },
+  {
+   "pid": "P19",
+   "party_by": "respondent",
+   "party_text": "The Officer did not question the credibility of the evidence but was concerned with its sufficiency.",
+   "party_ids": [
+    "18.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the respondent's point that the Officer questioned sufficiency, not credibility."
+  },
+  {
+   "pid": "P20",
+   "party_by": "respondent",
+   "party_text": "The indication that the employment letter was 'self-serving' does not mean the Officer thought the letter was fraudulent.",
+   "party_ids": [
+    "18.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that 'self-serving' does not imply fraudulence of the letter."
+  },
+  {
+   "pid": "P21",
+   "party_by": "respondent",
+   "party_text": "The employment letter was clearly insufficient and should have contained a detailed description of the applicant\u2019s duties and responsibilities.",
+   "party_ids": [
+    "18.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the employment letter was insufficient and lacked detailed duties."
+  },
+  {
+   "pid": "P22",
+   "party_by": "respondent",
+   "party_text": "The employment letter is not disinterested evidence as it advocates for a particular position by copying elements from the NOC instead of providing a detailed description of the applicant\u2019s tasks.",
+   "party_ids": [
+    "19.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the letter is not disinterested evidence as it copies NOC elements."
+  },
+  {
+   "pid": "P23",
+   "party_by": "respondent",
+   "party_text": "It was reasonable for the Officer to give little weight to a letter merely mirroring the NOC.",
+   "party_ids": [
+    "19.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts it was reasonable to give little weight to a letter mirroring the NOC."
+  },
+  {
+   "pid": "P24",
+   "party_by": "respondent",
+   "party_text": "When evidence is insufficient, a visa officer is not required to inform the applicant of concerns before making a negative determination.",
+   "party_ids": [
+    "19.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that a visa officer need not inform the applicant before a negative decision if evidence is insufficient."
+  },
+  {
+   "pid": "P25",
+   "party_by": "respondent",
+   "party_text": "The circumstances in Patel are distinguishable because the officer\u2019s concerns there related to authenticity, which is not the case here.",
+   "party_ids": [
+    "19.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Patel is distinguishable because the officer's concerns there were about authenticity, which is not the case here."
+  },
+  {
+   "pid": "P26",
+   "party_by": "respondent",
+   "party_text": "Even if the Officer\u2019s concerns were about the credibility of the employment letter, there was no obligation to provide the applicant an opportunity to address these concerns, relying on Obeta.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that even if concerns were about credibility, there was no obligation to provide an opportunity to address them, relying on Obeta."
+  },
+  {
+   "pid": "P27",
+   "party_by": "respondent",
+   "party_text": "The respondent also relied on Kamchibekov v Canada (Minister of Citizenship and Immigration), 2011 FC 1411.",
+   "party_ids": [
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondent's reliance on Kamchibekov as supporting authority."
+  },
+  {
+   "pid": "P29",
+   "party_by": "applicant",
+   "party_text": "The applicant provided an employment letter from the Medical Superintendent attesting to his duties as a family physician.",
+   "party_ids": [
+    "33.1",
+    "39.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "33.3"
+   ],
+   "answer_paragraphs": [
+    33
+   ],
+   "answer_quote": "Therefore, the only evidence left in support of the applicant\u2019s allegation that he performed the responsibilities and duties of a family physician, is the employment letter signed by the hospital\u2019s Medical Superintendent.",
+   "why": "The court accepts that the applicant provided an employment letter from the Medical Superintendent attesting to his duties."
+  },
+  {
+   "pid": "P30",
+   "party_by": "applicant",
+   "party_text": "The employment letter accurately lists the main duties performed by the applicant, corresponding to the NOC 3112 description.",
+   "party_ids": [
+    "35.1",
+    "39.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the employment letter accurately lists the main duties performed by the applicant corresponding to the NOC description."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "The visa officer had concerns about the employment letter's credibility because it mirrored the NOC description and appeared self-serving.",
+   "party_ids": [
+    "36.3",
+    "36.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "38.1",
+    "38.2",
+    "38.3",
+    "38.4"
+   ],
+   "answer_paragraphs": [
+    38
+   ],
+   "answer_quote": "I find it difficult to conclude that the Officer\u2019s concerns did not relate to the credibility of the employment letter. My understanding of her reasoning is as follows: (1) the letter mirrors the NOC description; (2) the letter appears to have been prepared for the purpose of the applicant\u2019s application and, therefore, because it also mirrors the NOC description, it is self-serving. In my view, by stating that the employment letter is self-serving, the Officer is saying that she doubts the veracity of its content. I fail to see what other interpretation can be given to this finding that the letter is self-serving on the facts of this case.",
+   "why": "The court accepts that the visa officer had concerns about the letter's credibility because it mirrored the NOC and appeared self-serving."
+  },
+  {
+   "pid": "P33",
+   "party_by": "respondent",
+   "party_text": "The officer found the employment letter self-serving and insufficient without other supporting documents, leading to refusal at screening.",
+   "party_ids": [
+    "36.4",
+    "36.5"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "39.2"
+   ],
+   "answer_paragraphs": [
+    39
+   ],
+   "answer_quote": "By saying that this letter is self-serving and by finding this letter to be insufficient in the absence of other supporting documents to establish the applicant\u2019s work experience, the Officer questions the independence of Dr Haroon and the veracity of his account of the applicant\u2019s duties.",
+   "why": "The court accepts that the officer found the letter self-serving and insufficient without other documents, leading to refusal."
+  },
+  {
+   "pid": "P31",
+   "party_by": "applicant",
+   "party_text": "There is no rule requiring more than one employment letter to establish sufficient work experience.",
+   "party_ids": [
+    "39.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts there is no rule requiring more than one employment letter to establish work experience."
+  },
+  {
+   "pid": "P32",
+   "party_by": "applicant",
+   "party_text": "An application can be complete with a single employment letter if it accurately and completely lists the main duties performed.",
+   "party_ids": [
+    "39.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that an application can be complete with a single employment letter if it accurately lists main duties."
+  }
+ ]
+}

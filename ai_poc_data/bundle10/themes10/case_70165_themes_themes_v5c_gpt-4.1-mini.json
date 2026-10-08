@@ -1,0 +1,785 @@
+{
+ "case_id": 70165,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "bundle_themes10",
+ "usage": {
+  "usd": 0.0104644
+ },
+ "verification": {
+  "items": 39,
+  "quote_exact_in_cited": 39,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 6,
+  "calls": 7,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.958,
+  "rows": {
+   "themes": 4,
+   "arguments": 5,
+   "holdings": 34,
+   "rebuttals": 0,
+   "authorities": 0,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The Refugee Appeal Division allowed the appeal and sent the matter back to the Refugee Protection Division for redetermination due to errors in the original credibility assessment and failure to properly consider evidence and explanations.",
+  "themes": [
+   {
+    "name": "New evidence requirements",
+    "summary": "The tribunal rejected the new evidence because it predated the original decision, was reasonably available earlier, and was not relevant to the claim.",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ]
+   },
+   {
+    "name": "Errors in credibility findings",
+    "summary": "The tribunal found the Refugee Protection Division made unsupported and unclear credibility and implausibility findings, including contradictory statements and failure to assess country conditions properly.",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21
+    ]
+   },
+   {
+    "name": "Procedural fairness and hearing adequacy",
+    "summary": "The tribunal noted the original hearing was brief, did not address inconsistencies with the appellants, and did not explore internal flight alternative, necessitating reconsideration.",
+    "paragraphs": [
+     22,
+     23
+    ]
+   },
+   {
+    "name": "Legal standards and review approach",
+    "summary": "The tribunal applied a correctness standard and conducted an independent assessment of the evidence, recognizing presumptions of truth but requiring valid reasons to doubt claims.",
+    "paragraphs": [
+     13
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "New evidence admissibility",
+    "first_paragraph": 4,
+    "last_paragraph": 10,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Request for oral hearing",
+    "first_paragraph": 11,
+    "last_paragraph": 12,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Standard of review and independent assessment",
+    "first_paragraph": 13,
+    "last_paragraph": 13,
+    "disposition": "other"
+   },
+   {
+    "label": "Errors in RPD credibility assessment",
+    "first_paragraph": 14,
+    "last_paragraph": 21,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Credibility concerns and need for redetermination",
+    "first_paragraph": 22,
+    "last_paragraph": 23,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Disposition and remedy",
+    "first_paragraph": 24,
+    "last_paragraph": 24,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Appellants claims were heard on February 19, 2020 and rejected on August 25, 2020 on the basis of credibility.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Refugee Protection Division rejected the appellants' claims on the basis of credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants seek to re-submit the following documents which were not accepted by the RPD because the originals were not available at that time. The Appellants explain the originals are now available for review. a. Marriage certificate for the PA and her husband3 b. Birth certificate for the minor Appellant XXXX4 c. Educational certificates of the PA5 d. Employment letter for XXXX6 e.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants seek to re-submit original documents that were not accepted by the RPD because the originals were not available at that time.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD rejected this explanation, noting the Appellants had ample time to submit the originals, having arrived in Canada in XXXX 2019 and the documents are dated from XXXX 2019.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD rejected the appellants' explanation for the late arrival of the originals, noting ample time to submit them.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I acknowledge the Appellants re-iterate their explanation for the late arrival of the originals in this appeal. Specifically, that the PA's son was unable to mail the documents prior to the hearing because he was in hiding and could not get to a post office.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3",
+     "8.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants explain the originals were not mailed earlier because the PA's son was in hiding and could not get to a post office.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants submit the RPD erred as follows: a. Contradicting itself by taking exception to the lack of corroborative evidence while simultaneously acknowledging that corroborative evidence is not a requirement for a claim to be successful10 b. By faulting letters from third parties on the basis of what the letters do not say, not finding the letters corroborate the Appellants oral evidence, and only paying lip-service to the documentary evidence before it11 c. By drawing negative credibility inferences based on omissions or inconsistences that do not go to the root of the Appellants claims12 d. Failing to provide analysis and reasons for rejecting the claim under s. 9713",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred by contradicting itself regarding the need for corroborative evidence, faulting letters from third parties improperly, drawing negative credibility inferences on irrelevant omissions or inconsistencies, and failing to provide reasons for rejecting the claim under section 97.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "XXXX XXXX XXXX (Principal Appellant or XXXX), XXXX XXXX XXXX (XXXX), XXXX XXXX XXXX XXXX (XXXX), XXXX XXXX XXXX(XXXX), Associate Appellants, and XXXX XXXX XXXX XXXX (XXXX) and XXXX XXXX XXXX (XXXX), minor Appellants, are all citizens of Mexico. The Appellants fear persecution from the Knights Templar cartel in Mexico.",
+    "paragraphs": [
+     1,
+     2
+    ],
+    "evidence_ids": [
+     "1.1",
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1,
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The appellants are citizens of Mexico who fear persecution from the Knights Templar cartel."
+   },
+   {
+    "quote": "They say they have been threatened by members of the cartel after refusing to work for them. On XXXX XXXX, 2018, the Knights Templar temporarily abducted and threatened the Associate Appellant, XXXX, for refusing XXXX XXXX XXXX XXXX XXXX XXXX. As a result, he came to Canada on XXXX XXXX, 2018. On XXXX XXXX, 2019, the PA, her husband (XXXX) and daughter (XXXX), were temporarily kidnapped and held at gunpoint in a warehouse. The Appellants decided to leave the country. They came to Canada on XXXX XXXX, 2019 and claimed refugee protection on September 14, 2019.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2",
+     "2.3",
+     "2.4",
+     "2.5",
+     "2.6",
+     "2.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The appellants allege threats and abductions by the cartel, leading them to come to Canada and claim refugee protection."
+   },
+   {
+    "quote": "According to the law,1 I can only accept evidence that: i. arose after the RPD decision; or ii. was not reasonably available at the time of the decision; or iii. that you could not reasonably have been expected in the circumstances to bring to the RPD before the decision.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "legal_test",
+    "statement": "Evidence can only be accepted if it arose after the RPD decision, was not reasonably available at the time of the decision, or could not reasonably have been expected to be brought before the decision."
+   },
+   {
+    "quote": "If the evidence meets one or more of these requirements, I must decide if the evidence is new, credible and relevant before I can accept it.2",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "legal_test",
+    "statement": "If evidence meets one or more of the requirements, the tribunal must decide if the evidence is new, credible and relevant before accepting it."
+   },
+   {
+    "quote": "Under s. 110(4), the documents pre-date the rejection of the claim and therefore arose prior to the rejection.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The documents pre-date the RPD decision and therefore arose prior to the rejection of the claim."
+   },
+   {
+    "quote": "I also do not accept that the documents were not reasonably available earlier. Although the Appellants submit the originals are now available, despite the obligation to make full and detailed submissions, there is no explanation for when or how the son was able to mail the originals without having endangered himself, when the documents arrived in Canada and there is no envelope provided either. I therefore do not find the Appellants have established the originals were not reasonably available earlier and reject that the documents meet the test for s.110(4).",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2",
+     "8.6",
+     "8.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The appellants have not established that the documents were not reasonably available earlier."
+   },
+   {
+    "quote": "Although the Appellants submit the originals are now available, despite the obligation to make full and detailed submissions, there is no explanation for when or how the son was able to mail the originals without having endangered himself, when the documents arrived in Canada and there is no envelope provided either.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "There is no explanation for when or how the son was able to mail the originals without endangering himself, and no envelope was provided."
+   },
+   {
+    "quote": "I therefore do not find the Appellants have established the originals were not reasonably available earlier and reject that the documents meet the test for s.110(4).",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The documents do not meet the test for s.110(4) and are therefore not accepted as new evidence."
+   },
+   {
+    "quote": "As well, under Singh/Raza, the documents submitted consist of marriage, school and birth certificates and employment letters which are not relevant to the issues in dispute.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "conclusion",
+    "statement": "The documents submitted consist of marriage, school and birth certificates and employment letters which are not relevant to the issues in dispute."
+   },
+   {
+    "quote": "Accordingly, I do not find the documents are relevant.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "conclusion",
+    "statement": "The documents are not relevant and therefore not accepted as new evidence."
+   },
+   {
+    "quote": "The new evidence is rejected.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence is rejected."
+   },
+   {
+    "quote": "Subsection 110(6) of the Immigration and Refugee Protection Act (IRPA) gives the RAD the discretion to hold an oral hearing if new evidence has been accepted that raises a serious issue with respect to the credibility of the appellant, that is central to the decision with respect to the appellant's claim and that, if accepted, would justify allowing or rejecting the appellant's claim.8",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "Subsection 110(6) of the Immigration and Refugee Protection Act (IRPA) gives the RAD discretion to hold an oral hearing if new evidence has been accepted that raises a serious issue regarding the appellant's credibility, central to the claim decision, and that if accepted would justify allowing or rejecting the claim."
+   },
+   {
+    "quote": "As the new evidence has not been accepted, the Appellants' request for an oral hearing is rejected.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "As the new evidence has not been accepted, the Appellants' request for an oral hearing is rejected."
+   },
+   {
+    "quote": "I have reviewed the RPD decision on a standard of correctness and conducted an independent assessment of all of the evidence.9 I acknowledge when a claimant swears that certain facts are true, this creates a presumption that they are true unless there is a valid reason to doubt their veracity.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "standard_of_review",
+    "statement": "The tribunal reviews the RPD decision on a standard of correctness and conducts an independent assessment of all the evidence."
+   },
+   {
+    "quote": "I have reviewed the RPD decision on a standard of correctness and conducted an independent assessment of all of the evidence.9 I acknowledge when a claimant swears that certain facts are true, this creates a presumption that they are true unless there is a valid reason to doubt their veracity.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "legal_test",
+    "statement": "When a claimant swears that certain facts are true, this creates a presumption that they are true unless there is a valid reason to doubt their veracity."
+   },
+   {
+    "quote": "For the following reasons, I find the RPD made errors in its assessment of the claims necessitating that the claims be remitted to the RPD for re-determination by a differently constituted panel.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD made errors in its assessment of the claims requiring the claims to be remitted for redetermination by a differently constituted panel."
+   },
+   {
+    "quote": "First, I find that certain excerpts of RPD's reasons lack clarity or sufficient explanation.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "Certain excerpts of the RPD's reasons lack clarity or sufficient explanation."
+   },
+   {
+    "quote": "For example, the decision states \"the narrative describes hints of dangerous situations....but none of these alleged occurrences were fleshed out during the claimant's testimony... Instead, in their testimony the claimants' continued to add new circumstances that were not mentioned in the narrative.\"14 However, the RPD fails to explain how this was so. That is, the RPD does not describe which occurrences were not fleshed out during the PA's testimony, what details were lacking etc. A review of the transcript also fails to shed light on the RPD's conclusion in this regard. I therefore find the RPD decision lacks clarity with respect to this finding.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2",
+     "16.3",
+     "16.4",
+     "16.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD failed to explain which occurrences were not fleshed out during the claimant's testimony or what details were lacking, and the transcript review did not clarify this conclusion."
+   },
+   {
+    "quote": "I therefore find the RPD decision lacks clarity with respect to this finding.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD decision lacks clarity with respect to the finding about the narrative and testimony inconsistencies."
+   },
+   {
+    "quote": "The RPD goes on to state \"the principal claimant explained that such events were not in the narrative because they knew they were going to be questioned. And when the panel persisted in questioning the principal claimant seeking clarifications, she gave confusing and irrelevant answers.\" However, again, the RPD fails to explain how this was so. That is, the RPD does not articulate which events were not in the narrative, does not explain what answers were confusing and irrelevant and how so, and does not examine any explanation that may have been offered by the PA either. A review of the transcript also fails to shed light on the RPD's conclusion in this regard.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2",
+     "17.3",
+     "17.4",
+     "17.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD failed to explain which events were not in the narrative, what answers were confusing and irrelevant, and did not examine any explanation offered by the principal applicant."
+   },
+   {
+    "quote": "I therefore find the RPD decision lacks clarity with respect to this finding as well.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD decision lacks clarity with respect to the finding about the principal claimant's testimony and the panel's questioning."
+   },
+   {
+    "quote": "Second, I find the RPD made implausibility findings that are not in the \"clearest of cases.\"",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD made implausibility findings that are not in the clearest of cases."
+   },
+   {
+    "quote": "For example, the decision noted the Appellants' allegations that they received death threats, that XXXX was threatened, and the PA, her husband and the minor Appellants were kidnapped. However, the RPD went on to categorize these incidents as \"highly improbable situations\" notwithstanding that it simultaneously acknowledged earlier in the decision \"the panel realizes that the scheme is not beyond the pale of criminal enterprise. In the past, extraordinary, daring feats at the hands of drug cartels filled the newspapers and television screens all over the world.\"15 I find the foregoing indicates the RPD contradicted itself and made an unsupported implausibility finding by concluding the Appellants allegations are \"highly improbable\" without further explanation.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2",
+     "18.3",
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD contradicted itself by calling the Appellants' allegations highly improbable while acknowledging that such criminal enterprise feats are not beyond the pale."
+   },
+   {
+    "quote": "In the past, extraordinary, daring feats at the hands of drug cartels filled the newspapers and television screens all over the world.\"15 I find the foregoing indicates the RPD contradicted itself and made an unsupported implausibility finding by concluding the Appellants allegations are \"highly improbable\" without further explanation.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD made an unsupported implausibility finding without further explanation."
+   },
+   {
+    "quote": "Third, I find the RPD erred by requiring evidence of past persecution in order to establish forward-facing risk.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD erred by requiring evidence of past persecution to establish forward-facing risk."
+   },
+   {
+    "quote": "For example, the decision states \"there is no credible evidence that the claimants suffered any consequences,\"16 \"the claimants describe several other horrible threatening acts but it would appear nothing happened to them\"17 and \"for five years, no consequences were suffered by the claimants.\"18 Based on the foregoing, I find the RPD erred by requiring proof of past persecution in its assessment of forward-facing risk.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD incorrectly found no credible evidence of consequences suffered by the claimants and required proof of past persecution in assessing forward-facing risk."
+   },
+   {
+    "quote": "Finally, the RPD dismissed the Appellants explanations for not approaching police because police work with the criminals as \"without foundation.\"19 I find the RPD erred by failing to perform any assessment of country condition evidence notwithstanding references in it to suggest the police force in Mexico suffers from various shortcomings, such as corruption.20",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD erred by dismissing the Appellants' explanations for not approaching police as without foundation and failing to assess country condition evidence indicating police corruption."
+   },
+   {
+    "quote": "As a result of the foregoing errors, I find the RPD's conclusion that the Appellants claims must be rejected on the basis of credibility, cannot be upheld.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD's conclusion rejecting the Appellants' claims on credibility grounds cannot be upheld due to these errors."
+   },
+   {
+    "quote": "While I have credibility concerns with respect to the claims, such as the failure of the Appellants to specify in their narrative that the threats initially commenced on XXXX XXXX, 2014 as they testified, and the husband's testimony that he only encountered the agents of persecution once sometime in 2018, I am unable to make a final determination on credibility of the claim as the RPD did not put these omissions and inconsistencies to the Appellants and, in general, due to the brevity of the hearing itself.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Court has credibility concerns about the claims due to omissions and inconsistencies in the appellants' testimony."
+   },
+   {
+    "quote": "While I have credibility concerns with respect to the claims, such as the failure of the Appellants to specify in their narrative that the threats initially commenced on XXXX XXXX, 2014 as they testified, and the husband's testimony that he only encountered the agents of persecution once sometime in 2018, I am unable to make a final determination on credibility of the claim as the RPD did not put these omissions and inconsistencies to the Appellants and, in general, due to the brevity of the hearing itself.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Court cannot make a final determination on credibility because the RPD did not put these omissions and inconsistencies to the appellants and the hearing was brief."
+   },
+   {
+    "quote": "A review of the transcript also indicates that no questions were asked with respect to Internal Flight Alternative although this may be viable.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "No questions were asked about the Internal Flight Alternative, which may be viable."
+   },
+   {
+    "quote": "Accordingly, I am remitting this matter to the RPD for reconsideration by a differently constituted panel.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The matter is remitted to the RPD for reconsideration by a differently constituted panel."
+   },
+   {
+    "quote": "The appeal is allowed.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is allowed."
+   },
+   {
+    "quote": "I send this matter back to the RPD to be redetermined.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "conclusion",
+    "statement": "The matter is sent back to the Refugee Protection Division to be redetermined."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

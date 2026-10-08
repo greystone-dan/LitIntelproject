@@ -1,0 +1,870 @@
+{
+ "case_id": 40225,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "bundle_themes10",
+ "usage": {
+  "usd": 0.0084076
+ },
+ "verification": {
+  "items": 42,
+  "quote_exact_in_cited": 42,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 4,
+  "calls": 5,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 3,
+   "arguments": 29,
+   "holdings": 13,
+   "rebuttals": 0,
+   "authorities": 0,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The tribunal dismissed the refugee claim because the claimant did not rebut the presumption that the Ivory Coast can provide adequate state protection, despite credible testimony of family abuse based on religious and cultural grounds.",
+  "themes": [
+   {
+    "name": "Religious and family-based persecution",
+    "summary": "The claimant faced abuse and threats from her Muslim family due to having a Christian father for her child and being unmarried, which motivated her refugee claim.",
+    "paragraphs": [
+     2,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "name": "Credibility of claimant's testimony",
+    "summary": "The panel found the claimant credible and accepted her account of family mistreatment and threats.",
+    "paragraphs": [
+     5,
+     6
+    ]
+   },
+   {
+    "name": "Burden to rebut presumption of state protection",
+    "summary": "The claimant must provide clear and convincing evidence that the Ivory Coast cannot protect her, which she failed to do as she never sought state protection and no evidence showed state inability.",
+    "paragraphs": [
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Claimant's identity and nationality",
+    "first_paragraph": 4,
+    "last_paragraph": 4,
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "Credibility of claimant's testimony",
+    "first_paragraph": 5,
+    "last_paragraph": 6,
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "State protection adequacy and burden of proof",
+    "first_paragraph": 7,
+    "last_paragraph": 13,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Final determination on refugee status and protection claim",
+    "first_paragraph": 14,
+    "last_paragraph": 14,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The claimant alleges that she has been subjected to abuse at the hands of her family because she gave birth to a child whose father is Christian and she is Muslim.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant alleges abuse by her family because she gave birth to a child whose father is Christian and she is Muslim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Her family, who is also Muslim, insults her consistently.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "Her Muslim family insults her consistently.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "After three years, she could no longer tolerate the insults and she feared for her mental health, as well as that of her son.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "She feared for her mental health and that of her son after three years of insults.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Thus she claimed refugee status in November 2011.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "She claimed refugee status in November 2011.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The panel finds the claimants are not Convention refugees or persons in need of protection.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel finds the claimants are not Convention refugees or persons in need of protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The panel finds that the claimants are citizens of Ivory Coast.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel finds that the claimants are citizens of Ivory Coast.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimants established their identity and nationality through a copy of their passports and birth certificates.3 CREDIBILITY",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimants established their identity and nationality through passports and birth certificates.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The panel found the claimant credible.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel found the claimant credible.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "She testified in a straightforward manner and was consistent.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "She testified in a straightforward manner and was consistent.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "As a result, the panel accepts the claimant's testimony that her problems began in 2008 when she got pregnant.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel accepts the claimant's testimony that her problems began in 2008 when she got pregnant.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Her family, who are Muslims, insulted her regularly because the father of the child was a Christian and she was not married.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Her family, who are Muslims, insulted her regularly because the father of the child was a Christian and she was not married.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Between 2008 and 2009, the claimant moved to a friend's house, however, her brother found her and threatened to kill her and her son if she did not return home.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Between 2008 and 2009, the claimant moved to a friend's house, but her brother found her and threatened to kill her and her son if she did not return home.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "At the beginning of 2010, her family began trying to force her to give her son to them.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "At the beginning of 2010, her family began trying to force her to give her son to them.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant refused as she feared they would kill her son.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant refused to give her son to her family because she feared they would kill him.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "She began looking for a way to leave the country.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "She began looking for a way to leave the country.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In August 2010, the claimant came to Canada hoping she and her son could stay permanently.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In August 2010, the claimant came to Canada hoping she and her son could stay permanently.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "After her arrival in Canada she asked a few people about the possibility to remain permanently.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "After arriving in Canada, she asked a few people about the possibility to remain permanently but no one knew how to help her.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "No one knew how to help her so when her visa expired, not knowing what to do and not wanting to stay in Canada illegally, she and her son returned to the Ivory Coast.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.11"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "When her visa expired, not knowing what to do and not wanting to stay illegally, she and her son returned to the Ivory Coast.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "They lived in hiding, however, one month later her family found her and forced her to return home.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.12"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "They lived in hiding, but one month later her family found her and forced her to return home.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In January 2011 she found her way to Guinea to obtain a Canadian visa.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.13"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In January 2011 she found her way to Guinea to obtain a Canadian visa.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In March 2011 she came to Canada and claimed refugee status in November 2011.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In March 2011 she came to Canada and claimed refugee status in November 2011.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The panel asked the claimant why she claimed refugee status approximately 8 months after her arrival.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.15"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel asked the claimant why she claimed refugee status approximately 8 months after her arrival.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant explained that she was not aware she could claim refugee status until October 2011.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.16"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant explained that she was not aware she could claim refugee status until October 2011.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The panel accepts the claimant's evidence that her family insults her and threatens her life because she refuses to give her child to them.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel accepts the claimant's evidence that her family insults her and threatens her life because she refuses to give her child to them.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The panel also accepts that the claimant is mistreated by her family because she was impregnated outside of marriage and that her family as Muslims do not accept the fact that the child's father is a Christian; thus, the reason why they mistreat the claimant.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel also accepts that the claimant is mistreated by her family because she was impregnated outside of marriage and that her family as Muslims do not accept the fact that the child's father is a Christian; thus, the reason why they mistreat the claimant.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "With respect to state protection, the onus lies with the claimant.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The onus lies with the claimant to prove the inadequacy of state protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel provided submissions, including a report from the Center for Gender & Refugee Studies. Counsel's submissions speak to sexual and gender based violence, domestic violence, discrimination and violence against women. However, the claimant's situation is that she is a Muslim woman having a child with a Christian man outside of marriage and that she is threatened and insulted by members of her family because it is against her parent's religion to have a child outside of marriage, specifically with a Christian. Therefore, the panel rejects counsel's submissions as the claimant's alleged persecution is not because of gender but because of her parent's religious belief.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2",
+     "7.3",
+     "7.4",
+     "7.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "Counsel submitted a report from the Center for Gender & Refugee Studies about sexual and gender based violence, domestic violence, discrimination and violence against women.",
+    "treatment": "rejected",
+    "outcome_note": "Rejected because the claimant's persecution is not due to gender but religious beliefs of her parents.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "According to the evidence, the claimant never attempted to seek state protection in Ivory Coast.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant never attempted to seek state protection in Ivory Coast.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "From the documentary evidence, for example the United States Department of State International Religious Freedom Report July-December 2010,8 it states that: The constitution and other laws and policies protect religious freedom. . . . . . ?Approximately? 35 to 40 percent of the population is Christian and an equal percentage is Muslim; an estimated 25 percent practices indigenous religious beliefs. Many persons who are nominally Christian or Muslim also practice some aspects of indigenous religious beliefs. Traditionally, the north is associated with Islam and the south with Christianity, although practitioners of both religions live throughout the country. . . In general political and religious affiliations tended to follow ethnic and socioeconomic lines.9",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.3",
+     "12.4",
+     "12.5",
+     "12.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The United States Department of State International Religious Freedom Report states that the constitution and laws protect religious freedom in Ivory Coast, with a diverse religious population and no indication of state inability to protect religious freedom.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "XXXX XXXX (the claimant) and XXXX XXXX XXXX (the minor claimant) claim refugee protection pursuant to sections 96 and 97(1) of the Immigration and Refugee Protection Act (IRPA).1 The panel takes into account the Chairperson's Guidelines on gender-related persecution.2 ALLEGATIONS",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant and the minor claimant claim refugee protection under sections 96 and 97(1) of IRPA."
+   },
+   {
+    "quote": "However, the claimant's situation is that she is a Muslim woman having a child with a Christian man outside of marriage and that she is threatened and insulted by members of her family because it is against her parent's religion to have a child outside of marriage, specifically with a Christian. Therefore, the panel rejects counsel's submissions as the claimant's alleged persecution is not because of gender but because of her parent's religious belief.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.4",
+     "7.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant's alleged persecution is due to her parents' religious beliefs, not gender-based violence."
+   },
+   {
+    "quote": "In considering the adequacy of state protection, the panel is guided by the presumption that countries are capable of protecting its citizens. This underscores the principle that international protection comes into play only when a refugee claimant has no other recourse available.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "legal_test",
+    "statement": "There is a presumption that countries are capable of protecting their citizens, and international protection applies only when no other recourse is available."
+   },
+   {
+    "quote": "The claimant bears the legal burden of rebutting the presumption that adequate state protection exists by adducing clear and convincing evidence which satisfies the Board on a balance of probabilities.4",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "legal_test",
+    "statement": "The claimant bears the legal burden to rebut the presumption of adequate state protection by clear and convincing evidence on a balance of probabilities."
+   },
+   {
+    "quote": "In other words, to rebut the presumption of state protection, a claimant must provide \"clear and convincing\" confirmation of the state's inability to protect its citizens.5 A claimant who alleges that state protection is inadequate must persuade the Board that the evidence establishes that the state protection is in fact, inadequate. The evidence that state protection is inadequate must not only be reliable and probative, it must also satisfy the Board, on a balance of probabilities, that state protection is inadequate.6",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1",
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "legal_test",
+    "statement": "To rebut the presumption, the claimant must provide clear and convincing evidence that state protection is inadequate, which must be reliable, probative, and satisfy the Board on a balance of probabilities."
+   },
+   {
+    "quote": "A claimant must show that they have taken all reasonable steps in the circumstances to seek protection, taking into account the context of the country of origin, the steps taken and the claimant's interactions with the authorities.7 The panel considered whether or not the claimant took all reasonable steps in her circumstances to seek protection and in view of these principles.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "legal_test",
+    "statement": "A claimant must show they took all reasonable steps to seek protection, considering the country context and interactions with authorities."
+   },
+   {
+    "quote": "A claimant must show that they have taken all reasonable steps in the circumstances to seek protection, taking into account the context of the country of origin, the steps taken and the claimant's interactions with the authorities.7 The panel considered whether or not the claimant took all reasonable steps in her circumstances to seek protection and in view of these principles.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The panel considered whether the claimant took all reasonable steps to seek protection in her circumstances."
+   },
+   {
+    "quote": "The panel is not obligated to prove that Ivory Coast can offer the claimant effective state protection, rather, the claimant bears the legal burden of rebutting the presumption.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "The panel is not obligated to prove that Ivory Coast can offer effective state protection; the claimant bears the burden to rebut the presumption."
+   },
+   {
+    "quote": "In light of all of the evidence before me, I find that the claimant has failed to meet the legal burden of rebutting the presumption that effective state protection exists for someone who finds themselves in her situation.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant failed to meet the legal burden of rebutting the presumption that effective state protection exists for her situation."
+   },
+   {
+    "quote": "In light of the evidence that the claimant never sought state protection and taking into account that there is no evidence before the panel that the state is unable or unwilling to provide adequate state protection for the claimant, the panel determines that the claimant has not rebutted the presumption of adequate state protection with clear and convincing evidence, which is fatal to the claims under both s. 96 and ss. 97 (1) of the IRPA.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "There is no evidence that the state is unable or unwilling to provide adequate protection for the claimant."
+   },
+   {
+    "quote": "In light of the evidence that the claimant never sought state protection and taking into account that there is no evidence before the panel that the state is unable or unwilling to provide adequate state protection for the claimant, the panel determines that the claimant has not rebutted the presumption of adequate state protection with clear and convincing evidence, which is fatal to the claims under both s. 96 and ss. 97 (1) of the IRPA.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant has not rebutted the presumption of adequate state protection with clear and convincing evidence, which is fatal to her claims under sections 96 and 97(1) of the IRPA."
+   },
+   {
+    "quote": "The panel determines that the claimants are neither Convention refugees nor are they persons in need of protection.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The panel determines that the claimants are neither Convention refugees nor persons in need of protection."
+   },
+   {
+    "quote": "The panel rejects the present claims accordingly.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The panel rejects the present claims accordingly."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

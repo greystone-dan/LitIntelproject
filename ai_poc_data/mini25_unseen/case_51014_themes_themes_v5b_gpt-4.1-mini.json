@@ -1,0 +1,1961 @@
+{
+ "case_id": 51014,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.024784
+ },
+ "verification": {
+  "items": 104,
+  "quote_exact_in_cited": 104,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 13,
+  "calls": 14,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.938,
+  "rows": {
+   "themes": 4,
+   "arguments": 13,
+   "holdings": 91,
+   "rebuttals": 0,
+   "authorities": 0,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The tribunal dismissed the refugee claims of the male claimant, his spouse, and their children from the Czech Republic, finding that the claimant did not establish a well-founded fear of persecution or lack of adequate state protection due to his Roma ethnicity.",
+  "themes": [
+   {
+    "name": "State protection adequacy",
+    "summary": "The tribunal extensively analyzed whether the Czech Republic provides adequate state protection to Roma individuals, concluding that the state has laws, agencies, and programs in place that generally offer protection despite some local shortcomings.",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     15,
+     16,
+     25,
+     26,
+     27,
+     28
+    ]
+   },
+   {
+    "name": "Claimant's efforts to seek protection",
+    "summary": "The claimant's failure to diligently pursue and follow up with police investigations undermined his claim that state protection was unavailable or ineffective.",
+    "paragraphs": [
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24
+    ]
+   },
+   {
+    "name": "Country conditions for Roma in Czech Republic",
+    "summary": "The tribunal reviewed evidence of discrimination, violence, and government responses affecting the Roma community, noting ongoing challenges but also government efforts to address them.",
+    "paragraphs": [
+     8,
+     12,
+     13,
+     14,
+     15,
+     16
+    ]
+   },
+   {
+    "name": "Legal standards for refugee protection",
+    "summary": "The tribunal applied established legal principles requiring clear and convincing evidence to rebut the presumption of state protection in a functioning democracy like the Czech Republic.",
+    "paragraphs": [
+     6,
+     7,
+     28,
+     29,
+     30
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and claims",
+    "first_paragraph": 1,
+    "last_paragraph": 1,
+    "disposition": "other"
+   },
+   {
+    "label": "Summary of claimant's allegations",
+    "first_paragraph": 2,
+    "last_paragraph": 3,
+    "disposition": "other"
+   },
+   {
+    "label": "Decision on refugee status and protection claim",
+    "first_paragraph": 4,
+    "last_paragraph": 4,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Consideration of objective reasonableness and state protection",
+    "first_paragraph": 5,
+    "last_paragraph": 5,
+    "disposition": "other"
+   },
+   {
+    "label": "Legal principles on state protection",
+    "first_paragraph": 6,
+    "last_paragraph": 7,
+    "disposition": "other"
+   },
+   {
+    "label": "Country conditions and state protection in Czech Republic",
+    "first_paragraph": 8,
+    "last_paragraph": 16,
+    "disposition": "other"
+   },
+   {
+    "label": "Claimant's efforts to seek state protection",
+    "first_paragraph": 17,
+    "last_paragraph": 24,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Assessment of recent reports and evidence on state protection effectiveness",
+    "first_paragraph": 25,
+    "last_paragraph": 27,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Conclusion on failure to rebut presumption of state protection",
+    "first_paragraph": 28,
+    "last_paragraph": 28,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Decision on Convention refugee claim under section 96 IRPA",
+    "first_paragraph": 29,
+    "last_paragraph": 29,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Decision on person in need of protection claim under section 97 IRPA",
+    "first_paragraph": 30,
+    "last_paragraph": 30,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Dependent claims of spouse and children",
+    "first_paragraph": 31,
+    "last_paragraph": 31,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Final conclusion and rejection of claims",
+    "first_paragraph": 32,
+    "last_paragraph": 32,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "After the incident, the male claimant contacted the police and the police arrived at his house. The male claimant gave the police a physical description of the four skinheads that attacked him, his brother, and members of his family.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant contacted the police after the skinhead attack at his home and gave a physical description of the attackers.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The police did not follow up with the male claimant and did not provide him with any updated information concerning the findings of the investigation.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "applicant",
+    "claim": "The police did not follow up with the male claimant or provide updates on the investigation of the skinhead attack.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The male claimant did not follow up with the police to find out if there were any developments with regard to the investigation of their case. As the male claimant was very frightened living in his house, he did not did make any efforts to get in touch with the police again.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.6",
+     "19.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant did not follow up with the police due to fear.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The male claimant called the police after one of the windows in the house broke. The police showed up and took down some notes, but they did not take any photos of the broken window. In the opinion of the male claimant, the report he made to the police was useless because the police never did anything. The male claimant responded that that the police never followed up with him, nor did they approach him after he reported this incident to the police.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.9",
+     "21.11",
+     "21.12",
+     "21.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant called the police after the attack on his children and the attack on his father-in-law's house, but the police did not take photos or follow up.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "He said that he did not follow up because he was living in fear and he was afraid to let his children go outdoors and decided to stop sending his children to school.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.16"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant did not follow up with the police due to fear and stopped sending his children to school.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The male claimant told the police that on the evening prior to the fire he had seen skinheads outside of the building and that his neighbours had also seen the skinheads. The male claimant told the police that it had to have been skinheads who were behind the firebombing of their house.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.16",
+     "22.21"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant reported the firebombing to the police and identified skinheads as responsible.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The male claimant said that he did not know whether the police actually went searching for the perpetrators.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.23"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant did not know if the police searched for the perpetrators after the firebombing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The police responded and arrived at the scene. When the police arrived, they questioned the male claimant. The police took down some written notes and the address of the male claimant and indicated that as soon as they arrested the perpetrators that they would let the male claimant know about it.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.11",
+     "23.13",
+     "23.15"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The police arrived after the train station attack but the skinheads had fled; the male claimant reported the attack and the police took notes and promised to inform him if perpetrators were arrested.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The male claimant was asked if the police followed up with him after the attack at the train station.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.16"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The police did not follow up with the male claimant after the train station attack.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "He said that because he and his family were so scared they did not follow up with the police.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.19"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The male claimant and his family did not follow up with the police due to fear.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel for the claimant, in her oral submissions, indicated that in the past the Board has relied heavily on the June and July 2009 Issue Papers,37 but that more recent reports that post-date the Board's Issue Papers, especially a European Roma Rights Centre report covering January of 2008-April of 2011, an Amnesty International Report from March 16, 2011, and a news article from the Roma news dated August of 2011,38 rebut the findings of the earlier reports, indicating that the new laws, agencies and promises made by government officials in the Czech Republic are not \"effective\" in protecting the safety of the Roma community and improving their overall social and economic situation.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "More recent reports post-dating the Board's Issue Papers rebut the findings of earlier reports, indicating that new laws and government promises in the Czech Republic are not effective in protecting the Roma community.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel referred me to a recent Response to Information Request, number CZE103684.E, dated March 10, 2011.39 Counsel indicated that the information in this document establishes that the social inclusion program, which was referred to in the earlier Board's issue paper, was not \"effective\".",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "applicant",
+    "claim": "The Response to Information Request CZE103684.E dated March 10, 2011, establishes that the social inclusion program was not effective.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "During her oral submissions, counsel also referred me to another document which she argues demonstrates that efforts on the part of the Hungarian government to protect Roma are not effective. The headline of the report40 reads, \"Czech Republic Police Fails to Protect the Roma of Novy Bydzov\".",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1",
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "A report titled 'Czech Republic Police Fails to Protect the Roma of Novy Bydzov' demonstrates that efforts by the Hungarian government to protect Roma are not effective.",
+    "treatment": "rejected",
+    "outcome_note": "The report concerns the Czech Republic, not Hungary, and does not establish lack of state protection.",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "XXXXXXX (hereinafter referred to as \"the male claimant\") and his spouse, XXXXX XXXX (hereinafter referred to as the \"female claimant\"), along with their children, XXXXXXXXX and XXXXXXX (hereinafter referred to as \" the minor claimants\"), are citizens of the Czech Republic claiming refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act (IRPA).1 These claims were joined according to Rule 49(1) of the Refugee Protection Division Rules.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant, his spouse, and their children are citizens of the Czech Republic claiming refugee protection under sections 96 and 97(1) of the IRPA."
+   },
+   {
+    "quote": "XXXXXXX (hereinafter referred to as \"the male claimant\") and his spouse, XXXXX XXXX (hereinafter referred to as the \"female claimant\"), along with their children, XXXXXXXXX and XXXXXXX (hereinafter referred to as \" the minor claimants\"), are citizens of the Czech Republic claiming refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act (IRPA).1 These claims were joined according to Rule 49(1) of the Refugee Protection Division Rules.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The claims of the male claimant, female claimant, and minor claimants were joined according to Rule 49(1) of the Refugee Protection Division Rules."
+   },
+   {
+    "quote": "The father of the minor claimants was appointed as their Designated Representative according to section 167(2) of the IRPA.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The father of the minor claimants was appointed as their Designated Representative according to section 167(2) of the IRPA."
+   },
+   {
+    "quote": "The identities of the claimants as nationals of the Czech Republic is established by the true certified copies of their Czech passports.2 ALLEGATIONS",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The identities of the claimants as nationals of the Czech Republic are established by true certified copies of their Czech passports."
+   },
+   {
+    "quote": "The male claimant fears persecution in the Czech Republic because of his Roma ethnicity.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant fears persecution in the Czech Republic because of his Roma ethnicity."
+   },
+   {
+    "quote": "The male claimant was hit by his teachers and his principal at school.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant was hit by his teachers and his principal at school."
+   },
+   {
+    "quote": "Between 2000-2003, the claimant and his family were attacked by skinheads at a restaurant.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Between 2000-2003, the claimant and his family were attacked by skinheads at a restaurant."
+   },
+   {
+    "quote": "The male claimant and his family fled and went home.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant and his family fled and went home after the attack."
+   },
+   {
+    "quote": "The skinheads pursued them, broke down the door of their home and beat them up, including the children.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The skinheads pursued them, broke down the door of their home and beat them up, including the children."
+   },
+   {
+    "quote": "The male claimant filed a police report but the case was not solved.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant filed a police report but the case was not solved."
+   },
+   {
+    "quote": "Between 2003-2004, the claimants lived at the female claimant's father's house which had a restaurant on the bottom floor.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Between 2003-2004, the claimants lived at the female claimant's father's house which had a restaurant on the bottom floor."
+   },
+   {
+    "quote": "The children went to school where they were attacked by students and teachers.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The children went to school where they were attacked by students and teachers."
+   },
+   {
+    "quote": "The male claimant's children were followed by skinheads at school.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant's children were followed by skinheads at school."
+   },
+   {
+    "quote": "Skinheads threw rocks at the windows of their house and yelled that they were going to burn the house down.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Skinheads threw rocks at the windows of their house and yelled that they were going to burn the house down."
+   },
+   {
+    "quote": "The male claimant's children were attacked by skinheads in the downtown area. They came home with bruises all over their body.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.11",
+     "3.12"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant's children were attacked by skinheads in the downtown area and came home with bruises all over their body."
+   },
+   {
+    "quote": "In XXX of 2004, the male claimant's children were beaten up at school.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.13"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "In XXX of 2004, the male claimant's children were beaten up at school."
+   },
+   {
+    "quote": "The female claimant complained to the school but they told her to send her children elsewhere if she did not like it there.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The female claimant complained to the school but they told her to send her children elsewhere if she did not like it there."
+   },
+   {
+    "quote": "The claimants found racist graffiti written on the side of their house.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.15"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The claimants found racist graffiti written on the side of their house."
+   },
+   {
+    "quote": "In XXXX of 2004, skinheads set their house on fire. The police and the firemen arrived quickly.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.16",
+     "3.17"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "In XXXX of 2004, skinheads set their house on fire and the police and firemen arrived quickly."
+   },
+   {
+    "quote": "Between 2004-2009, the claimants were attacked by skinheads at a train station and badly beaten up.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.18"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Between 2004-2009, the claimants were attacked by skinheads at a train station and badly beaten up."
+   },
+   {
+    "quote": "They filed a report with the police and the police told them that they would get back to them.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.19"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "They filed a report with the police and the police told them that they would get back to them."
+   },
+   {
+    "quote": "In XXXX of 2009, they left the country and claimed refugee protection in Canada.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.20"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "In XXXX of 2009, they left the country and claimed refugee protection in Canada."
+   },
+   {
+    "quote": "I find that the male claimant is neither a Convention refugee nor a person in need of protection pursuant to sections 96 and 97(1) of the IRPA.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "The male claimant is neither a Convention refugee nor a person in need of protection under sections 96 and 97(1) of the IRPA."
+   },
+   {
+    "quote": "The claimant does not have a well-founded fear of persecution for a Convention reason and his removal to the Czech Republic would not subject him personally to a risk to life, or a risk of cruel and unusual treatment or punishment, or a danger of torture.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant does not have a well-founded fear of persecution for a Convention reason and removal to the Czech Republic would not subject him to a risk to life, cruel and unusual treatment or punishment, or torture."
+   },
+   {
+    "quote": "In arriving at my decision, I considered the issue of whether the claimant's fear is objectively reasonable.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "The tribunal considered whether the claimant's fear is objectively reasonable."
+   },
+   {
+    "quote": "In this regard, I considered whether or not there is adequate state protection in the Czech Republic, whether or not the claimant took all reasonable steps to avail himself of that protection, and whether he has provided clear and convincing evidence of the state's inability to protect him.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "The tribunal considered if there is adequate state protection in the Czech Republic, whether the claimant took all reasonable steps to seek that protection, and whether clear and convincing evidence was provided of the state's inability to protect him."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection."
+   },
+   {
+    "quote": "There is a presumption that a state is capable of protecting its citizens except in situations where the state is in a state of a complete breakdown.3 To rebut the presumption of state protection, a claimant must provide clear and convincing evidence of the state's inability to protect, absent an admission by the national's state of its inability to protect that national.4 While the effectiveness of the protection is a relevant consideration, the test is whether the protection offered is adequate.5 The evidence that state protection is not adequate must be reliable and probative and it must also satisfy me, on a balance of probabilities, that the state protection is inadequate.6 The claimant must approach the state for protection, providing that state protection might be reasonably forthcoming.7 In the absence of a compelling explanation, a failure to pursue state protection opportunities within the home state will usually be fatal to a refugee claim, at least where the state is a functioning democracy with a willingness and the apparatus necessary to provide a measure of protection to its citizens.8 Where a state is in effective control of its territory, has military, police and civil authority in place and makes serious efforts to protect its citizens, the mere fact it is not always successful at doing so will not rebut the presumption of state protection.9 A claimant cannot rebut the presumption of state protection in a functioning democracy by asserting only a subjective reluctance to engage the state.10 Doubting the effectiveness of the protection offered by the state when one has not really tested it does not rebut the existence of a presumption of state protection.11 The fact that state protection is not perfect12 does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "The fact that state protection is not perfect does not constitute clear and convincing proof of the state's inability to protect its citizens, since no state can guarantee the protection of all its citizens at all times."
+   },
+   {
+    "quote": "Local failures to provide effective policing do not amount to a lack of state protection unless they are part of a broader pattern of the state's inability to provide protection.13 Indeed, if a claimant believes the actions of some police officers are corrupt, the onus is on them to approach other members of the security forces or authorities.14 There is nothing in the documentation before the Board to suggest that the Czech Republic is in a state of complete breakdown.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "Local failures to provide effective policing do not amount to a lack of state protection unless they are part of a broader pattern of the state's inability to provide protection."
+   },
+   {
+    "quote": "Local failures to provide effective policing do not amount to a lack of state protection unless they are part of a broader pattern of the state's inability to provide protection.13 Indeed, if a claimant believes the actions of some police officers are corrupt, the onus is on them to approach other members of the security forces or authorities.14 There is nothing in the documentation before the Board to suggest that the Czech Republic is in a state of complete breakdown.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "legal_test",
+    "statement": "If a claimant believes the actions of some police officers are corrupt, the onus is on them to approach other members of the security forces or authorities."
+   },
+   {
+    "quote": "Local failures to provide effective policing do not amount to a lack of state protection unless they are part of a broader pattern of the state's inability to provide protection.13 Indeed, if a claimant believes the actions of some police officers are corrupt, the onus is on them to approach other members of the security forces or authorities.14 There is nothing in the documentation before the Board to suggest that the Czech Republic is in a state of complete breakdown.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "conclusion",
+    "statement": "There is nothing in the documentation before the Board to suggest that the Czech Republic is in a state of complete breakdown."
+   },
+   {
+    "quote": "The Czech Republic generally respected and protected the rights of its citizens. There is legislation in place that provides state protection for the Roma: including anti-discrimination and hate crime legislation.19 The Czech constitution prohibits discrimination based on national, racial or ethnic background as well as other pieces of legislation governing employment and education as well as The Charter of Rights and Freedoms.20 An anti-discrimination bill, which would harmonize Czech legislation with that of the European Union, was passed on June 17, 2009.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The Czech Republic generally respects and protects the rights of its citizens, including the Roma, through legislation and constitutional provisions against discrimination."
+   },
+   {
+    "quote": "Furthermore, the Czech Republic is a member of the European Union, which has had a positive impact on the country by setting standards concerning human rights, as well as access to the European Court of Human Rights and access to multilateral programs such as The Decade of Roma Inclusion.21",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The Czech Republic's membership in the European Union positively influences its human rights standards and access to international human rights mechanisms."
+   },
+   {
+    "quote": "In September the prison population was 111 percent of the intended capacity of the facilities. The number of prisoners has increased steadily since 2002. As of August there were 21,979 prisoners in the country's prisons, of which 1,424 were women, 16 were juveniles, and 2, 500 were pretrial detainees of both sexes.22",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1",
+     "9.2",
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "The prison population in the Czech Republic is over capacity, with increasing numbers since 2002, including women, juveniles, and pretrial detainees."
+   },
+   {
+    "quote": "The national police are responsible for enforcing the law and maintaining public order. Salary cuts at the Ministry of the Interior following government-wide fiscal austerity measures resulted in a lowered rate of retention among the national police force, especially among experienced detectives, which hampered the effectiveness of their work. Corruption remained a problem among law enforcement bodies.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2",
+     "10.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The national police face challenges including salary cuts, retention issues, and corruption, which affect their effectiveness."
+   },
+   {
+    "quote": "The Ministry of the Interior oversees police actions and is responsible for investigating allegations of police misconduct. Observers believed that the ministry sometimes whitewashed wrongdoing or prematurely terminated investigations of units under its control.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.4",
+     "10.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The Ministry of the Interior oversees police conduct and investigates misconduct, though sometimes investigations are prematurely terminated or whitewashed."
+   },
+   {
+    "quote": "According to the Ministry of the Interior, police conducted 86 bribery investigations in 2010, handed over 37 cases of bribery for prosecution, twice as many as in 2009, and investigated 57 public officials for abuse of authority. In the first half of the year, records of the Ministry of Justice indicated that courts convicted 35 public officials of crimes relating to abuse of power, of which two were sentenced to prison, 24 were released on probation, and eight received fines. Of the 43 public officials convicted of bribery-related offenses, six were sentenced to prison, 27 were released on probation, and nine received fines.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.6",
+     "10.7",
+     "10.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "There are active efforts to investigate and prosecute bribery and abuse of authority among public officials, with increasing prosecutions and convictions."
+   },
+   {
+    "quote": "Several ministries have anticorruption hotlines for citizens to report allegations. The Ministry of the Interior's anticorruption hotline, administered by the country branch of the NGO Transparency International (TI), received 4,653 calls in the first six months of the year. TI registered 400 new clients and identified 290 corruption complaints, 67 concerning the judiciary, 41 concerning police, 79 concerning property rights and construction permits, and 43 concerning public procurement.23",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.9",
+     "10.10",
+     "10.11"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "Anti-corruption hotlines exist and receive numerous complaints, including those related to judiciary, police, property rights, and public procurement."
+   },
+   {
+    "quote": "The law mandates prison sentences of six months to three years for persons who deny Communist-era crimes or the Nazi Holocaust. Speech inciting hatred based on race, religion, class, nationality, or other group affiliation is also illegal and carries a sentence of up to three years in prison.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "The law criminalizes denial of Communist-era crimes and Nazi Holocaust, as well as hate speech based on race, religion, class, nationality, or group affiliation, with penalties up to three years in prison."
+   },
+   {
+    "quote": "In June eight members of National Resistance, a neo-Nazi group, were indicted in Prague on charges of supporting and promoting Nazism. The individuals posted propaganda materials in public places and organized neo-Nazi events. The defendants each faced multiple counts with a possible total of eight years in prison if convicted. The trial was postponed, and two defendants, who had been held without bail since October of 2009, were released on bail in December.24",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.3",
+     "11.4",
+     "11.5",
+     "11.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "Neo-Nazi group members have been indicted and prosecuted for promoting Nazism and organizing extremist events, facing significant prison sentences."
+   },
+   {
+    "quote": "Roma faced high levels of poverty, unemployment, and illiteracy as well as widespread discrimination in education, employment, and housing. Societal prejudice against the country's Romani population occasionally manifested itself in violence.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "Roma face high levels of poverty, unemployment, illiteracy, and widespread discrimination in education, employment, and housing, with societal prejudice sometimes manifesting in violence."
+   },
+   {
+    "quote": "Members and sympathizers of neo-Nazi organizations were the most frequent perpetrators of acts of interethnic violence, particularly against Roma. Ultranationalists were also active.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.3",
+     "12.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "Neo-Nazi and ultranationalist groups are frequent perpetrators of interethnic violence against Roma."
+   },
+   {
+    "quote": "During the year neo-Nazi and skinhead rallies or marches took place in several cities. On March 14, a Molotov cocktail was thrown into a bedroom of a Romani home in the settlement of Bedrisk. A 14-year-old girl was asleep in the room at the time. The cocktail failed to explode upon impact, resulting in no injuries and little damage to the home. Local police arrested a neighbor and her minor son on charges of attempted murder. Although police determined that the attack was not racially motivated, activists said it could not be ruled out. On December 10, the regional court in Ostrava sentenced the boy to a three-year suspended sentence for attempted reckless endangerment and for his mother to an 18-month suspended sentence for not stopping her son from throwing the cocktail. On May 12, the regional court in Ostrava opened the trial against Jaromir Kukes, David Vaculik, Ivo Mueller, and Vaclav Cojocaru, who were accused of throwing Molotov cocktails into the home of a Romani family in the town of Vitkov in April 2009. Three persons, including a two-year-old girl who was treated for second-and third-degree burns over 80 percent of her body, were injured in the resulting fire. On October 20, the court found all four guilty of attempted murder and property damage. The judge found the crime to involve extraordinary circumstances that allowed for more stringent sentencing. Vaculik, Mueller, and Lukes received 22-year sentence, and Cojocaru received a 20-year sentence. These are the longest sentences ever handed down for a racially motivated crime. The four were also required to pay seven million korunas ($389,000) for the child's medical expenses and a further 10.072 million korunas ($560,000) to the child and her family for pain and suffering.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2",
+     "13.3",
+     "13.4",
+     "13.5",
+     "13.6",
+     "13.7",
+     "13.8",
+     "13.9",
+     "13.10",
+     "13.11",
+     "13.12",
+     "13.13",
+     "13.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "There have been multiple racially motivated violent incidents against Roma, including Molotov cocktail attacks, with perpetrators arrested and sentenced, including historically long sentences for such crimes."
+   },
+   {
+    "quote": "On November 27, Pavel Louda, mayor of Novy Bydzov, posted a statement on the city's official Web site declaring a \"war on the gypsies.\" He threatened to undertake repressive measures in order to bring the Roma under control. The prime minister and other government officials released statements condemning the mayor's actions. In December police opened an investigation of a young Czech man for promoting Nazism on Facebook. The man placed photos, video, music, and personal opinions supporting Nazi and neo-Nazi actions. In May unknown persons attempted an arson attack against a Romani home in the village of Zdiby. No one in the home was injured. Police investigated the case but have made no arrests were investigating at ye",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.15",
+     "13.16",
+     "13.17",
+     "13.18",
+     "13.19",
+     "13.20",
+     "13.21",
+     "13.22"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "Government officials have publicly condemned racist statements by local officials, and police have investigated promotion of Nazism on social media and attempted arson attacks against Roma homes."
+   },
+   {
+    "quote": "Over the previous two years, police focused greater attention on combating promoters of extremism. The Security Information Service (BIS), the country's civilian domestic intelligence agency, reported at the start of May that right wing extremist activity decreased in the country during the first six months of the year. BIS stated that developments involving neo-Nazis were particularly influenced by police raids in 2009 against members of extremist parties and the prohibition of the Worker's Party. The service believed that extremist groups were less unified than in than in the past.26",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.2",
+     "14.3",
+     "14.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "Police have increased efforts to combat right-wing extremism, with intelligence reports indicating a decrease in extremist activity due to police raids and prohibition of extremist parties."
+   },
+   {
+    "quote": "In order to address acts of discrimination, the Czech Republic government introduced the Roma Police Assistants (RPAs).27 The purpose of employing RPAs is his to assist in building better relations and trust between the Roma and the police. The RPAs assist police in their investigations, assist in accompanying Romani who are victims of crime to file police reports and help obtain social services for such victims. It has been found that the RPAs and other minority liaison officers have been effective in helping the Roma.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2",
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "The Czech government has introduced Roma Police Assistants to improve relations and trust between Roma and police, and these programs have been effective."
+   },
+   {
+    "quote": "Furthermore, in the mid-1990s, the Ministry of the Interior (who is responsible for maintaining the national police force in the Czech Republic) initiated programs to combat extremism (including the neo-Nazis) by allowing the police to closely monitor such group activities and it is showing signs of success.28 The police have arrested neo-Nazis and they have been prosecuted, including a case where a Romani had been murdered. The police successfully prevented a clash of neo-Nazis in Brno and expelled them from the city.29 The government is also trying to recruit Roma as police officers, with the number of drives being conducted in Prague and Brno. If a Romani is interested in becoming a police officer but lacks the formal education requirement, the police offer assistance for that person to complete any education requirement so that they can then join the police force.30 Furthermore, the police are trained on how to deal with minorities.31 The police are making other efforts such as participating in day camps, seminars and school visits in order to foster better relations with the Roma.32 As of 2006, there were an estimated 61 Romani police officers in the Czech Republic.33",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.4",
+     "15.5",
+     "15.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "The Ministry of the Interior has initiated programs to combat extremism, including monitoring neo-Nazi groups, resulting in arrests and prosecutions, and efforts to recruit Roma as police officers with educational support."
+   },
+   {
+    "quote": "If a Romani is interested in becoming a police officer but lacks the formal education requirement, the police offer assistance for that person to complete any education requirement so that they can then join the police force.30 Furthermore, the police are trained on how to deal with minorities.31 The police are making other efforts such as participating in day camps, seminars and school visits in order to foster better relations with the Roma.32 As of 2006, there were an estimated 61 Romani police officers in the Czech Republic.33",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "Police receive training on dealing with minorities and engage in community activities to foster better relations with Roma; as of 2006, there were approximately 61 Romani police officers."
+   },
+   {
+    "quote": "The judiciary has prosecuted hate crimes committed against the Roma on several occasions. The Issue Paper notes that judicial proceedings on racial crime have increased in recent years due to the efforts of NGOs.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The judiciary has prosecuted hate crimes against Roma, with increased proceedings due to NGO efforts."
+   },
+   {
+    "quote": "The Czech Ombudsman, created in 1999 and is known as the Public Defender of Human Rights, investigates allegations of public-sector mistreatment of Roma and takes corrective actions to remedy such situations.34 There are other government and non government agencies available to assist the Roma, including 400 Romani NGOs, the Czech Trade Inspectorate (to deal with unfair business practices or consumer discrimination), the Czech Helsinki Committee to investigate cases of police misconduct involving the Roma and the Social Inclusion Agency to ad in dress the social integration of the Roma into Czech society, including housing, healthcare, employment, social services and cohesion.35 The preponderance of the documentary evidence indicates that the Czech Republic government is making very serious efforts to provide protection to the Roma whether as victims of hate crime, assist in obtaining health care or education or inclusion into Czech society.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The Czech Ombudsman and various government and non-government agencies assist Roma in addressing public-sector mistreatment and social integration, including housing, healthcare, employment, and social services."
+   },
+   {
+    "quote": "As noted above, there is discrimination against the Roma in various aspects of their lives. However the Czech government is making very serious efforts to overcome this discrimination.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.4",
+     "16.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "Despite ongoing discrimination against Roma, the Czech government is making serious efforts to overcome it and provide protection."
+   },
+   {
+    "quote": "In this particular case, the male claimant was questioned as to what efforts he and his wife made to seek state protection before fleeing the Czech Republic.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant and his wife made efforts to seek state protection before fleeing the Czech Republic."
+   },
+   {
+    "quote": "Between the year 2000 to 2003, the male claimant and his brother were attacked by skinheads at a restaurant. The skinheads were able to kick the door in and broke into the house. They then proceeded to beat the male claimant's wife and when the male claimant tried to defend his children the skinheads kicked them with army boots and beat them up.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.14",
+     "18.15"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "Between 2000 and 2003, the male claimant and his brother were attacked by skinheads at a restaurant and later at the male claimant's house, where his wife and children were also beaten."
+   },
+   {
+    "quote": "I find that there is no persuasive evidence before me to show the police ignored the male claimant's complaint about the skinhead attack at his home. Nor do I find that there is any persuasive evidence to establish that the police did not conduct a proper and meaningful investigation into this criminal matter.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.8",
+     "19.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "There is no persuasive evidence that the police ignored the male claimant's complaint or failed to conduct a proper investigation into the skinhead attack at his home."
+   },
+   {
+    "quote": "I find that it is not reasonable to expect that the Hungarian police would be able to solve every criminal investigation involving an attack on a Roma family simply because they had a physical description of the perpetrators of the attack. There is no guarantee that a physical description of a perpetrator of a crime, without any other evidence, would guarantee a break in a criminal case leading to the identification, apprehension, and imprisonment of a criminal suspect.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.10",
+     "19.11"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "It is not reasonable to expect the police to solve every criminal investigation based solely on a physical description of perpetrators."
+   },
+   {
+    "quote": "I find that even the best resourced, trained, and staffed police force in the world faces investigative challenges and obstacles which make it difficult to positively identify and apprehend criminal suspects.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.12"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "Even well-resourced police forces face challenges in identifying and apprehending suspects."
+   },
+   {
+    "quote": "In this instance, the male claimant's description of the four skinheads to the police was that they were tall and all wore a uniform. Considering the limited information that the male claimant was able to provide to the Hungarian police concerning the identity of the perpetrators of the attack, I find that it is not surprising that the Hungarian police might be faced with a difficult task of trying to locate and apprehend the specific individuals who carried out the attack on him, his brother, and his family.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.13",
+     "19.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "Given the limited information provided by the male claimant, it is unsurprising that the police had difficulty locating the attackers."
+   },
+   {
+    "quote": "During the time that the male claimant's children were living at the house of their grandfather, they experienced difficulties with their classmates and teachers at school. The male claimant's children complained that their teacher was pulling their hair; that other children were yelling at them, and calling them dirty gypsies. The teacher told them that no one else has problems in school except for the gypsies.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.2",
+     "20.3",
+     "20.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "background_fact",
+    "statement": "Between 2003 and 2004, the male claimant's children experienced difficulties at school and were mistreated by classmates and a teacher who was hostile towards Roma children."
+   },
+   {
+    "quote": "The male claimant and his wife confronted the school teacher. They complained about the mistreatment of their children and the name calling by other students.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.4",
+     "20.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant and his wife confronted the school teacher about the mistreatment and name-calling of their children."
+   },
+   {
+    "quote": "Skinheads confronted them there and beat them up. As they passed by the house, the skinheads threw rocks at the windows of the house and threatened the male claimant by saying that dirty gypsies should be gassed and that they were going to burn down his house. Some of the windows of the house were broken by the rocks that the skinheads were throwing.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.3",
+     "21.7",
+     "21.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "background_fact",
+    "statement": "The male claimant's children were attacked by skinheads in the downtown area and their grandfather's house was attacked with rocks and threats."
+   },
+   {
+    "quote": "I find that there is no persuasive evidence to show that the police, in this instance, did not conduct a proper investigation into the attack on his children and his home by skinheads ,or that they ignored the complaint made by the male claimant about these attacks.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.17"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "There is no persuasive evidence that the police ignored the complaint or failed to conduct a proper investigation into the attacks on the male claimant's children and home."
+   },
+   {
+    "quote": "In XXXXX of 2004, the male claimant and his family were subjected to a very frightening and potentially life-threatening ordeal. The fire department was able to put out the fire.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.11"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "background_fact",
+    "statement": "In 2004, the male claimant's house was firebombed by skinheads, causing a fire that was extinguished by the fire department."
+   },
+   {
+    "quote": "I find that there is no persuasive evidence to show that the police did not take",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.24"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "There is no persuasive evidence that the police failed to take action regarding the firebombing investigation."
+   },
+   {
+    "quote": "Between 2004 and 2009, the male claimant continued to have problems with skinheads. In XXXXXXXX of 2004, the male claimant and his family were attacked by skinheads at a train station as they were getting ready to go and visit the male claimant's mother-in-law.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2",
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "background_fact",
+    "statement": "After moving to another city, the male claimant and his family continued to experience attacks by skinheads, including an attack at a train station in 2004."
+   },
+   {
+    "quote": "I find that there is no persuasive evidence before me to establish that the police did not take the male claimant's complaint seriously or that they did not conduct a proper investigation into the attack perpetrated by skinheads against him and members of his family at the train station.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.20"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "There is no persuasive evidence that the police did not take the male claimant's complaint seriously or failed to conduct a proper investigation into the train station attack."
+   },
+   {
+    "quote": "I find that, despite the male claimant's fear and that of his family following the attack, it was the obligation of the male claimant to pursue his complaint with police authorities following the attack. However, he did not do so.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.21",
+     "23.22"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "Despite the male claimant's fear, he had an obligation to pursue his complaint with the police but did not do so."
+   },
+   {
+    "quote": "I find that the male claimant's failure to follow up with the police is not objectively justified by the fact that he and members of his family were overcome by fear on account of the attack they had just sust",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.23"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The male claimant's failure to follow up with the police is not objectively justified by his fear following the attack."
+   },
+   {
+    "quote": "I find that the male claimant, in the particular circumstances of this case, did not make diligent efforts nor did he take all reasonable steps in seeking out the assistance and protection of law enforcement authorities in the Czech Republic before coming to Canada in search of international protection.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "conclusion",
+    "statement": "The male claimant did not make diligent efforts or take all reasonable steps to seek assistance and protection from law enforcement in the Czech Republic before coming to Canada."
+   },
+   {
+    "quote": "Regarding the incident in 2000-2003 when the male claimant and his brother were attacked by skinheads at a restaurant and were subsequently attacked by the same skinheads at the male claimant's house along with members of his family, although the male claimant reported these incidents to the police, he did not follow up with them to find out the status of the ongoing investigation into this attack. Likewise, in 2003-2004, when the male claimant's children were attacked by skinheads in the downtown area of the city and the male claimant's house was subsequently attacked by skinheads marching past his house when they threw rocks at the windows of his house and broke one of those windows, although the claimant contacted the police for help and gave them a statement, he did not follow up with them to find out what if any progress was being made with regard to the investigation of his complaint. However, there is no persuasive evidence to suggest that the male claimant followed up with their initial investigation to find out if there were any new developments or leads in the case, or if the police had been able to arrest or capture any of the perpetrators of the crime. Finally, in XXXXXX of 2004, after the male claimant and his family were attacked by skinheads at a train station and the police showed up and took down a report of what happened, the male claimant once again made no efforts to follow up with the police about his complaint concerning this attack at the train station.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.2",
+     "24.3",
+     "24.6",
+     "24.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "conclusion",
+    "statement": "Although the male claimant reported several attacks to the police, he did not follow up to find out the status of investigations or progress made."
+   },
+   {
+    "quote": "I disagree with counsel's interpretation of this document. I find that in order to properly interpret what is being said in this document, it must be read in the context of all the information presented in this document. According to this document, the government of the Czech Republic had in 2004, under pressure, implemented a number of laws and policies to address persistent systemic discrimination against the Roma. I do not read this document as saying that all of the measures and policies adopted by the Czech government have been an abysmal failure and totally ineffective in addressing the persistent problem of discrimination against the Roma.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.2",
+     "26.3",
+     "26.5",
+     "26.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "The Response to Information Request must be read in context and does not show that all measures by the Czech government were completely ineffective in addressing discrimination against the Roma."
+   },
+   {
+    "quote": "In this same document, it indicates that a senior research fellow at the Norwegian Institute of International Affairs (NUPI), writing in a November of 2010 publication for the Centre for European Policy Studies (CEPS), questioned the effectiveness of those measures, \"especially at the local level\". What it actually says is that a senior fellow was calling into question the effectiveness of the measures; he does not definitively say that all the measures were completely \"ineffective\". Moreover, I find that what the senior fellow is saying is that he is calling into question the effectiveness of those measures especially at the local level; he is not saying that he is calling the effectiveness of these measures at a national level.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.6",
+     "26.8",
+     "26.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "The senior research fellow questioned the effectiveness of measures especially at the local level, but did not say all measures were completely ineffective nationally."
+   },
+   {
+    "quote": "I find that when you read the contents of the document in the context of all the information in the report, what it is actually saying is that in one specific location, Brno, it became necessary for the agency to withdraw its services, because it could not effectively intervene in the inclusion process. However, the report goes on to say that the agency was going to continue its work in six out of the thirteen pilot locations until June of 2011.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.13",
+     "26.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "The social inclusion agency withdrew services in Brno due to inability to effectively intervene, but continued work in other pilot locations until June 2011."
+   },
+   {
+    "quote": "I find that this report is not demonstrative of a lack of state protection for members of the Romani minority in the Czech Republic. Additionally, I do not find that this report establishes that there is no effective protection available to members of the Roma community in the Czech Republic when faced with acts of extremism or racist violence. I find that this report deals with a specific incident in a specific location at a specific point in time. According to Amnesty International, the police failed to protect three members of the Romani community from violent attacks by a group of far-right activists following a demonstration by a far-right Worker's Social Justice Party on March 12 in Novy Bydzov.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.3",
+     "27.4",
+     "27.5",
+     "27.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "The report about police failure in Novy Bydzov does not demonstrate a lack of state protection for Roma in the Czech Republic and concerns a specific incident at a specific time."
+   },
+   {
+    "quote": "I find that the case law is very clear that local failures in policing are not sufficient for the purposes of establishing a lack of state protection.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "Local failures in policing are not sufficient to establish a lack of state protection for the purposes of refugee claims."
+   },
+   {
+    "quote": "I find that the male claimant, in the circumstances of this case, has failed to rebut the presumption of state protection with clear and convincing evidence.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant has failed to rebut the presumption of state protection with clear and convincing evidence."
+   },
+   {
+    "quote": "Therefore, I am not persuaded that the Czech Republic would not be reasonably forthcoming with adequate state protection, should the claimant seek it.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The Czech Republic would be reasonably forthcoming with adequate state protection if the claimant sought it."
+   },
+   {
+    "quote": "Therefore, I find the male claimant is not a Convention refugee and his claim under section 96 of the IRPA fails.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The male claimant is not a Convention refugee and his claim under section 96 of the IRPA fails."
+   },
+   {
+    "quote": "The rest of the analysis of this decision will be under section 97 of the IRPA.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The rest of the analysis of this decision will be under section 97 of the IRPA."
+   },
+   {
+    "quote": "For the same reasons articulated above, I find that the male claimant is not a person in need of protection.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The male claimant is not a person in need of protection under section 97 of the IRPA."
+   },
+   {
+    "quote": "Therefore, I find that the claim under section 97 of the IRPA fails.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The claim under section 97 of the IRPA fails."
+   },
+   {
+    "quote": "As the claims of the spouse and the children are entirely dependent upon the claim of the male claimant, I find that their claims under section 96 and 97 of the Act also fail.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "The claims of the spouse and the children, being entirely dependent on the male claimant's claim, also fail under sections 96 and 97 of the Act."
+   },
+   {
+    "quote": "I determine that the claimants are neither Convention refugees nor persons in need of protection.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "conclusion",
+    "statement": "The claimants are neither Convention refugees nor persons in need of protection."
+   },
+   {
+    "quote": "The Refugee Protection Division therefore rejects their claims.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "conclusion",
+    "statement": "The Refugee Protection Division rejects their claims."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

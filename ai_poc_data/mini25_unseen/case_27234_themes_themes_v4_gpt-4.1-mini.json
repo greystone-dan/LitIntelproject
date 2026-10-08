@@ -1,0 +1,426 @@
+{
+ "case_id": 27234,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 5210,
+  "completion_tokens": 1598,
+  "usd": 0.006198
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Applicant and Respondent identification",
+    "paragraphs": [
+     1
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Serious issue for review: Officer's analysis of child's best interests",
+    "paragraphs": [
+     12
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Correct test for child's best interests in H&C determination",
+    "paragraphs": [
+     15,
+     16
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Whether Officer applied correct test and conducted proper analysis of child's best interests",
+    "paragraphs": [
+     17,
+     18
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Reasonableness of Officer's decision on child's best interests",
+    "paragraphs": [
+     19
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Consideration of risk to child in Brazil in best interests analysis",
+    "paragraphs": [
+     20
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Assessment of applicants' establishment in Canada and its weight",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Certification of question",
+    "paragraphs": [
+     25
+    ],
+    "disposition": "not_decided"
+   }
+  ]
+ },
+ "verification": {
+  "items": 20,
+  "quote_exact_in_cited": 17,
+  "quote_loose_in_cited": 1,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 2,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 2,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 3,
+   "arguments": 4,
+   "holdings": 9,
+   "rebuttals": 3,
+   "authorities": 3,
+   "left_open": 1
+  },
+  "paragraph_coverage": 0.56
+ },
+ "result": {
+  "overall": "The Court allowed the application for judicial review, finding that the Officer's analysis of the child's best interests was unreasonable because the Officer applied an incorrect test and failed to properly analyze the child's best interests, among other errors.",
+  "themes": [
+   {
+    "name": "Officer's analysis of child's best interests",
+    "summary": "The reasonableness and correctness of the Officer's analysis and application of the best interests of the child in the H&C determination.",
+    "paragraphs": [
+     12,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20
+    ]
+   },
+   {
+    "name": "Test for child's best interests in H&C determination",
+    "summary": "The correct legal test for assessing the child's best interests in humanitarian and compassionate grounds applications.",
+    "paragraphs": [
+     15,
+     16
+    ]
+   },
+   {
+    "name": "Assessment of applicants' establishment in Canada",
+    "summary": "How the Officer assessed the applicants' establishment in Canada and the weight given to it in the decision.",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "the applicants provided little evidence and made few submissions as to the best interests of their daughter",
+    "paragraphs": [
+     13
+    ],
+    "made_by": "respondent",
+    "claim": "The applicants did not provide sufficient evidence or submissions regarding the child's best interests.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "the Officer found that the applicants\u2019 establishment in Canada was not exceptional and did not justify an H&C exemption",
+    "paragraphs": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer found the applicants' establishment in Canada was not exceptional and did not warrant an exemption.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The Officer concluded the applicants\u2019 establishment in Canada was not exceptional and did not justify an H&C exemption."
+   },
+   {
+    "quote": "the Officer found resettling in Brazil would not amount to unusual and undeserved or disproportionate hardship for her",
+    "paragraphs": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer concluded that resettling in Brazil would not cause unusual or disproportionate hardship to the child.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "the Officer found all Brazilians faced these problems",
+    "paragraphs": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer found the risks faced by the applicants in Brazil were general and not unusual.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "the only serious issue in this application is whether the Officer\u2019s analysis of the best interests of Leticia was reasonable",
+    "paragraphs": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The Court identifies the main issue as the reasonableness of the Officer's analysis of the child's best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "there is no basic needs minimum which if \"met\" satisfies the best interest test",
+    "paragraphs": [
+     15
+    ],
+    "kind": "legal_test",
+    "statement": "The correct test for the child's best interests does not depend on whether basic needs are met but on what is in the child's best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "to suggest that the child\u2019s interest in remaining in Canada is balanced if the alternative provides a minimum standard of living is perverse",
+    "paragraphs": [
+     16
+    ],
+    "kind": "reason",
+    "statement": "The Officer's approach of balancing the child's interests based on minimum living standards is incorrect and fails to properly assess best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   },
+   {
+    "quote": "the reasons must still show, \u201con a reading of the decision as a whole that the officer applied the correct test and conducted a proper analysis\u201d",
+    "paragraphs": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "The Officer must apply the correct test and conduct a proper analysis of the child's best interests for the decision to be reasonable.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "the analysis of her interests is such that one cannot point to anything that suggests he fully analysed what her best interests were",
+    "paragraphs": [
+     18
+    ],
+    "kind": "reason",
+    "statement": "The Officer failed to fully analyze the child's best interests, focusing instead on hardship language inappropriate for children.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "these errors render the decision unreasonable and the application must be returned",
+    "paragraphs": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The Court finds the Officer's decision unreasonable due to errors in the best interests analysis and orders the application to be returned for reconsideration.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "the Officer gives this fact no consideration when examining Leticia\u2019s best interests",
+    "paragraphs": [
+     20
+    ],
+    "kind": "reason",
+    "statement": "The Officer failed to consider the risk of crime in Brazil to the child when assessing her best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "the Officer must not merely discount what they have done by crediting the Canadian immigration and refugee system for having given them the time to do these things without giving credit for the initiatives they undertook",
+    "paragraphs": [
+     21
+    ],
+    "kind": "reason",
+    "statement": "The Officer improperly discounted the applicants' establishment in Canada by attributing it to due process rather than their own efforts.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "quote": "it is entirely irrelevant whether the persons knew he or she was subject to removal when they took steps to establish themselves and their families in Canada",
+    "paragraphs": [
+     23
+    ],
+    "kind": "reason",
+    "statement": "Knowledge of possible removal does not diminish the value of steps taken by applicants to establish themselves in Canada.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "the Officer found that the applicants\u2019 establishment in Canada was not exceptional and did not justify an H&C exemption",
+    "paragraphs": [
+     8
+    ],
+    "point": "the applicants' establishment in Canada was not exceptional and did not justify an exemption",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court finds the Officer improperly discounted the applicants' establishment by crediting due process rather than their own initiatives, which was erroneous.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "The Officer concluded the applicants\u2019 establishment in Canada was not exceptional and did not justify an H&C exemption."
+   },
+   {
+    "quote": "there is insufficient evidence before me to indicate that basic amenities would not be met in Brazil",
+    "paragraphs": [
+     15
+    ],
+    "point": "the Officer used an improper criterion focusing on basic amenities being met in Brazil",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court holds that the Officer applied the wrong test by focusing on basic amenities rather than the child's best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14,
+     15
+    ]
+   },
+   {
+    "quote": "the Officer says that Leticia\u2019s basic needs will be met and there would not be a significant negative impact on her",
+    "paragraphs": [
+     18
+    ],
+    "point": "the Officer analyzed hardship rather than best interests for the child",
+    "made_by": "tribunal_below",
+    "court_answer": "The Court finds that hardship language is ill-suited for children and the Officer failed to properly analyze best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "as Justice Russell recently held in Williams v Canada (Minister of Citizenship and Immigration), 2012 FC 166, at paragraph 64",
+    "paragraphs": [
+     15
+    ],
+    "authority": "Williams v Canada (Minister of Citizenship and Immigration), 2012 FC 166",
+    "treatment": "followed",
+    "why": "It clarifies that the best interests test is not about minimum basic needs but what is in the child's best interests.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "as Justice D\u00e9cary held in Hawthorne v. Canada (Minister of Citizenship & Immigration), 2002 FCA 475 at para 9",
+    "paragraphs": [
+     18
+    ],
+    "authority": "Hawthorne v. Canada (Minister of Citizenship & Immigration), 2002 FCA 475",
+    "treatment": "followed",
+    "why": "It explains that the concept of 'undeserved hardship' is ill-suited when assessing hardship on innocent children.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "Segura v Canada (Minister of Citizenship and Immigration), 2009 FC 894, at para 29",
+    "paragraphs": [
+     17
+    ],
+    "authority": "Segura v Canada (Minister of Citizenship and Immigration), 2009 FC 894",
+    "treatment": "followed",
+    "why": "It requires that the Officer apply the correct test and conduct a proper analysis for reasonableness.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "Neither party proposed a question for certification",
+    "paragraphs": [
+     25
+    ],
+    "issue": "Certification of question",
+    "reason": "No question was proposed for certification, so the Court did not decide on certification.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,225 @@
+{
+ "case_id": 51014,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "K",
+ "run": "bundle_rebut_K",
+ "usage": {
+  "usd": 0.0037212
+ },
+ "verification": {
+  "points": 11,
+  "calls": 2,
+  "answered": 4,
+  "points_returned": 11,
+  "answer_ids_dropped": 29
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The male claimant contacted the police after the skinhead attack at his home and gave a physical description of the attackers.",
+   "party_ids": [
+    "19.1",
+    "19.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the claimant contacted police and gave a physical description of attackers."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The police did not follow up with the male claimant or provide updates on the investigation of the skinhead attack.",
+   "party_ids": [
+    "19.4",
+    "19.6",
+    "19.8",
+    "19.9"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds no persuasive evidence police failed to follow up or investigate properly."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The male claimant was afraid to follow up with the police due to fear for his and his family's safety.",
+   "party_ids": [
+    "19.7",
+    "21.16",
+    "23.19"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the claimant was afraid to follow up with police due to safety fears."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The male claimant reported the attacks on his children and the attack on his father-in-law's house to the police, but the police did not take effective action or follow up.",
+   "party_ids": [
+    "21.9",
+    "21.10",
+    "21.12",
+    "21.14",
+    "21.17"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds no persuasive evidence police ignored or failed to investigate the attacks on children and father-in-law's house."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "The police initially blamed the male claimant for the fire but later investigated the racial motive and spoke to the claimant and his family.",
+   "party_ids": [
+    "22.20",
+    "22.21",
+    "22.13",
+    "22.15"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges police initially blamed claimant but later investigated racial motive and spoke to family."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "The male claimant did not know if the police searched for the perpetrators of the firebombing.",
+   "party_ids": [
+    "22.22",
+    "22.23"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes claimant did not know if police searched for perpetrators of firebombing."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "The police arrived after the train station attack but did not apprehend the attackers or follow up with the male claimant.",
+   "party_ids": [
+    "23.11",
+    "23.12",
+    "23.16",
+    "23.17",
+    "23.19"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "23.20",
+    "23.21",
+    "23.22",
+    "23.23"
+   ],
+   "answer_paragraphs": [
+    23
+   ],
+   "answer_quote": "I find that there is no persuasive evidence before me to establish that the police did not take the male claimant's complaint seriously or that they did not conduct a proper investigation into the attack perpetrated by skinheads against him and members of his family at the train station. I find that, despite the male claimant's fear and that of his family following the attack, it was the obligation of the male claimant to pursue his complaint with police authorities following the attack. However, he did not do so. I find that the male claimant's failure to follow up with the police is not objectively justified by the fact that he and members of his family were overcome by fear on account of the attack they had just sust",
+   "why": "The court acknowledges police arrived but finds no evidence police failed to investigate or take complaint seriously, and that claimant did not follow up."
+  },
+  {
+   "pid": "P8",
+   "party_by": "applicant",
+   "party_text": "The claimant's counsel argued that more recent reports post-dating the Board's Issue Papers rebut the earlier findings and show that new laws and government promises in the Czech Republic are not effective in protecting the Roma community.",
+   "party_ids": [
+    "25.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges counsel's argument about recent reports rebutting earlier findings on government protection effectiveness."
+  },
+  {
+   "pid": "P9",
+   "party_by": "applicant",
+   "party_text": "Counsel referred to a March 10, 2011 Response to Information Request document to establish that the social inclusion program was not effective.",
+   "party_ids": [
+    "26.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "26.2",
+    "26.3",
+    "26.4",
+    "26.5",
+    "26.6",
+    "26.7",
+    "26.8",
+    "26.9"
+   ],
+   "answer_paragraphs": [
+    26
+   ],
+   "answer_quote": "I disagree with counsel's interpretation of this document. I find that in order to properly interpret what is being said in this document, it must be read in the context of all the information presented in this document. I find that counsel is splitting hairs and has microscopically dissected this report. According to this document, the government of the Czech Republic had in 2004, under pressure, implemented a number of laws and policies to address persistent systemic discrimination against the Roma. In this same document, it indicates that a senior research fellow at the Norwegian Institute of International Affairs (NUPI), writing in a November of 2010 publication for the Centre for European Policy Studies (CEPS), questioned the effectiveness of those measures, \"especially at the local level\". I do not read this document as saying that all of the measures and policies adopted by the Czech government have been an abysmal failure and totally ineffective in addressing the persistent problem of discrimination against the Roma. What it actually says is that a senior fellow was calling into question the effectiveness of the measures; he does not definitively say that all the measures were completely \"ineffective\". Moreover, I find that what the senior fellow is saying is that he is calling into question the effectiveness of those measures especially at the local level; he is not saying that he is calling the effectiveness of these measures at a national level.",
+   "why": "The court disagrees with counsel's interpretation that the social inclusion program was ineffective, finding the document's context shows some questioning but not total failure."
+  },
+  {
+   "pid": "P10",
+   "party_by": "applicant",
+   "party_text": "Counsel argued that the document establishes the social inclusion program was ineffective, citing the agency for social inclusion.",
+   "party_ids": [
+    "26.10",
+    "26.11"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "26.12",
+    "26.13",
+    "26.14"
+   ],
+   "answer_paragraphs": [
+    26
+   ],
+   "answer_quote": "I disagree with counsel's interpretation. I find that when you read the contents of the document in the context of all the information in the report, what it is actually saying is that in one specific location, Brno, it became necessary for the agency to withdraw its services, because it could not effectively intervene in the inclusion process. However, the report goes on to say that the agency was going to continue its work in six out of the thirteen pilot locations until June of 2011.",
+   "why": "The court rejects counsel's claim that the document establishes the social inclusion program was ineffective, noting limited failure in one location but ongoing work elsewhere."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "Counsel referred to a report titled 'Czech Republic Police Fails to Protect the Roma of Novy Bydzov' to argue that Hungarian government efforts to protect Roma are ineffective.",
+   "party_ids": [
+    "27.1",
+    "27.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "27.3",
+    "27.4",
+    "27.5",
+    "27.6",
+    "27.7"
+   ],
+   "answer_paragraphs": [
+    27
+   ],
+   "answer_quote": "I find that this report is not demonstrative of a lack of state protection for members of the Romani minority in the Czech Republic. Additionally, I do not find that this report establishes that there is no effective protection available to members of the Roma community in the Czech Republic when faced with acts of extremism or racist violence. I find that this report deals with a specific incident in a specific location at a specific point in time. According to Amnesty International, the police failed to protect three members of the Romani community from violent attacks by a group of far-right activists following a demonstration by a far-right Worker's Social Justice Party on March 12 in Novy Bydzov. I find that the case law is very clear that local failures in policing are not sufficient for the purposes of establishing a lack of state protection.",
+   "why": "The court finds the report does not demonstrate lack of state protection and that local police failures are insufficient to establish no protection."
+  }
+ ]
+}

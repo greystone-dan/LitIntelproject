@@ -1,0 +1,643 @@
+{
+ "case_id": 23409,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "K",
+ "run": "bundle_rebut_K",
+ "usage": {
+  "usd": 0.009756400000000002
+ },
+ "verification": {
+  "points": 42,
+  "calls": 9,
+  "answered": 4,
+  "points_returned": 42,
+  "answer_ids_dropped": 57
+ },
+ "result": [
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The applicant challenges the legality of the RAD decision confirming the RPD's denial of refugee protection.",
+   "party_ids": [
+    "1.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant is challenging the legality of the RAD decision confirming the RPD's denial."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Appeal Division confirmed the RPD's decision denying the applicant refugee protection.",
+   "party_ids": [
+    "1.1",
+    "3.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "4.1",
+    "5.5"
+   ],
+   "answer_paragraphs": [
+    4,
+    5
+   ],
+   "answer_quote": "On January 30, 2014, the sole RAD member designated to hear the matter, Stephen J. Gallagher (member), dismissed the applicant\u2019s appeal. Therefore, the RAD dismissed the applicant\u2019s appeal, hence this application for judicial review.",
+   "why": "The court confirms the RAD dismissed the appeal, thus confirming the RPD's denial."
+  },
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The Refugee Protection Division determined that the applicant is neither a Convention refugee nor a person in need of protection under sections 96 and 97 of the Immigration and Refugee Protection Act.",
+   "party_ids": [
+    "2.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the RPD's determination that the applicant is neither a Convention refugee nor a person in need of protection."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD member dismissed the applicant's appeal on January 30, 2014.",
+   "party_ids": [
+    "4.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "5.5"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "Therefore, the RAD dismissed the applicant\u2019s appeal, hence this application for judicial review.",
+   "why": "The court confirms the RAD member dismissed the appeal on that date."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD member found that the standard of review for questions of fact or mixed fact and law is reasonableness, as defined in Dunsmuir and Newton.",
+   "party_ids": [
+    "4.2",
+    "4.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the RAD member's finding on the standard of review as reasonableness for fact or mixed fact and law questions."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD member refused to hold an oral hearing because the new evidence was not determinative.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the RAD member refused an oral hearing because the new evidence was not determinative."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD member found the RPD's conclusions to be reasonable in all respects.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the RAD member found the RPD's conclusions reasonable in all respects."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD could reasonably conclude that the risk of being enrolled in the Syrian army was speculative as long as the applicant continued to study in Canada.",
+   "party_ids": [
+    "5.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD could reasonably conclude the risk of army enrollment was speculative."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD's findings of lack of personalized risk and implausibility that the applicant is perceived as a political activist are reasonable.",
+   "party_ids": [
+    "5.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds the RPD's findings on lack of personalized risk and implausibility reasonable."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "The RAD dismissed the applicant's appeal, leading to this application for judicial review.",
+   "party_ids": [
+    "5.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RAD dismissed the appeal, leading to this judicial review application."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "The application for judicial review concerns the scope on appeal of the review of evidence in the RPD record that the RAD conducted under sections 110 and 111 of the IRPA, raising a question of law to be reviewed on a standard of correctness.",
+   "party_ids": [
+    "6.2",
+    "6.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the judicial review concerns the scope of RAD's review under IRPA sections 110 and 111, a question of law reviewed on correctness."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The member did not apply the appropriate mode of analysis, which is sufficient to set aside the RAD decision.",
+   "party_ids": [
+    "6.4",
+    "6.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the member did not apply the appropriate mode of analysis, sufficient to set aside the RAD decision."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "Alternatively, the findings regarding generalized risk and implausibility are unreasonable.",
+   "party_ids": [
+    "6.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the alternative argument about unreasonableness but does not fully decide it here."
+  },
+  {
+   "pid": "P14",
+   "party_by": "respondent",
+   "party_text": "The scope of the review conducted by the RAD on appeal arises from its expertise, so the Court should apply the standard of reasonableness to the interpretation of the member regarding the scope of the IRPA provisions.",
+   "party_ids": [
+    "7.1",
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the respondent's argument that the RAD's review scope arises from its expertise and should be reviewed on a reasonableness standard."
+  },
+  {
+   "pid": "P15",
+   "party_by": "respondent",
+   "party_text": "The member did not commit any reviewable error.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondent's position that the member did not commit any reviewable error."
+  },
+  {
+   "pid": "P16",
+   "party_by": "respondent",
+   "party_text": "Nothing requires the RAD to reassess the evidence presented by a refugee claimant before the RPD, since the appeal on the record is not a de novo appeal.",
+   "party_ids": [
+    "7.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the respondent's argument that the RAD is not required to reassess evidence since the appeal is not de novo."
+  },
+  {
+   "pid": "P17",
+   "party_by": "respondent",
+   "party_text": "Both the standard of judicial review of reasonableness and the standard on appeal of palpable and overriding error lead to the same result, that the Court should not intervene.",
+   "party_ids": [
+    "7.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondent's argument that both standards lead to no intervention by the Court."
+  },
+  {
+   "pid": "P18",
+   "party_by": "tribunal_below",
+   "party_text": "Member Gallagher and other RAD members apply the reasonableness standard of review to findings of fact and law.",
+   "party_ids": [
+    "18.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms that Member Gallagher and other RAD members apply the reasonableness standard of review."
+  },
+  {
+   "pid": "P19",
+   "party_by": "applicant",
+   "party_text": "The first approach of applying reasonableness to findings of fact and law was rejected by the Court.",
+   "party_ids": [
+    "18.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states that the first approach was rejected by the Court as indicated in 18.8."
+  },
+  {
+   "pid": "P20",
+   "party_by": "applicant",
+   "party_text": "The scope of the RAD's review on appeal is limited and must be reassessed in light of case law.",
+   "party_ids": [
+    "25.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "26.2",
+    "26.3",
+    "26.4"
+   ],
+   "answer_paragraphs": [
+    26
+   ],
+   "answer_quote": "In this decision, Justice Shore indicated that the role of the RAD is not that of judicial review, but rather of appeal and that the RAD had to consider all the evidence and make its own assessment (at paras 30-38). However, on questions of fact, Justice Shore indicates that a certain degree of deference is required, which corresponds to the standard of \u201creasonableness\u201d (at paras 2 and 40). It is also a question of \u201cpalpable and overriding error\u201d (at paras 1 and 39).",
+   "why": "The court discusses the scope of RAD's review and confirms it is limited and must be reassessed in light of case law."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "Justice Shore found that the RAD has jurisdiction to review the evidence before the RPD and must conduct an independent assessment of all the evidence to determine if the RPD's decision is reasonable.",
+   "party_ids": [
+    "28.2",
+    "28.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Justice Shore found RAD has jurisdiction to review evidence and must conduct an independent assessment."
+  },
+  {
+   "pid": "P22",
+   "party_by": "applicant",
+   "party_text": "Justice Shore's approach is a variation of a composite and variable standard of review for the RAD's appellate function.",
+   "party_ids": [
+    "28.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Justice Shore's approach as a variation of a composite and variable standard of review."
+  },
+  {
+   "pid": "P23",
+   "party_by": "applicant",
+   "party_text": "Justice Shore's finding that the RAD must conduct an independent assessment of all evidence is a finding of law not shared by some judges, including Justice Roy, who wanted to avoid blurring of lines between standards.",
+   "party_ids": [
+    "28.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes Justice Shore's finding is not shared by some judges, including Justice Roy, who want to avoid blurring lines."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "Justice Shore acknowledged that an appeal before the RAD is not an appeal de novo.",
+   "party_ids": [
+    "29.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Justice Shore acknowledged that an appeal before the RAD is not an appeal de novo."
+  },
+  {
+   "pid": "P24",
+   "party_by": "applicant",
+   "party_text": "Justice Shore in Eng and Garcia Alvarez held that the RAD is not a judicial review body and must not apply the judicial review standard of reasonableness but rather an appellate standard of palpable and overriding error.",
+   "party_ids": [
+    "29.2",
+    "30.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Justice Shore held RAD is not a judicial review body and must apply appellate standard, not judicial review standard."
+  },
+  {
+   "pid": "P26",
+   "party_by": "applicant",
+   "party_text": "The appellate standard of palpable and overriding error is different from the judicial review standard of reasonableness, though they have similarities.",
+   "party_ids": [
+    "30.1",
+    "30.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "30.2"
+   ],
+   "answer_paragraphs": [
+    30
+   ],
+   "answer_quote": "However, this is the appellate-level standard of intervention that a specialized appeal tribunal such as the RAD must apply when reviewing a decision and not the judicial review standard of reasonableness.",
+   "why": "The court confirms the appellate standard is different from judicial review, though similar."
+  },
+  {
+   "pid": "P27",
+   "party_by": "applicant",
+   "party_text": "Justice Phelan in Huruglica agreed with Justice Shore that the RAD is not a judicial review body and must do more than assess reasonableness of the RPD's decision.",
+   "party_ids": [
+    "31.3",
+    "31.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees Justice Phelan and Shore held RAD is not a judicial review body and must do more than assess reasonableness."
+  },
+  {
+   "pid": "P28",
+   "party_by": "applicant",
+   "party_text": "Justice Phelan considered the IAD's scheme the most relevant comparison for the RAD's appellate function.",
+   "party_ids": [
+    "31.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes Justice Phelan considered the IAD scheme the most relevant comparison for RAD."
+  },
+  {
+   "pid": "P29",
+   "party_by": "applicant",
+   "party_text": "Justice Phelan held that the RAD's power to intervene on findings of fact is greater than just intervening for palpable and overriding error.",
+   "party_ids": [
+    "32.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Justice Phelan's view that RAD's power to intervene on findings of fact is greater than just palpable and overriding error."
+  },
+  {
+   "pid": "P30",
+   "party_by": "applicant",
+   "party_text": "Justice Locke endorsed a nuanced composite and variable standard of review for the RAD, depending on the nature of the questions of fact or mixed fact and law.",
+   "party_ids": [
+    "33.1",
+    "34.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Justice Locke's endorsement of a nuanced composite and variable standard of review for the RAD."
+  },
+  {
+   "pid": "P31",
+   "party_by": "applicant",
+   "party_text": "In Njeukam, where the RPD's non-credibility finding was based solely on the claimant's testimony, the RAD had to show deference and the reasonableness standard was not determinative.",
+   "party_ids": [
+    "34.2",
+    "34.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that in Njeukam, RAD had to show deference and reasonableness was not determinative."
+  },
+  {
+   "pid": "P32",
+   "party_by": "applicant",
+   "party_text": "In Yetna, where the RPD's credibility findings were based on testimony and other evidence, the RAD had no advantage and had to reconsider the evidence; the reasonableness standard was fatal and judicial review was allowed.",
+   "party_ids": [
+    "34.4",
+    "34.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms that in Yetna the RAD had to reconsider evidence and the reasonableness standard was fatal, allowing judicial review."
+  },
+  {
+   "pid": "P33",
+   "party_by": "applicant",
+   "party_text": "The hearings in Njeukam and Yetna occurred before the publication of Eng and Garcia Alvarez and Huruglica, and the parties did not argue for the palpable and overriding error standard in those cases.",
+   "party_ids": [
+    "35.2",
+    "35.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the hearings occurred before those decisions and the parties did not argue for the palpable and overriding error standard."
+  },
+  {
+   "pid": "P34",
+   "party_by": "applicant",
+   "party_text": "Nothing indicates Justice Locke requested or received additional arguments regarding Eng, Garcia Alvarez or Huruglica in Njeukam and Yetna.",
+   "party_ids": [
+    "35.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes nothing indicates Justice Locke requested or received additional arguments on those cases."
+  },
+  {
+   "pid": "P35",
+   "party_by": "applicant",
+   "party_text": "Justice Roy in Spasoja favoured the palpable and overriding error standard and rejected the first and third approaches that involved deference to the RPD.",
+   "party_ids": [
+    "36.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Justice Roy favoured the palpable and overriding error standard and set aside the first and third approaches."
+  },
+  {
+   "pid": "P36",
+   "party_by": "applicant",
+   "party_text": "Justice Roy found the legislative scheme governing the RAD leaves no room for deference to the RPD and requires returning the matter to the RPD if reassessment of evidence is needed.",
+   "party_ids": [
+    "36.4",
+    "36.5",
+    "36.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states Justice Roy found no room for deference and that errors require returning to the RPD."
+  },
+  {
+   "pid": "P37",
+   "party_by": "applicant",
+   "party_text": "Justice Roy agreed with Justice Phelan and Justice Shore that the RAD exercises an appellate function and jurisdiction, not judicial review.",
+   "party_ids": [
+    "37.1",
+    "37.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Justice Roy agreed the RAD exercises appellate function and jurisdiction, not judicial review."
+  },
+  {
+   "pid": "P38",
+   "party_by": "applicant",
+   "party_text": "Justice Roy stated that an appeal does not mean a new trial or reconsideration of the matter in its entirety and that the standard applicable during any appeal should apply to RAD appeals.",
+   "party_ids": [
+    "37.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Justice Roy's statement that an appeal is not a new trial and the appeal standard applies to RAD appeals."
+  },
+  {
+   "pid": "P39",
+   "party_by": "tribunal_below",
+   "party_text": "Justice Roy found that the standards applicable by the RAD are the standards applicable on appeal, i.e. the standard of palpable and overriding error for the RPD\u2019s findings of fact, while the RAD must correct any error of law by the RPD that is determinative.",
+   "party_ids": [
+    "38.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Justice Roy's finding that RAD applies the standard of palpable and overriding error for facts and corrects determinative legal errors."
+  },
+  {
+   "pid": "P40",
+   "party_by": "applicant",
+   "party_text": "The applicant disputes the findings of generalized risk and implausibility made by the RAD.",
+   "party_ids": [
+    "47.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant disputes the findings of generalized risk and implausibility."
+  },
+  {
+   "pid": "P41",
+   "party_by": "applicant",
+   "party_text": "There is disagreement on the notion of credibility and the applicable test for inferences drawn by the RPD from documentary evidence.",
+   "party_ids": [
+    "47.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes there is no agreement on the notion of credibility or the applicable test for inferences from documentary evidence."
+  },
+  {
+   "pid": "P42",
+   "party_by": "applicant",
+   "party_text": "Neither counsel could explain how the test of palpable and overriding error or the hybrid appeal standard applies in this case.",
+   "party_ids": [
+    "47.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states neither counsel could explain how the test of palpable and overriding error or hybrid appeal standard applies in this case."
+  }
+ ]
+}

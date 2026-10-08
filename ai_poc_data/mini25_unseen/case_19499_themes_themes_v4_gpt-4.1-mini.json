@@ -1,0 +1,721 @@
+{
+ "case_id": 19499,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 6624,
+  "completion_tokens": 3170,
+  "usd": 0.0098008
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Preliminary procedural point: identification of parties and nature of application",
+    "paragraphs": [
+     1
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Issue 1: Whether the Board erred in concluding the applicant could freely practice religion in a patriotic church",
+    "paragraphs": [
+     13,
+     19,
+     23
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Issue 2: Whether the Board erred in relying on documentary evidence over applicant's evidence without specific credibility findings",
+    "paragraphs": [
+     24,
+     27,
+     33,
+     38
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Remedy: Application for judicial review dismissed",
+    "paragraphs": [
+     1,
+     38
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Certified question: None proposed or certified",
+    "paragraphs": [
+     39
+    ],
+    "disposition": "not_decided"
+   }
+  ]
+ },
+ "verification": {
+  "items": 38,
+  "quote_exact_in_cited": 33,
+  "quote_loose_in_cited": 4,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 1,
+  "quote_has_ellipsis": 2,
+  "quote_snapped_to_real_sentence": 1,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 2,
+   "arguments": 23,
+   "holdings": 6,
+   "rebuttals": 5,
+   "authorities": 3,
+   "left_open": 1
+  },
+  "paragraph_coverage": 0.667
+ },
+ "result": {
+  "overall": "The Court dismissed the judicial review application, finding that although the Board erred in concluding the applicant could freely practice religion in a patriotic church, the overall decision was reasonable based on the preference for documentary evidence over the applicant's testimony regarding persecution in Fujian Province.",
+  "themes": [
+   {
+    "name": "Religious practice in patriotic churches",
+    "summary": "Whether the applicant could freely practice his religion in a patriotic church and the Board's consideration of evidence on this issue.",
+    "paragraphs": [
+     13,
+     19,
+     23
+    ]
+   },
+   {
+    "name": "Reliance on documentary evidence vs applicant's testimony",
+    "summary": "Whether the Board erred in preferring documentary evidence over the applicant's credible testimony without specific credibility findings.",
+    "paragraphs": [
+     24,
+     27,
+     33,
+     38
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "the applicant said that he could not practice his religion in a patriotic church because those churches put the state above God",
+    "paragraphs": [
+     13
+    ],
+    "made_by": "applicant",
+    "claim": "The Board erred in concluding the applicant could freely practice religion in a patriotic church by failing to consider supporting documentary evidence and jurisprudence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   },
+   {
+    "quote": "the respondent submits that the Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion",
+    "paragraphs": [
+     14
+    ],
+    "made_by": "respondent",
+    "claim": "The Board's conclusion was reasonable due to lack of direct evidence and distinguishability of cited cases.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "the Board failed to consider several key pieces of evidence that supported the applicant\u2019s assertion",
+    "paragraphs": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "The Board failed to consider key documentary evidence supporting the applicant's claim about patriotic churches.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ]
+   },
+   {
+    "quote": "the respondent argues that the Board\u2019s failure to consider this evidence does not amount to a reviewable error",
+    "paragraphs": [
+     16
+    ],
+    "made_by": "respondent",
+    "claim": "The Board's failure to consider contradictory documentary evidence was not a reviewable error because of the applicant's lack of direct evidence and the Board's reasoning on Fujian's liberal approach.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   },
+   {
+    "quote": "there was no obligation for the claimant in this case to attend a patriotic church to see for himself",
+    "paragraphs": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "There is no obligation on the claimant to provide direct evidence by attending a patriotic church; documentary record supporting allegations is sufficient.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ]
+   },
+   {
+    "quote": "the Board did not probe the applicant\u2019s belief in the importance of the first commandment, and made no negative credibility finding",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "applicant",
+    "claim": "The Board made no negative credibility finding regarding the applicant's religious beliefs and accepted he was a practising Christian.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ]
+   },
+   {
+    "quote": "the applicant cites Song v. Canada, Zhu v. Canada, and Zhou v. Canada as recent examples where this Court has quashed Board decisions",
+    "paragraphs": [
+     20
+    ],
+    "made_by": "applicant",
+    "claim": "The Board erred as prior cases quashed decisions for failing to consider theological differences between patriotic and house churches.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "Song v. Canada; Zhu v. Canada; Zhou v. Canada",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Canada (Minister of Citizenship and Immigration), 2009 FC 1210, as recent examples where this Court has quashed Board decisions on the basis that the documentary record supported distinctions between the theological practice of patriotic churches and house churches, and therefore supported the allegation of restrictions on the claimant\u2019s freedom of religion if they were expected to practise their religion in a patriotic church."
+   },
+   {
+    "quote": "the respondent attempts to distinguish Zhu and Song",
+    "paragraphs": [
+     21
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent argues the present case differs because the Board considered the applicant's religious conviction and that Song involved cumulative errors.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "quote": "the Board\u2019s decision that the applicant could freely practice his religion in a patriotic church was unreasonable",
+    "paragraphs": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board erred in concluding the applicant could freely practice religion in a patriotic church.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "the applicant submits that the Board\u2019s preference for the documentary evidence over the applicant\u2019s testimony was unreasonable because it had found him to be credible",
+    "paragraphs": [
+     24
+    ],
+    "made_by": "applicant",
+    "claim": "The Board erred in preferring documentary evidence over the applicant's credible testimony without specific negative credibility findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "the respondent submits that it was reasonable for the Board to rely on the dearth of documentary evidence regarding persecution in Fujian Province",
+    "paragraphs": [
+     25
+    ],
+    "made_by": "respondent",
+    "claim": "The Board reasonably relied on lack of documentary evidence of persecution in Fujian Province to reject the applicant's claim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ]
+   },
+   {
+    "quote": "when an applicant swears to the truth of certain allegations, this creates a presumption that those allegations are true unless there be reason to doubt their truthfulness",
+    "paragraphs": [
+     26
+    ],
+    "made_by": "applicant",
+    "claim": "There is a presumption of truthfulness in the applicant's sworn allegations unless reasons to doubt are clearly stated.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "Maldonado v. Canada; Hilo v. Canada",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ]
+   },
+   {
+    "quote": "the applicant correctly notes that the Board made no explicit negative credibility finding regarding his testimony",
+    "paragraphs": [
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "The Board erred by preferring documentary evidence without making explicit negative credibility findings on the applicant's testimony.",
+    "treatment": "rejected",
+    "outcome_note": "The Court did not accept this submission as the Board's preference was indirect credibility assessment.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   },
+   {
+    "quote": "where the only evidence of a fact is a statement of a witness who has been found not to be credible, it is open to the fact finder to say that the fact has not been proven",
+    "paragraphs": [
+     28
+    ],
+    "made_by": "tribunal_below",
+    "claim": "A fact finder may reject a fact if the witness is not credible and no other evidence supports it.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ]
+   },
+   {
+    "quote": "the trier of fact may find the witness to be credible and accept everything said by the witness without corroborative evidence",
+    "paragraphs": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "If no evidence casts doubt, the fact finder may accept witness testimony without corroboration.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "if evidence has been led that casts some doubt on the truthfulness of the testimony of that witness, then the fact finder must undertake an assessment of all of the evidence",
+    "paragraphs": [
+     30
+    ],
+    "made_by": "tribunal_below",
+    "claim": "If there is evidence casting doubt on testimony, the fact finder must assess all evidence before concluding.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ]
+   },
+   {
+    "quote": "there was other evidence before the Board that brought his evidence of the raid into question",
+    "paragraphs": [
+     31
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Documentary evidence cast doubt on the applicant's testimony about the raid on his house church.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ]
+   },
+   {
+    "quote": "the documentary evidence does lead to an inference that no such raid occurred",
+    "paragraphs": [
+     32
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Documentary evidence suggested no raid occurred in Fujian Province due to lack of reports and other factors.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ]
+   },
+   {
+    "quote": "the Board chose to accept the independent documentary evidence over the applicant\u2019s testimony",
+    "paragraphs": [
+     33
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board reasonably preferred documentary evidence over the applicant's testimony without explicit negative credibility findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   },
+   {
+    "quote": "the Board therefore concluded that the alleged persecutory events had not been proven to have occurred",
+    "paragraphs": [
+     34
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board concluded the applicant failed to prove persecution based on documentary evidence and absence of risk factors.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ]
+   },
+   {
+    "quote": "the Court was specifically directed to the transcript of the applicant\u2019s oral testimony",
+    "paragraphs": [
+     35
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board's assessment of the applicant and his house church was reasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ]
+   },
+   {
+    "quote": "while the Board erred in its finding that the applicant could freely practise his religion at a patriotic church in China, it does not automatically follow that the decision must be set aside",
+    "paragraphs": [
+     36
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board's error on religious practice in patriotic churches does not require setting aside the entire decision.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ]
+   },
+   {
+    "quote": "the result that there was not a serious possibility that the applicant would be persecuted ... was a reasonable conclusion",
+    "paragraphs": [
+     38
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board's overall conclusion that the applicant was not at serious risk of persecution was reasonable.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": []
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "this application is dismissed",
+    "paragraphs": [
+     1
+    ],
+    "kind": "remedy",
+    "statement": "The judicial review application is dismissed.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "the proper characterization of the issues raised by the applicant are the following",
+    "paragraphs": [
+     12
+    ],
+    "kind": "procedural_point",
+    "statement": "The Court framed the issues as whether the Board erred in concluding the applicant could freely practice religion in a patriotic church and in relying on documentary evidence over the applicant's evidence without specific credibility findings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "the Board\u2019s decision that the applicant could freely practice his religion in a patriotic church was unreasonable",
+    "paragraphs": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The Board erred in concluding the applicant could freely practice his religion in a patriotic church.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ]
+   },
+   {
+    "quote": "the Board chose to accept the independent documentary evidence over the applicant\u2019s testimony",
+    "paragraphs": [
+     33
+    ],
+    "kind": "reason",
+    "statement": "The Board reasonably preferred documentary evidence over the applicant's testimony due to its independent nature and lack of personal interest.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ]
+   },
+   {
+    "quote": "the Board therefore concluded that the alleged persecutory events had not been proven to have occurred",
+    "paragraphs": [
+     34
+    ],
+    "kind": "reason",
+    "statement": "The Board concluded the applicant failed to prove the alleged persecution based on documentary evidence and absence of risk factors.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ]
+   },
+   {
+    "quote": "the result that there was not a serious possibility that the applicant would be persecuted ... was a reasonable conclusion",
+    "paragraphs": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "The Board's overall conclusion that the applicant was not at serious risk of persecution was reasonable and the refugee claim denial was upheld.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": []
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "the respondent submits that the Board\u2019s conclusion was reasonable because the applicant did not lead any direct evidence to support his assertion",
+    "paragraphs": [
+     14
+    ],
+    "point": "The Board\u2019s conclusion was reasonable due to lack of direct evidence and distinguishability of cited cases",
+    "made_by": "respondent",
+    "court_answer": "The Court found that the Board's failure to consider contradictory documentary evidence was an error and that direct evidence was not required from the applicant.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ]
+   },
+   {
+    "quote": "the respondent argues that the Board\u2019s failure to consider this evidence does not amount to a reviewable error",
+    "paragraphs": [
+     16
+    ],
+    "point": "The Board\u2019s failure to consider contradictory documentary evidence was not a reviewable error",
+    "made_by": "respondent",
+    "court_answer": "The Court disagreed, holding that failure to consider contradictory evidence was a reviewable error.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   },
+   {
+    "quote": "the respondent attempts to distinguish Zhu and Song",
+    "paragraphs": [
+     21
+    ],
+    "point": "The respondent argues the present case differs because the Board considered the applicant's religious conviction and that Song involved cumulative errors",
+    "made_by": "respondent",
+    "court_answer": "The Court noted that the present case is akin to Zhou where the Board failed to consider evidence supporting theological differences, thus the respondent's distinctions were rejected.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ]
+   },
+   {
+    "quote": "the applicant submits that the Board\u2019s preference for the documentary evidence over the applicant\u2019s testimony was unreasonable because it had found him to be credible",
+    "paragraphs": [
+     24
+    ],
+    "point": "The Board erred in preferring documentary evidence over the applicant's credible testimony without specific negative credibility findings",
+    "made_by": "applicant",
+    "court_answer": "The Court rejected this submission, finding the Board's preference for documentary evidence was reasonable and did not require explicit negative credibility findings.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "the applicant correctly notes that the Board made no explicit negative credibility finding regarding his testimony",
+    "paragraphs": [
+     27
+    ],
+    "point": "The Board erred by preferring documentary evidence without making explicit negative credibility findings on the applicant's testimony",
+    "made_by": "applicant",
+    "court_answer": "The Court did not accept this, holding that the Board's preference for documentary evidence amounted to an indirect credibility assessment and was reasonable.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "it is trite that the more contradictory the evidence, the more likely a decision-maker\u2019s failure to consider that evidence will amount to a reviewable error: Cepeda-Gutierrez v. Canada (Minister of Citizenship and Immigration) (1998), 157 F.T.R. 35",
+    "paragraphs": [
+     16
+    ],
+    "authority": "Cepeda-Gutierrez v. Canada",
+    "treatment": "followed",
+    "why": "Supports that failure to consider contradictory evidence is a reviewable error.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ]
+   },
+   {
+    "quote": "when an applicant swears to the truth of certain allegations, this creates a presumption that those allegations are true unless there be reason to doubt their truthfulness: Maldonado v. Canada (Minister of Employment and Immigration), [1980] 2 F.C. 302 (C.A.)",
+    "paragraphs": [
+     26
+    ],
+    "authority": "Maldonado v. Canada",
+    "treatment": "followed",
+    "why": "Establishes presumption of truthfulness in sworn allegations.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ]
+   },
+   {
+    "quote": "if the Board has reasons to doubt the overall truthfulness of a claimant\u2019s evidence it is under a duty to give its reasons for casting doubt upon the appellant's credibility in clear and unmistakable terms: Hilo v. Canada (Minister of Employment and Immigration) (1991), 15 Imm. L.R. (2d) 199 (F.C.A.)",
+    "paragraphs": [
+     26
+    ],
+    "authority": "Hilo v. Canada",
+    "treatment": "followed",
+    "why": "Requires clear reasons for negative credibility findings.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "Neither party proposed a question for certification and in my view there is none",
+    "paragraphs": [
+     39
+    ],
+    "issue": "Certified question",
+    "reason": "No question was proposed or certified by the parties.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ]
+   }
+  ]
+ }
+}

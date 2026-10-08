@@ -1,0 +1,641 @@
+{
+ "case_id": 62466,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.007782000000000001
+ },
+ "verification": {
+  "points": 37,
+  "calls": 7,
+  "answered": 17,
+  "points_returned": 37,
+  "answer_ids_dropped": 27
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD rejected the claims of XXXX and XXXX due to their birth in the U.S.A.",
+   "party_ids": [
+    "1.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "6.1"
+   ],
+   "answer_paragraphs": [
+    6
+   ],
+   "answer_quote": "Before analyzing XXXX claim, the RPD correctly determined that XXXX and XXXX, because of their births in the U.S.A., are not refugees or persons in need of protection under Sections 96 or 97(1) of the IRPA and that for this reason, their claim was denied.",
+   "why": "The court accepts the RPD's rejection of claims of the two children due to their U.S. birth."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD rejected the claim of XXXX based on the existence of an internal flight alternative in Lagos, Nigeria.",
+   "party_ids": [
+    "1.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "6.4"
+   ],
+   "answer_paragraphs": [
+    6
+   ],
+   "answer_quote": "Furthermore, the RPD found that XXXX did not refute the presumption of State Protection and that she had a viable IFA in Lagos, Nigeria.",
+   "why": "The court accepts the RPD's finding of an internal flight alternative in Lagos for XXXX."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The appellants claim refugee protection from Canada based on fear of violence and threat of death from XXXX, the ex-husband and alleged agent of persecution, if they return to Nigeria.",
+   "party_ids": [
+    "2.1"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "5.2",
+    "5.3",
+    "5.4",
+    "5.5",
+    "5.6",
+    "6.2",
+    "6.3",
+    "6.5"
+   ],
+   "answer_paragraphs": [
+    5,
+    6
+   ],
+   "answer_quote": "She fears that, if she returns to Nigeria, XXXX will kill her, sell her body back to her family to recover the bride price and harm or kill XXXX and XXXX. XXXX explained that she was married to XXXX on XXXX XXXX, 2013, and that between that date and the date of her departure for the U.S.A., specifically XXXX XXXX & XXXX XXXX 2014, she twice attempted to flee from the marriage and from XXXX because of his brutality. The first of these escapes was on XXXX XXXX, 2013 (less than one month from the date of marriage) when XXXX fled to Asaba and was found by XXXX the next day. XXXX second attempted escape was to Lagos on XXXX XXXX, 2013, but XXXX located her within hours and proceeded to beat her in front of her sister. XXXX contended that she proceeded to leave Nigeria as soon as she could procure a Visa to the U.S.A. The RPD then acknowledged and confirmed XXXX credibility about being the victim of persecutory sexual, physical and psychological incidents by XXXX. The RPD, however, did not find XXXX credible about her forward-looking fear of any possible future serious risk of persecution from XXXX. As such, the RPD found that XXXX was not a refugee or a person in need of protection according to the IRPA.",
+   "why": "The court accepts the claim of past persecution but rejects the forward-looking fear and finds no refugee protection for XXXX."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "XXXX is not the father of the two minor children, XXXX and XXXX.",
+   "party_ids": [
+    "2.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that XXXX is not the father of the two minor children."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD identified the key issues as XXXX's credibility regarding forward-looking risk, rebuttal of the presumption of State protection, and the availability of an internal flight alternative in Lagos.",
+   "party_ids": [
+    "3.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's identification of key issues in the claim."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "The applicant alleges her father forced her into an arranged marriage and that her husband beat, raped, and threatened her life multiple times.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "6.2",
+    "6.3"
+   ],
+   "answer_paragraphs": [
+    6
+   ],
+   "answer_quote": "The RPD then acknowledged and confirmed XXXX credibility about being the victim of persecutory sexual, physical and psychological incidents by XXXX. The RPD, however, did not find XXXX credible about her forward-looking fear of any possible future serious risk of persecution from XXXX.",
+   "why": "The court accepts the allegations of abuse but rejects the credibility of forward-looking fear."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "She fears that if she returns to Nigeria, her husband will kill her, sell her body back to her family to recover the bride price, and harm or kill her children.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "6.3",
+    "6.4"
+   ],
+   "answer_paragraphs": [
+    6
+   ],
+   "answer_quote": "The RPD, however, did not find XXXX credible about her forward-looking fear of any possible future serious risk of persecution from XXXX. Furthermore, the RPD found that XXXX did not refute the presumption of State Protection and that she had a viable IFA in Lagos, Nigeria.",
+   "why": "The tribunal rejected her forward-looking fear and found state protection and a viable IFA available."
+  },
+  {
+   "pid": "P8",
+   "party_by": "applicant",
+   "party_text": "The applicant explained she was married in 2013 and twice attempted to flee the marriage due to brutality before leaving for the U.S.A.",
+   "party_ids": [
+    "5.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "6.2"
+   ],
+   "answer_paragraphs": [
+    6
+   ],
+   "answer_quote": "The RPD then acknowledged and confirmed XXXX credibility about being the victim of persecutory sexual, physical and psychological incidents by XXXX.",
+   "why": "The tribunal acknowledged and confirmed her credibility about being a victim of persecution."
+  },
+  {
+   "pid": "P9",
+   "party_by": "applicant",
+   "party_text": "Her first escape attempt was less than one month after marriage when she fled to Asaba but was found the next day by her husband.",
+   "party_ids": [
+    "5.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not respond specifically to this point."
+  },
+  {
+   "pid": "P10",
+   "party_by": "applicant",
+   "party_text": "Her second escape attempt was to Lagos but her husband located her within hours and beat her in front of her sister.",
+   "party_ids": [
+    "5.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not respond specifically to this point."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "She contended that she left Nigeria as soon as she could procure a visa to the U.S.A.",
+   "party_ids": [
+    "5.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not respond specifically to this point."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD determined that the children born in the U.S.A. are not refugees or persons in need of protection under the IRPA and denied their claims.",
+   "party_ids": [
+    "6.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The tribunal confirmed the RPD's determination about the children not being refugees or needing protection."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD acknowledged and confirmed the applicant's credibility about being a victim of persecutory sexual, physical, and psychological incidents by her husband.",
+   "party_ids": [
+    "6.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's acknowledgment of the applicant's credibility about being a victim of persecution."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD did not find the applicant credible about her forward-looking fear of any possible future serious risk of persecution from her husband.",
+   "party_ids": [
+    "6.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that the applicant was not credible about her forward-looking fear."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the applicant did not refute the presumption of State Protection and that she had a viable internal flight alternative in Lagos, Nigeria.",
+   "party_ids": [
+    "6.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that the applicant did not refute State Protection and had a viable internal flight alternative."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the applicant was not a refugee or a person in need of protection according to the IRPA.",
+   "party_ids": [
+    "6.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that the applicant was not a refugee or person in need of protection."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "The RPD erred in its examination of her forward-looking fears and in its determination that she is no longer searching for her.",
+   "party_ids": [
+    "7.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court does not respond to the applicant's claim of error regarding forward-looking fears in the text shown."
+  },
+  {
+   "pid": "P18",
+   "party_by": "applicant",
+   "party_text": "The RPD erred in its conclusion that State Protection is available to her and that she has a viable internal flight alternative in Lagos.",
+   "party_ids": [
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court does not respond to the applicant's claim of error regarding State Protection and internal flight alternative in the text shown."
+  },
+  {
+   "pid": "P19",
+   "party_by": "applicant",
+   "party_text": "The RPD incorrectly interpreted the relevant documents contained in the Nigerian National Documentation Package and did not properly consider the IRB Jurisprudential or Gender Guidelines when rendering its decision.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "8.1"
+   ],
+   "answer_paragraphs": [
+    8
+   ],
+   "answer_quote": "In rendering its decision, the RAD considered and re-read the IRB RAD decision numbered TB7-198512; the latter of which has been identified by the IRB as a Jurisprudential Guide for Nigerian cases (hereinafter the \"Nigerian JG\") and the IRB Chairperson's Guideline #4: Women Refugee Claimants Fearing Gender-Related Persecution (hereinafter \"Guideline 4\").",
+   "why": "The RAD acknowledges the applicant's argument and states it considered the relevant jurisprudential and gender guidelines but finds some RPD errors."
+  },
+  {
+   "pid": "P20",
+   "party_by": "applicant",
+   "party_text": "She does not contest the RPD's findings about the lack of any fear by two other appellants from the U.S.A.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.1",
+    "12.3"
+   ],
+   "answer_paragraphs": [
+    12
+   ],
+   "answer_quote": "The RAD recognizes and finds that XXXX and XXXX are minors born in the U.S.A. and agrees with the RPD's finding that XXXX and XXXX do not have any Convention ground upon which to fear from the U.S.A. and that, therefore, they are not refugees or persons in need of protection. As such, the RAD finds that XXXX and XXXX are not refugees or persons in need of protection under Sections 96 or 97(1) of the IRPA.",
+   "why": "The RAD agrees with the RPD's findings about the minors' lack of fear from the U.S.A. and that they are not refugees."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "The applicant submitted new evidence before the RAD.",
+   "party_ids": [
+    "10.1"
+   ],
+   "answered": true,
+   "verdict": "not_decided",
+   "answer_ids": [
+    "10.2",
+    "10.3"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "Considering the RAD's ultimate findings, as detailed below, the RAD need not determine or render any decision as to the validity and acceptance, or not, of the new evidence tendered upon appeal to the RAD. No document submitted as new evidence could have or would have changed the decisions surrounding XXXX or XXXX and none of the new evidence is pertinent to or would otherwise impact the RAD's ultimate decision.",
+   "why": "The RAD notes new evidence was submitted but declines to decide on its validity or impact."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the minors XXXX and XXXX do not have any Convention ground to fear from the U.S.A. and are not refugees or persons in need of protection.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "12.3"
+   ],
+   "answer_paragraphs": [
+    12
+   ],
+   "answer_quote": "As such, the RAD finds that XXXX and XXXX are not refugees or persons in need of protection under Sections 96 or 97(1) of the IRPA.",
+   "why": "The RAD agrees with the RPD's finding that the minors do not have a Convention ground to fear from the U.S.A."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the applicant credibly established past physical, sexual and psychological abuse but did not credibly establish her forward looking fear due to omissions in her Bases of Claim.",
+   "party_ids": [
+    "13.1"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "15.1"
+   ],
+   "answer_paragraphs": [
+    15
+   ],
+   "answer_quote": "The RAD finds that the RPD incorrectly assessed XXXX forward-looking fears of XXXX.",
+   "why": "The RAD accepts the past abuse finding but finds the RPD erred in assessing forward-looking fear."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD identified specific omissions in the applicant's Bases of Claim including failure to mention her ex-husband's political killings, failure to report threats to police in the U.S., failure to reference ritualist beliefs, inconsistent testimony about police complaints, and mixed evidence about state protection in Nigeria.",
+   "party_ids": [
+    "13.2",
+    "13.3",
+    "13.4"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "15.2",
+    "15.3"
+   ],
+   "answer_paragraphs": [
+    15
+   ],
+   "answer_quote": "The RAD finds that the RPD erred in its consideration of XXXX BoC and her description of XXXX. The RAD notes that XXXX BoC does not contain a separately annexed \"narrative\" of her personal situation; a fact which the RAD considers a confirmation of XXXX ignorance (as she so testified) of the level of detail that is typically provided in a BoC when a claimant is otherwise represented by legal counsel.",
+   "why": "The RAD acknowledges the omissions but finds the RPD erred in its consideration of the BoC and forward-looking fear."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "The applicant argues that the RPD erred in its credibility analysis and in its determination of adequate state protection in Nigeria.",
+   "party_ids": [
+    "14.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "15.1",
+    "15.2",
+    "16.6"
+   ],
+   "answer_paragraphs": [
+    15,
+    16
+   ],
+   "answer_quote": "The RAD finds that the RPD incorrectly assessed XXXX forward-looking fears of XXXX. The RAD finds that the RPD erred in its consideration of XXXX BoC and her description of XXXX. In essence, the RPD incorrectly asked XXXX for proof of an act of murder; a burden of proof which the RAD finds to be far beyond what is needed for the filing of a refugee claim.",
+   "why": "The RAD finds the RPD erred in credibility analysis and state protection assessment as argued by the applicant."
+  },
+  {
+   "pid": "P26",
+   "party_by": "applicant",
+   "party_text": "The applicant asserts she was unrepresented when completing her Bases of Claim, explaining the lack of certain specifics about her ex-husband.",
+   "party_ids": [
+    "14.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "15.3"
+   ],
+   "answer_paragraphs": [
+    15
+   ],
+   "answer_quote": "The RAD notes that XXXX BoC does not contain a separately annexed \"narrative\" of her personal situation; a fact which the RAD considers a confirmation of XXXX ignorance (as she so testified) of the level of detail that is typically provided in a BoC when a claimant is otherwise represented by legal counsel.",
+   "why": "The RAD accepts the applicant's explanation for lack of specifics due to being unrepresented when completing the BoC."
+  },
+  {
+   "pid": "P27",
+   "party_by": "applicant",
+   "party_text": "The applicant contends that a letter from a friend and testimony about a threatening phone call demonstrate her ex-husband's continued interest and efforts to find her.",
+   "party_ids": [
+    "14.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The text does not respond to the applicant's contention about the letter and phone call evidence."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD stated it would consider both the Nigerian NDP and Guideline 4 but was silent on the applicability of Guideline 4 in the applicant's file.",
+   "party_ids": [
+    "23.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD stated it would consider both documents but was silent on Guideline 4's applicability."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD acknowledged the Nigerian NDP is critical of police intervention and their ability to protect women, and accepted that legislation exists but is not enforced, supported by statistical evidence.",
+   "party_ids": [
+    "24.1",
+    "24.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD acknowledged the Nigerian NDP's criticism of police and accepted legislation exists but is unenforced with statistical support."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD agreed that Nigerian authorities are generally willing and able to provide protection from non-state agents, but women face greater difficulties, especially regarding sexual and gender-based violence.",
+   "party_ids": [
+    "24.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD agreed Nigerian authorities generally provide protection but women face greater difficulties, especially with sexual and gender-based violence."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD acknowledged the NDP documents are critical of Nigerian police and noted Lagos State as the most organized state applying domestic violence laws in practice.",
+   "party_ids": [
+    "24.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD acknowledged the NDP's criticism of police and noted Lagos State's relative organization in applying domestic violence laws."
+  },
+  {
+   "pid": "P32",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the documentary evidence from the NDP to be mixed and not clear and convincing regarding inadequate state protection in Nigeria.",
+   "party_ids": [
+    "24.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the RPD found the NDP evidence mixed and not clear and convincing regarding inadequate state protection."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the applicant had a viable internal flight alternative (IFA) in Lagos, Nigeria, based on her education and work experience and similarity to the Nigerian JG case.",
+   "party_ids": [
+    "27.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD found the applicant had a viable IFA in Lagos based on education, work experience, and similarity to Nigerian JG."
+  },
+  {
+   "pid": "P34",
+   "party_by": "applicant",
+   "party_text": "The applicant argues that the RPD incorrectly assessed her two attempted escapes and misapplied the Nigerian JG to her file.",
+   "party_ids": [
+    "28.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "29.1",
+    "31.1",
+    "32.6",
+    "32.9"
+   ],
+   "answer_paragraphs": [
+    29,
+    31,
+    32
+   ],
+   "answer_quote": "The RAD finds that the RPD incorrectly considered Lagos as a viable IFA and incorrectly referenced and applied the Nigerian JG to XXXX file. The RAD finds that the RPD's determination of a viable IFA in Lagos is incorrect. Third, the RAD finds the Nigerian JG inapplicable in XXXX file. The RAD finds that the Nigerian JG is not sufficiently similar to the facts of XXXX case and, for this reason, determines that the RPD incorrectly applied it to her.",
+   "why": "The RAD finds the RPD incorrectly assessed the escapes and misapplied the Nigerian JG to the applicant's file."
+  },
+  {
+   "pid": "P35",
+   "party_by": "applicant",
+   "party_text": "The applicant argues that Lagos would be an unreasonable IFA because she was discovered there during one of her escape attempts.",
+   "party_ids": [
+    "28.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "29.1",
+    "31.1",
+    "32.2",
+    "32.3",
+    "32.4",
+    "32.5"
+   ],
+   "answer_paragraphs": [
+    29,
+    31,
+    32
+   ],
+   "answer_quote": "The RAD finds that the RPD incorrectly considered Lagos as a viable IFA and incorrectly referenced and applied the Nigerian JG to XXXX file. The RAD finds that the RPD's determination of a viable IFA in Lagos is incorrect. First, the Nigerian NDP clearly establishes that a single woman with children would struggle to find employment and housing in Lagos, as such it is incorrect for the RPD to state that \"...there should not be any circumstance that would be unreasonable in your circumstances for you to return to Lagos\". Second, XXXX has already demonstrated an ability locate and retrieve XXXX in two separate regions/cities/States (i.e. Asaba and Lagos). There is no evidence before the RAD which demonstrates that XXXX would not do the same once he has discovered XXXX return to Lagos.",
+   "why": "The RAD finds Lagos is not a reasonable IFA because the applicant was discovered there and the RPD's reasoning is incorrect."
+  },
+  {
+   "pid": "P36",
+   "party_by": "applicant",
+   "party_text": "The applicant argues that the facts in the Nigerian JG differ greatly from her situation and should not be applied to her file.",
+   "party_ids": [
+    "28.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "32.6",
+    "32.7",
+    "32.8",
+    "32.9"
+   ],
+   "answer_paragraphs": [
+    32
+   ],
+   "answer_quote": "Third, the RAD finds the Nigerian JG inapplicable in XXXX file. The Nigerian JG refers to facts in which a single woman is seeking to escape from a forced Female Genital Mutilation (FGM) procedure/tradition and Lagos is determined to be a reasonable and viable IFA because FGM is infrequently practiced in Lagos. The claimant that was the subject of the Nigerian JG was not a woman who had previously attempted to escape her persecutors by fleeing to Lagos before being retrieved by her persecutors in Lagos. The RAD finds that the Nigerian JG is not sufficiently similar to the facts of XXXX case and, for this reason, determines that the RPD incorrectly applied it to her.",
+   "why": "The RAD finds the Nigerian JG facts differ greatly and are inapplicable to the applicant's situation."
+  },
+  {
+   "pid": "P37",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found Lagos to be a viable IFA because of the large population and because the applicant escaped to her sister's home there, believing she could live elsewhere in Lagos and that her education and work experience made return reasonable.",
+   "party_ids": [
+    "31.2",
+    "31.3",
+    "31.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The RAD accurately summarizes the RPD's findings about Lagos as a viable IFA based on population and applicant's circumstances."
+  }
+ ]
+}

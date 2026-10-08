@@ -1,0 +1,1438 @@
+{
+ "case_id": 50174,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "bundle_themes10",
+ "usage": {
+  "usd": 0.016974
+ },
+ "verification": {
+  "items": 70,
+  "quote_exact_in_cited": 70,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 7,
+  "calls": 9,
+  "gap_pass_calls": 1,
+  "paragraph_coverage": 0.974,
+  "rows": {
+   "themes": 3,
+   "arguments": 40,
+   "holdings": 28,
+   "rebuttals": 2,
+   "authorities": 0,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The refugee claim is rejected due to the claimant's lack of credibility, as the panel found significant inconsistencies and implausibilities in his evidence that were not satisfactorily explained.",
+  "themes": [
+   {
+    "name": "Credibility Issues",
+    "summary": "The claimant's evidence contained multiple inconsistencies and implausibilities that undermined his credibility, including conflicting detention dates and knowledge of political groups.",
+    "paragraphs": [
+     18,
+     19,
+     20,
+     29,
+     30,
+     33,
+     34,
+     36
+    ]
+   },
+   {
+    "name": "Counsel Performance and Impact",
+    "summary": "Although counsel had illness and performance issues, the panel ensured the claimant was not penalized for these and found counsel's errors did not justify a positive decision.",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     17
+    ]
+   },
+   {
+    "name": "Interpretation and Interview Process",
+    "summary": "The claimant alleged interpretation problems during the immigration interview, but the panel found no evidence supporting these claims and did not accept the explanations for inconsistencies based on interpretation issues.",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identity and Claim Background",
+    "first_paragraph": 1,
+    "last_paragraph": 11,
+    "disposition": "other"
+   },
+   {
+    "label": "Determination of Refugee Status and Protection Need",
+    "first_paragraph": 12,
+    "last_paragraph": 12,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Credibility Assessment",
+    "first_paragraph": 13,
+    "last_paragraph": 37,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Counsel Illness and Competence",
+    "first_paragraph": 14,
+    "last_paragraph": 17,
+    "disposition": "found_harmless"
+   },
+   {
+    "label": "Conclusion and Claim Rejection",
+    "first_paragraph": 38,
+    "last_paragraph": 39,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "He claims protection under ss. 96 and 97 of Immigration and Refugee Protection Act (IRPA).1 ALLEGATIONS From original Personal Information Form (PIF) Narrative (Exhibit C-1):",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant claims protection under sections 96 and 97 of the Immigration and Refugee Protection Act (IRPA).",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Panel finds the claimant not to be a Convention refugee under section 96, as he does not have a well-founded fear of persecution in Iran on any of the five Convention grounds.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant is not a Convention refugee under section 96 because he does not have a well-founded fear of persecution in Iran on any of the five Convention grounds.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Panel also finds that the claimant is not a person in need of protection under section 97 as, on a balance of probabilities, his removal to Iran would not subject him personally to a risk to life or to a risk of cruel and unusual treatment or punishment, or to a danger of torture.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant is not a person in need of protection under section 97 because, on a balance of probabilities, his removal to Iran would not subject him personally to a risk to life, cruel and unusual treatment or punishment, or danger of torture.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Counsel took responsibility for this, citing both illness and simply not getting around to it.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "Counsel took responsibility for the late submission of the PIF Narrative, citing illness and not getting around to it.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "She claimed that she was going to amend the PIF before the hearing, but forgot, due to her illness.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "applicant",
+    "claim": "Counsel claimed she was going to amend the PIF before the hearing but forgot due to illness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Counsel at that point volunteered that on this case, she had not provided adequate representation for her client, and apologized.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "Counsel volunteered that she had not provided adequate representation and apologized.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Panel also notes the last paragraph of his Declaration (Exhibit R/A-4), written by the claimant at the end of his interview process. This indicates that the claimant, at the time, at least, had no complaints at all about the interview process, in fact, the opposite was true.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1",
+     "24.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant had no complaints about the interview process and found the immigration personnel respectful and compassionate.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Further, on the form IMM 5474, part of Exhibit R/A-2, at the end, the claimant signed that what was contained therein was true, and that he had asked for explanation of any point unclear to him. There is also the declaration of the interpreter, over the phone, that the interpreter interpreted the contents of the form to the claimant, and that the claimant had informed the interpreter that he understood it.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1",
+     "25.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant signed a form stating the information was true and that he had asked for explanations of unclear points, with an interpreter confirming the claimant understood the form.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant said he did complain about the interpreter, and the Immigration Officer repeated questions. The claimant also said that he requested a Kurdish interpreter, but was told none was available.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1",
+     "26.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant said he complained about the interpreter and repeated questions, and requested a Kurdish interpreter but was told none was available.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "There is no mention of these exchanges in the record, and the Panel has found above that this did not occur, at least in the interview the record of which was nine pages long.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There is no mention of complaints about the interpreter or repeated questions in the interview record, and the panel found these did not occur in the recorded interview.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Panel also notes that the Declaration was done free-hand by the claimant, with no interpretation at the time, and it was done in Farsi (Persian).",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant's declaration was done free-hand in Farsi without interpretation at the time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In response to questions by counsel, the claimant indicated that when he signed the forms wherein he indicated that the information he provided was true and was interpreted to him, it was in fact the next day, and it was not interpreted to him. However, he was asked to sign, so he did. The claimant also indicated that he was in a poor mental state when he came to Canada and attended at Immigration for interviews.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1",
+     "27.2",
+     "27.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant said he signed forms the next day without interpretation because he was asked to, and was in a poor mental state during immigration interviews.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "There are other very significant inconsistencies as well.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There are significant inconsistencies in the claimant's evidence regarding the dates of his first detention.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He said they were XXXXX, 2005, to XXXXX 2005. In his PIF, section 9, he wrote that it was from XXXXX, 2005 to XXXXX, 2005. In IMM 5474, the Immigration form discussed above, he said it was in a different year entirely, from XXXXX, 2006 to XXXXX, 2006.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3",
+     "29.6",
+     "29.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant gave different dates for his first detention at the hearing, in his PIF, and on an immigration form, with the form dates being in a different year.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "With respect to IMM 5474, the claimant indicated that this was the second detention, and this will be dealt with below.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant said the dates on the immigration form were for his second detention, not the first.",
+    "treatment": "not_decided",
+    "outcome_note": "The panel did not decide on this point here.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, the inconsistency remains between what he said at the hearing and what he had written in the PIF.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The inconsistency between the hearing testimony and the PIF dates remains unresolved.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This the claimant blamed on the interpreter at counsel's office. He said this interpreter copied some dates from the interview record with Immigration, and gave examples that the claimant's birthdate was recorded wrong.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.3",
+     "30.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant blamed the incorrect PIF dates on the interpreter at counsel's office copying dates incorrectly.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Then counsel got up and showed the Panel a copy she had of the PIF, which appeared to indicate some changes in pen or pencil to section 9 of the PIF. Counsel indicated that this was evidence that she intended to change section 9 of the PIF before the claimant swore to it at the hearing, but forgot due to her illness. The Panel did not clearly see what counsel had notated by hand in her copy of the PIF, nor was it requested to be entered as an Exhibit, and it was not. She indicated correctly that the revised Narrative indicated that the claimant was arrested on XXXXX, 2005.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1",
+     "31.2",
+     "31.3",
+     "31.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "made_by": "applicant",
+    "claim": "Counsel showed the panel a copy of the PIF with handwritten changes indicating an intention to correct section 9 before the claimant swore to it, but forgot due to illness.",
+    "treatment": "partly_accepted",
+    "outcome_note": "The panel understood counsel's point but did not see the handwritten notes clearly and they were not entered as evidence.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "When considering all the above, from this inconsistency, only partially explained satisfactorily, the Panel will make a negative inference as to credibility, although the impact of this finding is partially mitigated by counsel's explanation.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The panel makes a negative inference as to the claimant's credibility from the partially explained inconsistency about detention dates, though the impact is partially mitigated by counsel's explanation.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Yet another inconsistency arose with respect to the dates of the claimant's alleged second detention. In IMM 5474, the Immigration form discussed above, the claimant indicated that he was detained from XXXXX, 2006 to XXXXX, 2006. However, in his PIF, he indicated that he was released from custody, and escaped from Iran, in XXXXX 2007, and at the hearing the claimant repeated that what he said in the PIF was correct.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1",
+     "33.2",
+     "33.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Another inconsistency arose regarding the dates of the claimant's second detention between the immigration form and the PIF and hearing testimony.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This time he blamed it on the Immigration interpreter mixing up the dates of the Persian and Canadian calendars.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant blamed the inconsistency about the second detention dates on the immigration interpreter mixing up Persian and Canadian calendar dates.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Incidentally, counsel submitted that the claimant's testimony should be considered keeping in mind that he has memory problems.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "respondent",
+    "claim": "Counsel submitted that the claimant's testimony should be considered keeping in mind that he has memory problems.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The claimant was questioned about XXXXX XXXXX, the XXXXX XXXXX he allegedly supported. He was asked where he died, and he replied Teheran, or Iraq. He was asked how XXXXX, a XXXXX XXXXX XXXXX XXXXX would be allowed to live in Iran, and the claimant quickly corrected himself and said he died in London, and that he, the claimant, had made a mistake. This indicates that the claimant has little knowledge of the party he claims to support in Iran. Given the other concerns regarding the claimant's credibility, the Panel makes a further negative inference as to credibility from the claimant's inconsistency, then quick reversal, on this matter.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1",
+     "34.2",
+     "34.3",
+     "34.4",
+     "34.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant was questioned about the party he allegedly supported and gave inconsistent answers about where a key figure died, indicating little knowledge of the party.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Given the other concerns regarding the claimant's credibility, the Panel makes a further negative inference as to credibility from the claimant's inconsistency, then quick reversal, on this matter.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel made a negative inference as to credibility from the claimant's inconsistency and quick reversal on the matter of where the key figure died.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Panel has also identified one significant implausibility relating to central elements of the claimant's Narrative. The claimant indicated that the regime, from the time the claimant left Iran in 2007, until XXXXX 2010, has frequently been interrogating his wife to determine the claimant's whereabouts. He wrote in his revised Narrative that she is required to report to the sepah every two months, and indicated at the hearing that she still is interrogated by them. T he claimant testified that the regime still does not know that he is in Canada, because his wife consistently tells the sepah that she does not know where he is. The Panel finds it implausible that the claimant's wife would not have been forced to reveal that the claimant went to Canada, if she had been regularly interrogated by the Iranian regime for over two years as the claimant alleged.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1",
+     "36.2",
+     "36.3",
+     "36.4",
+     "36.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel identified a significant implausibility relating to the claimant's narrative about his wife being regularly interrogated by the regime without revealing his whereabouts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It is indicated in Exhibit R/A-1, for example, the latest US DOS report2 (see page 2, for example), that the regime employs torture, and in fact the claimant alleged that the regime tortured him, and also is targeting him to the extent that he feels he has to leave the country. The Panel finds it implausible that the claimant's wife would not have been forced to tell the regime while being periodically interrogated over a period of years that the claimant had left the country, especially if the regime is targeting the claimant to the extent he indicates they are.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.6",
+     "36.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel found it implausible that the claimant's wife would not have been forced to reveal that the claimant went to Canada despite regular interrogations by the regime, which employs torture and targets the claimant.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "From this the Panel draws a negative inference as to credibility.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel drew a negative inference as to credibility from the implausibility about the claimant's wife's interrogations and failure to reveal his whereabouts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "There were a number of inconsistencies in the claimant's evidence, related to principal elements of the claimant's claim, which were not explained satisfactorily by the claimant.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There were a number of inconsistencies in the claimant's evidence related to principal elements of the claim that were not satisfactorily explained.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In addition, there was one significant implausibility.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There was one significant implausibility in the claimant's evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Cumulatively, these concerns led the Panel to the finding that the claimant's evidence, on the whole, was not credible.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Cumulatively, these concerns led the Panel to find the claimant's evidence was not credible overall.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant was asked how many times he had been arrested and detained in Iran. He said twice. It was pointed out to him that in the Declaration, he had only mentioned one detention, and he was asked why.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.2",
+     "19.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant said he was arrested and detained twice in Iran, but his earlier statements mentioned only one detention.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He said that he was told to keep his story short. As well, he said, the proximate cause of his departure from Iran was his second detention, so he only mentioned it, and he intended to tell the whole story later through his lawyer.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.5",
+     "19.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant said he was told to keep his story short and only mentioned the second detention because it was the proximate cause of his departure, intending to tell the full story later through his lawyer.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Panel does not accept this explanation, for the following reasons. The Panel has perused the entire Exhibit R/A-2, which contains the entire record of his interviews with Immigration. In Section 4 of IMM 5474, when asked if he had ever been detained or put in jail, he mentioned one incident only. There is a nine page record of an interview with an Immigration Officer, and in it, the claimant only mentioned one detention. Then, the claimant was given a opportunity to write, free-hand, about why he had escaped Iran, and for the third time, he only mentioned one detention. Later, at the PIF stage, two detentions were alleged, for the first time.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2",
+     "20.3",
+     "20.4",
+     "20.5",
+     "20.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel did not accept the claimant's explanation about keeping the story short because the entire record showed only one detention was mentioned until the PIF stage where two detentions were alleged for the first time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Panel finds that the claimant embellished his story by the addition of a second arrest and detention at the PIF stage, and resultantly finds that it did not occur, and from that makes a negative inference as to credibility.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel found the claimant embellished his story by adding a second detention at the PIF stage and inferred negatively on credibility from that.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "As for the claimant's allegation that he was told to keep his story short, the Panel finds no mention of this request anywhere in Exhibit R/A-2.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel found no mention in the record of the claimant being told to keep his story short.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant alleged that there were interpretation problem at the interview because the interpreter over the phone was, he believed, an Afghani. Afghanis, he said, do speak Farsi, which he speaks fluently, but there are some differences, he said, in terminology. As a result of these differences, he said, there were interpretation difficulties. It is noted that the claimant only believed, but did not confirm, that the interpreter was an Afghani.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2",
+     "22.3",
+     "22.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant alleged interpretation problems at the interview because the interpreter was believed to be an Afghani, causing difficulties due to terminology differences.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, a close review of Exhibit R/A-2 indicates as follows. At the beginning of the interview, the record of which was nine (9) pages, the Immigration Officer indicated to the claimant that if at any time he did not understand a question, or a question is unclear, to let the Officer know. The record does not indicate that the claimant ever did that.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1",
+     "23.2",
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The interview record shows the Immigration Officer invited the claimant to ask for clarification if questions were unclear, but there is no record the claimant ever did so.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant indicated that it did occur, and he had to ask for questions to be repeated several times.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant said he had to ask for questions to be repeated several times during the interview.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "When asked why, then, this did not appear in the interview notes, he said he didn't know.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The claimant could not explain why his requests for repetition did not appear in the interview notes.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Panel finds that this did not occur, since if it did, it would appear on the interview notes.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Panel found the claimant's claim of interpretation difficulties did not occur because such events would have been noted in the interview record.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The claimant, XXXXX XXXXX, is a citizen of Iran.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant is a citizen of Iran."
+   },
+   {
+    "quote": "The claimant is a Sunni Kurd, who lived in XXXXX, Kurdistan. His father was detained and tortured, and dismissed by the military. The claimant was politically involved and detained on two different occasions. On XXXXX, 2005, XXXXX XXXXX, an Iranian Kurd, was murdered by the regime. On XXXXX, 2005, the claimant was arrested. On XXXXX, 2007 the claimant was arrested, detained, interrogated about his XXXXX activities, and seriously tortured.",
+    "paragraphs": [
+     2,
+     3,
+     7,
+     9
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2",
+     "3.1",
+     "7.1",
+     "7.5",
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2,
+     3,
+     7,
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant is a Sunni Kurd from Kurdistan who experienced political persecution including detention and torture of his father, and political involvement leading to his own detention and torture."
+   },
+   {
+    "quote": "The claimant worked XXXXX XXXXX, and helped the political XXXXX who were against the regime, as much as he could. Most of all, he was with the Hekmat Party. He and others were working in secret. While working at XXXXX XXXXX, the claimant was with a clandestine XXXXX pro-Kurdish XXXXX. At one of the meetings, the group was named XXXXX Liberation Group of Kurdistan, and that appeared on the bottom of each XXXXX. They distributed flyers, held meetings and peaceful rallies, all on a clandestine basis.",
+    "paragraphs": [
+     4,
+     6
+    ],
+    "evidence_ids": [
+     "4.1",
+     "4.2",
+     "4.3",
+     "6.1",
+     "6.4",
+     "6.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4,
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant was politically active with the Hekmat Party and other pro-Kurdish groups, working clandestinely and participating in distributing flyers, meetings, and rallies."
+   },
+   {
+    "quote": "He had to flee Iran, fearing to be re-arrested. He was arrested on XXXXX, 2007, but escaped on XXXXX, 2007. He was tortured for 15 days or longer, then transferred to XXXXX jail, where he was detained for five days and released. He arrived in Canada on XXXXX, 2007.",
+    "paragraphs": [
+     3,
+     4,
+     7,
+     9
+    ],
+    "evidence_ids": [
+     "3.2",
+     "4.4",
+     "7.6",
+     "9.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3,
+     4,
+     7,
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant was arrested twice, tortured, and detained, and eventually fled Iran fearing re-arrest, arriving in Canada in 2007."
+   },
+   {
+    "quote": "His wife has been fired, and she has to live with her parents. His wife was interrogated, lost her job, and has to report to the sepah every other month. The sepah still looks for him at his parents' house.",
+    "paragraphs": [
+     5,
+     10
+    ],
+    "evidence_ids": [
+     "5.1",
+     "10.2",
+     "10.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5,
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant's wife was fired from her job, interrogated, and must report regularly to the sepah, who still look for the claimant at his parents' house."
+   },
+   {
+    "quote": "In Exhibit C-3, the claimant submitted copies of his Iranian Birth Certificate and Drivers License. From these documents, the Panel finds that he is XXXXX XXXXX, a citizen of Iran.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "background_fact",
+    "statement": "The claimant submitted Iranian birth certificate and driver's license, and the Panel finds he is a citizen of Iran named XXXXX XXXXX."
+   },
+   {
+    "quote": "Credibility was the determinative issue in this claim, that is, whether the claimant provided trustworthy and credible evidence in support of his claim.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "Credibility was the determinative issue in this claim, that is, whether the claimant provided trustworthy and credible evidence in support of his claim."
+   },
+   {
+    "quote": "The Panel carefully considered all the oral and documentary evidence, as well as counsel's oral post-hearing submissions.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The Panel carefully considered all the oral and documentary evidence, as well as counsel's oral post-hearing submissions."
+   },
+   {
+    "quote": "This counsel is known to the Panel as a capable and conscientious refugee lawyer.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "This counsel is known to the Panel as a capable and conscientious refugee lawyer."
+   },
+   {
+    "quote": "However, there were, unfortunately, issues with her performance in this particular refugee claim.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "There were issues with counsel's performance in this particular refugee claim."
+   },
+   {
+    "quote": "The Panel determined that there was insufficient time to read the revised Narrative in detail to prepare for the hearing, thus it was adjourned to January 27, 2010.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "The hearing was adjourned because the Panel had insufficient time to read the revised PIF Narrative submitted late by counsel."
+   },
+   {
+    "quote": "This time, counsel indicated she was ill and had not been feeling well. She handed in, again for the first time at the hearing, a detailed psychological report about the claimant, now Exhibit C-4.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2",
+     "16.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "On January 27, 2010, counsel was ill and submitted a detailed psychological report for the first time at the hearing."
+   },
+   {
+    "quote": "The Panel then indicated, and indicates here, that the claimant would not be penalized for any errors made by or incompetence of his counsel.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The claimant would not be penalized for any errors or incompetence of counsel."
+   },
+   {
+    "quote": "T hus, in arriving at this negative decision, the Panel has been very careful to fairly consider the implications of any alleged counsel error. Unfortunately, even considering all issues relating to counsel, the Panel has found that there is insufficient credible evidence to justify a positive determination.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3",
+     "17.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The Panel carefully considered any alleged counsel error but found insufficient credible evidence to justify a positive determination."
+   },
+   {
+    "quote": "It is not necessary to make any further findings on that, though, for the following reasons. If the questions were repeated as the claimant indicated, and there were no further problems, then there is no issue. Also, the claimant indicated at the hearing that he is just as fluent in Farsi as Kurdish, and in fact he requested a Farsi, not Kurdish, interpreter, at his hearing, and the hearing was in fact conducted in Farsi.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.4",
+     "26.5",
+     "26.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "It is unnecessary to make further findings on the interpreter complaint because if questions were repeated without further problems, there is no issue, and the claimant is fluent in Farsi and requested a Farsi interpreter for the hearing, which was conducted in Farsi."
+   },
+   {
+    "quote": "However, the Panel cannot accept these explanations. The claimant is a university graduate, and thus should have been able to appreciate the advisability of not signing something, in Canada, just because someone asks him to. Also, the Panel finds that Immigration Canada would not request a refugee claimant to sign something that they knew or should have known not to be true, i.e. that the contents of the form were interpreted to the claimant, although he said at the hearing that they were not. There is a presumption that Canadian Immigration officials deal fairly, openly and honestly with refugee claimants, and insufficient evidence has been provided to rebut this assumption.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.4",
+     "27.5",
+     "27.6",
+     "27.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "The panel does not accept the claimant's explanations about signing without interpretation or poor mental state, noting the claimant is a university graduate and should have understood not to sign without understanding, and that immigration officials would not knowingly ask for a signature on untrue statements."
+   },
+   {
+    "quote": "There is a presumption that Canadian Immigration officials deal fairly, openly and honestly with refugee claimants, and insufficient evidence has been provided to rebut this assumption.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "There is a presumption that Canadian immigration officials act fairly and honestly with refugee claimants, and insufficient evidence was provided to rebut this presumption."
+   },
+   {
+    "quote": "Thus, in summary, the Panel does not, overall, accept the claimant's explanations of inconsistencies in his evidence to be the result of inadequate interpretation services supplied by Citizenship and Immigration Canada to the claimant.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "Overall, the panel does not accept the claimant's explanation that inconsistencies in his evidence are due to inadequate interpretation services."
+   },
+   {
+    "quote": "However, nothing in Exhibit R/A-2 was pointed out wherein the claimant indicated that he had been detained from XXXXX, 2005 to XXXXX, 2005, therefore the Panel cannot accept this explanation that counsel's interpreter incorrectly copied the dates wrong from what is now Exhibit R/A-2.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The panel cannot accept the claimant's explanation that the interpreter copied the wrong dates from the immigration record because nothing in the record supports this."
+   },
+   {
+    "quote": "However, the fact that the claimant, apparently incorrectly, blamed this on the interpreter, and also, apparently incorrectly, indicated that the interpreter had taken the wrong information from Exhibit R/A-2, would tend to indicate that the claimant's explanation should not be accepted. When considering all the above, from this inconsistency, only partially explained satisfactorily, the Panel will make a negative inference as to credibility, although the impact of this finding is partially mitigated by counsel's explanation.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.2",
+     "32.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "conclusion",
+    "statement": "The panel partially accepts counsel's explanation but notes the claimant incorrectly blamed the interpreter and gave wrong information, which undermines his explanation."
+   },
+   {
+    "quote": "The Panel has explained above why it does not accept the claimant's explanations about poor interpretation during the interview process, therefore the Panel does not accept the claimant's explanation and makes a negative inference in regard to credibility from this inconsistency, unsatisfactorily explained.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "The panel does not accept the claimant's explanation about poor interpretation during the interview process and makes a negative inference on credibility from this unsatisfactorily explained inconsistency."
+   },
+   {
+    "quote": "Thus, the Panel cannot ascribe any of the defects in the claimant's testimony to memory problems.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "The Panel cannot ascribe any of the defects in the claimant's testimony to memory problems."
+   },
+   {
+    "quote": "Having regard to the above, the Panel finds the claimant's evidence to be, on the whole, not credible.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "Having regard to the above, the Panel finds the claimant's evidence to be, on the whole, not credible."
+   },
+   {
+    "quote": "As a result, the Panel does not find the allegations purported to support a claim for refugee protection to be credible.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "As a result, the Panel does not find the allegations purported to support a claim for refugee protection to be credible."
+   },
+   {
+    "quote": "The Panel has considered all of the evidence and submissions.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "The Panel has considered all of the evidence and submissions."
+   },
+   {
+    "quote": "As a result of the above finding of lack of credibility, the Panel finds that the claimant does not have a well-founded fear of persecution, or a risk to his life, or a risk of cruel and unusual treatment or punishment, or a danger of torture upon a potential return to Iran.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "Due to the finding of lack of credibility, the Panel finds that the claimant does not have a well-founded fear of persecution, or a risk to his life, or a risk of cruel and unusual treatment or punishment, or a danger of torture upon a potential return to Iran."
+   },
+   {
+    "quote": "The Panel thus finds the claimant to not be a Convention refugee under s. 96 nor a person in need of protection under s. 97 of the IRPA.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "The Panel finds the claimant to not be a Convention refugee under s. 96 nor a person in need of protection under s. 97 of the IRPA."
+   },
+   {
+    "quote": "For these reasons, the claim is rejected.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "For these reasons, the claim is rejected."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The Panel points out that no memory problems were evident at the hearing, and that the claimant did not cite this as an excuse or explanation for any of the deficiencies in his evidence.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "No memory problems were evident at the hearing, and the claimant did not cite this as an excuse or explanation for any deficiencies in his evidence.",
+    "answers_evidence_id": "35.1",
+    "answers_paragraph": 35
+   },
+   {
+    "quote": "The Panel asked counsel if there was any clinical evidence of any memory problems. She pointed only to the third full paragraph on p.4 of Exhibit C-4, the Psychiatric Assessment, which the Panel notes does not refer to memory problems.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.3",
+     "35.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "There was no clinical evidence of memory problems; the psychiatric assessment cited does not refer to memory problems.",
+    "answers_evidence_id": "35.1",
+    "answers_paragraph": 35
+   }
+  ],
+  "authorities": [],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

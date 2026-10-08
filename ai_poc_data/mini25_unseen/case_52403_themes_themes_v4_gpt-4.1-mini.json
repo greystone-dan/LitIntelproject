@@ -1,0 +1,448 @@
+{
+ "case_id": 52403,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 19531,
+  "completion_tokens": 1714,
+  "usd": 0.017812400000000003
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties and tribunal below",
+    "paragraphs": [
+     1
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Whether presumptions of resulting trust and advancement apply in modern times",
+    "paragraphs": [
+     29,
+     31,
+     33
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Standard of proof to rebut presumptions",
+    "paragraphs": [
+     51,
+     52
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Treatment of survivorship in joint accounts",
+    "paragraphs": [
+     57,
+     58,
+     61
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Admissibility and weight of evidence to determine transferor's intent",
+    "paragraphs": [
+     68,
+     74,
+     80,
+     82
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Whether trial judge's decision should be overturned",
+    "paragraphs": [
+     88,
+     89
+    ],
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Disposition of appeal and costs",
+    "paragraphs": [
+     89
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 20,
+  "quote_exact_in_cited": 14,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 1,
+  "quote_not_found": 5,
+  "quote_has_ellipsis": 0,
+  "quote_snapped_to_real_sentence": 5,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 6,
+   "arguments": 4,
+   "holdings": 9,
+   "rebuttals": 1,
+   "authorities": 5,
+   "left_open": 1
+  },
+  "paragraph_coverage": 0.14
+ },
+ "result": {
+  "overall": "The Supreme Court of Canada dismissed the appeal, holding that the presumption of advancement continues to apply to gratuitous transfers from parents to children, including adult children, and that the trial judge's finding of the father's intention to gift the joint account assets to his daughter was supported by the evidence.",
+  "themes": [
+   {
+    "name": "Presumptions of resulting trust and advancement",
+    "summary": "The Court examined whether the presumptions of resulting trust and advancement apply in modern times to joint accounts and gratuitous transfers from parents to children.",
+    "paragraphs": [
+     29,
+     31,
+     33
+    ]
+   },
+   {
+    "name": "Standard of proof to rebut presumptions",
+    "summary": "The Court considered the standard of proof required to rebut the presumptions of resulting trust and advancement, concluding that the civil standard of balance of probabilities applies.",
+    "paragraphs": [
+     51,
+     52
+    ]
+   },
+   {
+    "name": "Treatment of survivorship in joint accounts",
+    "summary": "The Court analyzed the nature of survivorship rights in joint accounts, concluding that survivorship is an inter vivos gift vested at the time the account is opened.",
+    "paragraphs": [
+     57,
+     58,
+     61
+    ]
+   },
+   {
+    "name": "Admissibility and weight of evidence to determine transferor's intent",
+    "summary": "The Court discussed what evidence courts may consider in determining the transferor's intention, including evidence subsequent to the transfer, bank documents, control and use of funds, power of attorney, and tax treatment.",
+    "paragraphs": [
+     68,
+     74,
+     80,
+     82
+    ]
+   },
+   {
+    "name": "Whether trial judge's decision should be overturned",
+    "summary": "The Court reviewed the trial judge's findings and concluded there was no basis to overturn the decision that the father intended to gift the joint account assets to his daughter.",
+    "paragraphs": [
+     88,
+     89
+    ]
+   },
+   {
+    "name": "Disposition of appeal and costs",
+    "summary": "The Court dismissed the appeal and upheld the trial judge's decision on costs.",
+    "paragraphs": [
+     89
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The trial judge found that the father actually intended a gift and held that his daughter may retain the assets in the accounts.",
+    "paragraphs": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge found the father intended to gift the joint account assets to the daughter.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "The Court of Appeal agreed with the trial judge that there was ample evidence to show that Paula\u2019s father intended to give Paula beneficial interest in his investments when he placed them in joint ownership.",
+    "paragraphs": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Court of Appeal upheld the trial judge's finding of the father's intention to gift the joint account assets.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [
+     24
+    ]
+   },
+   {
+    "quote": "The appellant\u2019s factum submitted that for public policy reasons, transferors should not be permitted to transfer beneficial title while asserting to the tax authorities that such title has not been passed in order to defer or avoid the payment of taxes.",
+    "paragraphs": [
+     83
+    ],
+    "made_by": "applicant",
+    "claim": "The appellant argued that transferors should not be allowed to claim beneficial title transfer while denying it for tax purposes.",
+    "treatment": "not_decided",
+    "outcome_note": "The Court noted the issue was not argued and left it for tax authorities to decide.",
+    "changed_result": false,
+    "gap": "Issue not argued before the Court.",
+    "authority": "",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "70 As for the matter of taxes on capital gains, it was submitted to this Court that for public policy reasons, transferors should not be permitted to transfer beneficial title while asserting to the tax authorities that such title has not been passed in order to defer or avoid the payment of taxes: appellant\u2019s factum, at p."
+   },
+   {
+    "quote": "Michael Pecore asked this Court for costs throughout from Paula or the estate.",
+    "paragraphs": [
+     89
+    ],
+    "made_by": "applicant",
+    "claim": "The appellant requested costs from the respondent or the estate.",
+    "treatment": "rejected",
+    "outcome_note": "The Court upheld the trial judge's denial of costs to the appellant.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "I think the long-standing common law presumptions continue to have a role to play in disputes over gratuitous transfers.",
+    "paragraphs": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The presumptions of resulting trust and advancement continue to apply in modern times.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ]
+   },
+   {
+    "quote": "The rebuttable presumption of advancement with regard to gratuitous transfers from parent to child should be preserved but be limited in application to transfers by mothers and fathers to minor children.",
+    "paragraphs": [
+     48
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement should be limited to transfers to minor children.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ]
+   },
+   {
+    "quote": "The evidence required to rebut both presumptions, therefore, is evidence of the transferor\u2019s contrary intention on the balance of probabilities.",
+    "paragraphs": [
+     51
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of proof to rebut the presumptions is the civil standard, balance of probabilities.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ]
+   },
+   {
+    "quote": "The rights of survivorship, both legal and equitable, vest when the joint account is opened and the gift of those rights is therefore inter vivos in nature.",
+    "paragraphs": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "Survivorship rights in joint accounts are inter vivos gifts vested at account opening.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ]
+   },
+   {
+    "quote": "Bank documents which specifically confirm a survivorship interest, should be deemed to reflect an intention that what has been signed, is sincerely meant.",
+    "paragraphs": [
+     117
+    ],
+    "kind": "reason",
+    "statement": "Clear language in bank documents is relevant and presumptive evidence of transferor's intention.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "104 It seems to me that bank account documents which specifically confirm a survivorship interest, should be deemed to reflect an intention that what has been signed, is sincerely meant."
+   },
+   {
+    "quote": "The trial judge found that the evidence clearly demonstrated the intention on the part of the father that the balance left in the joint accounts were to go to Paula alone on his death through survivorship.",
+    "paragraphs": [
+     88
+    ],
+    "kind": "reason",
+    "statement": "The trial judge's finding of the father's actual intention was strong and determinative.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Nonetheless, this error does not affect the ultimate disposition of the appeal because the trial judge found that the evidence \u201cclearly demonstrate[d] the intention\u201d on the part of the father that the balance left in the joint accounts he had with Paula were to go to Paula alone on his death through survivorship (para."
+   },
+   {
+    "quote": "There is no basis to overturn this result. The appeal should be dismissed.",
+    "paragraphs": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The Supreme Court dismissed the appeal, upholding the trial judge's decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "The trial judge erred in applying the presumption of advancement to an adult child but this error did not affect the ultimate disposition of the appeal.",
+    "paragraphs": [
+     88
+    ],
+    "kind": "reason",
+    "statement": "The trial judge's error in presumption application was harmless due to strong evidence of intention.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "Nonetheless, this error does not affect the ultimate disposition of the appeal because the trial judge found that the evidence \u201cclearly demonstrate[d] the intention\u201d on the part of the father that the balance left in the joint accounts he had with Paula were to go to Paula alone on his death through survivorship (para."
+   },
+   {
+    "quote": "The appeal is dismissed with costs.",
+    "paragraphs": [
+     89
+    ],
+    "kind": "remedy",
+    "statement": "The appeal was dismissed and costs were awarded accordingly.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "76 For the reasons above, I would dismiss this appeal, with costs."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The trial judge erred in applying the presumption of advancement.",
+    "paragraphs": [
+     88
+    ],
+    "point": "The appellant argued the presumption of advancement should not apply to adult children.",
+    "made_by": "applicant",
+    "court_answer": "The Court agreed the presumption should be limited to minors but found the error harmless because the evidence clearly showed the father's intention to gift.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ]
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Re Mailman Estate, [1941] S.C.R. 368",
+    "paragraphs": [
+     28
+    ],
+    "authority": "Re Mailman Estate",
+    "treatment": "followed",
+    "why": "Supports that presumptions of resulting trust and advancement are rebuttable presumptions of law.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28,
+     117
+    ]
+   },
+   {
+    "quote": "Niles v. Lake, [1947] S.C.R. 291",
+    "paragraphs": [
+     28,
+     70
+    ],
+    "authority": "Niles v. Lake",
+    "treatment": "followed",
+    "why": "Establishes that bank documents relate to legal title, not necessarily beneficial title.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28,
+     117
+    ]
+   },
+   {
+    "quote": "Rathwell v. Rathwell, [1978] 2 S.C.R. 436",
+    "paragraphs": [
+     28,
+     100
+    ],
+    "authority": "Rathwell v. Rathwell",
+    "treatment": "followed",
+    "why": "Discusses the presumption of advancement and its application in matrimonial property context.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28,
+     100
+    ]
+   },
+   {
+    "quote": "Pettitt v. Pettitt, [1970] A.C. 777 (H.L.)",
+    "paragraphs": [
+     50,
+     100
+    ],
+    "authority": "Pettitt v. Pettitt",
+    "treatment": "mentioned",
+    "why": "Shows the presumption of advancement between spouses has been largely abandoned.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50,
+     100
+    ]
+   },
+   {
+    "quote": "Grey (Lord) v. Grey (Lady) (1677)",
+    "paragraphs": [
+     37,
+     105
+    ],
+    "authority": "Grey v. Grey",
+    "treatment": "mentioned",
+    "why": "Early case explaining the rationale for the presumption of advancement based on parental obligation and affection.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37,
+     105
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "The issue of the proper treatment of capital gains in the setting up of joint accounts was not argued in this appeal.",
+    "paragraphs": [
+     83
+    ],
+    "issue": "Tax treatment of capital gains on joint account transfers",
+    "reason": "The Court did not decide this issue as it was not argued.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ]
+   }
+  ]
+ }
+}

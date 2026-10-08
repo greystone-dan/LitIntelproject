@@ -1,0 +1,1183 @@
+{
+ "case_id": 25379,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.0101996
+ },
+ "verification": {
+  "items": 63,
+  "quote_exact_in_cited": 63,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 5,
+  "calls": 6,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 4,
+   "arguments": 16,
+   "holdings": 38,
+   "rebuttals": 0,
+   "authorities": 8,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The Federal Court allowed the judicial review application, setting aside the Refugee Protection Division's decision due to unreasonable credibility findings and inadequate consideration of state protection, and ordered a new hearing by a different Board Member.",
+  "themes": [
+   {
+    "name": "Credibility and hearing difficulties",
+    "summary": "The Board Member's confusion and difficulties during the hearing led to unreasonable credibility findings against the applicants.",
+    "paragraphs": [
+     2
+    ]
+   },
+   {
+    "name": "Unreasonable demand for documentation",
+    "summary": "The Board Member's insistence on further documentation to support claims of violence and police inaction was found to be unreasonable given the evidence presented.",
+    "paragraphs": [
+     3
+    ]
+   },
+   {
+    "name": "Inadequate assessment of state protection",
+    "summary": "The Board Member failed to properly assess the adequacy of state protection for Roma in Hungary, focusing on future efforts rather than current effectiveness.",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     7
+    ]
+   },
+   {
+    "name": "Requirement for separate consideration of family claims",
+    "summary": "The claims of the Hercegi and Fekete families should be dealt with separately on redetermination.",
+    "paragraphs": [
+     8
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Judicial review application and remedy",
+    "first_paragraph": 1,
+    "last_paragraph": 1,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Hearing process and credibility findings",
+    "first_paragraph": 2,
+    "last_paragraph": 2,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Requirement for further documentation and its reasonableness",
+    "first_paragraph": 3,
+    "last_paragraph": 3,
+    "disposition": "allowed"
+   },
+   {
+    "label": "State protection analysis by Board Member",
+    "first_paragraph": 4,
+    "last_paragraph": 7,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Remedy and procedural directions",
+    "first_paragraph": 8,
+    "last_paragraph": 8,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "Herein lies one of the difficulties. The transcript of the hearings indicates that there were a number of distractions, that the Member had difficulty in following the evidence and, at times, that the translator was overwhelmed. The reasons of the Board Member reflect confusion as to the evidence in the mind of the member.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.4",
+     "2.5",
+     "2.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The hearing process was difficult due to distractions, the Member's difficulty following evidence, and an overwhelmed translator, leading to confusion in the Board Member's reasons.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Given what I have seen in the transcript, this is to some extent excusable; however, this has led to a number of findings, particularly those as to credibility, that are unreasonable.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "applicant",
+    "claim": "The Board made a number of unreasonable findings, particularly on credibility, due to the hearing difficulties.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They claim they were beaten on several occasions by \u201cskinheads\u201d.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The claimants say they were beaten on several occasions by 'skinheads'.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants gave evidence as to complaints that they made to police authorities and the refusal of the police to investigate or even document the complaints.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The applicants gave evidence of complaints made to police and police refusal to investigate or document them.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "There is evidence that the Hungarian police will not document complaints by Roma.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "There is evidence that Hungarian police will not document complaints by Roma.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I repeat paragraphs 56 to 60 of the reasons which reflect the Board Member\u2019s findings, presumably with respect to both families:",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board Member made findings on state protection presumably with respect to both families.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Applicants lawyer was given an opportunity to make further submissions as to IFA and did so in writing. In doing so reference was made to a number of reports such as those emanating from the United Nations and the United States and to decisions of this Court including Diaz de Leon v. Canada (MCI), [2007] F.C.J. No. 1684, 2007 FC 1307 at para. 28; Peralta Raza v. Canada (MCI), [2007] F.C.J. No. 1610, 2007 FC 1265 at para.10; and Davila v. Canada (MCI), [2006] F.C.J. No. 1857, 2006 FC 1475 at para. 25.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.11",
+     "5.12"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants lawyer made further submissions with reference to reports from the United Nations, the United States, and decisions of this Court regarding state protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The respondent contends that this was merely a standard employed by the Board to assess the evidence and that the reasons, as a whole, disclose that the Board applied the correct test. I agree that the Board cited the correct legal principles, as set out in Ward, and Carillo, above.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.3",
+     "6.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent contended that the Board's use of 'a measure' was a standard to assess evidence and that the correct test was applied overall.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Agreed correct legal principles cited but not properly applied.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The claimants were not satisfied with the lack of police action, but did not take any steps to register their displeasures with any higher authorities.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimants were not satisfied with the lack of police action, but did not take any steps to register their displeasures with any higher authorities.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "They simply went to one police \u201cwicket\u201d and in some cases did not go at all as they did not believe that the police would investigate fairly and impartially.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "made_by": "tribunal_below",
+    "claim": "They simply went to one police \u201cwicket\u201d and in some cases did not go at all as they did not believe that the police would investigate fairly and impartially.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "As indicated earlier, the important issue is that protection would be available to citizens today.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Protection would be available to citizens today.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Independent Police Complaints Board (ICPB) established by the National Assembly in 2008, investigates violations and omissions by the police and substantively concerned fundamental rights.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Independent Police Complaints Board (ICPB) established by the National Assembly in 2008, investigates violations and omissions by the police and substantively concerned fundamental rights.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The five-member body functions independently of police authorities.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The five-member body functions independently of police authorities.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The parliamentary Commissioner\u2019s office, an ombudsman who reports directly to parliament, is mandated to assist Hungarian citizens who feel that their constitutions rights have been violated by a state agency.22",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The parliamentary Commissioner\u2019s office, an ombudsman who reports directly to parliament, is mandated to assist Hungarian citizens who feel that their constitutions rights have been violated by a state agency.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It is acknowledged that some agencies describe Hungarian government\u2019s efforts to combat corruption as largely unsuccessful,23 Transparency International regional Director Miklos Marschall stated that Hungary\u2019s anti-corruption institutional framework was \u201cadequate\u201d.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Some agencies describe Hungarian government\u2019s efforts to combat corruption as largely unsuccessful, but Transparency International regional Director Miklos Marschall stated that Hungary\u2019s anti-corruption institutional framework was \u201cadequate\u201d.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The evidence is that the claimants did not make any attempts to register their dissatisfaction with the police response with any government or higher authority within the police hierarchy.",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimants did not make any attempts to register their dissatisfaction with the police response with any government or higher authority within the police hierarchy.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "This is an application for judicial review seeking to set aside a decision of a Board Member of the Refugee Protection Division of the Immigration and Refugee Board of Canada dated May 16, 2011, wherein the Applicants\u2019 claim for refugee protection was rejected.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "This is an application for judicial review seeking to set aside a decision of a Board Member of the Refugee Protection Division of the Immigration and Refugee Board of Canada dated May 16, 2011, wherein the Applicants\u2019 claim for refugee protection was rejected."
+   },
+   {
+    "quote": "I will set that decision aside and require a new determination by a different Member of the Board.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "conclusion",
+    "statement": "I will set that decision aside and require a new determination by a different Member of the Board."
+   },
+   {
+    "quote": "I expressed to Counsel at the hearing some of the reasons for my decision which do not require discussion in these Reasons.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "conclusion",
+    "statement": "I expressed to Counsel at the hearing some of the reasons for my decision which do not require discussion in these Reasons."
+   },
+   {
+    "quote": "I will, however, address some of the reasons for my decision.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "conclusion",
+    "statement": "I will, however, address some of the reasons for my decision."
+   },
+   {
+    "quote": "The Board entertained the claims of two family groups: the Hercegi family and the Fekete family. Both families are Hungarian Roma, both families fled Hungary, came to Canada and made refugee claims here.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The Board heard claims from two Hungarian Roma family groups, the Hercegi and the Fekete families, who fled Hungary and made refugee claims in Canada."
+   },
+   {
+    "quote": "There is a relationship between some members of each family, which caused the Board to hear the claimants together at the same series of hearings.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "There is a relationship between some members of the two families, leading the Board to hear their claims together in the same series of hearings."
+   },
+   {
+    "quote": "The reasons of the Board Member reflect confusion as to the evidence in the mind of the member. Given what I have seen in the transcript, this is to some extent excusable; however, this has led to a number of findings, particularly those as to credibility, that are unreasonable.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.6",
+     "2.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "conclusion",
+    "statement": "The confusion in the Board Member's reasons is somewhat excusable given the transcript, but it led to a number of unreasonable findings, especially regarding credibility."
+   },
+   {
+    "quote": "Photographs attest to large bruising on the body of some of the applicants.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Photographs show large bruising on some applicants' bodies."
+   },
+   {
+    "quote": "There are scars and missing teeth.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "There are scars and missing teeth among the applicants."
+   },
+   {
+    "quote": "Two babies died - one while still in the womb when the mother was struck by several blows, the other in a melee during an attack.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Two babies died: one in the womb due to blows to the mother, the other in a melee during an attack."
+   },
+   {
+    "quote": "Death certificates were produced.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Death certificates were produced for the babies."
+   },
+   {
+    "quote": "The insistence by the Board Member for yet further documentation was unreasonable.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "conclusion",
+    "statement": "The Board Member's insistence on further documentation was unreasonable."
+   },
+   {
+    "quote": "The issue of state protection is completely unsatisfactorily dealt with by the Board Member.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "The issue of state protection was unsatisfactorily dealt with by the Board Member."
+   },
+   {
+    "quote": "It appears from the structure of the reasons that state protection was addressed only in respect of the Hercegi family and not the Fekete family; although there can be found paragraphs elsewhere in the reasons that may well be addressing that issue in respect of the Fekete family.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "State protection was addressed only in respect of the Hercegi family and not the Fekete family, although some paragraphs may address the Fekete family."
+   },
+   {
+    "quote": "The reasons do not address the issue of state protection properly.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "The reasons do not properly address the issue of state protection."
+   },
+   {
+    "quote": "They do not show whether, and if so, what, the Member considered as to provisions made by Hungary to provide adequate state protection now to its citizens.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "The reasons do not show what the Member considered regarding provisions made by Hungary to provide adequate state protection now to its citizens."
+   },
+   {
+    "quote": "It is not enough to say that steps are being taken that some day may result in adequate state protection.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "It is not enough to say that steps are being taken that may result in adequate state protection in the future."
+   },
+   {
+    "quote": "It is what state protection is actually provided at the present time that is relevant.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "What state protection is actually provided at the present time is relevant."
+   },
+   {
+    "quote": "In the present case, the evidence is overwhelming that Hungary is unable presently to provide adequate protection to its Roma citizens.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "The evidence is overwhelming that Hungary is presently unable to provide adequate protection to its Roma citizens."
+   },
+   {
+    "quote": "Those and other decisions of this Court point to the fact that Mexico is an emerging, not a full fledged, democracy and that regard must be given to what is actually happening and not what the state is proposing or endeavouring to put in place. 9 As to the reasonableness of the findings, the evidence is overwhelming in the present case that Mexico has failed to provide adequate protection.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.13"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "Decisions of this Court indicate that Mexico is an emerging democracy and that actual events, not just state proposals, must be considered in assessing state protection."
+   },
+   {
+    "quote": "The evidence shows ineptitude, ineffectiveness and corruption in the state agencies that the Member suggested could offer protection. 10 As to the Report of Professor Hellman, far from making \"sweeping statements\" supported by \"little empirical data\" as the Member suggests at paragraph 21 of the Reasons, the Report is carefully written and supported by reference to a vast member of authoritative sources.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "The evidence shows ineptitude, ineffectiveness and corruption in the state agencies suggested by the Member as offering protection."
+   },
+   {
+    "quote": "It is unclear what the Board meant by \"a measure\" since it did not define this term.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The Board did not define what it meant by 'a measure' of state protection, making its reasoning unclear."
+   },
+   {
+    "quote": "I agree that the Board cited the correct legal principles, as set out in Ward, and Carillo, above.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The Board cited the correct legal principles as set out in Ward and Carillo."
+   },
+   {
+    "quote": "However, I am not satisfied that they were properly applied in this case. 15 The Board was required to justify its finding that Ms. E.Y.M.V. had not rebutted the presumption, in a transparent and intelligible way (Hazime v. Canada (Minister of Citizenship and Immigration), 2011 FC 793, [2011] F.C.J. No. 996 at para 17).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The Board did not properly apply the correct legal principles in this case."
+   },
+   {
+    "quote": "The Board did not meet this standard of reasonableness. 16 The Board did not provide any analysis of the operational adequacy of the efforts undertaken by the government of Honduras and international actors to improve state protection in Honduras.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The Board did not meet the standard of reasonableness required for its findings on state protection."
+   },
+   {
+    "quote": "The Board did not meet this standard of reasonableness. 16 The Board did not provide any analysis of the operational adequacy of the efforts undertaken by the government of Honduras and international actors to improve state protection in Honduras.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The Board did not provide any analysis of the operational adequacy of efforts by the government and international actors to improve state protection."
+   },
+   {
+    "quote": "In the present case, the Board\u2019s reasoning as to state protection is inadequate and does not address the real issue as to adequacy of state protection for Roma in Hungary at the present time.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "conclusion",
+    "statement": "The Board\u2019s reasoning as to state protection is inadequate and does not address the real issue of adequacy of state protection for Roma in Hungary at the present time."
+   },
+   {
+    "quote": "This matter is sent back for redetermination by a different Board Member.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "This matter is sent back for redetermination by a different Board Member."
+   },
+   {
+    "quote": "The Board should deal separately with the claims of each of the Hercegi and Fekete family.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The Board should deal separately with the claims of each of the Hercegi and Fekete family."
+   },
+   {
+    "quote": "There is no question to be certified.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "There is no question to be certified."
+   },
+   {
+    "quote": "No costs will be ordered.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "No costs will be ordered."
+   },
+   {
+    "quote": "The application is allowed; 2.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The application is allowed."
+   },
+   {
+    "quote": "The matter is returned for redetermination by a different Board Member.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The matter is returned for redetermination by a different Board Member."
+   },
+   {
+    "quote": "The claims of each of the Hercegi family and the Fekete family should be dealt with separately; 3.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The claims of each of the Hercegi family and the Fekete family should be dealt with separately."
+   },
+   {
+    "quote": "There is no certified question; and 4.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "There is no certified question."
+   },
+   {
+    "quote": "There is no Order as to costs.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "There is no Order as to costs."
+   },
+   {
+    "quote": "I do acknowledge counsel\u2019s submissions that state protection is not perfect and there are many areas that require improvement, but I find that state protection is adequate and there is no evidence of a complete breakdown of state apparatus.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "State protection is adequate and there is no evidence of a complete breakdown of state apparatus."
+   },
+   {
+    "quote": "I do not accept that the lack of investigation on the part of the police, in the absence of identification of any of the perpetrators, translates into lack of adequate state protection.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The lack of investigation on the part of the police, in the absence of identification of any of the perpetrators, does not translate into lack of adequate state protection."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "I repeat what I wrote in Lopez v Canada (Minister of Citizenship and Immigration), 2010 FC 1176 at paragraphs 8 to 11: 8 Another error of law is with respect to what is the nature of state protection that is to be considered. Here the Member found that Mexico \"is making serious and genuine efforts\" to address the problem. That is not the test. What must be considered is the actual effectiveness of the protection.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.6",
+     "5.7",
+     "5.8",
+     "5.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "authority": "The Court relied on Lopez v Canada (Minister of Citizenship and Immigration), 2010 FC 1176, which held that the nature of state protection to be considered is the actual effectiveness of the protection, not just efforts made by the state.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "I repeat what I said in Villa v. Canada (Minister of Citizenship and Immigration) 2008 FC 1229 at paragraph 14: 14.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "authority": "The Court relied on Villa v. Canada (Minister of Citizenship and Immigration) 2008 FC 1229, which supports the focus on actual effectiveness of state protection.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The evidence shows ineptitude, ineffectiveness and corruption in the state agencies that the Member suggested could offer protection. 10 As to the Report of Professor Hellman, far from making \"sweeping statements\" supported by \"little empirical data\" as the Member suggests at paragraph 21 of the Reasons, the Report is carefully written and supported by reference to a vast member of authoritative sources.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.14"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "authority": "The Court relied on the Report of Professor Hellman as carefully written and supported by authoritative sources, contrary to the Board Member's suggestion it was unsupported.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Justice Russell of the Court in his decision in Villicana v. Canada (Minister of Citizenship and Imm",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.15"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "authority": "The Court cited Villicana v. Canada (Minister of Citizenship and Immigration) as authority.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "To this I add what Justice Mosley wrote recently in E. Y. M. V. v Canada (Minister of Citizenship and Immigration), 2011 FC 1364, at paragraphs 14 to 16: 14 Here the Board appears to have adopted a lesser standard of adequacy by reference on two occasions in its reasons to what it termed \"a measure\" of state protection available in Honduras.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "authority": "The Court relied on E. Y. M. V. v Canada (Minister of Citizenship and Immigration), 2011 FC 1364, which criticized the Board for adopting a lesser standard of adequacy regarding state protection.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "However, I am not satisfied that they were properly applied in this case. 15 The Board was required to justify its finding that Ms. E.Y.M.V. had not rebutted the presumption, in a transparent and intelligible way (Hazime v. Canada (Minister of Citizenship and Immigration), 2011 FC 793, [2011] F.C.J. No. 996 at para 17).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "authority": "The Court relied on Hazime v. Canada (Minister of Citizenship and Immigration), 2011 FC 793, which requires the Board to justify findings in a transparent and intelligible way.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "While the state's efforts are indeed relevant to an assessment of state protection, they are neither determinative nor sufficient (Jaroslav v. Canada (Minister of Citizenship and Immigration), 2011 FC 634, [2011] F.C.J. No. 816 at para 75).",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "authority": "The Court relied on Jaroslav v. Canada (Minister of Citizenship and Immigration), 2011 FC 634, which holds that state efforts are relevant but neither determinative nor sufficient.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Any efforts must have \"actually translated into adequate state protection\" at the operational level (Beharry v. Canada (Minister of Citizenship and Immigration), 2011 FC 111 at para 9.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "authority": "The Court relied on Beharry v. Canada (Minister of Citizenship and Immigration), 2011 FC 111, which requires that efforts must have actually translated into adequate state protection at the operational level.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "Many of these findings were reviewed at the hearing before me and need not be repeated here.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "issue": "Many of the unreasonable findings were reviewed at the hearing before me and need not be repeated here.",
+    "reason": ""
+   }
+  ],
+  "rows_without_evidence": []
+ }
+}

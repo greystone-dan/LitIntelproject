@@ -1,0 +1,366 @@
+{
+ "case_id": 37148,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.004368
+ },
+ "verification": {
+  "points": 23,
+  "calls": 5,
+  "answered": 3,
+  "points_returned": 23,
+  "answer_ids_dropped": 33
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "Notices of status review were issued to appellants to address delay in their appeals.",
+   "party_ids": [
+    "2.1",
+    "2.2",
+    "2.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms notices of status review were issued to appellants to address delay."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The appellants argue that the delay in proceeding with their appeals is mainly due to their inability to obtain certain documents seized by the Canada Revenue Agency under a warrant executed in September 2006.",
+   "party_ids": [
+    "4.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges appellants argue delay is due to inability to obtain seized documents."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The appellants state that the seized documents are needed to be included in the appeal book and relied upon in the appeal.",
+   "party_ids": [
+    "4.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes appellants state seized documents are needed for the appeal book and appeal."
+  },
+  {
+   "pid": "P4",
+   "party_by": "respondent",
+   "party_text": "The appellants have not justified the delay in proceeding with their appeals because the documentation they require was not before Woods J. and would not be includable in the appeal book without a Court order.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records respondent's contention that appellants have not justified delay as documents were not before Woods J. and need court order to be included."
+  },
+  {
+   "pid": "P5",
+   "party_by": "respondent",
+   "party_text": "The documentation in issue was considered by Woods J., who noted that the appellants were advised by Bowie J. during case management that procedures were available to obtain the seized documents or copies.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes respondent's argument that Woods J. considered the documents and appellants were advised of procedures to obtain them."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "Certain appellants submitted that the Minister of National Revenue acknowledged that unauthorized persons searched and seized documents from Joan Coombs' office on September 20, 2006.",
+   "party_ids": [
+    "6.1",
+    "6.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records appellants' submission about Minister's acknowledgement of unauthorized search and seizure."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "Joan Coombs submitted that Lynn Watson denied the unauthorized search for over two years and that Mr. William Baker, CEO of Canada Revenue Agency, refused to get involved.",
+   "party_ids": [
+    "6.3",
+    "6.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Joan Coombs' submission about Lynn Watson's denial and Mr. Baker's refusal to get involved."
+  },
+  {
+   "pid": "P8",
+   "party_by": "respondent",
+   "party_text": "The respondent submitted that the Minister's letter was misrepresented by Joan Coombs and clarified that unnamed officials helped with the search but did not make any seizure, and that Canadian jurisprudence allows named officials to call on others to assist provided they remain responsible.",
+   "party_ids": [
+    "7.1",
+    "7.2",
+    "7.3",
+    "7.4",
+    "7.5",
+    "7.6",
+    "7.7"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "13.1"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "Furthermore, in my view, a fair reading of the portions of the Minister\u2019s Letter reproduced above is that they contradict the allegations put forward in the February 16, 2009 submission of Joan Coombs and indicate that the seized documents were available for examination by Mr. Oleg Volochkov, the spouse of one of the appellants.",
+   "why": "The court accepts the respondent's clarification and finds the Minister's letter contradicts Joan Coombs' allegations."
+  },
+  {
+   "pid": "P9",
+   "party_by": "respondent",
+   "party_text": "The respondent submitted that the CRA notified Mr. Oleg Volochkov that seized documents were available for examination, but neither he nor Joan Coombs responded or requested to review any documents.",
+   "party_ids": [
+    "7.8",
+    "7.9"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "13.1"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "Furthermore, in my view, a fair reading of the portions of the Minister\u2019s Letter reproduced above is that they contradict the allegations put forward in the February 16, 2009 submission of Joan Coombs and indicate that the seized documents were available for examination by Mr. Oleg Volochkov, the spouse of one of the appellants.",
+   "why": "The court accepts that the CRA notified Mr. Volochkov and that neither he nor Joan Coombs responded, supporting the respondent's submission."
+  },
+  {
+   "pid": "P10",
+   "party_by": "respondent",
+   "party_text": "The respondent is unwilling to include the disputed documentation in the appeal books, making agreement on appeal book contents unlikely.",
+   "party_ids": [
+    "9.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the respondent's unwillingness to include the disputed documents in the appeal books."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "Woods J. stated at paragraphs 101 to 105 of her reasons regarding the documentation.",
+   "party_ids": [
+    "10.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Woods J.'s consideration of the documentation at paragraphs 101 to 105."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The appellants have known how to access the documents since the case management hearing before the Tax Court of Canada hearing.",
+   "party_ids": [
+    "11.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the appellants have known how to access the documents since the case management hearing."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "The appellants have not taken steps to obtain those documents.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly states the appellants have not taken steps to procure the documents."
+  },
+  {
+   "pid": "P14",
+   "party_by": "applicant",
+   "party_text": "The appellants allege that the unavailability of the documents, which were not obtained before the Tax Court hearing, is why the appeals have not advanced.",
+   "party_ids": [
+    "11.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the appellants' allegation that unavailability of documents caused the delay."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "The seizure of records in a criminal investigation has caused prejudice to the appellants because they have not had the necessary documents to properly prepare their cases.",
+   "party_ids": [
+    "102.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants' claim of prejudice due to lack of documents."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The appellants cannot complain of unfairness regarding the seizure of records.",
+   "party_ids": [
+    "103.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court rejects the appellants' complaint of unfairness regarding the seizure."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "The issue of document seizure was raised in a case management hearing before Justice Bowie on July 30, 2007.",
+   "party_ids": [
+    "103.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the issue was raised at the case management hearing."
+  },
+  {
+   "pid": "P18",
+   "party_by": "tribunal_below",
+   "party_text": "Court procedures are available for the production of documents for appellants under the general procedure.",
+   "party_ids": [
+    "104.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes court procedures are available for document production."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "Procedures under the Criminal Code exist to obtain the documents.",
+   "party_ids": [
+    "104.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes Criminal Code procedures exist to obtain documents."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The appellants had ample time to address the document issue prior to trial but chose not to.",
+   "party_ids": [
+    "104.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds appellants had ample time to address the issue but did not."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "The steps to obtain documents would not have been fruitful because some documents are no longer in the Crown\u2019s possession, likely taken by a CRA official who illegally participated in the search and seizure.",
+   "party_ids": [
+    "105.1",
+    "105.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "105.3",
+    "105.4"
+   ],
+   "answer_paragraphs": [
+    105
+   ],
+   "answer_quote": "First, I note that this is an unproven allegation on which there is not a sufficient evidentiary basis to support it. I reject any notion that an official from the CRA is hiding documents in this case.",
+   "why": "The court rejects the theory that documents were taken by a CRA official and finds no sufficient evidence for it."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The allegation that a CRA official is hiding documents is unproven and lacks sufficient evidentiary basis.",
+   "party_ids": [
+    "105.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the allegation lacks sufficient evidentiary basis."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "Any notion that a CRA official is hiding documents in this case is rejected.",
+   "party_ids": [
+    "105.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly rejects the notion that a CRA official is hiding documents."
+  }
+ ]
+}

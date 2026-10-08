@@ -1,0 +1,3721 @@
+{
+ "case_id": 52403,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.04426880000000001
+ },
+ "verification": {
+  "items": 194,
+  "quote_exact_in_cited": 194,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 7,
+  "issues": 17,
+  "calls": 19,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.917,
+  "rows": {
+   "themes": 5,
+   "arguments": 75,
+   "holdings": 105,
+   "rebuttals": 0,
+   "authorities": 13,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The Supreme Court of Canada dismissed the appeal, holding that the presumption of advancement applies to gratuitous transfers from parents to children regardless of the child's age, and that the evidence showed the father intended to gift the joint account assets to his daughter through survivorship.",
+  "themes": [
+   {
+    "name": "Presumptions of resulting trust and advancement",
+    "summary": "The decision discusses the continuing applicability and scope of the presumptions of resulting trust and advancement in modern law, especially in parent-child transfers.",
+    "paragraphs": [
+     7,
+     24,
+     27,
+     33,
+     38,
+     41,
+     48,
+     92,
+     94,
+     101,
+     110
+    ]
+   },
+   {
+    "name": "Intent of transferor in joint accounts",
+    "summary": "The court examines how to determine the transferor's intention regarding beneficial ownership in joint accounts, including the role of survivorship rights and evidence such as control, tax treatment, and power of attorney.",
+    "paragraphs": [
+     52,
+     56,
+     62,
+     69,
+     79,
+     81,
+     86
+    ]
+   },
+   {
+    "name": "Application of presumption of advancement to adult children",
+    "summary": "The court debates whether the presumption of advancement applies to adult children, concluding it applies regardless of age due to parental affection and historical practice.",
+    "paragraphs": [
+     34,
+     41,
+     44,
+     92,
+     110,
+     115,
+     119
+    ]
+   },
+   {
+    "name": "Standard of proof to rebut presumptions",
+    "summary": "The court holds that the civil standard of proof (balance of probabilities) applies to rebut the presumptions of resulting trust and advancement.",
+    "paragraphs": [
+     49,
+     51
+    ]
+   },
+   {
+    "name": "Admissibility and weight of evidence",
+    "summary": "The court discusses what evidence may be considered to ascertain the transferor's intent, including evidence subsequent to transfer, bank documents, control of funds, power of attorney, and tax treatment.",
+    "paragraphs": [
+     63,
+     65,
+     70,
+     73,
+     78,
+     82
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and case background",
+    "first_paragraph": 1,
+    "last_paragraph": 11,
+    "disposition": "other"
+   },
+   {
+    "label": "Legal issues raised by the appeal",
+    "first_paragraph": 6,
+    "last_paragraph": 10,
+    "disposition": "other"
+   },
+   {
+    "label": "Trial and Court of Appeal decisions",
+    "first_paragraph": 16,
+    "last_paragraph": 24,
+    "disposition": "other"
+   },
+   {
+    "label": "Whether presumptions of resulting trust and advancement continue to apply",
+    "first_paragraph": 25,
+    "last_paragraph": 44,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Standard of proof to rebut presumptions",
+    "first_paragraph": 49,
+    "last_paragraph": 51,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Treatment of survivorship in joint accounts",
+    "first_paragraph": 52,
+    "last_paragraph": 61,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Evidence admissible to determine transferor's intent",
+    "first_paragraph": 62,
+    "last_paragraph": 82,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Whether trial judge's decision should be overturned",
+    "first_paragraph": 83,
+    "last_paragraph": 88,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Disposition and costs",
+    "first_paragraph": 89,
+    "last_paragraph": 89,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Concurring reasons on presumption of advancement and resulting trust",
+    "first_paragraph": 90,
+    "last_paragraph": 120,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The question is whether the father intended to make a gift of the beneficial interest in the accounts upon his death to his daughter alone or whether he intended that his daughter hold the assets in the accounts in trust for the benefit of his estate to be distributed according to his will.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The question is whether the father intended to gift the beneficial interest in the accounts to his daughter or intended her to hold the assets in trust for his estate.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "This appeal raises the following issues: 1. Do the presumptions of resulting trust and advancement continue to apply in modern times? 2. If so, on what standard will the presumptions be rebutted? 3. How should courts treat survivorship in the context of a joint account? 4. What evidence may courts consider in determining the intent of a transferor?",
+    "paragraphs": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "evidence_ids": [
+     "6.3",
+     "7.1",
+     "8.1",
+     "9.1",
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "made_by": "applicant",
+    "claim": "The appeal raises four issues: whether the presumptions of resulting trust and advancement continue to apply in modern times; the standard to rebut these presumptions; how courts should treat survivorship in joint accounts; and what evidence courts may consider to determine the transferor's intent.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "6 In this case, the trial judge found that the father actually intended a gift and held that his daughter may retain the assets in the accounts.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge found that the father actually intended a gift and held that his daughter may retain the assets in the accounts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Court of Appeal dismissed the appeal of the daughter\u2019s ex-husband.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Court of Appeal dismissed the appeal of the daughter's ex-husband.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "17 The trial judge looked at the operation of the presumption of a resulting trust and the presumption of advancement and found that the latter applied given Paula\u2019s relationship with her father. Karam J. concluded that the evidence failed to rebut the presumption of advancement and held that the money in the joint accounts therefore belonged to Paula.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1",
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge found the presumption of advancement applied given Paula's relationship with her father and that evidence failed to rebut it, so the money in the joint accounts belonged to Paula.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He found that the evidence clearly indicated that Paula\u2019s father intended to gift the beneficial ownership of those assets held in joint ownership to her while he continued to manage and control them on a day-to-day basis before his death.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge found Paula's father intended to gift beneficial ownership of the assets to Paula while managing them before his death.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "18 The Court of Appeal agreed with the trial judge that there was ample evidence to show that Paula\u2019s father intended to give Paula beneficial interest in his investments when he placed them in joint ownership.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Court of Appeal agreed there was ample evidence that Paula's father intended to give Paula beneficial interest in his investments when placed in joint ownership.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "As a result, Lang J.A. found that it was not necessary to rely on the presumption of advancement, saying that a presumption is only relevant when evidence of actual intention is evenly balanced or when there is no evidence of actual intention.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Court of Appeal found it unnecessary to rely on the presumption of advancement when there is evidence of actual intention.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "While the trustee almost always has the legal title, in exceptional circumstances it is also possible that the trustee has equitable title: see Waters\u2019 Law of Trusts, at p. 365, noting the case of Carter v. Carter (1969), 70 W.W.R. 237 (B.C.S.C.).",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "While the trustee almost always has the legal title, in exceptional circumstances it is also possible that the trustee has equitable title.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In the context of the parent-child relationship, the term has also been used because \u201cthe father was under a moral duty to advance his children in the world\u201d: A. H. Oosterhoff et al., Oosterhoff on Trusts: Text, Commentary and Materials (6th ed. 2004), at p. 575 (emphasis added).",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In the context of the parent-child relationship, the term advancement has also been used because the father was under a moral duty to advance his children in the world.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "28 Historically, the presumption of advancement has been applied in two situations. The first is where the transferor is a husband and the transferee is his wife: Hyman v. Hyman, [1934] 4 D.L.R. 532 (S.C.C.), at p. 538. The second is where the transferor is a father and the transferee is his child, which is at issue in this appeal.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1",
+     "36.2",
+     "36.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Historically, the presumption of advancement applies where the transferor is a husband to his wife or a father to his child.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "31 While historically the relationship between father and child gave rise to the presumption of advancement, courts in Canada have been divided as to whether the relationship between mother and child does as well. Some have concluded that it does not: see e.g. Lattimer v. Lattimer (1978), 18 O.R. (2d) 375 (H.C.J.), relying on Cartwright J.\u2019s concurring judgment in Edwards v. Bradley, [1957] S.C.R. 599. Others have found that it does: see e.g. Rupar v. Rupar (1964), 49 W.W.R. 226 (B.C.S.C.); Dagle v. Dagle Estate (1990), 38 E.T.R. 164 (P.E.I.S.C., App. Div.); Re Wilson (1999), 27 E.T.R. (2d) 97 (Ont. Ct. (Gen. Div.)). In concluding that the presumption applies to mothers and children in Re Wilson, Fedak J., at para. 50, took into consideration \u201cthe natural affection between a mother and child, legislative changes requiring mothers to support their children, the economic independence of women and the equality provisions of the Charter\u201d.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1",
+     "39.2",
+     "39.3",
+     "39.4",
+     "39.5",
+     "39.6",
+     "39.7",
+     "39.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Canadian courts are divided on whether the presumption of advancement applies between mother and child.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "34 Next, does the presumption of advancement apply between parents and adult independent children? A number of courts have concluded that it should not. In reaching that conclusion, Heeney J. in McLear v. McLear Estate (2000), 33 E.T.R. (2d) 272 (Ont. S.C.J.), at paras. 40-41, focussed largely on the modern practice of elderly parents adding their adult children as joint account holders so that the children can provide assistance with the management of their parents\u2019 financial affairs: Just as Dickson J. considered \u201cpresent social conditions\u201d in concluding that the presumption of advancement between husbands and wives had lost all relevance, a consideration of the present social conditions of an elderly parent presents an equally compelling case for doing away with the presumption of advancement between parent and adult child. We are living in an increasingly complex world. People are living longer, and it is commonplace that an ageing parent requires assistance in managing his or her daily affairs. This is particularly so given the complexities involved in managing investments to provide retirement income, paying income tax on those investments, and so on. Almost invariably, the duty of assisting the ageing parent falls to the child who is closest in geographic proximity. In such cases, Powers of Attorney are routinely given. Names are \u201cput on\u201d bank accounts and other assets, so that the child can freely manage the assets of the parent. Given these social conditions, it seems to me that it is dangerous to presume that the elderly parent is making a gift each time he or she puts the name of the assisting child on an asset. The presumption that accords with this social reality is that the child is holding the property in trust for the ageing parent, to facilitate the free and efficient management of that parent\u2019s affairs. The presumption that accords with this social reality is, in other words, the presumption of resulting trust.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1",
+     "42.2",
+     "42.3",
+     "42.4",
+     "42.5",
+     "42.6",
+     "42.7",
+     "42.8",
+     "42.9",
+     "42.10",
+     "42.11",
+     "42.12",
+     "42.13"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Some courts have concluded the presumption of advancement should not apply between parents and adult independent children, due to modern social conditions and the common practice of adding adult children to accounts for assistance rather than as gifts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "35 Heeney J. also noted that the fact that the child was independent and living away from home featured very strongly in Kerwin C.J.\u2019s reasons for finding that no presumption of advancement arose in Edwards v. Bradley. A similar conclusion was reached by Klebuc J., as he was then, in Cooper v. Cooper Estate (1999), 27 E.T.R. (2d) 170 (Sask. Q.B.), at para. 19: \u201cI have serious doubts as to whether presumption of advancement continues to apply with any degree of persuasiveness in Saskatchewan in circumstances where an older parent has transferred property to an independent adult child who is married and lives apart from his parent.\u201d Waters et al., too in Waters\u2019 Law of Trusts, at p. 395, said: \u201cIt may well be that, reflecting the financial dependency that it probably does, contemporary opinion would accord [the presumption of advancement] little weight as between a father and an independent, adult child.\u201d",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1",
+     "43.2",
+     "43.3",
+     "43.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The independence and living situation of adult children are factors leading some courts to reject the presumption of advancement in transfers to adult children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "37 Some commentators and courts have argued that while an adult, independent child is no longer financially dependent, the presumption of advancement should apply on the basis of parental affection for their children: see e.g. S.C.J.). I do not agree that affection is a basis upon which to apply the presumption of advancement to the transfer.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.1",
+     "45.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "applicant",
+    "claim": "Some commentators and courts argue that the presumption of advancement should apply to adult, independent children based on parental affection.",
+    "treatment": "rejected",
+    "outcome_note": "Court does not agree that affection alone justifies presumption of advancement.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "38 The remaining question is whether the presumption of advancement should apply in the case of adult dependent children. In the present case the trial judge, at paras. 26-28, found that Paula, despite being a married adult with her own family, was nevertheless dependent on her father and justified applying the presumption of advancement on that basis.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1",
+     "46.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "made_by": "applicant",
+    "claim": "The presumption of advancement should apply to adult dependent children.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Court accepts presumption may apply to adult dependent children but limits its scope.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "While it may be rational to presume advancement as a result of dependency in some cases, in others it will not. For example, it is not difficult to accept that in some cases a parent would feel a moral, if not legal, obligation to provide for the quality of life for an adult disabled child. This might especially be the case where the disabled adult child is under the charge and care of the parent.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.4",
+     "47.5",
+     "47.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "applicant",
+    "claim": "Dependency justifies presumption of advancement in some cases, such as for adult disabled children under parental care.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It is open to the party claiming that the transfer is a gift to rebut the presumption of resulting trust by bringing evidence to support his or her claim.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "made_by": "applicant",
+    "claim": "The party claiming that a transfer between a parent and an adult child is a gift can rebut the presumption of resulting trust by bringing evidence to support the claim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In addition, while dependency will not be a basis on which to apply the presumption of advancement, evidence as to the degree of dependency of an adult transferee child on the transferor parent may provide strong evidence to rebut the presumption of a resulting trust.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "made_by": "applicant",
+    "claim": "Evidence as to the degree of dependency of an adult transferee child on the transferor parent may provide strong evidence to rebut the presumption of a resulting trust, even though dependency is not a basis to apply the presumption of advancement.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "With regard to the presumption of resulting trust, some cases appear to suggest that the criminal standard, or at least a standard higher than the civil standard, is applicable: see e.g. Bayley v. Trusts and Guarantee Co., [1931] 1 D.L.R. 500 (Ont. S.C., App. Div.), at p. 505; Johnstone v. Johnstone (1913), 12 D.L.R. 537 (Ont. S.C., App. Div.), at p. 539.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.2",
+     "50.3",
+     "50.4",
+     "50.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "made_by": "applicant",
+    "claim": "Some cases suggest that the criminal standard or a higher than civil standard is required to rebut the presumption of resulting trust.",
+    "treatment": "rejected",
+    "outcome_note": "The Court prefers the civil standard of proof.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As for the presumption of advancement, some cases seem to suggest that only slight evidence will be required to rebut the presumptions: see e.g. Pettitt v. Pettitt, [1970] A.C. 777 (H.L.), at p. 814; McGrath v. Wallis, [1995] 2 F.L.R. 114 (Eng. C.A.), at pp. 115 and 122; Dreger (Litigation Guardian of) v. Dreger (1994), 5 E.T.R. (2d) 250 (Man. C.A.), at para. 31.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.6",
+     "50.7",
+     "50.8",
+     "50.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "made_by": "applicant",
+    "claim": "Some cases suggest that only slight evidence is required to rebut the presumption of advancement.",
+    "treatment": "rejected",
+    "outcome_note": "The Court prefers the civil standard of proof.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "45 In cases where the transferor\u2019s proven intention in opening the joint account was to gift withdrawal rights to the transferee during his or her lifetime (regardless of whether or not the transferee chose to exercise that right) and also to gift the balance of the account to the transferee alone on his or her death through survivorship, courts have had no difficulty finding that the presumption of a resulting trust has been rebutted and the transferee alone is entitled to the balance of the account on the transferor\u2019s death.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "made_by": "applicant",
+    "claim": "Where the transferor intended to gift withdrawal rights and the balance on death through survivorship, courts find the presumption of resulting trust rebutted and the transferee entitled to the balance on death.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "46 In certain cases, however, courts have found that the transferor gratuitously placed his or her assets into a joint account with the transferee with the intention of retaining exclusive control of the account until his or her death, at which time the transferee alone would take the balance through survivorship: see e.g. Standing v. Bowring (1885), 31 Ch. D. 282, at p. 287; Edwards v. Bradley, [1956] O.R. 225 (C.A.), at p. 234; Yau Estate, at para. 25.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1",
+     "54.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "made_by": "applicant",
+    "claim": "In some cases, transferors place assets in joint accounts intending to retain exclusive control until death, with the transferee taking the balance through survivorship.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "47 There may be a number of reasons why an individual would gratuitously transfer assets into a joint account having this intention. A typical reason is that the transferor wishes to have the assistance of the transferee with the management of his or her financial affairs, often because the transferor is ageing or disabled. At the same time, the transferor may wish to avoid probate fees and/or make after-death disposition to the transferee less cumbersome and time consuming.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1",
+     "55.2",
+     "55.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "made_by": "applicant",
+    "claim": "Transferors may place assets in joint accounts to get assistance managing finances, avoid probate fees, and simplify after-death disposition.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "48 Courts have understandably struggled with whether they are permitted to give effect to the transferor\u2019s intention in this situation. One of the difficulties in these circumstances is that the beneficial interest of the transferee appears to arise only on the death of the transferor. This has led some judges to conclude that the gift of survivorship is testamentary in nature and must fail as a result of not being in proper testamentary form: see e.g. Hill v. Hill (1904), 8 O.L.R. 710 (H.C.), at p. 711; Larondeau v. Laurendeau, [1954] O.W.N. 722 (H.C.); Hodgins J.A.\u2019s dissent in Re Reid (1921), 64 D.L.R. 598 (Ont. S.C., App. Div.).",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1",
+     "56.2",
+     "56.3",
+     "56.4",
+     "56.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "made_by": "applicant",
+    "claim": "Courts have struggled whether to give effect to transferor's intention when beneficial interest arises only on death, with some judges treating survivorship gifts as testamentary and invalid if not in proper form.",
+    "treatment": "rejected",
+    "outcome_note": "Court disagrees with the view that survivorship gifts are testamentary and must fail if not in testamentary form.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "50 Some judges have found that a gift of survivorship cannot be a complete and perfect inter vivos gift because of the ability of the transferor to drain a joint account prior to his or her death: see e.g. Hodgins J.A.\u2019s dissent in Re Reid. Like the Ontario Court of Appeal in Re Reid, at p. 608, and Edwards v. Bradley, at p. 234, I would reject this view.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.1",
+     "58.2",
+     "58.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "made_by": "respondent",
+    "claim": "Some judges argue that a gift of survivorship cannot be a complete and perfect inter vivos gift because the transferor can drain the joint account before death.",
+    "treatment": "rejected",
+    "outcome_note": "Court rejects this view, agreeing with Re Reid and Edwards v. Bradley.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "57 Some courts, however, have departed from the restrictive \u2014 and somewhat abstruse \u2014 rule in Shephard v. Cartwright.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Some courts have departed from the restrictive rule in Shephard v. Cartwright regarding admissibility of subsequent evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In Neazor v. Hoyle (1962), 32 D.L.R. (2d) 131 (Alta. S.C., App. Div.), for example, a brother transferred land to his sister eight years before he died and the trial judge considered the conduct of the parties during the years after the transfer to see whether they treated the land as belonging beneficially to the brother or the sister.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.2",
+     "66.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In Neazor v. Hoyle, the trial judge considered conduct of parties years after transfer to determine beneficial ownership.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "58 The rule has also lost much of its force in England.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The rule excluding subsequent evidence has lost much of its force in England.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Court of Appeal, at para. 40, held that this factor was not determinative of Paula\u2019s father\u2019s intentions: \u201c[w]hile control can be consistent with an intention to retain ownership, it is also not inconsistent in this case with an intention to gift the assets.\u201d",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Court of Appeal held that control of the account was not determinative of Paula's father's intentions regarding beneficial interest.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In contrast, in Madsen Estate, at para. 34, one of the main factors the Court of Appeal relied on to show that the father did not intend to create a beneficial joint tenancy was that he remained in control of the accounts, and that he paid the taxes on the interest earned on the funds in the accounts.",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In Madsen Estate, the Court of Appeal found that the father's retention of control and payment of taxes indicated no intention to create a beneficial joint tenancy.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Court of Appeal in Madsen Estate, at para. 72, noted that the transferor had granted the transferee power of attorney but did not view it \u201cas a factor that suggested that the joint account was not set up merely as a tool of convenience for mutual access to funds\u201d.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In Madsen Estate, the Court of Appeal did not view granting power of attorney as negating the joint account as a tool of convenience.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Court of Appeal in the present case, on the other hand, placed substantial weight on Paula\u2019s father having given her both joint ownership of the accounts and power of attorney in finding that he intended to gift the assets to her.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Court of Appeal in the present case placed substantial weight on the transferor granting joint ownership and power of attorney as evidence of intent to gift assets.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Lang J.A. reasoned, at para. 34, that had Paula\u2019s father intended only for Paula to assist in the managing of the accounts, this could have been accomplished solely by giving her power of attorney: \u201cWith that power of attorney, joint ownership of the investments was unnecessary unless [Paula\u2019s father] intended something more: to ensure the investments were given to Paula and to avoid probate fees, both entirely legitimate purposes.\u201d",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Lang J.A. reasoned that power of attorney alone would suffice for managing accounts, so joint ownership indicated intent to gift and avoid probate fees.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Lang J.A. also found, at para. 35, that the weight to be afforded a particular piece of evidence is a matter within a trial judge\u2019s discretion.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Lang J.A. found that the weight of evidence is a matter within the trial judge's discretion.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "69 Courts have relied to varying degrees on the transferor\u2019s tax treatment of the account in determining intent.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Courts have relied to varying degrees on the transferor\u2019s tax treatment of the account in determining intent.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In Madsen Estate, the trial judge relied in part on the fact that the transferor was the one who declared and paid income tax on the money in the joint accounts in finding that the transferor intended a resulting trust ((2004), 13 E.T.R. (3d) 44, at para. 29).",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In Madsen Estate, the trial judge relied in part on the fact that the transferor was the one who declared and paid income tax on the money in the joint accounts in finding that the transferor intended a resulting trust.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In the present case, at para. 44, the trial judge noted that Paula\u2019s father continued to pay taxes on the income in joint accounts but nevertheless found that he intended to gift the joint accounts to her.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In the present case, the trial judge noted that Paula\u2019s father continued to pay taxes on the income in joint accounts but nevertheless found that he intended to gift the joint accounts to her.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "70 As for the matter of taxes on capital gains, it was submitted to this Court that for public policy reasons, transferors should not be permitted to transfer beneficial title while asserting to the tax authorities that such title has not been passed in order to defer or avoid the payment of taxes: appellant\u2019s factum, at p. 24.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "made_by": "applicant",
+    "claim": "For public policy reasons, transferors should not be permitted to transfer beneficial title while asserting to tax authorities that such title has not been passed to defer or avoid taxes on capital gains.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "71 The trial judge in the present case found that, at the time of the transfers, Paula and her father had a very close relationship and that Paula \u201cclearly was the person, other than his wife, that he was closest to and most concerned about\u201d (para. 32).",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge found Paula and her father had a very close relationship and that Paula was the person he was closest to besides his wife.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Given this relationship and her financial hardships, her father preferred her over her siblings.",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Given Paula's financial hardships, her father preferred her over her siblings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Indeed, he was estranged from one of his daughters at the time the accounts were set up (para. 25).",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The father was estranged from one daughter when the accounts were set up.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "While he may have grown close to his son-in-law, the trial judge concluded they were simply \u201cgood friends\u201d (para. 38).",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The father was close to his son-in-law but they were only good friends.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Moreover, his wife was seriously ill and not expected to outlive him.",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The father\u2019s wife was seriously ill and not expected to outlive him.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "72 Paula and her family relied on her father for financial assistance.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Paula and her family relied on her father for financial assistance.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "While he maintained control of the accounts and used the funds for his benefit during his life, the trial judge found his concern lay with providing for Paula after his death.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The father maintained control of the accounts and used the funds for his benefit during his life but intended to provide for Paula after his death.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This is consistent with an intention to gift a right of survivorship when the accounts were set up.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "made_by": "tribunal_below",
+    "claim": "This is consistent with an intention to gift a right of survivorship when the accounts were set up.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "73 The statements of Paula\u2019s father while drafting his last will are also an important indicator of intention.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Statements of Paula\u2019s father while drafting his last will indicate his intention regarding the accounts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Although the statements were made in years subsequent to the transfer, the trial judge considered the lawyer\u2019s testimony about them reliable. The lawyer had nothing to gain from his testimony.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.2",
+     "86.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge considered the lawyer\u2019s testimony about the father\u2019s statements reliable as the lawyer had nothing to gain.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This evidence indicates that Paula\u2019s father was of the view that the accounts had already been dealt with and understood these assets would not form part of the estate.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The evidence indicates the father viewed the accounts as already dealt with and not part of the estate.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "74 There is of course the issue of Paula\u2019s father writing to financial institutions saying that the transfers were not gifts to Paula.",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The father wrote letters to financial institutions stating the transfers were not gifts to Paula.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Consistent with these letters, Paula\u2019s father continued to control the funds in the accounts and paid income tax on the earnings of the investments before his death.",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The father continued to control the funds and paid income tax on earnings before his death.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The trial judge found that Paula\u2019s father\u2019s intention when he wrote the letters was \u201csimply to avoid triggering an immediate deemed disposition of the assets in question, and therefore avoid capital gains taxes\u201d (para. 39).",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge found the father\u2019s intention in writing the letters was to avoid triggering immediate deemed disposition and capital gains taxes.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "75 The trial judge erred in applying the presumption of advancement. Paula, although financially insecure, was not a minor child.",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.1",
+     "88.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge erred in applying the presumption of advancement because Paula was not a minor child.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Michael Pecore asked this Court for costs throughout from Paula or the estate.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "made_by": "applicant",
+    "claim": "Michael Pecore asked this Court for costs throughout from Paula or the estate.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As noted in the judgment of the Ontario Court of Appeal, at para. 48, the trial judge denied Michael costs out of the estate or from Paula. He did so because he found that on the issues raised in the divorce proceeding, success was divided, Paula made an offer to settle that exceeded the result, and Michael\u2019s conduct was \u201cless than candid\u201d.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.3",
+     "89.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge denied Michael costs out of the estate or from Paula because success was divided, Paula made an offer to settle that exceeded the result, and Michael\u2019s conduct was less than candid.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The trial judge, who was upheld in the Court of Appeal ((2005), 19 E.T.R. (3d) 162), applied the presumption of advancement and concluded that the father\u2019s intention was to make a gift of the money to his daughter ((2004), 7 E.T.R. (3d) 113).",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The trial judge applied the presumption of advancement and concluded the father intended to gift the money to his daughter, a decision upheld by the Court of Appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The issue in both appeals is which presumption applies and what the consequences of its application are.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "made_by": "applicant",
+    "claim": "The issue in the appeal is which presumption applies\u2014the presumption of advancement or the presumption of resulting trust\u2014and the consequences of its application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "82 There is an ongoing academic and judicial debate about whether the presumptions, and particularly the presumption of resulting trust, ought to be removed entirely from the judicial tool box in assessing intention. E. E. Gillese and M. Milczynski offer the following criticism, echoed by others, in The Law of Trusts (2nd ed. 2005): . . . modern life has caused many to question the utility of the presumptions. When I voluntarily transfer title to property to another, is it more sensible to assume that I have made a gift or that I transferred title under the assumption that the transferee would hold title for me? Surely, it is more likely that, had I intended to create a trust, I would have taken steps to expressly create the trust and document it. It is more plausible to presume the opposite to that which equity presumed. If someone today gives away property, it is at least as likely that they intended a gift as that they intended to create some type of trust. And, if they did intend to create a trust, they should be held to the requirements that exist for express trusts and not be favoured by the presumption of a resulting trust. The fact that the presumption is out of step with modern thought explains the courts\u2019 new approach to such cases, which is to look at all the evidence with an open mind and attempt to determine intention on that basis. If that were the end of the matter, we could say that the presumption of resulting trust had been eradicated. Unfortunately, the courts have not gone that far, and the presumption will operate where the evidence is unclear.",
+    "paragraphs": [
+     95
+    ],
+    "evidence_ids": [
+     "95.1",
+     "95.2",
+     "95.3",
+     "95.4",
+     "95.5",
+     "95.6",
+     "95.7",
+     "95.8",
+     "95.9",
+     "95.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     95
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There is ongoing debate about whether the presumptions, especially the presumption of resulting trust, should be removed from judicial consideration because modern life makes the presumption of gift more plausible than the presumption of resulting trust.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "87 The traditional presumption of advancement as between husband and wife has been largely abandoned, both judicially (Pettitt v. Pettitt, [1970] A.C. 777 (H.L.), and Rathwell v. Rathwell, [1978] 2 S.C.R. 436) and legislatively (New Brunswick, Marital Property Act, S.N.B. 1980, c. M-1.1, s. 15(1); Prince Edward Island, Family Law Act, R.S.P.E.I. 1988, c. F-2.1, s. 14(1); Nova Scotia, Matrimonial Property Act, R.S.N.S. 1989, c. 275, s. 21(1); Newfoundland and Labrador, Family Law Act, R.S.N.L. 1990, c. F-2, s. 31(1); Ontario, Family Law Act, R.S.O. 1990, c. F.3, s. 14; Northwest Territories and Nunavut, Family Law Act, S.N.W.T. 1997, c. 18, s. 46(1); Saskatchewan, The Family Property Act, S.S. 1997, c. F-6.3, s. 50(1); Yukon, Family Property and Support Act, R.S.Y. 2002, c. 83, s. 7(2)).",
+    "paragraphs": [
+     100
+    ],
+    "evidence_ids": [
+     "100.1",
+     "100.2",
+     "100.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     100
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The traditional presumption of advancement as between husband and wife has been largely abandoned both judicially and legislatively.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "88 But in the case of gratuitous transfers to children, the presumption \u201cappears to retain much of its original vigour\u201d (D. W. M. Waters, M. R. Gillen and L. D. Smith, eds., Waters\u2019 Law of Trusts in Canada (3rd ed. 2005), at p. 381). As noted by Cullity J. in Yau Estate, at para. 35: [I]t would be a mistake to extrapolate the treatment of the equitable presumptions in Rathwell out of their matrimonial property context to other situations including those involving the acquisition, or transfer, of property between strangers and between parents and their children.",
+    "paragraphs": [
+     101
+    ],
+    "evidence_ids": [
+     "101.1",
+     "101.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     101
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The presumption of advancement retains much of its original vigour in the case of gratuitous transfers to children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "89 Rothstein J. rejects parental affection as being a basis for the presumption, stating that \u201ca principal justification for the presumption of advancement\u201d in the case of gratuitous transfers to children was the \u201cparental obligation to support their dependent children\u201d (para. 36). With respect, this narrows and somewhat contradicts the historical rationale for the presumption. Parental affection, no less than parental obligation, has always grounded the presumption of advancement.",
+    "paragraphs": [
+     102
+    ],
+    "evidence_ids": [
+     "102.1",
+     "102.2",
+     "102.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     102
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Rothstein J. rejects parental affection as a basis for the presumption, stating the principal justification is parental obligation to support dependent children.",
+    "treatment": "rejected",
+    "outcome_note": "Court finds this narrows and somewhat contradicts the historical rationale.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "90 It is in fact the rationale of parental affection that was cited in Waters\u2019 Law of Trusts in Canada as an explanation for the longevity of the presumption of advancement in transfers to children: The presumption of advancement between father and child has not been subjected to the same re-evaluation which in recent years has overtaken the presumption between husband and wife. . . . The factor of affection continues to exist, something which cannot be presumed in the relationship between strangers, and possibly for this reason the courts have seen no reason to challenge its modern significance. [Emphasis added; p. 395.]",
+    "paragraphs": [
+     103
+    ],
+    "evidence_ids": [
+     "103.1",
+     "103.2",
+     "103.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     103
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The presumption of advancement between father and child has not been subjected to the same re-evaluation as between husband and wife because parental affection continues to exist and cannot be presumed in relationships between strangers.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "91 In his article, \u201cReassessing Gratuitous Transfers by Parents to Adult Children\u201d (2006), 25 E.T.P.J. 174, Professor Freedman acknowledges that while the \u201coriginal rationale of the advancement rule is somewhat difficult to pin down\u201d (p. 190), it did not arise only from the parental obligation to provide support for dependent children: Would that satisfaction of legal obligations was the explicit rationale of the presumption of advancement in the older cases; unfortunately, the authorities are inconsistent in approach and lead to little certainty in justifying doctrine. Indeed, this was decidedly an inquiry into gifting, not compelling support payments, and gratuitous transfers were recognised as advancements in a number of situations that are problematic for this elegant explanation of the equitable doctrine \u2014 for example, where the donee was of legal age and even independent of his father, or was already provided for, or was illegitimate, or where the loco parentis principle was liberally applied to a wider class of people that would not be the object of any enforceable legal obligation. While later cases have gone on to demonstrate the highly refined skills of both counsel and judges in distinguishing one case from another based on factual considerations in determining whether the presumption ought to apply in any given circumstance, I would suggest that no uniform principle can be found in the cases. The simple fact is that the extent of the obligation between the transferor and transferee was never the focus of the inquiry, only the probable intent of the transferor in seeking to retain the beneficial interest for himself in the context of a given relationship that on its face gave rise to reasonable expectations that such gifts might be forthcoming.",
+    "paragraphs": [
+     104
+    ],
+    "evidence_ids": [
+     "104.1",
+     "104.2",
+     "104.3",
+     "104.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     104
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Professor Freedman acknowledges the original rationale of the advancement rule is difficult to pin down and did not arise only from parental obligation to support dependent children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "93 In Yau Estate, Cullity J. also observed that parental affection is a rationale for the presumption, leading Professor Freedman in his article to conclude: In other words, parental affection grounds the presumption and is the greatest indicator of the probable intent of the transferor. This is an attractive argument which I suggest most would agree accords with common experience. [p. 196]",
+    "paragraphs": [
+     106
+    ],
+    "evidence_ids": [
+     "106.1",
+     "106.2",
+     "106.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     106
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Cullity J. observed parental affection grounds the presumption and is the greatest indicator of the probable intent of the transferor.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "94 Because parental affection has historically been seen as a basis for the presumption of advancement, it was routinely applied to adult as well as to minor children. In Sidmouth v. Sidmouth (1840), 2 Beav. 447, 48 E.R. 1254, for example, the court applied it in the case of a gratuitous transfer to an adult son, explaining: As far as acts strictly contemporaneous appear, there does not appear to be anything to manifest an intention to make the son a trustee for the father. The circumstance that the son was adult does not appear to me to be material. It is said that no establishment was in contemplation, and that no necessity or occasion for advancing the son had occurred, but in the relation between parent and child, it does not appear to me that an observation of this kind can have any weight. The parent may judge for himself when it suits his own convenience, or when it will be best for his son, to secure him any benefit which he voluntarily thinks fit to bestow upon him, and it does not follow that because the reason for doing it is not known, there was no intention to advance at all. [Emphasis added; p. 1258.]",
+    "paragraphs": [
+     107
+    ],
+    "evidence_ids": [
+     "107.1",
+     "107.2",
+     "107.3",
+     "107.4",
+     "107.5",
+     "107.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     107
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Because parental affection has historically been seen as a basis for the presumption of advancement, it was routinely applied to adult as well as minor children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "95 It is true, as was noted in Oosterhoff on Trusts: Text, Commentary and Materials (6th ed. 2004), at pp. 581-86, that some courts in the mid-90s began questioning whether the presumption of advancement should apply to transfers between parents and their adult children (see Dreger (Litigation Guardian of) v. Dreger (1994), 5 E.T.R. (2d) 250 (Man. C.A.); Cooper v. Cooper Estate (1999), 27 E.T.R. (2d) 170 (Sask. Q.B.), and McLear v. McLear Estate (2000), 33 E.T.R. (2d) 272 (Ont. S.C.J.)).",
+    "paragraphs": [
+     108
+    ],
+    "evidence_ids": [
+     "108.1",
+     "108.2",
+     "108.3",
+     "108.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     108
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Some courts in the mid-90s began questioning whether the presumption of advancement should apply to transfers between parents and their adult children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "97 And in this appeal, the Ontario Court of Appeal took no issue with the trial judge\u2019s application of the presumption of advancement to the transfer by the father, notwithstanding that the beneficiary of the transfer, his daughter, was an adult at the time.",
+    "paragraphs": [
+     110
+    ],
+    "evidence_ids": [
+     "110.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     110
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Ontario Court of Appeal accepted the trial judge's application of the presumption of advancement to a transfer by a father to his adult daughter.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "98 The origin and persistence of the presumption of advancement in gratuitous transfers to children cannot, therefore, be attributed only to the financial dependency of children on their father or on the father\u2019s obligation to support his children. Natural affection also underlay the presumption that a parent who made a gratuitous transfer to a child of any age, intended to make a gift.",
+    "paragraphs": [
+     111
+    ],
+    "evidence_ids": [
+     "111.1",
+     "111.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     111
+    ],
+    "made_by": "applicant",
+    "claim": "The presumption of advancement in gratuitous transfers to children is not solely based on financial dependency but also on natural affection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "99 Rothstein J. relied too on the argument made in McLear, at paras. 40-41, against applying the presumption of advancement to adult children, namely, that since people are \u201cliving longer\u201d and there are more aging parents who will require assistance in the managing of their daily financial affairs, it is \u201cdangerous to presume that the elderly parent is making a gift each time he or she puts the name of the assisting child on an asset\u201d. 100 This, with respect, seems to me to be a flawed syllogism. The intention to have an adult child manage a parent\u2019s financial affairs during one\u2019s lifetime is hardly inconsistent with the intention to make a gift of money in a joint account to that child. Parents generally want to benefit their children out of love and affection. If children assist them with their affairs, this cannot logically be a reason for assuming that the desire to benefit them has been displaced. It is equally plausible that an elderly parent who gratuitously enters into a joint bank account with an adult child on whom he or she depends for assistance, intends to make a gift in gratitude for this assistance. In any event, if the intention is merely to have assistance in financial management, a power of attorney would suffice, as would a bank account without survivorship rights.",
+    "paragraphs": [
+     112,
+     113
+    ],
+    "evidence_ids": [
+     "112.1",
+     "113.1",
+     "113.2",
+     "113.3",
+     "113.4",
+     "113.5",
+     "113.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     112,
+     113
+    ],
+    "made_by": "applicant",
+    "claim": "It is flawed to argue that the presumption of advancement should not apply to adult children because elderly parents need assistance managing their finances.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "101 The fact that some parents may enter into joint bank accounts because of the undue influence of an adult child, is no reason to attribute the same impropriety to the majority of parent-child transfers. The operative paradigm should be based on the norm of mutual affection, rather than on the exceptional exploitation of that affection by an adult child.",
+    "paragraphs": [
+     114
+    ],
+    "evidence_ids": [
+     "114.1",
+     "114.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     114
+    ],
+    "made_by": "applicant",
+    "claim": "The possibility of undue influence by adult children does not justify disregarding the presumption of advancement in most parent-child transfers.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "102 I see no reason to claw back the common law in a way that disregards the lifetime tenacity of parental affection by now introducing a limitation on the presumption of advancement by restricting its application to minor children. Since the presumption of advancement emerged no less from affection than from dependency, and since parental affection flows from the inherent nature of the relationship, not of the dependency, the presumption of advancement should logically apply to all gratuitous transfers from parents to any of their children, regardless of the age or dependency of the child or the parent. The natural affection parents are presumed to have for their adult children when both were younger, should not be deemed to atrophy with age.",
+    "paragraphs": [
+     115
+    ],
+    "evidence_ids": [
+     "115.1",
+     "115.2",
+     "115.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     115
+    ],
+    "made_by": "applicant",
+    "claim": "The presumption of advancement should apply to all gratuitous transfers from parents to children regardless of the child's age or dependency, because parental affection persists over time.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "103 While, as Rothstein J. observes, affection arises in many relationships, familial or otherwise, it is not affection alone that had earned the presumption of advancement for transfers between father and child. It was the uniqueness of the parental relationship, not only in the legal obligations involved, but, more significantly, in the protective emotional ties flowing from the relationship. These ties are not attached only to the financial dependence of the child. Affection between siblings, other relatives, or even friends, can undoubtedly be used as an evidentiary basis for assessing a transferor\u2019s intentions, but the reason none of these other relationships has ever inspired a legal presumption is because, as a matter of common sense, none is as predictable of intention.",
+    "paragraphs": [
+     116
+    ],
+    "evidence_ids": [
+     "116.1",
+     "116.2",
+     "116.3",
+     "116.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     116
+    ],
+    "made_by": "applicant",
+    "claim": "The presumption of advancement is unique to the parental relationship due to its legal obligations and protective emotional ties, not just affection alone.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "104 It seems to me that bank account documents which specifically confirm a survivorship interest, should be deemed to reflect an intention that what has been signed, is sincerely meant. I appreciate that in Re Mailman Estate, [1941] S.C.R. 368, Niles v. Lake, [1947] S.C.R. 291, and Edwards v. Bradley, [1957] S.C.R. 599, this Court said that the wording of bank documents was irrelevant in determining the intention behind joint bank accounts with respect to beneficial title. Fifty years later, however, I have difficulty seeing any continuing justification for ignoring the presumptive, albeit rebuttable, relevance of unambiguous language in banking documents in determining intention. I think it would come as a surprise to most Canadian parents to learn that in the creation of joint bank accounts with rights of survivorship, there is little evidentiary value in the clear language of what they have voluntarily signed.",
+    "paragraphs": [
+     117
+    ],
+    "evidence_ids": [
+     "117.1",
+     "117.2",
+     "117.3",
+     "117.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     117
+    ],
+    "made_by": "applicant",
+    "claim": "Bank account documents that confirm survivorship interest should be considered evidence of the transferor's intention.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "105 It is significant to me that even though the presumption of advancement has generally been replaced in the spousal context by the presumption of resulting trust, it has nonetheless been conceptually retained in the case of spousal property which is jointly owned, such as joint bank accounts. Section 14(a) of the Ontario Family Law Act, for example, provides that \u201cthe fact that property is held in the name of spouses as joint tenants is proof, in the absence of evidence to the contrary, that the spouses are intended to own the property as joint tenants\u201d. Section 14(b) further specifies that \u201cmoney on deposit in the name of both spouses shall be deemed to be in the name of the spouses as joint tenants for the purposes of clause (a)\u201d.",
+    "paragraphs": [
+     118
+    ],
+    "evidence_ids": [
+     "118.1",
+     "118.2",
+     "118.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     118
+    ],
+    "made_by": "applicant",
+    "claim": "The presumption of advancement has been conceptually retained in spousal joint property despite being replaced by the presumption of resulting trust in other contexts.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "Rothstein, Marshall On appeal from Ontario Subjects Estates Notes SCC Case Information: 31202 Decision Content SUPREME COURT OF CANADA Citation: Pecore v. Pecore, [2007] 1 S.C.R. 795, 2007 SCC 17 Date: 20070503 Docket: 31202 Between: Michael Pecore Appellant and Paula Pecore and Shawn Pecore Respondents Coram: McLachlin C.J. and Bastarache, Binnie, LeBel, Deschamps, Fish, Abella, Charron and Rothstein JJ. Reasons for Judgment: (paras. 1 to 76) Concurring Reasons: (paras. 77 to 107) Rothstein J. (McLachlin C.J. and Bastarache, Binnie, LeBel, Deschamps, Fish and Charron JJ. concurring) Abella J. ______________________________ Pecore v. Pecore, [2007] 1 S.C.R. 795, 2007 SCC 17 Michael Pecore Appellant v. Paula Pecore and Shawn Pecore Respondents Indexed as: Pecore v. Pecore Neutral citation: 2007 SCC 17.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2",
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Michael Pecore is the appellant and Paula Pecore and Shawn Pecore are the respondents in this appeal."
+   },
+   {
+    "quote": "1 This appeal involves questions about joint bank and investment accounts where only one of the account holders deposits funds into the account. These types of joint accounts are used by many Canadians for a variety of purposes, including estate-planning and financial management. Given their widespread use, the law relating to how these accounts are to be treated by courts after the death of one of the account holders is a matter appropriate for this Court to address.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2",
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The appeal concerns joint bank and investment accounts where only one account holder deposits funds, and the legal treatment of such accounts after the death of one holder."
+   },
+   {
+    "quote": "2 Depending on the terms of the agreement between the bank and the two joint account holders, each may have the legal right to withdraw any or all funds from the accounts at any time and each may have a right of survivorship. If only one of the joint account holders is paying into the account and he or she dies first, it raises questions about whether he or she intended to have the funds in the joint account go to the other joint account holder alone or to have those funds distributed according to his or her will. How to answer this question is the subject of this appeal.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1",
+     "3.2",
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Joint account holders may have rights to withdraw funds and rights of survivorship, raising questions about the deceased's intent for the funds."
+   },
+   {
+    "quote": "3 In the present case, an ageing father gratuitously placed his mutual funds, bank account and income trusts in joint accounts with his daughter, who was one of his adult children. The father alone deposited funds into the accounts. Upon his death, a balance remained in the accounts.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1",
+     "4.2",
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "An ageing father placed his mutual funds, bank account and income trusts in joint accounts with his daughter, depositing the funds alone, and a balance remained upon his death."
+   },
+   {
+    "quote": "4 It is not disputed that the daughter took legal ownership of the balance in the accounts through the right of survivorship. Equity, however, recognizes a distinction between legal and beneficial ownership.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The daughter took legal ownership of the account balance through right of survivorship, but equity distinguishes legal from beneficial ownership."
+   },
+   {
+    "quote": "5 While the focus in any dispute over a gratuitous transfer is the actual intention of the transferor at the time of the transfer, intention is often difficult to ascertain, especially where the transferor is deceased.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "legal_test",
+    "statement": "The focus in disputes over gratuitous transfers is the actual intention of the transferor at the time of the transfer, but intention is often difficult to ascertain, especially if the transferor is deceased."
+   },
+   {
+    "quote": "Common law rules have developed to guide a court\u2019s inquiry.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "Common law rules have developed to guide a court's inquiry into the transferor's intention."
+   },
+   {
+    "quote": "7 I conclude that there is no basis to overturn this result. The appeal should be dismissed.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "There is no basis to overturn the result that the daughter may retain the assets; the appeal should be dismissed."
+   },
+   {
+    "quote": "8 The dispute is between Paula Pecore and her ex-husband Michael Pecore regarding who is entitled to the assets held in joint accounts between Paula and her father upon her father\u2019s death.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "The dispute is between Paula Pecore and her ex-husband Michael Pecore regarding entitlement to assets held in joint accounts between Paula and her father upon the father's death."
+   },
+   {
+    "quote": "The assets in the joint accounts in dispute totalled almost $1,000,000 at the time Paula\u2019s father died in 1998.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "The assets in the joint accounts in dispute totalled almost $1,000,000 at the time Paula's father died in 1998."
+   },
+   {
+    "quote": "9 Paula has two siblings but of the three, she was the closest to their father. In fact, her father was estranged from one of her sisters until shortly before his death in 1998.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "Paula was the closest of three siblings to their father, who was estranged from one sister until shortly before his death."
+   },
+   {
+    "quote": "Unlike her siblings who were financially secure, Paula worked at various low-paying jobs and took care of her quadriplegic husband Michael. Her father helped her and her family financially by, for example, buying them a van, making improvements to their home, and assisting her son while he was attending university.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.3",
+     "15.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "Unlike her financially secure siblings, Paula worked low-paying jobs and cared for her quadriplegic husband Michael, and her father helped her financially in various ways."
+   },
+   {
+    "quote": "10 In 1993, Paula\u2019s father was told by a financial advisor that by placing his assets in joint ownership, he could avoid \u201cthe payment of probate fees and taxes and generally make after-death disposition less expensive and less cumbersome\u201d ((2004), 7 E.T.R. (3d) 113, at para. 7).",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "In 1993, Paula's father was advised that placing assets in joint ownership could avoid probate fees and taxes and simplify after-death disposition."
+   },
+   {
+    "quote": "In February of 1994, he began transferring some of his assets which were mainly either in bank accounts or in mutual funds to himself and to Paula jointly, with a right of survivorship (ibid., at para. 6).",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "In February 1994, Paula's father transferred assets mainly in bank accounts or mutual funds to himself and Paula jointly with right of survivorship."
+   },
+   {
+    "quote": "In 1996, Paula\u2019s father was advised by his accountant that for tax purposes, transfers to his daughter (as opposed to a spouse) could trigger a capital gain, with the result that tax on the gain would be due as of the year of disposition.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "In 1996, Paula's father was advised that transfers to his daughter could trigger capital gains tax."
+   },
+   {
+    "quote": "As a result, Paula\u2019s father wrote letters to the financial institutions purporting to deal with the tax implications. In these letters he stated that he was \u201cthe 100% owner of the assets and the funds are not being gifted to Paula\u201d (ibid., at para. 10).",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.4",
+     "16.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "Paula's father wrote letters to financial institutions stating he was 100% owner and the funds were not gifted to Paula."
+   },
+   {
+    "quote": "11 Paula\u2019s father continued to use and control the accounts after they were transferred into joint names. He declared and paid all the taxes on the income made from the assets in the accounts.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "Paula's father continued to use and control the accounts after transfer; he declared and paid taxes on income from the accounts."
+   },
+   {
+    "quote": "Paula made some withdrawals but was required to notify her father before doing so. According to her, this was because her father wanted to ensure there were sufficient funds available for her to withdraw.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3",
+     "17.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "Paula made some withdrawals but had to notify her father beforehand to ensure sufficient funds were available."
+   },
+   {
+    "quote": "12 In early 1998, Paula\u2019s father drafted what was to be his last will. For the first time, he named Michael in his will. The will left specific bequests to Paula, Michael and her children (whom Michael had adopted), but did not mention the accounts.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.3",
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "In early 1998, Paula's father drafted his last will, naming Michael for the first time and leaving specific bequests to Paula, Michael, and her children, but did not mention the joint accounts."
+   },
+   {
+    "quote": "The residue of the estate was to be divided equally between Paula and Michael.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "The residue of the estate was to be divided equally between Paula and Michael."
+   },
+   {
+    "quote": "13 The lawyer who drafted the will testified that he asked Paula\u2019s father \u201cabout such things as registered retirement savings plans, R.R.I.F.s, registered pension plans, life insurance, and in each case satisfied [him]self that they were not items which would pass as the result of a will and so that they needn\u2019t be included in the will\u201d (ibid., at para. 37). There was no discussion about the joint investment and bank accounts.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "background_fact",
+    "statement": "The lawyer who drafted the will confirmed that joint investment and bank accounts were not discussed as they do not pass by will."
+   },
+   {
+    "quote": "14 In 1998, Paula\u2019s father moved into Paula and Michael\u2019s house. In 1997 and 1998, the father had expressed to others, including one of Paula\u2019s sisters, that he was going to take care of Paula after his death, but said the \u201csystem\u201d would take care of Michael.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "background_fact",
+    "statement": "In 1998, Paula's father moved into Paula and Michael's house and expressed intent to take care of Paula after his death."
+   },
+   {
+    "quote": "15 Paula\u2019s father died in December 1998. His estate paid tax on the basis of a deemed disposition of the accounts to Paula immediately before his death.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "background_fact",
+    "statement": "Paula's father died in December 1998; his estate paid tax on deemed disposition of the accounts to Paula immediately before death."
+   },
+   {
+    "quote": "16 Paula and Michael later divorced. The dispute over the accounts arose during their matrimonial property proceedings.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "background_fact",
+    "statement": "Paula and Michael later divorced and the dispute over the accounts arose during matrimonial property proceedings."
+   },
+   {
+    "quote": "19 A discussion of the treatment of joint accounts after the death of the transferor must begin with a consideration of the common law approach to ascertaining the intent of the deceased person.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "background_fact",
+    "statement": "A discussion of the treatment of joint accounts after the death of the transferor must begin with a consideration of the common law approach to ascertaining the intent of the deceased person."
+   },
+   {
+    "quote": "20 A resulting trust arises when title to property is in one party\u2019s name, but that party, because he or she is a fiduciary or gave no value for the property, is under an obligation to return it to the original title owner: see D. W. M. Waters, M. R. Gillen and L. D. Smith, eds., Waters\u2019 Law of Trusts in Canada (3rd ed. 2005), at p. 362.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "legal_test",
+    "statement": "A resulting trust arises when title to property is in one party\u2019s name, but that party, because he or she is a fiduciary or gave no value for the property, is under an obligation to return it to the original title owner."
+   },
+   {
+    "quote": "21 Advancement is a gift during the transferor\u2019s lifetime to a transferee who, by marriage or parent-child relationship, is financially dependent on the transferor: see Waters\u2019 Law of Trusts, at p. 378.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "Advancement is a gift during the transferor\u2019s lifetime to a transferee who, by marriage or parent-child relationship, is financially dependent on the transferor."
+   },
+   {
+    "quote": "22 In certain circumstances which are discussed below, there will be a presumption of resulting trust or presumption of advancement. Each are rebuttable presumptions of law: see e.g.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1",
+     "28.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "In certain circumstances there will be a presumption of resulting trust or presumption of advancement, which are rebuttable presumptions of law."
+   },
+   {
+    "quote": "A rebuttable presumption of law is a legal assumption that a court will make if insufficient evidence is adduced to displace the presumption. The presumption shifts the burden of persuasion to the opposing party who must rebut the presumption: see Sopinka et al., at pp. 105-6.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.4",
+     "28.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "A rebuttable presumption of law is a legal assumption that a court will make if insufficient evidence is adduced to displace the presumption, shifting the burden of persuasion to the opposing party who must rebut the presumption."
+   },
+   {
+    "quote": "23 For the reasons discussed below, I think the long-standing common law presumptions continue to have a role to play in disputes over gratuitous transfers.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The long-standing common law presumptions of resulting trust and advancement continue to have a role to play in disputes over gratuitous transfers."
+   },
+   {
+    "quote": "The presumptions provide a guide for courts in resolving disputes over transfers where evidence as to the transferor\u2019s intent in making the transfer is unavailable or unpersuasive. This may be especially true when the transferor is deceased and thus is unable to tell the court his or her intention in effecting the transfer.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.2",
+     "29.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The presumptions provide a guide for courts in resolving disputes over transfers where evidence as to the transferor\u2019s intent in making the transfer is unavailable or unpersuasive, especially when the transferor is deceased and unable to tell the court his or her intention."
+   },
+   {
+    "quote": "24 The presumption of resulting trust is a rebuttable presumption of law and general rule that applies to gratuitous transfers. When a transfer is challenged, the presumption allocates the legal burden of proof. Thus, where a transfer is made for no consideration, the onus is placed on the transferee to demonstrate that a gift was intended: see Waters\u2019 Law of Trusts, at p. 375, and E. E. Gillese and M. Milczynski, The Law of Trusts (2nd ed. 2005), at p. 110.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1",
+     "31.2",
+     "31.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption of resulting trust is a rebuttable presumption of law and general rule that applies to gratuitous transfers, allocating the legal burden of proof to the transferee to demonstrate that a gift was intended when a transfer is made for no consideration."
+   },
+   {
+    "quote": "This is so because equity presumes bargains, not gifts.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "legal_test",
+    "statement": "Equity presumes bargains, not gifts, which is why the presumption of resulting trust places the onus on the transferee to rebut it."
+   },
+   {
+    "quote": "25 The presumption of resulting trust therefore alters the general practice that a plaintiff (who would be the party challenging the transfer in these cases) bears the legal burden in a civil case. Rather, the onus is on the transferee to rebut the presumption of a resulting trust.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1",
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of resulting trust alters the general practice that a plaintiff bears the legal burden in a civil case, placing the onus on the transferee to rebut the presumption."
+   },
+   {
+    "quote": "26 In cases where the transferor is deceased and the dispute is between the transferee and a third party, the presumption of resulting trust has an additional justification. In such cases, it is the transferee who is better placed to bring evidence about the circumstances of the transfer.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1",
+     "33.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "Where the transferor is deceased and the dispute is between the transferee and a third party, the presumption of resulting trust has an additional justification because the transferee is better placed to bring evidence about the circumstances of the transfer."
+   },
+   {
+    "quote": "27 The presumption of resulting trust is the general rule for gratuitous transfers. However, depending on the nature of the relationship between the transferor and transferee, the presumption of a resulting trust will not arise and there will be a presumption of advancement instead: see Waters\u2019 Law of Trusts, at p. 378. If the presumption of advancement applies, it will fall on the party challenging the transfer to rebut the presumption of a gift.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1",
+     "35.2",
+     "35.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption of resulting trust is the general rule for gratuitous transfers, but depending on the relationship, a presumption of advancement may apply instead, placing the burden on the challenger to rebut the gift presumption."
+   },
+   {
+    "quote": "30 As stated in Grey, the traditional rationale behind the presumption of advancement between father and child is that a father has an obligation to provide for his sons. See also Oosterhoff on Trusts, at p. 575. The presumption also rests on the assumption that parents so commonly intend to make gifts to their children that the law should presume as much: ibid., at pp. 581 and 598.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1",
+     "38.2",
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption of advancement between father and child is based on the father's obligation to provide for his sons and the assumption that parents intend to make gifts to their children."
+   },
+   {
+    "quote": "32 The question of whether the presumption applies between mother and child is not raised in these appeals, as the transfers in question occurred between a father and daughter, but I shall deal with it briefly. Unlike when the presumption of advancement was first developed, women today have their own financial resources. They also have a statutory obligation to financially support their children in the same way that fathers do. Section 26.1(2) of the Divorce Act, R.S.C. 1985, c. 3 (2nd Supp .), for instance, refers to the \u201cprinciple\u201d that spouses have a \u201cjoint financial obligation to maintain the children\u201d, and s. 31(1) of the Family Law Act, R.S.O. 1990, c. F.3, provides that \u201c[e]very parent has an obligation to provide support for his or her unmarried child who is a minor or is enrolled in a full time program of education, to the extent that the parent is capable of doing so.\u201d Oosterhoff et al. have also commented on this issue in Oosterhoff on Trusts, saying at p. 575, \u201cMothers and fathers are now under equal duties to care for their children and are equally likely to intend to make gifts to them. . . . In Canada, it is now accepted that mothers and fathers should be treated equally.\u201d 33 I agree. As women now have both the means as well as obligations to support their children, they are no less likely to intend to make gifts to their children than fathers. The presumption of advancement should thus apply equally to fathers and mothers.",
+    "paragraphs": [
+     40,
+     41
+    ],
+    "evidence_ids": [
+     "40.1",
+     "40.2",
+     "40.3",
+     "40.4",
+     "40.5",
+     "40.6",
+     "41.1",
+     "41.2",
+     "41.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40,
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "Although not raised in this appeal, the presumption of advancement should apply equally to mothers and fathers because women now have financial means and obligations to support their children."
+   },
+   {
+    "quote": "36 I am inclined to agree. First, given that a principal justification for the presumption of advancement is parental obligation to support their dependent children, it seems to me that the presumption should not apply in respect of independent adult children. As Heeney J. noted in McLear, at para. 36, parental support obligations under provincial and federal statutes normally end when the child is no longer considered by law to be a minor: see e.g. Family Law Act, s. 31. Indeed, not only do child support obligations end when a child is no longer dependent, but often the reverse is true: an obligation may be imposed on independent adult children to support their parents in accordance with need and ability to pay: see e.g. Family Law Act, s. 32. Second, I agree with Heeney J. that it is common nowadays for ageing parents to transfer their assets into joint accounts with their adult children in order to have that child assist them in managing their financial affairs. There should therefore be a rebuttable presumption that the adult child is holding the property in trust for the ageing parent to facilitate the free and efficient management of that parent\u2019s affairs.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.1",
+     "44.2",
+     "44.3",
+     "44.4",
+     "44.5",
+     "44.6",
+     "44.7",
+     "44.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement should not apply to independent adult children because parental support obligations end when children are no longer minors and adult children may have obligations to support parents; transfers to adult children are presumed to be resulting trusts to facilitate management of parents' affairs."
+   },
+   {
+    "quote": "S.C.J.). I do not agree that affection is a basis upon which to apply the presumption of advancement to the transfer.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "Affection is not a basis to apply the presumption of advancement to transfers to adult, independent children."
+   },
+   {
+    "quote": "39 The question of whether the presumption applies to adult dependent children begs the question of what constitutes dependency for the purpose of applying the presumption. Dependency is a term susceptible to an enormous variety of circumstances. The extent or degree of dependency can be very wide ranging.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1",
+     "47.2",
+     "47.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement may apply to adult dependent children, but dependency is a complex and varied concept."
+   },
+   {
+    "quote": "For example, it is not difficult to accept that in some cases a parent would feel a moral, if not legal, obligation to provide for the quality of life for an adult disabled child. This might especially be the case where the disabled adult child is under the charge and care of the parent.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.5",
+     "47.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "It is rational to presume advancement in cases where a parent has a moral obligation to provide for an adult disabled child under their care."
+   },
+   {
+    "quote": "40 As compelling as some cases might be, I am reluctant to apply the presumption of advancement to gratuitous transfers to \u201cdependent\u201d adult children because it would be impossible to list the wide variety of the circumstances that make someone \u201cdependent\u201d for the purpose of applying the presumption. Courts would have to determine on a case-by-case basis whether or not a particular individual is \u201cdependent\u201d, creating uncertainty and unpredictability in almost every instance. I am therefore of the opinion that the rebuttable presumption of advancement with regard to gratuitous transfers from parent to child should be preserved but be limited in application to transfers by mothers and fathers to minor children.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1",
+     "48.2",
+     "48.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement should be limited to transfers from parents to minor children to avoid uncertainty and unpredictability."
+   },
+   {
+    "quote": "43 The weight of recent authority, however, suggests that the civil standard, the balance of probabilities, is applicable to rebut the presumptions: Burns Estate v. Mellon (2000), 48 O.R. (3d) 641 (C.A.), at paras. 5-21; Lohia v. Lohia, [2001] EWCA Civ 1691 (BAILII), at paras. 19-21; Dagle, at p. 210; Re Wilson, at para. 52. See also Sopinka et al., at p. 116. This is also my view. I see no reason to depart from the normal civil standard of proof. The evidence required to rebut both presumptions, therefore, is evidence of the transferor\u2019s contrary intention on the balance of probabilities.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1",
+     "51.2",
+     "51.3",
+     "51.4",
+     "51.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "The civil standard of proof, the balance of probabilities, applies to rebut the presumptions of resulting trust and advancement."
+   },
+   {
+    "quote": "The trial judge will commence his or her inquiry with the applicable presumption and will weigh all of the evidence in an attempt to ascertain, on a balance of probabilities, the transferor\u2019s actual intention.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "legal_test",
+    "statement": "The trial judge starts with the applicable presumption and weighs all evidence to ascertain the transferor's actual intention on a balance of probabilities."
+   },
+   {
+    "quote": "Thus, as discussed by Sopinka et al. in The Law of Evidence in Canada, at p. 116, the presumption will only determine the result where there is insufficient evidence to rebut it on a balance of probabilities.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption will only determine the result where there is insufficient evidence to rebut it on a balance of probabilities."
+   },
+   {
+    "quote": "For the reasons that follow, however, I am of the view that the rights of survivorship, both legal and equitable, vest when the joint account is opened and the gift of those rights is therefore inter vivos in nature.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "Rights of survivorship vest when the joint account is opened, making the gift inter vivos in nature."
+   },
+   {
+    "quote": "I agree with this interpretation.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "kind": "conclusion",
+    "statement": "The Court agrees with Re Reid's interpretation that the gift is complete and perfect inter vivos."
+   },
+   {
+    "quote": "The nature of a joint account is that the balance will fluctuate over time. The gift in these circumstances is the transferee\u2019s survivorship interest in the account balance \u2014 whatever it may be \u2014 at the time of the transferor\u2019s death, not to any particular amount.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.4",
+     "58.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "kind": "conclusion",
+    "statement": "The nature of a joint account is that the balance fluctuates; the gift is the survivorship interest in whatever balance remains at death, not a fixed amount."
+   },
+   {
+    "quote": "53 Of course, the presumption of a resulting trust means that it will fall to the surviving joint account holder to prove that the transferor intended to gift the right of survivorship to whatever assets are left in the account to the survivor. Otherwise, the assets will be treated as part of the transferor\u2019s estate to be distributed according to the transferor\u2019s will.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.1",
+     "61.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "legal_test",
+    "statement": "The presumption of resulting trust requires the surviving joint account holder to prove the transferor intended to gift the right of survivorship to the survivor; otherwise, assets form part of the transferor's estate."
+   },
+   {
+    "quote": "54 Should the avoidance of probate fees be of concern to the legislature, it is open to it to enact legislation to deal with the matter.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "kind": "conclusion",
+    "statement": "If the legislature wants to address avoidance of probate fees, it can enact legislation to do so."
+   },
+   {
+    "quote": "55 Where a gratuitous transfer is being challenged, the trial judge must begin his or her inquiry by determining the proper presumption to apply and then weigh all the evidence relating to the actual intention of the transferor to determine whether the presumption has been rebutted.",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "kind": "legal_test",
+    "statement": "When a gratuitous transfer is challenged, the trial judge must determine the proper presumption and weigh all evidence relating to the transferor's actual intention to see if the presumption is rebutted."
+   },
+   {
+    "quote": "It is not my intention to list all of the types of evidence that a trial judge can or should consider in ascertaining intent. This will depend on the facts of each case.",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.2",
+     "63.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "kind": "conclusion",
+    "statement": "The types of evidence a trial judge can consider to ascertain intent depend on the facts of each case."
+   },
+   {
+    "quote": "However, I will discuss particular types of evidence at issue in this appeal and its companion case that have been the subject of divergent approaches by courts.",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "kind": "conclusion",
+    "statement": "The Court will discuss particular types of evidence at issue that have been treated differently by courts."
+   },
+   {
+    "quote": "56 The traditional rule is that evidence adduced to show the intention of the transferor at the time of the transfer \u201cought to be contemporaneous, or nearly so\u201d, to the transaction: see Clemens v. Clemens Estate, [1956] S.C.R. 286, at p. 294, citing Jeans v. Cooke (1857), 24 Beav. 513, 53 E.R. 456.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "legal_test",
+    "statement": "Traditionally, evidence to show the transferor's intention must be contemporaneous or nearly so to the transaction."
+   },
+   {
+    "quote": "Whether evidence subsequent to a transfer is admissible has often been a question of whether it complies with the Viscount Simonds\u2019 rule in Shephard v. Cartwright, [1955] A.C. 431 (H.L.), at p. 445, citing Snell\u2019s Principles of Equity (24th ed. 1954), at p. 153: The acts and declarations of the parties before or at the time of the purchase, [or of the transfer] or so immediately after it as to constitute a part of the transaction, are admissible in evidence either for or against the party who did the act or made the declaration . . . . But subsequent declarations are admissible as evidence only against the party who made them . . . .",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.2",
+     "65.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "legal_test",
+    "statement": "Evidence subsequent to a transfer is admissible only if it complies with the rule that acts and declarations before, at, or immediately after the transfer are part of the transaction and admissible against the party who made them."
+   },
+   {
+    "quote": "The reason that subsequent acts and declarations have been viewed with mistrust by courts is because a transferor could have changed his or her mind subsequent to the transfer and because donors are not allowed to retract gifts.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "conclusion",
+    "statement": "Subsequent acts and declarations are viewed with mistrust because the transferor could have changed their mind and donors cannot retract gifts."
+   },
+   {
+    "quote": "59 Similarly, I am of the view that the evidence of intention that arises subsequent to a transfer should not automatically be excluded if it does not comply with the Shephard v. Cartright rule. Such evidence, however, must be relevant to the intention of the transferor at the time of the transfer: Taylor v. Wallbridge (1879), 2 S.C.R. 616.",
+    "paragraphs": [
+     68
+    ],
+    "evidence_ids": [
+     "68.1",
+     "68.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68
+    ],
+    "kind": "conclusion",
+    "statement": "Evidence of intention arising after a transfer should not be automatically excluded if it does not comply with the Shephard v. Cartwright rule, but must be relevant to the transferor's intention at the time of transfer."
+   },
+   {
+    "quote": "The trial judge must assess the reliability of this evidence and determine what weight it should be given, guarding against evidence that is self-serving or that tends to reflect a change in intention.",
+    "paragraphs": [
+     68
+    ],
+    "evidence_ids": [
+     "68.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68
+    ],
+    "kind": "legal_test",
+    "statement": "The trial judge must assess the reliability and weight of subsequent evidence, guarding against self-serving evidence or evidence reflecting a change in intention."
+   },
+   {
+    "quote": "60 In the past, this Court has held that bank documents that set up a joint account are an agreement between the account holders and the bank about legal title; they are not evidence of an agreement between the account holders as to beneficial title: see Niles and Re Mailman.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "kind": "legal_test",
+    "statement": "Bank documents setting up joint accounts are agreements about legal title with the bank, not evidence of beneficial ownership agreements between account holders."
+   },
+   {
+    "quote": "61 While I agree that bank documents do not necessarily set out equitable interests in joint accounts, banking documents in modern times may be detailed enough that they provide strong evidence of the intentions of the transferor regarding how the balance in the account should be treated on his or her death: see B. Ziff, Principles of Property Law (4th ed. 2006), at p. 332.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "kind": "conclusion",
+    "statement": "Modern bank documents may provide strong evidence of the transferor's intentions regarding beneficial interest in joint accounts on death."
+   },
+   {
+    "quote": "Therefore, if there is anything in the bank documents that specifically suggests the transferor\u2019s intent regarding the beneficial interest in the account, I do not think that courts should be barred from considering it. Indeed, the clearer the evidence in the bank documents in question, the more weight that evidence should carry.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.2",
+     "71.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "kind": "conclusion",
+    "statement": "Courts should consider any specific indications in bank documents about the transferor's intent regarding beneficial interest and give clearer evidence more weight."
+   },
+   {
+    "quote": "In the present case, for example, Paula\u2019s father continued to manage the investments and to pay the taxes after establishing the joint accounts.",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "kind": "background_fact",
+    "statement": "Paula's father continued to manage the investments and to pay the taxes after establishing the joint accounts."
+   },
+   {
+    "quote": "63 I am of the view that control and use of the funds, like the wording of the bank documents, should not be ruled out in the ascertainment of the transferor\u2019s intention.",
+    "paragraphs": [
+     74
+    ],
+    "evidence_ids": [
+     "74.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     74
+    ],
+    "kind": "conclusion",
+    "statement": "Control and use of the funds, like the wording of bank documents, should be considered in ascertaining the transferor's intention."
+   },
+   {
+    "quote": "For example, the transferor\u2019s retention of his or her exclusive beneficial interest in the account in his or her lifetime may support the finding of a resulting trust, unless other evidence proves that he or she intended to gift the right of survivorship to the transferee.",
+    "paragraphs": [
+     74
+    ],
+    "evidence_ids": [
+     "74.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     74
+    ],
+    "kind": "conclusion",
+    "statement": "Retention of exclusive beneficial interest by the transferor during lifetime may support a resulting trust unless evidence shows intent to gift right of survivorship."
+   },
+   {
+    "quote": "However, evidence of use and control may be of marginal assistance only and, without more, will not be determinative for three reasons.",
+    "paragraphs": [
+     74
+    ],
+    "evidence_ids": [
+     "74.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     74
+    ],
+    "kind": "conclusion",
+    "statement": "Evidence of use and control alone is of marginal assistance and not determinative for three reasons."
+   },
+   {
+    "quote": "64 First, it may be that the dynamics of the relationship are such that the transferor makes the management decisions. This does not negate the beneficial interest of the other account holder.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.1",
+     "75.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "kind": "conclusion",
+    "statement": "First, the transferor may make management decisions due to experience, which does not negate the other account holder's beneficial interest."
+   },
+   {
+    "quote": "Conversely, evidence that a transferee controlled the funds does not necessarily mean that the transferee took a beneficial interest. Ageing parents may set up accounts for the sole purpose of having their adult child manage their funds for their benefit.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.4",
+     "75.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "kind": "conclusion",
+    "statement": "Conversely, transferee's control of funds does not necessarily mean beneficial interest, as adult children may manage funds for ageing parents' benefit."
+   },
+   {
+    "quote": "65 Second, in cases involving an ageing parent and an adult child, it may be that the transferee, although entitled both legally and beneficially to withdraw funds, will refrain from accessing them in order to ensure there are sufficient funds to care for the parent for the remainder of the parent\u2019s life.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "kind": "conclusion",
+    "statement": "Second, transferee may refrain from withdrawing funds to ensure sufficient care for ageing parent, despite legal and beneficial entitlement."
+   },
+   {
+    "quote": "66 Finally, as previously discussed, the fact that a transferor controlled and used the funds during his or her life is not necessarily inconsistent with an intention at the time of the transfer that the transferee would acquire the balance of the account on the transferor\u2019s death through the gift of the right of survivorship.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "Third, transferor's control and use of funds during life is not inconsistent with intent that transferee acquire balance on death via right of survivorship."
+   },
+   {
+    "quote": "68 I share Lang J.A.\u2019s view that the trier of fact has the discretion to consider the granting of power of attorney when deciding the transferor\u2019s intention.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "The trier of fact has discretion to consider granting of power of attorney when deciding transferor's intention."
+   },
+   {
+    "quote": "This will be especially true when other evidence suggests that the transferor appreciated the distinction between granting that power and gifting the right of survivorship.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "Consideration of power of attorney is especially relevant when other evidence shows transferor understood difference between power of attorney and gifting right of survivorship."
+   },
+   {
+    "quote": "Again however, this evidence will not be determinative and courts should use caution in relying upon it, because it is entirely plausible that the transferor granted power of attorney and placed his or her assets in a joint account but nevertheless intended that the balance of the account be distributed according to his or her will.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "Evidence of granting power of attorney is not determinative; transferor may grant power of attorney and joint account for convenience but intend distribution by will."
+   },
+   {
+    "quote": "For example, the transferor may have granted power of attorney in order to have assistance with other affairs beyond the account and may have made the transferee a joint account holder solely for added convenience.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "Transferor may grant power of attorney for assistance beyond the account and make transferee joint account holder solely for convenience."
+   },
+   {
+    "quote": "I do not find either of these approaches inappropriate.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "I do not find either of these approaches inappropriate."
+   },
+   {
+    "quote": "The weight to be placed on tax-related evidence in determining a transferor\u2019s intent should be left to the discretion of the trial judge.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "The weight to be placed on tax-related evidence in determining a transferor\u2019s intent should be left to the discretion of the trial judge."
+   },
+   {
+    "quote": "However, whether or not a transferor continues to pay taxes on the income earned in the joint accounts during his or her lifetime should not be determinative of his or her intention in the absence of other evidence.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "Whether or not a transferor continues to pay taxes on the income earned in the joint accounts during his or her lifetime should not be determinative of his or her intention in the absence of other evidence."
+   },
+   {
+    "quote": "For example, it may be that the transferor made the transfer for the sole purpose of obtaining assistance in the management of his or her finances and wished to have the assets form a part of his or her estate upon his or her death.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "It may be that the transferor made the transfer for the sole purpose of obtaining assistance in the management of his or her finances and wished to have the assets form a part of his or her estate upon his or her death."
+   },
+   {
+    "quote": "Or, as discussed above, it is open to a transferor to gift the right of survivorship to the transferee when the joint accounts are opened, but to retain control over the use of the funds in the accounts (and therefore to continue to pay taxes on them) during his or her lifetime.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "It is open to a transferor to gift the right of survivorship to the transferee when the joint accounts are opened, but to retain control over the use of the funds in the accounts (and therefore to continue to pay taxes on them) during his or her lifetime."
+   },
+   {
+    "quote": "In principle, I agree.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "In principle, the Court agrees that transferors should not be allowed to transfer beneficial title while avoiding capital gains taxes."
+   },
+   {
+    "quote": "Where, in setting up a joint account, the transferor intends to transfer full legal and equitable title to the assets in the account immediately and the value of the assets reflects a capital gain, taxes on capital gains may become payable in the year the joint account is set up.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "Where the transferor intends to transfer full legal and equitable title immediately in setting up a joint account, capital gains taxes may become payable in that year."
+   },
+   {
+    "quote": "However, where the transferor\u2019s intention is to gift the right of survivorship to the transferee but retain beneficial ownership of the assets during his or her lifetime, there would appear to be no disposition at the moment of the setting up of the joint account: see s. 73 of the Income Tax Act, R.S.C. 1985, c. 1 (5th Supp .).",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "Where the transferor intends to gift only the right of survivorship but retain beneficial ownership during lifetime, there is no disposition at the time of setting up the joint account for tax purposes."
+   },
+   {
+    "quote": "That said, the issue of the proper treatment of capital gains in the setting up of joint accounts was not argued in this appeal.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "party_gap",
+    "statement": "The issue of proper tax treatment of capital gains in joint accounts was not argued in this appeal."
+   },
+   {
+    "quote": "I agree with the trial judge that \u201cif [the father\u2019s] intention was to have his jointly held assets devolve through the estate, they were of such magnitude that he would have at least discussed that matter with his solicitor, since they constituted a substantial proportion of what he owned\u201d (para. 43), particularly after the lawyer asked him about life insurance policies, RRIFs and other assets.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "kind": "conclusion",
+    "statement": "The Court agrees that if the father intended the jointly held assets to devolve through the estate, he would have discussed it with his solicitor given their substantial value."
+   },
+   {
+    "quote": "All of this evidence is consistent with Paula\u2019s father having gifted away the right of survivorship when the joint accounts were opened, and thus is relevant to his intention at the time of the transfer.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "kind": "conclusion",
+    "statement": "All evidence is consistent with the father having gifted the right of survivorship when the joint accounts were opened, relevant to his intention at transfer."
+   },
+   {
+    "quote": "I agree with the trial judge that this is not inconsistent with an intention that the balance remaining in the accounts would belong to Paula on his death.",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "kind": "conclusion",
+    "statement": "The Court agrees this intention to avoid immediate tax is not inconsistent with the intention that the balance would belong to Paula on death."
+   },
+   {
+    "quote": "Karam J. should therefore have applied the presumption of a resulting trust.",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of resulting trust should have been applied instead of the presumption of advancement."
+   },
+   {
+    "quote": "Nonetheless, this error does not affect the ultimate disposition of the appeal because the trial judge found that the evidence \u201cclearly demonstrate[d] the intention\u201d on the part of the father that the balance left in the joint accounts he had with Paula were to go to Paula alone on his death through survivorship (para. 44).",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "Despite the error, the trial judge found clear evidence of the father\u2019s intention that the balance in the joint accounts go to Paula on his death."
+   },
+   {
+    "quote": "I am satisfied that this strong finding regarding the father\u2019s actual intention shows that the trial judge\u2019s conclusion would have been the same even if he had applied the presumption of a resulting trust.",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "The Court is satisfied the trial judge\u2019s conclusion would be the same even if the presumption of resulting trust had been applied."
+   },
+   {
+    "quote": "76 For the reasons above, I would dismiss this appeal, with costs.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is dismissed with costs."
+   },
+   {
+    "quote": "I see no reason to interfere with that disposition, or that costs should not follow the event in this Court.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "kind": "conclusion",
+    "statement": "There is no reason to interfere with the trial judge's disposition on costs, but costs should follow the event in this Court."
+   },
+   {
+    "quote": "78 This appeal involves a father who opened joint bank accounts with his daughter, signing documents that specifically confirmed that the daughter was to have a survivorship interest. The daughter\u2019s entitlement to the remaining funds in the accounts was challenged by her ex-husband.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.1",
+     "91.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "background_fact",
+    "statement": "The appeal involves a father who opened joint bank accounts with his daughter, confirming her survivorship interest, and the daughter's entitlement was challenged by her ex-husband."
+   },
+   {
+    "quote": "79 Historically, the presumption of advancement has been applied to gratuitous transfers to children, regardless of the child\u2019s age. If we are to continue to retain the presumption of advancement for parent-child transfers, I see no reason, unlike Rothstein J., to limit its application to non-adult children.",
+    "paragraphs": [
+     92
+    ],
+    "evidence_ids": [
+     "92.1",
+     "92.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     92
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement has historically applied to gratuitous transfers to children regardless of age, and its application should not be limited to non-adult children."
+   },
+   {
+    "quote": "I agree with him, however, that the scope of the presumption should be expanded to include transfers from mothers as well as from fathers.",
+    "paragraphs": [
+     92
+    ],
+    "evidence_ids": [
+     "92.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     92
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement should be expanded to include transfers from mothers as well as fathers."
+   },
+   {
+    "quote": "80 The presumptions of advancement and resulting trust are legal tools which assist in determining the transferor\u2019s intention at the time a gratuitous transfer is made. The tools are of particular significance when the transferor has died.",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.1",
+     "93.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "legal_test",
+    "statement": "The presumptions of advancement and resulting trust are legal tools to assist in determining the transferor's intention at the time of a gratuitous transfer, especially when the transferor has died."
+   },
+   {
+    "quote": "81 If the presumption of advancement applies, an individual who transfers property into another person\u2019s name is presumed to have intended to make a gift to that person. The burden of proving that the transfer was not intended to be a gift, is on the challenger to the transfer. If the presumption of resulting trust applies, the transferor is presumed to have intended to retain the beneficial ownership. The burden of proving that a gift was intended, is on the recipient of the transfer.",
+    "paragraphs": [
+     94
+    ],
+    "evidence_ids": [
+     "94.1",
+     "94.2",
+     "94.3",
+     "94.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     94
+    ],
+    "kind": "legal_test",
+    "statement": "If the presumption of advancement applies, the transferor is presumed to have intended a gift, and the challenger bears the burden of proving no gift was intended; if the presumption of resulting trust applies, the transferor is presumed to retain beneficial ownership, and the recipient bears the burden of proving a gift was intended."
+   },
+   {
+    "quote": "84 McHugh J.\u2019s allusion to \u201cearlier centuries\u201d reflects the origins of the presumption of resulting trust. In the 15th century, it was not uncommon for landowners in England to have title to their property held by other individuals on the understanding that it was being held for the \u201cuse\u201d of the landowner and subject to his direction. This had the effect of separating legal and beneficial ownership. The purpose of the scheme was to avoid having to pay feudal taxes when land passed from a landowner to his heir.",
+    "paragraphs": [
+     97
+    ],
+    "evidence_ids": [
+     "97.1",
+     "97.2",
+     "97.3",
+     "97.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     97
+    ],
+    "kind": "background_fact",
+    "statement": "The presumption of resulting trust originated in 15th century England where landowners had legal title held by others for their use to avoid feudal taxes, separating legal and beneficial ownership."
+   },
+   {
+    "quote": "85 It became so common for owners to transfer land to be held for their own use, that the courts began to presume that a transfer made without consideration, or gratuitously, was intended to be for the transferor\u2019s own use, giving rise to the presumption of resulting use. Because these nominal transfers caused a significant loss of revenue to the Crown, the Statute of Uses, 1535 was enacted, which \u201cexecuted the use\u201d, reuniting legal and equitable title (R. Chambers, \u201cResulting Trusts in Canada\u201d (2000), 38 Alta. L. Rev. 378; Cho Ki Yau Trust (Trustees of) v. Yau Estate (1999), 29 E.T.R. (2d) 204 (Ont. S.C.J.)).",
+    "paragraphs": [
+     98
+    ],
+    "evidence_ids": [
+     "98.1",
+     "98.2",
+     "98.3",
+     "98.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     98
+    ],
+    "kind": "background_fact",
+    "statement": "Because such nominal transfers caused revenue loss, the Statute of Uses 1535 was enacted to reunite legal and equitable title, leading to the presumption of resulting trust as a vestigial doctrine."
+   },
+   {
+    "quote": "86 The presumption of resulting trust is the vestigial doctrine that emerged from the evolutionary remains of the executed use. The presumption of advancement, on the other hand, evolved as a limited exception to the presumption of resulting trust, generally arising in two situations: when a gratuitous transfer was made by a father to his child; and when a gratuitous transfer was made by a husband to his wife.",
+    "paragraphs": [
+     99
+    ],
+    "evidence_ids": [
+     "99.1",
+     "99.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     99
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of resulting trust is a vestigial doctrine from the executed use, while the presumption of advancement evolved as a limited exception, generally applying to gratuitous transfers from father to child or husband to wife."
+   },
+   {
+    "quote": "Parental affection, no less than parental obligation, has always grounded the presumption of advancement.",
+    "paragraphs": [
+     102
+    ],
+    "evidence_ids": [
+     "102.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     102
+    ],
+    "kind": "conclusion",
+    "statement": "Parental affection, no less than parental obligation, has always grounded the presumption of advancement."
+   },
+   {
+    "quote": "96 But in most cases, the presumption of advancement continues to be applied to gratuitous transfers from parents to their children, regardless of age. In Madsen Estate v. Saylor, for example, the companion appeal, the Ontario Court of Appeal found that the trial judge erred in applying the presumption of resulting trust, concluding that \u201cthe presumption of advancement can still apply to transfers of property from a father to a child, including an independent adult child\u201d ((2005), 261 D.L.R. (4th) 597, at para. 21).",
+    "paragraphs": [
+     109
+    ],
+    "evidence_ids": [
+     "109.1",
+     "109.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     109
+    ],
+    "kind": "conclusion",
+    "statement": "In most cases, the presumption of advancement continues to be applied to gratuitous transfers from parents to their children, regardless of age."
+   },
+   {
+    "quote": "106 Equally, a presumed intention of joint ownership in the case of jointly held property should apply to parent-child relationships, and the appropriate mechanism for achieving this objective, absent legislative intervention, is the application of the presumption of advancement.",
+    "paragraphs": [
+     119
+    ],
+    "evidence_ids": [
+     "119.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     119
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption of advancement should apply to presumed joint ownership in parent-child relationships absent legislative intervention."
+   },
+   {
+    "quote": "107 The trial judge, whose conclusion was upheld by the Court of Appeal, properly applied the correct legal presumption to the facts of the case.",
+    "paragraphs": [
+     120
+    ],
+    "evidence_ids": [
+     "120.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     120
+    ],
+    "kind": "conclusion",
+    "statement": "The trial judge properly applied the correct legal presumption to the facts of the case, and this conclusion was upheld by the Court of Appeal."
+   },
+   {
+    "quote": "Like Rothstein J., therefore, I would dismiss the appeal.",
+    "paragraphs": [
+     120
+    ],
+    "evidence_ids": [
+     "120.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     120
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is dismissed."
+   },
+   {
+    "quote": "Appeal dismissed with costs.",
+    "paragraphs": [
+     120
+    ],
+    "evidence_ids": [
+     "120.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     120
+    ],
+    "kind": "remedy",
+    "statement": "Appeal dismissed with costs."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "The beneficial owner of property has been described as \u201cthe real owner of property even though it is in someone else\u2019s name\u201d: Csak v. Aumon (1990), 69 D.L.R. (4th) 567 (Ont. H.C.J.), at p. 570.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.3",
+     "5.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "authority": "Beneficial ownership is described as the real ownership of property even if in another's name, as in Csak v. Aumon (1990).",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Re Mailman Estate, [1941] S.C.R. 368, at p. 374; Niles v. Lake, [1947] S.C.R. 291; Rathwell v. Rathwell, [1978] 2 S.C.R. 436, at p. 451; J. Sopinka, S. N. Lederman and A. W. Bryant, The Law of Evidence in Canada (2nd ed. 1999), at p. 115.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "authority": "The presumption of resulting trust and advancement are rebuttable presumptions of law as established in cases such as Re Mailman Estate, Niles v. Lake, Rathwell v. Rathwell, and discussed in The Law of Evidence in Canada.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In addition, as noted by Feldman J.A. in the Ontario Court of Appeal in Saylor v. Madsen Estate (2005), 261 D.L.R. (4th) 597, the advantage of maintaining the presumption of advancement and the presumption of a resulting trust is that they provide a measure of certainty and predictability for individuals who put property in joint accounts or make other gratuitous transfers.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "authority": "The advantage of maintaining the presumption of advancement and the presumption of a resulting trust is that they provide a measure of certainty and predictability for individuals who put property in joint accounts or make other gratuitous transfers, as noted by Feldman J.A. in Saylor v. Madsen Estate.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "29 One of the earliest documented cases where a judge applied the presumption of advancement is the 17th century decision in Grey (Lord) v. Grey (Lady) (1677), Rep. Temp. Finch 338, 23 E.R. 185: . . . the Law will never imply a Trust, because the natural Consideration of Blood, and the Obligation which lies on the Father in Conscience to provide for his Son, are predominant, and must over\u2011rule all manner of Implications.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1",
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "authority": "The 17th century case Grey v. Grey established that a father has an obligation to provide for his son, justifying the presumption of advancement.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "This has also been the conclusion of the weight of judicial opinion in recent times: see e.g. Mordo v. Nitting, [2006] B.C.J. No. 3081 (QL), 2006 BCSC 1761, at paras. 233-38; Shaw v. MacKenzie Estate (1994), 4 E.T.R. (2d) 306 (N.S.S.C.), at para. 49; and Reber v. Reber (1988), 48 D.L.R. (4th) 376 (B.C.S.C.); see also Waters\u2019 Law of Trusts, at p. 406.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.7",
+     "56.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "authority": "Recent judicial opinion supports that survivorship rights vest inter vivos when the joint account is opened.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "49 An early case that addressed the issue of the nature of survivorship is Re Reid in which Ferguson J.A. of the Ontario Court of Appeal found that the gift of a joint interest was a \u201ccomplete and perfect gift inter vivos\u201d (p. 608) from the moment that the joint account was opened even though the transferor in that case retained exclusive control over the account during his lifetime.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "authority": "Re Reid held that the gift of a joint interest is a complete and perfect inter vivos gift from the moment the joint account is opened, even if transferor retains exclusive control during lifetime.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "I also find MacKay J.A.\u2019s reasons in Edwards v. Bradley (C.A.), at p. 234, to be persuasive: The legal right to take the balance in the account if A predeceases him being vested in B on the opening of the account, it cannot be the subject of a testamentary disposition. If A\u2019s intention was that B should also have the beneficial interest, B already has the legal title and there is nothing further to be done to complete the gift of the beneficial interest. If A\u2019s intention was that B should not take the beneficial interest, it belongs to A or his estate and he is not attempting to dispose of it by means of the joint account. In either event B has the legal title and the only question that can arise on A\u2019s death is whether B is entitled to keep any money that may be in the account on A\u2019s death or whether he holds it as a trustee under a resulting trust for A\u2019s estate. [Emphasis added.] Edwards v. Bradley was appealed to the Supreme Court of Canada but the issue of survivorship was not addressed.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.3",
+     "57.4",
+     "57.5",
+     "57.6",
+     "57.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "authority": "MacKay J.A.'s reasons in Edwards v. Bradley are persuasive that the legal right to the balance vests on opening the account and cannot be testamentary.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "51 Treating survivorship in these circumstances as an inter vivos gift of a joint interest has found favour in other jurisdictions, including Australia and the United Kingdom: see Russell v. Scott (1936), 55 C.L.R. 440, at p. 455; Young v. Sealey, [1949] 1 All E.R. 92 (Ch. Div.), at pp. 107-8; (in obiter) Aroso v. Coutts, [2002] 1 All E.R. (Comm) 241, [2001] EWHC Ch 443, at paras. 29 and 36.",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "authority": "Other jurisdictions like Australia and the UK favour treating survivorship as an inter vivos gift of a joint interest.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "52 While not entirely analogous, the American notion of the \u201cTotten trust\u201d (sometimes referred to as the \u201cBank account trust\u201d) is now recognized as valid in most states in the United States; an individual places money in a bank account with the instruction that upon his or her death, whatever is in that bank account will pass to a named beneficiary: see Restatement (Third) of Trusts (2003), at para. 26 of Part 2, Chapter 5. The Totten trust is so named for the leading case establishing its validity: see Matter of Totten, 179 N.Y. 112 (1904). While a Totten trust does not deal with joint accounts as such, it recognizes the practicality of the depositor having control of an account during his or her lifetime but allowing the depositor\u2019s named beneficiary of that account to claim the funds remaining in the account upon the death of the depositor without the disposition being treated as testamentary: see e.g. Matter of Berson, 566 N.Y.S.2d 74 (App. Div. 1991); Matter of Halpern, 303 N.Y. 33 (1951).",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.1",
+     "60.2",
+     "60.3",
+     "60.4",
+     "60.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "authority": "The American Totten trust recognizes the depositor's control during lifetime and the beneficiary's right to remaining funds at death without the disposition being testamentary.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As noted by Huband J.A. in Dreger, at para. 33: \u201cSelf-serving statements after the event are too easily fabricated in order to bring about a desired result.\u201d",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "authority": "Huband J.A. in Dreger noted that self-serving statements after the event are easily fabricated to achieve a desired result.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Lavelle v. Lavelle, [2004] EWCA Civ 223 (BAILII), at para. 19, Lord Phillips, M.R., had this to say about Shephard v. Cartwright and certain other authorities relied on by the appellant in that case: It seems to me that it is not satisfactory to apply rigid rules of law to the evidence that is admissible to rebut the presumption of advancement. Plainly, self-serving statements or conduct of a transferor, who may long after the transaction be regretting earlier generosity, carry little or no weight.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.2",
+     "67.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "authority": "In Lavelle v. Lavelle, Lord Phillips stated that rigid rules on admissible evidence to rebut presumption of advancement are unsatisfactory and self-serving statements long after the transaction carry little weight.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "83 Similarly, in Nelson v. Nelson (1995), 184 C.L.R. 538, the High Court of Australia dealt with a case involving a mother\u2019s purchase of a house which she then transferred into the names of her children. In his concurring reasons, McHugh J. made the following comments about the presumption of resulting trust: No doubt in earlier centuries, the practices and modes of thought of the property owning classes made it more probable than not that, when a person transferred property in such circumstances, the transferor did not intend the transferee to have the beneficial as well as the legal interest in the property. But times change. To my mind \u2014 and, I think, to the minds of most people \u2014 it seems much more likely that, in the absence of an express declaration or special circumstances, the transfer of property without consideration was intended as a gift to the transferee. . . . A presumption is a useful aid to decision making only when it accurately reflects the probability that a fact or state of affairs exists or has occurred. . . . If the presumptions do not reflect common experience today, they may defeat the expectations of those who are unaware of them.",
+    "paragraphs": [
+     96
+    ],
+    "evidence_ids": [
+     "96.1",
+     "96.2",
+     "96.3",
+     "96.4",
+     "96.5",
+     "96.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     96
+    ],
+    "authority": "The High Court of Australia in Nelson v. Nelson recognized that times have changed and it is more likely that a gratuitous transfer was intended as a gift unless there is express declaration or special circumstances; presumptions should reflect common experience to avoid defeating expectations.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "92 Even at the elemental stage in the development of the doctrine, the court in Grey (Lord) v. Grey (Lady) (1677), 2 Swans. 594, 36 E.R. 742, identified natural affection as a rationale for the application of the presumption of advancement: For the natural consideration of blood and affection is so apparently predominant, that those acts which would imply a trust in a stranger, will not do so in a son; and, ergo, the father who would check and control the appearance of nature, ought to provide for himself by some instrument, or some clear proof of a declaration of trust, and not depend upon any implication of law . . . . [Emphasis added; p. 743.]",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.1",
+     "105.2",
+     "105.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "authority": "The court in Grey (Lord) v. Grey (Lady) identified natural affection as a rationale for the presumption of advancement, requiring clear proof of trust to rebut it.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "I can say no more than these are matters for determination between the Canada Revenue Agency and taxpayers in specific cases.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "issue": "The Court will not decide tax matters between the Canada Revenue Agency and taxpayers in specific cases.",
+    "reason": ""
+   }
+  ],
+  "rows_without_evidence": []
+ }
+}

@@ -1,0 +1,255 @@
+{
+ "case_id": 25379,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "HIK",
+ "run": "bundle_rebut_HIK",
+ "usage": {
+  "usd": 0.003988
+ },
+ "verification": {
+  "points": 16,
+  "calls": 4,
+  "answered": 2,
+  "points_returned": 16,
+  "answer_ids_dropped": 19
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The hearing process was difficult due to distractions, the Member's difficulty following evidence, and an overwhelmed translator, leading to confusion in the Board Member's reasons.",
+   "party_ids": [
+    "2.4",
+    "2.5",
+    "2.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the hearing difficulties and confusion in the Board Member's reasons."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The Board made a number of unreasonable findings, particularly on credibility, due to the hearing difficulties.",
+   "party_ids": [
+    "2.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds the hearing difficulties led to unreasonable findings on credibility."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The claimants say they were beaten on several occasions by 'skinheads'.",
+   "party_ids": [
+    "3.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the claimants' evidence of being beaten by skinheads."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The applicants gave evidence of complaints made to police and police refusal to investigate or document them.",
+   "party_ids": [
+    "3.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the applicants' evidence of police refusal to investigate or document complaints."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "There is evidence that Hungarian police will not document complaints by Roma.",
+   "party_ids": [
+    "3.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court recognizes evidence that Hungarian police do not document complaints by Roma."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The Board Member made findings on state protection presumably with respect to both families.",
+   "party_ids": [
+    "4.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats the Board Member's findings on state protection presumably for both families."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "The Applicants lawyer made further submissions with reference to reports from the United Nations, the United States, and decisions of this Court regarding state protection.",
+   "party_ids": [
+    "5.11",
+    "5.12"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant's lawyer made further submissions with references as stated."
+  },
+  {
+   "pid": "P8",
+   "party_by": "respondent",
+   "party_text": "The respondent contended that the Board's use of 'a measure' was a standard to assess evidence and that the correct test was applied overall.",
+   "party_ids": [
+    "6.3",
+    "6.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "6.5"
+   ],
+   "answer_paragraphs": [
+    6
+   ],
+   "answer_quote": "However, I am not satisfied that they were properly applied in this case. 15 The Board was required to justify its finding that Ms. E.Y.M.V. had not rebutted the presumption, in a transparent and intelligible way (Hazime v. Canada (Minister of Citizenship and Immigration), 2011 FC 793, [2011] F.C.J. No. 996 at para 17).",
+   "why": "The court agrees the correct legal principles were cited but finds they were not properly applied in this case."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "The claimants were not satisfied with the lack of police action, but did not take any steps to register their displeasures with any higher authorities.",
+   "party_ids": [
+    "56.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "59.1"
+   ],
+   "answer_paragraphs": [
+    59
+   ],
+   "answer_quote": "The evidence is that the claimants did not make any attempts to register their dissatisfaction with the police response with any government or higher authority within the police hierarchy.",
+   "why": "The court accepts that the claimants did not register their displeasure with higher authorities."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "They simply went to one police \u201cwicket\u201d and in some cases did not go at all as they did not believe that the police would investigate fairly and impartially.",
+   "party_ids": [
+    "56.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the claimants only went to one police wicket or did not go at all due to distrust."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "Protection would be available to citizens today.",
+   "party_ids": [
+    "57.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that protection would be available to citizens today."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The Independent Police Complaints Board (ICPB) established by the National Assembly in 2008, investigates violations and omissions by the police and substantively concerned fundamental rights.",
+   "party_ids": [
+    "57.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the ICPB investigates police violations and concerns fundamental rights."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "The five-member body functions independently of police authorities.",
+   "party_ids": [
+    "57.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the ICPB functions independently of police authorities."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The parliamentary Commissioner\u2019s office, an ombudsman who reports directly to parliament, is mandated to assist Hungarian citizens who feel that their constitutions rights have been violated by a state agency.",
+   "party_ids": [
+    "57.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the parliamentary Commissioner\u2019s office assists citizens with constitutional rights violations."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "Some agencies describe Hungarian government\u2019s efforts to combat corruption as largely unsuccessful, but Transparency International regional Director Miklos Marschall stated that Hungary\u2019s anti-corruption institutional framework was \u201cadequate\u201d.",
+   "party_ids": [
+    "58.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges both views and accepts the statement about Hungary's anti-corruption framework being adequate."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The claimants did not make any attempts to register their dissatisfaction with the police response with any government or higher authority within the police hierarchy.",
+   "party_ids": [
+    "59.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the claimants did not attempt to register dissatisfaction with police response to higher authorities."
+  }
+ ]
+}

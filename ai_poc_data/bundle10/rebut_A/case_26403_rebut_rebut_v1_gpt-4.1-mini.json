@@ -1,0 +1,153 @@
+{
+ "case_id": 26403,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0027832
+ },
+ "verification": {
+  "points": 9,
+  "calls": 4,
+  "answered": 1,
+  "points_returned": 9,
+  "answer_ids_dropped": 9
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "tribunal_below",
+   "party_text": "The Board rejected the applicants\u2019 refugee claim as it found that the determinative issue was the lack of credibility of their account.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats the Board's rejection of the refugee claim due to lack of credibility."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found it to be implausible that the applicants would be persecuted by the presidential security forces merely because the principal applicant had reported the irregularity while carrying out his duties as a civil servant.",
+   "party_ids": [
+    "13.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court restates the Board's finding that persecution by presidential security forces was implausible."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The Board concluded that the principal applicant had no other choice but to inform his supervisor that the funds had been transferred to an account managed by the Congolese president and that he was not in possession of these funds.",
+   "party_ids": [
+    "13.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the Board's conclusion about the principal applicant's reporting to his supervisor."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "The Board noted that it was likely that after a long career in the public service, the applicant merely wanted to retire in Canada.",
+   "party_ids": [
+    "14.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the Board's view that the applicant likely wanted to retire in Canada."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The Board observed that the applicants had not left the DRC in a hurry but had taken their time to plan their trip and to obtain Canadian visas.",
+   "party_ids": [
+    "14.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the Board's observation about the applicants' planned trip and visa acquisition."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The Board acknowledged that the applicants had submitted substantial documentation indicating the human rights abuses in the DRC and affirmed that it was aware of the country\u2019s violations.",
+   "party_ids": [
+    "15.1",
+    "15.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Board's acknowledgment of submitted documentation on human rights abuses and awareness of violations."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The Board concluded that, as a government employee, the applicant had not presented any evidence which demonstrated that he had been persecuted during his long career and found it unlikely that he would be persecuted now, at the end of his career.",
+   "party_ids": [
+    "15.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court quotes and accepts the Board's conclusion as stated in 15.3."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The Board found it implausible that the principal applicant would be persecuted by the presidential security forces at the end of his long career merely because he reported a financial irregularity of $23 million as an auditor for the Ministry of Finance.",
+   "party_ids": [
+    "19.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "20.1",
+    "20.2",
+    "20.3",
+    "20.4"
+   ],
+   "answer_paragraphs": [
+    20
+   ],
+   "answer_quote": "However, the Court is of the view that, in the case at bar, this finding is not supported by any evidence and as such, the Board could not reasonably make the implausibility finding that it did as it is not based on the documentation on record. More particularly, the Court finds that the Board\u2019s implausibility finding was not adequately supported by the evidence and was not nourished by content. Indeed, the applicants had drawn the Board\u2019s attention to various documents relating to the murders of certain individuals (civil servants, politicians, journalists and activists with non-governmental organizations) who had denounced the misappropriation of funds by the Congolese state (Tribunal\u2019s Record, pp 833 and 838). Though this evidence was provided to the Board, it was not treated and/or analysed in its decision (Fok v Canada (Minister of Employment and Immigration) (F.C.A.), [1993] FCJ No. 800 (available on QL); Zakhour v Canada (Minister of Citizenship and Immigration), 2011 FC 1178, [2011] FCJ No 1449).",
+   "why": "The court finds the Board's implausibility finding unsupported by evidence and inadequately reasoned."
+  },
+  {
+   "pid": "P9",
+   "party_by": "respondent",
+   "party_text": "The issue of the applicant's intention to stay in Canada for retirement was addressed and discussed during the hearing.",
+   "party_ids": [
+    "23.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the respondent's argument that the issue was addressed and discussed during the hearing."
+  }
+ ]
+}

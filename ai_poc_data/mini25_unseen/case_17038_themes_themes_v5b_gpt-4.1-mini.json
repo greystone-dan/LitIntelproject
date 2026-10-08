@@ -1,0 +1,4050 @@
+{
+ "case_id": 17038,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.04425960000000001
+ },
+ "verification": {
+  "items": 210,
+  "quote_exact_in_cited": 210,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 17,
+  "calls": 18,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.979,
+  "rows": {
+   "themes": 4,
+   "arguments": 109,
+   "holdings": 94,
+   "rebuttals": 1,
+   "authorities": 5,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The judicial review application is allowed because the RAD's framework for applying deference to the RPD's credibility findings was found unreasonable, particularly due to the lack of principled guidance on when a meaningful advantage exists and the RAD's deferential standard duplicating judicial review standards.",
+  "themes": [
+   {
+    "name": "Standard of review principles",
+    "summary": "The decision explains the difference between correctness and reasonableness standards, emphasizing that reasonableness is the default and involves deference, while correctness involves no deference and substitution of the decision-maker's conclusion.",
+    "paragraphs": [
+     10,
+     11,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26
+    ]
+   },
+   {
+    "name": "Deference to RPD credibility findings",
+    "summary": "The RAD majority found that deference is owed to the RPD's credibility findings when the RPD has a meaningful advantage, typically due to hearing oral testimony, but the court found this framework lacked principled guidance and was unreasonably broad.",
+    "paragraphs": [
+     27,
+     30,
+     31,
+     32,
+     60,
+     61,
+     62,
+     63,
+     64,
+     65,
+     66,
+     67,
+     68,
+     70,
+     71,
+     72,
+     73,
+     74,
+     75,
+     76,
+     77,
+     78,
+     79,
+     80,
+     81,
+     82,
+     83,
+     84,
+     85,
+     86,
+     87,
+     88,
+     89,
+     90,
+     91,
+     92,
+     93,
+     94,
+     95,
+     96,
+     97,
+     98,
+     99,
+     100,
+     101,
+     102,
+     103,
+     104,
+     105,
+     106,
+     107
+    ]
+   },
+   {
+    "name": "RAD's deferential standard content",
+    "summary": "The RAD adopted a 'RAD reasonableness' standard that duplicates judicial review reasonableness, requiring an independent assessment and comprehensible reasoning, but the court found this standard unreasonable and incompatible with the RAD's role.",
+    "paragraphs": [
+     108,
+     109,
+     110,
+     111,
+     112,
+     113,
+     114,
+     115,
+     116,
+     117,
+     118,
+     119,
+     120,
+     121,
+     122,
+     123,
+     124,
+     125,
+     126,
+     127,
+     128,
+     129,
+     130,
+     131,
+     132,
+     133,
+     134,
+     135,
+     136
+    ]
+   },
+   {
+    "name": "Statutory interpretation and appellate role",
+    "summary": "The court analyzed IRPA and Huruglica to determine the RAD's role and standard of review, concluding that the RAD must apply reasonableness but cannot limit its authority to intervene and must provide clear guidance on deference.",
+    "paragraphs": [
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     42,
+     43,
+     44,
+     45,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54,
+     55,
+     56,
+     57,
+     58,
+     59,
+     138,
+     139,
+     140
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and background",
+    "first_paragraph": 1,
+    "last_paragraph": 4,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review explanation and application",
+    "first_paragraph": 10,
+    "last_paragraph": 26,
+    "disposition": "other"
+   },
+   {
+    "label": "Issue 1: Reasonableness of RAD's conclusions on standard of review",
+    "first_paragraph": 27,
+    "last_paragraph": 136,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Issue 2: Reasonableness of RAD's conclusions on merits of appeal",
+    "first_paragraph": 137,
+    "last_paragraph": 137,
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Certification of questions for appeal",
+    "first_paragraph": 138,
+    "last_paragraph": 140,
+    "disposition": "other"
+   },
+   {
+    "label": "Conclusion and disposition",
+    "first_paragraph": 141,
+    "last_paragraph": 141,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The RAD\u2019s three-person panel decided this appeal in a May 17, 2017 split Decision. Both the two-member majority and the single-member minority upheld the RPD\u2019s refusal, but each under a different analytical framework and for different reasons.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD\u2019s three-person panel decided the appeal in a May 17, 2017 split Decision, with both majority and minority upholding the RPD\u2019s refusal but under different frameworks and reasons.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In short, the RAD majority decided that: (i) the RAD owes deference to the RPD\u2019s credibility findings in some situations; (ii) these situations may arise in various different contexts, in which the RPD has a meaningful advantage in making such credibility conclusions; and (iii) in order to show deference when one of these situations arises, the RAD will not interfere with the conclusions if the RPD\u2019s reasoning process was comprehensible, and if the RPD\u2019s conclusions were based on the evidence.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority held that the RAD owes deference to the RPD\u2019s credibility findings in some situations where the RPD has a meaningful advantage, and will not interfere if the RPD\u2019s reasoning was comprehensible and based on evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "What is problematic, however, is the RAD majority\u2019s framework regarding (ii), when there will be a meaningful advantage, and (iii) the concept of RAD reasonableness.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD majority\u2019s framework on when there is a meaningful advantage and the concept of RAD reasonableness is problematic.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Applying its framework to the evidence before it, the RAD majority dismissed the family\u2019s appeal.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Applying its framework, the RAD majority dismissed the family\u2019s appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD minority also dismissed the appeal, but approached the legal analysis differently from the majority. In a nutshell, the minority concluded that some deference was owed where the RPD had a meaningful advantage in making credibility conclusions, but found that neither the framework, nor deference itself, should be defined to limit the RAD\u2019s authority to intervene in the RPD\u2019s decision, as it felt the majority had done.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1",
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD minority also dismissed the appeal but disagreed with the majority\u2019s framework and limits on the RAD\u2019s authority to intervene in RPD decisions.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Here, the Applicants say that the RAD erred in its answers to both of the key issues before it, namely: Whether the RAD must apply a deferential standard of review when the RPD had a meaningful advantage in making a finding, using the majority\u2019s framework; and whether in applying the framework to the facts, the Applicants\u2019 appeal should have been dismissed.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD erred in applying a deferential standard of review when the RPD had a meaningful advantage in making a finding, and erred in dismissing the Applicants' appeal under that framework.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In its majority decision, the RAD found that it should show deference to some findings of the RPD in specific cases. First, credibility is normally determined on the basis of an oral hearing. Second, under IRPA, the majority noted that while an oral hearing is always held by the RPD, the RAD rarely does so. The RAD majority concluded that the RPD is generally in a better position to make credibility findings and has expertise in doing so, which would justify some deference to those findings.",
+    "paragraphs": [
+     30,
+     31,
+     32
+    ],
+    "evidence_ids": [
+     "30.1",
+     "31.1",
+     "32.1",
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30,
+     31,
+     32
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority found it should show deference to some RPD findings in specific cases, based primarily on two observations: credibility is normally determined on oral hearing, and the RPD generally has a better position and expertise to make credibility findings than the RAD, which rarely holds oral hearings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Minister maintains that the question has already been decided by the Federal Court of Appeal in Huruglica, which, in his view, answered it by holding that the RAD is to apply a deferential standard of review to some RPD credibility findings where it has a meaningful advantage (see Huruglica at para 70, as reproduced later in these Reasons).",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argues that the Federal Court of Appeal in Huruglica decided that the RAD must apply a deferential standard of review to some RPD credibility findings where it has a meaningful advantage.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Conversely, two of the interveners, the Canadian Association of Refugee Lawyers and the Canadian Council for Refugees [CARL/CCR] who presented joint submissions, focus on the plain language of IRPA\u2019s relevant sections and argue that these sections allow for only one standard of review for all factual findings: correctness. CARL/CCR submit that the Federal Court of Appeal\u2019s comments on deference in Huruglica refer only to the RAD\u2019s remedial power to remit a case back to the RPD for redetermination, and not to the lens it must use when examining the substantive part of a RPD decision.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1",
+     "35.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "respondent",
+    "claim": "The interveners CARL/CCR argue that IRPA's relevant sections allow only one standard of review for all factual findings: correctness, and that Huruglica's comments on deference refer only to the RAD's remedial power, not the substantive review lens.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Accepted that IRPA provides for correctness standard generally, but rejected that deference is limited to remedial power only.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Similar to CARL/CCR, the Applicants submit that the RAD must review all findings for correctness. However, they differ in proposing that deference can nevertheless play a limited role alongside a correctness review.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1",
+     "36.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "made_by": "respondent",
+    "claim": "The Applicants submit that the RAD must review all findings for correctness but allow a limited role for deference alongside correctness review.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Accepted that correctness is primary but allowed limited deference role.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The third intervener, l\u2019Association qu\u00e9b\u00e9coise des avocats et avocates en droit de l\u2019immigration [AQAADI], shares the Applicants\u2019 view of the RAD\u2019s role, although it notes that deference is more of a theoretical rather than a real option for the RAD. This is due to the nature of the underlying statute (i.e. IRPA) and because, according to AQAADI, there is almost never a situation where deference will be justified.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1",
+     "37.2",
+     "37.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "made_by": "intervener",
+    "claim": "The third intervener, AQAADI, shares the Applicants' view that deference is more theoretical than real for the RAD due to the nature of IRPA and that deference is almost never justified.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The controversy between the parties comes down to how they read the comments in Huruglica on the RAD\u2019s standard of review in RPD appeals. The Federal Court of Appeal reformulated this Court\u2019s certified question, answering it as follows at paragraph 106 of Huruglica: Was it reasonable for the RAD to limit its role to a review of the reasonableness of the RPD\u2019s findings of fact (or mixed fact and law), which involved no issue of credibility? Answer: No. The RAD ought to have applied the correctness standard of review to determine whether the RPD erred.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1",
+     "38.2",
+     "38.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "made_by": "respondent",
+    "claim": "The controversy is about how to interpret Huruglica's comments on the RAD's standard of review in RPD appeals, specifically whether the RAD should apply correctness to determine if the RPD erred beyond just reviewing reasonableness of findings of fact.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In coming to this answer, the Federal Court of Appeal considered the purpose and object of the statute, as well as the RAD\u2019s and the RPD\u2019s legislative scheme under sections 110 and 111 of IRPA. It referred to paragraph 111(2)(a), holding that the RAD must intervene when the RPD is wrong in fact or law. The Federal Court of Appeal noted that this translates to a correctness standard as confirmed by IRPA\u2019s legislative evolution and history, which the RAD majority referred to at paragraph 18 of its Decision.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1",
+     "39.2",
+     "39.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court of Appeal held that the RAD must apply the correctness standard to determine whether the RPD erred, based on the purpose and object of IRPA and the legislative scheme under sections 110 and 111.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Federal Court of Appeal also made certain observations about paragraph 111(2)(b) of IRPA, which empowers the RAD to refer a case back to the RPD for redetermination, where it is of the opinion that it cannot confirm or set aside the RPD\u2019s decision without hearing the evidence presented before the RPD. These comments are central both to the outcome of Huruglica and to the issue before me, and I reproduce them here in full:",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1",
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court of Appeal made observations about section 111(2)(b) of IRPA empowering the RAD to refer cases back to the RPD when it cannot confirm or set aside the RPD's decision without hearing evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Minister argues that, since ordinarily the same standard would apply to all findings of fact, the Federal Court of Appeal must be taken as having turned its attention to the RPD\u2019s factual findings relating to credibility. By excluding such credibility findings from its answer to the certified question, it ruled that the correctness standard was not the appropriate standard of review.",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1",
+     "41.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argues that the Federal Court of Appeal focused on the RPD's factual findings relating to credibility and excluded such findings from the correctness standard, ruling that correctness is not appropriate for credibility findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister argued that credibility findings were a central feature of Huruglica, flowing from the Federal Court of Appeal\u2019s observations about when the RPD may enjoy a meaningful fact-finding advantage. As such, these are not obiter (incidental or extraneous) comments, as suggested by others in submissions.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1",
+     "42.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argues that credibility findings are central to Huruglica and not incidental comments, based on the Federal Court of Appeal's observations about the RPD's fact-finding advantage.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR counter that such a view wholly misreads Huruglica. They argue that, at the quoted paragraphs 69\u201374, the Federal Court of Appeal was only referring to the deference that the RAD may show in its choice of remedy, and not in its task of reviewing the RPD\u2019s decision for error.",
+    "paragraphs": [
+     43
+    ],
+    "evidence_ids": [
+     "43.1",
+     "43.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that the Minister's view misreads Huruglica, stating that the Federal Court of Appeal's comments on deference relate only to the RAD's choice of remedy, not its review for error.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In explaining their interpretation of Huruglica, CARL/CCR refer to the inquisitorial process played by the RAD. To explain, in an inquisitorial proceeding, the decision\u2011maker plays a more active role, such as questioning the witnesses. In an adversarial proceeding, the decision-maker plays a less active role, and acts more as of a referee who observes, intervening only on a limited basis (see Benitez v Canada (Citizenship and Immigration), 2007 FCA 199 at paras 15, 18, 28).",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.1",
+     "44.2",
+     "44.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR explain that the RAD's inquisitorial process means it plays a more active role than the RPD, which is adversarial, citing Benitez v Canada for the distinction.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Turning back to CARL/CCR, they argue that when the Federal Court of Appeal mentioned the RPD\u2019s meaningful advantage, it was referring to the RPD\u2019s ability to shape the inquisitorial record through an oral hearing, which the RAD cannot ordinarily do. Based on this rationale, CARL/CCR assert that the RAD wrongly concluded that the RPD holds any advantage in the ability to interpret the record.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.1",
+     "45.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that the Federal Court of Appeal's mention of the RPD's meaningful advantage refers to the RPD's ability to shape the inquisitorial record through oral hearings, which the RAD cannot do, and that the RAD wrongly concluded the RPD has an advantage in interpreting the record.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR argue that the comments in Huruglica on deference are wholly unrelated to standard of review. Rather, they are solely related to the RAD\u2019s remedial powers under section 111 of IRPA.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.3",
+     "45.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that Huruglica's comments on deference relate solely to the RAD's remedial powers under section 111 of IRPA and are unrelated to the standard of review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "With respect to the standard of review that the RAD must apply to the RPD\u2019s credibility findings, CARL/CCR argue that the plain language meaning of IRPA, along with the Federal Court of Appeal\u2019s statutory analysis in Huruglica, leads to only one result: that the RAD must review all RPD findings on a correctness basis.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that the plain language of IRPA and the Federal Court of Appeal's statutory analysis in Huruglica require the RAD to apply a correctness standard to all RPD findings, including credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR argue that no other reading is defensible, considering that: (a) the RAD has sole and exclusive jurisdiction to hear and determine all questions of fact under subsection 162(1) of IRPA; (b) a person may appeal to the RAD on a question of fact under subsection 110(1) of IRPA; (c) the RAD must either confirm the RPD\u2019s determination, substitute its own determination, or refer the matter back if the RAD cannot do so without hearing the evidence (IRPA, subsection 111(1) and (2)); and (d) per their reading of Huruglica, the statute empowers the RAD to review all RPD findings for correctness.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.1",
+     "47.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that the RAD has exclusive jurisdiction to hear and determine all questions of fact under subsection 162(1) of IRPA, may hear appeals on questions of fact under subsection 110(1), and must confirm, substitute, or refer back RPD determinations under subsection 111(1) and (2), and that Huruglica empowers the RAD to review all RPD findings for correctness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR further argue that a correctness review of all RPD findings is supported by the RAD\u2019s legislative purpose. They note that prior to the creation of the RAD, two RPD members used to sit in determination of each refugee claim. The RAD was meant to introduce efficiencies in the refugee determination process without diminishing the safety net of having every claim independently decided by two members.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1",
+     "48.2",
+     "48.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that a correctness review of all RPD findings is supported by the RAD's legislative purpose, noting that before the RAD's creation two RPD members decided each refugee claim and the RAD was meant to improve efficiency without reducing the safety net of independent decisions by two members.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants share CARL/CCR\u2019s view that IRPA unambiguously requires a correctness review for all findings of fact. They emphasize that, when Huruglica equated the use of the word wrong (IRPA, section 111(2)(a)) to a correctness review, the Federal Court of Appeal noted \u201cit would make little sense to give the word \u2018wrong\u2019 a different meaning depending on whether it relates to the words \u2018in law\u2019, \u2018in fact\u2019 or \u2018in law and in fact\u2019\u201d (at para 65). The Applicants assert that it would make no sense to interpret wrong differently depending on whether the factual finding at issue relates to credibility or not.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1",
+     "49.2",
+     "49.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants agree with CARL/CCR that IRPA unambiguously requires a correctness review for all findings of fact, emphasizing that Huruglica equated 'wrong' with correctness review and that it would make no sense to interpret 'wrong' differently depending on the nature of the factual finding.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Unlike CARL/CCR, the Applicants acknowledge Huruglica envisioned a role for deference, but argue that the RAD should only show deference outside the ambit of standard of review; they say that the RAD\u2019s deference should be expressed as a restraint before applying a correctness standard.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "made_by": "applicant",
+    "claim": "Unlike CARL/CCR, the Applicants acknowledge Huruglica envisioned a role for deference, but argue that the RAD should show deference as restraint before applying a correctness standard, with deference only outside the ambit of standard of review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At the hearing, the Applicants suggested that deference was understood in this way by Professor Daly in his theories of \u201cdoctrinal\u201d and \u201cepistemic deference\u201d (Paul Daly, A Theory of Deference in Administrative Law: Basis, Application and Scope (Cambridge, UK: Cambridge University Press, 2012 at 7\u20139). Professor Daly explained these concepts of deference as representing reasonableness and the giving of weight, respectively.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1",
+     "51.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants suggest that deference is understood as reasonableness and giving of weight, citing Professor Daly's theories of doctrinal and epistemic deference.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants also refer to the Federal Court of Appeal\u2019s analysis in Re: Sound v Fitness Industry Council of Canada, 2014 FCA 48 [Re: Sound], which they say supports their approach to correctness with deference. Finally, the Applicants argue that the RAD minority approach appropriately envisions a role for deference alongside a correctness review.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1",
+     "52.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants refer to the Federal Court of Appeal's analysis in Re: Sound v Fitness Industry Council of Canada as supporting their approach to correctness with deference, and argue that the RAD minority approach appropriately envisions a role for deference alongside correctness review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Federal Court of Appeal specifically observed that problems would arise when the RPD\u2019s credibility findings themselves were challenged before the RAD (Huruglica at para 72, as reproduced above).",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court of Appeal observed that problems arise when the RPD's credibility findings themselves are challenged before the RAD, as noted in Huruglica at paragraph 72.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Further, the general statutory analysis in Huruglica contained these observations on paragraph 111(2)(b) of IRPA:",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court of Appeal made general statutory observations on paragraph 111(2)(b) of IRPA in Huruglica.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Finally, I do not find any merit to the sources that the Applicants rely upon, namely Re: Sound, and Professor Daly\u2019s views of doctrinal or epistemic deference.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants rely on Re: Sound and Professor Daly\u2019s views of doctrinal or epistemic deference.",
+    "treatment": "rejected",
+    "outcome_note": "The court found no merit in these sources.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Subject to my comments with respect to paragraph 111(2)(b), I generally agree with the RAD\u2019s finding that neither section 110 nor 111, nor the legislation as a whole, point to the need to show deference to the RPD\u2019s findings of fact.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD found that neither section 110 nor 111, nor the legislation as a whole, point to the need to show deference to the RPD\u2019s findings of fact.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "As acknowledged by the RAD in this case, these provisions evidence the legislator\u2019s intent that the RAD bring finality to the refugee claims determination process.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD acknowledged that the provisions evidence the legislator\u2019s intent that the RAD bring finality to the refugee claims determination process.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Thus, it was reasonable for the majority to conclude that, under IRPA, it should apply two standards of review to RPD findings: correctness in most cases and deference on occasion.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority concluded that under IRPA it should apply two standards of review to RPD findings: correctness in most cases and deference on occasion.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Question (ii): When should deference be triggered?",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "made_by": "applicant",
+    "claim": "The question arises when deference should be triggered in reviewing RPD findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The second question to be determined in this judicial review is whether the RAD majority reasonably set out the conditions triggering the application of a deferential standard of review.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "made_by": "applicant",
+    "claim": "The second question is whether the RAD majority reasonably set out the conditions triggering the application of a deferential standard of review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Put another way, for any given RPD finding, when should the RAD apply a correctness standard and when should it apply a deferential standard?",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "made_by": "applicant",
+    "claim": "For any given RPD finding, the RAD must decide when to apply a correctness standard and when to apply a deferential standard.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "When does deference apply to the RAD?",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "made_by": "applicant",
+    "claim": "The question arises when deference applies to the RAD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD majority, however, then went on to set out eight categories of RPD credibility findings. These are essentially a set of guidelines to be considered by future panels when the following situations arise, which I have numbered for ease of reference: (i) inconsistencies, contradictions and omissions; (ii) demeanour; (iii) specialized knowledge; (iv) relevant knowledge; (v) implausibilities; (vi) inferences; (vii) documents; and (viii) oral hearing.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.3",
+     "66.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority set out eight categories of RPD credibility findings as guidelines for future panels: inconsistencies, contradictions and omissions; demeanour; specialized knowledge; relevant knowledge; implausibilities; inferences; documents; and oral hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD majority explained the context for each of these eight categories, some of which did not arise on the facts of this case.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority explained the context for each of these eight categories, some of which did not arise on the facts of this case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD majority then reviewed when it might be at a disadvantage, and thus owe deference to the RPD for each of the eight categories, which I will briefly summarize below.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority reviewed when it might be at a disadvantage, and thus owe deference to the RPD for each of the eight categories.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "First, the RAD majority noted that the RPD may have a meaningful advantage in assessing (i) inconsistencies, contradictions, and omissions in oral testimony. This is because the RPD sees and hears the witness, chooses which questions to ask, and listens to the answers.",
+    "paragraphs": [
+     68
+    ],
+    "evidence_ids": [
+     "68.1",
+     "68.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD may have a meaningful advantage in assessing inconsistencies, contradictions, and omissions in oral testimony because the RPD sees and hears the witness, chooses which questions to ask, and listens to the answers.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It provides that once an error has been identified (paragraph 111(2)(a)), the RAD may refer the matter back for redetermination with the directions that it considers appropriate only if it is \u201cof the opinion\u201d that it cannot make a decision confirming or setting aside the RPD decision without hearing the evidence presented before the RPD.",
+    "paragraphs": [
+     69
+    ],
+    "evidence_ids": [
+     "69.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     69
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Paragraph 111(2)(b) provides that once an error has been identified, the RAD may refer the matter back for redetermination only if it cannot make a decision confirming or setting aside the RPD decision without hearing the evidence presented before the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This possibility acknowledges the fact that in some cases where oral testimony is critical or determinative in the opinion of the RAD, the RAD may not be in a position to confirm or substitute its own determination to that of the RPD.",
+    "paragraphs": [
+     69
+    ],
+    "evidence_ids": [
+     "69.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     69
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In some cases where oral testimony is critical or determinative, the RAD may not be in a position to confirm or substitute its own determination to that of the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This also recognizes that there may be cases where the RPD enjoys a meaningful advantage over the RAD in making findings of fact or mixed fact and law, because they require an assessment of the credibility or weight to be given to the oral evidence it hears.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There may be cases where the RPD enjoys a meaningful advantage over the RAD in making findings of fact or mixed fact and law because they require an assessment of the credibility or weight to be given to the oral evidence it hears.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It further indicates that although the RAD should sometimes exercise a degree of restraint before substituting its own determination, the issue of whether the circumstances warrant such restraint ought to be addressed on a case-by-case basis.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD should sometimes exercise restraint before substituting its own determination, but whether such restraint is warranted should be addressed case-by-case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In each case, the RAD ought to determine whether the RPD truly benefited from an advantageous position, and if so, whether the RAD can nevertheless make a final decision in respect of the refugee claim.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD ought to determine whether the RPD truly benefited from an advantageous position, and if so, whether the RAD can nevertheless make a final decision on the refugee claim.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "For example, when the RPD finds a witness straightforward and credible, there is no issue of credibility per se. This will also be the case when the RAD is able to reach a conclusion on the claim, relying on the RPD\u2019s findings of fact regarding the relative weight of testimonies and their credibility or lack thereof.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.2",
+     "71.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "made_by": "tribunal_below",
+    "claim": "When the RPD finds a witness straightforward and credible, there is no issue of credibility per se, and the RAD can rely on the RPD\u2019s findings to reach a conclusion.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Problems will occur when the credibility findings themselves are disputed on appeal, and the RAD has no way to reach a conclusion without endorsing or rejecting those findings.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Problems occur when credibility findings themselves are disputed on appeal and the RAD cannot reach a conclusion without endorsing or rejecting those findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "If the RAD can identify an error in situations where, for example, a claimant was not found credible because his story was not plausible based on common sense, the RPD may have no real advantage over the RAD.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "made_by": "tribunal_below",
+    "claim": "If the RAD can identify an error in credibility findings based on plausibility, the RPD may have no real advantage over the RAD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Similarly, there may also be cases where a finding that a witness is not credible was based on discrepancies that could not justify such a conclusion or that simply did not exist. If the assessment of the oral evidence contains an error which the RAD can easily identify, but the weight to be given to this testimony is essential to determine whether the RPD decision should be confirmed or set aside, the RAD may conclude that it is a proper case to refer back to the RPD with specific directions in respect of the error identified in the credibility findings.",
+    "paragraphs": [
+     73
+    ],
+    "evidence_ids": [
+     "73.1",
+     "73.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     73
+    ],
+    "made_by": "tribunal_below",
+    "claim": "If a finding that a witness is not credible was based on discrepancies that could not justify such a conclusion or that did not exist, and the RAD can easily identify the error, the RAD may refer back to the RPD with directions.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "That said, it is not appropriate to say more about the various scenarios that may arise, for they are not before us. The RAD should be given the opportunity to develop its own jurisprudence in that respect; there is thus no need for me to pigeon-hole the RAD to the level of deference owed in each case.",
+    "paragraphs": [
+     74
+    ],
+    "evidence_ids": [
+     "74.1",
+     "74.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     74
+    ],
+    "made_by": "tribunal_below",
+    "claim": "It is not appropriate to say more about various scenarios that may arise; the RAD should develop its own jurisprudence and is not pigeon-holed to a level of deference in each case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Applicants in this case argue that the RAD majority erred in pre-emptively establishing categories of credibility findings warranting deference, instead of leaving it to be determined whether the RPD truly had a meaningful advantage on a case-by-case basis.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD majority erred in pre-emptively establishing categories of credibility findings warranting deference instead of determining meaningful advantage case-by-case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They submit that the RAD established an unreasonably rigid approach, which ignores that there are many possible permutations and unique situations in any given case, such that the concept of meaningful advantage cannot be separated from the circumstances of the particular hearing within which a finding arises.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD established an unreasonably rigid approach ignoring many possible permutations and unique situations, separating meaningful advantage from the circumstances of the particular hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants also argue that, under the RAD\u2019s model, whether a meaningful advantage exists seems to turn almost entirely on whether the finding at issue arose from oral evidence. In the Applicants\u2019 view, this will lead, in practice, to a deferential standard being applied by the RAD whenever the RPD\u2019s findings were based on oral evidence, which will lead, in turn, to an unreasonably broad band of deference, since virtually all credibility findings involve oral testimony and credibility is a core aspect of all refugee claims.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.1",
+     "76.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "made_by": "applicant",
+    "claim": "Under the RAD\u2019s model, whether a meaningful advantage exists seems to turn almost entirely on whether the finding arose from oral evidence, leading to an unreasonably broad band of deference.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The intervener AQAADI agrees with this position and submits that the RAD has, in certain subsequent decisions, failed to conduct a case-by-case analysis and has simply been deferential whenever the RPD\u2019s credibility findings were based on oral testimony (see, for instance, X (Re), 2017 CanLII 94169 (CA IRB) at para 9).",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "made_by": "intervener",
+    "claim": "The RAD has failed to conduct a case-by-case analysis and has been overly deferential when RPD credibility findings were based on oral testimony.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister responds that the RAD majority did not err in setting out these categories since it made clear that the meaningful advantage inquiry must be done in every case. In my view, the RAD majority\u2019s conclusions on the conditions triggering a deferential standard of review are unreasonable. This is because the RAD majority failed to identify any principled framework for determining whether the RPD had a meaningful advantage in making a credibility finding in a given case.",
+    "paragraphs": [
+     78,
+     80
+    ],
+    "evidence_ids": [
+     "78.1",
+     "80.1",
+     "80.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78,
+     80
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD majority did not err in setting out categories for meaningful advantage and made clear that the inquiry must be done in every case.",
+    "treatment": "rejected",
+    "outcome_note": "Court found RAD's approach unreasonable for lack of principled framework.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At the hearing of this application, counsel for the Minister suggested that the RAD was simply illustrating situations where the RPD was more likely to have a meaningful advantage. This is because the RAD majority failed to identify any principled framework for determining whether the RPD had a meaningful advantage in making a credibility finding in a given case.",
+    "paragraphs": [
+     78,
+     80
+    ],
+    "evidence_ids": [
+     "78.2",
+     "80.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78,
+     80
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD was illustrating situations where the RPD was more likely to have a meaningful advantage.",
+    "treatment": "rejected",
+    "outcome_note": "Court found no principled way to determine meaningful advantage case-by-case.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In the Minister\u2019s view, the RPD\u2019s meaningful advantage generally derives from the RPD\u2019s role in holding an oral hearing where it can observe testimonial evidence. However, the RAD then provided little direction for identifying when such an advantage arises: for most of its categories, the RAD finds that meaningful advantage, if it existed, would arise as a result of the RPD seeing and hearing the claimant and witnesses. Although the RAD majority held that the RPD may have a meaningful advantage in situations where it has heard and seen a witness, in its subsequent review of the merits of the RPD\u2019s decision it found that the RPD did in fact have a meaningful advantage whenever the finding at issue related to the Applicants\u2019 oral testimony.",
+    "paragraphs": [
+     78,
+     82
+    ],
+    "evidence_ids": [
+     "78.3",
+     "82.1",
+     "82.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78,
+     82
+    ],
+    "made_by": "respondent",
+    "claim": "The RPD\u2019s meaningful advantage generally derives from holding an oral hearing where it can observe testimonial evidence.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Court accepts RPD may have advantage from seeing and hearing witnesses but rejects that this always triggers deference without further analysis.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister adds that if future RAD panels misinterpret the guidance provided in these categories and, as a result, are overly deferential in their review of RPD decisions, then this is something that can be corrected on judicial review. The possibility of unreasonable future RAD decisions does not mean that the RAD majority\u2019s model is flawed. In my view, the RAD majority\u2019s conclusions on the conditions triggering a deferential standard of review are unreasonable.",
+    "paragraphs": [
+     79,
+     80
+    ],
+    "evidence_ids": [
+     "79.1",
+     "79.2",
+     "80.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79,
+     80
+    ],
+    "made_by": "respondent",
+    "claim": "If future RAD panels misinterpret the guidance and are overly deferential, this can be corrected on judicial review.",
+    "treatment": "rejected",
+    "outcome_note": "Court finds the RAD majority\u2019s model itself unreasonable, not just future misapplications.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "When queried on this apparent weakness of the eight-category framework at the hearing and the lack of particular guidance, counsel for the Minister suggested that not all legal theories can be \u201creduced to a slogan on a coffee mug\u201d. While that may be the reality, I nonetheless find that it was not open to the RAD majority, sitting as part of a three-member panel, to hold that deference flows from the RPD\u2019s meaningful advantage.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.1",
+     "81.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "made_by": "respondent",
+    "claim": "Not all legal theories can be reduced to simple slogans, so the RAD majority\u2019s approach should be accepted.",
+    "treatment": "rejected",
+    "outcome_note": "Court finds it was not open to RAD to hold deference flows from meaningful advantage without guidance.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants point to several instances in the Decision where the RAD majority found that the RPD had a meaningful advantage justifying deference. In each case, the rationale was simply that the RPD had chosen which questions to ask, and saw and heard the witnesses\u2019 response. The RAD majority did not explain whether seeing and hearing the witness should always trigger a deferential standard nor why, in the Applicants\u2019 particular case, it did. As noted by the Applicants, these conditions of seeing and hearing the witness will always be present at an RPD hearing.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.1",
+     "83.2",
+     "83.3",
+     "83.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD majority found meaningful advantage just because the RPD chose questions and saw and heard witnesses, without explaining why this should always trigger deference.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "One concrete way of determining whether the RPD was truly better-positioned and thus had a meaningful advantage in making a given finding would be to see if the basis for the impugned finding is disclosed in the record before the RAD.",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "applicant",
+    "claim": "A concrete way to determine meaningful advantage is to see if the basis for the impugned finding is disclosed in the record before the RAD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "For instance, counsel for the Minister stated during oral argument that the concept of the RPD\u2019s meaningful advantage turns on information to which the RAD does not have access.",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "made_by": "respondent",
+    "claim": "The concept of the RPD\u2019s meaningful advantage turns on information to which the RAD does not have access.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Similarly, the Applicants observe in their written materials that the RPD may make a credibility finding on the basis of an event or circumstance in the hearing room that is not captured in the hearing recording or transcript. In such cases, the RPD could be said to have a meaningful advantage in the sense that the basis for the finding would not be available to the RAD for independent scrutiny.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.1",
+     "85.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD may make credibility findings based on events or circumstances not captured in the hearing recording or transcript, giving it a meaningful advantage.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At the hearing of this application, the Applicants referred the Court to a number of cases in which their preferred approach has been adopted by the RAD in decisions post-dating the one currently under review.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD has adopted the applicants' preferred approach in some decisions after the one under review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "First, in X (Re), 2017 CanLII 142903 (CA IRB), the RAD found no meaningful advantage because the errors raised in the appeal pertained to \u201cobvious\u201d inconsistencies and discrepancies (at para 17).",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In X (Re), 2017 CanLII 142903 (CA IRB), the RAD found no meaningful advantage because the errors raised in the appeal pertained to obvious inconsistencies and discrepancies.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Referencing Huruglica and the majority in the RAD Decision, the RAD member held as follows:",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD member held, referencing Huruglica and the majority in the RAD Decision, that there was no meaningful advantage.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Second, the RAD took a similar approach in X (Re), 2017 CanLII 61324 (CA IRB). There, the RAD member held that the RPD did not have a meaningful advantage because the issues related to \u201cthe substance of the testimony and not to any behavioural or any other item that the RPD could observe and the RAD could not\u201d (at para 8).",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.1",
+     "88.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In X (Re), 2017 CanLII 61324 (CA IRB), the RAD member held that the RPD did not have a meaningful advantage because the issues related to the substance of the testimony and not to any behavioural or other item that the RPD could observe and the RAD could not.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Third, in X (Re), 2017 CanLII 142477 (CA IRB), the RAD panel held that, because it had listened to the recording of the hearing and read the RPD\u2019s conclusions, no meaningful advantage existed:",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In X (Re), 2017 CanLII 142477 (CA IRB), the RAD panel held that, because it had listened to the recording of the hearing and read the RPD\u2019s conclusions, no meaningful advantage existed.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "CARL/CCR dispute this and argue that the RAD is always in as good a position to make factual findings as the RPD.",
+    "paragraphs": [
+     94
+    ],
+    "evidence_ids": [
+     "94.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     94
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR dispute that the RAD is not always in as good a position as the RPD to make factual findings and argue that the RAD is always in as good a position to make factual findings as the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this regard, CARL/CCR argue that information that a witness intends to convey must always be put into the record by the RPD.",
+    "paragraphs": [
+     95
+    ],
+    "evidence_ids": [
+     "95.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     95
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR argue that information that a witness intends to convey must always be put into the record by the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "For instance, they cite the possibility of using a video of a witness performing a religious exercise, or a precise description of a questionable conduct issue, such as looking to counsel for answers when asked a question.",
+    "paragraphs": [
+     95
+    ],
+    "evidence_ids": [
+     "95.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     95
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR cite the possibility of using a video of a witness performing a religious exercise, or a precise description of a questionable conduct issue, such as looking to counsel for answers when asked a question, as examples of information that must be recorded.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In short, CARL/CCR contend that to the extent the record is deficient, whether by way of non-verbal or physical cues that raise doubts and lead to negative credibility findings, these should be explained clearly and in unmistakeable terms by the decision\u2011maker, who must ensure that the record is clear.",
+    "paragraphs": [
+     96
+    ],
+    "evidence_ids": [
+     "96.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     96
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR contend that to the extent the record is deficient, whether by way of non-verbal or physical cues that raise doubts and lead to negative credibility findings, these should be explained clearly and in unmistakeable terms by the decision-maker, who must ensure that the record is clear.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In any event, CARL/CCR argue that demeanour can never reasonably form the basis of a credibility finding.",
+    "paragraphs": [
+     97
+    ],
+    "evidence_ids": [
+     "97.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     97
+    ],
+    "made_by": "applicant",
+    "claim": "CARL/CCR argue that demeanour can never reasonably form the basis of a credibility finding.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They say that demeanour only has relevance to the fact-finding process to the extent that it facilitates the RPD\u2019s inquisitorial function by alerting the RPD to useful lines of questioning and by allowing it to draw out content that can then be seen in the record and reviewed by the RAD.",
+    "paragraphs": [
+     97
+    ],
+    "evidence_ids": [
+     "97.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     97
+    ],
+    "made_by": "applicant",
+    "claim": "Demeanour only has relevance to the fact-finding process to the extent that it facilitates the RPD\u2019s inquisitorial function by alerting the RPD to useful lines of questioning and by allowing it to draw out content that can then be seen in the record and reviewed by the RAD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR further argue that, under IRPA\u2019s statutory scheme, the RAD is meant to function as a second risk assessment on the merits of each claim, and that the RAD must do this job even if the evidence before it is imperfect.",
+    "paragraphs": [
+     98
+    ],
+    "evidence_ids": [
+     "98.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     98
+    ],
+    "made_by": "applicant",
+    "claim": "Under IRPA\u2019s statutory scheme, the RAD is meant to function as a second risk assessment on the merits of each claim, and the RAD must do this job even if the evidence before it is imperfect.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They note that the RPD makes its findings based on imperfect evidence, which may include hearsay or affidavits from individuals not subject to cross-examination.",
+    "paragraphs": [
+     98
+    ],
+    "evidence_ids": [
+     "98.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     98
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD makes its findings based on imperfect evidence, which may include hearsay or affidavits from individuals not subject to cross-examination.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Like CARL/CCR, AQAADI also argues strongly against the relevance of demeanour evidence, referring the Court to cases that have expressed serious concerns regarding its use (including R v Rhayel, 2015 ONCA 377 at paras 85\u201389; R v L(L), 2016 QCCA 1367 at paras 88\u201390; R v Pelletier, 1995 ABCA 128 at para 18).",
+    "paragraphs": [
+     100
+    ],
+    "evidence_ids": [
+     "100.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     100
+    ],
+    "made_by": "applicant",
+    "claim": "AQAADI argues strongly against the relevance of demeanour evidence, referring to cases expressing serious concerns regarding its use.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In fact, AQAADI states that in their research they could not find one RAD case where demeanour was the determinative reason for credibility concerns.",
+    "paragraphs": [
+     100
+    ],
+    "evidence_ids": [
+     "100.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     100
+    ],
+    "made_by": "applicant",
+    "claim": "AQAADI states that in their research they could not find one RAD case where demeanour was the determinative reason for credibility concerns.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, AQAADI would not close the door to the possibility that the RPD may, in some cases, have a meaningful advantage. As a result, AQAADI stresses that the meaningful advantage inquiry must be properly undertaken in every case.",
+    "paragraphs": [
+     101
+    ],
+    "evidence_ids": [
+     "101.1",
+     "101.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     101
+    ],
+    "made_by": "applicant",
+    "claim": "AQAADI would not close the door to the possibility that the RPD may, in some cases, have a meaningful advantage, and stresses that the meaningful advantage inquiry must be properly undertaken in every case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister counters that, while demeanour evidence has its shortcomings, its use remains permissible under Canadian law (see R v RD, 2016 ONCA 574 at para 25). The Minister argues that fact-finding is not a science but rather a difficult and complex process to which demeanour has some relevance, referring to the following extract from R v NS:",
+    "paragraphs": [
+     102
+    ],
+    "evidence_ids": [
+     "102.1",
+     "102.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     102
+    ],
+    "made_by": "respondent",
+    "claim": "While demeanour evidence has shortcomings, its use remains permissible under Canadian law, and fact-finding is a difficult and complex process to which demeanour has some relevance.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Demeanour evidence is permissible but must be properly analyzed for meaningful advantage.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I have been urged by the interveners to distinguish this body of case law, owing to the unique context of refugee determinations. I am indeed mindful of studies and literature that give pause about, as well as rationale to rethink, the basis of credibility determinations, including the work of Professor Hilary Cameron-Evans in her recently published book Refugee Law\u2019s Fact-Finding Crisis: Truth, Risk and Wrong Mistake, (Cambridge, UK: Cambridge University Press, 2018).",
+    "paragraphs": [
+     103
+    ],
+    "evidence_ids": [
+     "103.1",
+     "103.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     103
+    ],
+    "made_by": "respondent",
+    "claim": "The interveners urge to distinguish the case law on demeanour evidence due to the unique context of refugee determinations, noting studies and literature that question credibility determinations.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD majority clearly had concerns about its inability to truly review, on a correctness standard, findings based on the RPD\u2019s proximity to a witness, and elements that could not be translated into the record.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority had concerns about its inability to truly review, on a correctness standard, findings based on the RPD\u2019s proximity to a witness and elements that could not be translated into the record.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD majority erred in failing to outline for future panels when the RPD\u2019s general fact-finding advantage becomes a specific, meaningful advantage, which in turn would justify the application of a deferential standard of review.",
+    "paragraphs": [
+     107
+    ],
+    "evidence_ids": [
+     "107.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     107
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority failed to outline when the RPD's general fact-finding advantage becomes a specific, meaningful advantage justifying a deferential standard of review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "For instance, the Applicants have argued that IRPA integrates institutional deference, because a claimant cannot appeal to the RAD if the RPD finds their claim to be manifestly unfounded (IRPA, s 107.1) or to have no credible basis (IRPA, section 107(2)).",
+    "paragraphs": [
+     109
+    ],
+    "evidence_ids": [
+     "109.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     109
+    ],
+    "made_by": "applicant",
+    "claim": "IRPA integrates institutional deference because a claimant cannot appeal to the RAD if the RPD finds their claim manifestly unfounded or without credible basis.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR, on the other hand, have focused on the idea of remedial deference. Remedial deference occurs when the RAD remits a matter to the RPD instead of substituting its own determination of the outcome of the refugee claim.",
+    "paragraphs": [
+     109
+    ],
+    "evidence_ids": [
+     "109.3",
+     "109.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     109
+    ],
+    "made_by": "respondent",
+    "claim": "CARL/CCR focus on remedial deference, where the RAD remits a matter to the RPD instead of substituting its own determination.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In its analysis, the RAD was confronted with case law taking different positions on this issue. For instance, the RAD majority referred to cases pre-dating Huruglica, where the Federal Court found that it was an error for the RAD to use a reasonableness standard when reviewing the RPD\u2019s credibility findings (see, for instance, Khachatourian v Canada (Citizenship and Immigration), 2015 FC 182 at paras 30\u201331). But the RAD also referred to decisions of this Court post-dating Huruglica, which held that the RAD should use a reasonableness standard in such circumstances (Al Moussawi v Canada (Citizenship and Immigration), 2017 FC 441 at para 16; Sinnaraja v Canada (Citizenship and Immigration), 2016 FC 778 at para 23).",
+    "paragraphs": [
+     111
+    ],
+    "evidence_ids": [
+     "111.1",
+     "111.2",
+     "111.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     111
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority referred to conflicting case law on whether a reasonableness standard should be used when reviewing RPD credibility findings.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD majority concluded that the level of deference to be shown to the RPD\u2019s credibility findings was not the same as that owed on judicial review because, even where deference was warranted, the RAD still had to independently review the evidence on which the finding was based. In other words, the RAD majority held that a reasonableness type of review was appropriate so long as the RAD also engaged in an independent analysis of the evidence.",
+    "paragraphs": [
+     112
+    ],
+    "evidence_ids": [
+     "112.1",
+     "112.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     112
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority concluded that the level of deference to RPD credibility findings is not the same as on judicial review because the RAD must independently review the evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Specifically, the RAD majority settled on a standard of RAD reasonableness, where the RPD enjoyed a meaningful advantage in making a credibility finding. The RAD majority said that, although RAD reasonableness was not the same as the judicial review reasonableness standard, it would still rely on the jurisprudence explaining and defining reasonableness in the context of judicial review.",
+    "paragraphs": [
+     113
+    ],
+    "evidence_ids": [
+     "113.1",
+     "113.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     113
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority adopted a standard of RAD reasonableness where the RPD has a meaningful advantage in making credibility findings, relying on judicial review reasonableness jurisprudence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD majority turned to Dunsmuir in concluding that it should assess both process and outcome. That is to say, the RPD\u2019s finding would stand if it was the result of a comprehensible reasoning process, meaning that the RAD could read the RPD\u2019s conclusion and understand how it was reached, and its outcome was supported by the evidence.",
+    "paragraphs": [
+     114
+    ],
+    "evidence_ids": [
+     "114.1",
+     "114.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     114
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority applied Dunsmuir to assess both process and outcome, requiring the RPD's finding to be comprehensible and supported by evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RAD majority\u2019s view made it implicit that a reasonableness type of standard of review could be used if the RAD also conducted an independent assessment of the matter before it.",
+    "paragraphs": [
+     115
+    ],
+    "evidence_ids": [
+     "115.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     115
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority implicitly held that a reasonableness standard could be used if the RAD also conducted an independent assessment.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Applicants argue that RAD reasonableness, the RAD\u2019s concept of deference, is unreasonable because it results in a duplication of the Dunsmuir framework at the administrative level.",
+    "paragraphs": [
+     116
+    ],
+    "evidence_ids": [
+     "116.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     116
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants argue that RAD reasonableness is unreasonable because it duplicates the Dunsmuir framework at the administrative level.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They say that this is contrary to Huruglica in which the Federal Court of Appeal held that the RAD is \u201cnot to review RPD decisions in the manner of a judicial review\u201d (at para 37).",
+    "paragraphs": [
+     116
+    ],
+    "evidence_ids": [
+     "116.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     116
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants say RAD reasonableness is contrary to Huruglica, which held that the RAD is not to review RPD decisions like a judicial review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants argue that the RAD majority\u2019s approach results in a situation of \u201cdouble deference\u201d as termed by Professor Daly in \u201cLes appels administratifs au Canada\u201d (2015) 93 Can Bar Rev 71 [Les appels] at 84. Double deference refers to the Federal Court being tasked with reviewing the reasonableness of the RAD\u2019s own reasonableness analysis.",
+    "paragraphs": [
+     117
+    ],
+    "evidence_ids": [
+     "117.1",
+     "117.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     117
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD majority's approach results in a situation of 'double deference', where the Federal Court reviews the reasonableness of the RAD's own reasonableness analysis.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Accordingly, the Applicants argue that any expression of deference by the RAD should be less than in a reasonableness review and should not use the language of judicial review. They submit that no other result can be supported by the statutory scheme as set out by IRPA.",
+    "paragraphs": [
+     118
+    ],
+    "evidence_ids": [
+     "118.1",
+     "118.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     118
+    ],
+    "made_by": "applicant",
+    "claim": "Any expression of deference by the RAD should be less than in a reasonableness review and should not use the language of judicial review, as supported by the statutory scheme in IRPA.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Applicants also rely on Professor Daly\u2019s analysis that the RAD is not a typical, generalist appeal tribunal, lacking the specialized expertise of the lower tribunal, but is rather a highly specialized tribunal itself (Les appels at 75\u201376).",
+    "paragraphs": [
+     119
+    ],
+    "evidence_ids": [
+     "119.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     119
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD is a highly specialized tribunal itself, not a typical generalist appeal tribunal lacking the specialized expertise of the lower tribunal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister argues that RAD reasonableness is sufficiently distinct from judicial review because the RAD must begin with an overall, independent assessment of the matter before it, while judicial review focuses on the decision\u2011maker\u2019s reasons.",
+    "paragraphs": [
+     120
+    ],
+    "evidence_ids": [
+     "120.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     120
+    ],
+    "made_by": "respondent",
+    "claim": "RAD reasonableness is distinct from judicial review because the RAD must begin with an overall, independent assessment of the matter, while judicial review focuses on the decision-maker's reasons.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "RAD reasonableness, according to the Minister, is simply a term used by the RAD, with built-in flexibility that is both appropriate to the level of deference that the RAD should give to the RPD, and is thus reasonable.",
+    "paragraphs": [
+     120
+    ],
+    "evidence_ids": [
+     "120.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     120
+    ],
+    "made_by": "respondent",
+    "claim": "RAD reasonableness is a term used by the RAD with built-in flexibility appropriate to the level of deference the RAD should give to the RPD, and is thus reasonable.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR argue that the RAD cannot independently assess the basis for a particular finding, while simultaneously reviewing it on a deferential standard. In their view, this exposes a fundamental and irreconcilable tension between the idea of a deferential review standard and the RAD\u2019s duty to conduct an independent assessment.",
+    "paragraphs": [
+     121
+    ],
+    "evidence_ids": [
+     "121.1",
+     "121.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     121
+    ],
+    "made_by": "intervener",
+    "claim": "The RAD cannot independently assess the basis for a finding while reviewing it on a deferential standard, creating a fundamental tension between deferential review and the RAD's duty to conduct an independent assessment.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "CARL/CCR say that this tension is also apparent in the reasoning of the RAD minority where the single member warned:",
+    "paragraphs": [
+     121
+    ],
+    "evidence_ids": [
+     "121.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     121
+    ],
+    "made_by": "intervener",
+    "claim": "This tension is apparent in the RAD minority's reasoning where the single member warned about the independent assessment obligation.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RAD\u2019s obligation to undertake an independent assessment bears further comment. In Huruglica, the Federal Court of Appeal did not specifically use the language of independent assessment. Nevertheless, subsequent cases have held that Huruglica endorsed a thorough, comprehensive, and independent review by the RAD (see, for instance, Gabila v Canada (Citizenship and Immigration), 2016 FC 574 at para 20; Marin v Canada (Citizenship and Immigration), 2016 FC 847 at paras 32\u201333).",
+    "paragraphs": [
+     122
+    ],
+    "evidence_ids": [
+     "122.1",
+     "122.2",
+     "122.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     122
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD is obligated to undertake an independent assessment, which has been endorsed as a thorough, comprehensive, and independent review by the RAD in subsequent cases following Huruglica.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It would seem, then, that an independent assessment could be seen as being antithetical to reasonableness review, and thus synonymous with correctness review (see Taqadees v Canada (Citizenship and Immigration), 2016 FC 1072 at para 10; Daniel v Canada (Citizenship and Immigration), 2016 FC 1049 at paras 11\u201312; Kayitankore v Canada (Citizenship and Immigration), 2016 FC 1030 at para 23).",
+    "paragraphs": [
+     123
+    ],
+    "evidence_ids": [
+     "123.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     123
+    ],
+    "made_by": "applicant",
+    "claim": "An independent assessment could be seen as antithetical to reasonableness review and synonymous with correctness review.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It is his position that there was no error in the RAD majority using the term reasonableness, as this is just a label that describes a level of deference and it can be used outside of the judicial review context.",
+    "paragraphs": [
+     127
+    ],
+    "evidence_ids": [
+     "127.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     127
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argues that there was no error in the RAD majority using the term reasonableness, as it is just a label describing a level of deference and can be used outside the judicial review context.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Minister also argues that the RAD majority used the term reasonableness flexibly to fit the RAD\u2019s particular context.",
+    "paragraphs": [
+     127
+    ],
+    "evidence_ids": [
+     "127.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     127
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister also argues that the RAD majority used the term reasonableness flexibly to fit the RAD\u2019s particular context.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Furthermore, the RAD majority acknowledged that it was adopting a judicial review standard for its own purposes when it wrote that it would \u201cassess reasonableness in the context of its particular role while attempting to avoid the development of a new gradation of that standard\u201d (RAD Decision at para 70).",
+    "paragraphs": [
+     129
+    ],
+    "evidence_ids": [
+     "129.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     129
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD majority acknowledged adopting a judicial review standard for its own purposes, aiming to avoid developing a new gradation of that standard.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Minister argued that the RAD majority was not required to select a standard less deferential than that in Dunsmuir.",
+    "paragraphs": [
+     133
+    ],
+    "evidence_ids": [
+     "133.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     133
+    ],
+    "made_by": "applicant",
+    "claim": "The Minister argued that the RAD majority was not required to select a standard less deferential than that in Dunsmuir.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Awareness of this point is reflected in the analysis of the RAD minority, which was hesitant to adopt any standard that curtailed the RAD\u2019s error-correcting role.",
+    "paragraphs": [
+     134
+    ],
+    "evidence_ids": [
+     "134.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     134
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD minority was hesitant to adopt any standard that curtailed the RAD\u2019s error-correcting role.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I agree with the Applicants that, called by another name or not, reasonableness review as developed for the judicial review has no application in the RAD context.",
+    "paragraphs": [
+     135
+    ],
+    "evidence_ids": [
+     "135.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     135
+    ],
+    "made_by": "applicant",
+    "claim": "The Applicants argue that reasonableness review as developed for judicial review has no application in the RAD context.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I note that while the interveners had originally sought a right of appeal in respect of this judgment (see Rozas del Solar v Canada (Citizenship and Immigration), 2018 FC 156 at para 31), they abandoned this request at the hearing of this application.",
+    "paragraphs": [
+     140
+    ],
+    "evidence_ids": [
+     "140.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     140
+    ],
+    "made_by": "intervener",
+    "claim": "The interveners had sought a right of appeal in respect of this judgment but abandoned this request at the hearing of this application.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Applicants are a Chilean family of refugee claimants whose claim was rejected by both the first and second level administrative tribunals.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicants are a Chilean family of refugee claimants whose claim was rejected by both the first and second level administrative tribunals."
+   },
+   {
+    "quote": "They have come to this Court seeking judicial review of the second tribunal decision [Decision], made by the Refugee Appeal Division [RAD].",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "They have come to this Court seeking judicial review of the second tribunal decision made by the Refugee Appeal Division (RAD)."
+   },
+   {
+    "quote": "The outcome of this judicial review turns on important but highly technical questions involving the standard of review applied by the RAD to its assessment of credibility findings made by the lower tribunal, the Refugee Protection Division [RPD].",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The judicial review concerns the standard of review applied by the RAD to credibility findings made by the Refugee Protection Division (RPD)."
+   },
+   {
+    "quote": "The family \u2013 a husband, wife and their two daughters \u2013 are citizens of Chile, where they claim that a loan shark is threatening to harm them over an unpaid, high-interest debt.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The family consists of a husband, wife and two daughters, citizens of Chile, claiming threats from a loan shark over unpaid debt."
+   },
+   {
+    "quote": "This claim was determined not to be credible and, as a result, rejected first by the RPD, and then on appeal by the RAD.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The RPD found the claim not credible and rejected it, and the RAD upheld that rejection on appeal."
+   },
+   {
+    "quote": "For those not familiar with the refugee determination process, both the RPD and the RAD are divisions of the Immigration and Refugee Board of Canada [IRB] \u2014 the largest independent administrative tribunal in Canada specialized in refugee adjudication.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The RPD and RAD are divisions of the Immigration and Refugee Board of Canada (IRB), an independent administrative tribunal specialized in refugee adjudication."
+   },
+   {
+    "quote": "The Immigration and Refugee Protection Act, SC 2001, c 27 [IRPA], provides the IRB with its statutory jurisdiction.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The IRB's jurisdiction is provided by the Immigration and Refugee Protection Act (IRPA)."
+   },
+   {
+    "quote": "At first instance, an RPD member heard the Applicants\u2019 claim over two days, on December 8, 2015 and January 7, 2016. The tribunal dismissed the claim in written reasons dated February 19, 2016, finding that the husband\u2019s and wife\u2019s stories were not credible and that adequate state protection was available to them in Chile.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1",
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The RPD heard the Applicants' claim over two days in December 2015 and January 2016, and dismissed it in written reasons dated February 19, 2016, finding the husband\u2019s and wife\u2019s stories not credible and that adequate state protection was available in Chile."
+   },
+   {
+    "quote": "The Applicants appealed to the RAD. In all preceding cases, RAD appeals, like RPD hearings, had been decided by a single panel member.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1",
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The Applicants appealed to the RAD, which had previously decided appeals by a single panel member."
+   },
+   {
+    "quote": "However, on June 22, 2016, the IRB Chairperson ordered the Applicants\u2019 appeal to be heard by a three-member panel under section 163 of IRPA for the first time since the RAD\u2019s establishment in December 2012.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "On June 22, 2016, the IRB Chairperson ordered the Applicants\u2019 appeal to be heard by a three-member panel under section 163 of IRPA, the first such panel since the RAD\u2019s establishment in 2012."
+   },
+   {
+    "quote": "The reason why the IRB Chairperson ordered a three-member panel goes back to a claim involving a different family of refugee claimants, a case ultimately appealed in Canada (Citizenship and Immigration) v Huruglica, 2016 FCA 93 [Huruglica]. In Huruglica, the Federal Court of Appeal held that, when considering the RPD\u2019s factual and legal conclusions on appeal, the RAD must typically apply a correctness standard of review.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The IRB Chairperson\u2019s decision to convene a three-member panel was influenced by the Federal Court of Appeal decision in Huruglica, which held that the RAD must typically apply a correctness standard of review to RPD\u2019s factual and legal conclusions on appeal."
+   },
+   {
+    "quote": "What the Federal Court of Appeal left open in Huruglica, however, was the question of how the RAD should show restraint or deference to some of the RPD\u2019s conclusions on credibility where the RPD was better-positioned to make them.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "Huruglica left open how the RAD should show restraint or deference to some RPD credibility conclusions where the RPD was better positioned to make them."
+   },
+   {
+    "quote": "Therefore, the IRB Chairperson decided that this RAD appeal provided the factual backdrop for a three-member panel, which has a precedential effect for future RAD and RPD panels (IRPA, s 171(c)). This would allow the RAD to develop its own law in appeals on credibility findings, as Huruglica had urged.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2",
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The IRB Chairperson decided that this RAD appeal would provide the factual backdrop for a three-member panel to develop law on credibility findings appeals, as urged by Huruglica."
+   },
+   {
+    "quote": "The Applicants have asked the Federal Court to judicially review the RAD\u2019s Decision under section 72(1) of IRPA.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "background_fact",
+    "statement": "The Federal Court applies judicial review to the Refugee Appeal Division's decision under section 72(1) of IRPA."
+   },
+   {
+    "quote": "A judicial review is not an appeal or a rehearing of the Applicants\u2019 case (Singh v Canada (Citizenship and Immigration), 2014 FC 1077 at para 9). Instead, the Federal Court\u2019s role on judicial review is far more limited and supervisory in nature, namely to ensure that the tribunal\u2019s decision is consistent with the rule of law (Mission Institution v Khela, 2014 SCC 24 at para 37).",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2",
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "Judicial review is not an appeal or rehearing but a supervisory role to ensure the tribunal's decision complies with the rule of law."
+   },
+   {
+    "quote": "In other words, the Court\u2019s task on judicial review is not to retry cases. With respect to the Applicants, this means that my role is not to decide their refugee claims. Rather, it is to review whether the RAD\u2019s Decision contains reviewable errors (Tsleil-Waututh Nation v Canada (Attorney General), 2017 FCA 128 at paras 78, 85).",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2",
+     "12.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "legal_test",
+    "statement": "The Court's task on judicial review is to determine if the decision contains reviewable errors, not to retry the case."
+   },
+   {
+    "quote": "Should the Court find such errors, the appropriate remedy in such cases is, in general, to send the matter back for redetermination.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "legal_test",
+    "statement": "If reviewable errors are found, the usual remedy is to send the matter back for redetermination."
+   },
+   {
+    "quote": "In any judicial review, the Court must first select what standard of review applies to the issues raised. This is because the standard of review is the lens through which the Court analyzes the decision\u2011maker\u2019s conclusions to determine whether judicial intervention is warranted (see R v Skinner, 2016 NSCA 54 [Skinner] at para 17).",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1",
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "legal_test",
+    "statement": "The Court must select the applicable standard of review\u2014correctness or reasonableness\u2014before analyzing the decision-maker's conclusions."
+   },
+   {
+    "quote": "Today, there are only two such lenses: correctness and reasonableness (Dunsmuir v New Brunswick, 2008 SCC 9 [Dunsmuir] at para 34). Sometimes, the decision\u2011maker must answer the question exactly as the reviewer deems correct, or hit the bull\u2019s eye. Nothing less will do for a correctness review, as there is no margin for error (Skinner at para 22); for a reasonableness review, the outer rings will do.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.3",
+     "14.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "legal_test",
+    "statement": "There are two standards of review: correctness, requiring the decision-maker to be exactly right, and reasonableness, allowing a range of acceptable outcomes."
+   },
+   {
+    "quote": "Simply put, when a correctness lens is used, the reviewer decides the question before it exactly as it thinks it should. If the reviewer\u2019s conclusion ends up being different than the decision\u2011maker\u2019s, the reviewer will substitute its own answer as the correct one (Dunsmuir at para 50).",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "legal_test",
+    "statement": "Under correctness review, the Court substitutes its own answer if it differs from the decision-maker's."
+   },
+   {
+    "quote": "For other types of questions, there is no one correct answer. This is where a reasonableness standard of review applies, and where there is typically a range of acceptable approaches to and outcomes for the legal questions raised. The decision\u2011maker will have a margin of appreciation, or a range of acceptable solutions (Dunsmuir at para 47). Even if the conclusion is not the reviewer\u2019s preferred solution, the decision\u2011maker\u2019s process and outcome just has to fall somewhere in that range of possible outcomes, although, sometimes there is only one possible outcome.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2",
+     "16.3",
+     "16.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "legal_test",
+    "statement": "Under reasonableness review, the decision-maker has a margin of appreciation and the decision must fall within a range of acceptable outcomes."
+   },
+   {
+    "quote": "Of the two standards that comprise judicial review today, it should not be surprising, then, that reasonableness is far more common than correctness. Indeed, the Supreme Court has recently indicated that, \u201c[i]n most cases, a contextual assessment leads to the conclusion that the appropriate standard of review is reasonableness\u201d (West Fraser Mills Ltd v British Columbia (Workers\u2019 Compensation Appeal Tribunal), 2018 SCC 22 [West Fraser] at para 8).",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness is the more common standard of review in judicial review cases."
+   },
+   {
+    "quote": "Reasonableness \u2013 in name at least \u2013 thus appears to have become the default standard, not only in West Fraser, but also in other recent Supreme Court decisions such as Groia v Law Society of Upper Canada, 2018 SCC 27 (at paras 45\u201347). Certainly, where the decision\u2011maker interprets the legislation that created the tribunal \u2013 its home statute \u2013 there is a strong presumption of reasonableness (CHRC at para 27). Here, the RAD was interpreting various sections of IRPA, its home statute.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2",
+     "20.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness has become the default standard of review, especially when the decision-maker interprets its home statute."
+   },
+   {
+    "quote": "Ultimately, the difference between correctness and reasonableness comes down to deference. Deference is the attitude that must be adopted when conducting a reasonableness review. Deference means that on some questions, the reviewer must respect the decision-maker\u2019s conclusions and accept them, even if the reviewer would have concluded differently based on the same arguments and evidence. This is because certain questions can be legitimately answered by an administrative decision\u2011maker in more than one way (Dunsmuir at para 47).",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2",
+     "21.3",
+     "21.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "legal_test",
+    "statement": "Reasonableness review requires deference to the decision-maker's conclusions, accepting them even if the reviewer would have decided differently, because some questions can be legitimately answered in more than one way."
+   },
+   {
+    "quote": "A correctness standard, on the other hand, requires no deference \u2013 the decision lies with the reviewer and no margin for error exists for the decision\u2011maker below. The reviewer undertakes its own analysis of the question raised (Dunsmuir at para 50; British Columbia Human Rights Tribunal v Schrenk, 2017 SCC 62 at para 28).",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "legal_test",
+    "statement": "Correctness review requires no deference; the reviewer undertakes its own analysis and the decision-maker has no margin for error."
+   },
+   {
+    "quote": "It is clear that the first issue is reviewable on a reasonableness standard because it involves the interpretation of IRPA, the RAD\u2019s home statute (Huruglica at para 30). This gives rise to a presumption of reasonableness, which has not been rebutted here (Williams Lake Indian Band v Canada (Aboriginal Affairs and Northern Development), 2018 SCC 4 at para 138; Barreau du Qu\u00e9bec v Quebec (Attorney General), 2017 SCC 56 at para 15).",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1",
+     "24.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "conclusion",
+    "statement": "The first issue, interpretation of IRPA (the RAD's home statute), is reviewable on a reasonableness standard with a presumption of reasonableness that has not been rebutted."
+   },
+   {
+    "quote": "The second issue of whether the RAD\u2019s Decision was reasonable in light of the answer to the first question is also reviewable on a reasonableness standard, since it involves a matter of mixed fact and law (Huruglica at para 35).",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "conclusion",
+    "statement": "The second issue, whether the RAD's decision was reasonable in light of the first, is also reviewable on a reasonableness standard as it involves mixed fact and law."
+   },
+   {
+    "quote": "When it comes to questions of home statute interpretation, the range of reasonable answers can still be very narrow (Huruglica at para 44). In fact, sometimes the ordinary tools of statutory interpretation will permit only one reasonable answer (McLean v British Columbia (Securities Commission), 2013 SCC 67 at para 38; Canada (Canadian Human Rights Commission) v Canada (Attorney General), 2011 SCC 53 at paras 34,64).",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.2",
+     "25.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "legal_test",
+    "statement": "Even under reasonableness review of home statute interpretation, the range of reasonable answers can be very narrow or even a single answer."
+   },
+   {
+    "quote": "Therefore, for the issues at bar, I must decide whether the RAD\u2019s conclusions were reasonable \u2014 whether they were justified, transparent, and intelligible, and if they fall within the range of answers that are defensible in fact and law (Dunsmuir at para 47). Rather, the RAD\u2019s conclusion and the process of how the tribunal reached that outcome must be justified, transparent and intelligible.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1",
+     "26.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's conclusions must be justified, transparent, intelligible, and fall within a defensible range in fact and law under reasonableness review."
+   },
+   {
+    "quote": "Although I am applying a reasonableness standard of review to these issues, and although the first issue may only have a very narrow range of reasonable answers or even a single answer, I must still be careful not to conduct a disguised correctness review. That would be to decide, in my view, the bull\u2019s eye answer and then find that any other answer is unreasonable.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.2",
+     "26.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "legal_test",
+    "statement": "Applying reasonableness review requires avoiding disguised correctness review by not deciding the single 'bull's eye' answer and rejecting all others as unreasonable."
+   },
+   {
+    "quote": "To undertake this analysis, I will divide the first issue into the following three questions: (i) Did the RAD reasonably conclude that it must apply two standards of review \u2014 correctness to most of the RPD\u2019s findings, and deference to some of the RPD\u2019s findings relating to credibility? (ii) Did the RAD reasonably identify the conditions triggering the deferential standard? (iii) Did the RAD reasonably define the content of the deferential standard?",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.2",
+     "27.3",
+     "27.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "legal_test",
+    "statement": "The court divides the first issue into three questions about the RAD's conclusions on its standard of review: whether the RAD reasonably concluded it must apply two standards of review, whether it reasonably identified the conditions triggering the deferential standard, and whether it reasonably defined the content of the deferential standard."
+   },
+   {
+    "quote": "Specifically, when the RPD makes a credibility finding based on oral evidence, and that finding is then challenged by way of appeal to the RAD, how does the RAD go about determining whether it should intervene? That is really what is meant by standard of review.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2",
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of review question is how the RAD determines whether to intervene on RPD credibility findings based on oral evidence when appealed to the RAD."
+   },
+   {
+    "quote": "Under a correctness standard, the RAD intervenes if the finding does not line up with its own reading of the record. If deference is due, then another framework must guide the RAD\u2019s review for error.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1",
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "legal_test",
+    "statement": "Under a correctness standard, the RAD intervenes if the finding does not align with its own reading of the record; if deference is due, a different framework guides the RAD's review for error."
+   },
+   {
+    "quote": "While the statutory interpretation proposed by CARL/CCR may have some merit, this Court is nonetheless constrained by the case law to conduct a reasonableness review of the RAD\u2019s Decision, particularly in light of the Federal Court of Appeal\u2019s observations in Huruglica. In my view, to construe the Federal Court of Appeal\u2019s comments as being strictly limited to deference on remedy, as CARL/CCR assert, would strain the text of that judgment given how the concept of deference is ordinarily understood.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.1",
+     "53.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "The Court is constrained by case law to conduct a reasonableness review of the RAD's decision, particularly in light of the Federal Court of Appeal's observations in Huruglica, and finds that construing Huruglica as limiting deference to remedy would strain the judgment's text."
+   },
+   {
+    "quote": "With respect to the Applicants\u2019 position that deference can co-exist with a correctness review of all factual findings, I do not agree. Rather, correctness as a standard of review is defined by the absence of deference (Dunsmuir at para 34). In Maritime Broadcasting System Limited v Canadian Media Guild, 2014 FCA 59, the Federal Court of Appeal wrote: \u201c[c]orrectness review has always been review without any deference. \u2018Correctness with a degree of deference\u2019 is a non-sequitur. It would be like describing a car as stationary but moving\u201d (at para 60).",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1",
+     "55.2",
+     "55.3",
+     "55.4",
+     "55.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "conclusion",
+    "statement": "The Court disagrees with the Applicants' position that deference can coexist with a correctness review of all factual findings, stating that correctness as a standard of review is defined by the absence of deference, citing Dunsmuir and Maritime Broadcasting System Limited v Canadian Media Guild."
+   },
+   {
+    "quote": "With this image in mind, the materials before me do not reflect that the Federal Court of Appeal envisioned a role for deference in the manner suggested by the Applicants. As a result, I am not persuaded by the Applicants\u2019 argument that the RAD must apply a single correctness review to all of the RPD\u2019s findings, and defer by showing restraint before applying correctness \u2013 even though I recognize that Huruglica at paragraph 70 (reproduced above) mentioned a degree of restraint twice.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1",
+     "56.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "conclusion",
+    "statement": "The Court finds that the Federal Court of Appeal did not envision a role for deference in the manner suggested by the Applicants, and is not persuaded that the RAD must apply a single correctness review to all RPD findings with deference shown as restraint before correctness."
+   },
+   {
+    "quote": "[W]here a serious issue of credibility is involved, fundamental justice requires that credibility be determined on the basis of an oral hearing.",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "kind": "legal_test",
+    "statement": "Where a serious issue of credibility is involved, fundamental justice requires that credibility be determined on the basis of an oral hearing."
+   },
+   {
+    "quote": "Appellate courts are well aware of the inherent weakness of written transcripts where questions of credibility are at stake and thus are extremely loath to review the findings of tribunals which have had the benefit of hearing the testimony of witnesses in person.",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "kind": "legal_test",
+    "statement": "Appellate courts are extremely loath to review findings of tribunals that have had the benefit of hearing witnesses in person due to the inherent weakness of written transcripts in credibility assessments."
+   },
+   {
+    "quote": "To the contrary, given the statutory analysis in Huruglica, this was clearly an outcome open to the RAD.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "Given the statutory analysis in Huruglica, the RAD's conclusion on applying two standards of review was clearly an outcome open to it."
+   },
+   {
+    "quote": "First, in judicial review, the standard of review flows from a contextual analysis, unless the jurisprudence has already determined which standard applies to a particular category of question (Dunsmuir at para 62).",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of review flows from a contextual analysis unless jurisprudence has already determined the applicable standard for a category of question (Dunsmuir at para 62)."
+   },
+   {
+    "quote": "Generally, deference is owed on questions of fact (see Canada (Citizenship and Immigration) v Khosa, 2009 SCC 12 [Khosa] at para 89, Rothstein J, concurring).",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "kind": "legal_test",
+    "statement": "Generally, deference is owed on questions of fact (Khosa at para 89)."
+   },
+   {
+    "quote": "When an appeal court reviews alleged errors of fact, a deferential standard of \u201cpalpable and overriding error\u201d applies (Housen v Nikolaisen, 2002 SCC 33 [Housen] at para 10).",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "kind": "legal_test",
+    "statement": "When an appeal court reviews alleged errors of fact, a deferential standard of 'palpable and overriding error' applies (Housen at para 10)."
+   },
+   {
+    "quote": "Broadly speaking, one reason to apply a deferential standard of review to findings of fact is that first instance decision\u2011makers are thought to be better-positioned to assess credibility, due to their expertise in making factual findings and their ability to see and hear witnesses (see Khosa at para 89; Housen at paras 12\u201314,18).",
+    "paragraphs": [
+     64
+    ],
+    "evidence_ids": [
+     "64.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     64
+    ],
+    "kind": "legal_test",
+    "statement": "One reason to apply a deferential standard of review to findings of fact is that first instance decision-makers are better positioned to assess credibility due to their expertise and ability to see and hear witnesses (Khosa at para 89; Housen at paras 12\u201314,18)."
+   },
+   {
+    "quote": "The RAD, of course, is distinct from an appellate court, and thus many of the justifications for the deferential standard outlined in Housen (including respect for the integrity of the trial process and judicial economy) do not apply.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "legal_test",
+    "statement": "The RAD is distinct from an appellate court, so many justifications for deferential standard outlined in Housen do not apply to the RAD, including respect for trial process integrity and judicial economy."
+   },
+   {
+    "quote": "In the Decision, the RAD majority decided, based on its reading of Huruglica, that a deferential standard was only appropriate where the RPD truly had a meaningful advantage in making the finding at issue. The RAD majority held that such a determination must be made on a case-by-case basis and, where the RAD concludes that a meaningful advantage existed, it must explain why.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.1",
+     "66.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority decided that a deferential standard is appropriate only where the RPD truly had a meaningful advantage in making the finding at issue, and such determination must be made case-by-case with explanation."
+   },
+   {
+    "quote": "In my view, the RAD majority\u2019s conclusions on the conditions triggering a deferential standard of review are unreasonable. This is because the RAD majority failed to identify any principled framework for determining whether the RPD had a meaningful advantage in making a credibility finding in a given case.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.1",
+     "80.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority\u2019s conclusions on the conditions triggering a deferential standard of review are unreasonable because they lack a principled framework for case-by-case determination of meaningful advantage."
+   },
+   {
+    "quote": "Although the RAD majority found that the RPD may be in a better position to make certain findings when it has seen, heard, and questioned a witness, it offered no way to determine if such a meaningful advantage truly exists on a case-by-case basis.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority failed to provide a method to determine if a meaningful advantage truly exists in each case."
+   },
+   {
+    "quote": "However, the RAD then provided little direction for identifying when such an advantage arises: for most of its categories, the RAD finds that meaningful advantage, if it existed, would arise as a result of the RPD seeing and hearing the claimant and witnesses.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD provided little direction for identifying when a meaningful advantage arises, often relying solely on the RPD seeing and hearing the claimant and witnesses."
+   },
+   {
+    "quote": "Although the RAD majority held that the RPD may have a meaningful advantage in situations where it has heard and seen a witness, in its subsequent review of the merits of the RPD\u2019s decision it found that the RPD did in fact have a meaningful advantage whenever the finding at issue related to the Applicants\u2019 oral testimony.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority found a meaningful advantage whenever the finding related to oral testimony without explaining why this always triggers deference."
+   },
+   {
+    "quote": "As noted by the Applicants, these conditions of seeing and hearing the witness will always be present at an RPD hearing.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "Seeing and hearing the witness will always be present at an RPD hearing and thus cannot alone justify deference."
+   },
+   {
+    "quote": "I note that the rationale of the RAD on these points has been found reasonable by this Court on judicial review, see, for instance, Odia v Canada (Citizenship and Immigration), 2018 FC 363 [Odia]:",
+    "paragraphs": [
+     90
+    ],
+    "evidence_ids": [
+     "90.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     90
+    ],
+    "kind": "conclusion",
+    "statement": "The rationale of the RAD on these points has been found reasonable by this Court on judicial review, for instance in Odia v Canada (Citizenship and Immigration), 2018 FC 363."
+   },
+   {
+    "quote": "Under the approach taken in these three RAD decisions and in Odia, a deferential standard of review is applied only where a correctness review would not be practicable.",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "legal_test",
+    "statement": "A deferential standard of review is applied only where a correctness review would not be practicable, as shown in the approach taken in the three RAD decisions and in Odia."
+   },
+   {
+    "quote": "This is consistent with Ozdemir v Canada (Citizenship and Immigration), 2015 FC 621, in which Justice Zinn held that it was unreasonable for the RAD to review the RPD\u2019s credibility findings on a deferential standard, when the RAD was in as good a position as the RPD to assess the evidence:",
+    "paragraphs": [
+     91
+    ],
+    "evidence_ids": [
+     "91.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     91
+    ],
+    "kind": "conclusion",
+    "statement": "It was unreasonable for the RAD to review the RPD\u2019s credibility findings on a deferential standard when the RAD was in as good a position as the RPD to assess the evidence, as held in Ozdemir v Canada (Citizenship and Immigration), 2015 FC 621."
+   },
+   {
+    "quote": "If meaningful advantage occurs only where the RPD bases its decision on some factor that cannot be reproduced in the record, the situations in which the RPD is truly meaningfully advantaged would be relatively rare (see also R v NS, 2012 SCC 72 [R v NS] at paras 98\u2013102 (Abella J, dissenting)).",
+    "paragraphs": [
+     92
+    ],
+    "evidence_ids": [
+     "92.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     92
+    ],
+    "kind": "conclusion",
+    "statement": "If meaningful advantage occurs only where the RPD bases its decision on some factor that cannot be reproduced in the record, the situations in which the RPD is truly meaningfully advantaged would be relatively rare."
+   },
+   {
+    "quote": "I agree with the interveners that the record before the RAD should, in most cases, fully disclose the information on which the RPD based its findings and permit the RAD to review them on a correctness basis.",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "conclusion",
+    "statement": "The record before the RAD should, in most cases, fully disclose the information on which the RPD based its findings and permit the RAD to review them on a correctness basis."
+   },
+   {
+    "quote": "In my view, anything less would be inconsistent with the RPD\u2019s duty to make its credibility findings in clear and unmistakeable terms (Hilo v Canada (Employment & Immigration), [1991] FCJ No 228 (Federal Court of Canada \u2013 Appeal Division) at para 6).",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "conclusion",
+    "statement": "Anything less would be inconsistent with the RPD\u2019s duty to make its credibility findings in clear and unmistakeable terms, as stated in Hilo v Canada (Employment & Immigration), [1991] FCJ No 228 (Federal Court of Canada \u2013 Appeal Division) at para 6."
+   },
+   {
+    "quote": "Further, as a consequence of this duty, the RPD ends up creating a record that is commensurate with the RAD\u2019s robust appellate role.",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "conclusion",
+    "statement": "As a consequence of this duty, the RPD ends up creating a record that is commensurate with the RAD\u2019s robust appellate role."
+   },
+   {
+    "quote": "Of course, this also assumes that the RPD can, on occasion, reasonably make a credibility finding based on information to which the RAD would not have access on appeal.",
+    "paragraphs": [
+     94
+    ],
+    "evidence_ids": [
+     "94.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     94
+    ],
+    "kind": "conclusion",
+    "statement": "It is assumed that the RPD can, on occasion, reasonably make a credibility finding based on information to which the RAD would not have access on appeal."
+   },
+   {
+    "quote": "However, I have not been persuaded to depart from the views of higher courts as well as a long line of jurisprudence from my Federal Court colleagues, that seeing and hearing a witness may confer a fact-finding advantage to the RPD (see, for instance, Paye v Canada (Citizenship and Immigration), 2017 FC 685 at para 14 with respect to the RAD and Rahal v Canada (Citizenship and Immigration), 2012 FC 319 at paras 41\u201345). This type of thinking is reasonable and underpins deference to factual findings in other areas of law.",
+    "paragraphs": [
+     104
+    ],
+    "evidence_ids": [
+     "104.1",
+     "104.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     104
+    ],
+    "kind": "conclusion",
+    "statement": "Seeing and hearing a witness may confer a fact-finding advantage to the RPD, which is reasonable and underpins deference to factual findings in other areas of law."
+   },
+   {
+    "quote": "What was not reasonable for the RAD majority, however, was to give no guidance on how this factor should be considered under the categories they discuss.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "kind": "conclusion",
+    "statement": "It was not reasonable for the RAD majority to give no guidance on how the factor of RPD's proximity to witness should be considered under the categories they discuss."
+   },
+   {
+    "quote": "Matters simply relating to oral testimony cannot suffice as a reason for deference. Rather, the relevant factors must relate to oral testimony and be incapable of being captured in the record before the RAD.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.3",
+     "105.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "kind": "conclusion",
+    "statement": "Matters simply relating to oral testimony cannot suffice as a reason for deference; relevant factors must relate to oral testimony and be incapable of being captured in the record before the RAD."
+   },
+   {
+    "quote": "Only then could it be said that the RPD had a meaningful advantage over the RAD.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "kind": "conclusion",
+    "statement": "Only when the RPD has a meaningful advantage over the RAD, based on factors not captured in the record, can deference be owed to the RPD."
+   },
+   {
+    "quote": "Instead of explaining this divide, and analyzing when having heard oral testimony confers a meaningful advantage, the RAD majority seems to reason that having heard oral testimony in and of itself confers a meaningful advantage. In the end, this begs the question of when the RPD enjoyed a meaningful advantage, because that tribunal always hears oral testimony.",
+    "paragraphs": [
+     106
+    ],
+    "evidence_ids": [
+     "106.1",
+     "106.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     106
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority erred by reasoning that having heard oral testimony in and of itself confers a meaningful advantage, which begs the question of when the RPD enjoyed a meaningful advantage."
+   },
+   {
+    "quote": "In other words, the RPD always has a general advantage. The key question is, therefore, when that advantage becomes particular or specific to the oral testimony. Only then would it become a meaningful advantage, such that deference to the RPD is owed.",
+    "paragraphs": [
+     106
+    ],
+    "evidence_ids": [
+     "106.3",
+     "106.4",
+     "106.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     106
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD always has a general advantage by hearing oral testimony; the key question is when that advantage becomes particular or specific to the oral testimony, thus becoming a meaningful advantage warranting deference."
+   },
+   {
+    "quote": "In my view, the divergence in subsequent RAD cases on this question, as pointed out above, is reflective of the deficiencies in the RAD majority\u2019s model that make its Decision unreasonable.",
+    "paragraphs": [
+     107
+    ],
+    "evidence_ids": [
+     "107.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     107
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority's model is deficient and its decision unreasonable due to divergence in subsequent RAD cases on the question of deference."
+   },
+   {
+    "quote": "While I agree that these are both forms of deference, broadly construed, they do not assist in the real issue that was before the RAD \u2014 namely, how the RAD is supposed to tell if a specific credibility finding made by the RPD can stand.",
+    "paragraphs": [
+     110
+    ],
+    "evidence_ids": [
+     "110.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     110
+    ],
+    "kind": "conclusion",
+    "statement": "While institutional and remedial deference are forms of deference, they do not assist in determining how the RAD should assess if a specific RPD credibility finding can stand."
+   },
+   {
+    "quote": "I agree with CARL/CCR that, if an independent assessment is understood as equating to correctness, the RAD majority could not reasonably marry this concept with deference.",
+    "paragraphs": [
+     124
+    ],
+    "evidence_ids": [
+     "124.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     124
+    ],
+    "kind": "conclusion",
+    "statement": "If an independent assessment is understood as equating to correctness, the RAD majority could not reasonably marry this concept with deference."
+   },
+   {
+    "quote": "But this Court has also held that even a deferential review by the RAD involves an independent assessment of the evidence (see Guo v Canada (Citizenship and Immigration), 2017 FC 317 at paras 15\u201319; Jeyaseelan v Canada (Citizenship and Immigration), 2017 FC 278 at paras 19\u201321).",
+    "paragraphs": [
+     124
+    ],
+    "evidence_ids": [
+     "124.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     124
+    ],
+    "kind": "conclusion",
+    "statement": "Even a deferential review by the RAD involves an independent assessment of the evidence."
+   },
+   {
+    "quote": "What I take from the above case law is that, for most of the RPD\u2019s findings, the RAD is required to conduct a correctness review and substitute its own conclusions where they differ from those of the RPD.",
+    "paragraphs": [
+     125
+    ],
+    "evidence_ids": [
+     "125.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     125
+    ],
+    "kind": "conclusion",
+    "statement": "For most of the RPD's findings, the RAD is required to conduct a correctness review and substitute its own conclusions where they differ from those of the RPD."
+   },
+   {
+    "quote": "But even for those findings that attract a deferential review, an independent assessment of some form is also needed. Deference never equates to blind endorsement (see Dunsmuir at para 48).",
+    "paragraphs": [
+     125
+    ],
+    "evidence_ids": [
+     "125.2",
+     "125.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     125
+    ],
+    "kind": "conclusion",
+    "statement": "Even for findings attracting deferential review, an independent assessment of some form is needed; deference does not equate to blind endorsement."
+   },
+   {
+    "quote": "In brief, after considering the RAD majority\u2019s rationale, I do not find that their RAD reasonableness standard is distinguishable from the reasonableness standard used on judicial review merely because it necessitates an independent assessment.",
+    "paragraphs": [
+     126
+    ],
+    "evidence_ids": [
+     "126.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     126
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority's reasonableness standard is not distinguishable from the judicial review reasonableness standard merely because it necessitates an independent assessment."
+   },
+   {
+    "quote": "I think it is obvious here that, regardless of the label it chose, the content of the deferential standard adopted by the RAD majority is duplicative of the framework to be applied on judicial review.",
+    "paragraphs": [
+     128
+    ],
+    "evidence_ids": [
+     "128.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     128
+    ],
+    "kind": "conclusion",
+    "statement": "The content of the deferential standard adopted by the RAD majority duplicates the framework applied on judicial review, regardless of the label used."
+   },
+   {
+    "quote": "In my view, the RAD majority\u2019s conclusions on the content of its deferential standard are not consistent with the Federal Court of Appeal\u2019s instructions that the RAD is not to review RPD decisions in the manner of a judicial review (Huruglica at paras 37, 47\u201348).",
+    "paragraphs": [
+     130
+    ],
+    "evidence_ids": [
+     "130.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     130
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority\u2019s conclusions on its deferential standard are inconsistent with the Federal Court of Appeal\u2019s instructions that the RAD is not to review RPD decisions as a judicial review."
+   },
+   {
+    "quote": "Nonetheless, I find that the RAD majority\u2019s explanation of RAD reasonableness only duplicates the task of a court on judicial review and, therefore, falls outside of the range of outcomes reasonably available to it.",
+    "paragraphs": [
+     131
+    ],
+    "evidence_ids": [
+     "131.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     131
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority\u2019s explanation of RAD reasonableness duplicates the task of a court on judicial review and falls outside the range of outcomes reasonably available to it."
+   },
+   {
+    "quote": "It is not my role to set out what the content of the RAD\u2019s deferential standard should be. However, I observe that the RAD may have greater success in developing a RAD\u2011specific standard of deferential review if it first clearly identifies the conditions triggering deference \u2014 namely, what it means, in a concrete sense, for the RPD to have had a meaningful advantage in making a particular credibility finding.",
+    "paragraphs": [
+     132
+    ],
+    "evidence_ids": [
+     "132.1",
+     "132.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     132
+    ],
+    "kind": "conclusion",
+    "statement": "It is not the Court's role to set the content of the RAD\u2019s deferential standard, but the RAD may succeed by clearly identifying conditions triggering deference, such as what it means for the RPD to have a meaningful advantage in credibility findings."
+   },
+   {
+    "quote": "More importantly, the content of the RAD\u2019s deferential standard must be consistent with and animated by the purposes of its governing legislation (see Doshi v Canada (Attorney General), 2018 FC 710 at paras 75, 80; see also Workers Comp of PEI v Dyment, 2016 PECA 10 at para 48).",
+    "paragraphs": [
+     133
+    ],
+    "evidence_ids": [
+     "133.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     133
+    ],
+    "kind": "conclusion",
+    "statement": "The content of the RAD\u2019s deferential standard must be consistent with and animated by the purposes of its governing legislation."
+   },
+   {
+    "quote": "The RAD majority\u2019s concept of the RAD reasonableness standard is indistinct from that of Dunsmuir in judicial review, and thus of incompatible with a full, fact based appeal.",
+    "paragraphs": [
+     135
+    ],
+    "evidence_ids": [
+     "135.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     135
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD majority\u2019s concept of reasonableness is indistinct from Dunsmuir judicial review and incompatible with a full, fact-based appeal."
+   },
+   {
+    "quote": "In my view, to be reasonable, a deferential standard selected by the RAD cannot simply duplicate the supervisory role of this Court on judicial review. The RAD reasonableness standard runs the risk of curtailing the opportunity to have flawed credibility determinations corrected.",
+    "paragraphs": [
+     136
+    ],
+    "evidence_ids": [
+     "136.3",
+     "136.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     136
+    ],
+    "kind": "conclusion",
+    "statement": "To be reasonable, a deferential standard selected by the RAD cannot simply duplicate the supervisory role of this Court on judicial review, as it risks curtailing correction of flawed credibility determinations."
+   },
+   {
+    "quote": "Given my conclusions on the first issue, it is neither appropriate nor necessary for me to comment on the RAD\u2019s Decision insofar as it relates to the merits of the Applicants\u2019 appeal.",
+    "paragraphs": [
+     137
+    ],
+    "evidence_ids": [
+     "137.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     137
+    ],
+    "kind": "conclusion",
+    "statement": "Given the conclusions on the first issue, it is neither appropriate nor necessary to comment on the RAD's Decision regarding the merits of the Applicants' appeal."
+   },
+   {
+    "quote": "The RAD\u2019s Decision will accordingly be sent back to be decided anew by a differently constituted panel.",
+    "paragraphs": [
+     137
+    ],
+    "evidence_ids": [
+     "137.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     137
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's Decision will be sent back to be decided anew by a differently constituted panel."
+   },
+   {
+    "quote": "Having regard to the test for certification recently confirmed by the Federal Court of Appeal in Lunyamila v Canada (Public Safety and Emergency Preparedness), 2018 FCA 22, I certify the following three questions: 1) Was it reasonable for the RAD to conclude that, under IRPA, some of the RPD\u2019s findings are reviewable by it on a deferential (i.e. non-correctness) standard? 2) Was it reasonable for the RAD to conclude that the deferential standard applies where the RPD had a meaningful advantage in making the finding under review, and, if so, did the RAD articulate a reasonable framework for identifying such an advantage? 3) Was it reasonable for the RAD to adopt a deferential standard of RAD reasonableness, under which the RPD\u2019s findings will be deferred to where the RAD can understand how they were reached, and where they were based on evidence in the record?",
+    "paragraphs": [
+     138
+    ],
+    "evidence_ids": [
+     "138.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     138
+    ],
+    "kind": "remedy",
+    "statement": "I certify three questions for appeal regarding the reasonableness of the RAD's conclusions on standards of review and deferential standards."
+   },
+   {
+    "quote": "These three questions track the legal questions raised and are dispositive of these Reasons, in that they arise from the case itself rather than the way in which I disposed of the application.",
+    "paragraphs": [
+     139
+    ],
+    "evidence_ids": [
+     "139.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     139
+    ],
+    "kind": "remedy",
+    "statement": "The three certified questions are dispositive of these Reasons and arise from the case itself rather than the disposition of the application."
+   },
+   {
+    "quote": "The three issues also raise issues of broad significance and general importance, transcending the interests of the parties (Lewis v Canada (Public Safety and Emergency Preparedness), 2017 FCA 130 at para 36).",
+    "paragraphs": [
+     139
+    ],
+    "evidence_ids": [
+     "139.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     139
+    ],
+    "kind": "remedy",
+    "statement": "The three certified questions raise issues of broad significance and general importance, transcending the interests of the parties."
+   },
+   {
+    "quote": "The application for judicial review is allowed.",
+    "paragraphs": [
+     141
+    ],
+    "evidence_ids": [
+     "141.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     141
+    ],
+    "kind": "conclusion",
+    "statement": "The application for judicial review is allowed."
+   },
+   {
+    "quote": "Three questions are certified in accordance with these Reasons.",
+    "paragraphs": [
+     141
+    ],
+    "evidence_ids": [
+     "141.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     141
+    ],
+    "kind": "conclusion",
+    "statement": "Three questions are certified for appeal in accordance with these Reasons."
+   },
+   {
+    "quote": "I wish to thank all counsel for their excellent submissions, which were of great assistance to the Court.",
+    "paragraphs": [
+     141
+    ],
+    "evidence_ids": [
+     "141.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     141
+    ],
+    "kind": "conclusion",
+    "statement": "The Court thanks counsel for their excellent submissions which were of great assistance."
+   },
+   {
+    "quote": "Determining the degree of deference is a risky topic.",
+    "paragraphs": [
+     155
+    ],
+    "evidence_ids": [
+     "155.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     155
+    ],
+    "kind": "conclusion",
+    "statement": "Determining the degree of deference owed by the Refugee Appeal Division (RAD) to the Refugee Protection Division (RPD) is a complex and risky topic."
+   },
+   {
+    "quote": "If I were to qualify the RAD\u2019s standard of review when it examines the RPD\u2019s credibility findings, I would say that it should not be a standard that limits its authority to intervene.",
+    "paragraphs": [
+     155
+    ],
+    "evidence_ids": [
+     "155.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     155
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD's standard of review when examining the RPD's credibility findings should not be so limited as to restrict the RAD's authority to intervene."
+   },
+   {
+    "quote": "Despite the RPD\u2019s advantageous position in some cases, the RAD\u2019s approach involves taking a step back in order to better proceed with an independent and careful analysis of the evidence before it in an effort to determine whether the RPD committed an error warranting the RAD\u2019s intervention.",
+    "paragraphs": [
+     155
+    ],
+    "evidence_ids": [
+     "155.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     155
+    ],
+    "kind": "conclusion",
+    "statement": "Although the RPD may have an advantageous position in some cases, the RAD must take a step back to independently and carefully analyze the evidence to determine if the RPD committed an error warranting intervention."
+   },
+   {
+    "quote": "In current decisions of the Federal Court and the Federal Court of Appeal, it is indicated in which types of cases the RPD finds itself in an advantageous position in relation to the RAD and vice versa.",
+    "paragraphs": [
+     158
+    ],
+    "evidence_ids": [
+     "158.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     158
+    ],
+    "kind": "conclusion",
+    "statement": "The Federal Court and Federal Court of Appeal have indicated in which types of cases the RPD has an advantageous position relative to the RAD and vice versa."
+   },
+   {
+    "quote": "For example, the Federal Court states that the RAD is as equally well-placed as the RPD to determine plausibility.",
+    "paragraphs": [
+     158
+    ],
+    "evidence_ids": [
+     "158.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     158
+    ],
+    "kind": "conclusion",
+    "statement": "The Federal Court has found that the RAD is as equally well-placed as the RPD to determine plausibility."
+   },
+   {
+    "quote": "The Federal Court also finds that it is appropriate for the RAD to give deference to the RPD regarding the authenticity of a document when the RAD does not have the original documents.",
+    "paragraphs": [
+     158
+    ],
+    "evidence_ids": [
+     "158.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     158
+    ],
+    "kind": "conclusion",
+    "statement": "The Federal Court has found it appropriate for the RAD to give deference to the RPD regarding the authenticity of a document when the RAD does not have the original documents."
+   },
+   {
+    "quote": "That being said, I am also of the opinion that there is no need for me to further discuss situations that may present themselves before the RAD as I fear that talking in generalities or establishing categories could give rise to rigidity where the RAD is concerned.",
+    "paragraphs": [
+     158
+    ],
+    "evidence_ids": [
+     "158.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     158
+    ],
+    "kind": "conclusion",
+    "statement": "There is no need to further discuss general situations that may arise before the RAD as discussing generalities or establishing categories could lead to rigidity in the RAD's approach."
+   },
+   {
+    "quote": "In each case, the RAD ought to determine whether the RPD truly benefited from an advantageous position, and if so, whether the RAD can nevertheless make a final decision in respect of the refugee claim\u201d.",
+    "paragraphs": [
+     158
+    ],
+    "evidence_ids": [
+     "158.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     158
+    ],
+    "kind": "conclusion",
+    "statement": "In each case, the RAD should determine whether the RPD truly benefited from an advantageous position and if so, whether the RAD can nevertheless make a final decision on the refugee claim."
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "The RAD does not perform a de novo review but is constrained by the record before it and its appellate function (Huruglica at paras 79, 103). Rather, I agree with the Applicants that because it is not the RAD\u2019s role to carry out a de novo consideration of the claim, the RAD is tethered to the RPD\u2019s decision (see, for instance, Canada (Public Safety and Emergency Preparedness) v Gebrewold, 2018 FC 374 at para 25).",
+    "paragraphs": [
+     99
+    ],
+    "evidence_ids": [
+     "99.2",
+     "99.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     99
+    ],
+    "point": "",
+    "made_by": "court",
+    "court_answer": "The RAD does not perform a de novo review but is constrained by the record before it and its appellate function, and is tethered to the RPD\u2019s decision."
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "This view of a reasonableness review has been consistently reinforced by the Supreme Court in the decade since Dunsmuir (see for instance, Canada (Canadian Human Rights Commission) v Canada (Attorney General), 2018 SCC 31 [CHRC] at para 55, and Wilson v Atomic Energy of Canada Ltd, 2016 SCC 29 at paras 21\u201322).",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "authority": "The Supreme Court has consistently reinforced the reasonableness standard since Dunsmuir.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Indeed, Professor Daly observed as much in a recent commentary on the RAD majority\u2019s Decision, writing that the RAD reasonableness test developed in the majority Decision is difficult to distinguish from the test set out by the Supreme Court in Newfoundland and Labrador Nurses\u2019 Union v Newfoundland and Labrador (Treasury Board), 2011 SCC 62 and Agraira v Canada (Public Safety and Emergency Preparedness), 2013 SCC 36 (see Paul Daly, \u201cEffective Administrative Appeals (Again): Re X, 2017 CanLII 33034 (CA IRB)\u201d (16 July 2018), online (blog): Administrative Law Matters, www.administrativelawmatters.com).",
+    "paragraphs": [
+     128
+    ],
+    "evidence_ids": [
+     "128.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     128
+    ],
+    "authority": "Professor Daly observed that the RAD reasonableness test is difficult to distinguish from the Supreme Court's judicial review test in Newfoundland and Labrador Nurses\u2019 Union and Agraira cases.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "I disagree. The Federal Court of Appeal, after reviewing the purposes of the governing legislation, held at paragraph 66 of Huruglica that the RAD is a sui generis statutory body whose role is to act as a safety net.",
+    "paragraphs": [
+     133
+    ],
+    "evidence_ids": [
+     "133.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     133
+    ],
+    "authority": "The Federal Court of Appeal held in Huruglica that the RAD is a sui generis statutory body acting as a safety net, implying a different standard than Dunsmuir.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Huruglica later referenced Minister Kenney\u2019s promise of a \u201cfull, fact-based appeal\u201d (Huruglica at para 94).",
+    "paragraphs": [
+     135
+    ],
+    "evidence_ids": [
+     "135.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     135
+    ],
+    "authority": "Huruglica referenced Minister Kenney\u2019s promise of a 'full, fact-based appeal'.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As Justice Gauthier states, the degree of deference owed to the RPD \u201cought to be addressed on a case-by-case basis.",
+    "paragraphs": [
+     158
+    ],
+    "evidence_ids": [
+     "158.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     158
+    ],
+    "authority": "Justice Gauthier's statement that the degree of deference owed to the RPD ought to be addressed on a case-by-case basis is endorsed.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "Turning back to our dartboard, in a reasonableness review, as long as the decision\u2011maker hits a point that is not out of bounds, the reviewer will not intervene: s/he does not have to hit what the Court views as the bull\u2019s-eye (Skinner at para 23). Accordingly, tribunal decisions do not have to be perfect. On review, they should be approached as an organic whole, rather than the reviewer conducting a line-by-line treasure hunt for errors (Communications, Energy and Paperworkers Union of Canada, Local 30 v Irving Pulp & Paper, Ltd, 2013 SCC 34 at para 54).",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.3",
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "issue": "In reasonableness review, the decision-maker need not hit the 'bull's-eye' but must not be 'out of bounds'; decisions are reviewed as a whole, not line-by-line for errors.",
+    "reason": ""
+   }
+  ],
+  "rows_without_evidence": []
+ }
+}

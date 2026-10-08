@@ -1,0 +1,692 @@
+{
+ "case_id": 50174,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.008508
+ },
+ "verification": {
+  "points": 40,
+  "calls": 8,
+  "answered": 11,
+  "points_returned": 40,
+  "answer_ids_dropped": 73
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The claimant claims protection under sections 96 and 97 of the Immigration and Refugee Protection Act (IRPA).",
+   "party_ids": [
+    "1.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly states the claimant claims protection under ss. 96 and 97 IRPA at sentence 1.2."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant is not a Convention refugee under section 96 because he does not have a well-founded fear of persecution in Iran on any of the five Convention grounds.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel explicitly finds the claimant is not a Convention refugee under section 96."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant is not a person in need of protection under section 97 because, on a balance of probabilities, his removal to Iran would not subject him personally to a risk to life, cruel and unusual treatment or punishment, or danger of torture.",
+   "party_ids": [
+    "12.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel explicitly finds the claimant is not a person in need of protection under section 97."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "Counsel took responsibility for the late submission of the PIF Narrative, citing illness and not getting around to it.",
+   "party_ids": [
+    "15.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel records counsel took responsibility for the late submission citing illness and not getting around to it."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "Counsel claimed she was going to amend the PIF before the hearing but forgot due to illness.",
+   "party_ids": [
+    "16.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel records counsel's claim that she intended to amend the PIF but forgot due to illness."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "Counsel volunteered that she had not provided adequate representation and apologized.",
+   "party_ids": [
+    "17.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel records counsel's voluntary admission of inadequate representation and apology."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "There were a number of inconsistencies in the claimant's evidence related to principal elements of the claim that were not satisfactorily explained.",
+   "party_ids": [
+    "18.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel finds there were inconsistencies in the claimant's evidence not satisfactorily explained."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "There was one significant implausibility in the claimant's evidence.",
+   "party_ids": [
+    "18.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges there was one significant implausibility in the claimant's evidence."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "Cumulatively, these concerns led the Panel to find the claimant's evidence was not credible overall.",
+   "party_ids": [
+    "18.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees that cumulatively the concerns led to a finding that the claimant's evidence was not credible overall."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant said he was arrested and detained twice in Iran, but his earlier statements mentioned only one detention.",
+   "party_ids": [
+    "19.1",
+    "19.2",
+    "19.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "19.3"
+   ],
+   "answer_paragraphs": [
+    19
+   ],
+   "answer_quote": "The Declaration (Exhibit C-4) he had filled out at the end of his interview process with Immigration when he first made his refugee claim was brought to his attention.",
+   "why": "The court confirms the claimant said he was arrested twice but earlier statements mentioned only one detention."
+  },
+  {
+   "pid": "P32",
+   "party_by": "applicant",
+   "party_text": "The claimant said he was told to keep his story short and only mentioned the second detention because it was the proximate cause of his departure, intending to tell the full story later through his lawyer.",
+   "party_ids": [
+    "19.5",
+    "19.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the claimant's explanation about keeping the story short and intending to tell the full story later."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel did not accept the claimant's explanation about keeping the story short because the entire record showed only one detention was mentioned until the PIF stage where two detentions were alleged for the first time.",
+   "party_ids": [
+    "20.1",
+    "20.2",
+    "20.3",
+    "20.4",
+    "20.5",
+    "20.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court rejects the claimant's explanation, noting only one detention was mentioned until the PIF stage."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel found the claimant embellished his story by adding a second detention at the PIF stage and inferred negatively on credibility from that.",
+   "party_ids": [
+    "20.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds the claimant embellished his story by adding a second detention and infers negatively on credibility."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel found no mention in the record of the claimant being told to keep his story short.",
+   "party_ids": [
+    "21.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel finds no mention of the claimant being told to keep his story short in the record."
+  },
+  {
+   "pid": "P36",
+   "party_by": "applicant",
+   "party_text": "The claimant alleged interpretation problems at the interview because the interpreter was believed to be an Afghani, causing difficulties due to terminology differences.",
+   "party_ids": [
+    "22.1",
+    "22.2",
+    "22.3",
+    "22.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The claimant alleged interpretation problems due to the interpreter being an Afghani, causing terminology differences and difficulties."
+  },
+  {
+   "pid": "P37",
+   "party_by": "tribunal_below",
+   "party_text": "The interview record shows the Immigration Officer invited the claimant to ask for clarification if questions were unclear, but there is no record the claimant ever did so.",
+   "party_ids": [
+    "23.1",
+    "23.2",
+    "23.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The record shows the Immigration Officer invited the claimant to ask for clarification, but the claimant never did so according to the record."
+  },
+  {
+   "pid": "P38",
+   "party_by": "applicant",
+   "party_text": "The claimant said he had to ask for questions to be repeated several times during the interview.",
+   "party_ids": [
+    "23.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The claimant said he had to ask for questions to be repeated several times during the interview."
+  },
+  {
+   "pid": "P39",
+   "party_by": "applicant",
+   "party_text": "The claimant could not explain why his requests for repetition did not appear in the interview notes.",
+   "party_ids": [
+    "23.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The claimant could not explain why his requests for repetition did not appear in the interview notes."
+  },
+  {
+   "pid": "P40",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel found the claimant's claim of interpretation difficulties did not occur because such events would have been noted in the interview record.",
+   "party_ids": [
+    "23.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The Panel finds the claimant's claim of interpretation difficulties did not occur because such events would have been noted in the interview record."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant had no complaints about the interview process and found the immigration personnel respectful and compassionate.",
+   "party_ids": [
+    "24.1",
+    "24.5"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "24.2",
+    "24.3",
+    "24.4"
+   ],
+   "answer_paragraphs": [
+    24
+   ],
+   "answer_quote": "He wrote: \"I thank the Immigration personnel for their attitude. They encountered me with respect and compassion. They registered what I said in the computer\".",
+   "why": "The court accepts the claimant had no complaints and found immigration personnel respectful and compassionate."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant signed a form stating the information was true and that he had asked for explanations of unclear points, with an interpreter confirming the claimant understood the form.",
+   "party_ids": [
+    "25.1",
+    "25.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the claimant signed the form stating truth and had explanations with interpreter confirmation."
+  },
+  {
+   "pid": "P9",
+   "party_by": "applicant",
+   "party_text": "The claimant said he complained about the interpreter and repeated questions, and requested a Kurdish interpreter but was told none was available.",
+   "party_ids": [
+    "26.1",
+    "26.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "26.3"
+   ],
+   "answer_paragraphs": [
+    26
+   ],
+   "answer_quote": "There is no mention of these exchanges in the record, and the Panel has found above that this did not occur, at least in the interview the record of which was nine pages long.",
+   "why": "The court rejects the claimant's complaints about the interpreter and repeated questions as not recorded or found to occur."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "There is no mention of complaints about the interpreter or repeated questions in the interview record, and the panel found these did not occur in the recorded interview.",
+   "party_ids": [
+    "26.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts there is no mention of complaints about interpreter or repeated questions in the interview record."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant's declaration was done free-hand in Farsi without interpretation at the time.",
+   "party_ids": [
+    "26.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the declaration was done free-hand in Farsi without interpretation at the time."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The claimant said he signed forms the next day without interpretation because he was asked to, and was in a poor mental state during immigration interviews.",
+   "party_ids": [
+    "27.1",
+    "27.2",
+    "27.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "27.4",
+    "27.5",
+    "27.6",
+    "27.7",
+    "28.1"
+   ],
+   "answer_paragraphs": [
+    27,
+    28
+   ],
+   "answer_quote": "However, the Panel cannot accept these explanations. The claimant is a university graduate, and thus should have been able to appreciate the advisability of not signing something, in Canada, just because someone asks him to. Also, the Panel finds that Immigration Canada would not request a refugee claimant to sign something that they knew or should have known not to be true, i.e. that the contents of the form were interpreted to the claimant, although he said at the hearing that they were not. There is a presumption that Canadian Immigration officials deal fairly, openly and honestly with refugee claimants, and insufficient evidence has been provided to rebut this assumption. Thus, in summary, the Panel does not, overall, accept the claimant's explanations of inconsistencies in his evidence to be the result of inadequate interpretation services supplied by Citizenship and Immigration Canada to the claimant.",
+   "why": "The court rejects the claimant's explanation about signing without interpretation and poor mental state, finding the explanations unconvincing."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "There are significant inconsistencies in the claimant's evidence regarding the dates of his first detention.",
+   "party_ids": [
+    "29.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "29.2",
+    "29.3",
+    "29.4",
+    "29.5",
+    "29.6",
+    "29.7",
+    "29.8",
+    "30.1",
+    "30.2",
+    "30.3",
+    "30.4",
+    "30.5",
+    "31.1",
+    "31.2",
+    "31.3",
+    "31.4",
+    "32.1",
+    "32.2",
+    "32.3"
+   ],
+   "answer_paragraphs": [
+    29,
+    30,
+    31,
+    32
+   ],
+   "answer_quote": "The claimant was asked the dates of his first detention. He said they were XXXXX, 2005, to XXXXX 2005. When asked if he was sure, he said yes, except the dates may be off by one day only. It was pointed out to him that he gave the following different dates for his first detention, as follows. In his PIF, section 9, he wrote that it was from XXXXX, 2005 to XXXXX, 2005. In IMM 5474, the Immigration form discussed above, he said it was in a different year entirely, from XXXXX, 2006 to XXXXX, 2006. With respect to IMM 5474, the claimant indicated that this was the second detention, and this will be dealt with below. However, the inconsistency remains between what he said at the hearing and what he had written in the PIF. It was pointed out to the claimant that at the beginning of the hearing, he had sworn to the accuracy of the PIF, and at the hearing he was alleging that it was not correct in this respect. This the claimant blamed on the interpreter at counsel's office. He said this interpreter copied some dates from the interview record with Immigration, and gave examples that the claimant's birthdate was recorded wrong. However, nothing in Exhibit R/A-2 was pointed out wherein the claimant indicated that he had been detained from XXXXX, 2005 to XXXXX, 2005, therefore the Panel cannot accept this explanation that counsel's interpreter incorrectly copied the dates wrong from what is now Exhibit R/A-2. Then counsel got up and showed the Panel a copy she had of the PIF, which appeared to indicate some changes in pen or pencil to section 9 of the PIF. Counsel indicated that this was evidence that she intended to change section 9 of the PIF before the claimant swore to it at the hearing, but forgot due to her illness. The Panel did not clearly see what counsel had notated by hand in her copy of the PIF, nor was it requested to be entered as an Exhibit, and it was not. She indicated correctly that the revised Narrative indicated that the claimant was arrested on XXXXX, 2005. The Panel can to a certain extent understand counsel's point. However, the fact that the claimant, apparently incorrectly, blamed this on the interpreter, and also, apparently incorrectly, indicated that the interpreter had taken the wrong information from Exhibit R/A-2, would tend to indicate that the claimant's explanation should not be accepted. When considering all the above, from this inconsistency, only partially explained satisfactorily, the Panel will make a negative inference as to credibility, although the impact of this finding is partially mitigated by counsel's explanation.",
+   "why": "The court accepts there are significant inconsistencies in the claimant's evidence regarding the dates of his first detention and makes a negative credibility inference."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant gave different dates for his first detention at the hearing, in his PIF, and on an immigration form, with the form dates being in a different year.",
+   "party_ids": [
+    "29.3",
+    "29.6",
+    "29.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the claimant gave different dates for his first detention in the hearing, PIF, and immigration form, with the form dates in a different year."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "The claimant said the dates on the immigration form were for his second detention, not the first.",
+   "party_ids": [
+    "29.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the claimant said the immigration form dates were for his second detention, not the first."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The inconsistency between the hearing testimony and the PIF dates remains unresolved.",
+   "party_ids": [
+    "30.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "30.2"
+   ],
+   "answer_paragraphs": [
+    30
+   ],
+   "answer_quote": "It was pointed out to the claimant that at the beginning of the hearing, he had sworn to the accuracy of the PIF, and at the hearing he was alleging that it was not correct in this respect.",
+   "why": "The court states the inconsistency between hearing testimony and PIF dates remains unresolved."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "The claimant blamed the incorrect PIF dates on the interpreter at counsel's office copying dates incorrectly.",
+   "party_ids": [
+    "30.3",
+    "30.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "30.5",
+    "32.2"
+   ],
+   "answer_paragraphs": [
+    30,
+    32
+   ],
+   "answer_quote": "However, nothing in Exhibit R/A-2 was pointed out wherein the claimant indicated that he had been detained from XXXXX, 2005 to XXXXX, 2005, therefore the Panel cannot accept this explanation that counsel's interpreter incorrectly copied the dates wrong from what is now Exhibit R/A-2. However, the fact that the claimant, apparently incorrectly, blamed this on the interpreter, and also, apparently incorrectly, indicated that the interpreter had taken the wrong information from Exhibit R/A-2, would tend to indicate that the claimant's explanation should not be accepted.",
+   "why": "The court rejects the claimant's explanation blaming the interpreter for incorrect PIF dates as unsupported."
+  },
+  {
+   "pid": "P18",
+   "party_by": "applicant",
+   "party_text": "Counsel showed the panel a copy of the PIF with handwritten changes indicating an intention to correct section 9 before the claimant swore to it, but forgot due to illness.",
+   "party_ids": [
+    "31.1",
+    "31.2",
+    "31.3",
+    "31.4"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "32.1",
+    "32.3"
+   ],
+   "answer_paragraphs": [
+    32
+   ],
+   "answer_quote": "The Panel can to a certain extent understand counsel's point. When considering all the above, from this inconsistency, only partially explained satisfactorily, the Panel will make a negative inference as to credibility, although the impact of this finding is partially mitigated by counsel's explanation.",
+   "why": "The court partly accepts counsel's explanation about intended PIF corrections but notes lack of evidence and only partial mitigation of negative credibility inference."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "The panel makes a negative inference as to the claimant's credibility from the partially explained inconsistency about detention dates, though the impact is partially mitigated by counsel's explanation.",
+   "party_ids": [
+    "32.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel makes a negative inference on credibility from the inconsistency, partially mitigated by counsel's explanation."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "Another inconsistency arose regarding the dates of the claimant's second detention between the immigration form and the PIF and hearing testimony.",
+   "party_ids": [
+    "33.1",
+    "33.2",
+    "33.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "33.7"
+   ],
+   "answer_paragraphs": [
+    33
+   ],
+   "answer_quote": "The Panel has explained above why it does not accept the claimant's explanations about poor interpretation during the interview process, therefore the Panel does not accept the claimant's explanation and makes a negative inference in regard to credibility from this inconsistency, unsatisfactorily explained.",
+   "why": "The panel notes the inconsistency about second detention dates and makes a negative inference due to unsatisfactory explanation."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "The claimant blamed the inconsistency about the second detention dates on the immigration interpreter mixing up Persian and Canadian calendar dates.",
+   "party_ids": [
+    "33.6"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "33.7"
+   ],
+   "answer_paragraphs": [
+    33
+   ],
+   "answer_quote": "The Panel has explained above why it does not accept the claimant's explanations about poor interpretation during the interview process, therefore the Panel does not accept the claimant's explanation and makes a negative inference in regard to credibility from this inconsistency, unsatisfactorily explained.",
+   "why": "The panel does not accept the claimant's explanation blaming the interpreter for the date inconsistency."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "The claimant was questioned about the party he allegedly supported and gave inconsistent answers about where a key figure died, indicating little knowledge of the party.",
+   "party_ids": [
+    "34.1",
+    "34.2",
+    "34.3",
+    "34.4",
+    "34.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The claimant gave inconsistent answers about the party and showed little knowledge of it."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel made a negative inference as to credibility from the claimant's inconsistency and quick reversal on the matter of where the key figure died.",
+   "party_ids": [
+    "34.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The panel made a negative inference from the claimant's inconsistency and quick reversal about where the key figure died."
+  },
+  {
+   "pid": "P22",
+   "party_by": "respondent",
+   "party_text": "Counsel submitted that the claimant's testimony should be considered keeping in mind that he has memory problems.",
+   "party_ids": [
+    "35.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "35.2",
+    "35.3",
+    "35.4",
+    "35.5"
+   ],
+   "answer_paragraphs": [
+    35
+   ],
+   "answer_quote": "The Panel points out that no memory problems were evident at the hearing, and that the claimant did not cite this as an excuse or explanation for any of the deficiencies in his evidence. The Panel asked counsel if there was any clinical evidence of any memory problems. She pointed only to the third full paragraph on p.4 of Exhibit C-4, the Psychiatric Assessment, which the Panel notes does not refer to memory problems. Thus, the Panel cannot ascribe any of the defects in the claimant's testimony to memory problems.",
+   "why": "The panel finds no evidence of memory problems affecting the claimant's testimony."
+  },
+  {
+   "pid": "P25",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel identified a significant implausibility relating to the claimant's narrative about his wife being regularly interrogated by the regime without revealing his whereabouts.",
+   "party_ids": [
+    "36.1",
+    "36.2",
+    "36.3",
+    "36.4",
+    "36.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the panel's finding of a significant implausibility about the claimant's wife's interrogations and his whereabouts."
+  },
+  {
+   "pid": "P26",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel found it implausible that the claimant's wife would not have been forced to reveal that the claimant went to Canada despite regular interrogations by the regime, which employs torture and targets the claimant.",
+   "party_ids": [
+    "36.6",
+    "36.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the panel's finding that it is implausible the wife would not reveal the claimant's location given torture and targeting by the regime."
+  },
+  {
+   "pid": "P27",
+   "party_by": "tribunal_below",
+   "party_text": "The Panel drew a negative inference as to credibility from the implausibility about the claimant's wife's interrogations and failure to reveal his whereabouts.",
+   "party_ids": [
+    "36.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the panel's negative inference on credibility based on the implausibility regarding the wife's interrogations."
+  }
+ ]
+}

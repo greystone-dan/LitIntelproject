@@ -1,0 +1,2178 @@
+{
+ "case_id": 52431,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.0308132
+ },
+ "verification": {
+  "points": 141,
+  "calls": 26,
+  "answered": 14,
+  "points_returned": 141,
+  "answer_ids_dropped": 240
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "Mr. Beaudry contended that his decision not to gather evidence was a proper exercise of police discretion.",
+   "party_ids": [
+    "2.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Mr. Beaudry's contention that his decision was a proper exercise of police discretion."
+  },
+  {
+   "pid": "P2",
+   "party_by": "respondent",
+   "party_text": "The Crown argued that Mr. Beaudry's decision was not an exercise of police discretion but preferential treatment of a fellow police officer.",
+   "party_ids": [
+    "2.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the Crown's argument but ultimately finds the verdict reasonable, rejecting the Crown's view that it was preferential treatment."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "Mr. Beaudry was convicted by Judge Beaulieu of the Court of Qu\u00e9bec, and this conviction was upheld by the Quebec Court of Appeal, with Chamberland J.A. dissenting.",
+   "party_ids": [
+    "2.5",
+    "2.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms Mr. Beaudry was convicted by Judge Beaulieu and that the conviction was upheld by the Court of Appeal with a dissent."
+  },
+  {
+   "pid": "P4",
+   "party_by": "tribunal_below",
+   "party_text": "Chamberland J.A. dissented, finding it unreasonable to reject Mr. Beaudry's explanations or to find that they did not raise a reasonable doubt about whether he honestly exercised his discretion not to involve the courts.",
+   "party_ids": [
+    "2.7"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "5.2"
+   ],
+   "answer_paragraphs": [
+    5
+   ],
+   "answer_quote": "With respect, I believe that Chamberland J.A.\u2019s analysis of the evidence is incompatible with the role of an appellate court in reviewing whether a verdict is unreasonable.",
+   "why": "The court disagrees with Chamberland J.A.'s dissent, finding his analysis incompatible with appellate review standards."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "Police discretion allows the law to be applied more fairly in real-life situations faced by police.",
+   "party_ids": [
+    "4.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees that police discretion allows the law to be applied more fairly in real-life situations."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The majority of the Court of Appeal unduly limited the scope of police discretionary power by considering extrinsic factors such as internal directives and Crown prosecutors' discretion, which do not have the force of law.",
+   "party_ids": [
+    "4.3",
+    "4.4"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "4.5"
+   ],
+   "answer_paragraphs": [
+    4
+   ],
+   "answer_quote": "However, this aspect of his analysis has no impact on the question before us: whether the verdict was unreasonable.",
+   "why": "The court disagrees with the majority of the Court of Appeal limiting police discretion by extrinsic factors but says this does not affect the verdict's reasonableness."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The verdict of the Court of Qu\u00e9bec judge is reasonable and supported by a plausible interpretation of the evidence.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the verdict is reasonable and supported by plausible evidence interpretation."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "Chamberland J.A.'s analysis of the evidence is incompatible with the role of an appellate court in reviewing whether a verdict is unreasonable.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds Chamberland J.A.'s analysis incompatible with appellate review role."
+  },
+  {
+   "pid": "P9",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge made no error of law in this case.",
+   "party_ids": [
+    "5.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the trial judge made no error of law."
+  },
+  {
+   "pid": "P10",
+   "party_by": "tribunal_below",
+   "party_text": "There was evidence to support each element of the offence.",
+   "party_ids": [
+    "5.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms evidence supported each element of the offence."
+  },
+  {
+   "pid": "P11",
+   "party_by": "tribunal_below",
+   "party_text": "The determinative issue turned on the credibility of the accused.",
+   "party_ids": [
+    "5.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the key issue was the accused's credibility."
+  },
+  {
+   "pid": "P12",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge was best positioned to assess witness credibility and determine if there was reasonable doubt.",
+   "party_ids": [
+    "5.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court holds the trial judge was best positioned to assess credibility and reasonable doubt."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "Assistant Director Rocheleau did not accept Sergeant Beaudry's explanation and ordered an impaired driving report to be prepared, which was initially minimal and later detailed.",
+   "party_ids": [
+    "14.5",
+    "14.8",
+    "14.10",
+    "14.11"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court recounts Assistant Director Rocheleau's rejection of Beaudry's explanation and the ordering of the impaired driving report."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu reviewed the law including burden of proof and the need to assess credibility of the accused's testimony per R. v. W. (D.).",
+   "party_ids": [
+    "16.1",
+    "16.2",
+    "16.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Judge Beaulieu reviewed the law including burden of proof and credibility assessment per R. v. W. (D.)."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "To find the accused guilty requires more than disbelief of his version; it must be shown beyond reasonable doubt that the accused is guilty.",
+   "party_ids": [
+    "16.4",
+    "16.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states that disbelief alone is insufficient; guilt must be proven beyond reasonable doubt."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The Crown must prove beyond reasonable doubt that the accused had specific intent to obstruct justice by not having Mr. Plourde take a breathalyzer test despite reasonable grounds to believe he was impaired.",
+   "party_ids": [
+    "17.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Judge Beaulieu noted the Crown must prove specific intent to obstruct justice beyond reasonable doubt."
+  },
+  {
+   "pid": "P17",
+   "party_by": "tribunal_below",
+   "party_text": "More than a breach of ethics or error in judgment is needed to find the accused guilty of obstructing justice.",
+   "party_ids": [
+    "17.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Judge Beaulieu stated more than a breach of ethics or error in judgment is needed for guilt."
+  },
+  {
+   "pid": "P18",
+   "party_by": "respondent",
+   "party_text": "Sergeant Beaudry's decision not to gather evidence to lay charges was a proper exercise of his discretionary power.",
+   "party_ids": [
+    "18.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the defence's argument that Beaudry's decision was a proper exercise of discretion."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "No directions exist in the Criminal Code about police discretion, but it must be exercised daily for law enforcement and justice system functioning.",
+   "party_ids": [
+    "18.3",
+    "18.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that no directions exist but police discretion must be exercised daily for law enforcement."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The trial outcome depended on whether Sergeant Beaudry decided not to have Mr. Plourde take a breathalyzer test because he was a S\u00fbret\u00e9 du Qu\u00e9bec officer; leniency for that reason is unacceptable.",
+   "party_ids": [
+    "19.2",
+    "19.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the trial outcome depended on whether Beaudry was lenient because Plourde was an officer, which is unacceptable."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu did not question the description of Mr. Plourde's behaviour but found the justifications by the police officers to be lies designed to explain the decision not to investigate further.",
+   "party_ids": [
+    "20.1",
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Judge Beaulieu did not question Plourde's behaviour but found police justifications were lies."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "Constable Boucher's testimony that he only suspected impaired driving was a lie inconsistent with his incident report stating Mr. Plourde was clearly intoxicated.",
+   "party_ids": [
+    "20.3",
+    "20.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Constable Boucher's testimony was a lie inconsistent with his incident report."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu rejected Constable B\u00e9lisle's explanation that it was difficult to determine impaired driving, noting he found Mr. Plourde was in crisis.",
+   "party_ids": [
+    "20.5",
+    "20.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Judge Beaulieu rejected Constable B\u00e9lisle's explanation and found Plourde was in crisis."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu rejected Sergeant Beaudry's justification as an after-the-fact argument to explain his actions when questioned.",
+   "party_ids": [
+    "21.1",
+    "21.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Judge Beaulieu rejected Beaudry's justification as an after-the-fact argument."
+  },
+  {
+   "pid": "P25",
+   "party_by": "tribunal_below",
+   "party_text": "Sergeant Beaudry tried to conceal the true nature of the intervention by initially describing it as assistance to the public and then as an unclassified activity, despite knowing it was an impaired driving case.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "25.1",
+    "25.2",
+    "25.3",
+    "25.4",
+    "25.5",
+    "25.6"
+   ],
+   "answer_paragraphs": [
+    25
+   ],
+   "answer_quote": "22 Judge Beaulieu also accepted Constable Raymond Dagenais\u2019s testimony that, when he had asked Sergeant Beaudry what Mr. Plourde was doing in the detention room for minors, Sergeant Beaudry had replied that Mr. Plourde was under arrest for impaired driving. In addition, he believed Constable Dagenais\u2019s statement that Sergeant Beaudry had told him to wait before photographing Mr. Plourde, because he had to make a decision about him. Again, Judge Beaulieu found these answers to be inconsistent with Sergeant Beaudry\u2019s explanation. Why would he have told Constable Dagenais that Mr. Plourde was under arrest if Mr. Plourde was in the room for minors for humanitarian reasons? And why would he have told Constable Dagenais to wait before photographing Mr. Plourde if it had already been decided to characterize the case as an \u201cunclassified activity\u201d? In Judge Beaulieu\u2019s view, the sole purpose of the occurrence report and the memorandum addressed to Assistant Director Rocheleau was to divert attention from the fact that Sergeant Beaudry had already decided at the scene of the traffic stop not to make the investigation that was called for under the circumstances.",
+   "why": "The court accepts that Sergeant Beaudry tried to conceal the true nature of the intervention and found inconsistencies supporting this."
+  },
+  {
+   "pid": "P26",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu found that if Mr. Plourde was too depressed to arrest or detain safely, Sergeant Beaudry should have taken him to hospital instead of respecting his refusal to take a breathalyzer test.",
+   "party_ids": [
+    "23.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "26.1"
+   ],
+   "answer_paragraphs": [
+    26
+   ],
+   "answer_quote": "23 This is what led the judge to conclude that on September 22, 2000, Alain Beaudry had deliberately failed to perform his duty, instead giving [translation] \u201ca chance, preferential treatment, a privilege\u201d to Patrick Plourde, a peace officer of the S\u00fbret\u00e9 du Qu\u00e9bec.",
+   "why": "The court accepts that if Mr. Plourde was too depressed to arrest or detain safely, Sergeant Beaudry should have taken him to hospital instead of respecting his refusal."
+  },
+  {
+   "pid": "P27",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu found no explanation for failure to mention Mr. Plourde's depressive state in official documents despite Sergeant Beaudry's trial claim that it influenced his decision.",
+   "party_ids": [
+    "23.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that there was no explanation for failure to mention Mr. Plourde's depressive state in official documents despite Sergeant Beaudry's claim."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "Sergeant Beaudry's explanation that he was thinking of a past police officer suicide case did not make sense because Mr. Plourde was under camera surveillance and safe.",
+   "party_ids": [
+    "23.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Sergeant Beaudry's explanation about thinking of a past suicide case did not make sense given Mr. Plourde was under camera surveillance and safe."
+  },
+  {
+   "pid": "P29",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu questioned Sergeant Beaudry's statement that he had the interview of September 12 in mind that night.",
+   "party_ids": [
+    "24.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Judge Beaulieu questioned Sergeant Beaudry's statement about having the interview in mind that night."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "According to Sergeant Beaudry, the woman had advised Mr. Plourde to go back to see his doctor because he was in a state of depression.",
+   "party_ids": [
+    "24.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Sergeant Beaudry said the woman advised Mr. Plourde to see his doctor because he was depressed."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "The judge noted that Mr. Plourde himself did not remember that his sick leave had been mentioned.",
+   "party_ids": [
+    "24.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The judge noted Mr. Plourde did not remember his sick leave being mentioned."
+  },
+  {
+   "pid": "P32",
+   "party_by": "tribunal_below",
+   "party_text": "The occurrence report written after that interview and countersigned by the accused made no mention of a depressive state.",
+   "party_ids": [
+    "24.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The occurrence report made no mention of a depressive state."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The occurrence report said that the woman was complaining about being harassed and that she believed Mr. Plourde to be mentally disturbed.",
+   "party_ids": [
+    "24.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The report said the woman complained about harassment and believed Mr. Plourde to be mentally disturbed."
+  },
+  {
+   "pid": "P34",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu accepted Constable Raymond Dagenais's testimony that Sergeant Beaudry said Mr. Plourde was under arrest for impaired driving when asked what he was doing in the detention room for minors.",
+   "party_ids": [
+    "25.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Judge Beaulieu accepted Constable Dagenais's testimony about Sergeant Beaudry's statement."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu believed Constable Dagenais's statement that Sergeant Beaudry told him to wait before photographing Mr. Plourde because he had to make a decision about him.",
+   "party_ids": [
+    "25.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Judge Beaulieu believed Constable Dagenais's statement about waiting before photographing Mr. Plourde."
+  },
+  {
+   "pid": "P36",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu found these answers inconsistent with Sergeant Beaudry's explanation.",
+   "party_ids": [
+    "25.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Judge Beaulieu found the answers inconsistent with Sergeant Beaudry's explanation."
+  },
+  {
+   "pid": "P37",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu questioned why Sergeant Beaudry would say Mr. Plourde was under arrest if he was in the room for minors for humanitarian reasons.",
+   "party_ids": [
+    "25.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Judge Beaulieu's question about why Sergeant Beaudry said Mr. Plourde was under arrest if for humanitarian reasons."
+  },
+  {
+   "pid": "P38",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu questioned why Sergeant Beaudry would tell Constable Dagenais to wait before photographing Mr. Plourde if it had already been decided to characterize the case as an 'unclassified activity'.",
+   "party_ids": [
+    "25.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Judge Beaulieu's question about why Sergeant Beaudry told Constable Dagenais to wait before photographing Mr. Plourde."
+  },
+  {
+   "pid": "P39",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu viewed the occurrence report and memorandum as attempts to divert attention from Sergeant Beaudry's decision not to conduct the investigation required under the circumstances.",
+   "party_ids": [
+    "25.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Judge Beaulieu's view that the report and memorandum were attempts to divert attention from the failure to investigate."
+  },
+  {
+   "pid": "P40",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu concluded that on September 22, 2000, Alain Beaudry deliberately failed to perform his duty, giving preferential treatment to Patrick Plourde, a peace officer of the S\u00fbret\u00e9 du Qu\u00e9bec.",
+   "party_ids": [
+    "26.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Judge Beaulieu's conclusion that Sergeant Beaudry deliberately failed to perform his duty, giving preferential treatment."
+  },
+  {
+   "pid": "P41",
+   "party_by": "tribunal_below",
+   "party_text": "Sergeant Beaudry could not have been unaware that breath samples were necessary evidence for laying a charge against Mr. Plourde under s. 253 of the Criminal Code.",
+   "party_ids": [
+    "26.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the finding that Sergeant Beaudry could not have been unaware that breath samples were necessary evidence."
+  },
+  {
+   "pid": "P42",
+   "party_by": "tribunal_below",
+   "party_text": "The judge found Sergeant Beaudry guilty.",
+   "party_ids": [
+    "26.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge's finding of guilt against Sergeant Beaudry."
+  },
+  {
+   "pid": "P43",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge regarded the failure to gather evidence as the actus reus of the offence.",
+   "party_ids": [
+    "28.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the trial judge regarded failure to gather evidence as actus reus."
+  },
+  {
+   "pid": "P44",
+   "party_by": "respondent",
+   "party_text": "Sergeant Beaudry had a legal obligation to gather evidence for the offence to be made out.",
+   "party_ids": [
+    "28.2",
+    "28.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states Sergeant Beaudry did not have a legal obligation to gather evidence because he exercised discretion."
+  },
+  {
+   "pid": "P45",
+   "party_by": "respondent",
+   "party_text": "Police discretion exists in criminal justice to avoid prosecuting minor offences and can be exercised honestly, transparently, and on valid and reasonable grounds, even regarding fellow officers.",
+   "party_ids": [
+    "29.1",
+    "29.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees police discretion exists and can be exercised honestly and reasonably, including regarding fellow officers."
+  },
+  {
+   "pid": "P46",
+   "party_by": "respondent",
+   "party_text": "Sergeant Beaudry was right to believe he had discretionary power to deal with the case other than through prosecution, and whether he had a duty to gather evidence depends on whether discretion was exercised honestly.",
+   "party_ids": [
+    "30.1",
+    "30.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees Sergeant Beaudry was right to believe he had discretion and duty to gather evidence depends on honest exercise of discretion."
+  },
+  {
+   "pid": "P47",
+   "party_by": "applicant",
+   "party_text": "Chamberland J.A. exceeded his role by reinterpreting evidence and interfering with credibility assessments without deference to the trial judge, and should have focused on whether the verdict was reasonable.",
+   "party_ids": [
+    "31.2",
+    "31.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees Chamberland J.A. exceeded his role by reinterpreting evidence and should have focused on reasonableness of verdict."
+  },
+  {
+   "pid": "P48",
+   "party_by": "respondent",
+   "party_text": "The trial judge's interpretation of facts such as Sergeant Beaudry's motivation, lack of concealment, and objective descriptions of the appellant's condition was incorrect and unreasonable to reject the appellant's explanation.",
+   "party_ids": [
+    "32.1",
+    "32.2",
+    "32.3",
+    "32.4",
+    "32.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds Chamberland J.A.'s interpretation of facts incorrect and unreasonable to reject appellant's explanation."
+  },
+  {
+   "pid": "P49",
+   "party_by": "respondent",
+   "party_text": "Chamberland J.A. would have substituted an acquittal for the guilty verdict based on his analysis.",
+   "party_ids": [
+    "32.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Chamberland J.A.'s dissenting opinion to substitute acquittal."
+  },
+  {
+   "pid": "P50",
+   "party_by": "respondent",
+   "party_text": "Police discretion exists but its exercise requires consideration of both facts and legal context.",
+   "party_ids": [
+    "33.1",
+    "33.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that police discretion exists and must consider facts and legal context."
+  },
+  {
+   "pid": "P51",
+   "party_by": "applicant",
+   "party_text": "The seriousness of the circumstances required the trial judge to be circumspect in considering the appellant's version of facts.",
+   "party_ids": [
+    "34.1",
+    "34.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the trial judge needed to be circumspect given the seriousness of circumstances."
+  },
+  {
+   "pid": "P52",
+   "party_by": "applicant",
+   "party_text": "Disagreement with Doyon J.A. concerns the weight to be given to the legal context in analyzing police discretion.",
+   "party_ids": [
+    "35.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly states disagreement with Doyon J.A. on the weight of legal context."
+  },
+  {
+   "pid": "P53",
+   "party_by": "applicant",
+   "party_text": "In Quebec, criminal charges are generally authorized and laid by a Crown prosecutor, so police discretion not to arrest or require breathalyzer must be assessed in that light.",
+   "party_ids": [
+    "35.2",
+    "35.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the legal context of Crown prosecutor authorization affecting police discretion."
+  },
+  {
+   "pid": "P54",
+   "party_by": "applicant",
+   "party_text": "Failure to take breath samples despite reasonable grounds to believe an offence was committed prevented the prosecutor from performing functions, impacting administration of justice and Attorney General's duties.",
+   "party_ids": [
+    "35.4",
+    "35.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that failure to take breath samples impacted prosecutor's functions and administration of justice."
+  },
+  {
+   "pid": "P55",
+   "party_by": "applicant",
+   "party_text": "The police practices manual contained detailed instructions for impaired driving cases showing authorities intended thorough investigation from the outset.",
+   "party_ids": [
+    "36.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the police manual shows authorities intended thorough investigation from the outset."
+  },
+  {
+   "pid": "P56",
+   "party_by": "applicant",
+   "party_text": "It was open to the trial judge to find that Sergeant Beaudry had not exercised his discretion honestly.",
+   "party_ids": [
+    "36.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts it was open to the trial judge to find Sergeant Beaudry had not exercised discretion honestly."
+  },
+  {
+   "pid": "P57",
+   "party_by": "tribunal_below",
+   "party_text": "Doyon J.A. rejected Chamberland J.A.'s interpretation of the evidence but concluded there was no fatal error in the trial judgment.",
+   "party_ids": [
+    "37.1",
+    "37.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Doyon J.A. rejected Chamberland J.A.'s interpretation but found no fatal error in the trial judgment."
+  },
+  {
+   "pid": "P58",
+   "party_by": "tribunal_below",
+   "party_text": "Police officers have a duty to enforce the law and investigate crimes, a principle well established at common law and codified in s. 48 of the Police Act, R.S.Q., c. P\u201113.1.",
+   "party_ids": [
+    "40.1",
+    "40.2",
+    "41.1",
+    "42.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts police have a duty to enforce law, established at common law and codified in s. 48 Police Act."
+  },
+  {
+   "pid": "P59",
+   "party_by": "tribunal_below",
+   "party_text": "The police duty to enforce the law is not applicable in every situation; police discretion allows officers to adapt law enforcement to individual circumstances and real-life demands of justice.",
+   "party_ids": [
+    "43.1",
+    "43.2",
+    "43.3",
+    "43.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts police duty is not absolute and discretion allows adaptation to circumstances and justice demands."
+  },
+  {
+   "pid": "P60",
+   "party_by": "tribunal_below",
+   "party_text": "Police officers may exercise discretion not to engage the judicial process if they have reasonable grounds to believe an offence has been committed or further investigation might produce evidence, but this discretion is not absolute and must be rationally justified.",
+   "party_ids": [
+    "43.7",
+    "43.8",
+    "43.9"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts police discretion to not engage judicial process must be rationally justified and is not absolute."
+  },
+  {
+   "pid": "P61",
+   "party_by": "tribunal_below",
+   "party_text": "An officer's sincere belief in proper exercise of discretion is insufficient to justify the decision; objective justification is also required.",
+   "party_ids": [
+    "44.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states that an officer's sincere belief alone is insufficient to justify the decision."
+  },
+  {
+   "pid": "P62",
+   "party_by": "tribunal_below",
+   "party_text": "The administrative directives and administration of justice in the province are less important factors in assessing police discretion than material circumstances.",
+   "party_ids": [
+    "45.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court disagrees that administrative directives and justice administration are important factors compared to material circumstances."
+  },
+  {
+   "pid": "P63",
+   "party_by": "tribunal_below",
+   "party_text": "For minor offences like shoplifting by a teenager, police discretion may justify a stern warning and parental alert rather than arrest.",
+   "party_ids": [
+    "46.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that for minor offences like shoplifting by a teenager, discretion may justify a stern warning and parental alert."
+  },
+  {
+   "pid": "P64",
+   "party_by": "tribunal_below",
+   "party_text": "For serious offences like robbery, police discretion may allow not arresting or pursuing investigation, but justification must be proportionate and in the public interest.",
+   "party_ids": [
+    "46.3",
+    "46.4",
+    "46.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that for serious offences like robbery, discretion may allow not arresting or investigating but justification must be proportionate and in public interest."
+  },
+  {
+   "pid": "P65",
+   "party_by": "tribunal_below",
+   "party_text": "Routine exercises of police discretion are clearly justified, but exceptional cases require detailed explanation of the decision.",
+   "party_ids": [
+    "46.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that routine discretion is justified but exceptional cases require detailed explanation."
+  },
+  {
+   "pid": "P66",
+   "party_by": "tribunal_below",
+   "party_text": "The events leading to the police action were serious, involving high-speed driving with a flat tire and suspected drunk driving.",
+   "party_ids": [
+    "47.1",
+    "47.2",
+    "47.3",
+    "47.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the events leading to police action were serious, involving high-speed driving with a flat tire and suspected drunk driving."
+  },
+  {
+   "pid": "P67",
+   "party_by": "tribunal_below",
+   "party_text": "Drunk driving is a serious crime with significant social impact, as emphasized by Cory J. in R. v. Bernshaw.",
+   "party_ids": [
+    "47.5",
+    "47.6",
+    "47.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court reproduces Cory J.'s comment emphasizing the seriousness and social impact of drunk driving offences."
+  },
+  {
+   "pid": "P68",
+   "party_by": "tribunal_below",
+   "party_text": "Police vigilance and diligence have played a crucial role in reducing impaired driving in Canada.",
+   "party_ids": [
+    "48.1",
+    "48.2",
+    "48.3",
+    "48.4",
+    "48.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges police vigilance and diligence as crucial in improving the situation regarding impaired driving."
+  },
+  {
+   "pid": "P69",
+   "party_by": "tribunal_below",
+   "party_text": "The police force in Repentigny considers drunk driving offences very serious and has changed its attitude over the years to no longer tolerate or trivialize these offences.",
+   "party_ids": [
+    "48.4",
+    "48.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states that Repentigny police consider drunk driving very serious and have changed their attitude to no longer tolerate or trivialize it."
+  },
+  {
+   "pid": "P70",
+   "party_by": "tribunal_below",
+   "party_text": "Administrative directives in the police practices manual are relevant but not conclusive in determining intent to commit an offence.",
+   "party_ids": [
+    "49.1",
+    "50.1",
+    "50.2",
+    "50.3",
+    "50.4",
+    "50.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees administrative directives are relevant but not conclusive in determining intent or obligation to prosecute."
+  },
+  {
+   "pid": "P71",
+   "party_by": "tribunal_below",
+   "party_text": "The police practices manual directives do not have the force of law and cannot alter the scope of police discretion under the Criminal Code.",
+   "party_ids": [
+    "51.1",
+    "51.2",
+    "51.3",
+    "51.4",
+    "51.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the directives lack force of law and cannot limit police discretion under the Criminal Code."
+  },
+  {
+   "pid": "P72",
+   "party_by": "tribunal_below",
+   "party_text": "Evidence of administrative directives and usual police procedures can shed light on the exercise of discretion but cannot be conclusive.",
+   "party_ids": [
+    "52.11",
+    "52.12",
+    "52.13"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court holds such evidence can shed light on discretion but is not conclusive."
+  },
+  {
+   "pid": "P73",
+   "party_by": "tribunal_below",
+   "party_text": "In Quebec, Crown prosecutors authorize criminal charges, but police discretion is not eliminated by this distribution of responsibilities.",
+   "party_ids": [
+    "53.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges that Crown prosecutors authorize charges but police discretion remains."
+  },
+  {
+   "pid": "P74",
+   "party_by": "tribunal_below",
+   "party_text": "The proper functioning of the criminal justice system requires independent exercise of discretion by police and Crown prosecutors, even if their discretions overlap.",
+   "party_ids": [
+    "54.1",
+    "54.2",
+    "54.3",
+    "54.4",
+    "54.5",
+    "54.6",
+    "54.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court affirms the need for independent discretion by police and Crown prosecutors despite overlap."
+  },
+  {
+   "pid": "P75",
+   "party_by": "tribunal_below",
+   "party_text": "The police officer's discretion is not limited by the discretion of the Crown prosecutor and both must exercise their discretion independently.",
+   "party_ids": [
+    "54.4",
+    "54.5",
+    "54.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court rejects the view that police discretion is limited by Crown prosecutor discretion and states both must act independently."
+  },
+  {
+   "pid": "P76",
+   "party_by": "tribunal_below",
+   "party_text": "The accused cannot be convicted of obstructing justice solely because he exercised his discretion improperly.",
+   "party_ids": [
+    "55.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the accused cannot be convicted solely for improper exercise of discretion."
+  },
+  {
+   "pid": "P77",
+   "party_by": "tribunal_below",
+   "party_text": "Reviewing police discretion and determining whether obstructing justice has been committed are separate analyses, though they may rely on similar evidence.",
+   "party_ids": [
+    "55.2",
+    "55.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court distinguishes between reviewing police discretion and determining obstructing justice as separate analyses."
+  },
+  {
+   "pid": "P78",
+   "party_by": "tribunal_below",
+   "party_text": "The actus reus and mens rea analyses intersect because both require considering the honesty of the exercise of discretion.",
+   "party_ids": [
+    "56.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the intersection of actus reus and mens rea analyses requiring consideration of honesty in discretion exercise."
+  },
+  {
+   "pid": "P79",
+   "party_by": "tribunal_below",
+   "party_text": "Lack of dishonest intention does not prove proper exercise of discretion; it must also be justified on objective factors.",
+   "party_ids": [
+    "56.2",
+    "56.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court explicitly states that lack of dishonest intention alone is insufficient and discretion must be justified on objective factors."
+  },
+  {
+   "pid": "P80",
+   "party_by": "tribunal_below",
+   "party_text": "The exercise of police discretion must be judged by what a reasonable police officer would do in the same situation, based on objective factors.",
+   "party_ids": [
+    "56.4",
+    "56.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees that discretion must be judged by what a reasonable officer would do, based on objective factors."
+  },
+  {
+   "pid": "P81",
+   "party_by": "tribunal_below",
+   "party_text": "While intention is often decisive in reviewing discretion and determining obstruction, it is preferable to link discretion analysis with actus reus analysis.",
+   "party_ids": [
+    "56.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees it is preferable to link discretion analysis with actus reus analysis."
+  },
+  {
+   "pid": "P82",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge made no error of law.",
+   "party_ids": [
+    "60.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the trial judge made no error of law."
+  },
+  {
+   "pid": "P83",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu clearly stated the principles applicable to the burden of proof and assessed the credibility of the accused\u2019s testimony.",
+   "party_ids": [
+    "60.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the judge clearly stated principles on burden of proof and credibility assessment."
+  },
+  {
+   "pid": "P84",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu correctly described police discretion and its importance.",
+   "party_ids": [
+    "60.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the judge correctly described police discretion and its importance."
+  },
+  {
+   "pid": "P85",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu correctly delimited the scope of criminal law and disciplinary law, recognizing that unjustified exercise of discretion does not necessarily mean the offence in s. 139(2) was committed.",
+   "party_ids": [
+    "60.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the judge correctly delimited criminal and disciplinary law scope."
+  },
+  {
+   "pid": "P86",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu correctly identified the elements of the offence, including the need for the Crown to prove specific intent to obstruct justice.",
+   "party_ids": [
+    "60.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the judge correctly identified offence elements including specific intent."
+  },
+  {
+   "pid": "P87",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu accurately stated the issue before him as whether the accused decided not to have Plourde take a breathalyzer test because he was a peace officer, and that such an exercise of discretion was unacceptable.",
+   "party_ids": [
+    "60.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the judge accurately stated the issue regarding the accused's exercise of discretion."
+  },
+  {
+   "pid": "P88",
+   "party_by": "respondent",
+   "party_text": "Fish J. argues there is a fundamental distinction between jury verdicts and trial judge verdicts under s. 686(1)(a)(i), asserting the Yebes test applies only to jury verdicts.",
+   "party_ids": [
+    "62.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "62.3"
+   ],
+   "answer_paragraphs": [
+    62
+   ],
+   "answer_quote": "It is, however, equally applicable to the judgment of a judge sitting at trial without a jury.",
+   "why": "The court disagrees with Fish J.'s distinction and holds the Yebes test applies equally to judge and jury verdicts."
+  },
+  {
+   "pid": "P89",
+   "party_by": "respondent",
+   "party_text": "Fish J. says a verdict can be unreasonable even if supported by evidence, and in such cases a new trial should be ordered rather than an acquittal.",
+   "party_ids": [
+    "63.1",
+    "63.2",
+    "63.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees a verdict can be unreasonable despite evidence support and that a new trial is appropriate in such cases."
+  },
+  {
+   "pid": "P90",
+   "party_by": "respondent",
+   "party_text": "Fish J. criticizes the trial judge for errors in interpreting evidence and finds them serious enough to require a new trial.",
+   "party_ids": [
+    "65.1",
+    "65.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "65.3",
+    "65.4"
+   ],
+   "answer_paragraphs": [
+    65
+   ],
+   "answer_quote": "I do not agree that the trial judge made such errors. Moreover, it is important to note that that is not the issue before this Court.",
+   "why": "The court disagrees that the trial judge made serious errors requiring a new trial and notes that is not the issue before it."
+  },
+  {
+   "pid": "P91",
+   "party_by": "applicant",
+   "party_text": "The appellant submits that no properly instructed trier of fact could reasonably have convicted him after fairly assessing all evidence.",
+   "party_ids": [
+    "66.6"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "66.7",
+    "66.10"
+   ],
+   "answer_paragraphs": [
+    66
+   ],
+   "answer_quote": "I do not think this is a tenable submission. Therefore, I cannot say the verdict was unreasonable.",
+   "why": "The court rejects the appellant's submission that no reasonable trier of fact could convict after assessing all evidence."
+  },
+  {
+   "pid": "P92",
+   "party_by": "respondent",
+   "party_text": "Fish J. does not consider all evidence in determining unreasonableness and seems to base his order for a new trial on miscarriage of justice under s. 686(1)(a)(iii), which is not the question before the Court.",
+   "party_ids": [
+    "67.1",
+    "67.2",
+    "67.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court finds Fish J. did not consider all evidence and based his order on miscarriage of justice, which is not the question before the court."
+  },
+  {
+   "pid": "P93",
+   "party_by": "respondent",
+   "party_text": "Chamberland J.A. considered whether a different verdict would have been reasonable, not the unreasonableness of the verdict, and did not account for the trial judge's privileged position.",
+   "party_ids": [
+    "68.5",
+    "68.6"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "68.4"
+   ],
+   "answer_paragraphs": [
+    68
+   ],
+   "answer_quote": "It should also be borne in mind that the question whether a verdict is unreasonable is not the same as the question whether a different verdict would have been reasonable had the evidence presented at trial been interpreted differently.",
+   "why": "The court rejects Chamberland J.A.'s approach as it considered a different question and failed to respect the trial judge's privileged position."
+  },
+  {
+   "pid": "P94",
+   "party_by": "respondent",
+   "party_text": "Fish J. also failed to take into account the trial judge's privileged position in assessing evidence.",
+   "party_ids": [
+    "68.7"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "68.3",
+    "68.6"
+   ],
+   "answer_paragraphs": [
+    68
+   ],
+   "answer_quote": "Nonetheless, as this Court has consistently said, the integrity of our judicial system requires that the trial judge\u2019s privileged position in assessing the facts be respected. Moreover, his analysis does not take into account the trial judge\u2019s privileged position in assessing the evidence.",
+   "why": "The court says Fish J. failed to take into account the trial judge's privileged position, rejecting the point."
+  },
+  {
+   "pid": "P95",
+   "party_by": "respondent",
+   "party_text": "The Crown submits that Sergeant Beaudry was obstructing justice by deciding not to obtain breath samples, knowing that evidence was necessary to prove the offence under s. 253 of the Criminal Code.",
+   "party_ids": [
+    "70.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "70.3"
+   ],
+   "answer_paragraphs": [
+    70
+   ],
+   "answer_quote": "The charge against Sergeant Beaudry is in fact based on his decision not to obtain breath samples.",
+   "why": "The court accepts the Crown's submission that Sergeant Beaudry was obstructing justice by not obtaining breath samples."
+  },
+  {
+   "pid": "P96",
+   "party_by": "respondent",
+   "party_text": "The charge is not based on an allegation that Sergeant Beaudry attempted to conceal the commission of an offence by Mr. Plourde.",
+   "party_ids": [
+    "70.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the charge is not based on an allegation of concealment by Sergeant Beaudry."
+  },
+  {
+   "pid": "P97",
+   "party_by": "respondent",
+   "party_text": "Fish J. concludes the verdict is unreasonable partly because there is no evidence supporting a finding that Sergeant Beaudry attempted to conceal that Mr. Plourde committed an offence.",
+   "party_ids": [
+    "70.6"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "70.7"
+   ],
+   "answer_paragraphs": [
+    70
+   ],
+   "answer_quote": "But that is not the issue.",
+   "why": "The court rejects Fish J.'s conclusion that the verdict is unreasonable due to lack of evidence of concealment, stating that is not the issue."
+  },
+  {
+   "pid": "P98",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu described relevant facts and found the circumstances very serious despite no accidents or injuries.",
+   "party_ids": [
+    "71.1",
+    "71.2",
+    "71.3",
+    "71.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Judge Beaulieu's description of facts and finding of seriousness despite no accidents or injuries."
+  },
+  {
+   "pid": "P99",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge required more convincing evidence to support that discretion was exercised for humanitarian reasons, considering police directives and testimony about normal procedure.",
+   "party_ids": [
+    "72.1",
+    "72.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the trial judge required more convincing evidence considering police directives and testimony about normal procedure."
+  },
+  {
+   "pid": "P100",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge carefully weighed testimony of officers Boucher and B\u00e9lisle, found their statements to be lies, and considered their testimony important contextual evidence.",
+   "party_ids": [
+    "73.1",
+    "73.2",
+    "73.3",
+    "73.4",
+    "73.5",
+    "73.6",
+    "73.7",
+    "73.8",
+    "73.9"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's careful weighing of officers' testimony and its importance as contextual evidence."
+  },
+  {
+   "pid": "P101",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found beyond a reasonable doubt that the accused knew at the roadside that Mr. Plourde was a S\u00fbret\u00e9 du Qu\u00e9bec officer and decided not to follow usual procedure.",
+   "party_ids": [
+    "74.1",
+    "74.2",
+    "74.3",
+    "74.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding beyond reasonable doubt that the accused knew Mr. Plourde was an officer and decided not to follow usual procedure."
+  },
+  {
+   "pid": "P102",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu believed Sergeant Beaudry's version of Mr. Plourde's conduct but found the 'climate of distress' was raised after the fact to justify actions, leading to a finding of guilt.",
+   "party_ids": [
+    "75.1",
+    "75.2",
+    "75.3",
+    "75.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's belief in Sergeant Beaudry's version but finds the 'climate of distress' was raised after the fact, leading to guilt."
+  },
+  {
+   "pid": "P103",
+   "party_by": "tribunal_below",
+   "party_text": "Judge Beaulieu expressed scepticism about Sergeant Beaudry's claim that he decided not to take breath samples to help Mr. Plourde due to depression, noting lack of evidence and inconsistencies.",
+   "party_ids": [
+    "76.1",
+    "76.2",
+    "76.3",
+    "76.4",
+    "76.5",
+    "76.6",
+    "76.7",
+    "76.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's skepticism about the depression claim due to lack of evidence and inconsistencies."
+  },
+  {
+   "pid": "P104",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge noted the absence of mention of depression in the file and concluded more evidence would be needed before considering a clinical diagnosis likely.",
+   "party_ids": [
+    "77.1",
+    "77.2",
+    "77.3",
+    "77.4",
+    "77.5",
+    "77.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's note on absence of depression mention and need for more evidence before clinical diagnosis."
+  },
+  {
+   "pid": "P105",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge concluded beyond a reasonable doubt that Sergeant Beaudry acted knowingly and out of favouritism when failing to take timely breath samples.",
+   "party_ids": [
+    "78.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's conclusion beyond reasonable doubt that Sergeant Beaudry acted knowingly and out of favouritism."
+  },
+  {
+   "pid": "P106",
+   "party_by": "respondent",
+   "party_text": "Chamberland J.A. opined Sergeant Beaudry acted transparently and never attempted to conceal anything.",
+   "party_ids": [
+    "78.2"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "78.3"
+   ],
+   "answer_paragraphs": [
+    78
+   ],
+   "answer_quote": "Judge Beaulieu, however, was of a very different opinion, and in my view his conclusion was perfectly reasonable.",
+   "why": "The court acknowledges Chamberland J.A.'s opinion but rejects it as unreasonable, favoring the trial judge's contrary view."
+  },
+  {
+   "pid": "P107",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge believed Constable Dagenais's testimony that Sergeant Beaudry said Mr. Plourde was under arrest for impaired driving and had not been candid about the situation.",
+   "party_ids": [
+    "79.1",
+    "79.2",
+    "79.3",
+    "79.4",
+    "79.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees with the trial judge's belief in Constable Dagenais's testimony and finds Sergeant Beaudry was not candid."
+  },
+  {
+   "pid": "P109",
+   "party_by": "tribunal_below",
+   "party_text": "The verdict turned on credibility issues, and the trial judge was best positioned to assess witness credibility and determine if evidence left room for reasonable doubt.",
+   "party_ids": [
+    "83.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the verdict turned on credibility and the trial judge was best positioned to assess it."
+  },
+  {
+   "pid": "P108",
+   "party_by": "applicant",
+   "party_text": "Justice Fish urges the Court to reconsider the traditional scope of s. 686(1)(a)(i) of the Criminal Code to allow appellate courts to find a verdict unreasonable when it rests on trial judge's findings that are demonstrably incompatible with uncontradicted evidence.",
+   "party_ids": [
+    "84.1",
+    "84.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges Justice Fish's urging to reconsider the scope of s. 686(1)(a)(i) regarding verdicts incompatible with uncontradicted evidence."
+  },
+  {
+   "pid": "P110",
+   "party_by": "respondent",
+   "party_text": "The law traditionally focuses on the reasonableness of the verdict, not on the quality of the reasons given for reaching it.",
+   "party_ids": [
+    "85.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the law traditionally focuses on the reasonableness of the verdict, not the quality of reasons."
+  },
+  {
+   "pid": "P111",
+   "party_by": "respondent",
+   "party_text": "There may be a connection between an error in interpreting evidence and an unreasonable verdict.",
+   "party_ids": [
+    "85.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts there may be a connection between errors interpreting evidence and unreasonable verdicts."
+  },
+  {
+   "pid": "P112",
+   "party_by": "applicant",
+   "party_text": "The dissent in this case was not based on an error of law, so s. 686(1)(a)(ii) is not available to the appellant here.",
+   "party_ids": [
+    "86.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees s. 686(1)(a)(ii) is not available as the dissent was not based on an error of law."
+  },
+  {
+   "pid": "P113",
+   "party_by": "applicant",
+   "party_text": "A verdict is unreasonable if the essential findings of fact are demonstrably incompatible with uncontradicted evidence not rejected by the trial judge, as such a verdict lacks legitimacy.",
+   "party_ids": [
+    "86.8"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees a verdict is unreasonable if essential findings are demonstrably incompatible with uncontradicted evidence."
+  },
+  {
+   "pid": "P114",
+   "party_by": "respondent",
+   "party_text": "The faults identified in the trial judge's reasons do not have the centrality to the verdict nor incompatibility with the record sufficient to justify reversal.",
+   "party_ids": [
+    "87.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Court finds faults lack centrality or incompatibility to justify reversal."
+  },
+  {
+   "pid": "P115",
+   "party_by": "respondent",
+   "party_text": "A police officer is entitled to be presumed innocent until reasonably and properly convicted, even if the alleged offence benefits another officer.",
+   "party_ids": [
+    "88.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Court affirms police officer's presumption of innocence until proper conviction."
+  },
+  {
+   "pid": "P116",
+   "party_by": "applicant",
+   "party_text": "The decisive question was whether Beaudry refrained from asking for the sample because the arrested person was a police officer, and the trial judge answered affirmatively.",
+   "party_ids": [
+    "90.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Court identifies the decisive question as whether Beaudry refrained due to the arrested person being a police officer."
+  },
+  {
+   "pid": "P117",
+   "party_by": "applicant",
+   "party_text": "The trial judge's conclusions are not supported by the reasons and are fundamentally incompatible with the uncontradicted evidence, making the verdict unreasonable under s. 686(1)(a)(i).",
+   "party_ids": [
+    "90.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Court finds trial judge's conclusions unsupported and incompatible with uncontradicted evidence, making verdict unreasonable."
+  },
+  {
+   "pid": "P118",
+   "party_by": "respondent",
+   "party_text": "The actus reus and mens rea for obstruction of justice should not be conflated; improper discretion amounts to obstruction only with intent to obstruct justice.",
+   "party_ids": [
+    "92.1",
+    "92.2",
+    "92.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Court agrees actus reus and mens rea should not be conflated; improper discretion requires intent to obstruct justice."
+  },
+  {
+   "pid": "P119",
+   "party_by": "respondent",
+   "party_text": "Beaudry must be shown to have acted corruptly or dishonestly, beyond lawful discretion as a police officer, to be guilty of obstruction of justice.",
+   "party_ids": [
+    "92.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "Court states Beaudry must have acted corruptly or dishonestly beyond lawful discretion to be guilty."
+  },
+  {
+   "pid": "P120",
+   "party_by": "applicant",
+   "party_text": "Police discretion is an essential element of the justice system in Quebec and other provinces, and it is not limited by the attorney general's authority or internal police directives.",
+   "party_ids": [
+    "93.1",
+    "93.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees police discretion is essential and not limited by attorney general or internal directives."
+  },
+  {
+   "pid": "P121",
+   "party_by": "applicant",
+   "party_text": "Appellate courts may find a verdict unreasonable even if it was available on the record, especially in non-jury cases.",
+   "party_ids": [
+    "103.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees appellate courts may find a verdict unreasonable even if available on the record in non-jury cases."
+  },
+  {
+   "pid": "P122",
+   "party_by": "respondent",
+   "party_text": "A verdict based on unreasonable reasons is not unreasonable if another trier of fact could have reached the same conclusion by a different and proper route.",
+   "party_ids": [
+    "104.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "104.2",
+    "104.3",
+    "104.4"
+   ],
+   "answer_paragraphs": [
+    104
+   ],
+   "answer_quote": "With respect, I do not share that view. No one should stand convicted on the strength of manifestly bad reasons \u2014 reasons that are illogical on their face, or contrary to the evidence \u2014 on the ground that another judge (who never did and never will try the case) could but might not necessarily have reached the same conclusion for other reasons. A verdict that was reached illogically or irrationally is hardly made reasonable by the fact that another judge could reasonably have convicted or acquitted the accused.",
+   "why": "The court rejects the view that a verdict based on unreasonable reasons is not unreasonable if another trier could have reached the same conclusion."
+  },
+  {
+   "pid": "P123",
+   "party_by": "respondent",
+   "party_text": "Where evidence supports a conviction, it is preferable to order a new trial for a fresh determination by a real judge rather than uphold a verdict based on illogical reasons.",
+   "party_ids": [
+    "104.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court prefers ordering a new trial for fresh determination rather than upholding a verdict based on illogical reasons."
+  },
+  {
+   "pid": "P124",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the officers with the appellant not credible because they denied suspicion of intoxication when first stopping Mr. Plourde.",
+   "party_ids": [
+    "106.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court summarizes the trial judge's finding that the officers with the appellant were not credible due to denying suspicion of intoxication."
+  },
+  {
+   "pid": "P125",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the appellant tried to hide that Mr. Plourde was driving intoxicated by classifying the incident as assistance to the public and unclassified activity.",
+   "party_ids": [
+    "106.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the trial judge found the appellant tried to hide intoxication by classifying the incident as assistance to the public and unclassified activity."
+  },
+  {
+   "pid": "P126",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the appellant's claim that he believed Mr. Plourde was depressed and needed help was untrue, as he would have taken him to hospital otherwise and the police report did not indicate depression.",
+   "party_ids": [
+    "106.3",
+    "106.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the trial judge's finding that the appellant's claim about believing Mr. Plourde was depressed was untrue."
+  },
+  {
+   "pid": "P127",
+   "party_by": "tribunal_below",
+   "party_text": "Mr. Plourde did not recall the issue of depression being raised with the appellant.",
+   "party_ids": [
+    "106.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Mr. Plourde did not recall the issue of depression being raised."
+  },
+  {
+   "pid": "P128",
+   "party_by": "tribunal_below",
+   "party_text": "The testimony of Raymond Dagenais and Marc Rocheleau was given much weight by the trial judge.",
+   "party_ids": [
+    "106.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the trial judge gave much weight to the testimony of Dagenais and Rocheleau."
+  },
+  {
+   "pid": "P129",
+   "party_by": "tribunal_below",
+   "party_text": "Dagenais testified the appellant said Mr. Plourde was under arrest but delayed photographing him because he had a decision to make.",
+   "party_ids": [
+    "106.6"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that Dagenais testified about the appellant's statement regarding arrest and delaying photographing."
+  },
+  {
+   "pid": "P130",
+   "party_by": "tribunal_below",
+   "party_text": "Rocheleau testified the appellant said they exercised discretion to give Mr. Plourde a chance.",
+   "party_ids": [
+    "106.7"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts Rocheleau's testimony about the appellant exercising discretion to give a chance."
+  },
+  {
+   "pid": "P131",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge concluded the appellant tried to conceal that Mr. Plourde had driven intoxicated to prevent charges being laid.",
+   "party_ids": [
+    "107.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's conclusion that the appellant tried to conceal intoxicated driving."
+  },
+  {
+   "pid": "P132",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the appellant improperly exercised discretion by not administering a breathalyzer and not recommending prosecution, which was not his decision to make.",
+   "party_ids": [
+    "107.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the appellant improperly exercised discretion."
+  },
+  {
+   "pid": "P133",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found the appellant acted out of favouritism for a fellow officer, not because he believed Mr. Plourde was depressed and needed help.",
+   "party_ids": [
+    "107.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the trial judge's finding that the appellant acted out of favouritism, not because he believed Mr. Plourde was depressed."
+  },
+  {
+   "pid": "P134",
+   "party_by": "respondent",
+   "party_text": "The trial judge's reasons suffer from flaws in evaluating and analyzing evidence that justify reversal, especially regarding whether the appellant acted corruptly or dishonestly with intent to obstruct justice.",
+   "party_ids": [
+    "108.1",
+    "108.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the trial judge's reasons have flaws justifying reversal, especially on whether the appellant acted corruptly or dishonestly."
+  },
+  {
+   "pid": "P135",
+   "party_by": "respondent",
+   "party_text": "The credibility findings against officers Boucher and B\u00e9lisle are accepted but their testimony is not decisive on whether the appellant acted in good faith or to obstruct justice.",
+   "party_ids": [
+    "109.1",
+    "109.2",
+    "109.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the credibility findings against officers but finds their testimony not decisive on appellant's intent."
+  },
+  {
+   "pid": "P136",
+   "party_by": "respondent",
+   "party_text": "The critical issue is whether the appellant refrained from arresting and testing Mr. Plourde because he believed he was depressed and needed help or to shield a fellow officer from criminal proceedings.",
+   "party_ids": [
+    "109.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court identifies the critical issue as whether the appellant acted out of belief in depression or to shield a fellow officer."
+  },
+  {
+   "pid": "P137",
+   "party_by": "respondent",
+   "party_text": "The trial judge's other findings are more relevant to the issue of intent to obstruct justice.",
+   "party_ids": [
+    "110.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the trial judge's other findings are more relevant to intent to obstruct justice."
+  },
+  {
+   "pid": "P138",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge considered the incident report and memorandum prepared by the appellant, which were intended to divert attention from the night's events.",
+   "party_ids": [
+    "111.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the trial judge considered the incident report and memorandum as intended to divert attention."
+  },
+  {
+   "pid": "P139",
+   "party_by": "respondent",
+   "party_text": "The Crown conceded that the appellant did offer to take Mr. Plourde to the hospital but Mr. Plourde refused to go.",
+   "party_ids": [
+    "113.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the Crown's concession that the appellant offered to take Mr. Plourde to the hospital but he refused."
+  },
+  {
+   "pid": "P140",
+   "party_by": "tribunal_below",
+   "party_text": "The trial judge found Marc Rocheleau to be a very credible witness and believed his account of the accused's comments including 'We've exercised our discretion to give a chance.'",
+   "party_ids": [
+    "115.2",
+    "115.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the trial judge found Marc Rocheleau credible and believed his account."
+  },
+  {
+   "pid": "P141",
+   "party_by": "respondent",
+   "party_text": "The appellant made a conscious decision to help rather than charge Mr. Plourde, but the question is whether this was motivated by camaraderie or compassion.",
+   "party_ids": [
+    "116.2",
+    "116.3"
+   ],
+   "answered": true,
+   "verdict": "partly",
+   "answer_ids": [
+    "116.4"
+   ],
+   "answer_paragraphs": [
+    116
+   ],
+   "answer_quote": "Mr. Rocheleau\u2019s evidence is of little assistance in that regard, either on its own or in the context of the evidence as a whole.",
+   "why": "The court accepts the appellant made a conscious decision to help but finds the motivation (camaraderie or compassion) unclear and Rocheleau's evidence unhelpful."
+  }
+ ]
+}

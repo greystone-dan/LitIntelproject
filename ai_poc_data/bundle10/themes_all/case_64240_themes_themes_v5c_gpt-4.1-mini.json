@@ -1,0 +1,2101 @@
+{
+ "case_id": 64240,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "mini6_v5c",
+ "usage": {
+  "usd": 0.024598800000000004
+ },
+ "verification": {
+  "items": 109,
+  "quote_exact_in_cited": 109,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 12,
+  "calls": 13,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 5,
+   "arguments": 47,
+   "holdings": 58,
+   "rebuttals": 0,
+   "authorities": 3,
+   "left_open": 1
+  }
+ },
+ "result": {
+  "overall": "The Refugee Appeal Division (RAD) dismissed the appeal, confirming the Refugee Protection Division's (RPD) decision that the appellants are neither Convention refugees nor persons in need of protection, primarily due to credibility findings and insufficient evidence of persecution risk.",
+  "themes": [
+   {
+    "name": "Credibility assessment",
+    "summary": "The decision heavily relies on evaluating the credibility of the appellants' allegations, including inconsistencies in testimony and evidence such as travel authorization and text messages.",
+    "paragraphs": [
+     2,
+     7,
+     15,
+     16,
+     18,
+     20,
+     28,
+     30,
+     31,
+     38,
+     40
+    ]
+   },
+   {
+    "name": "Risk of persecution and abuse",
+    "summary": "The tribunal examines the alleged past abuse and risk of future persecution, concluding that the evidence does not meet the threshold for persecution under IRPA.",
+    "paragraphs": [
+     3,
+     5,
+     24,
+     31,
+     33,
+     34,
+     40
+    ]
+   },
+   {
+    "name": "Role and standard of review of RAD",
+    "summary": "The RAD must independently assess the evidence but shows deference to the RPD's credibility findings while independently assessing country conditions and mixed fact-law issues.",
+    "paragraphs": [
+     10,
+     11
+    ]
+   },
+   {
+    "name": "New evidence and oral hearing request",
+    "summary": "New evidence was admitted but found insufficient to alter the outcome, and the request for an oral hearing was denied.",
+    "paragraphs": [
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "name": "Impact of religious renunciation and Sharia law",
+    "summary": "The tribunal considers the appellants' alleged renunciation of Islam and the implications of Sharia law, concluding that the appellants' profile and resources mitigate the risk of persecution.",
+    "paragraphs": [
+     21,
+     22,
+     23,
+     32,
+     35,
+     36,
+     37
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and appeal context",
+    "first_paragraph": 1,
+    "last_paragraph": 1,
+    "disposition": "other"
+   },
+   {
+    "label": "Summary of RPD decision and RAD confirmation",
+    "first_paragraph": 2,
+    "last_paragraph": 2,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Appellants' allegations of persecution and abuse",
+    "first_paragraph": 3,
+    "last_paragraph": 5,
+    "disposition": "other"
+   },
+   {
+    "label": "Procedural history and submissions",
+    "first_paragraph": 6,
+    "last_paragraph": 9,
+    "disposition": "other"
+   },
+   {
+    "label": "Role and standard of review of the RAD",
+    "first_paragraph": 10,
+    "last_paragraph": 11,
+    "disposition": "other"
+   },
+   {
+    "label": "Admission and consideration of new evidence and oral hearing request",
+    "first_paragraph": 12,
+    "last_paragraph": 14,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Assessment of credibility issues regarding travel authorization",
+    "first_paragraph": 15,
+    "last_paragraph": 20,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Assessment of credibility regarding renunciation of Islam and wearing hijab",
+    "first_paragraph": 21,
+    "last_paragraph": 23,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Evaluation of past persecution allegations and inconsistencies",
+    "first_paragraph": 24,
+    "last_paragraph": 31,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Analysis of risk related to Sharia law and state protection",
+    "first_paragraph": 32,
+    "last_paragraph": 37,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Overall credibility and legitimacy of claim",
+    "first_paragraph": 38,
+    "last_paragraph": 40,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Final determination and dismissal of appeal",
+    "first_paragraph": 41,
+    "last_paragraph": 42,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Appellants have submitted new evidence in support of their appeal and are requesting an oral hearing before the Refugee Appeal Division (RAD).",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants have submitted new evidence in support of their appeal and are requesting an oral hearing before the Refugee Appeal Division.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this claim, for a number of reasons, the RPD did not believe that the Appellants were at risk of persecution or at risk for an Immigration and Refugee Protection Act (IRPA) section 97 reason because it concluded that the Appellants did not meet their burden of establishing that their story was true on a balance of probability.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD did not believe that the Appellants were at risk of persecution or for an IRPA section 97 reason because it concluded the Appellants did not meet their burden of establishing their story was true on a balance of probability.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants alleged before the RPD that they face treatment which cumulatively should be viewed as a risk of persecution.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants alleged before the RPD that they face treatment which cumulatively should be viewed as a risk of persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The focus was on the risk faced by the Principal Appellant who alleges that she faced years of abuse including sexual abuse at the hand of her husband, Mr. XXXX XXXX.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant alleges that she faced years of abuse including sexual abuse at the hand of her husband, Mr. XXXX XXXX.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants also allege that the minor claimants have also been abused by Mr. XXXX and that older siblings have also been involved in activities which cumulatively should be viewed as persecution.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants allege that the minor claimants have also been abused by Mr. XXXX and that older siblings have also been involved in activities which cumulatively should be viewed as persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants allege a series of severe incidents over the course of the marriage, which involve verbal, physical and sexual abuse of the Principal Appellant and abuse of all the children when they were minors.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants allege a series of severe incidents over the course of the marriage, involving verbal, physical and sexual abuse of the Principal Appellant and abuse of all the children when they were minors.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants also allege financial impropriety on the part of Mr. XXXX and his family with respect to the Principal Appellant's property.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants allege financial impropriety on the part of Mr. XXXX and his family with respect to the Principal Appellant's property.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants note that Mr. XXXX has recently taken a second wife, which is his right in Sharia law.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "Mr. XXXX has recently taken a second wife, which is his right in Sharia law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Principal Appellant also alleges that her older children, who remain in Lebanon, have followed in their father's footsteps and have become brutish in their behavior (Appellants' Record, Volume 1, pp. 68-69).",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant alleges that her older children, who remain in Lebanon, have followed in their father's footsteps and have become brutish in their behavior.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants submit that the RPD erred in several aspects of its decision.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred in several aspects of its decision.",
+    "treatment": "not_decided",
+    "outcome_note": "general error allegation, no specific finding here",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "On the issue of the RPD's credibility assessment the Appellants argue that the RPD did not focus on the important allegations of the Appellants but instead looked for 'minor discrepancies'.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD did not focus on the important allegations of the Appellants but instead looked for 'minor discrepancies' in its credibility assessment.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The focus of the RPD was therefore on the travel authorization and the 'text chat', for example.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD focused on the travel authorization and the 'text chat' rather than the important allegations.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD is also viewed as having erred by speculating about the meaning of the behaviour of Mr. XXXX when the RPD had the truthful testimony of the Principal Appellant to rely on.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD erred by speculating about the meaning of Mr. XXXX's behaviour despite having truthful testimony from the Principal Appellant.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants also draw attention to the risk that the Appellants face in Lebanon because the Principal Appellant has allegedly given up her Islamic faith.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants face risk in Lebanon because the Principal Appellant has allegedly given up her Islamic faith.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellant also introduced new evidence which supports the argument that this risk exists and that the RPD is erred with respect to at least one element of his analysis related to the text chat.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "applicant",
+    "claim": "New evidence supports the argument that the risk exists and that the RPD erred in at least one element of his analysis related to the text chat.",
+    "treatment": "partly_accepted",
+    "outcome_note": "accepted risk argument but not all errors found",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In terms of an outcome from this appeal, the Appellants seek to be recognized as Convention refugees or persons in need of protection. 'Alternatively' the Appellants seek to have the RPD decision be returned to the RPD for a re-determination by a 'different panel'.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants seek to be recognized as Convention refugees or persons in need of protection, or alternatively, to have the RPD decision returned for re-determination by a different panel.",
+    "treatment": "not_decided",
+    "outcome_note": "outcome sought, no decision here",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants argue that these meet the criterial for acceptance under Section 110(4) (Appellants' Memorandum, paragraph 25).",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "applicant",
+    "claim": "The new evidence meets the criteria for acceptance under Section 110(4).",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants argue that the RPD focused on a series of assumed credibility issues but did not address the \"central basis of the refugee claim\" (Appellants' Memorandum, paragraph 40) which is found in her testimony and the testimony of her witness.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD focused on assumed credibility issues but did not address the central basis of the refugee claim found in the testimony of the Principal Appellant and her witness.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The first \"collateral contradiction\" or \"minor discrepancy\" as understood by the Appellants identified by the RPD was the fact that the Principal Appellant's husband signed a document dated September 4, 2014 which essentially granted the Principal Appellant the capacity to travel with the co-Appellants at any time (RPD Record, p. 114).",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "The fact that the Principal Appellant's husband signed a travel authorization document is a collateral contradiction or minor discrepancy identified by the RPD.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD concluded that the fact that Principal Appellant's husband signed this release was inconsistent with the allegations because Mr. XXXX is being portrayed as controlling, abusive and possessive of his children.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found the husband's signing of the travel authorization inconsistent with allegations that he is controlling, abusive, and possessive of his children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "According to the RPD, \"The claimant testified that her husband is abusive and controlling and yet imposed no restrictions or conditions on his signed authority allowing to XXXX to travel with their children out of Lebanon.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD noted that the claimant testified her husband is abusive and controlling but imposed no restrictions on the travel authorization allowing travel with the children out of Lebanon.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The panel reasonably would expect that, given that the claimant testified that she such violent and bad relations with her husband, maintained a separate home and medical practice from her husband and had threatened divorcing him, that her husband would have imposed more restrictions or conditions in his authorization for XXXX to travel out of Lebanon with their children\" (RPD Decision, paragraph 30).",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD panel expected that given the claimant's testimony of violent and bad relations with her husband, and her threats of divorce, the husband would have imposed more restrictions on the travel authorization.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants argue that there are many reasons for why this should not be viewed as a contradiction.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "There are many reasons why the travel authorization should not be viewed as a contradiction.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants argue that the Principal Appellant has planned this out some time ago and that she had been avoiding a fight with her husband and had not brought up the issue of a divorce for some time prior to seeking Mr. XXXX authorization to allow her to travel with the children.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant planned the travel authorization some time ago and had been avoiding a fight with her husband, not bringing up divorce prior to seeking his authorization.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Principal Appellant also speculates that Mr. XXXX was distracted by \"his second marriage with his second wife\" and he did not read the content of the authorization before signing it (Appellant's Record, Volume 1, p. 31).",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant speculates that her husband was distracted by his second marriage and did not read the authorization before signing it.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants also note that the Principal Appellant's husband would have been inconvenienced by the presence of the children in his home because the Principal Appellant had fire two nannies that had been working for her (Appellants' Memorandum, paragraph 44).",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant's husband would have been inconvenienced by the presence of the children in his home because she had fired two nannies.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The concern of the RPD arises because it is noted that the Principal Appellant and one of her daughters were wearing hijab at the hearing.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "respondent",
+    "claim": "The RPD is concerned that the Principal Appellant and one of her daughters were wearing hijab at the hearing, which contradicts the claim that the Principal Appellant has given up Islam.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD finds that the fact that the Principal Appellant is wearing a hijab and that her parents accepted to come to Canada with the aid of a daughter who they knew had abandoned Islam indicates that these allegations lack credibility (RPD Decision, paragraph 34).",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "respondent",
+    "claim": "The RPD finds that the Principal Appellant wearing a hijab and her parents accepting to come to Canada with the aid of a daughter who they knew had abandoned Islam indicates that these allegations lack credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The response of the Principal Appellant to this apparent contradiction is that she needed to retain the support of her parents who are devout.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant needed to retain the support of her devout parents, which explains why she was wearing a hijab despite renouncing Islam.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants views this as a 'westerner' assessing the Principal Appellant's motivation and that the Principal Appellant's response to the perceive contradiction is plausible within the context of the allegations.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants argue that the RPD is assessing the Principal Appellant's motivation from a 'westerner' perspective and that the Principal Appellant's explanation is plausible within the context of the allegations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Principal Appellant goes on to argue that even if the Principal Appellant still subscribed to Islam she had staked out a position opposed to the treatment of woman and children in Islam which, given the allegations, place her at risk from her husband and those in her community who hold deep faith.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "Even if the Principal Appellant still subscribes to Islam, she opposes the treatment of women and children in Islam, which places her at risk from her husband and community members with deep faith.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "One incident is given importance by the Appellants and this is where in 1997, Mr. XXXX is alleged to have allegedly premeditatedly burned his son to inflict pain.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants emphasize an incident in 1997 where Mr. XXXX allegedly premeditatedly burned his son to inflict pain.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In reviewing the evidence, the RPD finds contradictions in the testimony and concludes that this incident was unintentional (an accident).",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found contradictions in the testimony and concluded the burning incident was unintentional, an accident.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants argue that the RPD \"relied upon his own interpretations of the facts\" and there is \"no valid reason to doubt the truthfulness of the first Appellant's allegations in regards to the events surrounding the incident as she described...\" (Appellants' Memorandum, paragraph 77).",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.2",
+     "25.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants argue the RPD relied on his own interpretations of the facts and had no valid reason to doubt the truthfulness of the Principal Appellant's allegations about the incident.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The next issue relates to the alleged text chat between the Principal Appellant and Mr. XXXX. The RPD does not find this evidence probative because it concludes that the timestamps on the text exchange would place Mr. XXXX in America. The RPD concludes that if this were the case Mr. XXXX would have traveled to Canada to attempt to take custody of the children (RPD Decision, paragraph 36)",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1",
+     "28.2",
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD did not find the alleged text chat between the Principal Appellant and Mr. XXXX probative because the timestamps suggested Mr. XXXX was in America, and if so, he would have traveled to Canada to attempt custody of the children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants respond to this by provided new evidence which shows that Mr. XXXX was not in America but was in Lebanon, therefore the RPD erred (Appellants' Memorandum, paragraph 91).",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants provided new evidence showing Mr. XXXX was not in America but in Lebanon, arguing the RPD erred in its conclusion about the text message.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The response of the Appellants is to draw attention to documentation which shows that woman in Lebanon can be at risk because of Sharia law (Appellants' Memorandum, paragraph 93).",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "made_by": "applicant",
+    "claim": "Women in Lebanon can be at risk because of Sharia law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Put simply, the RPD has focused on the specific situation of the Appellants whereas the Appellants focus on the potential risks that stem from Sharia law.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "made_by": "applicant",
+    "claim": "The risk stems from Sharia law generally, not just the specific situation of the Appellants.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "With respect to the RPD's perspective, the core analysis focuses on the profile of the Principal Appellant as a high status, relatively affluent and independent medical professional married to a high status, affluent medical professional who holds an important leadership position in a Tripoli hospital.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD focused on the specific situation of the Principal Appellant as a high status, affluent medical professional married to a high status medical professional with a leadership position.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD does not find that the evidence provided along with the interpretations of events was sufficient to meet her burden to establish the veracity of her allegations of past persecution and of a risk of persecution going forward.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found the evidence insufficient to establish the veracity of allegations of past persecution and risk of persecution going forward.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "According to the RPD, \"Claimant submitted other evidence, a letter showing that her husband is a XXXX XXXX XXXX XXXX XXXX XXXX XXXX in Lebanon (C-33), and that according to the people who had witnessed the couple's relationship and professional life, noted physical violence, harassment and professionally humiliating behavior from XXXX towards XXXX (C-11 to C-14; C-28 to C-31). However, given that the claimant, a highly educated medical doctor, who, in spite of her problems with her husband, successfully established a medical practice separate from him, finances her own household and cares for our youngest children, the claimant has not submitted sufficient probative evidence showing that, if she returns to Lebanon and proceeds with a divorce from her husband, that he would be able and willing to seriously harm the claimant or her children (RPD Decision, paragraph 43).\"",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.3",
+     "33.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD noted evidence of physical violence and harassment from the husband but found the Principal Appellant had not shown that the husband would be able and willing to seriously harm her or her children if she returned to Lebanon and divorced him.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Issue 2: Did the RPD err in its analysis of the risk faced by the Appellants because the Principal Appellant has renounced Islam and Sharia law is practiced in Lebanon?",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "made_by": "applicant",
+    "claim": "The Principal Appellant has renounced Islam and faces risk because Sharia law is practiced in Lebanon.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD addresses a core concern of the Appellants related to the absence of state protection available to woman and children in Lebanon.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD addressed the concern about absence of state protection for women and children in Lebanon.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD concludes that while there are laws and practises in Lebanon which mitigate against the rights of woman, the Principal Appellant has the education, status and resources, even if divorced, to address these issues such that she would not face persecution or a risk as understood in Section 97 of IRPA if she returned to Lebanon.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD concluded that despite laws and practices mitigating women's rights, the Principal Appellant has education, status and resources to avoid persecution or risk if she returned to Lebanon.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I note that the Appellants have provided two additional elements of new evidence. They are legal documents which rely on Sharia law to establish that Mr. XXXX has dominance over the Principal Appellant and is seeking to force her return to Lebanon.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1",
+     "37.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "made_by": "applicant",
+    "claim": "New legal documents relying on Sharia law show the husband has dominance and is seeking to force the Principal Appellant's return to Lebanon.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Even the testimony of the Principal Appellant's sister who is a migration related professional in Canada is open to question. This is because this sister is alleging that she has visited her sister in Lebanon on at least two prior occasions, in 1997 and 2010 and was aware of the alleged persecution.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1",
+     "39.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The testimony of the Principal Appellant's sister who is a migration related professional in Canada is open to question because she alleges visiting her sister in Lebanon in 1997 and 2010 and being aware of the alleged persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In conclusion, the RPD undertook an extensive analysis of the Appellants' allegations and concluded that they lacked credibility.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD undertook an extensive analysis of the Appellants' allegations and concluded that they lacked credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Principal Appellant is Ms. XXXX XXXX, who is 50 years old.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant is Ms. XXXX XXXX, who is 50 years old."
+   },
+   {
+    "quote": "MsXXXX XXXX children include XXXX XXXX, who is an 8 years old daughter, XXXX XXXX, who is a 6 years old son and XXXX XXXX who is a 15 years old daughter.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Ms. XXXX XXXX has three children: an 8-year-old daughter, a 6-year-old son, and a 15-year-old daughter."
+   },
+   {
+    "quote": "All are citizens of Lebanon and all are appealing a decision of the Refugee Protection Division (RPD) rejecting their claims for refugee protection.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "All family members are citizens of Lebanon and are appealing a decision of the Refugee Protection Division rejecting their refugee protection claims."
+   },
+   {
+    "quote": "Ms. XXXX is named designated representative for XXXX XXXX XXXX and XXXX XXXX.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Ms. XXXX is the designated representative for two of her children."
+   },
+   {
+    "quote": "I am in agreement with this credibility assessment.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "conclusion",
+    "statement": "I agree with the RPD's credibility assessment that the Appellants did not meet their burden of proof."
+   },
+   {
+    "quote": "Pursuant to ss. 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the determination of the RPD, namely, that Ms. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX and XXXX XXXX are neither \"Convention refugees\" pursuant to s. 96 of the IRPA nor persons in need of protection pursuant to s. 97 of the IRPA.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "conclusion",
+    "statement": "Pursuant to ss. 111(1)(a) of IRPA, the RAD confirms the RPD's determination that the Appellants are neither Convention refugees under s. 96 nor persons in need of protection under s. 97 of IRPA."
+   },
+   {
+    "quote": "The Principal Appellant is a gynecological obstetrician based in Tripoli.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant is a gynecological obstetrician based in Tripoli."
+   },
+   {
+    "quote": "Her husband is an urologist who is also the XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX Hospital in Tripoli (RPD Record, p. 193).",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "Her husband is an urologist who is also the XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX Hospital in Tripoli."
+   },
+   {
+    "quote": "The Principal Appellant and Mr. XXXX have 6 children the oldest of which is a medical doctor who is identified by the Principal Appellant as an additional agent of persecution.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant and Mr. XXXX have 6 children, the oldest of whom is a medical doctor identified as an additional agent of persecution."
+   },
+   {
+    "quote": "The Appellants live separately from Mr. XXXX and the Principal Appellant states that they are legally separated although allegedly Mr. XXXX currently retains the rights that flow from being her husband in Sharia law.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The Appellants live separately from Mr. XXXX and the Principal Appellant states that they are legally separated although Mr. XXXX currently retains rights under Sharia law as her husband."
+   },
+   {
+    "quote": "The Principal Appellant visited Canada alone in October 2013 and then returned in October 2014 with her minor children.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant visited Canada alone in October 2013 and then returned in October 2014 with her minor children."
+   },
+   {
+    "quote": "The Appellants claimed Canada's protection in XXXX 2014.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The Appellants claimed Canada's protection in XXXX 2014."
+   },
+   {
+    "quote": "The RPD heard their protection claims and on February 27, 2015, denied their claims.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The RPD heard their protection claims and on February 27, 2015, denied their claims."
+   },
+   {
+    "quote": "The Appellant appealed this decision by submitting a Notice of Appeal, which was received by the RAD on April 7, 2015.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The Appellant appealed this decision by submitting a Notice of Appeal, which was received by the RAD on April 7, 2015."
+   },
+   {
+    "quote": "Following Huruglica and Njeukam, I conclude that in this appeal, which turns on questions of fact, I must show a degree of deference to the RPD with respect to its credibility assessment.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "In this appeal, which turns on questions of fact, the RAD must show a degree of deference to the RPD with respect to its credibility assessment"
+   },
+   {
+    "quote": "I recognize, however, that I must also provide my own assessment of the evidence to reach my own conclusion on this appeal.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD must provide its own assessment of the evidence to reach its own conclusion on this appeal"
+   },
+   {
+    "quote": "I conclude that this material does meet the legislative test of s. 110(4) for admission and is therefore admitted into evidence before the RAD.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence meets the legislative test of s. 110(4) for admission and is admitted into evidence before the RAD."
+   },
+   {
+    "quote": "Although I am accepting this material, I do not find that there is anything in this material which would justify allowing or rejecting the Appellant's refugee claim, therefore I am denying the request for an oral hearing under s. 110(6).",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence does not justify allowing or rejecting the Appellant's refugee claim."
+   },
+   {
+    "quote": "Although I am accepting this material, I do not find that there is anything in this material which would justify allowing or rejecting the Appellant's refugee claim, therefore I am denying the request for an oral hearing under s. 110(6).",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The request for an oral hearing under s. 110(6) is denied."
+   },
+   {
+    "quote": "On this issue I must conclude that this can be viewed as a contradiction.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The travel authorization issue can be viewed as a contradiction."
+   },
+   {
+    "quote": "The Principal Appellant is about to travel to Canada with the three minor children. Living in Canada is the Principal Appellant's parents and three out of her 5 siblings.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2",
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant is about to travel to Canada with three minor children where her parents and three siblings live."
+   },
+   {
+    "quote": "The Appellant had just previously visited Canada alone.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant had previously visited Canada alone."
+   },
+   {
+    "quote": "In the background is the fact that Lebanon is currently facing a deteriorating security situation not the least because of the conflict in Syria and Iraq. In Tripoli itself, there have been violent confrontations between Alawite and Sunnis.3",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.5",
+     "18.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "Lebanon is facing a deteriorating security situation due to conflicts in Syria and Iraq, including violent confrontations in Tripoli."
+   },
+   {
+    "quote": "In addition, the Principal Appellant's ties with Lebanon are less strong. Mr. XXXX is now not living with the Principal Appellant but is instead living with a second wife twenty years younger and they have a 2-year-old daughter. There is even some indication of preparation for migration.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1",
+     "19.2",
+     "19.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The Principal Appellant's ties with Lebanon are less strong as her husband lives with a second wife and they have a young daughter, and there is some indication of preparation for migration."
+   },
+   {
+    "quote": "The existing child support was allegedly fired 4 months prior to the Appellants leaving Lebanon (was there an effort to replace?). It is hard to imagine how all this would not raise a suspicion on the part of Mr. XXXX that this trip might become a migration initiative.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.4",
+     "19.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The existing child support was allegedly stopped four months prior to leaving Lebanon, raising suspicion that the trip might be a migration initiative."
+   },
+   {
+    "quote": "Furthermore, in reviewing the letter of authorization, I must conclude that it is very easy to understand and Mr. XXXX is professional and a senior hospital administrator and would be expected to read something before he signed it especially given the circumstances (his children's welfare).",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The letter of authorization is easy to understand and the husband, being a professional senior hospital administrator, would be expected to read it before signing, especially given the circumstances."
+   },
+   {
+    "quote": "I must conclude that if Mr. XXXX were really controlling/dominating there would be evidence of an effort to put conditions/restrictions on travel which is not the case.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "If the husband were really controlling or dominating, there would be evidence of efforts to put conditions or restrictions on travel, which is not the case."
+   },
+   {
+    "quote": "I must conclude that in a situation where the RPD is concluding that the allegations of past persecution lack credibility, the forward looking allegations must also come into question.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "Where the RPD concludes that allegations of past persecution lack credibility, the forward-looking allegations of risk must also be questioned."
+   },
+   {
+    "quote": "This is to say, I must grant the RPD the discretion to conclude that allegations of future risk because of the formal strictures of Islam lack credibility given the absence of past persecution.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD has discretion to conclude that allegations of future risk due to formal strictures of Islam lack credibility given the absence of past persecution."
+   },
+   {
+    "quote": "With respect to the central claim of past persecution, the RPD is faced with little if any more concrete corroborative evidence of abuse aside from the text message examined below. The evidence of abuse is in the form of affidavit evidence and the testimony of the Principal Appellant and her sister.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1",
+     "24.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "background_fact",
+    "statement": "The central claim of past persecution relies mainly on affidavit evidence and testimony from the Principal Appellant and her sister, with little concrete corroborative evidence aside from a text message."
+   },
+   {
+    "quote": "In reviewing the evidence with respect to this incident there does appear to be an inconsistency. The Principal Appellant alleges that this burning incident began with Mr. XXXX, who \"likes tea ... elected to serve himself\" (Appellants' Record, Volume 1, p. 27). This is inconsistent with the testimony of the witness which is that: \"Witness - There is one incident that is stuck in my head the most was an incident were he burnt the son XXXX XXXX and we were in the kitchen and XXXX was asking XXXX to please get groceries because the fridge was literally empty, there was nothing in the fridge none whatsoever and XXXX XXXX was nagging that he was hungry and XXXX happened to be right beside the stove with the kettle boiling some water in it for tea So, he asked XXXX XXXX to stop nagging and XXXX was saying that he was hungry, he took the kettle literally and burned him with it on his arm. Witness - Most likely, I don't remember that part but most likely it was the nanny, the maid because he did not do any house related work. He never did any work so most likely, it was either XXXX or the nanny.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1",
+     "26.2",
+     "26.3",
+     "26.14",
+     "26.17"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "There is an inconsistency in the evidence regarding who made the tea before the burning incident, with the Principal Appellant alleging Mr. XXXX made the tea, while the witness testified Mr. XXXX did not do such tasks and the kettle was likely put on the stove by the nanny."
+   },
+   {
+    "quote": "And then started laughing hysterically as if it was something that was amusing. Lawyer-could it not been an accident? Witness - It was not an accident. He purposely took the kettle, came to him and burned him on his arm and followed it with laughing. And then XXXX XXXX started crying and then because he was crying, because he was burnt. Min 1:46 Witness - ct'd he then proceeded with slapping and hitting him and saying to shut up and that he should go to his room.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.4",
+     "26.5",
+     "26.6",
+     "26.7",
+     "26.8",
+     "26.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "kind": "conclusion",
+    "statement": "The witness's detailed testimony differs from the Principal Appellant's account, providing a substantially more detailed account of the event and portraying Mr. XXXX as purposely burning the child and laughing."
+   },
+   {
+    "quote": "The inconsistency is that the Principal Appellant views the Mr. XXXX as willing to make his own tea (although 'unusual' - RPD Record, p. 56) while the witness could not conceive of Mr. XXXX doing any such a thing. The difference is that the witness can only conceive of the agent of persecution making tea as a prelude to burning the child which is not the case with the Principal Appellant. In addition, although both are alleging the same event, they testified differently in that the witness provides a substantially more detailed account of the event.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1",
+     "27.2",
+     "27.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "The inconsistency is that the Principal Appellant views Mr. XXXX as willing to make his own tea, while the witness could not conceive of Mr. XXXX doing such a thing, and the witness's account is more detailed."
+   },
+   {
+    "quote": "The obvious problem with this response is that it does not address the central problem identified by the RPD. The RPD is stating that if Mr. XXXX were in America he would have shown up in Canada. If anything the Appellants' evidence strengthens the RPD's credibility conclusion because it does not confront the problem of the timestamp. If Mr. XXXX was not in America this is evidence that it was not Mr. XXXX who is sending the text, therefore a clear implication of the RPD's conclusion is sustained that this text message is fraudulent. This is to say that my reading of the RPD decision is that the RPD is suggesting that this corroborative evidence is fraudulent, lacks credibility, because it would place Mr. XXXX in America for which there is no evidence (i.e., he did not show up in Montreal).",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1",
+     "30.2",
+     "30.3",
+     "30.4",
+     "30.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants' new evidence does not address the RPD's central problem that if Mr. XXXX were in America, he would have appeared in Canada; thus, the evidence strengthens the RPD's credibility conclusion that the text message is fraudulent."
+   },
+   {
+    "quote": "In the Appellants' Memorandum the obvious credibility implication of the timestamp has not been addressed. I concluded the RPD did not error on this issue. All this leads back to the RPD conclusion that the Principal Appellant has not met her burden of showing that she has been the target of persecution and that Mr. XXXX has inflicted serious harm on his children aside from treatment which the RPD concludes is not such as to be described as persecution. According to the RPD: \"The Appellant's description of the husband's treatment of the children, that which is retained as credible, is not severe enough to constitute past persecution or past cruel and unusual treatment or punishment of the children and therefore, in the circumstances presented, there is not a serious possibility that the minor claimants would be persecuted in Lebanon, or that, on a balance of probabilities, the they would be personally subjected to a danger of torture or face a risk to life or a risk of cruel and unusual treatment or punishment there (RPD Decision, paragraph 39).\"",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1",
+     "31.2",
+     "31.3",
+     "31.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD's conclusion that the Principal Appellant has not met her burden of showing persecution or serious harm inflicted by Mr. XXXX is upheld, as the credible treatment described is not severe enough to constitute past persecution or cruel and unusual treatment."
+   },
+   {
+    "quote": "From my perspective the thrust of the RPD analysis is that this is a credibility assessment that the allegations are embellishments in the sense that events that may have occurred have been portrayed as severe whereas in reality the Appellants are not in danger from Mr. XXXX to a degree consistent with a determination of persecution and never have been (RPD Decision, paragraph 44).",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD's analysis is a credibility assessment concluding the allegations are embellishments and the Appellants are not in danger from the husband to a degree consistent with persecution."
+   },
+   {
+    "quote": "In examining all of the evidence I am in agreement with this conclusion.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "conclusion",
+    "statement": "The Court agrees with the RPD's conclusion on the credibility and risk assessment regarding the husband."
+   },
+   {
+    "quote": "I must conclude that the documentary evidence provides significant evidence of problems across a range of issues but Lebanon is a society of great diversity and freedom of movement within Lebanon is not restricted for citizens (RPD Record, p. 31).",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "kind": "conclusion",
+    "statement": "The documentary evidence shows significant problems but Lebanon is diverse and citizens have freedom of movement."
+   },
+   {
+    "quote": "In this case I conclude that the profile of the Appellants is such that they would not face problems of this general sort and if some problems were to arise they would be capable of moving elsewhere in Lebanon to address such general risk as the Principal Appellant clearly has resources and a portable skill.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "kind": "conclusion",
+    "statement": "Given the Appellants' profile, they would not face general problems related to renouncing Islam and could move within Lebanon if needed."
+   },
+   {
+    "quote": "I do not find this new evidence credible.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence is not credible and does not support the claim that the husband is seeking to force the return of the Appellants."
+   },
+   {
+    "quote": "The identity of Mr. XXXX is firmly established as a senior medical professional in Lebanon. On a balance of probability, it makes no sense for such an individual to accomplish the end of seeking the return of the Appellants by this means.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.4",
+     "37.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The husband is a senior medical professional and it is unlikely he would use such means to seek the return of the Appellants."
+   },
+   {
+    "quote": "If Mr. XXXX were truly interested in the return of his wife and children, I would expect to see the initiation of legal action in a Canadian court.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "If the husband wanted the return of his wife and children, he would likely initiate legal action in Canada."
+   },
+   {
+    "quote": "This is to say that I cannot imagine that Mr. XXXX is not aware that his wife has initiated a refugee claim in Canada. He has three children in Canada and at least one son in Lebanon who is in contact with the Principal Appellant (Appellants' Record, 199) and is likely familiar with the migration history of his wife's family and of Canada's humanitarian tradition.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.7",
+     "37.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The husband is likely aware of the refugee claim and the migration history of his wife's family and Canada's humanitarian tradition."
+   },
+   {
+    "quote": "In addition, I find it hard to believe that Mr. XXXX, assuming this legal initiative is legitimate, would not be aware that this legal overture based on Sharia law would aid rather than weaken a refugee claim.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "It is unlikely the husband would use legal overtures based on Sharia law that would aid rather than weaken a refugee claim."
+   },
+   {
+    "quote": "I must conclude that this new evidence, if anything, reinforces a conclusion that this claim is fraudulent.",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.10"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence reinforces the conclusion that the claim is fraudulent."
+   },
+   {
+    "quote": "If I were to stand back and review the arguments, my conclusion would be that this claim does not have the air of legitimacy.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "conclusion",
+    "statement": "The claim does not have the air of legitimacy when reviewed overall."
+   },
+   {
+    "quote": "It starts from the situation identified by the RPD that there is no more authoritative corroborative evidence such as police reports or medical information in the file.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "kind": "background_fact",
+    "statement": "The claim starts from the situation identified by the RPD that there is no more authoritative corroborative evidence such as police reports or medical information in the file."
+   },
+   {
+    "quote": "In fact, this sister is a primary witness of the alleged persecution.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "background_fact",
+    "statement": "The sister is a primary witness of the alleged persecution."
+   },
+   {
+    "quote": "I note that another sister of the Principal Appellant has made a successful refugee claim in Canada in 2000.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "background_fact",
+    "statement": "Another sister of the Principal Appellant made a successful refugee claim in Canada in 2000."
+   },
+   {
+    "quote": "I also note that the parents of the Principal Appellant and another sister have immigrated to Canada many years ago.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "background_fact",
+    "statement": "The parents of the Principal Appellant and another sister have immigrated to Canada many years ago."
+   },
+   {
+    "quote": "I note that Canada has a large Lebanese diaspora and significant interaction with the country of origin.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "background_fact",
+    "statement": "Canada has a large Lebanese diaspora and significant interaction with the country of origin."
+   },
+   {
+    "quote": "Given this knowledge and experience, and taking into consideration the allegations and considering the resources that would undoubtable be available to the Appellants if they had really sought to leave Lebanon at an earlier date, I would expect to see some prior effort on the part of the Appellants to migrate to Canada, which I do not see.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "Given the knowledge and experience of the family and the resources likely available, the Appellants would have made prior efforts to migrate to Canada if the persecution allegations were true, but no such efforts are seen."
+   },
+   {
+    "quote": "Instead the bulk of the corroborative evidence of risk dates from after the Principal Appellant first visit in Canada in 2013 (e.g., email conversations between the Principal Appellant and her sister).",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "background_fact",
+    "statement": "The bulk of corroborative evidence of risk dates from after the Principal Appellant's first visit to Canada in 2013, such as email conversations between the Principal Appellant and her sister."
+   },
+   {
+    "quote": "I conclude that this conclusion is within the area of advantage where the RPD must be granted deference and, in addition, I would arrive at the same conclusion.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The conclusion that the Appellants' allegations lack credibility is within the area of advantage where the RPD must be granted deference, and the Court would arrive at the same conclusion."
+   },
+   {
+    "quote": "On the question of state protection, I must agree with the RPD's conclusion because the Appellants have not shown they have been or will be set apart for treatment consistent with persecution such that they would require state protection in the first place.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants have not shown they have been or will be set apart for treatment consistent with persecution such that they would require state protection."
+   },
+   {
+    "quote": "Looking forward, I must conclude that the Appellants would face less than a serious possibility of persecution or a risk, as understood in Section 97, if they were to return to Lebanon.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants would face less than a serious possibility of persecution or a risk, as understood in Section 97, if they were to return to Lebanon."
+   },
+   {
+    "quote": "For all these reasons, I confirm the determination of the RPD, namely, that that Ms. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX and XXXX XXXX are neither \"Convention refugees\" nor \"persons in need of protection\".",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "conclusion",
+    "statement": "I confirm the determination of the RPD that the applicants are neither Convention refugees nor persons in need of protection."
+   },
+   {
+    "quote": "Therefore, the appeal is dismissed.",
+    "paragraphs": [
+     42
+    ],
+    "evidence_ids": [
+     "42.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     42
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is dismissed."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "With respect to the role and function of the RAD, in reviewing the RPD decision, Justice Phelan in Huruglica1 states that the RAD \"must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection\".",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "authority": "Justice Phelan in Huruglica states that the RAD must review all aspects of the RPD's decision and come to an independent assessment of whether the claimant is a Convention refugee or a person in need of protection",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Justice Phelan also suggests that while the RAD might show some deference on a credibility assessment and/or where the RPD enjoys a particular advantage in reaching such a conclusion, in other areas, such as an assessment of country conditions evidence, the RAD need not be deferential.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "authority": "Justice Phelan suggests that while the RAD might show some deference on a credibility assessment and/or where the RPD enjoys a particular advantage in reaching such a conclusion, in other areas, such as an assessment of country conditions evidence, the RAD need not be deferential",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Njeukam,2 Justice Locke references Huruglica and suggests that \"Except in cases where the credibility of a witness is critical or determinative or when the RPD has a particular benefit from the RAD to draw a specific conclusion, the RAD must not give any deference to the analysis of the evidence made by the RPD\".",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "authority": "Justice Locke in Njeukam references Huruglica and suggests that except in cases where the credibility of a witness is critical or determinative or when the RPD has a particular benefit from the RAD to draw a specific conclusion, the RAD must not give any deference to the analysis of the evidence made by the RPD",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "I conclude that in issues which turn on a question of mixed law and fact, specifically the RPD's assessment of country conditions in Lebanon, I must reach my own conclusion based on my own assessment of the evidence and I do not need to show deference to the RPD's conclusions.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "issue": "In issues which turn on a question of mixed law and fact, specifically the RPD's assessment of country conditions in Lebanon, the RAD must reach its own conclusion based on its own assessment of the evidence and does not need to show deference to the RPD's conclusions",
+    "reason": ""
+   }
+  ],
+  "rows_without_evidence": []
+ }
+}

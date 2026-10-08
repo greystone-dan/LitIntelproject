@@ -1,0 +1,520 @@
+{
+ "case_id": 67972,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "",
+ "run": "bundle_rebut_A",
+ "usage": {
+  "usd": 0.006408400000000001
+ },
+ "verification": {
+  "points": 31,
+  "calls": 7,
+  "answered": 11,
+  "points_returned": 31,
+  "answer_ids_dropped": 24
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The Appellants ask that the Refugee Appeal Division substitute a finding that they are Convention refugees or persons in need of protection, or alternatively refer the matter back to the RPD for redetermination.",
+   "party_ids": [
+    "1.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "2.1",
+    "2.2"
+   ],
+   "answer_paragraphs": [
+    2
+   ],
+   "answer_quote": "Pursuant to paragraph 111(1)(b) of the Immigration and Refugee Protection Act (IRPA),2 I am setting aside the decision of the RPD and substituting it with my own decision. Specifically, on the evidence before me, I find that the Appellants are Convention refugees.",
+   "why": "The RAD sets aside the RPD decision and finds the appellants are Convention refugees, granting their request."
+  },
+  {
+   "pid": "P2",
+   "party_by": "applicant",
+   "party_text": "The appellants have not submitted any new evidence for the purposes of this appeal and are not requesting an oral hearing.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms no new evidence was submitted and no oral hearing requested."
+  },
+  {
+   "pid": "P3",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that the Appellants do not have a well-founded fear of persecution if returned to Nigeria.",
+   "party_ids": [
+    "6.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court states the RPD found no well-founded fear of persecution."
+  },
+  {
+   "pid": "P4",
+   "party_by": "respondent",
+   "party_text": "The RPD raised a number of issues during the course of the proceedings.",
+   "party_ids": [
+    "6.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the RPD raised several issues during proceedings."
+  },
+  {
+   "pid": "P5",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found a lack of subjective fear due to the Appellants not departing Nigeria immediately after learning of the plans by the uncle to circumcise XXXX.",
+   "party_ids": [
+    "7.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD found lack of subjective fear due to delay in leaving Nigeria."
+  },
+  {
+   "pid": "P6",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD also took issue with the Appellants' failure to claim asylum in the USA or at least exploring the possibility of remaining in the USA, which called into question their subjective fear.",
+   "party_ids": [
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the RPD's concern about failure to claim asylum or explore staying in the USA."
+  },
+  {
+   "pid": "P7",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found that a lack of credibility extends to the profile of the agent of persecution.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD found credibility issues with the profile of the agent of persecution."
+  },
+  {
+   "pid": "P8",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found it was unreasonable for the Appellants to remain in Nigeria after learning of the threat to circumcise XXXX in XXXX 2017, especially given they had visas to the USA.",
+   "party_ids": [
+    "8.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "10.2",
+    "10.3",
+    "10.4",
+    "10.5"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "With respect, the RPD decision lacks an analysis of the Appellants explanation for why they did not immediately flee in XXXX 2017 and remained until XXXX 2018. In my view, the Appellants' explanation for not departing immediately is a reasonable one, namely, at the family meeting in XXXX 2017 they bought themselves more time and were informed by the priest that the FGM procedure should be delayed until XXXX turned two years old. Mrs. XXXX pleaded with the family to let the Appellants leave and think the matter over and the family agreed.7 I find that it was not until the phone call from the uncle in XXXX 2018 asking about preparations for the circumcision that the urgency of the situation presented itself, at which point the Appellants decided they had to flee and were on a plane to the USA XXXX week later. As a result, I find the explanation for the delay in departing Nigeria to be a reasonable one under the circumstances and not indicative of a lack of subjective fear.",
+   "why": "The court finds the RPD erred and the explanation for delay was reasonable, rejecting the unreasonableness finding."
+  },
+  {
+   "pid": "P9",
+   "party_by": "applicant",
+   "party_text": "The RPD ignored the reasonable explanation in the Basis of Claim narrative explaining why they did not immediately leave Nigeria.",
+   "party_ids": [
+    "9.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "10.2",
+    "10.3",
+    "10.4",
+    "10.5"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "With respect, the RPD decision lacks an analysis of the Appellants explanation for why they did not immediately flee in XXXX 2017 and remained until XXXX 2018. In my view, the Appellants' explanation for not departing immediately is a reasonable one, namely, at the family meeting in XXXX 2017 they bought themselves more time and were informed by the priest that the FGM procedure should be delayed until XXXX turned two years old. Mrs. XXXX pleaded with the family to let the Appellants leave and think the matter over and the family agreed.7 I find that it was not until the phone call from the uncle in XXXX 2018 asking about preparations for the circumcision that the urgency of the situation presented itself, at which point the Appellants decided they had to flee and were on a plane to the USA XXXX week later. As a result, I find the explanation for the delay in departing Nigeria to be a reasonable one under the circumstances and not indicative of a lack of subjective fear.",
+   "why": "The court agrees the RPD ignored the reasonable explanation in the Basis of Claim narrative."
+  },
+  {
+   "pid": "P10",
+   "party_by": "applicant",
+   "party_text": "At the XXXX 2017 meeting, the family and the priest agreed to give the Appellants more time until XXXX second birthday in XXXX 2018.",
+   "party_ids": [
+    "9.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "10.3",
+    "10.4"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "In my view, the Appellants' explanation for not departing immediately is a reasonable one, namely, at the family meeting in XXXX 2017 they bought themselves more time and were informed by the priest that the FGM procedure should be delayed until XXXX turned two years old. Mrs. XXXX pleaded with the family to let the Appellants leave and think the matter over and the family agreed.7 I find that it was not until the phone call from the uncle in XXXX 2018 asking about preparations for the circumcision that the urgency of the situation presented itself, at which point the Appellants decided they had to flee and were on a plane to the USA XXXX week later.",
+   "why": "The court accepts the explanation about the family and priest agreeing to delay circumcision until the child's second birthday."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "It was only when the uncle called in XXXX 2018 inquiring about the readiness for circumcision and informed them they had no choice that they decided to flee before XXXX birthday.",
+   "party_ids": [
+    "9.3"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "10.4"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "Mrs. XXXX pleaded with the family to let the Appellants leave and think the matter over and the family agreed.7 I find that it was not until the phone call from the uncle in XXXX 2018 asking about preparations for the circumcision that the urgency of the situation presented itself, at which point the Appellants decided they had to flee and were on a plane to the USA XXXX week later.",
+   "why": "The court accepts that the uncle's call in 2018 prompted the decision to flee before the birthday."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "This was a reasonable explanation for the delay in departing Nigeria.",
+   "party_ids": [
+    "9.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "10.5"
+   ],
+   "answer_paragraphs": [
+    10
+   ],
+   "answer_quote": "As a result, I find the explanation for the delay in departing Nigeria to be a reasonable one under the circumstances and not indicative of a lack of subjective fear.",
+   "why": "The court finds the explanation for the delay reasonable under the circumstances."
+  },
+  {
+   "pid": "P13",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD took issue with the Appellants' brief stay in the USA.",
+   "party_ids": [
+    "11.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "11.2",
+    "11.3",
+    "13.1",
+    "13.2",
+    "13.3",
+    "13.4",
+    "13.5"
+   ],
+   "answer_paragraphs": [
+    11,
+    13
+   ],
+   "answer_quote": "The RPD initially explained that it was not the failure to claim in the USA that was a decisive issue, but rather \"the explanation or lack thereof that is decisive\".8 In the next paragraph, the RPD explains that the Appellants never sought information on how to extend their stay in the USA or how they can be protected from returning to Nigeria. The Appellants' explanation that they did not claim because of government anti-refugee attitudes was found unreasonable and their failure to inquire into how they could stay in the USA was found to impugn their subjective fear.9 Having independently reviewed the record and reasons, I find the RPD did err in its assessment of the Appellants' time in the USA and their failure to claim asylum there. Firstly, Mr. XXXX was clear that the plan all along was to come to Canada for asylum and the USA was only a means of arriving in Canada. He had no intention of seeking US protection as he was aware and perceived there was an anti-refugee sentiment in government. That information, coupled with knowledge that Canada was receptive to refugees, resulted in the Appellants not exploring asylum options in the USA. In my view, this is a reasonable explanation under the circumstances and I find on balance that the Appellants had a clear plan in mind to come to Canada for a very legitimate reason, one country seemingly opposed to refugees while another welcomes them, when they departed Nigeria.",
+   "why": "The court finds the RPD erred in its assessment of the brief stay in the USA and accepts the appellants' explanation."
+  },
+  {
+   "pid": "P14",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD explained that the decisive issue was the explanation or lack thereof for not claiming asylum in the USA, not the failure to claim itself.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD's explanation that the decisive issue was the explanation for not claiming asylum in the USA, not the failure itself."
+  },
+  {
+   "pid": "P15",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the Appellants never sought information on how to extend their stay in the USA or how to be protected from returning to Nigeria.",
+   "party_ids": [
+    "11.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD found the Appellants never sought information on extending their stay or protection in the USA."
+  },
+  {
+   "pid": "P16",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the Appellants' explanation that they did not claim asylum in the USA due to government anti-refugee attitudes was unreasonable and that their failure to inquire about staying in the USA impugned their subjective fear.",
+   "party_ids": [
+    "11.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the RPD found the explanation unreasonable and that failure to inquire impugned subjective fear."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "The Appellants argue that the RPD ignored the testimony and BOC narrative of Mr. XXXX who said the plan was always to come to Canada.",
+   "party_ids": [
+    "12.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "13.2",
+    "13.3",
+    "13.4",
+    "13.5"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "Firstly, Mr. XXXX was clear that the plan all along was to come to Canada for asylum and the USA was only a means of arriving in Canada. He had no intention of seeking US protection as he was aware and perceived there was an anti-refugee sentiment in government. That information, coupled with knowledge that Canada was receptive to refugees, resulted in the Appellants not exploring asylum options in the USA. In my view, this is a reasonable explanation under the circumstances and I find on balance that the Appellants had a clear plan in mind to come to Canada for a very legitimate reason, one country seemingly opposed to refugees while another welcomes them, when they departed Nigeria.",
+   "why": "The court finds the RPD erred by ignoring Mr. XXXX's testimony and BOC narrative and accepts the plan was always to come to Canada."
+  },
+  {
+   "pid": "P18",
+   "party_by": "applicant",
+   "party_text": "Mr. XXXX testified and wrote in his BOC that he was aware of anti-refugee sentiments in the USA from YouTube news and knew Canada was receptive to refugees and immigrants.",
+   "party_ids": [
+    "12.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "13.3",
+    "13.4"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "He had no intention of seeking US protection as he was aware and perceived there was an anti-refugee sentiment in government. That information, coupled with knowledge that Canada was receptive to refugees, resulted in the Appellants not exploring asylum options in the USA.",
+   "why": "The court acknowledges Mr. XXXX's testimony about awareness of anti-refugee sentiment in the USA and Canada's receptiveness."
+  },
+  {
+   "pid": "P19",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the Appellants not to be credible regarding the events in Nigeria and did not accept they faced persecution due to the delay in leaving.",
+   "party_ids": [
+    "15.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD found the Appellants not credible regarding events in Nigeria and did not accept they faced persecution due to delay."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD extended its disbelief to reject the profile of the agent of persecution based on the prior credibility finding.",
+   "party_ids": [
+    "15.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the RPD extended disbelief to reject the agent of persecution profile based on prior credibility findings."
+  },
+  {
+   "pid": "P21",
+   "party_by": "applicant",
+   "party_text": "The RPD ignored documentary evidence about the uncle who is the main agent of persecution.",
+   "party_ids": [
+    "16.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "17.1",
+    "17.2"
+   ],
+   "answer_paragraphs": [
+    17
+   ],
+   "answer_quote": "In my view, the RPD erred in its assessment by ignoring or at the very least not explicitly explaining in their reasons the rejection of the documentary evidence regarding the uncle. With respect, it is an error to disregard evidence in regard to the profile of the agent of persecution due solely to a prior finding relating to the delay in departure when there are documents, such as various articles, that support the Appellants' position about the uncle's involvement in government affairs and status of the uncle as a XXXX XXXX XXXX XXXX.13",
+   "why": "The court finds the RPD erred by ignoring or not explaining rejection of documentary evidence about the uncle."
+  },
+  {
+   "pid": "P22",
+   "party_by": "applicant",
+   "party_text": "Exhibit 6 contained evidence of the uncle's chieftaincy and political connections.",
+   "party_ids": [
+    "16.2"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "18.1",
+    "18.2",
+    "18.5"
+   ],
+   "answer_paragraphs": [
+    18
+   ],
+   "answer_quote": "Having independently reviewed the record, I agree with the Appellants that the uncle holds an important and powerful position and status within the community, as the XXXX XXXX XXXX XXXX XXXX. Further, I note that Mr. XXXX testified to his uncle's connections to the federal All Progressive Congress political party. As such, I accept his testimony that his uncle has political involvement and ties to the All Progressive Congress party in Nigeria.",
+   "why": "The court accepts the uncle's important position and political connections as supported by exhibit 6 and testimony."
+  },
+  {
+   "pid": "P23",
+   "party_by": "tribunal_below",
+   "party_text": "There are essentially no successful prosecutions of those who engage in FGM in Nigeria despite national legislation banning the practice.",
+   "party_ids": [
+    "20.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that there are essentially no successful prosecutions of those who engage in FGM in Nigeria despite legislation."
+  },
+  {
+   "pid": "P24",
+   "party_by": "tribunal_below",
+   "party_text": "The Violence Against Persons Prohibition (VAPP) is not enforced and many individuals, including local police, do not know or have a good understanding of the legislation.",
+   "party_ids": [
+    "20.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that the VAPP is not enforced and many, including police, lack understanding of the legislation."
+  },
+  {
+   "pid": "P25",
+   "party_by": "tribunal_below",
+   "party_text": "NGOs are working to educate the public and law enforcement against FGM, which is largely viewed as a family customary or traditional issue that police avoid.",
+   "party_ids": [
+    "20.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that NGOs are educating the public and police avoid involvement as FGM is seen as a customary issue."
+  },
+  {
+   "pid": "P26",
+   "party_by": "tribunal_below",
+   "party_text": "The police refused to take action against FGM and told Mr. XXXX it was a customary practice and given his uncle's position, there was little they could do.",
+   "party_ids": [
+    "20.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that police refused to act and cited customary practice and the uncle's position as reasons."
+  },
+  {
+   "pid": "P27",
+   "party_by": "applicant",
+   "party_text": "Relocating within Nigeria is problematic because the uncle has connections in police and politics that would allow them to be traced and found.",
+   "party_ids": [
+    "21.1",
+    "21.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that relocating within Nigeria is problematic due to the uncle's police and political connections."
+  },
+  {
+   "pid": "P28",
+   "party_by": "tribunal_below",
+   "party_text": "Police corruption is significant and endemic in Nigeria, contributing to the Appellants not being safe anywhere in the country.",
+   "party_ids": [
+    "21.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that police corruption is significant and endemic, making the appellants unsafe anywhere in Nigeria."
+  },
+  {
+   "pid": "P29",
+   "party_by": "applicant",
+   "party_text": "Threats to undertake FGM come from a family member of prominent stature, the uncle who is a chief.",
+   "party_ids": [
+    "22.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that threats come from a family member of prominent stature, the uncle who is a chief."
+  },
+  {
+   "pid": "P30",
+   "party_by": "tribunal_below",
+   "party_text": "When both parents oppose FGM, it typically does not occur, but other family members may be involved in the decision to undertake FGM.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that when both parents oppose FGM, it typically does not occur, but other family members may be involved."
+  },
+  {
+   "pid": "P31",
+   "party_by": "tribunal_below",
+   "party_text": "FGM still occurs in Nigeria with about one quarter of girls and women circumcised, more prevalent in southern regions including Edo state where the family resides.",
+   "party_ids": [
+    "22.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that FGM still occurs in Nigeria with about one quarter of girls and women circumcised, more prevalent in southern regions including Edo state."
+  }
+ ]
+}

@@ -1,0 +1,740 @@
+{
+ "case_id": 64240,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "rebut_v1",
+ "context": "H",
+ "run": "bundle_rebut_H",
+ "usage": {
+  "usd": 0.0100072
+ },
+ "verification": {
+  "points": 47,
+  "calls": 9,
+  "answered": 9,
+  "points_returned": 47,
+  "answer_ids_dropped": 47
+ },
+ "result": [
+  {
+   "pid": "P1",
+   "party_by": "applicant",
+   "party_text": "The appellants have submitted new evidence in support of their appeal and are requesting an oral hearing before the Refugee Appeal Division.",
+   "party_ids": [
+    "1.5"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants submitted new evidence and requested an oral hearing."
+  },
+  {
+   "pid": "P2",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD did not believe that the Appellants were at risk of persecution or for an IRPA section 97 reason because it concluded the Appellants did not meet their burden of establishing their story was true on a balance of probability.",
+   "party_ids": [
+    "2.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "2.2",
+    "2.3"
+   ],
+   "answer_paragraphs": [
+    2
+   ],
+   "answer_quote": "I am in agreement with this credibility assessment. Pursuant to ss. 111(1)(a) of the Immigration and Refugee Protection Act (IRPA), the RAD confirms the determination of the RPD, namely, that Ms. XXXX XXXX XXXX XXXX XXXX XXXX XXXX XXXX and XXXX XXXX are neither \"Convention refugees\" pursuant to s. 96 of the IRPA nor persons in need of protection pursuant to s. 97 of the IRPA.",
+   "why": "The court agrees with the RPD's credibility assessment and confirms the decision that appellants did not meet their burden."
+  },
+  {
+   "pid": "P3",
+   "party_by": "applicant",
+   "party_text": "The Appellants alleged before the RPD that they face treatment which cumulatively should be viewed as a risk of persecution.",
+   "party_ids": [
+    "3.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants alleged cumulative treatment amounting to persecution."
+  },
+  {
+   "pid": "P4",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant alleges that she faced years of abuse including sexual abuse at the hand of her husband, Mr. XXXX XXXX.",
+   "party_ids": [
+    "3.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the principal appellant alleges years of abuse including sexual abuse by her husband."
+  },
+  {
+   "pid": "P5",
+   "party_by": "applicant",
+   "party_text": "The Appellants allege that the minor claimants have also been abused by Mr. XXXX and that older siblings have also been involved in activities which cumulatively should be viewed as persecution.",
+   "party_ids": [
+    "3.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the appellants allege abuse of minor claimants and involvement of older siblings."
+  },
+  {
+   "pid": "P6",
+   "party_by": "applicant",
+   "party_text": "The Appellants allege a series of severe incidents over the course of the marriage, involving verbal, physical and sexual abuse of the Principal Appellant and abuse of all the children when they were minors.",
+   "party_ids": [
+    "5.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants allege severe incidents of abuse over the marriage involving the principal appellant and children."
+  },
+  {
+   "pid": "P7",
+   "party_by": "applicant",
+   "party_text": "The Appellants allege financial impropriety on the part of Mr. XXXX and his family with respect to the Principal Appellant's property.",
+   "party_ids": [
+    "5.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court repeats and accepts the allegation of financial impropriety as stated by the appellants."
+  },
+  {
+   "pid": "P8",
+   "party_by": "applicant",
+   "party_text": "Mr. XXXX has recently taken a second wife, which is his right in Sharia law.",
+   "party_ids": [
+    "5.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants' statement about Mr. XXXX taking a second wife under Sharia law."
+  },
+  {
+   "pid": "P9",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant alleges that her older children, who remain in Lebanon, have followed in their father's footsteps and have become brutish in their behavior.",
+   "party_ids": [
+    "5.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the allegation about the older children becoming brutish in behavior."
+  },
+  {
+   "pid": "P10",
+   "party_by": "applicant",
+   "party_text": "The RPD erred in several aspects of its decision.",
+   "party_ids": [
+    "7.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the appellants' submission that the RPD erred in several aspects."
+  },
+  {
+   "pid": "P11",
+   "party_by": "applicant",
+   "party_text": "The RPD did not focus on the important allegations of the Appellants but instead looked for 'minor discrepancies' in its credibility assessment.",
+   "party_ids": [
+    "7.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants' argument that the RPD focused on minor discrepancies rather than important allegations."
+  },
+  {
+   "pid": "P12",
+   "party_by": "applicant",
+   "party_text": "The RPD focused on the travel authorization and the 'text chat' rather than the important allegations.",
+   "party_ids": [
+    "7.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the appellants' claim that the RPD focused on travel authorization and text chat instead of important allegations."
+  },
+  {
+   "pid": "P13",
+   "party_by": "applicant",
+   "party_text": "The RPD erred by speculating about the meaning of Mr. XXXX's behaviour despite having truthful testimony from the Principal Appellant.",
+   "party_ids": [
+    "7.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the applicant's point that the RPD speculated about Mr. XXXX's behaviour despite truthful testimony from the Principal Appellant."
+  },
+  {
+   "pid": "P14",
+   "party_by": "applicant",
+   "party_text": "The Appellants face risk in Lebanon because the Principal Appellant has allegedly given up her Islamic faith.",
+   "party_ids": [
+    "8.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the applicant's argument about the risk faced due to the Principal Appellant's alleged renunciation of Islamic faith."
+  },
+  {
+   "pid": "P15",
+   "party_by": "applicant",
+   "party_text": "New evidence supports the argument that the risk exists and that the RPD erred in at least one element of his analysis related to the text chat.",
+   "party_ids": [
+    "8.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts that new evidence supports the risk argument and that the RPD erred in analyzing the text chat."
+  },
+  {
+   "pid": "P16",
+   "party_by": "applicant",
+   "party_text": "The Appellants seek to be recognized as Convention refugees or persons in need of protection, or alternatively, to have the RPD decision returned for re-determination by a different panel.",
+   "party_ids": [
+    "9.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court recognizes the applicant's request for refugee recognition or a re-determination by a different panel."
+  },
+  {
+   "pid": "P17",
+   "party_by": "applicant",
+   "party_text": "The new evidence meets the criteria for acceptance under Section 110(4).",
+   "party_ids": [
+    "12.4"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "13.1"
+   ],
+   "answer_paragraphs": [
+    13
+   ],
+   "answer_quote": "I conclude that this material does meet the legislative test of s. 110(4) for admission and is therefore admitted into evidence before the RAD.",
+   "why": "The court accepts the new evidence under Section 110(4) and admits it into evidence."
+  },
+  {
+   "pid": "P18",
+   "party_by": "applicant",
+   "party_text": "The RPD focused on assumed credibility issues but did not address the central basis of the refugee claim found in the testimony of the Principal Appellant and her witness.",
+   "party_ids": [
+    "15.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the applicant's argument that the RPD focused on credibility issues and did not address the central basis of the refugee claim."
+  },
+  {
+   "pid": "P19",
+   "party_by": "applicant",
+   "party_text": "The fact that the Principal Appellant's husband signed a travel authorization document is a collateral contradiction or minor discrepancy identified by the RPD.",
+   "party_ids": [
+    "15.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the husband's signing as a collateral contradiction identified by the RPD."
+  },
+  {
+   "pid": "P20",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the husband's signing of the travel authorization inconsistent with allegations that he is controlling, abusive, and possessive of his children.",
+   "party_ids": [
+    "16.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court confirms the RPD found the husband's signing inconsistent with allegations of abuse and control."
+  },
+  {
+   "pid": "P21",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD noted that the claimant testified her husband is abusive and controlling but imposed no restrictions on the travel authorization allowing travel with the children out of Lebanon.",
+   "party_ids": [
+    "16.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the RPD's observation that no restrictions were imposed despite abuse allegations."
+  },
+  {
+   "pid": "P22",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD panel expected that given the claimant's testimony of violent and bad relations with her husband, and her threats of divorce, the husband would have imposed more restrictions on the travel authorization.",
+   "party_ids": [
+    "16.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the RPD expected more restrictions given the claimant's testimony."
+  },
+  {
+   "pid": "P23",
+   "party_by": "applicant",
+   "party_text": "There are many reasons why the travel authorization should not be viewed as a contradiction.",
+   "party_ids": [
+    "17.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "17.2"
+   ],
+   "answer_paragraphs": [
+    17
+   ],
+   "answer_quote": "The Appellants argue that the Principal Appellant has planned this out some time ago and that she had been avoiding a fight with her husband and had not brought up the issue of a divorce for some time prior to seeking Mr. XXXX authorization to allow her to travel with the children.",
+   "why": "The court records the appellants' argument that there are many reasons the travel authorization should not be seen as a contradiction."
+  },
+  {
+   "pid": "P24",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant planned the travel authorization some time ago and had been avoiding a fight with her husband, not bringing up divorce prior to seeking his authorization.",
+   "party_ids": [
+    "17.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the appellants' argument that the Principal Appellant planned the authorization to avoid conflict and delay divorce discussions."
+  },
+  {
+   "pid": "P25",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant speculates that her husband was distracted by his second marriage and did not read the authorization before signing it.",
+   "party_ids": [
+    "17.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the Principal Appellant's speculation about her husband's distraction and not reading the authorization."
+  },
+  {
+   "pid": "P26",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant's husband would have been inconvenienced by the presence of the children in his home because she had fired two nannies.",
+   "party_ids": [
+    "17.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the argument that the husband would be inconvenienced due to the firing of two nannies."
+  },
+  {
+   "pid": "P27",
+   "party_by": "respondent",
+   "party_text": "The RPD is concerned that the Principal Appellant and one of her daughters were wearing hijab at the hearing, which contradicts the claim that the Principal Appellant has given up Islam.",
+   "party_ids": [
+    "21.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the RPD's concern about the hijab worn by the Principal Appellant and her daughter."
+  },
+  {
+   "pid": "P28",
+   "party_by": "respondent",
+   "party_text": "The RPD finds that the Principal Appellant wearing a hijab and her parents accepting to come to Canada with the aid of a daughter who they knew had abandoned Islam indicates that these allegations lack credibility.",
+   "party_ids": [
+    "21.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the RPD's finding that the hijab and parents' acceptance indicate lack of credibility."
+  },
+  {
+   "pid": "P29",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant needed to retain the support of her devout parents, which explains why she was wearing a hijab despite renouncing Islam.",
+   "party_ids": [
+    "21.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the Principal Appellant's explanation for wearing the hijab to retain parental support."
+  },
+  {
+   "pid": "P30",
+   "party_by": "applicant",
+   "party_text": "The Appellants argue that the RPD is assessing the Principal Appellant's motivation from a 'westerner' perspective and that the Principal Appellant's explanation is plausible within the context of the allegations.",
+   "party_ids": [
+    "22.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the appellants' argument about the RPD's 'westerner' perspective and the plausibility of the explanation."
+  },
+  {
+   "pid": "P31",
+   "party_by": "applicant",
+   "party_text": "Even if the Principal Appellant still subscribes to Islam, she opposes the treatment of women and children in Islam, which places her at risk from her husband and community members with deep faith.",
+   "party_ids": [
+    "22.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court records the Principal Appellant's argument about opposing treatment of women and children in Islam and risk from community."
+  },
+  {
+   "pid": "P32",
+   "party_by": "applicant",
+   "party_text": "The Appellants emphasize an incident in 1997 where Mr. XXXX allegedly premeditatedly burned his son to inflict pain.",
+   "party_ids": [
+    "24.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court notes the appellants' emphasis on the 1997 incident of alleged premeditated burning."
+  },
+  {
+   "pid": "P33",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found contradictions in the testimony and concluded the burning incident was unintentional, an accident.",
+   "party_ids": [
+    "25.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding of contradictions and that the incident was unintentional."
+  },
+  {
+   "pid": "P34",
+   "party_by": "applicant",
+   "party_text": "The Appellants argue the RPD relied on his own interpretations of the facts and had no valid reason to doubt the truthfulness of the Principal Appellant's allegations about the incident.",
+   "party_ids": [
+    "25.2",
+    "25.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "26.1",
+    "27.1",
+    "27.2",
+    "27.3",
+    "34.1",
+    "34.2"
+   ],
+   "answer_paragraphs": [
+    26,
+    27,
+    34
+   ],
+   "answer_quote": "In reviewing the evidence with respect to this incident there does appear to be an inconsistency. The inconsistency is that the Principal Appellant views the Mr. XXXX as willing to make his own tea (although 'unusual' - RPD Record, p. 56) while the witness could not conceive of Mr. XXXX doing any such a thing. The difference is that the witness can only conceive of the agent of persecution making tea as a prelude to burning the child which is not the case with the Principal Appellant. In addition, although both are alleging the same event, they testified differently in that the witness provides a substantially more detailed account of the event. From my perspective the thrust of the RPD analysis is that this is a credibility assessment that the allegations are embellishments in the sense that events that may have occurred have been portrayed as severe whereas in reality the Appellants are not in danger from Mr. XXXX to a degree consistent with a determination of persecution and never have been (RPD Decision, paragraph 44). In examining all of the evidence I am in agreement with this conclusion.",
+   "why": "The court rejects the appellants' argument, agreeing with the RPD's credibility assessment and finding no valid reason to doubt the RPD's conclusions."
+  },
+  {
+   "pid": "P35",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD did not find the alleged text chat between the Principal Appellant and Mr. XXXX probative because the timestamps suggested Mr. XXXX was in America, and if so, he would have traveled to Canada to attempt custody of the children.",
+   "party_ids": [
+    "28.1",
+    "28.2",
+    "28.3"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that the text chat was not probative due to timestamps placing Mr. XXXX in America."
+  },
+  {
+   "pid": "P36",
+   "party_by": "applicant",
+   "party_text": "The Appellants provided new evidence showing Mr. XXXX was not in America but in Lebanon, arguing the RPD erred in its conclusion about the text message.",
+   "party_ids": [
+    "29.1"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "30.1",
+    "30.2",
+    "30.3",
+    "30.4",
+    "30.5",
+    "31.1",
+    "31.2"
+   ],
+   "answer_paragraphs": [
+    30,
+    31
+   ],
+   "answer_quote": "The obvious problem with this response is that it does not address the central problem identified by the RPD. The RPD is stating that if Mr. XXXX were in America he would have shown up in Canada. If anything the Appellants' evidence strengthens the RPD's credibility conclusion because it does not confront the problem of the timestamp. If Mr. XXXX was not in America this is evidence that it was not Mr. XXXX who is sending the text, therefore a clear implication of the RPD's conclusion is sustained that this text message is fraudulent. This is to say that my reading of the RPD decision is that the RPD is suggesting that this corroborative evidence is fraudulent, lacks credibility, because it would place Mr. XXXX in America for which there is no evidence (i.e., he did not show up in Montreal). In the Appellants' Memorandum the obvious credibility implication of the timestamp has not been addressed. I concluded the RPD did not error on this issue.",
+   "why": "The court rejects the appellants' new evidence, finding it does not address the timestamp issue and supports the RPD's conclusion."
+  },
+  {
+   "pid": "P37",
+   "party_by": "applicant",
+   "party_text": "Women in Lebanon can be at risk because of Sharia law.",
+   "party_ids": [
+    "32.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "32.2"
+   ],
+   "answer_paragraphs": [
+    32
+   ],
+   "answer_quote": "Put simply, the RPD has focused on the specific situation of the Appellants whereas the Appellants focus on the potential risks that stem from Sharia law.",
+   "why": "The court acknowledges the appellants' point that women in Lebanon can be at risk due to Sharia law."
+  },
+  {
+   "pid": "P38",
+   "party_by": "applicant",
+   "party_text": "The risk stems from Sharia law generally, not just the specific situation of the Appellants.",
+   "party_ids": [
+    "32.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court does not address whether the risk stems from Sharia law generally or just the appellants' specific situation."
+  },
+  {
+   "pid": "P39",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD focused on the specific situation of the Principal Appellant as a high status, affluent medical professional married to a high status medical professional with a leadership position.",
+   "party_ids": [
+    "33.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's focus on the Principal Appellant's high status and professional profile."
+  },
+  {
+   "pid": "P40",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD found the evidence insufficient to establish the veracity of allegations of past persecution and risk of persecution going forward.",
+   "party_ids": [
+    "33.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the evidence was insufficient to establish past or future persecution."
+  },
+  {
+   "pid": "P41",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD noted evidence of physical violence and harassment from the husband but found the Principal Appellant had not shown that the husband would be able and willing to seriously harm her or her children if she returned to Lebanon and divorced him.",
+   "party_ids": [
+    "33.3",
+    "33.4"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's finding that the husband would not seriously harm the appellant or children."
+  },
+  {
+   "pid": "P42",
+   "party_by": "applicant",
+   "party_text": "The Principal Appellant has renounced Islam and faces risk because Sharia law is practiced in Lebanon.",
+   "party_ids": [
+    "34.3"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "36.1",
+    "36.2",
+    "36.3"
+   ],
+   "answer_paragraphs": [
+    36
+   ],
+   "answer_quote": "With respect to a logic that by giving up Islam she faces a risk from the general population. I must conclude that the documentary evidence provides significant evidence of problems across a range of issues but Lebanon is a society of great diversity and freedom of movement within Lebanon is not restricted for citizens (RPD Record, p. 31). In this case I conclude that the profile of the Appellants is such that they would not face problems of this general sort and if some problems were to arise they would be capable of moving elsewhere in Lebanon to address such general risk as the Principal Appellant clearly has resources and a portable skill.",
+   "why": "The court rejects the claim that renouncing Islam causes risk, noting the appellant's profile and freedom of movement."
+  },
+  {
+   "pid": "P43",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD addressed the concern about absence of state protection for women and children in Lebanon.",
+   "party_ids": [
+    "35.1"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court acknowledges the RPD addressed the absence of state protection for women and children."
+  },
+  {
+   "pid": "P44",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD concluded that despite laws and practices mitigating women's rights, the Principal Appellant has education, status and resources to avoid persecution or risk if she returned to Lebanon.",
+   "party_ids": [
+    "35.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court accepts the RPD's conclusion that the appellant's status and resources mitigate risk despite laws against women's rights."
+  },
+  {
+   "pid": "P45",
+   "party_by": "applicant",
+   "party_text": "New legal documents relying on Sharia law show the husband has dominance and is seeking to force the Principal Appellant's return to Lebanon.",
+   "party_ids": [
+    "37.1",
+    "37.2"
+   ],
+   "answered": true,
+   "verdict": "rejects",
+   "answer_ids": [
+    "37.3",
+    "37.5",
+    "37.6",
+    "37.9",
+    "37.10"
+   ],
+   "answer_paragraphs": [
+    37
+   ],
+   "answer_quote": "I do not find this new evidence credible. On a balance of probability, it makes no sense for such an individual to accomplish the end of seeking the return of the Appellants by this means. If Mr. XXXX were truly interested in the return of his wife and children, I would expect to see the initiation of legal action in a Canadian court. In addition, I find it hard to believe that Mr. XXXX, assuming this legal initiative is legitimate, would not be aware that this legal overture based on Sharia law would aid rather than weaken a refugee claim. I must conclude that this new evidence, if anything, reinforces a conclusion that this claim is fraudulent.",
+   "why": "The court finds the new Sharia law evidence not credible and concludes it supports the claim being fraudulent."
+  },
+  {
+   "pid": "P46",
+   "party_by": "tribunal_below",
+   "party_text": "The testimony of the Principal Appellant's sister who is a migration related professional in Canada is open to question because she alleges visiting her sister in Lebanon in 1997 and 2010 and being aware of the alleged persecution.",
+   "party_ids": [
+    "39.1",
+    "39.2"
+   ],
+   "answered": false,
+   "verdict": "none",
+   "answer_ids": [],
+   "answer_paragraphs": [],
+   "answer_quote": "",
+   "why": "The court agrees the sister's testimony is open to question due to her alleged visits and knowledge of persecution."
+  },
+  {
+   "pid": "P47",
+   "party_by": "tribunal_below",
+   "party_text": "The RPD undertook an extensive analysis of the Appellants' allegations and concluded that they lacked credibility.",
+   "party_ids": [
+    "40.1"
+   ],
+   "answered": true,
+   "verdict": "accepts",
+   "answer_ids": [
+    "40.2"
+   ],
+   "answer_paragraphs": [
+    40
+   ],
+   "answer_quote": "I conclude that this conclusion is within the area of advantage where the RPD must be granted deference and, in addition, I would arrive at the same conclusion.",
+   "why": "The court agrees with the RPD's extensive analysis and credibility finding, granting it deference."
+  }
+ ]
+}

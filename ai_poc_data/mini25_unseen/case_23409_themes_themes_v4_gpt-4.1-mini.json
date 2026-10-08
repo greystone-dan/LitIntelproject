@@ -1,0 +1,610 @@
+{
+ "case_id": 23409,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v4",
+ "run": "mini25_v4",
+ "usage": {
+  "prompt_tokens": 11930,
+  "completion_tokens": 1963,
+  "usd": 0.0123908
+ },
+ "issue_map": {
+  "issues": [
+   {
+    "label": "Identification of parties",
+    "paragraphs": [
+     1,
+     2,
+     3
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review applied by RAD member",
+    "paragraphs": [
+     4,
+     5
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Applicant's challenge to RAD's standard of review and scope of appeal",
+    "paragraphs": [
+     6
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Respondent's argument on standard of review and scope of appeal",
+    "paragraphs": [
+     7
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Court's view on standard of correctness for scope of RAD review",
+    "paragraphs": [
+     8,
+     9
+    ],
+    "disposition": "assumed_without_deciding"
+   },
+   {
+    "label": "Court's conclusion that RAD erred by applying judicial review standard",
+    "paragraphs": [
+     10,
+     46,
+     53
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "Interpretation of sections 110 and 111 IRPA regarding RAD's powers",
+    "paragraphs": [
+     11,
+     12,
+     13
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Discussion of deference and standards of review in administrative law",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     17,
+     18
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Appellate standard of palpable and overriding error for findings of fact",
+    "paragraphs": [
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Case law on scope of RAD appellate review and differing approaches",
+    "paragraphs": [
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Principle of judicial comity and its application",
+    "paragraphs": [
+     42,
+     43,
+     44,
+     45,
+     61,
+     62
+    ],
+    "disposition": "other"
+   },
+   {
+    "label": "Court's decision to allow judicial review and remit to RAD for redetermination",
+    "paragraphs": [
+     53,
+     54,
+     55,
+     56,
+     48,
+     49,
+     50,
+     51,
+     52
+    ],
+    "disposition": "allowed"
+   },
+   {
+    "label": "No question certified for appeal to Federal Court of Appeal",
+    "paragraphs": [
+     57,
+     58
+    ],
+    "disposition": "dismissed"
+   }
+  ]
+ },
+ "verification": {
+  "items": 23,
+  "quote_exact_in_cited": 15,
+  "quote_loose_in_cited": 3,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 5,
+  "quote_has_ellipsis": 3,
+  "quote_snapped_to_real_sentence": 5,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows": {
+   "themes": 4,
+   "arguments": 4,
+   "holdings": 10,
+   "rebuttals": 2,
+   "authorities": 5,
+   "left_open": 2
+  },
+  "paragraph_coverage": 0.426
+ },
+ "result": {
+  "overall": "The Court allowed the judicial review application because the RAD erred by applying a judicial review standard of reasonableness instead of conducting a proper appellate review, which requires a hybrid approach including a palpable and overriding error standard for factual findings.",
+  "themes": [
+   {
+    "name": "Standard of review for RAD appeals",
+    "summary": "The decision discusses the appropriate standard of review the RAD should apply on appeal, rejecting judicial review reasonableness and favoring a hybrid appellate standard including palpable and overriding error for facts.",
+    "paragraphs": [
+     4,
+     5,
+     6,
+     8,
+     10,
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23,
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     46,
+     53,
+     54,
+     55,
+     56,
+     81
+    ]
+   },
+   {
+    "name": "Interpretation of sections 110 and 111 IRPA",
+    "summary": "The Court analyzes the statutory provisions governing the RAD's powers and appellate jurisdiction under sections 110 and 111 of the IRPA.",
+    "paragraphs": [
+     11,
+     12,
+     13,
+     46
+    ]
+   },
+   {
+    "name": "Judicial comity and consistency in Federal Court decisions",
+    "summary": "The Court emphasizes the importance of judicial comity to avoid conflicting jurisprudence and maintain certainty in immigration law.",
+    "paragraphs": [
+     42,
+     43,
+     44,
+     45,
+     61,
+     62
+    ]
+   },
+   {
+    "name": "Scope and nature of RAD appellate review",
+    "summary": "The Court reviews case law and different approaches to the scope of the RAD's appellate review, including whether it is a de novo appeal or limited to palpable and overriding error.",
+    "paragraphs": [
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     32,
+     33,
+     34,
+     35,
+     36,
+     37,
+     38,
+     39,
+     40,
+     41,
+     46,
+     47,
+     48,
+     49,
+     50,
+     51,
+     52,
+     53,
+     54
+    ]
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The applicant is challenging the legality of a decision of the Refugee Appeal Division (RAD) of the Immigration and Refugee Board (IRB) of Canada",
+    "paragraphs": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD decision confirming the RPD's denial of refugee protection is legally flawed and should be set aside.",
+    "treatment": "accepted",
+    "outcome_note": "The Court allowed the judicial review application based on this challenge.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ]
+   },
+   {
+    "quote": "the member did not apply the appropriate mode of analysis",
+    "paragraphs": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "The RAD member erred by applying the wrong standard of review (reasonableness judicial review) instead of correctness for questions of law regarding scope of appeal.",
+    "treatment": "accepted",
+    "outcome_note": "This error was determinative and led to allowing the judicial review.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "Budhai v Canada; Canada v Hunter",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ]
+   },
+   {
+    "quote": "the respondent argues that the Court should apply the standard of reasonableness to the interpretation that the member made of the scope of the provisions in the IRPA",
+    "paragraphs": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The RAD's interpretation of its scope of review should be reviewed on a reasonableness standard due to its expertise and the nature of the question.",
+    "treatment": "rejected",
+    "outcome_note": "The Court rejected this and found the RAD applied the wrong standard.",
+    "changed_result": true,
+    "gap": "",
+    "authority": "Dunsmuir; Alberta Teachers' Association",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "In this case, the respondent alleges that the Court should apply the standard of reasonableness to the interpretation that the member made of the scope of the provisions in the IRPA, because although it is a question of law, it is not a question of law of \u201ccentral importance to the legal system as a whole\u201d (Dunsmuir, above at para 60;"
+   },
+   {
+    "quote": "the RAD dismissed the applicant\u2019s appeal",
+    "paragraphs": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RAD found the RPD's decision reasonable and dismissed the appeal.",
+    "treatment": "accepted",
+    "outcome_note": "The Court found the RAD applied the wrong standard but accepted the factual findings as reasonable under judicial review.",
+    "changed_result": false,
+    "gap": "",
+    "authority": "",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ]
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "the appeal before the RAD is simply not a judicial review",
+    "paragraphs": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD appeal is not a judicial review and applying a judicial review standard of reasonableness is a reviewable error.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   },
+   {
+    "quote": "Paragraphs 110(1) and 111(1) and (2) of the IRPA state...",
+    "paragraphs": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "Sections 110 and 111 IRPA grant the RAD appellate powers to confirm, set aside, substitute, or refer back RPD decisions, with conditions for referral.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ]
+   },
+   {
+    "quote": "the RAD exercises a specialized jurisdiction on appeal at least equal to that of the RPD at trial",
+    "paragraphs": [
+     12
+    ],
+    "kind": "reason",
+    "statement": "The RAD's appellate jurisdiction is specialized and not merely a review; it must have meaningful power to intervene.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ]
+   },
+   {
+    "quote": "the RAD must not assess its role based on criteria of judicial review",
+    "paragraphs": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The RAD erred by applying judicial review criteria; it is an appellate body and must apply an appellate standard.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "For the same reasons as my colleagues, I conclude that in applying the standard of judicial review of reasonableness, Member Gallagher committed a reviewable error in law: the RAD is an appellate body, not a judicial review body and it must not assess its role based on criteria of judicial review."
+   },
+   {
+    "quote": "the RAD is required to conduct a hybrid appeal",
+    "paragraphs": [
+     54
+    ],
+    "kind": "legal_test",
+    "statement": "The RAD must review all aspects of the RPD decision and independently assess whether the claimant qualifies as a refugee or person in need of protection, substituting its own decision if warranted.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ]
+   },
+   {
+    "quote": "an appellate court will not interfere with the trial judge\u2019s findings of fact unless it can plainly identify the imputed error",
+    "paragraphs": [
+     55
+    ],
+    "kind": "legal_test",
+    "statement": "The appellate standard for findings of fact is palpable and overriding error; only clear errors affecting the result justify intervention.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[55] \u2026 [A]n appellate court will not interfere with the trial judge\u2019s findings of fact unless it can plainly identify the imputed error, and that error is shown to have affected the result."
+   },
+   {
+    "quote": "unreasonable findings of fact... are reviewable on appeal because they are \u201cpalpably\u201d or \u201cclearly\u201d wrong",
+    "paragraphs": [
+     56
+    ],
+    "kind": "legal_test",
+    "statement": "Findings of fact that are unreasonable or unsupported by evidence are reviewable on appeal if they likely affected the outcome.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": []
+   },
+   {
+    "quote": "the principle of judicial comity aims therefore to prevent the creation of conflicting lines of jurisprudence and to encourage certainty in the law",
+    "paragraphs": [
+     45
+    ],
+    "kind": "reason",
+    "statement": "Judicial comity requires judges to follow colleagues' decisions unless exceptions apply, to maintain legal certainty.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ]
+   },
+   {
+    "quote": "the Court recognizes that it would be absurd... to task the RAD with re-examining... for every instance",
+    "paragraphs": [
+     39
+    ],
+    "kind": "reason",
+    "statement": "The RAD cannot conduct a full new trial but must apply appellate standards, intervening only for palpable and overriding errors.",
+    "quote_verified": false,
+    "quote_loose_verified": true,
+    "quote_found_in": []
+   },
+   {
+    "quote": "the error of fact must be palpable and overriding to succeed on appeal",
+    "paragraphs": [
+     81
+    ],
+    "kind": "legal_test",
+    "statement": "The standard of palpable and overriding error applies to factual findings on administrative appeals; correctness applies to questions of law.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ]
+   }
+  ],
+  "rebuttals": [
+   {
+    "quote": "the member did not apply the appropriate mode of analysis",
+    "paragraphs": [
+     6
+    ],
+    "point": "The RAD member applied the wrong standard of review to the scope of appeal question",
+    "made_by": "applicant",
+    "court_answer": "The Court agreed and found this to be a reviewable error requiring setting aside the RAD decision.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ]
+   },
+   {
+    "quote": "the respondent argues that the Court should apply the standard of reasonableness",
+    "paragraphs": [
+     7
+    ],
+    "point": "The RAD's interpretation of its scope of review should be reviewed on a reasonableness standard",
+    "made_by": "respondent",
+    "court_answer": "The Court rejected this and held that correctness applies to the scope of appeal question.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "In this case, the respondent alleges that the Court should apply the standard of reasonableness to the interpretation that the member made of the scope of the provisions in the IRPA, because although it is a question of law, it is not a question of law of \u201ccentral importance to the legal system as a whole\u201d (Dunsmuir, above at para 60;"
+   }
+  ],
+  "authorities": [
+   {
+    "quote": "Dunsmuir v New Brunswick, 2008 SCC 9 at para 47",
+    "paragraphs": [
+     4,
+     14,
+     18
+    ],
+    "authority": "Dunsmuir v New Brunswick",
+    "treatment": "followed",
+    "why": "Established the reasonableness standard of judicial review and principles of deference.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ]
+   },
+   {
+    "quote": "Housen v Nikolaisen, [2002] 2 SCR 235, 2002 SCC 33",
+    "paragraphs": [
+     19,
+     20,
+     22
+    ],
+    "authority": "Housen v Nikolaisen",
+    "treatment": "followed",
+    "why": "Defined appellate standard of palpable and overriding error for findings of fact.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ]
+   },
+   {
+    "quote": "HL v Canada (Attorney General), 2005 SCC 25",
+    "paragraphs": [
+     20,
+     21,
+     22,
+     56
+    ],
+    "authority": "HL v Canada (Attorney General)",
+    "treatment": "followed",
+    "why": "Clarified application of palpable and overriding error standard and reasonableness in appellate review.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ]
+   },
+   {
+    "quote": "Alberta (Information and Privacy Commissioner) v Alberta Teachers\u2019 Association, 2011 SCC 61 at para 84",
+    "paragraphs": [
+     7,
+     41
+    ],
+    "authority": "Alberta Teachers\u2019 Association",
+    "treatment": "mentioned",
+    "why": "Referenced regarding standard of review and deference to administrative tribunals.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ]
+   },
+   {
+    "quote": "Spasoja c Canada (Citoyennet\u00e9 et Immigration), 2014 CF 913",
+    "paragraphs": [
+     10,
+     36,
+     53
+    ],
+    "authority": "Spasoja",
+    "treatment": "followed",
+    "why": "Held that RAD is an appellate body and must not apply judicial review standards.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ]
+   }
+  ],
+  "left_open": [
+   {
+    "quote": "it is not necessary to define the exact scope of the review conducted by the RAD on appeal",
+    "paragraphs": [
+     9
+    ],
+    "issue": "Exact scope of RAD appellate review and standard to apply",
+    "reason": "Awaiting final judgment from Federal Court of Appeal or Supreme Court of Canada on this issue.",
+    "quote_verified": false,
+    "quote_loose_verified": false,
+    "quote_found_in": [],
+    "quote_snapped": "[9] Nevertheless, I do not believe that the choice of the standard of correctness is determinative in this case, or that it is necessary to define the exact scope of the review conducted by the RAD on appeal."
+   },
+   {
+    "quote": "it can probably be argued that it is a kind of de novo appeal, a point that I do not have to rule on today",
+    "paragraphs": [
+     13
+    ],
+    "issue": "Whether RAD appeal is a de novo appeal",
+    "reason": "The Court did not decide this question in this case.",
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ]
+   }
+  ]
+ }
+}

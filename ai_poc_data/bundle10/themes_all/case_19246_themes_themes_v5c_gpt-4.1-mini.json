@@ -1,0 +1,1240 @@
+{
+ "case_id": 19246,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "mini6_v5c",
+ "usage": {
+  "usd": 0.015246799999999998
+ },
+ "verification": {
+  "items": 62,
+  "quote_exact_in_cited": 62,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 8,
+  "calls": 9,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 4,
+   "arguments": 29,
+   "holdings": 30,
+   "rebuttals": 0,
+   "authorities": 3,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The judicial review application is allowed because the Board's adverse credibility findings were unreasonable, particularly regarding the applicant's Christian knowledge and the minor inconsistencies in the number of church members.",
+  "themes": [
+   {
+    "name": "Credibility assessment of religious knowledge",
+    "summary": "The Board unreasonably found the applicant lacked sufficient Christian knowledge, relying on a microscopic and unfair analysis of his understanding of Christianity.",
+    "paragraphs": [
+     6,
+     8,
+     18,
+     20,
+     21,
+     22,
+     29
+    ]
+   },
+   {
+    "name": "Inconsistencies in church membership numbers",
+    "summary": "The Board focused excessively on minor inconsistencies in the number of church members, which was unreasonable given the applicant's explanations and interpretation difficulties.",
+    "paragraphs": [
+     7,
+     23,
+     25,
+     26,
+     27,
+     28,
+     29
+    ]
+   },
+   {
+    "name": "Standard of review for credibility findings",
+    "summary": "The appropriate standard of review is reasonableness with high deference to the Board, but the Court found the Board's findings unreasonable in this case.",
+    "paragraphs": [
+     14,
+     15,
+     16,
+     17
+    ]
+   },
+   {
+    "name": "Legal definitions of refugee and protection claims",
+    "summary": "Sections 96 and 97 of IRPA define Convention refugee and person in need of protection, framing the context of the applicant's claim.",
+    "paragraphs": [
+     11,
+     12
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Background and facts",
+    "first_paragraph": 1,
+    "last_paragraph": 4,
+    "disposition": "other"
+   },
+   {
+    "label": "Decision under review",
+    "first_paragraph": 5,
+    "last_paragraph": 10,
+    "disposition": "other"
+   },
+   {
+    "label": "Legislation",
+    "first_paragraph": 11,
+    "last_paragraph": 12,
+    "disposition": "other"
+   },
+   {
+    "label": "Issues identified for review",
+    "first_paragraph": 13,
+    "last_paragraph": 13,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review",
+    "first_paragraph": 14,
+    "last_paragraph": 17,
+    "disposition": "other"
+   },
+   {
+    "label": "Issue 1: Credibility regarding Christian knowledge",
+    "first_paragraph": 18,
+    "last_paragraph": 22,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Issue 2: Credibility regarding church membership numbers",
+    "first_paragraph": 23,
+    "last_paragraph": 28,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Conclusion and remedy",
+    "first_paragraph": 29,
+    "last_paragraph": 30,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Board concluded that the applicant was not a convention refugee or a person in need of protection.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board concluded that the applicant was not a convention refugee or a person in need of protection.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board found the applicant to be not credible.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicant to be not credible.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It based this finding on an inconsistency in the applicant\u2019s story, an unreasonably low level of knowledge of Christianity, and a number of inconsistencies arising from his time in Canada.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board based its finding of non-credibility on an inconsistency in the applicant\u2019s story, an unreasonably low level of knowledge of Christianity, and a number of inconsistencies arising from his time in Canada.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board identified an inconsistency between the responses the applicant gave in an interview with Citizenship and Immigration Canada (CIC) when he made his refugee claim, his Personal Information Form (PIF), and his viva voce testimony before the Board.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board identified an inconsistency between the responses the applicant gave in an interview with Citizenship and Immigration Canada (CIC), his Personal Information Form (PIF), and his viva voce testimony before the Board.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On February 4, 2008 the applicant told CIC that there were \u201cover ten\u201d members in his underground church.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On February 4, 2008 the applicant told CIC that there were \u201cover ten\u201d members in his underground church.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On February 26, 2008 the applicant stated on his PIF that there were 8 members.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On February 26, 2008 the applicant stated on his PIF that there were 8 members.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The answer changed to \u201cten\u201d during oral testimony.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The answer changed to \u201cten\u201d during oral testimony.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant explained that he was nervous during the CIC interview and the translator ignored his instructions when in fact the total number of members at the church consisted of ten baptized members plus two non-baptized members.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicant explained that he was nervous during the CIC interview and the translator ignored his instructions when in fact the total number of members at the church consisted of ten baptized members plus two non-baptized members.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board found that the applicant failed to adequately explain the inconsistencies in the number alleged, which ranged from as low as \u201ceight\u201d in the PIF to \u201cten plus two\u201d at the CIC interview and \u201cten\u201d at his testimony.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found that the applicant failed to adequately explain the inconsistencies in the number alleged, which ranged from as low as \u201ceight\u201d in the PIF to \u201cten plus two\u201d at the CIC interview and \u201cten\u201d at his testimony.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The inconsistency with respect to a central and simple aspect of the applicant\u2019s claim and the lack of an adequate explanation led the Board to draw an adverse inference with regard to the applicant\u2019s credibility.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The inconsistency with respect to a central and simple aspect of the applicant\u2019s claim and the lack of an adequate explanation led the Board to draw an adverse inference with regard to the applicant\u2019s credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In his testimony the applicant provided evidence that he has been attending Living Water Assembly church since March 8, 2008 and was baptized on March 22, 2008.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "In his testimony the applicant provided evidence that he has been attending Living Water Assembly church since March 8, 2008 and was baptized on March 22, 2008.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board found the applicant\u2019s knowledge of Christianity was less then reasonably expected in the circumstances.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicant\u2019s knowledge of Christianity was less then reasonably expected in the circumstances.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board made the following determinations with respect to the applicant\u2019s lack of Christian knowledge at paragraph 20 of its reasons: \u00b620 \u2026The Panel draws a negative inference in regard to the claimant\u2019s identity as a practising Christian given his inability to easily describe the core elements of the Christian faith, particularly his omission of any reference to Jesus Christ, his inability to easily identify Christmas or the Christian sacraments and his belief that the Apostle\u2019s Creed is located in the Old Testament\u2026 [Emphasis added]",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board drew a negative inference regarding the claimant\u2019s identity as a practising Christian given his inability to easily describe the core elements of the Christian faith, particularly his omission of any reference to Jesus Christ, his inability to easily identify Christmas or the Christian sacraments and his belief that the Apostle\u2019s Creed is located in the Old Testament.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board found the applicant\u2019s testimony with respect to the circumstances surrounding his second baptism on March 22, 2008 to lack credibility.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicant\u2019s testimony with respect to the circumstances surrounding his second baptism on March 22, 2008 to lack credibility.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The claimant initially testified that he participated in a three month preparatory class prior to his second baptism.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The claimant initially testified that he participated in a three month preparatory class prior to his second baptism.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "When Board asked how it was possible for the applicant to attend a three month long preparatory class when he joined the Church only 20 days prior to his baptism the applicant changed his story and claimed that that he was allowed to be baptized more quickly in light of his previous baptism.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "When the Board asked how it was possible for the applicant to attend a three month long preparatory class when he joined the Church only 20 days prior to his baptism, the applicant changed his story and claimed that he was allowed to be baptized more quickly in light of his previous baptism.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant later conceded that he never attended a single preparatory class.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicant later conceded that he never attended a single preparatory class.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board relied upon the Federal Court of Appeal\u2019s decision in Sheikh v. Canada (MEI), [1990] 3 F.C. 238 (F.C.A.), per Justice MacGuigan at paragraph 8, in concluding that the cumulative effect of the applicant\u2019s negative credibility findings was to leave the Board without any credible and trustworthy evidence upon which to base a determination that the claimant is a Convention refugee.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board relied upon the Federal Court of Appeal\u2019s decision in Sheikh v. Canada (MEI) in concluding that the cumulative effect of the applicant\u2019s negative credibility findings was to leave the Board without any credible and trustworthy evidence upon which to base a determination that the claimant is a Convention refugee.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant\u2019s claim for refugee status was therefore dismissed.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicant\u2019s claim for refugee status was therefore dismissed.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "While the applicant has raised a number of issues, the Court has concluded that this case turns on whether the credibility finding of the Board was reasonably open to it with respect to two important material findings: 1. the claimant\u2019s identity as a practicing Christian based on his Christian knowledge; and 2. the applicant\u2019s description of the number of members in the unregistered house church he attended in China.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant has raised a number of issues in the case.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In the past, I held that the standard of review for credibility findings of the Board was patent unreasonableness: Chen v. Canada (MCI), 2002 FCT 1194, 118 A.C.W.S. (3d) 700, at paragraph 4; Gonzalez v. Canada (MCI), 2008 FC 128, 164 A.C.W.S. (3d) 674, at paragraph 13; Penghui Wu v. Canada (MCI), 2009 FC 929 at paragraph 15.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "Previously, the standard of review for credibility findings of the Board was patent unreasonableness, as held in Chen v. Canada (MCI), Gonzalez v. Canada (MCI), and Penghui Wu v. Canada (MCI).",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The applicant submits that the Board unreasonably assessed the applicant\u2019s identity as a practicing Christian based on the level of his knowledge of Christianity and the Bible.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "applicant",
+    "claim": "The Board unreasonably assessed the applicant\u2019s identity as a practicing Christian based on the level of his knowledge of Christianity and the Bible.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The respondent submits that the Board reasonably found that the applicant\u2019s unfamiliarity of basic elements of Christianity weakened his claim he was an active member of the Christian faith, especially given the significant period of study that was undertaken in China and later in Canada.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "respondent",
+    "claim": "The Board reasonably found that the applicant\u2019s unfamiliarity with basic elements of Christianity weakened his claim he was an active member of the Christian faith, especially given the significant period of study in China and Canada.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Court finds that the Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge, and for this reason the applicant was not credible with respect to his refugee claim on the basis of his Christianity.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found the applicant was unable to demonstrate a reasonable level of Christian knowledge and was not credible on his refugee claim based on Christianity.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant submits that the Board ignored relevant evidence and engaged in a microscopic examination of the applicant\u2019s testimony with respect to the stated number of members in the applicant\u2019s underground church.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "applicant",
+    "claim": "The Board ignored relevant evidence and engaged in a microscopic examination of the applicant\u2019s testimony regarding the number of members in the applicant\u2019s underground church.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "According to the applicant the inconsistencies resulted from interpretation defects and his own nervousness.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "applicant",
+    "claim": "The inconsistencies in membership numbers resulted from interpretation defects and the applicant\u2019s nervousness.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Board rejected those explanations and drew an adverse credibility finding from the inconsistencies.",
+    "paragraphs": [
+     26
+    ],
+    "evidence_ids": [
+     "26.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     26
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board rejected the applicant\u2019s explanations and drew an adverse credibility finding from the inconsistencies in membership numbers.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The applicant offered explanations for the slight variances which the Court will not detail.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "The applicant offered explanations for the slight variances in membership numbers.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Both parties advised the Court that this case does not present a question which ought to be certified for an appeal.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "made_by": "applicant",
+    "claim": "This case does not present a question which ought to be certified for an appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "This is an application for judicial review of a decision of the Refugee Protection Division of the Immigration and Refugee Board (the Board) dated April 22, 2009 concluding that the applicant, a Chinese citizen, is not a Convention refugee or a person in need of protection pursuant to sections 96 and 97 of the Immigration and Refugee Protection Act (IRPA), S.C. 2001, c. 27 because of his Christian religion.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant is a Chinese citizen who applied for refugee status in Canada based on his Christian religion."
+   },
+   {
+    "quote": "The twenty-three (23) year old applicant is a citizen of China. He left China and arrived in Canada on December 17, 2007 and claimed refugee status on January 3, 2008.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant is 23 years old and arrived in Canada on December 17, 2007, claiming refugee status on January 3, 2008."
+   },
+   {
+    "quote": "The applicant is an electronics store clerk with a high school diploma who resided with his Buddhist parents before coming to Canada.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant was an electronics store clerk with a high school diploma and lived with his Buddhist parents before coming to Canada."
+   },
+   {
+    "quote": "In or about December 2006 a colleague introduced the then atheist applicant to Christianity. The applicant was moved by the teachings of Christianity and began to attend a small underground church on February 11, 2007. The applicant participated in church services for several months and on September 16, 2007 was baptized by the church\u2019s pastor.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.3",
+     "3.4",
+     "3.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant was introduced to Christianity in December 2006, began attending an underground church in February 2007, and was baptized in September 2007."
+   },
+   {
+    "quote": "On November 25, 2007 the service was interrupted as a result of raid by the Public Safety Bureau (PSB). The applicant and several other members allegedly escaped through a window.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.6",
+     "3.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "In November 2007, a church service was raided by the Public Safety Bureau, and the applicant escaped through a window with other members."
+   },
+   {
+    "quote": "The applicant fled by train to a friend\u2019s house in Jinan city, China. From there he learned that the PSB arrested two members of his church and paid bi-weekly visits to his parents\u2019 house in search of him. The applicant decided to flee China with the help of a smuggler.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1",
+     "4.2",
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant fled to a friend's house in Jinan city, learned that the PSB arrested two church members and visited his parents' house, then decided to flee China with a smuggler."
+   },
+   {
+    "quote": "He arrived in Canada on December 17, 2007 and claimed refugee status on January 3, 2008, seeking protection because of a well founded fear of persecution for his Christian religious beliefs.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The applicant arrived in Canada on December 17, 2007, claimed refugee status on January 3, 2008, and sought protection due to a well-founded fear of persecution for his Christian beliefs."
+   },
+   {
+    "quote": "Section 96 of IRPA grants protection to Convention refugees: 96. A Convention refugee is a person who, by reason of a well-founded fear of persecution for reasons of race, religion, nationality, membership in a particular social group or political opinion, (a) is outside each of their countries of nationality and is unable or, by reason of that fear, unwilling to avail themself of the protection of each of those countries; or (b) not having a country of nationality, is outside the country of their former habitual residence and is unable or, by reason of that fear, unwilling to return to that country. 96.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2",
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "legal_test",
+    "statement": "Section 96 of IRPA defines a Convention refugee as a person who, due to a well-founded fear of persecution for reasons such as race, religion, nationality, membership in a particular social group or political opinion, is outside their country of nationality and unable or unwilling to avail themselves of that country's protection, or if stateless, is outside their former habitual residence and unable or unwilling to return."
+   },
+   {
+    "quote": "Section 97 of IRPA grants to protection to certain categories of persons: 97. (1) A person in need of protection is a person in Canada whose removal to their country or countries of nationality or, if they do not have a country of nationality, their country of former habitual residence, would subject them personally (a) to a danger, believed on substantial grounds to exist, of torture within the meaning of Article 1 of the Convention Against Torture; or (b) to a risk to their life or to a risk of cruel and unusual treatment or punishment if (i) the person is unable or, because of that risk, unwilling to avail themself of the protection of that country, (ii) the risk would be faced by the person in every part of that country and is not faced generally by other individuals in or from that country, (iii) the risk is not inherent or incidental to lawful sanctions, unless imposed in disregard of accepted international standards, and (iv) the risk is not caused by the inability of that country to provide adequate health or medical care. 97.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1",
+     "12.2",
+     "12.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "legal_test",
+    "statement": "Section 97 of IRPA defines a person in need of protection as someone in Canada whose removal to their country of nationality or former habitual residence would subject them personally to a danger of torture or a risk to life or cruel and unusual treatment, under specified conditions."
+   },
+   {
+    "quote": "While the applicant has raised a number of issues, the Court has concluded that this case turns on whether the credibility finding of the Board was reasonably open to it with respect to two important material findings: 1. the claimant\u2019s identity as a practicing Christian based on his Christian knowledge; and 2. the applicant\u2019s description of the number of members in the unregistered house church he attended in China.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The case turns on whether the credibility finding of the Board was reasonably open to it with respect to two important material findings: the claimant\u2019s identity as a practicing Christian based on his Christian knowledge, and the applicant\u2019s description of the number of members in the unregistered house church he attended in China."
+   },
+   {
+    "quote": "Before a credibility finding of the Board is set aside, one of the following criteria must be established: 1. the Board did not provide valid reasons for finding that an applicant lacked credibility; 2. the inferences drawn by the Board are based on implausibility findings that in the view of the Court are simply not plausible; 3. the decision was based on inferences that were not supported by the evidence; or, 4. the credibility finding was based on a finding of fact that was perverse, capricious, or without regard to the evidence.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2",
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "legal_test",
+    "statement": "Before setting aside a credibility finding of the Board, one must establish that the Board did not provide valid reasons, or that the inferences drawn were implausible, unsupported by evidence, or based on perverse or capricious findings."
+   },
+   {
+    "quote": "As a result of Dunsmuir, it is clear that the standard of patent unreasonableness has been eliminated, and that reviewing courts must focus on only two standards of review, those of reasonableness and correctness.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The standard of patent unreasonableness has been eliminated; courts must now focus on only two standards of review: reasonableness and correctness."
+   },
+   {
+    "quote": "Implausibility and credibility determinations are factual in nature. The post-Dunsmuir jurisprudence has held that the appropriate standard of review applicable to credibility and plausibility assessments is that of reasonableness with a high level of curial deference: Saleem v. Canada (MCI), [2008] F.C.J. No. 482, 2008 FC 389 at paragraph 13; Malveda v. Canada (MCI), [2008] F.C.J. No. 527, 2008 FC 447 at paragraphs 17-20; Khokhar v. Canada (MCI), [2008] F.C.J. No. 571, 2008 FC 449 at paragraphs 17-20.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "Implausibility and credibility determinations are factual in nature and the appropriate standard of review for these assessments is reasonableness with a high level of curial deference."
+   },
+   {
+    "quote": "The standard of review is therefore reasonableness with a high level of deference to the Board\u2019s findings.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The standard of review is reasonableness with a high level of deference to the Board\u2019s findings."
+   },
+   {
+    "quote": "In assessing a claimant\u2019s knowledge of Christianity, the Board should not adopt an unrealistically high standard of knowledge or focus on a \u201cfew points of error or misunderstandings to a level which reached the microscopic analysis\u201d: Attakora v. Canada (Minister of Employment and Immigration) (F.C.A.), (1989), 99 N.R. 168, [1989] F.C.J. No. 444 (QL), and subsequent cases: Huang v. Canada (MCI), 2008 FC 346, 69 Imm. L.R. (3d) 286, per Justice Mosley at paragraph 10; Chen v. Canada (MCI), 2007 FC 270, 155 A.C.W.S. (3d) 929, per Justice Barnes at paragraph 16.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "legal_test",
+    "statement": "In assessing a claimant\u2019s knowledge of Christianity, the Board should not adopt an unrealistically high standard of knowledge or focus on a few points of error or misunderstandings to a microscopic level."
+   },
+   {
+    "quote": "In Penghui Wu, supra, I held at paragraph 22 that determining whether one is a genuine Christian by way of \u201ctrivia\u201d is clearly contrary to the case law: \u00b622 A reading of the Board\u2019s reasons gives the impression that to be determined to be a Christian one should be able to retain at least some encyclopaedic knowledge of the Bible or Jesus\u2019 teaching. Determining whether one is a genuine Christian by way of \u201ctrivia\u201d is clearly contrary to the above case law. This Court has often overturned a Board Member\u2019s decision as \u201cunfair\u201d and \u201cunreasonable\u201d because the applicant could not answer detailed questions about the Bible.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.3",
+     "21.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "Determining whether one is a genuine Christian by way of trivia is clearly contrary to the case law and the Board\u2019s approach was unfair and unreasonable."
+   },
+   {
+    "quote": "The Court finds that the Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge, and for this reason the applicant was not credible with respect to his refugee claim on the basis of his Christianity.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Court finds that the Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge, and for this reason the applicant was not credible with respect to his refugee claim on the basis of his Christianity."
+   },
+   {
+    "quote": "In fact, the Court finds that the applicant demonstrated a real knowledge of Christian beliefs, and that this conclusion by the Board was not reasonably open to it.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The applicant demonstrated a real knowledge of Christian beliefs, and the Board\u2019s contrary conclusion was not reasonably open to it."
+   },
+   {
+    "quote": "When seeking to impeach a finding of fact the applicant must show that the finding of fact was truly erroneous, made capriciously or without regard to the evidence, and forms the basis of the decision: Rohn and Hass Canada Ltd. v. Canada (Anti-Dumping Tribunal), [1978] F.C.J. No (QL), 522, 22 N.R. 175 (F.C.A.), per C.J. Jacket at paragraph 5.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "legal_test",
+    "statement": "To impeach a finding of fact, the applicant must show that the finding was truly erroneous, made capriciously or without regard to the evidence, and forms the basis of the decision."
+   },
+   {
+    "quote": "At issue is an inconsistency in the purported membership of the applicant\u2019s underground church. The applicant provided a different figure for the number of members in his underground church on different occasions as his refugee claim was processed. The figure varies from \u201cover 10\u201d which was given at the initial refugee claim interview with Citizenship and Immigration Canada (CIC), to \u201c8\u201d which was written in the PIF, and to \u201c10\u201d which was given by the applicant at the Board hearing.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1",
+     "25.2",
+     "25.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "background_fact",
+    "statement": "There was an inconsistency in the purported membership numbers of the applicant\u2019s underground church, varying from 'over 10' at the initial interview, to '8' in the PIF, and '10' at the Board hearing."
+   },
+   {
+    "quote": "The result is an impermissible microscopic analysis of the evidence.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "Focusing on a few minor inconsistencies results in an impermissible microscopic analysis of the evidence."
+   },
+   {
+    "quote": "The applicant in this case never wavered far from his figure, which was10. At most the applicant misstated the true figure by two persons.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.3",
+     "27.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "kind": "conclusion",
+    "statement": "The applicant\u2019s figure for church membership never wavered far from 10, with at most a misstatement by two persons."
+   },
+   {
+    "quote": "It was unreasonable for the Board to focus on such a minute detail in light of the applicant\u2019s obvious difficulties with interpretation.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "It was unreasonable for the Board to focus on such a minute detail given the applicant\u2019s difficulties with interpretation."
+   },
+   {
+    "quote": "The Court finds that the Board engaged in a microscopic examination of the applicant\u2019s evidence.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The Board engaged in a microscopic examination of the applicant\u2019s evidence regarding church membership numbers."
+   },
+   {
+    "quote": "The adverse credibility finding which flowed from that analysis is therefore unreasonable.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The adverse credibility finding based on the microscopic examination of the membership evidence is unreasonable."
+   },
+   {
+    "quote": "The Court concludes that the Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The Board unreasonably found that the claimant was unable to demonstrate a reasonable level of Christian knowledge."
+   },
+   {
+    "quote": "I reach the same conclusion with respect to the Board\u2019s microscopic analysis of the applicant\u2019s testimony.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The Court reaches the same conclusion regarding the Board's microscopic analysis of the applicant's testimony."
+   },
+   {
+    "quote": "The Board based its adverse credibility inferences on the two material findings which were made unreasonably.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The Board based its adverse credibility inferences on two material findings that were made unreasonably."
+   },
+   {
+    "quote": "The application for judicial review is therefore allowed.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The application for judicial review is allowed."
+   },
+   {
+    "quote": "The Court agrees.",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "conclusion",
+    "statement": "The Court agrees that this case does not present a question which ought to be certified for an appeal."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "In Dunsmuir v. New Brunswick, 2008 SCC 9, 372 N.R. 1, the Supreme Court of Canada held at paragraph 62 that the first step in conducting a standard of review analysis is to \u201cascertain whether the jurisprudence has already determined in a satisfactory manner the degree of (deference) to be accorded with regard to a particular category of question\u201d: see also Khosa v. Canada (MCI), 2009 SCC 12, per Justice Binnie at paragraph 53.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "authority": "In Dunsmuir v. New Brunswick, 2008 SCC 9, the Supreme Court of Canada held that the first step in a standard of review analysis is to ascertain whether the jurisprudence has already determined the degree of deference to be accorded to a particular category of question.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "In Dunsmuir v. New Brunswick, 2008 SCC 9, 372 N.R. 1, the Supreme Court of Canada held at paragraph 62 that the first step in conducting a standard of review analysis is to \u201cascertain whether the jurisprudence has already determined in a satisfactory manner the degree of (deference) to be accorded with regard to a particular category of question\u201d: see also Khosa v. Canada (MCI), 2009 SCC 12, per Justice Binnie at paragraph 53.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "authority": "The Court also referred to Khosa v. Canada (MCI), 2009 SCC 12, per Justice Binnie, supporting the approach to standard of review analysis.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "This Court has held that the Board should not focus on a few points of error: Attakora, supra.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "authority": "The Court has held that the Board should not focus on a few points of error, as stated in Attakora.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

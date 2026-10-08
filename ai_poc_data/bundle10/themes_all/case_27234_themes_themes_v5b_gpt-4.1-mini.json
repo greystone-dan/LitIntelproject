@@ -1,0 +1,1023 @@
+{
+ "case_id": 27234,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.0104384
+ },
+ "verification": {
+  "items": 50,
+  "quote_exact_in_cited": 50,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 1,
+  "issues": 5,
+  "calls": 7,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 3,
+   "arguments": 22,
+   "holdings": 26,
+   "rebuttals": 0,
+   "authorities": 2,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The Federal Court allowed the application to set aside the Senior Immigration Officer's decision because the Officer failed to properly analyze the best interests of the child, Leticia, in the humanitarian and compassionate grounds assessment.",
+  "themes": [
+   {
+    "name": "Best interests of the child",
+    "summary": "The decision hinges on whether the Officer properly applied the correct test and conducted a proper analysis of Leticia's best interests in the H&C determination.",
+    "paragraphs": [
+     12,
+     13,
+     14,
+     15,
+     16,
+     17,
+     18
+    ]
+   },
+   {
+    "name": "Humanitarian and compassionate grounds assessment",
+    "summary": "The Officer's overall assessment of hardship and establishment in Canada, including the weighing of evidence and consideration of family and community ties.",
+    "paragraphs": [
+     5,
+     7,
+     8,
+     9,
+     10,
+     11,
+     21,
+     22,
+     23,
+     24
+    ]
+   },
+   {
+    "name": "Risk and safety considerations in Brazil",
+    "summary": "The Officer's evaluation of the risk faced by the applicants and their daughter in Brazil, including crime and government protection.",
+    "paragraphs": [
+     11,
+     19,
+     20
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Background and procedural history",
+    "first_paragraph": 1,
+    "last_paragraph": 11,
+    "disposition": "other"
+   },
+   {
+    "label": "Identification of main issue: best interests of the child",
+    "first_paragraph": 12,
+    "last_paragraph": 12,
+    "disposition": "other"
+   },
+   {
+    "label": "Analysis of best interests of the child and application of correct test",
+    "first_paragraph": 13,
+    "last_paragraph": 18,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Additional comments on risk assessment and establishment analysis",
+    "first_paragraph": 19,
+    "last_paragraph": 24,
+    "disposition": "other"
+   },
+   {
+    "label": "Certification of question",
+    "first_paragraph": 25,
+    "last_paragraph": 25,
+    "disposition": "not_decided"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The applicants seek to set aside a decision of a Senior Immigration Officer dated November 17, 2011, rejecting their request under subsection 25(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 for permanent residence on humanitarian and compassionate (H&C) grounds.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The applicants seek to set aside the decision rejecting their request for permanent residence on humanitarian and compassionate grounds.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In January 2007, before their refugee claim had been determined, the applicants applied for permanent residence on H&C grounds. They referred to their establishment in Canada as a positive factor as well as the fact that Mr. Sebbe had worked as a stucco mason and had a contracting business. The applicants attended a church in Canada and did volunteer work in the community. They pointed to problems with crime in Brazil, saying they had nothing to return to because of the threats Mr. Sebbe faced. Further, as immigrants returning to Brazil from abroad, they would be perceived as wealthy and targeted for kidnapping and ransom demands.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2",
+     "5.3",
+     "5.4",
+     "5.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The applicants applied for permanent residence on humanitarian and compassionate grounds, citing their establishment in Canada, Mr. Sebbe's work, community involvement, and risks in Brazil including threats and crime.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The applicants also applied for a Pre-Removal Risk Assessment (PRRA), which the Officer rejected on November 14, 2011. He found they had not rebutted the Board\u2019s initial finding that state protection was available.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1",
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Pre-Removal Risk Assessment was rejected as the applicants did not rebut the finding that state protection was available in Brazil.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The same Officer considered the H&C application and refused it on November 16, 2011, finding that the applicants\u2019 establishment in Canada would not lead to unusual and undeserved or disproportionate hardship if they had to return to Brazil.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The humanitarian and compassionate application was refused because the applicants' establishment in Canada would not lead to unusual and undeserved or disproportionate hardship if they returned to Brazil.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He also found conditions in Brazil would not result in hardship for the applicants and would not have a negative impact on Leticia which would amount to unusual and undeserved or disproportionate hardship.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Conditions in Brazil would not cause hardship amounting to unusual and undeserved or disproportionate hardship for the applicants or their daughter Leticia.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Officer noted the applicants\u2019 seven year stay in Canada and found they had received due process through the refugee system. The applicants had established themselves in Canada through the purchase of a home and had created links with the community. However, it was noted that they had done these things knowing they could be returned to Brazil at any time. The Officer concluded the applicants\u2019 establishment in Canada was not exceptional and did not justify an H&C exemption.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2",
+     "8.3",
+     "8.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicants' seven-year stay and establishment in Canada were noted, but their establishment was not exceptional and did not justify an exemption on humanitarian and compassionate grounds.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Officer also pointed out that the applicants have no family in Canada but have many family members living in Brazil. Their family in Brazil could help them become re-established.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1",
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicants have no family in Canada but have many family members in Brazil who could help them re-establish themselves.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The hardship the applicants face from having to relocate to Brazil was not unusual, undeserved, or disproportionate and did not suggest an H&C exemption was necessary in their case.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The hardship of relocating to Brazil was not unusual, undeserved, or disproportionate and did not warrant a humanitarian and compassionate exemption.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Officer found Leticia would have better opportunities in Canada. However, there was no evidence before him that her basic needs would not be met if she had to return to Brazil with her parents. Like her parents, Leticia had no family in Canada and would be returning to a country where she had support from many family members.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2",
+     "10.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Leticia would have better opportunities in Canada but there was no evidence her basic needs would not be met in Brazil, where she has family support.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Having considered Leticia\u2019s interests, the Officer found resettling in Brazil would not amount to unusual and undeserved or disproportionate hardship for her.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Resettling in Brazil would not cause Leticia unusual and undeserved or disproportionate hardship.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Although the applicants said they faced a risk in Brazil because they would be perceived as wealthy, the Officer found they had not provided any evidence to prove that threat.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicants' claim of risk due to being perceived as wealthy was unsupported by evidence.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "They also said they faced hardship from the threat of kidnapping, extortion, and unemployment, but the Officer found all Brazilians faced these problems.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The applicants' claims of hardship from kidnapping, extortion, and unemployment were found to be general problems faced by all Brazilians.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The documentary evidence before him showed Brazil is a democracy with free and fair elections and an independent judiciary. Brazilians could also bring lawsuits for human rights violations.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.3",
+     "11.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Brazil is a democracy with free and fair elections, an independent judiciary, and mechanisms to address human rights violations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Although Brazil faced problems with crime, the government was making efforts to protect its citizens. The Officer concluded that any risk the applicants faced in Brazil was general and did not amount to unusual and undeserved or disproportionate hardship.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.5",
+     "11.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Although Brazil has crime problems, the government is making efforts to protect citizens, and any risk faced by the applicants is general and does not amount to unusual and undeserved or disproportionate hardship.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I agree with the Minister that the applicants provided little evidence and made few submissions as to the best interests of their daughter.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "made_by": "respondent",
+    "claim": "The applicants provided little evidence and made few submissions as to the best interests of their daughter.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Officer\u2019s analysis of Leticia\u2019s interests is contained in a single paragraph: I note that the applicant has a Canadian-born daughter born on November 13, 2008. Although the applicant\u2019s daughter may enjoy better social and economic opportunities in Canada, there is insufficient evidence before me to indicate that basic amenities would not be met in Brazil. I note further that the applicant\u2019s daughter has no other family in Canada besides her mother and father. The families of both her parents reside in Brazil. Therefore, it is my finding that the applicant\u2019s daughter will not be returning to a country where she has no social or family support. I have considered the best interests of the applicant\u2019s daughter along with the personal circumstances of this family and found that the applicant has not established that the general consequences of relocating and resettling back to their home country, would have a significant negative impact on his daughter that would amount to unusual and undeserved or disproportionate hardship.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1",
+     "14.2",
+     "14.3",
+     "14.4",
+     "14.5",
+     "14.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer found that the applicant\u2019s daughter, a Canadian-born child, would not be returning to a country without social or family support and that the applicant had not established that relocating to Brazil would cause significant negative impact amounting to unusual and undeserved or disproportionate hardship.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In stating that \u201cthere is insufficient evidence before me to indicate that basic amenities would not be met in Brazil\u201d the Officer is importing into the analysis an improper criterion. He appears to be saying that a child\u2019s best interest will lie with staying in Canada only when the alternative country fails to met the child\u2019s \u201cbasic amenities.\u201d That is neither the test nor the approach to take when determining a child\u2019s best interests.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2",
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "applicant",
+    "claim": "The Officer improperly used a criterion that a child\u2019s best interest lies with staying in Canada only when the alternative country fails to meet the child\u2019s basic amenities.",
+    "treatment": "accepted",
+    "outcome_note": "The Court agrees this is an improper test.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I agree with the Minister that it is not a reviewable error merely to use hardship language with respect to children.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "made_by": "respondent",
+    "claim": "It is not a reviewable error merely to use hardship language with respect to children.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In this case, the Officer says that Leticia\u2019s basic needs will be met and there would not be a significant negative impact on her that amounted to unusual and undeserved or disproportionate hardship. It is clear that the Officer has looked at what hardship Leticia would face in Brazil. The analysis of her interests is such that one cannot point to anything that suggests he fully analysed what her best interests were.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.2",
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer found that Leticia\u2019s basic needs will be met and there would not be significant negative impact amounting to unusual and undeserved or disproportionate hardship.",
+    "treatment": "rejected",
+    "outcome_note": "The Officer focused on hardship rather than fully analysing best interests.",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Officer assesses the applicants\u2019 risk in returning to Brazil and says: \u201cI acknowledge that Brazil is experiencing some difficulties with increasing levels of crime, however, this is a risk that is faced by the population generally.\u201d",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer assessed the risk to the applicants by stating that the crime risk in Brazil is faced generally by the population.",
+    "treatment": "rejected",
+    "outcome_note": "The Court finds this insufficient for assessing Leticia's best interests.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The officer writes: \u201cI acknowledge that the applicant has taken positive steps in establishing himself in Canada, however, I note that he has received due process through the refugee programs and was accordingly afforded the tools and opportunity to obtain a degree of establishment into Canadian society.\u201d",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer stated that the applicant had due process through refugee programs, which provided tools and opportunity to establish himself in Canada.",
+    "treatment": "rejected",
+    "outcome_note": "The Court disagrees that due process equates to providing tools and opportunity for establishment.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Officer also writes: \u201cFurthermore, the applicant knowingly purchased various items including a house, with the full knowledge that he was a failed refugee claimant and there was a possibility that he may have to return to Brazil.\u201d",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Officer noted that the applicant knowingly purchased items including a house despite being a failed refugee claimant aware of possible removal.",
+    "treatment": "rejected",
+    "outcome_note": "The Court finds this view perverse and discounts it.",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The applicants, Rodrigo Sebbe and his wife Patricia Angelica Gomes Goncalves, are citizens of Brazil. They have a four-year-old daughter, Leticia, who is a Canadian citizen by birth.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants are Rodrigo Sebbe and his wife Patricia Angelica Gomes Goncalves, citizens of Brazil, with a four-year-old Canadian citizen daughter, Leticia."
+   },
+   {
+    "quote": "The applicants came to Canada in March 2004 as visitors. After their visitor status expired, they stayed in Canada illegally, hoping that they would not be discovered; however, Mr. Sebbe was arrested and detained by the Canada Border Services Agency in July 2006.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1",
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants came to Canada as visitors in March 2004 and stayed illegally after their status expired, leading to Mr. Sebbe's arrest in July 2006."
+   },
+   {
+    "quote": "After the arrest and detention, the applicants claimed refugee status but their claim was dismissed by the Refugee Protection Division of the Immigration and Refugee Board on February 12, 2008.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants claimed refugee status but their claim was dismissed by the Refugee Protection Division on February 12, 2008."
+   },
+   {
+    "quote": "The applicants updated their H&C application several times. Most notably, they forwarded a copy of Leticia\u2019s birth certificate on October 5, 2009.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.6",
+     "5.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants updated their humanitarian and compassionate application several times, including submitting Leticia's birth certificate in 2009."
+   },
+   {
+    "quote": "In my view, the only serious issue in this application is whether the Officer\u2019s analysis of the best interests of Leticia was reasonable.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The only serious issue in this application is whether the Officer\u2019s analysis of the best interests of Leticia was reasonable."
+   },
+   {
+    "quote": "That issue includes the question as to whether the Officer applied the correct test when examining the child\u2019s best interests, and how that factor was weighed when making the H&C determination.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The issue includes whether the Officer applied the correct test when examining the child\u2019s best interests and how that factor was weighed in the H&C determination."
+   },
+   {
+    "quote": "However, officers are under a duty to consider children\u2019s best interests when conducting H&C determinations, when there is some evidence before them.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "legal_test",
+    "statement": "Officers are under a duty to consider children\u2019s best interests when conducting H&C determinations, when there is some evidence before them."
+   },
+   {
+    "quote": "Children are not separately represented in these proceedings and the role of the officer is akin to that of parens patria. This is particularly true when the child is a Canadian citizen and his or her parents are not.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.3",
+     "13.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "legal_test",
+    "statement": "Children are not separately represented in these proceedings and the role of the officer is akin to that of parens patria, especially when the child is a Canadian citizen and the parents are not."
+   },
+   {
+    "quote": "The question is not: \"is the child suffering enough that his \"best interests\" are not being \"met\"? The question at the initial stage of the assessment is: \"what is in the child's best interests?\"",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.6",
+     "15.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "conclusion",
+    "statement": "The question at the initial stage is what is in the child's best interests, not whether the child is suffering enough to meet a hardship threshold."
+   },
+   {
+    "quote": "Undoubtedly placing a child in an environment where his or her basic needs are not met can never be said to be in that child\u2019s best interest. However, to suggest that the child\u2019s interest in remaining in Canada is balanced if the alternative provides a minimum standard of living is perverse.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1",
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "Placing a child in an environment where basic needs are not met is never in the child's best interest, but balancing the child's interest in remaining in Canada against a minimum standard of living elsewhere is incorrect."
+   },
+   {
+    "quote": "This approach completely fails to ask the question the Officer is mandated to ask: What is in this child\u2019s best interest? The Officer was required to first determine whether it was in Leticia\u2019s best interests to go with her parents to Brazil, where she had never been before, or for her to remain in Canada where she had \u201cbetter social and economic opportunities.\u201d Only once he had clearly articulated what was in Leticia\u2019s best interest could the Officer then weigh this against the other positive and negative elements in the H&C application.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.3",
+     "16.4",
+     "16.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "conclusion",
+    "statement": "The Officer was required to determine whether it was in Leticia\u2019s best interests to go to Brazil or remain in Canada with better social and economic opportunities, and then weigh this against other elements in the H&C application."
+   },
+   {
+    "quote": "However, the reasons must still show, \u201con a reading of the decision as a whole that the officer applied the correct test and conducted a proper analysis:\u201d Segura v Canada (Minister of Citizenship and Immigration), 2009 FC 894, at para 29.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "The reasons must show on a reading of the decision as a whole that the officer applied the correct test and conducted a proper analysis."
+   },
+   {
+    "quote": "These errors render the decision unreasonable and the application must be returned.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The errors in the decision render it unreasonable and require the application to be returned."
+   },
+   {
+    "quote": "The Officer assesses the applicants\u2019 risk in returning to Brazil and says: \u201cI acknowledge that Brazil is experiencing some difficulties with increasing levels of crime, however, this is a risk that is faced by the population generally.\u201d This analysis may be appropriate when looking at returning the two adult applicants to their country of origin. However, the Officer gives this fact no consideration when examining Leticia\u2019s best interests. She is a Canadian citizen who has never been to Brazil.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1",
+     "20.2",
+     "20.3",
+     "20.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The Officer's risk assessment for the adult applicants may be appropriate but fails to consider the best interests of Leticia, a Canadian citizen who has never been to Brazil."
+   },
+   {
+    "quote": "Is it in her best interests to go with her parents to a country \u201cexperiencing some difficulties with increasing levels of crime?\u201d",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "It is questionable whether it is in Leticia's best interests to move to a country experiencing increasing crime levels."
+   },
+   {
+    "quote": "Frankly, I fail to see how it can be said that the due process Canada offers claimants provides them with the \u201ctools and opportunity\u201d to establish themselves in Canada.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "Due process does not necessarily provide claimants with the tools and opportunity to establish themselves in Canada."
+   },
+   {
+    "quote": "I suspect that what the Officer means is that because the process has taken some time, the applicants had time to establish themselves to some degree. That is a statement with which one can agree.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.4",
+     "21.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "The Officer's statement that the time taken by the process allowed applicants to establish themselves is acceptable."
+   },
+   {
+    "quote": "However, what is required is an analysis and assessment of the degree of establishment of these applicants and how it weighs in favour of granting an exemption.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "legal_test",
+    "statement": "The Officer must analyze and assess the degree of establishment of applicants and how it weighs in favour of granting an exemption."
+   },
+   {
+    "quote": "The Officer must not merely discount what they have done by crediting the Canadian immigration and refugee system for having given them the time to do these things without giving credit for the initiatives they undertook.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "legal_test",
+    "statement": "The Officer must not discount applicants' establishment by crediting the immigration system for giving them time without crediting their initiatives."
+   },
+   {
+    "quote": "The Officer must also examine whether the disruption of that establishment weighs in favour of granting the exemption.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "legal_test",
+    "statement": "The Officer must examine whether disruption of establishment weighs in favour of granting the exemption."
+   },
+   {
+    "quote": "The Officer has taken a perverse view of the evidence of establishment forwarded by the applicants.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The Officer took a perverse view of the evidence of establishment by discounting investments and purchases made despite knowledge of possible removal."
+   },
+   {
+    "quote": "In my view, the answers to these questions show that it is entirely irrelevant whether the persons knew he or she was subject to removal when they took steps to establish themselves and their families in Canada.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "It is irrelevant whether applicants knew they were subject to removal when they took steps to establish themselves and their families in Canada."
+   },
+   {
+    "quote": "Is the Officer suggesting that it is the preference of Canadians that failed claimants do nothing to succeed and support themselves while in Canada? Is he suggesting that any steps taken to succeed will be worthless, because they knew that they were subject to removal?",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.3",
+     "23.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The suggestion that applicants should do nothing to succeed because they might be removed is rejected."
+   },
+   {
+    "quote": "While some may suggest that in establishing themselves applicants are using a back-door to gain entry into Canada, that view can only be valid if the applicants have no real hope to remain in the country. In virtually all these cases applicants retain hope that they will ultimately be successful in remaining here. Given the time frame most of these applicants spend in Canada, it is unrealistic to presume that they would put their lives on hold awaiting the final decision.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.6",
+     "23.7",
+     "23.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "Applicants generally retain hope of remaining in Canada and it is unrealistic to presume they would put their lives on hold awaiting final decisions."
+   },
+   {
+    "quote": "The proper question is not what knowledge they had when they took these steps, but what were the steps they took, were they done legally, and what will the impact be if they must leave them behind.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "legal_test",
+    "statement": "The proper question is what legal steps applicants took to establish themselves and the impact if they must leave those behind, not their knowledge of removal risk when taking those steps."
+   },
+   {
+    "quote": "Neither party proposed a question for certification.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "kind": "party_gap",
+    "statement": "Neither party proposed a question for certification."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "As Justice Russell recently held in Williams v Canada (Minister of Citizenship and Immigration), 2012 FC 166, at paragraph 64: There is no basic needs minimum which if \"met\" satisfies the best interest test. Furthermore, there is no hardship threshold, such that if the circumstances of the child reach a certain point on that hardship scale only then will a child's best interests be so significantly \"negatively impacted\" as to warrant positive consideration.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.4",
+     "15.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "authority": "Williams v Canada (Minister of Citizenship and Immigration), 2012 FC 166, at para 64, holds there is no basic needs minimum which if met satisfies the best interest test, and no hardship threshold for positive consideration.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As Justice D\u00e9cary held in Hawthorne v. Canada (Minister of Citizenship & Immigration), 2002 FCA 475 at para 9: \"the concept of 'undeserved hardship' is ill-suited when assessing the hardship on innocent children. Children will rarely, if ever, be deserving of any hardship.\"",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.4",
+     "18.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "authority": "Hawthorne v. Canada (Minister of Citizenship & Immigration), 2002 FCA 475 at para 9, holds that the concept of 'undeserved hardship' is ill-suited when assessing hardship on innocent children, who will rarely be deserving of any hardship.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

@@ -1,0 +1,3592 @@
+{
+ "case_id": 38873,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.0433112
+ },
+ "verification": {
+  "items": 196,
+  "quote_exact_in_cited": 196,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 16,
+  "calls": 17,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.949,
+  "rows": {
+   "themes": 5,
+   "arguments": 40,
+   "holdings": 149,
+   "rebuttals": 0,
+   "authorities": 7,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The appeal is allowed because the Seabird Order in Council does not clearly and plainly extinguish the entire aboriginal interest in the Lougheed Highway corridor, meaning the land remains \"in the reserve\" for taxation purposes under s. 83(1)(a) of the Indian Act.",
+  "themes": [
+   {
+    "name": "Interpretation of Order in Council",
+    "summary": "The decision hinges on whether the Seabird Order in Council clearly and plainly extinguished the entire aboriginal interest in the land, with the majority finding ambiguity and the dissent finding clarity.",
+    "paragraphs": [
+     40,
+     45,
+     53,
+     77,
+     81,
+     96
+    ]
+   },
+   {
+    "name": "Application of Osoyoos precedent",
+    "summary": "The Supreme Court's decision in Osoyoos Indian Band v. Oliver guides the interpretive approach, emphasizing minimal impairment of aboriginal interests and the need for clear and plain intention to extinguish rights.",
+    "paragraphs": [
+     1,
+     33,
+     34,
+     37,
+     39,
+     53,
+     77,
+     81
+    ]
+   },
+   {
+    "name": "Crown's fiduciary duty and minimal impairment principle",
+    "summary": "The Crown must balance public and aboriginal interests by granting only the minimum interest necessary, requiring clear and plain intention to extinguish aboriginal rights.",
+    "paragraphs": [
+     34,
+     35,
+     36,
+     39,
+     61,
+     77
+    ]
+   },
+   {
+    "name": "Provincial legislation context",
+    "summary": "The Highway Act's provisions are considered as contextual evidence but do not determine the federal government's intention to extinguish aboriginal interests.",
+    "paragraphs": [
+     55,
+     56,
+     57,
+     58,
+     59,
+     60,
+     62,
+     81,
+     85
+    ]
+   },
+   {
+    "name": "New evidence on appeal regarding land ownership",
+    "summary": "New evidence about the highway being constructed on leased land was admitted as it could reasonably affect the trial's result and clarifies the nature of the interest transferred.",
+    "paragraphs": [
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     86
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Nature of the appeal and background",
+    "first_paragraph": 1,
+    "last_paragraph": 2,
+    "disposition": "other"
+   },
+   {
+    "label": "Factual background and legislative framework",
+    "first_paragraph": 3,
+    "last_paragraph": 18,
+    "disposition": "other"
+   },
+   {
+    "label": "Decisions below: Board and Federal Court Trial Division",
+    "first_paragraph": 19,
+    "last_paragraph": 24,
+    "disposition": "other"
+   },
+   {
+    "label": "Issues on appeal",
+    "first_paragraph": 25,
+    "last_paragraph": 25,
+    "disposition": "other"
+   },
+   {
+    "label": "Motion to introduce new evidence on appeal",
+    "first_paragraph": 26,
+    "last_paragraph": 32,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Interpretive framework from Osoyoos decision",
+    "first_paragraph": 33,
+    "last_paragraph": 39,
+    "disposition": "other"
+   },
+   {
+    "label": "Interpretation of the Seabird Order in Council",
+    "first_paragraph": 40,
+    "last_paragraph": 77,
+    "disposition": "other"
+   },
+   {
+    "label": "Effect of the land being \"in the reserve\" and taxation powers",
+    "first_paragraph": 78,
+    "last_paragraph": 78,
+    "disposition": "other"
+   },
+   {
+    "label": "Reversion to the Band issue",
+    "first_paragraph": 79,
+    "last_paragraph": 79,
+    "disposition": "not_decided"
+   },
+   {
+    "label": "Disposition and costs",
+    "first_paragraph": 80,
+    "last_paragraph": 80,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Dissenting reasons by No\u00ebl J.A.",
+    "first_paragraph": 81,
+    "last_paragraph": 98,
+    "disposition": "dismissed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Board held that the land and the cable system were \"in the reserve\" and, therefore, were properly assessed by the appellant.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board held that the land and cable system were 'in the reserve' and properly assessed by the appellant.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In a decision now reported as B.C. Tel v. Seabird Island Indian Band, [2000] 4 F.C. 350, the Appeal Judge, a Trial Division Judge of this Court, who did not have the benefit of the Supreme Court's recent teachings in Osoyoos, supra, allowed the appeal, holding that the property was not \"in the reserve\" and, therefore, it was not taxable by the Band.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court Trial Division allowed the respondent's appeal, holding the property was not 'in the reserve' and thus not taxable by the Band.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Whether the fibre optic cable system is \"in the reserve\" depends mainly on the interpretation of the 1956 Order in Council, P.C. 1956-1659 (the \"Order\" or \"Seabird Order\"), whereby the Governor General in Council authorized the province of British Columbia to take land, which now contains the cable system, from the Reserve for road purposes.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "made_by": "applicant",
+    "claim": "Whether the fibre optic cable system is \"in the reserve\" depends mainly on the interpretation of the 1956 Order in Council, which authorized the province of British Columbia to take land from the Reserve for road purposes.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At the hearing the appellant made a motion to introduce new factual evidence to the effect that a part of the Lougheed Highway rests on lands that are not owned by the province absolutely, but instead are leased, originally from Canadian Pacific Limited and now from Her Majesty the Queen in right of Canada.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "applicant",
+    "claim": "The appellant made a motion to introduce new factual evidence that part of the Lougheed Highway rests on lands leased from Canadian Pacific Limited and now from the Crown, not owned absolutely by the province.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "On August 4, 1998 the Board denied the respondent's appeal and upheld the appellant's 1997 and 1998 assessments, on the basis that the province only had the right to use the transferred land for road purposes and did not have fee simple title to the transferred land.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "On August 4, 1998 the Board denied the respondent's appeal and upheld the appellant's 1997 and 1998 assessments, on the basis that the province only had the right to use the transferred land for road purposes and did not have fee simple title to the transferred land.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board found that if the transferred land should cease to be used for road purposes, then the land would revert to the Band.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found that if the transferred land should cease to be used for road purposes, then the land would revert to the Band.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Consequently, it determined that if the province ceased to use a portion of the transferred land, used it for another purpose or if some else occupied and used a portion of that land, then the land would no longer be used for the purpose granted and would revert back to the Band.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "If the province ceased to use a portion of the transferred land, used it for another purpose or if someone else occupied and used a portion of that land, then the land would no longer be used for the purpose granted and would revert back to the Band.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board then concluded that the lands occupied by the respondent's fibre optic cable system were not being used for road purposes and, consequently, even if the land had been removed from the Reserve by the 1956 Order in Council, it had reverted back to the Band as it was not used for the purpose granted.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board concluded that the lands occupied by the respondent's fibre optic cable system were not being used for road purposes and, consequently, even if the land had been removed from the Reserve by the 1956 Order in Council, it had reverted back to the Band as it was not used for the purpose granted.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Therefore, according to the Board, the respondent's system was in the Reserve and subject to assessment and taxation by the Band.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "According to the Board, the respondent's system was in the Reserve and subject to assessment and taxation by the Band.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Pursuant to section 24 of the Federal Court Act, R.S.C. 1985 C. F-7 and section 60 of the Band's assessment bylaws the respondent appealed the Board's decision to the Federal Court Trial Division on September 18, 1998.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The respondent appealed the Board's decision to the Federal Court Trial Division on September 18, 1998 pursuant to section 24 of the Federal Court Act and section 60 of the Band's assessment bylaws.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Judge allowed the appeal and concluded that the transferred land on which the fibre optic cable was installed was not part of the Reserve and, therefore, not subject to taxation by the appellant.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Federal Court Trial Division allowed the appeal and concluded that the transferred land on which the fibre optic cable was installed was not part of the Reserve and, therefore, not subject to taxation by the appellant.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Judge indicated that in order to extinguish the Band's interest in the Reserve land, the Crown's intention must be \"clear and plain\", as determined by the Supreme Court in Opetchesaht Indian Band v. Canada, [1997] 2 S.C.R. 119, and this Court in Canadian National Railway Co. v. Matsqui Indian Band (1998), 162 D.L.R. (4th) 649.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge indicated that to extinguish the Band's interest in the Reserve land, the Crown's intention must be clear and plain, as determined by the Supreme Court in Opetchesaht Indian Band v. Canada and this Court in Canadian National Railway Co. v. Matsqui Indian Band.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He reasoned that, as the transfer in this case depended on what the province wanted to take, it was necessary to look at the province's intention to discover what the federal government consented to.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge reasoned that since the transfer depended on what the province wanted to take, it was necessary to look at the province's intention to discover what the federal government consented to.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Judge examined ss. 5, 8, 9 and 11 of the B.C. Highway Act, supra, in force in 1956, to determine that the province's intention was to acquire fee simple title.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge examined sections 5, 8, 9 and 11 of the B.C. Highway Act in force in 1956 to determine that the province's intention was to acquire fee simple title.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In fact, the Appeal Judge was not convinced that anything less than fee simple title would enable a province to build and maintain a highway.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge was not convinced that anything less than fee simple title would enable a province to build and maintain a highway.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Judge also referred to the fact that the Band had never attempted to exercise control over the corridor.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge referred to the fact that the Band had never attempted to exercise control over the corridor.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "On the whole, he determined that the language used in the Order in Council did not contain anything to detract from the clarity of the province's intention to acquire absolute title.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge determined that the language used in the Order in Council did not detract from the clarity of the province's intention to acquire absolute title.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appeal Judge went on to reject the argument that the land was no longer being used for road purposes.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge rejected the argument that the land was no longer being used for road purposes.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "He noted that the corridor continues to be used for road purposes notwithstanding the presence of the fibre optic cable system over the transferred land.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge noted that the corridor continues to be used for road purposes notwithstanding the presence of the fibre optic cable system over the transferred land.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Regardless, he held that the land would not revert to the Band even if it had ceased to be used for road purposes.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge held that the land would not revert to the Band even if it had ceased to be used for road purposes.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The broad issue in this appeal is whether the respondent's fibre optic cable system was properly assessed pursuant to the Band's bylaws.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "The broad issue in this appeal is whether the respondent's fibre optic cable system was properly assessed pursuant to the Band's bylaws.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The appellants raise two underlying questions in this regard.",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants raise two underlying questions regarding the assessment issue.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "First, did Order in Council 1956-1659, enacted pursuant to s. 35 of the Indian Act, supra, extinguish the entire aboriginal interest in land in the corridor, so that the Lougheed Highway corridor is no longer \"in the reserve\" within the meaning of s. 83(1)(a)?",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "Whether Order in Council 1956-1659 extinguished the entire aboriginal interest in land in the corridor, so that the Lougheed Highway corridor is no longer 'in the reserve' within the meaning of s. 83(1)(a).",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "If so, did the land upon which the fibre optic cable system lies cease to be used for road purposes and, therefore, revert back to the Band and become, once again, \"in the reserve\" within the meaning of s. 83(1)(a)?",
+    "paragraphs": [
+     25
+    ],
+    "evidence_ids": [
+     "25.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     25
+    ],
+    "made_by": "applicant",
+    "claim": "If the aboriginal interest was extinguished, whether the land upon which the fibre optic cable system lies ceased to be used for road purposes and reverted back to the Band, becoming 'in the reserve' again within the meaning of s. 83(1)(a).",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In its motion, the appellant sought to adduce new evidence that, despite the provisions of the B.C. Highway Act, supra, a part of the Lougheed Highway rests on lands that are leased, originally from Canadian Pacific Limited and now from Her Majesty the Queen in right of Canada.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "The appellant sought to introduce new factual evidence that a part of the Lougheed Highway rests on lands leased from Canadian Pacific Limited and now from Her Majesty the Queen in right of Canada, despite the provisions of the B.C. Highway Act.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "According to the appellant, the fact that the province of British Columbia constructed and now maintains the Lougheed Highway on leased lands conclusively rebuts the Appeals Judge's finding and respondent's argument that, under B.C. law, a fee simple was absolutely necessary to construct and maintain a major highway.",
+    "paragraphs": [
+     27
+    ],
+    "evidence_ids": [
+     "27.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     27
+    ],
+    "made_by": "applicant",
+    "claim": "The appellant argued that the fact the province constructed and maintains the highway on leased lands rebuts the Appeals Judge's finding and the respondent's argument that a fee simple was absolutely necessary to construct and maintain a major highway under B.C. law.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Gonthier J., writing for the minority, thought that s. 35 allowed for the expropriation of full ownership of land. Since full ownership was reasonably required for irrigation canal purposes and, in his view, the Osoyoos Order was unambiguous, full ownership was thereby granted.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.6",
+     "33.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Gonthier J. held that section 35 allowed expropriation of full ownership and that the Osoyoos Order was unambiguous, granting full ownership.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Gonthier J., for the minority, was of the view that the fiduciary obligation in Osoyoos did not include a duty to preserve the band's taxation jurisdiction because, as in this case, the power to tax came into effect after the enactment of the Osoyoos Order (ibid. at 135).",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Gonthier J. viewed that the fiduciary duty did not include preserving the band's taxation jurisdiction because the power to tax arose after the Osoyoos Order.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, this view is not shared by all Justices of the Supreme Court. Gonthier J. suggested that the fundamental premise that underlies a constitutionally protected aboriginal right, such as aboriginal title, has no bearing on an aboriginal interest in reserve land granted purely by statute (Osoyoos, supra at paras 158-174). He felt that if the existence of an aboriginal interest in reserve land stemmed entirely from modern legislation, then unlike other aboriginal rights it cannot be premised on a relationship with land that preceded sovereignty (ibid. at paras. 166-7, citing R. v. Van der Peet, [1996] 2 S.C.R. 507, R. v. Adams, [1996] 3 S.C.R. 101, and Delgamuukw v. British Columbia, [1997] 3 S.C.R. 1010). Therefore, it does not fit into the same category of rights protected under s. 35 of the Constitution Act, 1982, being Schedule B to the Canada Act 1982 (U.K.), 1982, c. 11.",
+    "paragraphs": [
+     38
+    ],
+    "evidence_ids": [
+     "38.1",
+     "38.2",
+     "38.3",
+     "38.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     38
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Gonthier J. disagreed, suggesting that aboriginal interests in reserve land granted by statute lack the constitutional protection of other aboriginal rights and do not arise from pre-sovereignty relationships with land.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The next question is whether, in light of these principles, the Seabird Order in Council is ambiguous or whether it evinces a clear and plain intention to completely extinguish the Band's interest in the corridor.",
+    "paragraphs": [
+     40
+    ],
+    "evidence_ids": [
+     "40.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     40
+    ],
+    "made_by": "applicant",
+    "claim": "The Seabird Order in Council should be interpreted to determine if it evinces a clear and plain intention to completely extinguish the Band's interest in the corridor.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appeals Judge commented at para. 28 that such a reservation would only be meaningful if the Order contemplated a transfer of absolute title of the surface rights (see also ibid. at para. 187 per Gonthier J.). Although I acknowledge the reservation of mines and minerals in this case is a factor that suggests that aboriginal interest may have been otherwise extinguished, given the concerns expressed by the Supreme Court, I am not convinced that this factor is determinative of the issue.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.3",
+     "52.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "made_by": "respondent",
+    "claim": "The reservation of mines and minerals suggests that aboriginal interest may have been extinguished if the Order contemplated a transfer of absolute title of surface rights.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Acknowledged as a factor but not determinative given Supreme Court concerns.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, the thrust of the respondent's argument is that the contextual evidence in this case is sufficient to infer such an intention. As noted by Iacobucci J., \"in making its intention clear and plain, the Crown does not necessarily have to use language which refers expressly to its extinguishment of aboriginal rights\" (Osoyoos, supra at para. 57, citing R. v. Gladstone, [1996] 2 S.C.R. 723 at para. 34).",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.1",
+     "54.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "made_by": "respondent",
+    "claim": "Contextual evidence is sufficient to infer a clear and plain intention to extinguish aboriginal interests even without express language.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The respondent relies heavily on the language of the provisions of the Highway Act, supra, which it emphasizes is quite different than the language of the provincial statute in Osoyoos, supra. The Appeal Judge held that, linked together, the provisions of the Highway Act make clear and plain the province's intention to extinguish all other interests and to transfer to itself the fee simple in lands taken for highway purposes.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.1",
+     "58.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "made_by": "respondent",
+    "claim": "The language of the Highway Act provisions is quite different from the provincial statute in Osoyoos and shows clear intention to extinguish all other interests and transfer fee simple to the province.",
+    "treatment": "rejected",
+    "outcome_note": "The Appeal Judge's reliance on this was held to be erroneous.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appeal Judge held that, linked together, the provisions of the Highway Act make clear and plain the province's intention to extinguish all other interests and to transfer to itself the fee simple in lands taken for highway purposes. He held (at para. 25) that, \"[i]n light of the clarity with which the old Highway Act highlights the intentions of the province to transfer the fee simple, ... the relevant question is whether the order contains anything to detract from this clarity.\"",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.2",
+     "58.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge held that the Highway Act provisions make clear and plain the province's intention to transfer fee simple and extinguish other interests.",
+    "treatment": "rejected",
+    "outcome_note": "Supreme Court corrected this error.",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Other contextual evidence upon which the respondent relies heavily is the fact that the Lougheed Highway was not yet built at the time of the grant to the province. According to the respondent and the Appeal Judge, this indicates that the Crown intended to extinguish absolutely the aboriginal interest in the corridor.",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.1",
+     "63.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "made_by": "respondent",
+    "claim": "The Lougheed Highway was not built at the time of the grant, indicating the Crown intended absolute extinguishment of the aboriginal interest in the corridor.",
+    "treatment": "rejected",
+    "outcome_note": "Court rejects due to lack of evidence and assumption that less than fee simple would not suffice.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appeal Judge was \"not convinced .. that anything less than a fee simple interest ... could allow a province to build and maintain one of its major highways\" (at para. 30).",
+    "paragraphs": [
+     63
+    ],
+    "evidence_ids": [
+     "63.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     63
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Appeal Judge was not convinced that anything less than a fee simple interest could allow the province to build and maintain the highway.",
+    "treatment": "rejected",
+    "outcome_note": "Court notes no evidence was submitted to support this position.",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The respondent argues that such an absolute extinguishment was necessary for constitutional reasons. Section 91(24) of the Constitution Act, 1867 gives exclusive jurisdiction to the federal Parliament over Indian reserves. The respondent submits that if the entire aboriginal interest was not extinguished, then provincial laws, including the Highway Act, supra would be constitutionally inapplicable to that land. Consequently, according to the respondent, the province would be unable to build and maintain the Lougheed Highway.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.1",
+     "67.2",
+     "67.3",
+     "67.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "made_by": "respondent",
+    "claim": "Absolute extinguishment of the aboriginal interest was necessary for constitutional reasons under s. 91(24) of the Constitution Act, 1867.",
+    "treatment": "rejected",
+    "outcome_note": "Court rejects this argument based on s. 88 of the Indian Act allowing provincial laws to apply to reserve lands.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The respondents argue that, had the federal government intended to grant to the province less than an absolute interest in the land, it would have used language similar to that in Order in Council P.C. 1953-30 (the \"1953 Order\"), which granted an easement to the British Columbia Electric Company Limited. According the respondent, the Seabird Order would have consented to \"the use of the said land for so long as the same is required for the aforesaid purpose\", as done in the 1953 Order. Upon first glance, this evidence does weigh in the respondent's favour.",
+    "paragraphs": [
+     68,
+     69
+    ],
+    "evidence_ids": [
+     "68.2",
+     "68.3",
+     "69.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     68,
+     69
+    ],
+    "made_by": "respondent",
+    "claim": "If the federal government intended to grant less than an absolute interest, it would have used language similar to the 1953 Order in Council granting an easement.",
+    "treatment": "partly_accepted",
+    "outcome_note": "Court accepts this is contextual evidence but finds countervailing evidence in use of same language in different Orders.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "For one, the appellant acknowledges that it is not entitled to tax the province in respect of land in the corridor.",
+    "paragraphs": [
+     78
+    ],
+    "evidence_ids": [
+     "78.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78
+    ],
+    "made_by": "applicant",
+    "claim": "The appellant acknowledges it is not entitled to tax the province for land in the corridor.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "As was found by the Appeal Judge, this severing when considered in light of the Province's unlimited power to take land for the purpose contemplated by the Highway Act points in only one direction; the Governor in Council, after considering the competing interests, authorized the transfer of the lands in question subject to the exception stated (reasons, paragraphs 28 and 29).",
+    "paragraphs": [
+     94
+    ],
+    "evidence_ids": [
+     "94.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     94
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Governor in Council authorized the transfer of the lands to the Province subject to the exception of mines and minerals ownership.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "What is involved in this appeal is whether a decision of the Federal Court Trial Division, acting under section 24 of the Federal Court Act, R.S.C. 1985, c. F-7, and section 60 of the Seabird Island Indian Assessment By-Law, dated September 25, 1992, rendered prior to the decision of the Supreme Court of Canada in Osoyoos Indian Band v. Oliver (Town), [2001] S.C.J. No. 82, can stand in the light of the Supreme Court's decision. In my view, it cannot.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1",
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The appeal concerns whether a Federal Court Trial Division decision under section 24 of the Federal Court Act and section 60 of the Seabird Island Indian Assessment By-Law can stand after the Supreme Court's decision in Osoyoos Indian Band v. Oliver (Town)."
+   },
+   {
+    "quote": "This appeal stems from taxation assessments related to a fibre optic cable system, which is owned by Telus Communications (\"Telus\" or the \"respondent\", formerly, B.C. Tel) and runs across the Seabird Island Indian Reserve (the \"Reserve\").",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The appeal arises from taxation assessments on a fibre optic cable system owned by Telus Communications running across the Seabird Island Indian Reserve."
+   },
+   {
+    "quote": "The Assessor for Seabird Island Indian Band (the \"appellant\") assessed the cable system in 1997 and 1998, pursuant to the bylaws of the Seabird Island Indian Band (the \"Band\").",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The Assessor for Seabird Island Indian Band is the appellant who assessed the cable system in 1997 and 1998 under the Band's bylaws."
+   },
+   {
+    "quote": "The respondent appealed the assessments to the Seabird Island Indian Band Board of Review (the \"Board\"), arguing that the cable system was not on land, \"in the reserve\" within the meaning of s. 83(1)(a) of the Indian Act, R.S.C. 1985, c. I-5.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent, Telus Communications (formerly B.C. Tel), appealed the assessments to the Band's Board of Review, arguing the cable system was not on land 'in the reserve' under s. 83(1)(a) of the Indian Act."
+   },
+   {
+    "quote": "The Reserve was set aside in 1879 for the Hope, Ohamil, Peters, Popkum, Skawahlook, Union Bar and Yale Bands of Indians in common. It covers the whole of Seabird Island, which spans four thousand five hundred and eleven and one half acres, except perhaps for the one hundred foot wide corridor of land at issue in this appeal, which measures forty-four and fifteen hundredths acres.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "The Reserve was set aside in 1879 for several Bands of Indians in common and covers the whole of Seabird Island except perhaps for the 100-foot wide corridor of land at issue in this appeal."
+   },
+   {
+    "quote": "On February 18, 1958 the Committee of the Privy Council formally created the Seabird Island Indian Band by consolidating the existing bands on the island.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The Seabird Island Indian Band was formally created in 1958 by consolidating the existing bands on the island."
+   },
+   {
+    "quote": "On November 7, 1956, prior to the consolidation of the former bands, the Governor in Council made the Order that lies at the heart of this appeal. The Seabird Order provides: WHEREAS the Minister of the Department of Highways, Province of British Columbia, has applied for the lands hereinafter described, being a portion of Seabird Island Indian Reserve, in the said Province for road purposes; AND WHEREAS the sum of $5,282 has been received from the said Province in full payment for the land required in accordance with a valuation approved by the Band Council of the Seabird Island Band of Indians on the 14th of October, 1954, and officials of the Indian Affairs Branch. THEREFORE, His Excellency the Governor General in Council, on the recommendation of the Minister of Citizenship and Immigration, pursuant to section 35 of the Indian Act, is pleased hereby to consent to the taking of the said lands by the Province of British Columbia and to transfer the administration and control thereof to Her Majesty in right of the Province of British Columbia: Description The whole of a right-of-way, in Seabird Island Indian Reserve, in the Yale District, in the province of British Columbia, said right-of-way containing by admeasurement forty-four acres and fifteen hundredths of an acre, more or less, as said right-of-way is shown bordered red on a plan of record number Rd four thousand two hundred and twenty-one in Indian Affairs survey records at Ottawa, a copy of which is deposited in the land Registry Office for the New Westminster Land Registration District at New Westminster under plan number sixteen thousand two hundred and eighty-one. Subject to an easement for a power line right-of-way granted in 1953 to British Columbia Electric Company Limited and as shown on plan B.C. 1129 in the said survey records at Ottawa. Reserving all mines and minerals whether solid, liquid or gaseous which may be found to exist within, upon or under such lands, together with full power to work the same and for this purpose to enter upon, use and occupy the said lands or so much thereof and to such extend as may be necessary for the effectual working and extracting of the said minerals.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2",
+     "7.3",
+     "7.4",
+     "7.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "background_fact",
+    "statement": "The 1956 Order in Council authorized the taking of a right-of-way of about 44 acres from the Seabird Island Indian Reserve for road purposes, transferring administration and control to the Province of British Columbia, subject to certain easements and reservations."
+   },
+   {
+    "quote": "This Order is remarkably similar to Order in Council 1957-577 (the \"Osoyoos Order\"), which was enacted the following year and eventually considered in Osoyoos, supra. The Supreme Court reproduced the Osoyoos Order as follows (I have underlined the differences for ease of reference): WHEREAS the Minister of Agriculture for the Province of British Columbia has applied for the lands hereinafter described, being a portion of Osoyoos Indian Reserve number one, in the said Province for irrigation canal purposes; AND WHEREAS the sum of $7,700 has been received from the Province of British Columbia in full payment for the land required in accordance with a valuation approved by the Band Council of the Osoyoos Band of Indians on the 30th of March, 1955, and officials of the Indian Affairs Branch. THEREFORE, His Excellency the Governor General in Council, on the recommendation of the Minister of Citizenship and Immigration, pursuant to section 35 of the Indian Act, is pleased hereby to consent to the taking of the said lands by the Province of British Columbia and to transfer the administration and control thereof to Her Majesty in right of the Province of British Columbia: DESCRIPTION The whole of those rights-of-way, in Osoyoos Indian Reserve number one, in the province of British Columbia, said rights-of-way containing by admeasurement fifty-six acres and nine hundredths of an acre, more or less, as said rights-of-way are shown bordered red on a plan of record number Irr twenty-one hundred and thirty-four in the Indian Affairs survey records at Ottawa; saving and excepting thereout and therefrom all that portion lying within a right-of-way for a road, as the last aforesaid right of way is shown bordered red on a plan of record number Rd thirty-six hundred and eighty in said records, a copy of which is deposited in the Land Registry Office for the district of Kamloops at Kamloops under number A thirteen hundred and seventy-seven; also saving and excepting thereout and therefrom all roads reserved by the Province of British Columbia by provincial order-in-council number one thousand and thirty-six, also subject to a prior Grant of Easement for a Power Transmission Line granted to West Kootenay Power and Light Company Ltd. by Order-in-Council P.C. 143 dated January 25, 1937, for a term of thirty years, this right-of-way containing by admeasurement 22 acres and two-tenths of an acre, more or less, and is shown on a plan of survey by R.P. Brown, B.C.L.S. dated Nov",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2",
+     "8.3",
+     "8.4",
+     "8.5",
+     "8.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "background_fact",
+    "statement": "The 1956 Seabird Order is very similar to the 1957 Osoyoos Order, which was considered in a previous case, with some differences in the minister involved, purpose, payment, and specific exceptions."
+   },
+   {
+    "quote": "The main difference relied on by the respondent is in the provincial legislation under which the two interests in land were taken, which will be described later.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "The main difference relied on by the respondent is in the provincial legislation under which the two interests in land were taken."
+   },
+   {
+    "quote": "Although the precise date is not known, sometime after the Seabird Order was made the British Columbia Department of Highways created a corridor, 100 feet wide, across the Reserve. The province eventually constructed the Lougheed Highway, a major highway that runs between Vancouver and Hope, British Columbia, in the middle of the corridor. The paved part of the Highway is thirty-eight feet wide with a shoulder, ditch and buffer zone on either side. According to the Board, the Highway has been used exclusively and continuously by the province for over forty years.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2",
+     "10.3",
+     "10.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "After the Seabird Order was made, the British Columbia Department of Highways created a 100-foot wide corridor across the Reserve, on which the Lougheed Highway was constructed and has been used exclusively and continuously by the province for over forty years."
+   },
+   {
+    "quote": "An easement granted to British Columbia Electric Company Limited runs along the corridor's northern edge. That easement was authorised by the Committee of the Privy Council on January 14, 1953. Although this grant is not in issue in this appeal, it is worth reproducing here, as it may provide additional context for interpreting the Order now in dispute. The Committe of the Privy Council have has before them a report dated January 6, 1953, from the Minister of Citizenship and Immigration, representing: That British Columbia Electric Company Limited, with Head Office at the City of Vancouver, British Columbia, a corporation empowered by statute to take or use lands or any interest therein without the consent of the owner, has applied for the use of the several parcels of land described in the Schedule hereto, being portions of the five Indian Reserves hereinafter named, all being situate in Yale District in the said Province, which lands are required for electric power transmission line purposes; That the said Corporation has agreed to pay the sum of $2,042.25 for the use of the said land for so long as the same is required for the aforesaid purpose in accordange with the valuation placed thereon by the officials of the Indian Affairs Branch and the several Band Councils of the respective Bands of Indians for whose use and benefit the lands have been set apart, particulars of which are the following: Seabird Island Indian Reserve - $ 607.74 Ruby Creek Indian Reserve No. 2 - 125.00 Skawehlook Indian Reserve No. 1 - 177.00 Chawutben (Katz) Indian Reserve No. 4 - 1,063.00 Lukseetsis-sum Indian Reserve No. 9 - 69.50 Total $2,042.25 The Committee, therefore, on the recommendation of the Minister of Citizenship and Immigration, advise that Your Excellency may be pleased, pursuant to the provisions of section 35 of the Indian Act, to consent to the British Columbia Electric Company Limited exercising its aforesaid statutory powers in relation to the lands described in the Schedule hereto, and to authorise the grant to British Columbia Electric Company Limited of an easement for an electric power transmission line right of way on the said lands upon payment of the aforesaid sum of $2,042.25, and upon such further terms, conditions, and provisions as the Minister of Citizenship and Immigration [illegible] deem necessary and advisable.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1",
+     "11.2",
+     "11.3",
+     "11.4",
+     "11.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "kind": "background_fact",
+    "statement": "An easement for a power line was granted in 1953 to British Columbia Electric Company Limited along the corridor's northern edge, authorized by the Committee of the Privy Council."
+   },
+   {
+    "quote": "An agreement dated September 26, 1961 between Her Majesty, represented by the Minister of Citizenship and Immigration, and the British Columbia Electric Company Limited allowed, with the Band's consent, for the construction and maintenance of poles for electrical, communication and television purposes on the island.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "An agreement dated September 26, 1961 between Her Majesty and the British Columbia Electric Company Limited allowed, with the Band's consent, for the construction and maintenance of poles on the island."
+   },
+   {
+    "quote": "Both the agreement and the Band's consent form acknowledge that the agreement was required because poles would be constructed on \"Reserve land\" within the meaning of the predecessor to the modern Indian Act.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "The agreement and the Band's consent form acknowledge that the agreement was required because poles would be constructed on Reserve land within the meaning of the predecessor to the modern Indian Act."
+   },
+   {
+    "quote": "This could be seen as an admission in 1961 of the existence of an Indian interest in the land.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "This could be seen as an admission in 1961 of the existence of an Indian interest in the land."
+   },
+   {
+    "quote": "However, it is unclear whether the particular area described in the consent form is, in fact, within the corridor.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "background_fact",
+    "statement": "It is unclear whether the particular area described in the consent form is within the corridor."
+   },
+   {
+    "quote": "The respondent, Telus, is a corporation that supplies telephone and telecommunications services.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "The respondent, Telus, is a corporation that supplies telephone and telecommunications services."
+   },
+   {
+    "quote": "On November 2, 1994 the British Columbia Ministry of Transport and Highways granted to the respondent a permit to construct, use and maintain poles and anchors along the Lougheed Highway.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "On November 2, 1994 the British Columbia Ministry of Transport and Highways granted the respondent a permit to construct, use and maintain poles and anchors along the Lougheed Highway."
+   },
+   {
+    "quote": "Pursuant to that permit, the respondent installed an aerial fibre optic cable system eight kilometres and four hundred metres long, which is strung on poles that run along the inside of the northern edge of the corridor, twenty-five feet from the road itself.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "Pursuant to that permit, the respondent installed an aerial fibre optic cable system eight kilometres and four hundred metres long, strung on poles along the inside of the northern edge of the corridor, twenty-five feet from the road."
+   },
+   {
+    "quote": "It is not clear whether the respondent's cable is strung along newly constructed poles, or along poles that existed pursuant to the 1961 agreement.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "It is not clear whether the respondent's cable is strung along newly constructed poles or poles that existed pursuant to the 1961 agreement."
+   },
+   {
+    "quote": "Both parties agree, however, that the respondent's cable system is not located within the easement granted to the British Columbia Electric Company Limited.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "background_fact",
+    "statement": "Both parties agree that the respondent's cable system is not located within the easement granted to the British Columbia Electric Company Limited."
+   },
+   {
+    "quote": "Pursuant to s. 83(1)(a) of the Indian Act the Band made assessment and taxation bylaws that were duly approved by the Minister of Indian Affairs and Northern Development.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "Pursuant to s. 83(1)(a) of the Indian Act the Band made assessment and taxation bylaws approved by the Minister of Indian Affairs and Northern Development."
+   },
+   {
+    "quote": "The appellant then assessed the respondent for its use of reserve land and issued assessment notices for the 1997 and 1998 taxation years.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "The appellant assessed the respondent for its use of reserve land and issued assessment notices for the 1997 and 1998 taxation years."
+   },
+   {
+    "quote": "The District of Kent in the province of British Columbia also assessed the respondent's cable system. Thus, the respondent has been assessed twice.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.3",
+     "15.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "The District of Kent also assessed the respondent's cable system, so the respondent has been assessed twice."
+   },
+   {
+    "quote": "However, the assessment by the District of Kent is in abeyance pending the outcome of this case.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "kind": "background_fact",
+    "statement": "The assessment by the District of Kent is in abeyance pending the outcome of this case."
+   },
+   {
+    "quote": "The Indian Act, R.S.C. 1952, c. 149, contained the following provisions at the time the Seabird Order was issued: 2. (o) \"reserve\" means a tract of land, the legal title to which is vested in Her Majesty, that has been set apart by Her Majesty for the use and benefit of a band; 18. (1) Subject to the provisions of this Act, reserves shall be held by Her Majesty for the use and benefit of the respective bands for which they were set apart; and subject to this Act and to the terms of any treaty or surrender, the Governor in Council may determine whether any purpose for which lands in a reserve are used or are to be used is for the use and benefit of the band. 35. (1) Where by an Act of the Parliament of Canada or a provincial legislature Her Majesty in right of a province, a municipal or local authority or a corporation is empowered to take or to use lands or any interest therein without the consent of the owner, the power may, with the consent of the Governor in Council and subject to any terms that may be prescribed by the Governor in Council, be exercised in relation to lands in a reserve or any interest therein. (2) Unless the Governor in Council otherwise directs, all matters relating to compulsory taking or using of lands in a reserve under subsection (1) shall be governed by the statute by which the powers are conferred. (3) Whenever the Governor in Council has consented to the exercise by a province, authority or corporation of the powers referred to in subsection (1), the Governor in Council may, in lieu of the province, authority or corporation taking or using the lands without the consent of the owner, authorize a transfer or grant of such lands to the province, authority or corporation, subject to any terms that may be prescribed by the Governor in Council. (4) Any amount that is agreed upon or awarded in respect of the compulsory taking or using of land under this section or that is paid for a transfer or grant of land pursuant to this section shall be paid to the Receiver General of Canada for the use and benefit of the band or for the use and benefit of any Indian who is entitled to compensation or payment as a result of the exercise of the powers referred to in subsection (1).",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2",
+     "16.4",
+     "16.5",
+     "16.6",
+     "16.7",
+     "16.8",
+     "16.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "background_fact",
+    "statement": "The Indian Act, R.S.C. 1952, c. 149, contained provisions defining 'reserve' and the holding of reserves by Her Majesty for the use and benefit of bands, and provisions about compulsory taking or using of lands in a reserve."
+   },
+   {
+    "quote": "The relevant provisions of the current Indian Act, R.S.C. 1985, c. I-5, are as follows: 83. (1) Without prejudice to the powers conferred by section 81, the council of a band may, subject to the approval of the Minister, make by-laws for any or all of the following purposes, namely, (a) subject to subsections (2) and (3), taxation for local purposes of land, or interests in land, in the reserve, including rights to occupy, possess or use land in the reserve; ... (2) An expenditure made out of moneys raised pursuant to subsection (1) must be so made under the authority of a by-law of the council of the band. (3) A by-law made under paragraph (1)(a) must provide an appeal procedure in respect of assessments made for the purposes of taxation under that paragraph. 88. Subject to the terms of any treaty and any other Act of Parliament, all laws of general application from time to time in force in any province are applicable to and in respect of Indians in the province, except to the extent that those laws are inconsistent with this Act or any order, rule, regulation or by-law made thereunder, and except to the extent that those laws make provision for any matter for which provision is made by or under this Act.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1",
+     "17.2",
+     "17.3",
+     "17.4",
+     "17.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "background_fact",
+    "statement": "The relevant provisions of the current Indian Act, R.S.C. 1985, c. I-5, include s. 83 allowing band councils to make taxation by-laws for land in the reserve, subject to Minister approval and appeal procedures."
+   },
+   {
+    "quote": "Portions of the Highway Act, R.S.B.C. 1948, c. 144, at the time of the Seabird Order, read as follows: 5. Unless otherwise provided for, the soil and freehold of every public highway shall be vested in His Majesty, his heirs and successors. 8. (1) It shall be lawful for the Minister in his absolute discretion to make public highways [...] and to take either at the time the highway is first made or declared or at any subsequent time, additional land beyond the width of the highway so established where necessary for the use or purpose of the Department of Public Works [...]; and for such purpose, by himself, his agents, and workmen, without any notice to and without any consent on the part of any person owning or occupying the land, or having or claiming any estate, right, title, or interest therein, to enter upon, set out, ascertain, and take possession of any private roads and any lands [...] and also in the like discretion to enter upon any land for the purpose of erecting and maintaining snow-fences, or cutting any drains that may be thought necessary, or for the purpose of taking therefrom any gravel, timber, stone, and other materials required for the construction or maintenance of any highway. 9.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1",
+     "18.2",
+     "18.3",
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "Portions of the Highway Act, R.S.B.C. 1948, c. 144, at the time of the Seabird Order, vested soil and freehold of public highways in His Majesty and allowed the Minister to take additional land beyond the highway width for public works without consent."
+   },
+   {
+    "quote": "The entry by the Minister, his agents, servants, or workmen, as in the last preceding section mentioned, for the purpose of taking possession of any roads or lands shall operate as a complete extinguishment of every title and claim to the roads or lands so entered upon and taken possession of. 11.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "Entry by the Minister for taking possession of roads or lands operates as a complete extinguishment of every title and claim to those lands."
+   },
+   {
+    "quote": "The Minister may at any time, by notice published in the Gazette, [...] discontinue and close in whole or in part any highway [...]. The land comprised in any highway which has been discontinued and closed may become the property of, the owner of the land of which it originally formed part, or the owner of the land adjoining the land so transferred, or may be leased by the Minister to either of those owners, or may be sold, leased, or disposed of by public auction of tender under the authority of the Lieutenant-Governor in Council, or may, under the authority of the Lieutenant-Governor in Council, be leased or transferred to the Dominion Government.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.6",
+     "18.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "background_fact",
+    "statement": "The Minister may discontinue and close highways, and the land comprised in any discontinued highway may become the property of adjoining landowners or be leased or sold under authority of the Lieutenant-Governor in Council."
+   },
+   {
+    "quote": "Generally, new factual evidence can be considered by an appellate court if it could not have been discovered earlier through reasonable diligence, is practically conclusive of an issue on appeal and, of course, is credible (Amchem Products Inc. v. British Columbia (Workers' Compensation Bd.), [1992] S.C.J. No. 110 at para. 6 (Q.L.); Frank Brunckhorst Co. et al. v. Gainers Inc. et al. [1993] F.C.J. No. 874 at para. 2 (C.A.) (Q.L.)).",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "legal_test",
+    "statement": "New factual evidence can be considered on appeal if it could not have been discovered earlier through reasonable diligence, is practically conclusive of an issue on appeal, and is credible."
+   },
+   {
+    "quote": "I have no reason to be suspicious of the credibility of this evidence, which the respondent has not made an issue.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence is credible and the respondent has not challenged its credibility."
+   },
+   {
+    "quote": "I am also persuaded that all parties were entirely unaware of this evidence at the time of the trial, and it could not have reasonably been discovered earlier than it was.",
+    "paragraphs": [
+     28
+    ],
+    "evidence_ids": [
+     "28.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     28
+    ],
+    "kind": "conclusion",
+    "statement": "All parties were unaware of the new evidence at trial and it could not have been reasonably discovered earlier."
+   },
+   {
+    "quote": "As Sharlow J.A. explained in Chippewas of Nawash First Nation v. Canada (Minister of Fisheries and Oceans), 2002 FCA 22 at para. 20, one must enquire whether the evidence \"could reasonably be expected to affect the result of the trial\". I do not take this statement to mean that it is necessary for the evidence to have determined or changed the result of the trial, but rather that it likely would have influenced the decision.",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.1",
+     "29.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "legal_test",
+    "statement": "The test for new evidence is whether it could reasonably be expected to affect the result of the trial, meaning it likely would have influenced the decision."
+   },
+   {
+    "quote": "In this case, one of the central issues is whether or not a complete extinguishment of the aboriginal interest in the land was necessary to fulfill the public purpose of constructing and maintaining the Lougheed Highway. The evidence sought to be introduced would establish the fact that a leasehold interest, as opposed to full and absolute ownership of the land, was and is sufficient for that purpose. To me, it is clearly reasonable to expect that evidence of this fact would have affected the Appeal Judge's finding, at para. 30, that \"[t]he Court is not convinced, however, that anything less than a fee simple interest, in 1956, could allow a province to build and maintain one of its major highways.\"",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.3",
+     "29.4",
+     "29.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence that a leasehold interest suffices for constructing and maintaining the highway would likely have influenced the Appeal Judge's finding that only a fee simple interest could allow the province to build and maintain a major highway."
+   },
+   {
+    "quote": "It is impossible to say for certain whether this would have changed the outcome of the case, but I have no doubt that, on the correct legal analysis, this evidence would have been valuable and influential, and \"could reasonably be expected to affect the result of the trial\"(Chippewas, supra at para. 20).",
+    "paragraphs": [
+     29
+    ],
+    "evidence_ids": [
+     "29.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     29
+    ],
+    "kind": "conclusion",
+    "statement": "It is impossible to say for certain if the new evidence would have changed the outcome, but it would have been valuable and influential and could reasonably be expected to affect the result."
+   },
+   {
+    "quote": "Moreover, even if the appellant had failed to satisfy the three-prong test set out above, it is well settled that this Court retains an overriding discretion to admit new evidence nevertheless. This discretion may be exercised to avoid an undue burden on scarce judicial resources and \"permit a complete record on the appeal so as not to leave the Court in any doubt as to the surrounding circumstances\" (Glaxo Wellcome PLC v. Canada (Minister of National Revenue - M.N.R.), [1998] F.C.J. No. 358 at para. 12 (C.A.) (Q.L.); see also Amchem, supra at para. 7).",
+    "paragraphs": [
+     30
+    ],
+    "evidence_ids": [
+     "30.1",
+     "30.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     30
+    ],
+    "kind": "legal_test",
+    "statement": "Even if the three-prong test for new evidence is not satisfied, the Court has overriding discretion to admit new evidence to avoid undue burden and to permit a complete record on appeal."
+   },
+   {
+    "quote": "In my view, this is also a situation where this Court should exercise that discretion. The factual background in this appeal is somewhat deficient, and the interpretation of a nearly fifty-year-old document depends in large part upon the contextual factors that may shed light on its enactment. In fact, the respondent itself argues that this case turns on the contextual factors that surround the grant of land in the Order. It would undoubtedly be valuable to have before this Court the fullest version of the facts, circumstances and events possible in order to facilitate our interpretive task.",
+    "paragraphs": [
+     31
+    ],
+    "evidence_ids": [
+     "31.1",
+     "31.2",
+     "31.3",
+     "31.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     31
+    ],
+    "kind": "conclusion",
+    "statement": "The Court should exercise its discretion to admit the new evidence because the factual background is deficient and interpretation depends on contextual factors that may shed light on the enactment of the document."
+   },
+   {
+    "quote": "Therefore, the appellants motion to adduce this evidence is granted, with costs in the cause.",
+    "paragraphs": [
+     32
+    ],
+    "evidence_ids": [
+     "32.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     32
+    ],
+    "kind": "conclusion",
+    "statement": "The appellant's motion to adduce the new evidence is granted, with costs in the cause."
+   },
+   {
+    "quote": "I begin the legal analysis by setting out a framework with which to approach these issues. To that end, it is helpful to discuss in some detail the recent decision of the Supreme Court of Canada in Osoyoos, supra.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.1",
+     "33.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "The legal analysis begins with a framework based on the Supreme Court of Canada's decision in Osoyoos."
+   },
+   {
+    "quote": "In that case, Iacobucci J., writing for the majority, held that the Osoyoos Order, which contained terms virtually identical to the Seabird Order, granted less than a fee simple interest and, therefore, an irrigation canal was still \"in the reserve\".",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "The Osoyoos Order, similar to the Seabird Order, granted less than a fee simple interest, so the land remained 'in the reserve'."
+   },
+   {
+    "quote": "Iacobucci J. did not dispute that, if necessary, full ownership of land could be taken pursuant to s. 35 of the Indian Act, supra.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "Full ownership of land could be taken under section 35 of the Indian Act if necessary."
+   },
+   {
+    "quote": "However, the pith of the majority's judgment was that if either full ownership of the land or something less than that are equally capable of fulfilling the public purpose for which the land was taken, and the Order in Council is ambiguous, then the interpretation least intrusive to the Band's interest should be preferred.",
+    "paragraphs": [
+     33
+    ],
+    "evidence_ids": [
+     "33.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     33
+    ],
+    "kind": "conclusion",
+    "statement": "If full ownership or less than full ownership both fulfill the public purpose and the Order in Council is ambiguous, the interpretation least intrusive to the Band's interest should be preferred."
+   },
+   {
+    "quote": "At least two overarching themes that arise in the context of dealings with an aboriginal interest in reserve land influence the result of this appeal.",
+    "paragraphs": [
+     34
+    ],
+    "evidence_ids": [
+     "34.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     34
+    ],
+    "kind": "conclusion",
+    "statement": "Two overarching themes influence the result of this appeal regarding dealings with aboriginal interests in reserve land."
+   },
+   {
+    "quote": "The first overarching principle, accepted by all Justices of the Supreme Court of Canada, is that the Crown owes a fiduciary duty to the band when it participates in removing land from a reserve. Therefore, in the context of s. 35 of the Indian Act, the Crown ought to reconcile the public's interest and the band's interest by consenting to transfer only the minimum land required to fulfill the public purpose (Osoyoo, supra at paras 47, 51-55).",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.1",
+     "35.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "The Crown owes a fiduciary duty to the band when removing land from a reserve and should consent only to transfer the minimum land required to fulfill the public purpose."
+   },
+   {
+    "quote": "However, I do not take this as detracting significantly from the Crown's duty to impair aboriginal interests in reserve land to the minimum extent possible.",
+    "paragraphs": [
+     35
+    ],
+    "evidence_ids": [
+     "35.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     35
+    ],
+    "kind": "conclusion",
+    "statement": "This view does not significantly detract from the Crown's duty to minimize impairment of aboriginal interests in reserve land."
+   },
+   {
+    "quote": "Notably, both Iacobucci J. and Gonthier J. cited La Forest J. in Mitchell v. Peguis Indian Band, [1990] 2 S.C.R. 85 at 143, where he said: ... it is clear that in the interpretation of any statutory enactment dealing with Indians, and particularly the Indian Act, it is appropriate to interpret in a broad manner provisions that are aimed at maintaining Indian rights, and to interpret narrowly provisions aimed at limiting or abrogating them. ... At the same time, I do not accept that this salutary rule that statutory ambiguities must be resolved in favour of the Indians implies automatic acceptance of a given construction simply because it may be expected that the Indians would favour it over any other competing interpretation. It is also necessary to reconcile any given interpretation with the policies the Act seeks to promote. Thus, enactments aimed at abrogating Indian rights should be interpreted as narrowly as possible, within the limits inferred from surrounding and underlying policy considerations. This seems to me to be an incontrovertible proposition and, not surprisingly, widely accepted.",
+    "paragraphs": [
+     36
+    ],
+    "evidence_ids": [
+     "36.1",
+     "36.2",
+     "36.3",
+     "36.4",
+     "36.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     36
+    ],
+    "kind": "conclusion",
+    "statement": "Statutory enactments dealing with Indians should be broadly interpreted to maintain Indian rights and narrowly interpreted to limit or abrogate them, but this does not mean accepting any construction favored by Indians without reconciling with the Act's policies."
+   },
+   {
+    "quote": "The second theme to bear in mind is that an aboriginal interest in reserve land is sui generis in nature (Osoyoos, supra at paras. 41-47 per Iacobucci J.). It is fundamentally similar to aboriginal title, as both are inalienable except to the Crown, both are rights of use and occupation and both are held communally. Therefore, traditional common law principles related to real property may not be helpful to give effect to the true purpose of a dealing related to reserve land (ibid. at para. 43).",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.1",
+     "37.2",
+     "37.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "An aboriginal interest in reserve land is sui generis, similar to aboriginal title, inalienable except to the Crown, communal, and not fully explained by traditional common law property principles."
+   },
+   {
+    "quote": "It is also important to note that an Indian band cannot unilaterally add to or replace reserve lands (ibid. at para. 45), and that an aboriginal interest in land is more than just a fungible commodity because of important and unique cultural values (ibid. at para. 46).",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "An Indian band cannot unilaterally add or replace reserve lands, and aboriginal interest in land has unique cultural values beyond a fungible commodity."
+   },
+   {
+    "quote": "These principles, in conjunction with the Crown's fiduciary obligations, dictate that \"a clear and plain intention must be present in order to conclude that land has been removed from a reserve\" (ibid. at para. 47; see also Matsqui, supra at para. 27 per D\u00e9cary J.A.; Calder v. Attorney-General of British Columbia, [1973] S.C.R. 313 at 404 per Hall J. dissenting). This proposition was also accepted by the Appeals Judge in this case, whose reasons were cited by Iacobucci J..",
+    "paragraphs": [
+     37
+    ],
+    "evidence_ids": [
+     "37.5",
+     "37.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     37
+    ],
+    "kind": "conclusion",
+    "statement": "A clear and plain intention is required to conclude that land has been removed from a reserve, consistent with the Crown's fiduciary obligations."
+   },
+   {
+    "quote": "Yet simply because a bare aboriginal interest in reserve land may arguably fall short of the special constitutional status conferred upon other aboriginal rights, I am not convinced it necessarily follows that such an interest can be extinguished through less than a clear and plain intention to do so. Given the principles described by Iacobucci J. and the Crown's fiduciary obligation under s. 35 of the Indian Act, it makes sense that only a clear and plain intention can extinguish that interest. In any event, this Court is bound by the reasons of the majority of the Supreme Court in Osoyoos, supra.",
+    "paragraphs": [
+     39
+    ],
+    "evidence_ids": [
+     "39.1",
+     "39.2",
+     "39.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     39
+    ],
+    "kind": "conclusion",
+    "statement": "Even if aboriginal interests in reserve land lack special constitutional status, they cannot be extinguished without a clear and plain intention to do so, consistent with the Crown's fiduciary duty and Osoyoos majority reasons."
+   },
+   {
+    "quote": "According to the Supreme Court of Canada, s. 83(1)(a) should be given a broad reading, and \"unless the entire interest of a band is removed, land remains in the reserve for the purposes of s. 83(1)(a)\" (Osoyoos, supra at paras. 49-50, emphasis added).",
+    "paragraphs": [
+     41
+    ],
+    "evidence_ids": [
+     "41.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     41
+    ],
+    "kind": "legal_test",
+    "statement": "Section 83(1)(a) of the Indian Act should be given a broad reading, and land remains in the reserve for the purposes of s. 83(1)(a) unless the entire interest of a band is removed."
+   },
+   {
+    "quote": "Moreover, bearing in mind that the sole purpose of interpreting the Order is to determine whether the Band retains an interest \"in the reserve\" for the purpose s. 83(1)(a), we must not lose sight of the proper question to be answered by interpreting the Order in Council. That question is not whether the Order granted either a fee simple or an easement to the province, but rather, whether the federal government intended to completely extinguish the entire aboriginal interest in the Reserve. To use the words of Iacobucci J., the question for the purpose of s. 83(1)(a) is whether \"the entire interest of a band is removed\" (Osoyoos, supra at para. 50).",
+    "paragraphs": [
+     43,
+     44
+    ],
+    "evidence_ids": [
+     "43.2",
+     "44.1",
+     "44.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     43,
+     44
+    ],
+    "kind": "conclusion",
+    "statement": "The purpose of interpreting the Order in Council is to determine whether the Band retains an interest in the reserve for the purpose of s. 83(1)(a), not whether the province was granted fee simple or an easement."
+   },
+   {
+    "quote": "This is a subtle but important difference in that the essential issue does not concern what the province has, but what the Band retains.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "kind": "conclusion",
+    "statement": "The essential issue is what the Band retains, not what the province has."
+   },
+   {
+    "quote": "It is too easy to get sidetracked if one focusses on the interests of the province, as indicated by the provincial legislation, rather than the true interests of the public and of the Band.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "kind": "conclusion",
+    "statement": "Focusing on the interests of the province rather than the Band's true interests is misleading."
+   },
+   {
+    "quote": "In addition, because the Order was enacted prior to the consolidation of various Indian bands into the Seabird Band, the question, technically, concerns what the predecessors to the Band retained. 2.",
+    "paragraphs": [
+     44
+    ],
+    "evidence_ids": [
+     "44.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     44
+    ],
+    "kind": "background_fact",
+    "statement": "The Order was enacted prior to the consolidation of various Indian bands into the Seabird Band, so the question concerns what the predecessors to the Band retained."
+   },
+   {
+    "quote": "As discussed above, the language of the Seabird Order is strikingly similar to that of the Osoyoos Order, which the majority of the Supreme Court of Canada found to be ambiguous.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "The language of the Seabird Order in Council is strikingly similar to that of the Osoyoos Order, which the Supreme Court of Canada found to be ambiguous."
+   },
+   {
+    "quote": "To me, the fact that the clarity of the Order in Council in Osoyoos, supra, like the one before this Court, is in dispute and that the Justices of the Supreme Court of Canada can have legitimately disagreed as to the meaning of the Osoyoos Order, suggests that the Crown's intention, as expressed in the language of the Order in this case, is not clear and plain.",
+    "paragraphs": [
+     45
+    ],
+    "evidence_ids": [
+     "45.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     45
+    ],
+    "kind": "conclusion",
+    "statement": "The clarity of the Seabird Order in Council is in dispute and not clear and plain, as evidenced by legitimate disagreement among Supreme Court Justices about the Osoyoos Order."
+   },
+   {
+    "quote": "Because of the similarities between the two Orders, I will not discuss at length the various potential interpretations of each word and phrase, but instead will highlight the principal sources of ambiguity as discussed by the Supreme Court in Osoyoos, supra.",
+    "paragraphs": [
+     46
+    ],
+    "evidence_ids": [
+     "46.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     46
+    ],
+    "kind": "conclusion",
+    "statement": "The principal sources of ambiguity in the Seabird Order are similar to those discussed by the Supreme Court in Osoyoos."
+   },
+   {
+    "quote": "To begin, the use of the term \"land\" is inherently ambiguous as it is almost universally defined to include \"interests in land\" (ibid. at para. 87). Therefore, as the Supreme Court said, \"[t]he use of the term \"land\" is not determinative of the scope of the interest being conveyed\" (ibid.).",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.2",
+     "47.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "The term 'land' is inherently ambiguous as it is defined to include 'interests in land' and is not determinative of the scope of the interest conveyed."
+   },
+   {
+    "quote": "There is nothing at all in this case that is capable of distinguishing the Supreme Court's conclusion in this regard.",
+    "paragraphs": [
+     47
+    ],
+    "evidence_ids": [
+     "47.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     47
+    ],
+    "kind": "conclusion",
+    "statement": "There is nothing in this case to distinguish the Supreme Court's conclusion about the ambiguity of the term 'land'."
+   },
+   {
+    "quote": "In addition, the phrase \"a portion of Seabird Island Indian Reserve\" could legitimately be construed as referring to some of the bundle of property rights that make up the property interest in the Reserve (Osoyoos, supra at para. 81 per Iacobucci J.). With respect to the Seabird Order, I cannot find any evidence to favour one interpretation over the other and, therefore, this phrase is ambiguous to me.",
+    "paragraphs": [
+     48
+    ],
+    "evidence_ids": [
+     "48.1",
+     "48.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     48
+    ],
+    "kind": "conclusion",
+    "statement": "The phrase 'a portion of Seabird Island Indian Reserve' is ambiguous and could refer either to some of the bundle of property rights or merely indicate what was transferred."
+   },
+   {
+    "quote": "The phrase \"right-of-way\" is similarly ambiguous. In the words of Iacobucci J., \"it is not clear from the context in which it appears in the Order in Council whether the term \u2018rights-of-way' necessarily refers to an easement as it is traditionally known, or some greater interest in a corridor of land\" (ibid. at para. 82 per Iacobucci J.). This is because, although under the common law, a granting of a \"right-of-way\" does not give the holder a fee simple interest or the right to exclusive possession, that phrase might have been intended merely to physically describe the corridor of land (ibid., see also paras. 182-7 per Gonthier J.). As there is support from the Supreme Court of Canada for both interpretations, the use of this language also sheds little or no light on the intention of the federal government.",
+    "paragraphs": [
+     49
+    ],
+    "evidence_ids": [
+     "49.1",
+     "49.2",
+     "49.3",
+     "49.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     49
+    ],
+    "kind": "conclusion",
+    "statement": "The phrase 'right-of-way' is ambiguous and may not necessarily refer to an easement as traditionally known, but could describe the corridor of land."
+   },
+   {
+    "quote": "The Supreme Court has also emphasized that the word \"take\" can refer to ownership or an interest less than full ownership (ibid. at paras. 85-86 per Iacobucci J., and para. 180 per Gonthier J.). It does not necessarily refer to the acquisition of full title and the extinguishment of all other interests.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.1",
+     "50.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The word 'take' can refer to ownership or an interest less than full ownership and does not necessarily mean acquisition of full title or extinguishment of all other interests."
+   },
+   {
+    "quote": "Therefore, it is not helpful in distilling the meaning of the Order as a whole.",
+    "paragraphs": [
+     50
+    ],
+    "evidence_ids": [
+     "50.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     50
+    ],
+    "kind": "conclusion",
+    "statement": "The word 'take' is not helpful in distilling the meaning of the Order as a whole."
+   },
+   {
+    "quote": "With respect to the words \"administration and control\", the Supreme Court held that this language does not per se remove the land from a reserve (ibid. at para. 88). As discussed above, such language is commonly used to describe the transfer of administrative control from one emanation of the Crown to another (ibid.). This type of transfer does not automatically extinguish the entire aboriginal interest in the land. As Iacobucci J. explained, \"[r]eserve land can be, and is in many cases, held by a province for the benefit of an Indian band\" (ibid.).",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.1",
+     "51.2",
+     "51.3",
+     "51.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "The words 'administration and control' do not per se remove the land from a reserve and commonly describe transfer of administrative control between Crown emanations without extinguishing aboriginal interests."
+   },
+   {
+    "quote": "Therefore, this language also aids little is clarifying the intention of the federal government.",
+    "paragraphs": [
+     51
+    ],
+    "evidence_ids": [
+     "51.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     51
+    ],
+    "kind": "conclusion",
+    "statement": "The language of 'administration and control' aids little in clarifying the federal government's intention in the Order."
+   },
+   {
+    "quote": "The language of the reservation of mines and minerals to the Band is somewhat different in the Seabird Order than in the Osoyoos Order. In Osoyoos, supra, the Supreme Court determined that such a clause had become \"boilerplate\" and, therefore, was not determinative of the true intentions of the federal government in light of other factors in that case (ibid. at para. 79 per Iacobucci J.).The reservation in this case, however, contains further particulars as well as a reservation of the right to enter upon, use and occupy in order to extract minerals from the land in the corridor.",
+    "paragraphs": [
+     52
+    ],
+    "evidence_ids": [
+     "52.1",
+     "52.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     52
+    ],
+    "kind": "conclusion",
+    "statement": "The reservation of mines and minerals in the Seabird Order contains further particulars and a reservation of rights to enter and extract minerals, unlike the Osoyoos Order where such clauses were considered boilerplate and not determinative."
+   },
+   {
+    "quote": "In sum, the terms of the Seabird Order are not sufficiently different than the Osoyoos Order to justify a conclusion that it expresses a clear and plain intention to completely extinguish the entire aboriginal interest in the corridor.",
+    "paragraphs": [
+     53
+    ],
+    "evidence_ids": [
+     "53.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     53
+    ],
+    "kind": "conclusion",
+    "statement": "The terms of the Seabird Order are not sufficiently different from the Osoyoos Order to conclude a clear and plain intention to completely extinguish the entire aboriginal interest in the corridor."
+   },
+   {
+    "quote": "Yet, as further explained in Osoyoos, supra at para. 84, \"[w]hile express language is not strictly necessary, courts should not take away an aboriginal interest in land by implication unless clearly and plainly supported by the context.\"",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "legal_test",
+    "statement": "Courts should not take away an aboriginal interest in land by implication unless clearly and plainly supported by the context, even if express language is not strictly necessary."
+   },
+   {
+    "quote": "Therefore, I will address the surrounding context as best I can, given the paucity of evidence. 3.",
+    "paragraphs": [
+     54
+    ],
+    "evidence_ids": [
+     "54.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     54
+    ],
+    "kind": "conclusion",
+    "statement": "The surrounding context must be addressed despite paucity of evidence to determine intention regarding extinguishment of aboriginal interests."
+   },
+   {
+    "quote": "One of the primary contextual factors to consider is the provincial legislation pursuant to which the transfer of land was authorized, since the federal government could not \"grant an interest greater than the one the province was authorized to take under its own legislation\" (Osoyoos, supra at para. 62).",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "conclusion",
+    "statement": "The provincial legislation authorizing the transfer of land is a primary contextual factor since the federal government cannot grant an interest greater than the province is authorized to take under its own legislation."
+   },
+   {
+    "quote": "In Osoyoss, supra, the Water Act, R.S.B.C., 1948, c. 361, ss. 21(1), (2), generally authorized the province of British Columbia to acquire land that was \"reasonably required\" for irrigation canal purposes.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "background_fact",
+    "statement": "In Osoyoos, the Water Act authorized the province to acquire land reasonably required for irrigation canal purposes."
+   },
+   {
+    "quote": "In this case, it is the Highway Act, supra, that generally authorized the province to take or use land.",
+    "paragraphs": [
+     55
+    ],
+    "evidence_ids": [
+     "55.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     55
+    ],
+    "kind": "background_fact",
+    "statement": "In this case, the Highway Act authorized the province to take or use land."
+   },
+   {
+    "quote": "The key provision of the Highway Act, supra, is s. 8, which at the time read (emphasis added): 8. (1) It shall be lawful for the Minister in his absolute discretion to make public highways [...] and to take either at the time the highway is first made or declared or at any subsequent time, additional land beyond the width of the highway so established where necessary for the use or purpose of the Department of Public Works [...]; and for such purpose, by himself, his agents, and workmen, without any notice to and without any consent on the part of any person owning or occupying the land, or having or claiming any estate, right, title, or interest therein, to enter upon, set out, ascertain, and take possession of any private roads and any lands [...] and also in the like discretion to enter upon any land for the purpose of erecting and maintaining snow-fences, or cutting any drains that may be thought necessary, or for the purpose of taking therefrom any gravel, timber, stone, and other materials required for the construction or maintenance of any highway.",
+    "paragraphs": [
+     56
+    ],
+    "evidence_ids": [
+     "56.1",
+     "56.2",
+     "56.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     56
+    ],
+    "kind": "background_fact",
+    "statement": "Section 8 of the Highway Act allowed the Minister to take additional land beyond the highway width for public works purposes without notice or consent from landowners."
+   },
+   {
+    "quote": "Other relevant provisions of the Highway Act are ss. 5, 9 and 11, which at the time read as follows (emphasis added): 5. Unless otherwise provided for, the soil and freehold of every public highway shall be vested in His Majesty, his heirs and successors. 9. The entry by the Minister, his agents, servants, or workmen, as in the last preceding section mentioned [section 8], for the purpose of taking possession of any roads or lands shall operate as a complete extinguishment of every title and claim to the roads or lands so entered upon and taken possession of. 11. The Minister may at any time, by notice published in the Gazette, [...] discontinue and close in whole or in part any highway [...]. The land comprised in any highway which has been discontinued and closed may become the property of, the owner of the land of which it originally formed part, or the owner of the land adjoining the land so transferred, or may be leased by the Minister to either of those owners, or may be sold, leased, or disposed of by public auction of tender under the authority of the Lieutenant-Governor in Council, or may, under the authority of the Lieutenant-Governor in Council, be leased or transferred to the Dominion Government.",
+    "paragraphs": [
+     57
+    ],
+    "evidence_ids": [
+     "57.1",
+     "57.2",
+     "57.3",
+     "57.4",
+     "57.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     57
+    ],
+    "kind": "background_fact",
+    "statement": "Sections 5, 9, and 11 of the Highway Act vested soil and freehold of highways in His Majesty and provided that entry by the Minister for taking possession extinguished all titles and claims to the land taken."
+   },
+   {
+    "quote": "In this respect, according to the Supreme Court's decision in Osoyoos, supra, the Appeal Judge erred.",
+    "paragraphs": [
+     58
+    ],
+    "evidence_ids": [
+     "58.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     58
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Judge erred in assuming the terms of the transfer are prima facie determined by the language of the provincial legislation."
+   },
+   {
+    "quote": "The Governor in Council cannot grant more than the province is empowered to take, but can grant less (Osoyoos, supra at paras. 62, 69 ,136).",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "kind": "conclusion",
+    "statement": "The Governor in Council cannot grant more than the province is empowered to take but can grant less."
+   },
+   {
+    "quote": "The language of the provincial legislation is not determinative of, nor does it establish a presumption regarding the federal government's intention.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The language of the provincial legislation is not determinative of the federal government's intention regarding the land transfer."
+   },
+   {
+    "quote": "Section 35 of the Indian Act gives the Governor in Council the absolute discretion to define the terms of the transfer, and thus the relevant inquiry is one of determining the intention of the Governor in Council, as evidenced by the Order in Council.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The relevant inquiry is the intention of the Governor in Council as evidenced by the Order in Council, since section 35 of the Indian Act gives the Governor in Council absolute discretion to define the terms of the transfer."
+   },
+   {
+    "quote": "The federal government's fiduciary obligation is owed to the aboriginals, not to the province.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The federal government's fiduciary obligation is owed to the aboriginals, not to the province."
+   },
+   {
+    "quote": "Therefore, it is incorrect to presume, absent an indication to the contrary, that the federal government intended to grant to the province what it wanted.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "It is incorrect to presume that the federal government intended to grant to the province what the province wanted absent indication to the contrary."
+   },
+   {
+    "quote": "In short, the province may not have received what its legislation might normally have empowered it to take in the context of non-aboriginal interests in land.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "kind": "conclusion",
+    "statement": "The province may not have received what its legislation might normally have empowered it to take in the context of non-aboriginal interests in land."
+   },
+   {
+    "quote": "The public purpose may or may not always coincide with the language of the provincial legislation.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "conclusion",
+    "statement": "The public purpose may or may not coincide with the language of the provincial legislation."
+   },
+   {
+    "quote": "It is crucial to recognize that the terms of the transfer are influenced by the public purpose, not by the language of the provincial legislation or the province's intention.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "conclusion",
+    "statement": "The terms of the transfer are influenced by the public purpose, not by the provincial legislation or the province's intention."
+   },
+   {
+    "quote": "Therefore, the presumption, if any, is that the federal government intended to grant only the minimum interest required to fulfill the public purpose, as is often but not always indicated by the provincial legislation.",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "conclusion",
+    "statement": "The presumption is that the federal government intended to grant only the minimum interest required to fulfill the public purpose, often but not always indicated by provincial legislation."
+   },
+   {
+    "quote": "It is in this way that the Crown balances its obligations to the public and to the Band (ibid.).",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "kind": "conclusion",
+    "statement": "The Crown balances its obligations to the public and to the Band in granting interests."
+   },
+   {
+    "quote": "That said, the language of the Highway Act is not irrelevant. That is, while the language of the provincial legislation is certainly not determinative of the federal government's intentions, nor does it establish a presumption in favour of the respondent's position, it is nevertheless contextual evidence that may elucidate the terms of the grant described in the Order in Council.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.1",
+     "62.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "kind": "conclusion",
+    "statement": "The language of the Highway Act is contextual evidence that may illuminate the federal government's intention but is not determinative or presumptive."
+   },
+   {
+    "quote": "The Appeals Judge was correct to consult the provincial legislation, as it is one of several contextual factors that may illuminate the intention of the federal government.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeals Judge was correct to consult the provincial legislation as one of several contextual factors."
+   },
+   {
+    "quote": "In this respect, the language of the Highway Act, supra, is one of the factors that favours interpreting the Order as suggesting that the grant operated as a \"complete extinguishment\" of the aboriginal interest in the corridor (s. 9). However, I do not believe that the legislative language, by itself, establishes a clear and plain intention and, therefore, it is not conclusive of the matter.",
+    "paragraphs": [
+     62
+    ],
+    "evidence_ids": [
+     "62.4",
+     "62.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     62
+    ],
+    "kind": "conclusion",
+    "statement": "The Highway Act's language favors interpreting the Order as a complete extinguishment of the aboriginal interest in the corridor but does not alone establish a clear and plain intention."
+   },
+   {
+    "quote": "I note, however, that there is and never was any evidence submitted in support of this position.",
+    "paragraphs": [
+     64
+    ],
+    "evidence_ids": [
+     "64.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     64
+    ],
+    "kind": "conclusion",
+    "statement": "There was no evidence submitted to support the position that absolute ownership was necessary to build and maintain the highway."
+   },
+   {
+    "quote": "It is inconsistent with the principle of minimal impairment and, therefore, incorrect to require the Band to adduce evidence to rebut a presumption that absolute ownership by the province was necessary. The onus, if any, is on the respondent to establish that only an absolute extinguishment of the aboriginal interest in the corridor would do.",
+    "paragraphs": [
+     64
+    ],
+    "evidence_ids": [
+     "64.3",
+     "64.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     64
+    ],
+    "kind": "conclusion",
+    "statement": "It is inconsistent with the principle of minimal impairment to require the Band to rebut a presumption that absolute ownership was necessary; the onus is on the respondent to establish this."
+   },
+   {
+    "quote": "In fact, the only contextual evidence in this case, including the new evidence submitted to this Court, suggests that it was not necessary to completely extinguish the Band's interest in the corridor to construct and maintain the Lougheed Highway.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "conclusion",
+    "statement": "Contextual evidence including new evidence suggests it was not necessary to completely extinguish the Band's interest to construct and maintain the highway."
+   },
+   {
+    "quote": "In the absence of evidence to the contrary, the same can be said of a highway.",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "kind": "conclusion",
+    "statement": "In absence of evidence to the contrary, less than absolute title suffices for a highway."
+   },
+   {
+    "quote": "Moreover, the land in the corridor is subject to a variety of other interests, none of which preclude the province from adequately satisfying the public need for the construction and maintenance of the Highway.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "The land in the corridor is subject to other interests that do not preclude the province from constructing and maintaining the highway."
+   },
+   {
+    "quote": "For one, the corridor was at the time of construction of the Highway, and is still subject to the easement granted to the British Columbia Electric Company Limited. Obviously, the province did not feel it was necessary to extinguish that interest.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.2",
+     "66.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "The corridor was and is subject to an easement granted to British Columbia Electric Company Limited, which the province did not extinguish."
+   },
+   {
+    "quote": "The province also has no problem sharing the corridor with the respondent's fibre optic cable system.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "The province shares the corridor with the respondent's fibre optic cable system without issue."
+   },
+   {
+    "quote": "There is also important new evidence, admitted on appeal, to indicate that at least part of a major highway can exist on railway land that is merely leased.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "New evidence shows part of a major highway can exist on railway land that is merely leased."
+   },
+   {
+    "quote": "Finally, the Highway Act itself allows for the Minister to \"enter upon any land\" to enable the \"construction or maintenance of any highway\", thus indicating to me that it is not strictly necessary for that purpose to extinguish all other interests in the land.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "The Highway Act allows the Minister to enter upon any land for construction or maintenance, indicating extinguishment of all other interests is not strictly necessary."
+   },
+   {
+    "quote": "Given that there is no evidence whatsoever to support the contrary position, it is clearly wrong to suggest that it was necessary to completely extinguish the aboriginal interest in order to construct and maintain the Highway.",
+    "paragraphs": [
+     66
+    ],
+    "evidence_ids": [
+     "66.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     66
+    ],
+    "kind": "conclusion",
+    "statement": "There is no evidence supporting the necessity of complete extinguishment of the aboriginal interest to construct and maintain the highway."
+   },
+   {
+    "quote": "Section 88 of the Indian Act as it now reads (s. 87 of the Act as it read in 1952) expressly states that all provincial laws are applicable to reserve lands except to the extent they are inconsistent with or already addressed by the Indian Act.",
+    "paragraphs": [
+     67
+    ],
+    "evidence_ids": [
+     "67.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     67
+    ],
+    "kind": "conclusion",
+    "statement": "Section 88 of the Indian Act states provincial laws apply to reserve lands except to the extent inconsistent with the Indian Act."
+   },
+   {
+    "quote": "On the other hand, using this reasoning, one must conclude that if the federal government intended to grant a different interest to the province of British Columbia in this case than it did in Osoyoos, supra, it would have used different language in each of the Orders, which it did not. That is, the necessary corollary of the respondent's argument is that by using the same language in different Orders, the federal government intended to achieve the same result. If that is indeed the case, then the Seabird Order must be seen to confer an identical interest as the Osoyoos Order.",
+    "paragraphs": [
+     69
+    ],
+    "evidence_ids": [
+     "69.2",
+     "69.3",
+     "69.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     69
+    ],
+    "kind": "conclusion",
+    "statement": "Using the same language in different Orders suggests the federal government intended to achieve the same result in the Seabird and Osoyoos Orders."
+   },
+   {
+    "quote": "Although the 1953 Order provides an example of one type of language that may be used to transfer less than an absolute interest in land, it does not clearly and plainly follow that different language cannot achieve a similar result. Thus, although the 1953 Order may be relevant, it is not determinative of the matter.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.6",
+     "70.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "kind": "conclusion",
+    "statement": "The 1953 Order is relevant but not determinative of whether different language can transfer less than an absolute interest in land."
+   },
+   {
+    "quote": "Moreover, relying on indirect evidence, such as the language of an earlier Order in Council, would require me not only to interpret the Seabird Order, but first to interpret the earlier Order to establish a framework for comparison. Only then might it be possible to glean some help from the language in one Order, in deciding the intention of the other. Given the factual record in this appeal, this Court cannot engage in that inquiry.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.1",
+     "71.2",
+     "71.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "kind": "conclusion",
+    "statement": "The Court cannot engage in interpreting an earlier Order to help interpret the Seabird Order given the factual record, so indirect evidence from earlier Orders is not helpful here."
+   },
+   {
+    "quote": "Consequently, I am not persuaded that there was a clear and plain intention to entirely extinguish the aboriginal interest in this land.",
+    "paragraphs": [
+     71
+    ],
+    "evidence_ids": [
+     "71.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     71
+    ],
+    "kind": "conclusion",
+    "statement": "There is no clear and plain intention to entirely extinguish the aboriginal interest in the land from the Seabird Order."
+   },
+   {
+    "quote": "Although the parties have not emphasized it, a word should be said about the 1961 agreement to give permission to the British Columbia Electric Company Limited to \"construct ... and maintain upon the Reserve poles ... and one or more lines of wire for the distribution of electrical energy and for communication and television purposes.\" All parties to that agreement expressly realized that permission was necessary because the land was \"Reserve land within the meaning of the Indian Act\", as it read at the time. If the permission was sought and granted with respect to land in the corridor, then to me, it would be nearly incontrovertible that such land was admitted, by the parties to that agreement, to be subject to the Band's interest.",
+    "paragraphs": [
+     72
+    ],
+    "evidence_ids": [
+     "72.1",
+     "72.2",
+     "72.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72
+    ],
+    "kind": "conclusion",
+    "statement": "The 1961 agreement granting permission to erect power lines on Reserve land shows the parties recognized the land was Reserve land under the Indian Act at the time."
+   },
+   {
+    "quote": "The question is, therefore, whether this agreement specifically contemplates land in the corridor or not. The agreement states that the Reserve is \"situate, lying and being on Seabird Island\". It does not, however, state that the Reserve is the whole of Seabird Island. Thus, it is unclear whether the agreement refers to the whole island or simply most of the island, excepting out the part containing the Lougheed Highway corridor. It might be possible to infer that if the parties to this agreement contemplated that it did not relate to the Lougheed Highway corridor, since that land was not \"Reserve land\", they might have said so. Alternatively, it is possible to infer from the omission of such a statement, that such a point was so obvious it did not require mentioning. To me, either inference is legitimate. A reference to particular land is found in the Band Council Resolution, which expressly states that the agreement sought specifically to accommodate an extension to a power line \"along the Seabird Island roadway adjacent to the Maria Slough as shown on Pole Plan No. 24239 dated June 15, 1961.\" That Plan is not in evidence, and there is no indication whether the roadway referred to is in or near the corridor. As it is unclear whether this agreement, in fact, evinces a concession that the Lougheed Highway corridor was \"Reserve land\" and, therefore, subject to the Band's interest, it is a neutral factor with respect to the interpretation of the Seabird Order. 4.",
+    "paragraphs": [
+     72,
+     73,
+     74
+    ],
+    "evidence_ids": [
+     "72.4",
+     "73.1",
+     "73.2",
+     "73.3",
+     "73.4",
+     "73.5",
+     "73.6",
+     "74.1",
+     "74.2",
+     "74.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     72,
+     73,
+     74
+    ],
+    "kind": "conclusion",
+    "statement": "It is unclear whether the 1961 agreement specifically contemplates land in the Lougheed Highway corridor or not, so it is a neutral factor in interpreting the Seabird Order."
+   },
+   {
+    "quote": "In sum, although the language of the Order and the context surrounding this case are virtually identical to the facts in Osoyoos, supra, there are several differences here. To review, first, the express language of the reservation of mines and minerals is slightly different. Second, the language of the provincial legislation is different. Third, whereas the canal was already constructed, the highway was not. Fourth, the language of an earlier Order in Council refers specifically to the \"use\" of land. Finally, a 1961 agreement acknowledges that the permission of the federal government was necessary to erect power lines on Reserve land. The crucial question, therefore, is whether the slight differences in the terms of the transfer, in conjunction with additional contextual evidence not present in Osoyoos, establish a clear and plain intention to extinguish completely the aboriginal interest in the corridor.",
+    "paragraphs": [
+     75
+    ],
+    "evidence_ids": [
+     "75.1",
+     "75.2",
+     "75.3",
+     "75.4",
+     "75.5",
+     "75.6",
+     "75.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     75
+    ],
+    "kind": "conclusion",
+    "statement": "Several differences from Osoyoos exist, including differences in reservation language, provincial legislation, construction status, earlier Orders, and the 1961 agreement, which must be considered to determine if there was a clear and plain intention to extinguish aboriginal interest."
+   },
+   {
+    "quote": "I cannot say they do. Nothing in this case is sufficient to differentiate it from Osoyoos, supra, so as to establish a \"clear and plain\" intention to completely extinguish the aboriginal interest in the corridor.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.1",
+     "76.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "kind": "conclusion",
+    "statement": "The differences do not establish a clear and plain intention to extinguish the aboriginal interest in the corridor."
+   },
+   {
+    "quote": "The language of the Seabird Order, like the Osoyoos Order, is genuinely ambiguous. In conclusion, as explained in Osoyoos, supra at para. 68, \"the interpretation that impairs the Indian interests as little as possible should be preferred, so long as the ambiguity is a genuine one\".",
+    "paragraphs": [
+     76,
+     77
+    ],
+    "evidence_ids": [
+     "76.3",
+     "77.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76,
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "The language of the Seabird Order is genuinely ambiguous and must be interpreted in a way that impairs Indian interests as little as possible."
+   },
+   {
+    "quote": "The provincial legislation cannot be determinative of anything, but only acts as a constraint placed upon the Crown to grant only an interest that is within the scope of the province's own statutory power.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "kind": "conclusion",
+    "statement": "Provincial legislation only constrains the Crown's grant to what is within provincial statutory power and is not determinative of extinguishment."
+   },
+   {
+    "quote": "Moreover, I am not persuaded that the construction and maintenance of the corridor necessarily required an absolute extinguishment of the aboriginal interest. In fact, the circumstances suggest the opposite.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.5",
+     "76.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "kind": "conclusion",
+    "statement": "Construction and maintenance of the corridor did not necessarily require absolute extinguishment of aboriginal interest; circumstances suggest otherwise."
+   },
+   {
+    "quote": "The language of the 1953 Order is merely one of the ways, but certainly not the only way, that the federal government might have transferred less than an absolute interest in land. The 1961 agreement does little or nothing to supplement the analysis.",
+    "paragraphs": [
+     76
+    ],
+    "evidence_ids": [
+     "76.7",
+     "76.8"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     76
+    ],
+    "kind": "conclusion",
+    "statement": "The 1953 Order is one way but not the only way the federal government might transfer less than an absolute interest in land; the 1961 agreement does little to supplement this analysis."
+   },
+   {
+    "quote": "Embracing that principle, I have concluded, as I am bound to do, that because of the genuine ambiguity in the Seabird Order, it must be interpreted to mean that the entire aboriginal interest in the Lougheed Highway corridor was not extinguished.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "Because of the genuine ambiguity, the Seabird Order must be interpreted to mean the entire aboriginal interest in the Lougheed Highway corridor was not extinguished."
+   },
+   {
+    "quote": "To borrow the words of Iacobucci J., therefore, I cannot say that \"the entire interest of a band is removed\" and, consequently, \"land remains in the reserve for the purposes of s. 83(1)(a)\" (Osoyoos, supra at para. 50). Given that the Band retains its interest in land \"in the reserve\", it is unnecessary for me to identify precisely the interest granted to the province. Suffice it to say that the Order in Council falls short of completely extinguishing the \"entire interest\" of the Band and, therefore, the Band is entitled to exercise the powers granted by s. 83(1)(a) of the Indian Act.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.3",
+     "77.4",
+     "77.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "The Band retains its interest in land 'in the reserve' and thus is entitled to exercise powers under s. 83(1)(a) of the Indian Act; the Order in Council does not completely extinguish the Band's entire interest."
+   },
+   {
+    "quote": "Thus, the Appeal Judge's decision cannot stand in light of Osoyoos, supra.",
+    "paragraphs": [
+     77
+    ],
+    "evidence_ids": [
+     "77.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     77
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Judge's decision cannot stand in light of Osoyoos."
+   },
+   {
+    "quote": "I should end by addressing the potential misapprehension that the result of the corridor being \"in the reserve\" for the purposes of s. 83(1)(a) of the Indian Act is to enable the Band to wreak havoc with the maintenance and operation of the road itself or any other interest in the corridor. In fact, this is not the case.",
+    "paragraphs": [
+     78
+    ],
+    "evidence_ids": [
+     "78.1",
+     "78.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78
+    ],
+    "kind": "conclusion",
+    "statement": "The corridor being \"in the reserve\" under s. 83(1)(a) of the Indian Act does not allow the Band to disrupt the maintenance and operation of the road or other interests in the corridor."
+   },
+   {
+    "quote": "Also, even under the Indian Act, the Band does not have an unfettered right to enact by-laws that are incompatible with the interest created pursuant to s. 35 (Osoyoos, supra at para. 75).",
+    "paragraphs": [
+     78
+    ],
+    "evidence_ids": [
+     "78.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78
+    ],
+    "kind": "conclusion",
+    "statement": "The Band does not have an unfettered right under the Indian Act to enact by-laws incompatible with interests created under s. 35."
+   },
+   {
+    "quote": "Indeed, the result for the respondent in particular is merely that it must pay its taxes to the Band rather than the District of Kent.",
+    "paragraphs": [
+     78
+    ],
+    "evidence_ids": [
+     "78.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     78
+    ],
+    "kind": "conclusion",
+    "statement": "The practical effect for the respondent is that it must pay taxes to the Band rather than the District of Kent."
+   },
+   {
+    "quote": "Because, for purpose of s. 83(1)(a) of the Indian Act, the Band's entire interest in the Lougheed Highway corridor was not removed from the Reserve, it is unnecessary for me to consider whether the land would revert back to the Band had the aboriginal interest been completely extinguished.",
+    "paragraphs": [
+     79
+    ],
+    "evidence_ids": [
+     "79.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     79
+    ],
+    "kind": "conclusion",
+    "statement": "Because the Band's entire interest in the Lougheed Highway corridor was not removed from the Reserve for the purpose of s. 83(1)(a) of the Indian Act, it is unnecessary to consider whether the land would revert back to the Band if the aboriginal interest had been completely extinguished."
+   },
+   {
+    "quote": "This appeal should be allowed, the decision of the Appeal Judge should be set aside and the appeal from the Seabird Island Indian Band Board Review should be dismissed with costs to the appellant of his appeal and in the Trial Division.",
+    "paragraphs": [
+     80
+    ],
+    "evidence_ids": [
+     "80.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     80
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is allowed, the decision of the Appeal Judge is set aside, and the appeal from the Seabird Island Indian Band Board Review is dismissed with costs to the appellant of his appeal and in the Trial Division."
+   },
+   {
+    "quote": "In my respectful view, the reasoning of the Supreme Court in Osoyoos Indian Band, supra, supports the conclusion reached by the Appeal Judge in this case.",
+    "paragraphs": [
+     81
+    ],
+    "evidence_ids": [
+     "81.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     81
+    ],
+    "kind": "conclusion",
+    "statement": "The reasoning of the Supreme Court in Osoyoos Indian Band supports the conclusion reached by the Appeal Judge in this case."
+   },
+   {
+    "quote": "I agree that the wording of the Order in Council with which we are concerned is strikingly similar to the one reviewed by the Supreme Court in Osoyoos.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "The wording of the Order in Council in this case is strikingly similar to the one reviewed by the Supreme Court in Osoyoos."
+   },
+   {
+    "quote": "However, there are two crucial differences which, in my respectful view, would have led the majority to reach a different result in Osoyoos.",
+    "paragraphs": [
+     82
+    ],
+    "evidence_ids": [
+     "82.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     82
+    ],
+    "kind": "conclusion",
+    "statement": "There are two crucial differences between the Orders in Council here and in Osoyoos that would have led the majority to reach a different result in Osoyoos."
+   },
+   {
+    "quote": "Section 35 clearly permits the taking of reserve land for public purposes. Moreover, it is clear and plain that s. 35 authorizes the taking or use of a range of interests in land, up to and including a fee simple interest. This is obvious from an ordinary and grammatical reading of the words of the section.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.2",
+     "83.3",
+     "83.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "Section 35 of the Indian Act permits the taking of reserve land for public purposes and authorizes the taking or use of a range of interests in land, up to and including a fee simple interest."
+   },
+   {
+    "quote": "In seeking to expropriate reserve land under s. 35(1) of the Indian Act, the Province was only able to take or use land that it was empowered to take under an Act of the provincial legislature. Section 35(1) reads: 35. (1) Where by an Act of ... a provincial legislature Her Majesty in right of a province ... is empowered to take or to use lands or any interest therein without the consent of the owner, the power may, with the consent of the Governor in Council ... be exercised in relation to lands in a reserve or any interest therein. [Emphasis in original] The words \"the power\" clearly refer to that power contained in the Act of the provincial legislature referred to in the opening lines of s. 35(1). Thus, the Province could only exercise \"the power\" given to it by the relevant Act of the legislature.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.7",
+     "83.8",
+     "83.9",
+     "83.10",
+     "83.11"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "Section 35(1) authorizes the Province to exercise only the power given to it by an Act of the provincial legislature to take or use lands in a reserve, with the consent of the Governor in Council."
+   },
+   {
+    "quote": "The parties concede that the Minister of Agriculture applied for the lands at issue under s. 21 of the Water Act, as inferred from the recitations of the Order in Council, i.e. \"the Minister of Agriculture ... applied for the lands ... for irrigation canal purposes\". Section 21 of the Water Act provides: 21.__(1) In this and the following three sections \"land\" includes any estate or interest in or easement over land. (2) Every licensee shall have the right to expropriate any land reasonably required for the construction, maintenance, improvement, or operation of any works authorized under his licence ... Thus, under s. 21 of the Water Act, the Minister of Agriculture was only empowered to expropriate the \"estate or interest in or easement over land\" that was \"reasonably required\" for the purposes of the canal, not more.",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.13",
+     "83.14",
+     "83.15",
+     "83.16",
+     "83.18"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "The Minister of Agriculture applied for the lands at issue under section 21 of the Water Act, which allows expropriation of any land reasonably required for canal purposes, but no more."
+   },
+   {
+    "quote": "The Province could not do an end run around the limitations on its powers inherent in the Water Act",
+    "paragraphs": [
+     83
+    ],
+    "evidence_ids": [
+     "83.19"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     83
+    ],
+    "kind": "conclusion",
+    "statement": "The Province could not circumvent the limitations on its powers inherent in the Water Act by taking more land than reasonably required for the canal."
+   },
+   {
+    "quote": "This reasoning was sufficient to dispose of the appeal in Osoyoos. Having found that it had not been shown that anything more than a leasehold interest or an easement was \"reasonably required\" to construct, operate or maintain the canal within the meaning of the Water Act, the Court was bound to conclude that the Order in Council did not convey a greater interest (Osoyoos, paragraph 69).",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.1",
+     "84.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "kind": "conclusion",
+    "statement": "In Osoyoos, the Court found that only a leasehold interest or easement was reasonably required for the canal, so the Order in Council did not convey a greater interest."
+   },
+   {
+    "quote": "Irrespective of anything else, the provincial government could not take more, and the federal government could not grant more, than what the Water Act authorized.",
+    "paragraphs": [
+     84
+    ],
+    "evidence_ids": [
+     "84.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     84
+    ],
+    "kind": "conclusion",
+    "statement": "The provincial government could not take more, and the federal government could not grant more, than what the Water Act authorized."
+   },
+   {
+    "quote": "No such restriction exists here. On the contrary, the Highway Act as it read at the relevant time, contemplated that \"Unless otherwise provided for, the soil and freehold of every public road shall be vested in His Majesty ...\" (section 5). That this Act generally provides for the taking of a freehold in land rather than some lesser interest is not surprising.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.1",
+     "85.2",
+     "85.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "kind": "conclusion",
+    "statement": "No such restriction exists in this case because the Highway Act contemplates that the soil and freehold of every public road shall be vested in His Majesty, generally providing for the taking of a freehold in land rather than a lesser interest."
+   },
+   {
+    "quote": "While every road can conceivably be built and operated on leased lands, or on a mere right of way, it would have made no sense in 1956, anymore than it would today, to build a major Highway on land held by a third party. The Appeal Judge's finding to that effect (reasons, paragraphs 23, 24 and 30) is based on the words of the Highway Act and plain common sense.",
+    "paragraphs": [
+     85
+    ],
+    "evidence_ids": [
+     "85.4",
+     "85.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     85
+    ],
+    "kind": "conclusion",
+    "statement": "It would have made no sense in 1956, or today, to build a major highway on land held by a third party, supporting the Appeal Judge's finding based on the Highway Act and common sense."
+   },
+   {
+    "quote": "The new evidence allowed in by my colleagues does not detract from the conclusion reached by the Appeal Judge on this point. It shows that exceptionally the Province took a lesser interest from Canadian Pacific Railway Company with respect to a limited strip within the 100 foot corridor running through part of the reserve.",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.1",
+     "86.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "kind": "conclusion",
+    "statement": "The new evidence showing the Province took a lesser interest from Canadian Pacific Railway Company for a limited strip within the corridor does not detract from the Appeal Judge's conclusion."
+   },
+   {
+    "quote": "The Highway Act expressly contemplates that the Province could take a lesser interest where \"otherwise provided\" (section 5).",
+    "paragraphs": [
+     86
+    ],
+    "evidence_ids": [
+     "86.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     86
+    ],
+    "kind": "conclusion",
+    "statement": "The Highway Act expressly contemplates that the Province could take a lesser interest where otherwise provided."
+   },
+   {
+    "quote": "I do not believe that the Appeal Judge in reaching the above noted conclusion proceeded on the basis that the provincial legislation was prima facie determinative of the terms of the transfer (Linden J.A., paragraph 58); his reasons make it clear that the only relevant intention is that of the Crown acting in its federal capacity.",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Judge did not proceed on the basis that provincial legislation was determinative of the terms of the transfer; the relevant intention is that of the Crown acting in its federal capacity."
+   },
+   {
+    "quote": "However, in determining this intention, he found it useful to consider the request to which the grantor was responding (reasons, paragraphs 16, 17 and 18).",
+    "paragraphs": [
+     87
+    ],
+    "evidence_ids": [
+     "87.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     87
+    ],
+    "kind": "conclusion",
+    "statement": "In determining the Crown's intention, the Appeal Judge found it useful to consider the request to which the grantor was responding."
+   },
+   {
+    "quote": "I can detect no error in the approach adopted by the Appeal Judge. Indeed, the majority in Osoyoos specifically refers to paragraphs 13 to 19 of the reasons of the Appeal Judge in the present matter as reflecting the proper approach in matters such as this (Osoyoos, paragraph 47). The Appeal Judge nowhere departs from this framework of analysis.",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.1",
+     "88.2",
+     "88.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "There is no error in the Appeal Judge's approach, which is consistent with the proper framework of analysis referred to by the majority in Osoyoos."
+   },
+   {
+    "quote": "In the end, only a clear and plain intention on the part of the federal government can support a conclusion that land has been removed from a reserve (reasons, paragraph 19).",
+    "paragraphs": [
+     88
+    ],
+    "evidence_ids": [
+     "88.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     88
+    ],
+    "kind": "conclusion",
+    "statement": "Only a clear and plain intention on the part of the federal government can support a conclusion that land has been removed from a reserve."
+   },
+   {
+    "quote": "The other crucial difference between the two Orders in Council lies in the last clause which deals with mineral rights.",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "kind": "conclusion",
+    "statement": "The other crucial difference between the two Orders in Council lies in the last clause dealing with mineral rights."
+   },
+   {
+    "quote": "In Osoyoos, the majority of the Judges, relying on a finding made by Lambert J.A. of the B.C. Court of Appeal, held that the reservation of mineral rights in that case was a \"boiler plate\" provision and thus not properly indicative of the intention of the grantor (Osoyoos, paragraph 79).",
+    "paragraphs": [
+     89
+    ],
+    "evidence_ids": [
+     "89.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     89
+    ],
+    "kind": "conclusion",
+    "statement": "In Osoyoos, the majority held that the reservation of mineral rights was a 'boiler plate' provision and thus not properly indicative of the grantor's intention."
+   },
+   {
+    "quote": "A \"boiler plate\" provision as these words suggest is a standard clause which is systematically reproduced usually verbatim in a series of instruments having the same object (Black's Law Dictionary, sixth edition, page 175). The fact that such clauses are automatically inserted appears to have led the majority in Osoyoos, to hold that, although the reservation of mineral rights was otherwise \"quite instructive\", no reliance could be placed on it.",
+    "paragraphs": [
+     90
+    ],
+    "evidence_ids": [
+     "90.1",
+     "90.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     90
+    ],
+    "kind": "conclusion",
+    "statement": "A 'boiler plate' provision is a standard clause systematically reproduced verbatim in a series of instruments having the same object, which led the majority in Osoyoos to hold no reliance could be placed on it despite its instructiveness."
+   },
+   {
+    "quote": "Accepting as I must, that the clause in Osoyoos was \"boiler plate\", as this term is usually understood, this last clause cannot possibly be labelled the same way.",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "conclusion",
+    "statement": "The clause in the Order in Council under review cannot be labelled as 'boiler plate' unlike the clause in Osoyoos."
+   },
+   {
+    "quote": "The comparison of the two orders makes it clear that in the present case, the federal government, in an obvious attempt to reconcile the public interest in having the subject lands used for Highway purposes and its fiduciary duty (as it then understood it) to minimally impair Indian interests in reserve land, carefully carved out of the interest granted to the Province, the ownership of mines and minerals, and provided for the right to \"enter upon, use and occupy the said lands ... to such extent as may be necessary for ...\" the exploitation of these mines and minerals (compare Osoyoos, paragraphs 52 to 55).",
+    "paragraphs": [
+     93
+    ],
+    "evidence_ids": [
+     "93.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     93
+    ],
+    "kind": "conclusion",
+    "statement": "The federal government carefully carved out ownership of mines and minerals from the interest granted to the Province and provided for the right to enter upon and use the lands to exploit these minerals."
+   },
+   {
+    "quote": "The principle of minimal impairment will tilt the balance in favour of the Indian interests wherever there is a \"genuine\" ambiguity in the intention of the federal government as evidenced by the instrument of conveyance (Osoyoos, paragraph 68).",
+    "paragraphs": [
+     95
+    ],
+    "evidence_ids": [
+     "95.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     95
+    ],
+    "kind": "legal_test",
+    "statement": "The principle of minimal impairment favors Indian interests where there is a genuine ambiguity in the federal government's intention as evidenced by the instrument of conveyance."
+   },
+   {
+    "quote": "A genuine ambiguity requires that there be a real doubt about the nature and extent of the interest conveyed.",
+    "paragraphs": [
+     95
+    ],
+    "evidence_ids": [
+     "95.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     95
+    ],
+    "kind": "legal_test",
+    "statement": "A genuine ambiguity requires a real doubt about the nature and extent of the interest conveyed."
+   },
+   {
+    "quote": "In the absence of any such doubt, it is incumbent upon the Courts to give effect to the clear and plain intention of the federal government.",
+    "paragraphs": [
+     95
+    ],
+    "evidence_ids": [
+     "95.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     95
+    ],
+    "kind": "conclusion",
+    "statement": "In the absence of genuine ambiguity, courts must give effect to the clear and plain intention of the federal government."
+   },
+   {
+    "quote": "In my view, it has not been shown when regard is had to the reasons of the Supreme Court in Osoyoos that a genuine ambiguity exists in this case or that the Appeal Judge erred in concluding that it was plain and obvious that the federal government by its Order in Council transferred to the Province absolute ownership of the subject lands save and except for the mines and minerals found to exist within, upon or under these lands.",
+    "paragraphs": [
+     96
+    ],
+    "evidence_ids": [
+     "96.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     96
+    ],
+    "kind": "conclusion",
+    "statement": "There is no genuine ambiguity in this case; the federal government transferred absolute ownership of the lands to the Province except for mines and minerals."
+   },
+   {
+    "quote": "In my view, the Appeal Judge, for the reasons that he gave, correctly concluded that the phrase \"for road purposes\" in the recital to the Order in Council did not render the fee determinable (reasons, paragraph 38).",
+    "paragraphs": [
+     97
+    ],
+    "evidence_ids": [
+     "97.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     97
+    ],
+    "kind": "conclusion",
+    "statement": "The Appeal Judge correctly concluded that the phrase 'for road purposes' did not render the fee determinable."
+   },
+   {
+    "quote": "Nor has it been shown that the Appeal Judge committed any error in holding that the corridor of land comprising the Lougheed Highway continues to be used for \"road purposes\" (reasons, paragraphs 36 and 37).",
+    "paragraphs": [
+     97
+    ],
+    "evidence_ids": [
+     "97.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     97
+    ],
+    "kind": "conclusion",
+    "statement": "The corridor of land comprising the Lougheed Highway continues to be used for 'road purposes'."
+   },
+   {
+    "quote": "I would dismiss the appeal with costs.",
+    "paragraphs": [
+     98
+    ],
+    "evidence_ids": [
+     "98.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     98
+    ],
+    "kind": "conclusion",
+    "statement": "The appeal is dismissed with costs."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "In correcting the same error made by the majority of the British Columbia Court of Appeal in Osoyoos Indian Band v. Oliver (Town), 1999 BCCA 297 (B.C.C.A.), the Supreme Court of Canada commented that \"this approach is contrary to the clear and plain intention test for extinguishment\" (Osoyoos, supra at para. 84). Rather, as explained in Osoyoos, supra at para. 69 (emphasis added), \"the scope of the statutory power to transfer interests in land is constrained by the terms of the [provincial legislation]\". The Governor in Council cannot grant more than the province is empowered to take, but can grant less (Osoyoos, supra at paras. 62, 69 ,136).",
+    "paragraphs": [
+     59
+    ],
+    "evidence_ids": [
+     "59.1",
+     "59.3",
+     "59.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     59
+    ],
+    "authority": "The Supreme Court in Osoyoos held that the clear and plain intention test applies for extinguishment and that the scope of provincial statutory power constrains the transfer of interests in land.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As Iacobucci J. explained (ibid. at para. 80):the only intention relevant to the inquiry is that of the grantor of the interest.",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "authority": "Iacobucci J. explained that the only intention relevant is that of the grantor of the interest, here the Governor in Council.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Gonthier J. also mentioned that \"[i]t is for the government to decide, governed by its fiduciary obligation, the appropriate limits to the amount of land and the nature of the interest in land that it is transferring\" (Osoyoos, supra at para. 134).",
+    "paragraphs": [
+     60
+    ],
+    "evidence_ids": [
+     "60.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     60
+    ],
+    "authority": "Gonthier J. stated that the government decides the appropriate limits to the amount and nature of land interest transferred, governed by its fiduciary obligation.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Supreme Court was clear that the Crown's fiduciary obligation under s. 35 mandates that the Governor in Council \"grant only the minimum interest required to fulfill [the] public purpose\"(Osoyoos, supra at para. 52-55).",
+    "paragraphs": [
+     61
+    ],
+    "evidence_ids": [
+     "61.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     61
+    ],
+    "authority": "The Supreme Court held that the Crown's fiduciary obligation under s. 35 mandates granting only the minimum interest required to fulfill the public purpose.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "As Iacobucci J. noted \"as a general matter the Court should be reluctant to take away interests in land in the absence of conclusive evidence\" (Osoyoos, supra at para. 65).",
+    "paragraphs": [
+     64
+    ],
+    "evidence_ids": [
+     "64.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     64
+    ],
+    "authority": "Iacobucci J. noted courts should be reluctant to take away interests in land without conclusive evidence.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Supreme Court of Canada has found that less than absolute title can certainly suffice for the purposes of operating and maintaining a canal and, more importantly, building and maintaining a railway (see Canadian Pacific Ltd. v. Paul, [1998] 2 S.C.R. 654 at 671; and Osoyoos, supra).",
+    "paragraphs": [
+     65
+    ],
+    "evidence_ids": [
+     "65.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     65
+    ],
+    "authority": "The Supreme Court found less than absolute title suffices for operating and maintaining canals and railways, and by analogy for highways absent contrary evidence.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "Although I am not sure whether the specific language of the prior grant was in evidence before the Supreme Court, the following comments of Iacobucci J. are apt in the circumstances. He explained, at para. 82 of Osoyoos, supra, that the prior grant of an easement \"does not, by comparison, necessarily render the other two rights of way something other than an easement.\" These remarks were made in the context of analysing, by comparison, the internal language of the Osoyoos Order. His comments are even more applicable when comparing the language of two separate and distinct documents.",
+    "paragraphs": [
+     70
+    ],
+    "evidence_ids": [
+     "70.2",
+     "70.3",
+     "70.4",
+     "70.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     70
+    ],
+    "authority": "The comments of Iacobucci J. in Osoyoos about prior grants of easements are apt and applicable when comparing language of separate documents.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

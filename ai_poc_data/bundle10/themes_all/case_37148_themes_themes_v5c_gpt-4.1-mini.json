@@ -1,0 +1,797 @@
+{
+ "case_id": 37148,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "bundle_themes10",
+ "usage": {
+  "usd": 0.0113992
+ },
+ "verification": {
+  "items": 36,
+  "quote_exact_in_cited": 36,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 8,
+  "calls": 9,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.947,
+  "rows": {
+   "themes": 4,
+   "arguments": 23,
+   "holdings": 12,
+   "rebuttals": 0,
+   "authorities": 1,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The Federal Court of Appeal dismissed the appellants' appeals for delay because they failed to justify the delay in proceeding, particularly their failure to obtain necessary documents despite available procedures.",
+  "themes": [
+   {
+    "name": "Delay justification and procedural requirements",
+    "summary": "The appellants failed to justify the delay in proceeding with their appeals as they did not take steps to obtain necessary documents despite being aware of procedures to do so.",
+    "paragraphs": [
+     3,
+     4,
+     8,
+     11,
+     12,
+     13
+    ]
+   },
+   {
+    "name": "Availability and inclusion of seized documents",
+    "summary": "The seized documents were available for examination but were not obtained by the appellants, and the respondent opposed their inclusion in the appeal book.",
+    "paragraphs": [
+     4,
+     5,
+     9,
+     10,
+     13
+    ]
+   },
+   {
+    "name": "Minister's letter and allegations of improper seizure",
+    "summary": "The Minister's letter clarified that additional officials assisting in the search did not seize documents, contradicting appellants' allegations of unauthorized seizure.",
+    "paragraphs": [
+     6,
+     7,
+     13
+    ]
+   },
+   {
+    "name": "Tribunal below's procedural findings",
+    "summary": "The Tax Court judge found that procedures existed to obtain documents and rejected allegations of CRA officials hiding documents as unproven and unsupported by evidence.",
+    "paragraphs": [
+     101,
+     102,
+     103,
+     104,
+     105
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and nature of appeal",
+    "first_paragraph": 1,
+    "last_paragraph": 1,
+    "disposition": "other"
+   },
+   {
+    "label": "Issuance of notices of status review for delay",
+    "first_paragraph": 2,
+    "last_paragraph": 3,
+    "disposition": "other"
+   },
+   {
+    "label": "Appellants' justification for delay due to unavailable documents",
+    "first_paragraph": 4,
+    "last_paragraph": 4,
+    "disposition": "other"
+   },
+   {
+    "label": "Respondent's position on delay and document availability",
+    "first_paragraph": 5,
+    "last_paragraph": 5,
+    "disposition": "other"
+   },
+   {
+    "label": "Appellants' additional submissions regarding seized documents and Minister's letter",
+    "first_paragraph": 6,
+    "last_paragraph": 7,
+    "disposition": "other"
+   },
+   {
+    "label": "Court's assessment of appellants' justification for delay",
+    "first_paragraph": 8,
+    "last_paragraph": 13,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Dismissal of appeals for delay",
+    "first_paragraph": 14,
+    "last_paragraph": 14,
+    "disposition": "dismissed"
+   },
+   {
+    "label": "Tribunal below's findings on procedural issue of document seizure and prejudice",
+    "first_paragraph": 101,
+    "last_paragraph": 105,
+    "disposition": "other"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "On December 4, 2008, notices of status review were issued by Sharlow J.A. to all of the appellants, other than Sabrina Rigutto and Bob Wysocki. On January 8, 2009, a notice of status review was issued by L\u00e9tourneau J.A. to Sabrina Rigutto. The notices of status required their recipients to make written representations stating reasons why their respective appeals should not be dismissed for delay.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2",
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Notices of status review were issued to appellants to address delay in their appeals.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "In those responses, the appellants allege that the delay in proceeding with their appeals is mainly attributable to an inability to obtain certain documents that were seized by the Canada Revenue Agency under a warrant that was executed in September 20, 2006.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants argue that the delay in proceeding with their appeals is mainly due to their inability to obtain certain documents seized by the Canada Revenue Agency under a warrant executed in September 2006.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Nonetheless, each appellant states that such documents are needed so that they can be included in the appeal book and relied upon in the appeal.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants state that the seized documents are needed to be included in the appeal book and relied upon in the appeal.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In replying to the appellants\u2019 submissions, the respondent contends that the appellants have not justified the delay in proceeding with their respective appeals asserting that: (a) the documentation that the appellants allegedly require was not before Woods J. and, accordingly, would not be includable in the appeal book without an order of the Court;",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "respondent",
+    "claim": "The appellants have not justified the delay in proceeding with their appeals because the documentation they require was not before Woods J. and would not be includable in the appeal book without a Court order.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "and (b) the documentation in issue was considered by Woods J. in her reasons wherein she observed that the appellants were advised by Bowie J., in the course of case management that preceded the hearing in the Tax Court of Canada, that there were procedures available to the appellants that could be followed to obtain the seized documents or copies thereof.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "respondent",
+    "claim": "The documentation in issue was considered by Woods J., who noted that the appellants were advised by Bowie J. during case management that procedures were available to obtain the seized documents or copies.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Certain of the appellants made additional submissions in relation to correspondence from the Minister of National Revenue (the \u201cMinister\u201d) to Mr. Harold Coombs, (the husband of Joan Coombs, father of Karen A. Munshaw, father-in-law of Daniel Munshaw, brother of Lorna Mossop, brother-in-law of Percy G. Mossop and uncle of Carl Coombs) in response to correspondence from Mr. Coombs to the Minister. Specifically, the submission of Joan Coombs, dated February 16, 2009, states: On January 20, 2009, a letter was received from the Minister of National Revenue, Mr. Jean-Pierre Blackburn, P.C.,M.P. stating that officials of Canada Revenue Agency allowed three (3) unnamed and unauthorized persons to search and seize documents and things from my office located at 660 Eglinton Avenue, Toronto, on September 20, 2006.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1",
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "Certain appellants submitted that the Minister of National Revenue acknowledged that unauthorized persons searched and seized documents from Joan Coombs' office on September 20, 2006.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Prior to this acknowledgement by the Minister, Lynn Watson denied this fact for over two years. This matter was brought to the attention of Mr. William Baker, CEO Canada Revenue Agency and he refuses to become involved.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.3",
+     "6.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "applicant",
+    "claim": "Joan Coombs submitted that Lynn Watson denied the unauthorized search for over two years and that Mr. William Baker, CEO of Canada Revenue Agency, refused to get involved.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In a response to that submission, dated February 26, 2009, the respondent provided a copy of a letter, dated January 20, 2009, (the \u201cMinister\u2019s Letter\u201d) from the Minister to Mr. Harold Coombs and asserted that the Minister\u2019s Letter had been misrepresented in the submission of Joan Coombs. The Minister\u2019s Letter states, in part: In view of your concerns, senior CRA officials have reviewed your file. They inform me that during the execution of the search warrant at 660 Eglinton Avenue East, in Toronto, Ontario, on September 20, 2006, Ms. Lynn Watson, the CRA official in charge of the investigation, received a call from Mr. David Wood, the CRA official in charge at the search location, requesting additional officials to assist. She sent five CRA officials. Two of the officials were named on the warrant. The unnamed officials helped with the search but did not make any seizure. Canadian jurisprudence allows named officials to call on others to assist them provided that the named officials remain responsible for the search activity of the unnamed officials.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2",
+     "7.3",
+     "7.4",
+     "7.5",
+     "7.6",
+     "7.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent submitted that the Minister's letter was misrepresented by Joan Coombs and clarified that unnamed officials helped with the search but did not make any seizure, and that Canadian jurisprudence allows named officials to call on others to assist provided they remain responsible.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Following the search, on September 27, 2006, and again on November 14, 2006, the CRA wrote to Mr. Oleg Volochkov, a director and the general manager of Select Travel Inc., to notify him that the documents seized from the search location were available for examination at the Enforcement Office at the Toronto East Tax Services Office. I am advised that neither Mr. Volochkov nor you responded or requested to review any documents.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.8",
+     "7.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent submitted that the CRA notified Mr. Oleg Volochkov that seized documents were available for examination, but neither he nor Joan Coombs responded or requested to review any documents.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In addition, the respondent has stated its unwillingness to have the documentation at issue included in the appeal books, thus rendering an agreement on the contents of the appeal books \u2013 the awaited next step in the appeal process \u2013 most unlikely.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "respondent",
+    "claim": "The respondent is unwilling to include the disputed documentation in the appeal books, making agreement on appeal book contents unlikely.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "At paragraphs 101 to 105 of her reasons, Woods J. stated:",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Woods J. stated at paragraphs 101 to 105 of her reasons regarding the documentation.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The appellants have been aware of the means to obtain access to the documents in question since the case management hearing that preceded the hearing in the Tax Court of Canada.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants have known how to access the documents since the case management hearing before the Tax Court of Canada hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "However, the appellants have not taken any steps to procure those documents.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants have not taken steps to obtain those documents.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The appellants now allege that the continued unavailability of the very documents that had not been obtained in advance of the hearing in the Tax Court of Canada, is the reason why the present appeals have not been advanced.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants allege that the unavailability of the documents, which were not obtained before the Tax Court hearing, is why the appeals have not advanced.",
+    "treatment": "rejected",
+    "outcome_note": "The Court finds this allegation unpersuasive as justification for delay.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Mr. Coombs argues that the seizure has caused prejudice to the appellants in reference to these appeals because they have not had the necessary documents to properly prepare their cases.",
+    "paragraphs": [
+     102
+    ],
+    "evidence_ids": [
+     "102.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     102
+    ],
+    "made_by": "applicant",
+    "claim": "The seizure of records in a criminal investigation has caused prejudice to the appellants because they have not had the necessary documents to properly prepare their cases.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "I do not think that the appellants can complain of unfairness in this regard.",
+    "paragraphs": [
+     103
+    ],
+    "evidence_ids": [
+     "103.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     103
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The appellants cannot complain of unfairness regarding the seizure of records.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I would note that this issue was raised in a case management hearing before Justice Bowie on July 30, 2007.",
+    "paragraphs": [
+     103
+    ],
+    "evidence_ids": [
+     "103.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     103
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The issue of document seizure was raised in a case management hearing before Justice Bowie on July 30, 2007.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "During that hearing, the judge indicated that there are court procedures available for the production of documents that would be available for the appellants who had appeals then under the general procedure.",
+    "paragraphs": [
+     104
+    ],
+    "evidence_ids": [
+     "104.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     104
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Court procedures are available for the production of documents for appellants under the general procedure.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "It was also mentioned by counsel for the Crown that procedures are in place under the Criminal Code to obtain the documents.",
+    "paragraphs": [
+     104
+    ],
+    "evidence_ids": [
+     "104.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     104
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Procedures under the Criminal Code exist to obtain the documents.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The appellants had ample time to deal with this issue prior to the trial and they chose not to.",
+    "paragraphs": [
+     104
+    ],
+    "evidence_ids": [
+     "104.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     104
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The appellants had ample time to address the document issue prior to trial but chose not to.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Mr. Coombs argued that these steps would not have been fruitful because it appeared that some of the documents are no longer in the Crown\u2019s possession. Mr. Coombs\u2019 theory is that they were likely taken by a CRA official who, according to Mr. Coombs, illegally participated in the search and seizure.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.1",
+     "105.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "made_by": "applicant",
+    "claim": "The steps to obtain documents would not have been fruitful because some documents are no longer in the Crown\u2019s possession, likely taken by a CRA official who illegally participated in the search and seizure.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "First, I note that this is an unproven allegation on which there is not a sufficient evidentiary basis to support it.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The allegation that a CRA official is hiding documents is unproven and lacks sufficient evidentiary basis.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "I reject any notion that an official from the CRA is hiding documents in this case.",
+    "paragraphs": [
+     105
+    ],
+    "evidence_ids": [
+     "105.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     105
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Any notion that a CRA official is hiding documents in this case is rejected.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "Sabrina Rigutto (A-182-08), Joan Coombs (A-251-08), Daniel Munshaw (A-253-08), Karen A. Munshaw (A-254-08), Anne M. Volochkov (A-255-08), Jeff Russell (A-256-08), Carl Coombs (A-257-08), Percy G. Mossop (A-258-08), Lorna Mossop (A-259-08) and Bob Wysocki (A-274-08) have launched appeals against decisions of Woods J. of the Tax Court of Canada (2008 TCC 289), in which their claims for charitable tax credits were denied.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Sabrina Rigutto and others have launched appeals against decisions of Woods J. of the Tax Court of Canada, in which their claims for charitable tax credits were denied."
+   },
+   {
+    "quote": "In responding to the notices of status review, each appellant must, in accordance with Rule 382.3(1) of the Federal Courts Rules, justify the delay in proceeding with the appeal.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "legal_test",
+    "statement": "Appellants must justify delay in proceeding with the appeal according to Rule 382.3(1) of the Federal Courts Rules."
+   },
+   {
+    "quote": "In addition, each appellant must provide a proposed timetable for the completion of the steps necessary to advance the appeal in an expeditious manner.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "legal_test",
+    "statement": "Appellants must provide a proposed timetable for completing necessary steps to advance the appeal expeditiously."
+   },
+   {
+    "quote": "None of the appellants has filed an agreement as to the contents of the appeal book in their respective appeals.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "party_gap",
+    "statement": "None of the appellants has filed an agreement as to the contents of the appeal book in their respective appeals."
+   },
+   {
+    "quote": "In my view, the submissions of the appellants do not constitute a justification for the delay in proceeding with their appeals.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "conclusion",
+    "statement": "The appellants' submissions do not justify the delay in proceeding with their appeals."
+   },
+   {
+    "quote": "Also, the documentation at issue was considered by Woods J. in the hearing in the Tax Court of Canada.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The disputed documentation was considered by Woods J. in the Tax Court of Canada hearing."
+   },
+   {
+    "quote": "The continued unavailability of the documents in question is a direct result of the failure of the appellants to follow the guidance that was previously provided by the case management judge in relation to the hearing in the Tax Court of Canada.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The continued unavailability of the documents results from the appellants' failure to follow the case management judge's guidance before the Tax Court hearing."
+   },
+   {
+    "quote": "In my view, this inactivity on the part of the appellants establishes inexcusable, rather than justifiable, delay on their part in the advancement of the appeals.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "kind": "conclusion",
+    "statement": "The appellants' inactivity constitutes inexcusable, not justifiable, delay in advancing the appeals."
+   },
+   {
+    "quote": "Furthermore, in my view, a fair reading of the portions of the Minister\u2019s Letter reproduced above is that they contradict the allegations put forward in the February 16, 2009 submission of Joan Coombs and indicate that the seized documents were available for examination by Mr. Oleg Volochkov, the spouse of one of the appellants.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "A fair reading of the Minister's Letter contradicts the appellants' February 16, 2009 submission and indicates the seized documents were available for examination by Mr. Oleg Volochkov."
+   },
+   {
+    "quote": "As such, those portions of the Minister\u2019s Letter, in my view, provide a further indication that the appellants have failed to justify the delay in proceeding with the appeal.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The Minister's Letter further indicates the appellants failed to justify the delay in proceeding with the appeal."
+   },
+   {
+    "quote": "For the foregoing reasons, I would dismiss the appeals in Court files A-182-08, A-251-08, A-253-08, A-254-08, A-255-08, A-256-08, A-257-08, A-258-08 and A-259-08 for delay.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The appeals in Court files A-182-08, A-251-08, A-253-08, A-254-08, A-255-08, A-256-08, A-257-08, A-258-08 and A-259-08 are dismissed for delay."
+   },
+   {
+    "quote": "A copy of these reasons should be placed in each of those files.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "A copy of these reasons should be placed in each of those files."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "This Court has held that, in general, the appeal book should contain only the material that was before the trial judge so that the appellate court can determine if the trial judge made the appropriate decision on the basis of the record that was before him (see Paquette v. Canada (A.G.), 2002 FCA 441).",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "authority": "Generally, the appeal book should contain only the material before the trial judge to allow the appellate court to assess the trial judge's decision based on that record, as held in Paquette v. Canada (A.G.), 2002 FCA 441.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

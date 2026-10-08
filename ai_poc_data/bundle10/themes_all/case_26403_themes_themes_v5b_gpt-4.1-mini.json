@@ -1,0 +1,754 @@
+{
+ "case_id": 26403,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5b",
+ "run": "mini25_v5",
+ "usage": {
+  "usd": 0.010378400000000001
+ },
+ "verification": {
+  "items": 37,
+  "quote_exact_in_cited": 37,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 7,
+  "calls": 8,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 0.957,
+  "rows": {
+   "themes": 3,
+   "arguments": 9,
+   "holdings": 26,
+   "rebuttals": 0,
+   "authorities": 2,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The Federal Court allowed the judicial review, quashed the Refugee Protection Division's decision, and remitted the matter for reconsideration due to the Board's unreasonable findings lacking evidentiary support and failure to consider important evidence.",
+  "themes": [
+   {
+    "name": "Credibility and implausibility findings",
+    "summary": "The Board's findings on credibility and implausibility are questions of fact reviewed on a reasonableness standard, but the Board's implausibility finding was unsupported by evidence.",
+    "paragraphs": [
+     18,
+     19,
+     20
+    ]
+   },
+   {
+    "name": "Failure to consider relevant evidence",
+    "summary": "The Board failed to consider important documentary evidence about murders of civil servants denouncing corruption, which undermined its decision.",
+    "paragraphs": [
+     20,
+     21,
+     22
+    ]
+   },
+   {
+    "name": "Speculation about applicant's motives",
+    "summary": "The Board speculated without evidentiary basis that the applicant merely wished to retire in Canada, ignoring evidence and submissions on this point.",
+    "paragraphs": [
+     23
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Identification of parties and nature of application",
+    "first_paragraph": 1,
+    "last_paragraph": 1,
+    "disposition": "other"
+   },
+   {
+    "label": "Factual background and claim summary",
+    "first_paragraph": 2,
+    "last_paragraph": 10,
+    "disposition": "other"
+   },
+   {
+    "label": "Decision under review by the Refugee Protection Division",
+    "first_paragraph": 11,
+    "last_paragraph": 15,
+    "disposition": "other"
+   },
+   {
+    "label": "Issue for judicial review",
+    "first_paragraph": 16,
+    "last_paragraph": 16,
+    "disposition": "other"
+   },
+   {
+    "label": "Applicable statutory provisions",
+    "first_paragraph": 17,
+    "last_paragraph": 17,
+    "disposition": "other"
+   },
+   {
+    "label": "Standard of review and legal principles",
+    "first_paragraph": 18,
+    "last_paragraph": 19,
+    "disposition": "other"
+   },
+   {
+    "label": "Assessment of Board's implausibility and credibility findings",
+    "first_paragraph": 20,
+    "last_paragraph": 23,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Remedy and disposition",
+    "first_paragraph": 24,
+    "last_paragraph": 24,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Board rejected the applicants\u2019 refugee claim as it found that the determinative issue was the lack of credibility of their account.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board rejected the applicants\u2019 refugee claim as it found that the determinative issue was the lack of credibility of their account.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board found it to be implausible that the applicants would be persecuted by the presidential security forces merely because the principal applicant had reported the irregularity while carrying out his duties as a civil servant.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found it to be implausible that the applicants would be persecuted by the presidential security forces merely because the principal applicant had reported the irregularity while carrying out his duties as a civil servant.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board concluded that the principal applicant had no other choice but to inform his supervisor that the funds had been transferred to an account managed by the Congolese president and that he was not in possession of these funds.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board concluded that the principal applicant had no other choice but to inform his supervisor that the funds had been transferred to an account managed by the Congolese president and that he was not in possession of these funds.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Rather, the Board noted that it was likely that after a long career in the public service, that the applicant merely wanted to retire in Canada.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board noted that it was likely that after a long career in the public service, the applicant merely wanted to retire in Canada.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board observed that the applicants had not left the DRC in a hurry but had taken their time to plan their trip and to obtain Canadian visas.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board observed that the applicants had not left the DRC in a hurry but had taken their time to plan their trip and to obtain Canadian visas.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Board also acknowledged that the applicants had submitted substantial documentation indicating the human rights abuses in the DRC. The Board affirmed that it was aware of the country\u2019s violations.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1",
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board acknowledged that the applicants had submitted substantial documentation indicating the human rights abuses in the DRC and affirmed that it was aware of the country\u2019s violations.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "However, the Board concluded that, as a government employee, the applicant had not presented any evidence which demonstrated that he had been persecuted during his long career and found it unlikely that he would be persecuted now, at the end of his career.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board concluded that, as a government employee, the applicant had not presented any evidence which demonstrated that he had been persecuted during his long career and found it unlikely that he would be persecuted now, at the end of his career.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Essentially, the Court notes that the Board found it to be implausible that the principal applicant would be persecuted by the presidential security forces at the end of his long career merely because he had reported a financial irregularity in the amount of $23 million while carrying out his duties as an auditor for the Ministry of Finance.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Board found it implausible that the principal applicant would be persecuted by the presidential security forces at the end of his long career merely because he reported a financial irregularity of $23 million as an auditor for the Ministry of Finance.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Although the Court accepts the respondent\u2019s argument that this issue was addressed and discussed during the hearing (Tribunal\u2019s Record, pp 317-320 and 826-833), it was completely ignored by the Board in its decision.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "made_by": "respondent",
+    "claim": "The issue of the applicant's intention to stay in Canada for retirement was addressed and discussed during the hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "This is an application pursuant to subsection 72(1) of the Immigration and Refugee Protection Act, SC 2001, c 27 [Act] for judicial review of the decision rendered by the Refugee Protection Division of the Immigration and Refugee Board (the Board) dated December 12, 2011, which refused the applicants\u2019 claim to be deemed Convention refugees or persons in need of protection under sections 96 and 97 of the Act.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "This is an application for judicial review of the Refugee Protection Division's decision dated December 12, 2011, which refused the applicants' claim to be deemed Convention refugees or persons in need of protection under sections 96 and 97 of the Immigration and Refugee Protection Act."
+   },
+   {
+    "quote": "The applicants, Mr. Gaston Kipa Numbi (the principal applicant) and his wife, Ms. Fran\u00e7oise Tshikudi Ndjibu, are both citizens of the Democratic Republic of the Congo (the DRC). They seek protection in Canada as they fear persecution by the DRC government in light of the fact that the principal applicant denounced the corruption and the embezzlement of funds carried out by the Congolese president.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1",
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants, Mr. Gaston Kipa Numbi and his wife, are citizens of the Democratic Republic of the Congo seeking protection in Canada due to fear of persecution by the DRC government."
+   },
+   {
+    "quote": "The principal applicant has worked as a civil servant in the Congolese Ministry of Finance for approximately thirty (30) years.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The principal applicant worked as a civil servant in the Congolese Ministry of Finance for about thirty years."
+   },
+   {
+    "quote": "In July 2006, the principal applicant alleges that he was appointed to the head of a government body that was mandated to investigate financial impropriety, contentious fiscal cases and recover tax or custom payments that had not been properly paid to the government.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "background_fact",
+    "statement": "In July 2006, the principal applicant was appointed head of a government body investigating financial impropriety and recovering unpaid taxes or customs."
+   },
+   {
+    "quote": "On March 30, 2010, in the course of his duties, the principal applicant presented himself at the customs and excise office in order to collect funds that were supposed to have been paid by a company to the customs department. However, the applicant maintains that he learned from the Receiver that the funds had been transferred to an account managed by the President of the DRC. These funds totalled approximately $23 million USD.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1",
+     "5.2",
+     "5.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "background_fact",
+    "statement": "On March 30, 2010, the principal applicant tried to collect funds from the customs office but learned the funds had been transferred to an account managed by the President of the DRC, totaling about $23 million USD."
+   },
+   {
+    "quote": "The principal applicant alleges that he reported this irregularity and, as a result, he affirms that he subsequently became the target of the security forces of the Congolese president.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "background_fact",
+    "statement": "The principal applicant alleges he reported this irregularity and subsequently became targeted by the presidential security forces."
+   },
+   {
+    "quote": "On April 15, 2010, the principal applicant affirms that he received a telephone call from one of his colleagues who warned him not to return to his office as the presidential security forces were there to arrest him. Consequently, he maintains that he never returned to his office.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1",
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "kind": "background_fact",
+    "statement": "On April 15, 2010, the principal applicant was warned by a colleague not to return to his office because presidential security forces were there to arrest him, and he did not return."
+   },
+   {
+    "quote": "The principal applicant also alleges that he began to receive anonymous and threatening telephone calls and unexpected visits from the presidential security forces at his home. As a result, he explains that he decided to leave and hide at a family member\u2019s house.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1",
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "background_fact",
+    "statement": "The principal applicant began receiving anonymous threatening calls and unexpected visits from presidential security forces at his home, leading him to hide at a family member's house."
+   },
+   {
+    "quote": "Fearing for his life, the principal applicant maintains that he requested a one-year leave from his place of work and applied for Canadian visitors visas.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "kind": "background_fact",
+    "statement": "Fearing for his life, the principal applicant requested a one-year leave from work and applied for Canadian visitor visas."
+   },
+   {
+    "quote": "The applicants arrived in Canada on July 5, 2010 and filed for refugee protection on August 11, 2010.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants arrived in Canada on July 5, 2010 and filed for refugee protection on August 11, 2010."
+   },
+   {
+    "quote": "The sole issue in this case is the following: were the Board\u2019s findings reasonable?",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "kind": "legal_test",
+    "statement": "The sole issue in this case is whether the Board's findings were reasonable."
+   },
+   {
+    "quote": "A Convention refugee is a person who, by reason of a well-founded fear of persecution for reasons of race, religion, nationality, membership in a particular social group or political opinion, (a) is outside each of their countries of nationality and is unable or, by reason of that fear, unwilling to avail themself of the protection of each of those countries; or (b) not having a country of nationality, is outside the country of their former habitual residence and is unable or, by reason of that fear, unwilling to return to that country.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2",
+     "17.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "A Convention refugee is a person who, by reason of a well-founded fear of persecution for reasons of race, religion, nationality, membership in a particular social group or political opinion, (a) is outside each of their countries of nationality and is unable or, by reason of that fear, unwilling to avail themself of the protection of each of those countries; or (b) not having a country of nationality, is outside the country of their former habitual residence and is unable or, by reason of that fear, unwilling to return to that country."
+   },
+   {
+    "quote": "(1) A person in need of protection is a person in Canada whose removal to their country or countries of nationality or, if they do not have a country of nationality, their country of former habitual residence, would subject them personally (a) to a danger, believed on substantial grounds to exist, of torture within the meaning of Article 1 of the Convention Against Torture; or (b) to a risk to their life or to a risk of cruel and unusual treatment or punishment if (i) the person is unable or, because of that risk, unwilling to avail themself of the protection of that country, (ii) the risk would be faced by the person in every part of that country and is not faced generally by other individuals in or from that country, (iii) the risk is not inherent or incidental to lawful sanctions, unless imposed in disregard of accepted international standards, and (iv) the risk is not caused by the inability of that country to provide adequate health or medical care.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.8",
+     "17.9"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "legal_test",
+    "statement": "A person in need of protection is a person in Canada whose removal to their country or countries of nationality or, if they do not have a country of nationality, their country of former habitual residence, would subject them personally (a) to a danger, believed on substantial grounds to exist, of torture within the meaning of Article 1 of the Convention Against Torture; or (b) to a risk to their life or to a risk of cruel and unusual treatment or punishment if (i) the person is unable or, because of that risk, unwilling to avail themself of the protection of that country, (ii) the risk would be faced by the person in every part of that country and is not faced generally by other individuals in or from that country, (iii) the risk is not inherent or incidental to lawful sanctions, unless imposed in disregard of accepted international standards, and (iv) the risk is not caused by the inability of that country to provide adequate health or medical care."
+   },
+   {
+    "quote": "It is trite law that the Board\u2019s findings on credibility and implausibility are questions of fact and are therefore reviewable according to the standard of reasonableness (Aguebor v Canada (Minister of Employment and Immigration) (F.C.A.), [1993] FCJ No 732, 160 NR 315; Hafeez v Canada (Minister of Citizenship and Immigration), 2012 FC 747 at para 13, [2012] FCJ No 798; Cekim v Canada (Minister of Citizenship and Immigration), 2011 FC 177 at para 6, [2011] FCJ No 221; Dunsmuir v New Brunswick, 2008 SCC 9, [2008] 1 SCR 190).",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "legal_test",
+    "statement": "The Board's findings on credibility and implausibility are questions of fact and are reviewable according to the standard of reasonableness."
+   },
+   {
+    "quote": "The Court recalls that the Board is entitled to make credibility findings based on implausibility, common sense and rationality (Cooper v Canada (Minister of Citizenship and Immigration), 2012 FC 118, [2012] FCJ No 135; Hilo v Canada (Minister of Employment and Immigration) (F.C.A.), [1991] FCJ No 228, 130 NR 236; RKL v Canada (Minister of Citizenship and Immigration), 2003 FCT 116, 228 FTR 43).",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "legal_test",
+    "statement": "The Board is entitled to make credibility findings based on implausibility, common sense and rationality."
+   },
+   {
+    "quote": "However, the Court is of the view that, in the case at bar, this finding is not supported by any evidence and as such, the Board could not reasonably make the implausibility finding that it did as it is not based on the documentation on record.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The Board's implausibility finding is not supported by any evidence and is not based on the documentation on record, so it could not reasonably make that finding."
+   },
+   {
+    "quote": "More particularly, the Court finds that the Board\u2019s implausibility finding was not adequately supported by the evidence and was not nourished by content.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The Board\u2019s implausibility finding was not adequately supported by the evidence and lacked substantive content."
+   },
+   {
+    "quote": "Indeed, the applicants had drawn the Board\u2019s attention to various documents relating to the murders of certain individuals (civil servants, politicians, journalists and activists with non-governmental organizations) who had denounced the misappropriation of funds by the Congolese state (Tribunal\u2019s Record, pp 833 and 838).",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "background_fact",
+    "statement": "The applicants drew the Board\u2019s attention to documents about murders of individuals who denounced misappropriation of funds by the Congolese state."
+   },
+   {
+    "quote": "Though this evidence was provided to the Board, it was not treated and/or analysed in its decision (Fok v Canada (Minister of Employment and Immigration) (F.C.A.), [1993] FCJ No. 800 (available on QL); Zakhour v Canada (Minister of Citizenship and Immigration), 2011 FC 1178, [2011] FCJ No 1449).",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "The Board did not treat or analyze the evidence relating to these murders in its decision, contrary to legal expectations."
+   },
+   {
+    "quote": "For instance, the Court makes reference to civil servant Steve Nyembo, a senior official at the Tax Department who was murdered and had his genitals cut off for denouncing tax funds being misappropriated by the office of the President (Applicant\u2019s Record, pp 102 and 103):",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "background_fact",
+    "statement": "Civil servant Steve Nyembo, a senior official at the Tax Department, was murdered and mutilated for denouncing misappropriation of tax funds by the President's office."
+   },
+   {
+    "quote": "The Court is of the opinion that the Board could not dismiss this evidence out of hand. It had the obligation to treat this information, as well as the principal applicant\u2019s testimony, in its decision.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1",
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Board could not dismiss the evidence about Steve Nyembo and had an obligation to consider it along with the principal applicant\u2019s testimony."
+   },
+   {
+    "quote": "In this regard, the Board\u2019s decision was unreasonable.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Board\u2019s decision was unreasonable for ignoring this evidence and testimony."
+   },
+   {
+    "quote": "Also, the Board erred in speculating that the principal applicant merely wished to stay in Canada in order to enjoy his retirement. This statement was unfounded and unsupported by the evidence.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1",
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The Board erred by speculating that the principal applicant wished to stay in Canada merely to enjoy retirement, a statement unsupported by evidence."
+   },
+   {
+    "quote": "Although the Court accepts the respondent\u2019s argument that this issue was addressed and discussed during the hearing (Tribunal\u2019s Record, pp 317-320 and 826-833), it was completely ignored by the Board in its decision.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The Board completely ignored the retirement speculation issue in its decision despite it being discussed at the hearing."
+   },
+   {
+    "quote": "JUDGMENT THIS COURT\u2019S JUDGMENT is that 1. The application is allowed. 2. The decision is quashed and the matter is returned for reconsideration by a differently constituted panel of the Board. 3.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.4",
+     "23.5",
+     "23.6"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "remedy",
+    "statement": "The application is allowed, the decision is quashed, and the matter is returned for reconsideration by a differently constituted panel of the Board."
+   },
+   {
+    "quote": "There is no question for certification.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.7"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "There is no question for certification."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [
+   {
+    "quote": "It is trite law that the Board\u2019s findings on credibility and implausibility are questions of fact and are therefore reviewable according to the standard of reasonableness (Aguebor v Canada (Minister of Employment and Immigration) (F.C.A.), [1993] FCJ No 732, 160 NR 315; Hafeez v Canada (Minister of Citizenship and Immigration), 2012 FC 747 at para 13, [2012] FCJ No 798; Cekim v Canada (Minister of Citizenship and Immigration), 2011 FC 177 at para 6, [2011] FCJ No 221; Dunsmuir v New Brunswick, 2008 SCC 9, [2008] 1 SCR 190).",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "authority": "The standard of reasonableness for reviewing credibility and implausibility findings is supported by Aguebor v Canada, Hafeez v Canada, Cekim v Canada, and Dunsmuir v New Brunswick.",
+    "treatment": "",
+    "why": ""
+   },
+   {
+    "quote": "The Court recalls that the Board is entitled to make credibility findings based on implausibility, common sense and rationality (Cooper v Canada (Minister of Citizenship and Immigration), 2012 FC 118, [2012] FCJ No 135; Hilo v Canada (Minister of Employment and Immigration) (F.C.A.), [1991] FCJ No 228, 130 NR 236; RKL v Canada (Minister of Citizenship and Immigration), 2003 FCT 116, 228 FTR 43).",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "authority": "The entitlement of the Board to base credibility findings on implausibility, common sense and rationality is supported by Cooper v Canada, Hilo v Canada, and RKL v Canada.",
+    "treatment": "",
+    "why": ""
+   }
+  ],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

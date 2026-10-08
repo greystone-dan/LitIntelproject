@@ -1,0 +1,1466 @@
+{
+ "case_id": 67972,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "themes_v5c",
+ "run": "bundle_themes10",
+ "usage": {
+  "usd": 0.017210000000000003
+ },
+ "verification": {
+  "items": 76,
+  "quote_exact_in_cited": 76,
+  "quote_loose_in_cited": 0,
+  "quote_found_elsewhere": 0,
+  "quote_not_found": 0,
+  "quote_has_ellipsis": 0,
+  "paragraph_numbers_not_in_decision": 0,
+  "rows_without_evidence_after_repair": 0,
+  "evidence_repaired": 0,
+  "issues": 9,
+  "calls": 10,
+  "gap_pass_calls": 0,
+  "paragraph_coverage": 1.0,
+  "rows": {
+   "themes": 5,
+   "arguments": 31,
+   "holdings": 45,
+   "rebuttals": 0,
+   "authorities": 0,
+   "left_open": 0
+  }
+ },
+ "result": {
+  "overall": "The Refugee Appeal Division allowed the appeal, finding the appellants credible and at risk of persecution due to threats of female genital mutilation and family influence, and substituted the Refugee Protection Division's decision with a finding that they are Convention refugees.",
+  "themes": [
+   {
+    "name": "Credibility of Appellants' Testimony",
+    "summary": "The tribunal found the appellants credible regarding their fear of persecution and explanations for their actions, rejecting the RPD's negative credibility findings.",
+    "paragraphs": [
+     6,
+     7,
+     9,
+     10,
+     15
+    ]
+   },
+   {
+    "name": "Delay in Leaving Nigeria",
+    "summary": "The appellants provided a reasonable explanation for the delay in leaving Nigeria after learning of the threat of FGM, which the tribunal accepted.",
+    "paragraphs": [
+     7,
+     8,
+     9,
+     10
+    ]
+   },
+   {
+    "name": "Failure to Claim Asylum in USA",
+    "summary": "The appellants' brief stay in the USA and failure to claim asylum there was reasonably explained by their plan to seek protection in Canada, which the tribunal accepted.",
+    "paragraphs": [
+     11,
+     12,
+     13,
+     14
+    ]
+   },
+   {
+    "name": "Profile and Influence of Agent of Persecution",
+    "summary": "The tribunal found the appellants' uncle to be a powerful and influential figure in the community, supporting the risk of persecution claim.",
+    "paragraphs": [
+     15,
+     16,
+     17,
+     18,
+     19
+    ]
+   },
+   {
+    "name": "Lack of State Protection and Internal Flight Alternative",
+    "summary": "Documentary and testimonial evidence showed no effective state protection against FGM in Nigeria and that internal relocation was not a viable option due to the uncle's influence.",
+    "paragraphs": [
+     20,
+     21,
+     22
+    ]
+   }
+  ],
+  "issue_map": [
+   {
+    "label": "Introduction and Parties",
+    "first_paragraph": 1,
+    "last_paragraph": 1,
+    "disposition": "other"
+   },
+   {
+    "label": "Decision and Standard of Review",
+    "first_paragraph": 2,
+    "last_paragraph": 4,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Request for Oral Hearing",
+    "first_paragraph": 5,
+    "last_paragraph": 5,
+    "disposition": "other"
+   },
+   {
+    "label": "Credibility and Subjective Fear Assessment",
+    "first_paragraph": 6,
+    "last_paragraph": 15,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Assessment of Delay in Departure from Nigeria",
+    "first_paragraph": 7,
+    "last_paragraph": 10,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Assessment of Stay and Asylum Claim in USA",
+    "first_paragraph": 11,
+    "last_paragraph": 14,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Assessment of Profile of Agent of Persecution",
+    "first_paragraph": 15,
+    "last_paragraph": 19,
+    "disposition": "allowed"
+   },
+   {
+    "label": "State Protection and Internal Flight Alternative",
+    "first_paragraph": 20,
+    "last_paragraph": 22,
+    "disposition": "allowed"
+   },
+   {
+    "label": "Conclusion and Remedy",
+    "first_paragraph": 23,
+    "last_paragraph": 24,
+    "disposition": "allowed"
+   }
+  ],
+  "arguments": [
+   {
+    "quote": "The Appellants ask that the Refugee Appeal Division (RAD) substitute a finding that they are Convention refugees or persons in need of protection, or in the alternative, refer the matter back to the RPD for redetermination.1 Mr. XXXX is the designated representative for XXXX.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants ask that the Refugee Appeal Division substitute a finding that they are Convention refugees or persons in need of protection, or alternatively refer the matter back to the RPD for redetermination.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The Appellants have not submitted any new evidence for the purposes of this appeal and are not requesting an oral hearing.5 As such, I must proceed without a hearing.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "made_by": "applicant",
+    "claim": "The appellants have not submitted any new evidence for the purposes of this appeal and are not requesting an oral hearing.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD found that the Appellants do not have a well-founded fear of persecution if returned to Nigeria.6",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found that the Appellants do not have a well-founded fear of persecution if returned to Nigeria.",
+    "treatment": "rejected",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD raised a number of issues during the course of the proceedings.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "made_by": "respondent",
+    "claim": "The RPD raised a number of issues during the course of the proceedings.",
+    "treatment": "not_decided",
+    "outcome_note": "The issues raised are not detailed here.",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "In particular, the RPD found a lack of subjective fear due to the Appellants not departing Nigeria immediately after learning of the plans by the uncle to circumcise XXXX.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found a lack of subjective fear due to the Appellants not departing Nigeria immediately after learning of the plans by the uncle to circumcise XXXX.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Further, the RPD also took issue with the Appellants' failure to claim asylum in the USA or at least exploring the possibility of remaining in the USA, an act that called into question their subjective fear.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD also took issue with the Appellants' failure to claim asylum in the USA or at least exploring the possibility of remaining in the USA, which called into question their subjective fear.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Finally, the RPD found that a lack of credibility extends to the profile of the agent of persecution.",
+    "paragraphs": [
+     7
+    ],
+    "evidence_ids": [
+     "7.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     7
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found that a lack of credibility extends to the profile of the agent of persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD found that it was unreasonable for the Appellants to remain in Nigeria after they learned of the threat to circumcise XXXX in XXXX 2017, especially given they had visas to the USA.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found it was unreasonable for the Appellants to remain in Nigeria after learning of the threat to circumcise XXXX in XXXX 2017, especially given they had visas to the USA.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants argue that the RPD ignored the reasonable explanation contained in the Basis of Claim (BOC) narrative explaining why they did not immediately leave.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD ignored the reasonable explanation in the Basis of Claim narrative explaining why they did not immediately leave Nigeria.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "They explain that at the XXXX 2017 meeting, Mr. XXXX family and the priest that was present agreed to give the Appellants more time, until XXXX second birthday in XXXX 2018.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "At the XXXX 2017 meeting, the family and the priest agreed to give the Appellants more time until XXXX second birthday in XXXX 2018.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It was only when the uncle called in XXXX 2018 inquiring into the readiness of the Appellants for the circumcision and informed that they had no choice in the matter, that they decided they had to flee before XXXX upcoming birthday.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "It was only when the uncle called in XXXX 2018 inquiring about the readiness for circumcision and informed them they had no choice that they decided to flee before XXXX birthday.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "It is argued this was a reasonable explanation for the delay in departing.",
+    "paragraphs": [
+     9
+    ],
+    "evidence_ids": [
+     "9.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     9
+    ],
+    "made_by": "applicant",
+    "claim": "This was a reasonable explanation for the delay in departing Nigeria.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD took issue with the Appellants brief stay in the USA.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD took issue with the Appellants' brief stay in the USA.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD initially explained that it was not the failure to claim in the USA that was a decisive issue, but rather \"the explanation or lack thereof that is decisive\".8 In the next paragraph, the RPD explains that the Appellants never sought information on how to extend their stay in the USA or how they can be protected from returning to Nigeria.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD explained that the decisive issue was the explanation or lack thereof for not claiming asylum in the USA, not the failure to claim itself.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD initially explained that it was not the failure to claim in the USA that was a decisive issue, but rather \"the explanation or lack thereof that is decisive\".8 In the next paragraph, the RPD explains that the Appellants never sought information on how to extend their stay in the USA or how they can be protected from returning to Nigeria.",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found the Appellants never sought information on how to extend their stay in the USA or how to be protected from returning to Nigeria.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants' explanation that they did not claim because of government anti-refugee attitudes was found unreasonable and their failure to inquire into how they could stay in the USA was found to impugn their subjective fear.9",
+    "paragraphs": [
+     11
+    ],
+    "evidence_ids": [
+     "11.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     11
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found the Appellants' explanation that they did not claim asylum in the USA due to government anti-refugee attitudes was unreasonable and that their failure to inquire about staying in the USA impugned their subjective fear.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants argue that the RPD ignored both the testimony and BOC narrative of Mr. XXXX who insisted that the plan from the beginning was to come to Canada.",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "applicant",
+    "claim": "The Appellants argue that the RPD ignored the testimony and BOC narrative of Mr. XXXX who said the plan was always to come to Canada.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Specifically, he wrote in his BOC and stated in testimony he became aware of anti-refugee sentiments in the USA from watching news on YouTube and furthermore he learned from the same sources that Canada was receptive to refugees and immigrants.10",
+    "paragraphs": [
+     12
+    ],
+    "evidence_ids": [
+     "12.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     12
+    ],
+    "made_by": "applicant",
+    "claim": "Mr. XXXX testified and wrote in his BOC that he was aware of anti-refugee sentiments in the USA from YouTube news and knew Canada was receptive to refugees and immigrants.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The RPD found the Appellants not to be credible in respect to the events that transpired in Nigeria and did not accept they faced persecution due to the XXXX-month delay in leaving.",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD found the Appellants not to be credible regarding the events in Nigeria and did not accept they faced persecution due to the delay in leaving.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The RPD took this finding and in essence extended it to also disbelieve the Appellants' evidence in respect to another aspect of the claim, namely to reject the profile of the agent of persecution.11",
+    "paragraphs": [
+     15
+    ],
+    "evidence_ids": [
+     "15.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     15
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The RPD extended its disbelief to reject the profile of the agent of persecution based on the prior credibility finding.",
+    "treatment": "rejected",
+    "outcome_note": "The Court found this extension of disbelief was erroneous.",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Appellants argue that the RPD ignored documentary evidence in respect to the uncle who is the main agent of persecution.",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "applicant",
+    "claim": "The RPD ignored documentary evidence about the uncle who is the main agent of persecution.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Specifically, exhibit 6 contained evidence that speaks to the uncle's chieftaincy and also his political connections and involvements.12",
+    "paragraphs": [
+     16
+    ],
+    "evidence_ids": [
+     "16.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     16
+    ],
+    "made_by": "applicant",
+    "claim": "Exhibit 6 contained evidence of the uncle's chieftaincy and political connections.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "The objective documentary evidence indicates that there are essentially no successful prosecutions of those who engage in FGM, despite national legislation banning the practice several years ago.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "There are essentially no successful prosecutions of those who engage in FGM in Nigeria despite national legislation banning the practice.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "The Violence Against Persons Prohibition (VAPP) is not enforced and many individuals, including local police, do not know or have a good understanding of the legislation.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The Violence Against Persons Prohibition (VAPP) is not enforced and many individuals, including local police, do not know or have a good understanding of the legislation.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "There is still a lot of work being undertaken by NGO's to educate the public and law enforcement officials against the practice of FGM as it is largely viewed as a family customary or traditional issue which the police do not wish to get involved in.15 Mr. XXXX experience is consistent with the documentary evidence as the police not only refused to take action but also informed him that it is a customary practice and given his uncle's position in the community, there is not much they can do and he should try to resolve the issue with the family.16 Given Mr. XXXX experience with the police and the documentary evidence, I find that there is no state protection in Nigeria for those being forced to undergo FGM.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "NGOs are working to educate the public and law enforcement against FGM, which is largely viewed as a family customary or traditional issue that police avoid.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "There is still a lot of work being undertaken by NGO's to educate the public and law enforcement officials against the practice of FGM as it is largely viewed as a family customary or traditional issue which the police do not wish to get involved in.15 Mr. XXXX experience is consistent with the documentary evidence as the police not only refused to take action but also informed him that it is a customary practice and given his uncle's position in the community, there is not much they can do and he should try to resolve the issue with the family.16 Given Mr. XXXX experience with the police and the documentary evidence, I find that there is no state protection in Nigeria for those being forced to undergo FGM.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "made_by": "tribunal_below",
+    "claim": "The police refused to take action against FGM and told Mr. XXXX it was a customary practice and given his uncle's position, there was little they could do.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Mr. XXXX testified that his uncle has connections in police and politics that would make relocating within Nigeria problematic. Specifically, given his role as a chief and his political connections, the Appellants believe that they could be traced and found, at which point they would refuse to have their daughter undergo FGM which would result in physical harm by Mr. XXXX family for resisting the cultural practice.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.1",
+     "21.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "applicant",
+    "claim": "Relocating within Nigeria is problematic because the uncle has connections in police and politics that would allow them to be traced and found.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Also, police corruption is still a significant issue in Nigeria and endemic in many aspects of governance.17 As a result, I do not believe the Appellants are safe anywhere in Nigeria and they face persecution in every part of the country as the agent of persecution has the means and motivation to pursue and find the Appellants.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "made_by": "tribunal_below",
+    "claim": "Police corruption is significant and endemic in Nigeria, contributing to the Appellants not being safe anywhere in the country.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "This is significant as in this case, the threats to undertake FGM are from a family member of prominent stature within the family and the broader community as a chief.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "applicant",
+    "claim": "Threats to undertake FGM come from a family member of prominent stature, the uncle who is a chief.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "party_argument"
+   },
+   {
+    "quote": "Finally, the documentary evidence indicates that when both parents oppose FGM, it typical does not occur.18 However, the same source indicates that family members other than parents may also be involved in the decision to undertake FGM.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "When both parents oppose FGM, it typically does not occur, but other family members may be involved in the decision to undertake FGM.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   },
+   {
+    "quote": "Further, the objective evidence indicates that FGM still occurs in Nigeria, and some one quarter of girls and women are circumcised.19 FGM is also more prevalent in the southern regions of Nigeria, including in Edo state where the Principal Appellant's family resides, as almost half of all women undergo FGM.20 As a result, I find on balance the Appellants' evidence of threats of circumcision from the uncle and chief, to be credible and established.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "made_by": "tribunal_below",
+    "claim": "FGM still occurs in Nigeria with about one quarter of girls and women circumcised, more prevalent in southern regions including Edo state where the family resides.",
+    "treatment": "accepted",
+    "outcome_note": "",
+    "kind": "finding_below"
+   }
+  ],
+  "holdings": [
+   {
+    "quote": "The Principal Appellant, XXXX XXXX XXXX (Mr. XXXX), his spouse XXXX XXXX (Mrs. XXXX), and their minor daughter XXXX XXXX (XXXX), appeal a decision of the Refugee Protection Division (RPD), dated April 2, 2019, rejecting their claims for refugee protection.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "The Principal Appellant, Mr. XXXX, his spouse Mrs. XXXX, and their minor daughter XXXX, appeal a decision of the Refugee Protection Division dated April 2, 2019, rejecting their claims for refugee protection."
+   },
+   {
+    "quote": "The Appellants ask that the Refugee Appeal Division (RAD) substitute a finding that they are Convention refugees or persons in need of protection, or in the alternative, refer the matter back to the RPD for redetermination.1 Mr. XXXX is the designated representative for XXXX.",
+    "paragraphs": [
+     1
+    ],
+    "evidence_ids": [
+     "1.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     1
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. XXXX is the designated representative for the Appellants."
+   },
+   {
+    "quote": "Pursuant to paragraph 111(1)(b) of the Immigration and Refugee Protection Act (IRPA),2 I am setting aside the decision of the RPD and substituting it with my own decision.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "conclusion",
+    "statement": "I am setting aside the decision of the RPD and substituting it with my own decision pursuant to paragraph 111(1)(b) of IRPA."
+   },
+   {
+    "quote": "Specifically, on the evidence before me, I find that the Appellants are Convention refugees.",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "conclusion",
+    "statement": "I find that the Appellants are Convention refugees on the evidence before me."
+   },
+   {
+    "quote": "In reaching this decision, I have considered the Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution and Child Refugee Claimants.3",
+    "paragraphs": [
+     2
+    ],
+    "evidence_ids": [
+     "2.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     2
+    ],
+    "kind": "conclusion",
+    "statement": "In reaching this decision, I have considered the Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution and Child Refugee Claimants."
+   },
+   {
+    "quote": "The Appellants fear returning to Nigeria as Mr. XXXX family members, in particular his uncle and head of family, XXXX XXXX XXXX, threaten to carry out female genital mutilation (FGM) against XXXX.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The Appellants fear returning to Nigeria because Mr. XXXX's family members, especially his uncle and head of family, threaten to carry out female genital mutilation against XXXX."
+   },
+   {
+    "quote": "Additionally, Mr. XXXX believes this same uncle will require him to undergo specific cleansing rituals as a means of averting any potential tragedies in the family.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "Mr. XXXX believes the same uncle will require him to undergo specific cleansing rituals to avert potential family tragedies."
+   },
+   {
+    "quote": "If the Appellants resist, they believe they will be harmed by the uncle and family.",
+    "paragraphs": [
+     3
+    ],
+    "evidence_ids": [
+     "3.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     3
+    ],
+    "kind": "background_fact",
+    "statement": "The Appellants believe they will be harmed by the uncle and family if they resist these actions."
+   },
+   {
+    "quote": "As per Huruglica,4 for questions of fact, mixed fact and law, and law, I am to apply the correctness standard.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "legal_test",
+    "statement": "For questions of fact, mixed fact and law, and law, the correctness standard applies."
+   },
+   {
+    "quote": "However, in circumstances where the RAD determines that the RPD had a meaningful advantage in assessing the credibility of oral testimony, I am to defer to the RPD findings.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "legal_test",
+    "statement": "If the RAD determines that the RPD had a meaningful advantage in assessing the credibility of oral testimony, the RAD must defer to the RPD findings."
+   },
+   {
+    "quote": "In this case, I find that the RPD based its decision on the testimony of Mr. XXXX, which is contained in an audio recording that I listened to for this appeal.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD based its decision on the testimony of Mr. XXXX contained in an audio recording that I listened to for this appeal."
+   },
+   {
+    "quote": "Given no findings were made based on factors such as demeanour, which could require a person to observe the appellants, I find that the RPD did not have a meaningful advantage in assessing the evidence.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "No findings were made based on factors such as demeanour requiring observation of the appellants, so the RPD did not have a meaningful advantage in assessing the evidence."
+   },
+   {
+    "quote": "As a result, I have considered their findings on a correctness standard.",
+    "paragraphs": [
+     4
+    ],
+    "evidence_ids": [
+     "4.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     4
+    ],
+    "kind": "conclusion",
+    "statement": "I have considered the RPD findings on a correctness standard as a result."
+   },
+   {
+    "quote": "The Appellants have not submitted any new evidence for the purposes of this appeal and are not requesting an oral hearing.5 As such, I must proceed without a hearing.",
+    "paragraphs": [
+     5
+    ],
+    "evidence_ids": [
+     "5.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     5
+    ],
+    "kind": "conclusion",
+    "statement": "I must proceed without a hearing."
+   },
+   {
+    "quote": "However, the determinative issue in this claim was credibility.",
+    "paragraphs": [
+     6
+    ],
+    "evidence_ids": [
+     "6.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     6
+    ],
+    "kind": "conclusion",
+    "statement": "The determinative issue in this claim was credibility."
+   },
+   {
+    "quote": "The Appellants remained until XXXX 2018.",
+    "paragraphs": [
+     8
+    ],
+    "evidence_ids": [
+     "8.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     8
+    ],
+    "kind": "background_fact",
+    "statement": "The Appellants remained in Nigeria until XXXX 2018."
+   },
+   {
+    "quote": "Having independently reviewed the evidence, I agree with the Appellants that the RPD erred. With respect, the RPD decision lacks an analysis of the Appellants explanation for why they did not immediately flee in XXXX 2017 and remained until XXXX 2018.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.1",
+     "10.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD erred by failing to analyze the Appellants' explanation for not immediately fleeing Nigeria in XXXX 2017 and remaining until XXXX 2018."
+   },
+   {
+    "quote": "In my view, the Appellants' explanation for not departing immediately is a reasonable one, namely, at the family meeting in XXXX 2017 they bought themselves more time and were informed by the priest that the FGM procedure should be delayed until XXXX turned two years old.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants' explanation for not departing immediately is reasonable: they bought more time at the family meeting in XXXX 2017 and were informed the FGM procedure should be delayed until XXXX turned two years old."
+   },
+   {
+    "quote": "Mrs. XXXX pleaded with the family to let the Appellants leave and think the matter over and the family agreed.7 I find that it was not until the phone call from the uncle in XXXX 2018 asking about preparations for the circumcision that the urgency of the situation presented itself, at which point the Appellants decided they had to flee and were on a plane to the USA XXXX week later.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The urgency to flee arose only after the uncle's phone call in XXXX 2018, after which the Appellants decided to flee and left for the USA within a week."
+   },
+   {
+    "quote": "As a result, I find the explanation for the delay in departing Nigeria to be a reasonable one under the circumstances and not indicative of a lack of subjective fear.",
+    "paragraphs": [
+     10
+    ],
+    "evidence_ids": [
+     "10.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     10
+    ],
+    "kind": "conclusion",
+    "statement": "The explanation for the delay in departing Nigeria is reasonable under the circumstances and does not indicate a lack of subjective fear."
+   },
+   {
+    "quote": "Having independently reviewed the record and reasons, I find the RPD did err in its assessment of the Appellants' time in the USA and their failure to claim asylum there.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD erred in its assessment of the Appellants' time in the USA and their failure to claim asylum there."
+   },
+   {
+    "quote": "Firstly, Mr. XXXX was clear that the plan all along was to come to Canada for asylum and the USA was only a means of arriving in Canada.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "Mr. XXXX was clear that the plan was always to come to Canada for asylum and the USA was only a means of arriving in Canada."
+   },
+   {
+    "quote": "He had no intention of seeking US protection as he was aware and perceived there was an anti-refugee sentiment in government.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "Mr. XXXX had no intention of seeking US protection because he perceived anti-refugee sentiment in the US government."
+   },
+   {
+    "quote": "That information, coupled with knowledge that Canada was receptive to refugees, resulted in the Appellants not exploring asylum options in the USA.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants did not explore asylum options in the USA because they knew Canada was receptive to refugees and the USA was not."
+   },
+   {
+    "quote": "In my view, this is a reasonable explanation under the circumstances and I find on balance that the Appellants had a clear plan in mind to come to Canada for a very legitimate reason, one country seemingly opposed to refugees while another welcomes them, when they departed Nigeria.",
+    "paragraphs": [
+     13
+    ],
+    "evidence_ids": [
+     "13.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     13
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants' explanation for not claiming asylum in the USA is reasonable under the circumstances and they had a clear plan to come to Canada for a legitimate reason."
+   },
+   {
+    "quote": "Additionally, it must be noted that the Appellants stay in the USA was minimal, which Mr. XXXX explained was to find a way to the Canadian border, something the family did within XXXX days of arriving in the USA.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants' stay in the USA was minimal, as explained by Mr. XXXX, who said it was to find a way to the Canadian border, which they did within a few days."
+   },
+   {
+    "quote": "Finally, I am mindful that a failure to claim in a third country such as the USA, unless resulting from an egregiously long stay, is typically not determinative of a claim.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "legal_test",
+    "statement": "A failure to claim asylum in a third country such as the USA, unless resulting from an egregiously long stay, is typically not determinative of a claim."
+   },
+   {
+    "quote": "What is significant is the explanation provided for the stay and failure to claim.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "What matters is the explanation for the stay and failure to claim asylum in the third country."
+   },
+   {
+    "quote": "In this case, the stay was short and the Appellants provided a reasonable explanation for not exploring a potential claim for asylum in the USA as their ultimate goal was to reach Canada. As such, no negative inference is taken in respect to their subjective fear due to the short stay in the USA while trying to find their way to Canada.",
+    "paragraphs": [
+     14
+    ],
+    "evidence_ids": [
+     "14.4",
+     "14.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     14
+    ],
+    "kind": "conclusion",
+    "statement": "Because the stay was short and the Appellants provided a reasonable explanation for not claiming asylum in the USA, no negative inference is drawn against their subjective fear."
+   },
+   {
+    "quote": "In my view, the RPD erred in its assessment by ignoring or at the very least not explicitly explaining in their reasons the rejection of the documentary evidence regarding the uncle.",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD erred by ignoring or not explicitly explaining the rejection of documentary evidence regarding the uncle."
+   },
+   {
+    "quote": "With respect, it is an error to disregard evidence in regard to the profile of the agent of persecution due solely to a prior finding relating to the delay in departure when there are documents, such as various articles, that support the Appellants' position about the uncle's involvement in government affairs and status of the uncle as a XXXX XXXX XXXX XXXX.13",
+    "paragraphs": [
+     17
+    ],
+    "evidence_ids": [
+     "17.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     17
+    ],
+    "kind": "conclusion",
+    "statement": "It is an error to disregard evidence about the agent of persecution's profile solely due to a prior finding on delay in departure when documents support the uncle's government involvement and status."
+   },
+   {
+    "quote": "Having independently reviewed the record, I agree with the Appellants that the uncle holds an important and powerful position and status within the community, as the XXXX XXXX XXXX XXXX XXXX.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The uncle holds an important and powerful position and status within the community as the XXXX XXXX XXXX XXXX XXXX."
+   },
+   {
+    "quote": "Further, I note that Mr. XXXX testified to his uncle's connections to the federal All Progressive Congress political party.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "Mr. XXXX testified to his uncle's connections to the federal All Progressive Congress political party."
+   },
+   {
+    "quote": "There is a presumption of truth of oral evidence unless there are good reasons to doubt it.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "legal_test",
+    "statement": "There is a presumption of truth of oral evidence unless there are good reasons to doubt it."
+   },
+   {
+    "quote": "In this case, there is no evidence or reasons that raise doubt or call into question Mr. XXXX oral evidence.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.4"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "There is no evidence or reasons to doubt Mr. XXXX's oral evidence about his uncle's political involvement."
+   },
+   {
+    "quote": "As such, I accept his testimony that his uncle has political involvement and ties to the All Progressive Congress party in Nigeria.",
+    "paragraphs": [
+     18
+    ],
+    "evidence_ids": [
+     "18.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     18
+    ],
+    "kind": "conclusion",
+    "statement": "The testimony that the uncle has political involvement and ties to the All Progressive Congress party in Nigeria is accepted."
+   },
+   {
+    "quote": "Finally, having reviewed the National Documentation Package (NDP), what becomes clear is that individuals holding Chieftaincies play a pivotal role in maintaining not only traditions and customs but also serve administrative functions as part of the broader bureaucracy in Nigeria, with the role of Chief often being conferred on individuals who have financial and political means and influence.14 As a result, for the reasons provided, I find on a balance of probabilities that the Appellants' agent of persecution, XXXX XXXX XXXX, holds a respected and influential position within the region and this evidence at the very least had to be considered and weighed by the RPD.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "Individuals holding Chieftaincies in Nigeria play pivotal roles in traditions, customs, and administrative functions, often conferred on those with financial and political influence."
+   },
+   {
+    "quote": "Finally, having reviewed the National Documentation Package (NDP), what becomes clear is that individuals holding Chieftaincies play a pivotal role in maintaining not only traditions and customs but also serve administrative functions as part of the broader bureaucracy in Nigeria, with the role of Chief often being conferred on individuals who have financial and political means and influence.14 As a result, for the reasons provided, I find on a balance of probabilities that the Appellants' agent of persecution, XXXX XXXX XXXX, holds a respected and influential position within the region and this evidence at the very least had to be considered and weighed by the RPD.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "On a balance of probabilities, the Appellants' agent of persecution holds a respected and influential position within the region, and this evidence had to be considered and weighed by the RPD."
+   },
+   {
+    "quote": "The lack of such an analysis, in my view, constitutes an error.",
+    "paragraphs": [
+     19
+    ],
+    "evidence_ids": [
+     "19.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     19
+    ],
+    "kind": "conclusion",
+    "statement": "The RPD's failure to analyze the evidence about the agent of persecution's profile constitutes an error."
+   },
+   {
+    "quote": "There is still a lot of work being undertaken by NGO's to educate the public and law enforcement officials against the practice of FGM as it is largely viewed as a family customary or traditional issue which the police do not wish to get involved in.15 Mr. XXXX experience is consistent with the documentary evidence as the police not only refused to take action but also informed him that it is a customary practice and given his uncle's position in the community, there is not much they can do and he should try to resolve the issue with the family.16 Given Mr. XXXX experience with the police and the documentary evidence, I find that there is no state protection in Nigeria for those being forced to undergo FGM.",
+    "paragraphs": [
+     20
+    ],
+    "evidence_ids": [
+     "20.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     20
+    ],
+    "kind": "conclusion",
+    "statement": "There is no state protection in Nigeria for those being forced to undergo FGM."
+   },
+   {
+    "quote": "I agree with the Appellants that given the uncle's prominent role in society, he would have access to resources, both financially and through connections with government agencies, that would result in the Appellants being located in other regions in Nigeria. In my view, Mr. XXXX interaction with the police already speaks to this influence. Also, police corruption is still a significant issue in Nigeria and endemic in many aspects of governance.17 As a result, I do not believe the Appellants are safe anywhere in Nigeria and they face persecution in every part of the country as the agent of persecution has the means and motivation to pursue and find the Appellants.",
+    "paragraphs": [
+     21
+    ],
+    "evidence_ids": [
+     "21.3",
+     "21.4",
+     "21.5"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     21
+    ],
+    "kind": "conclusion",
+    "statement": "Given the uncle's prominent role and connections, the Appellants could be located anywhere in Nigeria and face persecution for resisting FGM."
+   },
+   {
+    "quote": "Further, the objective evidence indicates that FGM still occurs in Nigeria, and some one quarter of girls and women are circumcised.19 FGM is also more prevalent in the southern regions of Nigeria, including in Edo state where the Principal Appellant's family resides, as almost half of all women undergo FGM.20 As a result, I find on balance the Appellants' evidence of threats of circumcision from the uncle and chief, to be credible and established.",
+    "paragraphs": [
+     22
+    ],
+    "evidence_ids": [
+     "22.3"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     22
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants' evidence of threats of circumcision from the uncle and chief is credible and established on balance."
+   },
+   {
+    "quote": "In summary, I find that the Appellants have established a serious possibility of persecution.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The Appellants have established a serious possibility of persecution."
+   },
+   {
+    "quote": "They have established that the minor appellant XXXX would be subjected to FGM at the hands of the Principal Appellant's family, and the adult Appellants would face a serious possibility of persecution due to their refusal to present their daughter for the procedure.",
+    "paragraphs": [
+     23
+    ],
+    "evidence_ids": [
+     "23.2"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     23
+    ],
+    "kind": "conclusion",
+    "statement": "The minor appellant would be subjected to female genital mutilation (FGM) by the Principal Appellant's family, and the adult Appellants face a serious possibility of persecution due to their refusal to present their daughter for the procedure."
+   },
+   {
+    "quote": "The RAD, pursuant to paragraph 111(1)(b) of the IRPA, sets aside the decision of the RPD and substitutes a decision that the Appellants are Convention refugees.",
+    "paragraphs": [
+     24
+    ],
+    "evidence_ids": [
+     "24.1"
+    ],
+    "quote_verified": true,
+    "quote_loose_verified": true,
+    "quote_found_in": [
+     24
+    ],
+    "kind": "conclusion",
+    "statement": "The Refugee Appeal Division (RAD), pursuant to paragraph 111(1)(b) of the Immigration and Refugee Protection Act (IRPA), sets aside the decision of the Refugee Protection Division (RPD) and substitutes a decision that the Appellants are Convention refugees."
+   }
+  ],
+  "rebuttals": [],
+  "authorities": [],
+  "left_open": [],
+  "rows_without_evidence": []
+ }
+}

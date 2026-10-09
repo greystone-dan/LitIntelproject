@@ -333,3 +333,11 @@ def test_filter_demo_is_checked_to_put_the_tour_decision_first():
     assert data["cases"]["cited"]["citation"] == "2016 FC 29"
     script = (Path(__file__).resolve().parents[1] / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
     assert "NOT the first result of the filter demo" in script and "WRONG FIRST" in script
+
+
+def test_coming_soon_preview_page_is_served_and_linked():
+    client = TestClient(app)
+    page = client.get("/coming-soon-preview")
+    assert page.status_code == 200
+    assert "Future local AI" in page.text and 'id="next"' in page.text
+    assert 'href="/coming-soon-preview"' in client.get("/data-explorer").text

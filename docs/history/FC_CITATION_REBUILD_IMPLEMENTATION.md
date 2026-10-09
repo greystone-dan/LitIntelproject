@@ -1,5 +1,7 @@
 # FC Citation Rebuild Implementation Notes
 
+> Superseded historical implementation notes; retain for context, not as current guidance.
+
 ## Current scope
 
 This track is limited to citation-system rebuild for Federal Court cases.

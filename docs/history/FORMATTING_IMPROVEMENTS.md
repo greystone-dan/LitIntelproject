@@ -1,5 +1,7 @@
 # Decision Formatting & Citation Legibility Enhancements
 
+> Superseded historical implementation notes; retain for context, not as current guidance.
+
 ## What's Changed
 
 This update significantly improves how legal decisions are displayed and how citations are highlighted throughout the platform. The improvements focus on visual hierarchy, readability, and interactive feedback.

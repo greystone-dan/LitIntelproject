@@ -2,6 +2,12 @@
 
 Once you have a Remote Control session running, use these commands to talk to Claude.
 
+**Current site deployment:** The Windows scheduled task `iLitSite` is the primary
+site and tunnel process. After `git pull origin main`, restart it with
+`Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`. Keep the site
+worktree on `main`. `scripts\refresh_site.ps1` is a fallback only if the task
+has been removed; never run it while `iLitSite` is installed.
+
 ## Setup (One-time)
 
 **Install Claude CLI:**
@@ -28,17 +34,16 @@ Keep this terminal window open. Claude will connect through it.
 
 Claude will:
 1. Run `git pull origin main`
-2. Restart iLitSite (30-45 second downtime)
+2. Run `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite` (about 45 seconds down)
 3. Verify the site is running
 4. Report status
 
-**Deploy specific branch:**
-> "Deploy the branch claude/feature-name"
+**Deploy a change from a branch:**
+> "Merge claude/feature-name into main and deploy"
 
-Claude will:
-1. Fetch and check out the branch
-2. Restart the site
-3. Verify it's working
+Merge the change to `main`, pull `origin main` in the site worktree, then
+restart the `iLitSite` task as above. Do not check out a feature branch in the
+site worktree.
 
 **Check deployment status:**
 > "Is the site running? What version?"
@@ -119,7 +124,7 @@ Claude will:
 
 Claude will:
 1. Run `git revert HEAD`
-2. Restart the site
+2. Restart the `iLitSite` task with `Stop-ScheduledTask iLitSite; Start-ScheduledTask iLitSite`
 3. Verify it's running
 
 **Merge a branch to main:**
@@ -187,6 +192,7 @@ If something goes wrong:
 
 - **You don't need to type exact commands** — describe what you want and Claude will figure it out
 - **Deployments take ~45 seconds** — the site will be offline briefly while iLitSite restarts
+- **Fallback only:** run `scripts\refresh_site.ps1` only if the `iLitSite` task has been removed; do not run it while the task is installed
 - **All changes go through Git** — if something breaks, it can always be reverted
 - **The PC must stay plugged in** — if it goes to sleep, Claude can't connect until you wake it
 - **Remote Control is secure** — connections are encrypted, and Claude only sees your project

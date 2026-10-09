@@ -101,6 +101,84 @@ Current operational sources of truth:
 13. `docs/reports/id-iad-coverage-design.md`
 - Design-only proposal for ID/IAD decisions relevant to CBSA hearings; source, access, legal-taxonomy, and licence claims not directly verified are explicitly marked unverified.
 
+## Hand-Written Documentation Inventory
+
+The following inventory covers hand-written Markdown and text documents under
+`docs/`, including historical and proposal documents retained for context.
+Generated references are not hand-edit targets; `*.generated.md` outputs and
+the generated `docs/EVALUATION_COSTS.md` report are intentionally excluded from
+this inventory.
+
+| Document | One-line description |
+| --- | --- |
+| `docs/ANALYST_QUICK_START.md` | Quick start for analysts using the active research interface. |
+| `docs/ARCHITECTURE.md` | System architecture overview and backend module inventory. |
+| `docs/BACKGROUND_JOBS.md` | Optional interval-job runner configuration, scheduling, and recovery. |
+| `docs/CHANGE_MANAGEMENT.md` | Repository change-management rules and review workflow. |
+| `docs/CITATION_REFINEMENT.md` | Citation and statute refinement methodology and workflow. |
+| `docs/CITATION_REFINEMENT_RESULTS.md` | Citation-refinement results from real-decision evaluation. |
+| `docs/CLAUDE_ACTIVITY_PROJECT_SETUP.md` | Setup and evidence contract for the Claude Activity project. |
+| `docs/CLOUDFLARE_TUNNEL_SETUP.md` | Cloudflare tunnel setup, with standalone refresh retained as fallback only. |
+| `docs/CONFIGURATION_REFERENCE.md` | Application configuration variables and defaults. |
+| `docs/DAILY_INTAKE.md` | Daily source-intake workflow and checks. |
+| `docs/DATA_SOURCE_REGISTER.md` | Register of data sources, provenance, and acquisition notes. |
+| `docs/DEPLOYMENT_COMMANDS.md` | Deployment, status, and recovery command guidance for operators. |
+| `docs/DEPLOYMENT_DOCKER.md` | Optional Docker build and local run instructions. |
+| `docs/DISCUSSION_UNITS_WEEKLY_REVIEW.md` | Weekly review process for Discussion Units work. |
+| `docs/DOC_AUDIT.md` | Documentation audit observations and follow-up notes. |
+| `docs/EXTRACTION_35K_RUNBOOK.md` | Bounded full-corpus citation extraction procedure. |
+| `docs/FC_ACTIVITY_BETA_VBA_COMPARISON.md` | Comparison of FC Activity Beta VBA and Python pipeline behavior. |
+| `docs/FC_ACTIVITY_ORACLE_WORKER_RUNBOOK.md` | Federal Court Activity worker operating procedure. |
+| `docs/LOCAL_DEPLOYMENT_SETUP.md` | Local Remote Control session setup and deployment workflow. |
+| `docs/LONG_TERM_INTELLIGENCE_VISION.md` | Deferred long-term citation-treatment and argument-intelligence direction. |
+| `docs/METRICS_DICTIONARY.md` | Definitions for application and evaluation metrics. |
+| `docs/NEXT_STEPS.md` | Near-term work notes and proposed next actions. |
+| `docs/OFFLINE_MODEL_EVALUATION.md` | Offline model evaluation inputs, process, and interpretation. |
+| `docs/OPERATIONAL_RECOVERY_GUIDE.md` | Recovery guidance for application, jobs, data, tests, and Git workflows. |
+| `docs/OPERATIONS_LOGGING.md` | Operational logging conventions and relevant log locations. |
+| `docs/PARAGRAPH_CITED_BY.md` | Paragraph-level “cited by” batch-job design and use. |
+| `docs/RESEARCH_UI_GUIDE.md` | Guide to active research UI workflows and boundaries. |
+| `docs/SECURITY_DEPENDENCIES.md` | Dependency scanning and software-bill-of-materials guidance. |
+| `docs/SECURITY_HEADERS.md` | Optional security response-header configuration and limits. |
+| `docs/SITE_RECOVERY.md` | Site and tunnel recovery using the Windows `iLitSite` task. |
+| `docs/STILL_TO_DO.md` | Consolidated remaining product work, debt, and decision gates. |
+| `docs/SWIMM_AND_PROJECT_MANAGER_TRANSITION.md` | Swimm walkthrough map and project-manager handoff workflow. |
+| `docs/TAGGING_V2_CORE_WHITELIST_DRAFT.md` | Draft whitelist for the V2 core-tagging layer. |
+| `docs/TESTING_MATRIX.md` | Test-surface map and validation matrix. |
+| `docs/about/AGENT-NOTES.md` | Implementation notes for the About page. |
+| `docs/government-readiness/README.md` | Index and scope for the government-readiness document pack. |
+| `docs/government-readiness/ai-use-statement.md` | Draft statement describing the system's AI use. |
+| `docs/government-readiness/data-classification.md` | Data classification notes for government-readiness review. |
+| `docs/government-readiness/data-flow.md` | Data-flow summary for government-readiness review. |
+| `docs/government-readiness/logging-and-retention.md` | Logging and retention considerations for readiness review. |
+| `docs/government-readiness/pia-inputs.md` | Fact-sheet inputs for a privacy-impact assessment. |
+| `docs/government-readiness/subprocessors.md` | Third-party services and subprocessors inventory. |
+| `docs/history/AI_HANDOFF.md` | Superseded project handoff retained as historical context. |
+| `docs/history/AI_HANDOFF_2026-09-02_root.md` | Dated, superseded root handoff retained for lineage. |
+| `docs/history/AI_STAGE_SUMMARY_2026-07-31.md` | Historical project-stage snapshot from 2026-07-31. |
+| `docs/history/FC_CITATION_REBUILD_IMPLEMENTATION.md` | Superseded Federal Court citation-rebuild implementation notes. |
+| `docs/history/FORMATTING_IMPROVEMENTS.md` | Superseded decision-formatting implementation notes. |
+| `docs/history/PROJECT_NOTES.md` | Superseded project checkpoints and milestone commentary. |
+| `docs/history/README.md` | Guide to the historical documentation archive. |
+| `docs/proposed-migrations/embedding-per-model-tables.md` | Proposal for per-model embedding tables. |
+| `docs/reports/accessibility-audit.md` | Accessibility findings for research and citation HTML builders. |
+| `docs/reports/authority-treatment-design.md` | Design proposal for citation authority-treatment intelligence. |
+| `docs/reports/backend-unused-code.md` | Inventory of unused backend code and duplicate logic. |
+| `docs/reports/baseline-lint-and-audit.md` | Initial Ruff and pip-audit baseline report. |
+| `docs/reports/cbsa-readiness-checklist.md` | Readiness checklist for CBSA hearings and litigation research. |
+| `docs/reports/id-iad-coverage-design.md` | Design proposal for ID/IAD decision coverage. |
+| `docs/reports/local-query-embeddings.md` | Local query-embedding provider and locality report. |
+| `docs/reports/memo-missing-authority.md` | Proposal for identifying missing and contrary authorities. |
+| `docs/reports/open-pr-review-2.md` | Point-in-time review report for issue #69. |
+| `docs/reports/open-pr-review.md` | Point-in-time review of PRs #28, #29, #32, and #34. |
+| `docs/reports/overruling-risk.md` | Provisional seed-based overruling-risk indicator report. |
+| `docs/reports/privacy-security-review.md` | Scoped privacy and security review of live analysis and de-identification. |
+| `docs/reports/query-performance-review.md` | Query-performance review report for issue #56. |
+| `docs/reports/test-coverage.md` | Pytest coverage baseline and interpretation. |
+| `docs/history/SYSTEM_OVERVIEW_2026-08-12.txt` | Historical system-overview snapshot from 2026-08-12. |
+| `docs/proposed-migrations/indexes.py.txt` | Proposed index migration source retained as a text artifact. |
+| `docs/proposed-migrations/embedding-per-model-tables.py.txt` | Proposed embedding-table migration source retained as a text artifact. |
+
 ## Task-Specific Review Reports
 
 - `docs/reports/baseline-lint-and-audit.md` records the first non-blocking

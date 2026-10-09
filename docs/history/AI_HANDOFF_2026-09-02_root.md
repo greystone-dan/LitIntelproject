@@ -2,6 +2,9 @@
 
 Last updated: 2026-09-02
 
+> Superseded historical handoff: retain for context only; it is not current
+> system or operational guidance.
+
 This document is a detailed working handoff and may contain time-bound implementation context. For the canonical current architecture, functionality, data model, operations, limitations, and code-review posture, see `SYSTEM_REFERENCE.md`.
 
 ## 0. Active Delivery Focus (2026-08-12)
@@ -714,15 +717,15 @@ The audit says the current citation graph is broadly useful, but the stored cita
 
 ## 12. Key Files To Know
 
-1. [backend/database.py](backend/database.py)
-2. [backend/citations.py](backend/citations.py)
-3. [backend/citation_map.py](backend/citation_map.py)
-4. [backend/routes.py](backend/routes.py)
-5. [backend/models.py](backend/models.py)
-6. [scripts/verify_citation_extraction.py](scripts/verify_citation_extraction.py)
-7. [tests/test_verify_citation_extraction.py](tests/test_verify_citation_extraction.py)
-8. [ROADMAP.md](ROADMAP.md)
-9. [README.md](README.md)
+1. [backend/database.py](../../backend/database.py)
+2. [backend/citations.py](../../backend/citations.py)
+3. [backend/citation_map.py](../../backend/citation_map.py)
+4. [backend/routes.py](../../backend/routes.py)
+5. [backend/models.py](../../backend/models.py)
+6. [scripts/verify_citation_extraction.py](../../scripts/verify_citation_extraction.py)
+7. [tests/test_verify_citation_extraction.py](../../tests/test_verify_citation_extraction.py)
+8. [ROADMAP.md](../../ROADMAP.md)
+9. [README.md](../../README.md)
 
 ## 13. Bottom Line
 

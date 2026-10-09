@@ -37,6 +37,7 @@ def main() -> int:
 	ap.add_argument("--quota", default="", help="e.g. FC=35,FCA=15,SCC=15,RPD=15,RAD=20")
 	ap.add_argument("--since-rpd", default=None, help="earlier start date for RPD (library thin after 2022)")
 	ap.add_argument("--exclude-selection", type=Path, action="append", default=[], help="selection.csv files of earlier picks to exclude")
+	ap.add_argument("--relax-scc", action="store_true", help="SCC: since 2015, up to 150 paragraphs and 45,000 tokens (SCC decisions are long)")
 	ap.add_argument("--exclude-csv", type=Path, default=Path("data/eval/llm_discussion_units_pilot/discussion_unit_core_300.csv"))
 	args = ap.parse_args()
 	exclude = {int(x) for x in args.also_exclude.split(",") if x}
@@ -51,11 +52,12 @@ def main() -> int:
 		print("court values (top 25):", session.execute(select(Case.court, func.count()).group_by(Case.court).order_by(func.count().desc()).limit(25)).all())
 
 		def draw(court: str, n: int) -> None:
+			relax = args.relax_scc and court == "SCC"
 			stmt = (select(Case.id, Case.title, Case.citation, Case.date, Case.court, func.count(CaseChunk.id).label("n"), func.sum(CaseChunk.token_estimate).label("tok"))
 				.join(CaseChunk, CaseChunk.case_id == Case.id)
-				.where(Case.court.in_(COURTS[court]), CaseChunk.chunk_set == "paragraph", Case.date >= (args.since_rpd if court == "RPD" and args.since_rpd else args.since))
+				.where(Case.court.in_(COURTS[court]), CaseChunk.chunk_set == "paragraph", Case.date >= ("2015-01-01" if relax else args.since_rpd if court == "RPD" and args.since_rpd else args.since))
 				.group_by(Case.id)
-				.having(func.count(CaseChunk.id).between(12, 90), func.sum(CaseChunk.token_estimate) <= 30000)
+				.having(func.count(CaseChunk.id).between(12, 150 if relax else 90), func.sum(CaseChunk.token_estimate) <= (45000 if relax else 30000))
 				.order_by(func.md5(func.concat(cast(Case.id, String), args.seed)))
 				.limit(n * 4 + 40))
 			got = 0

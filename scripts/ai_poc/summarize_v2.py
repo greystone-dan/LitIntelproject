@@ -21,7 +21,8 @@ from summarize_paragraphs import clean  # noqa: E402
 from tag_paragraphs import REPORTS, load_paragraphs  # noqa: E402
 
 PROMPT_VERSION = "para_v2"
-VARIANTS = ("base", "brief", "role", "g3", "ctx3")  # g3 = one summary per group of 3 consecutive paragraphs; ctx3 = per-paragraph summaries with the neighbouring paragraphs shown as context only; base = fixes only; brief = case brief (parties, issues) read first and shown with every chunk; role = adds a one-word paragraph role
+VARIANTS = ("base", "brief", "role", "g3", "ctx3", "v3")  # v3 = base + role + sharper speaker/ideas rules (batch 3 candidate)
+  # g3 = one summary per group of 3 consecutive paragraphs; ctx3 = per-paragraph summaries with the neighbouring paragraphs shown as context only; base = fixes only; brief = case brief (parties, issues) read first and shown with every chunk; role = adds a one-word paragraph role
 CHUNK = 30
 
 SYSTEM_SUM = """You read numbered paragraphs of a Canadian court or tribunal decision. For EVERY paragraph shown, in order, return:
@@ -44,6 +45,15 @@ SCHEMA_SUM = {"type": "object", "additionalProperties": False, "required": ["par
 		"summary": {"type": "string"},
 		"ideas": {"type": "string", "enum": ["single", "multiple"]},
 		"idea_list": {"type": "array", "items": {"type": "string"}}}}}}}
+
+SPEAKER_V3 = """- speaker, who is speaking in the paragraph (decide by WHOSE words or position the paragraph reports, not by who the paragraph is about):
+  court = the decision-maker's own reasoning, findings, conclusions or statement of the law it applies; also the court narrating background or procedure in its own voice;
+  party = what a party or counsel says, argues or concedes (name who in the summary), including a quoted submission;
+  below = what the earlier decision-maker (officer, RPD, RAD, IAD, tribunal) found or reasoned, as reported in this decision; when this decision only describes what the officer or tribunal decided, it is below, not court;
+  evidence = testimony, an affidavit, a letter, a document or an expert report being described or quoted (a party's own letter or statement of facts is evidence);
+  other = headings, procedural orders, quoted statute or rule wording, or anything that fits none of the above.
+  If two voices share one paragraph, choose the one that carries most of it and set ideas to multiple."""
+IDEAS_V3 = """- ideas: "multiple" if the paragraph contains two or more separate points, including any of: two arguments or grounds, a point together with the answer to it, a finding together with a different finding, a fact pattern together with a legal conclusion. Otherwise "single". idea_list: when "multiple", each point in a few words; empty when "single"."""
 
 SYSTEM_G3 = """You read numbered paragraphs of a Canadian court or tribunal decision, already split into groups of three consecutive paragraphs (the last group of a chunk may have fewer). For EVERY group shown, in order, return:
 - para: the first paragraph number of the group; last: the last paragraph number of the group.
@@ -77,9 +87,15 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 	head = header(case_id)
 	pre = (head + "\n\n") if head else ""
 	est = lambda msgs: int(sum(len(m["content"]) for m in msgs) / 3.2)  # noqa: E731
-	sysmsg = SYSTEM_SUM.replace("\nIgnore footnote", ROLE_TEXT + "\nIgnore footnote") if variant == "role" else SYSTEM_SUM
+	sysmsg = SYSTEM_SUM.replace("\nIgnore footnote", ROLE_TEXT + "\nIgnore footnote") if variant in ("role", "v3") else SYSTEM_SUM
+	if variant == "v3":
+		a = sysmsg.index("- speaker,")
+		b = sysmsg.index("- summary:")
+		c = sysmsg.index("- ideas:")
+		d = sysmsg.index("\n- role:")
+		sysmsg = sysmsg[:a] + SPEAKER_V3 + "\n" + sysmsg[b:c] + IDEAS_V3 + sysmsg[d:]
 	schema = json.loads(json.dumps(SCHEMA_SUM))
-	if variant == "role":
+	if variant in ("role", "v3"):
 		it = schema["properties"]["paragraphs"]["items"]
 		it["required"].append("role")
 		it["properties"]["role"] = {"type": "string", "enum": ["facts", "procedural_history", "issue", "law", "analysis", "conclusion", "disposition", "other"]}
@@ -98,7 +114,7 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 			f"GROUP {g[0]['paragraph_index']}-{g[-1]['paragraph_index']}:\n" + "\n".join(f"[{p['paragraph_index']}] {clean(p['text'])}" for p in g) for g in (ch[i:i + 3] for i in range(0, len(ch), 3)))}]
 	if not send:
 		tin = sum(est(render(c)) for c in chunks) + 2500 + (sum(len(p["text"]) for p in paras) // 3 + 400 + 250 * len(chunks) if variant == "brief" else 0)
-		tout = 90 * len(paras) * (1.1 if variant == "role" else 0.5 if variant == "g3" else 1) + 1200 + (250 if variant == "brief" else 0)
+		tout = 90 * len(paras) * (1.1 if variant in ("role", "v3") else 0.5 if variant == "g3" else 1) + 1200 + (250 if variant == "brief" else 0)
 		print(json.dumps({"case_id": case_id, "model": model, "prompt": PROMPT_VERSION, "paragraphs": len(paras), "calls": len(chunks) + 1, "est_input_tokens": tin, "est_usd_max": round(cost_usd(model, tin, tout), 4)}))
 		return None
 
@@ -108,6 +124,7 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 			raise SystemExit(3)
 
 	usd, rows, dropped = 0.0, {}, 0
+	dropped_why = {"duplicate": 0, "not_in_chunk": 0}
 	covered_by_group = set()
 
 	def ask(ch):
@@ -124,12 +141,14 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 					covered_by_group.update(range(r["para"], r["last"] + 1))
 				else:
 					dropped += 1
+					dropped_why["duplicate" if r["para"] in rows else "not_in_chunk"] += 1
 			return
 		for r in data["paragraphs"]:
 			if r["para"] in want and r["para"] not in rows:
 				rows[r["para"]] = r
 			else:
 				dropped += 1
+				dropped_why["duplicate" if r["para"] in rows else "not_in_chunk"] += 1
 
 	if variant == "brief":
 		stop()
@@ -157,7 +176,7 @@ def run_case(client, ledger, run, model, case_id, report, send, stop_file, varia
 	speakers = {}
 	for r in ordered:
 		speakers[r["speaker"]] = speakers.get(r["speaker"], 0) + 1
-	check = {"paragraphs": len(paras), "summaries": len(ordered), "paragraphs_missing": missing, "retried": len(retried), "dropped_rows": dropped, "speakers": speakers,
+	check = {"paragraphs": len(paras), "summaries": len(ordered), "paragraphs_missing": missing, "retried": len(retried), "dropped_rows": dropped, "dropped_why": dropped_why, "speakers": speakers,
 		"multi_idea_paragraphs": sum(1 for r in ordered if r["ideas"] == "multiple"), "sections": len(struct["sections"]), "section_gap_paragraphs": len(gaps)}
 	return {"brief": state["brief"], "usd": usd, "summaries": ordered, "structure": struct, "verification": check}
 

@@ -30,6 +30,17 @@ WITNESS = "witness_or_document"
 
 HOLDERS = (APPLICANT, RESPONDENT, EARLIER, COURT, AUTHORITY, WITNESS)
 
+# A judicial review is nested: the judge (1) weighs the parties' submissions to the court (2) to decide whether
+# an earlier decision maker's decision (3) is reasonable, and that decision itself reports the first-instance
+# parties' positions (4). Authorities, witnesses and documents sit alongside (5).
+LAYER_COURT = 1
+LAYER_JR_PARTY = 2
+LAYER_EARLIER = 3
+LAYER_FIRST_INSTANCE = 4
+LAYER_SOURCE = 5
+LAYER_NAMES = {1: "court_own_evaluation", 2: "judicial_review_party_submission", 3: "earlier_decision_maker_reasoning",
+	4: "first_instance_party_as_reported", 5: "authority_or_source"}
+
 # ---------------------------------------------------------------------------
 # Case header
 # ---------------------------------------------------------------------------
@@ -54,6 +65,9 @@ class Parties:
 	# True (default): "applicant" always means the individual/private party and "respondent" the
 	# Minister/government, even when the title puts the Minister first. False: use the literal words.
 	normalize: bool = True
+	# Which decider wrote the text: "fc", "fca", "scc", "rpd", "rad", "iad" or "" (unknown). In a tribunal's own
+	# decision, "the panel", "the Division" and "the member" are the author, not an earlier decision maker.
+	forum: str = ""
 
 
 def _aliases(name: str) -> tuple[str, ...]:
@@ -75,6 +89,27 @@ def _aliases(name: str) -> tuple[str, ...]:
 		key=len, reverse=True))
 
 
+def detect_forum(header: str) -> str:
+	"""Read the court or tribunal from the first lines of the stored text."""
+	h = (header or "")[:600]
+	if re.search(r"\bRPD File|dossier de la SPR", h):
+		return "rpd"
+	if re.search(r"\bRAD File|dossier de la SAR", h):
+		return "rad"
+	if re.search(r"\bIAD File|dossier de la SAI|Immigration Appeal Division", h):
+		return "iad"
+	if re.search(r"Federal Court of Appeal", h):
+		return "fca"
+	if re.search(r"Federal Court Decisions", h):
+		return "fc"
+	if re.search(r"Supreme Court", h):
+		return "scc"
+	return ""
+
+
+_TRIBUNAL_AUTHOR = re.compile(r"^(?:the\s+)?(?:panel|member|division|board|tribunal|chair|rpd|rad|iad|appeal division)\b", re.I)
+
+
 def parse_parties(title: str) -> Parties:
 	"""Read ``A v. B`` from the first header line (or the first line of the text)."""
 	line = (title or "").strip().splitlines()[0] if (title or "").strip() else ""
@@ -90,7 +125,7 @@ def parse_parties(title: str) -> Parties:
 # Cue vocabulary
 # ---------------------------------------------------------------------------
 
-_ARGUE = (r"(?:submit|argu(?:e)?|contend|say|state|allege|claim|assert|maintain|emphasi[sz]e|stress|point out|"
+_ARGUE = (r"(?:submit|argu(?:e)?|contend|say|said|told|state|allege|claim|assert|maintain|emphasi[sz]e|stress|point out|"
 	r"suggest|dispute|object|respond|reply|insist|plead|urge|add|reassert|seek|opine|make the point|makes the point|"
 	r"take the position|takes the position|"
 	r"concede|acknowledge|admit|also submit|further submit|contest|complain|testif|swear|swore|rely|relies)")
@@ -217,6 +252,66 @@ class Cue:
 	phrase: str
 	sentence: int
 	confidence: str = "explicit"
+	# Level of the nested structure of a judicial review (see LAYER_* below).
+	layer: int = 1
+	# For layer 4: who is being reported inside the earlier decision (applicant/claimant or respondent/Minister).
+	inner_holder: str | None = None
+
+
+_FIRST_INSTANCE_FRAME = re.compile(
+	r"\b(?:before|at|in front of|during|to)\s+(?:the\s+)?(?:rpd|rad|iad|id|board|panel|tribunal|officer|member|"
+	r"hearing|oral hearing|interview|refugee protection division|refugee appeal division|immigration appeal division)\b|"
+	r"\b(?:in|from)\s+(?:his|her|their|the (?:applicant|claimant|appellant)['’]s)\s+(?:boc|basis of claim|narrative|"
+	r"application|statement|submissions? to the (?:officer|board|rpd|rad|iad)|h&c|interview|pra?r?a)\b|"
+	r"\bwas (?:asked|questioned|cross-examined|put to)\b|\bat the hearing\b|"
+	r"\b(?:in|during)\s+(?:his|her|their)?\s*(?:letter|testimony|oral testimony|evidence|affidavit|statement|interview)\b", re.I)
+_PARTY_WORD = re.compile(r"\b(?:applicant|claimant|appellant|respondent|minister|counsel|he|she|they)\b", re.I)
+_JR_ARGUMENT = re.compile(
+	r"\b(?:erred|unreasonable|unfair(?:ly)?|procedural(?:ly)? (?:unfair|fairness)|breach|failed to|ignored|"
+	r"misapprehend|misconstru|fettered|reasonable|reasonableness|vavilov|standard of review|"
+	r"judicial review|this court|the court)\b", re.I)
+_STANDARD_REVIEW = re.compile(
+	r"\b(?:standard of review|reasonableness|presumptive standard|vavilov|correctness|reviewing court|"
+	r"whether the (?:decision|finding|conclusion)s? (?:was|were|is|are) reasonable|(?:justified, )?transparent and intelligible)\b", re.I)
+
+
+def assign_layer(sentence: str, cue: Cue) -> None:
+	"""Set ``cue.layer`` (and ``inner_holder``) in place from the holder and the sentence frame."""
+	h = cue.holder
+	if h in (AUTHORITY, WITNESS):
+		cue.layer = LAYER_SOURCE
+		return
+	if h == COURT:
+		cue.layer = LAYER_COURT
+		return
+	if _STANDARD_REVIEW.search(sentence) and h not in (APPLICANT, RESPONDENT):
+		cue.layer = LAYER_COURT
+		return
+	if h == EARLIER:
+		# "The Board noted that the claimant said..." : an earlier decision maker reporting a first-instance party
+		tail = sentence[len(cue.phrase):] if cue.phrase and sentence.startswith(cue.phrase) else sentence
+		m = None
+		for pm in _PARTY_WORD.finditer(tail):
+			after = tail[pm.end(): pm.end() + 60]
+			if _ARGUE_RE.match(after.lstrip(" ,")) or re.match(r"\s*(?:['’]s)?\s+(?:account|testimony|evidence|story|"
+					r"explanation|narrative|allegation|claim|position|submission)", after, re.I):
+				m = pm
+				break
+		if m:
+			cue.layer = LAYER_FIRST_INSTANCE
+			cue.inner_holder = RESPONDENT if re.match(r"minister|respondent", m.group(0), re.I) else APPLICANT
+		else:
+			cue.layer = LAYER_EARLIER
+		return
+	if h in (APPLICANT, RESPONDENT):
+		fm = _FIRST_INSTANCE_FRAME.search(sentence)
+		if fm and fm.start() <= 40 and not _JR_ARGUMENT.search(sentence.split(",")[0]) and not (
+				re.search(r"\b(?:submits?|argues?|contends?)\b", sentence[:fm.start() + 60], re.I) and fm.start() > 0):
+			cue.layer = LAYER_FIRST_INSTANCE
+			cue.inner_holder = h
+		else:
+			cue.layer = LAYER_JR_PARTY
+		return
 
 
 @dataclass
@@ -227,6 +322,8 @@ class Result:
 	primary: str = COURT
 	sentence_holders: list[str] = field(default_factory=list)
 	sentence_holders_extra: list[str] = field(default_factory=list)  # paragraph-level only (citations)
+	layers: list[int] = field(default_factory=list)
+	mixed_layers: bool = False  # two or more of layers 1-4 run together in this paragraph
 
 
 # ---------------------------------------------------------------------------
@@ -462,6 +559,20 @@ _COURT_RESET = re.compile(
 	r"The standard of review\b|The issue\b|The issues\b|The question\b)", re.I)
 
 
+def _author_fix(cue: Cue | None, parties: Parties) -> Cue | None:
+	"""In a tribunal's own decision the deciding body is the author, so its voice is the court's."""
+	if cue is None or cue.holder != EARLIER or parties.forum not in ("rpd", "rad", "iad"):
+		return cue
+	m = _TRIBUNAL_AUTHOR.match(cue.phrase.strip())
+	if not m:
+		return cue
+	word = m.group(0).lower().replace("the ", "").strip()
+	if word in ("rpd", "rad", "iad") and word != parties.forum:
+		return cue  # a different body (the RAD reviewing the RPD)
+	cue.holder = COURT
+	return cue
+
+
 def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | None = None) -> Result:
 	"""Tag one paragraph. ``previous`` is the holder of the paragraph before it (for run carry-over)."""
 	parties = parties or Parties()
@@ -469,8 +580,11 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 	res = Result()
 	last = previous
 	for i, s in enumerate(sentences):
-		cue = sentence_cue(s, parties, index=i)
+		cue = _author_fix(sentence_cue(s, parties, index=i), parties)
 		if cue:
+			assign_layer(s, cue)
+			if parties.forum == "rpd" and cue.layer == LAYER_FIRST_INSTANCE:
+				cue.layer, cue.inner_holder = LAYER_JR_PARTY, None  # no earlier decision: the parties speak to this tribunal
 			res.cues.append(cue)
 			res.sentence_holders.append(cue.holder)
 			last = cue.holder
@@ -478,13 +592,17 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 		# no cue: carry a submission/finding run, but not past a first-person reset
 		if last in (APPLICANT, RESPONDENT) and _CONTINUES.match(s) and not _COURT_RESET.match(s) \
 				and not _DATE.search(s):
-			carried = Cue(last, "", i, "carried")
+			prev_cue = res.cues[-1] if res.cues else None
+			carried = Cue(last, "", i, "carried", layer=prev_cue.layer if prev_cue else LAYER_JR_PARTY,
+				inner_holder=prev_cue.inner_holder if prev_cue else None)
 			res.cues.append(carried)
 			res.sentence_holders.append(last)
 		else:
 			res.cues.append(Cue(COURT, "", i, "default"))
 			res.sentence_holders.append(COURT)
 			last = COURT if last in (None, COURT, AUTHORITY) else last
+	res.layers = [c.layer for c in res.cues]
+	res.mixed_layers = len({l for l in res.layers if l <= LAYER_FIRST_INSTANCE}) > 1
 	if AUTHORITY not in res.sentence_holders and _CITES.search(text or ""):
 		res.sentence_holders_extra = [AUTHORITY]
 	order: list[str] = []

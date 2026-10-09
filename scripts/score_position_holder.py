@@ -22,7 +22,7 @@ from collections import Counter, defaultdict
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
 from backend.position_holder import (  # noqa: E402
-	APPLICANT, COURT, HOLDERS, RESPONDENT, parse_parties, split_numbered_paragraphs, split_sentences, tag_paragraph,
+	APPLICANT, COURT, HOLDERS, RESPONDENT, detect_forum, parse_parties, split_numbered_paragraphs, split_sentences, tag_paragraph,
 )
 
 _WORD = re.compile(r"[a-z0-9]{3,}")
@@ -48,7 +48,7 @@ def load_case(props_path: str, reports_dir: str):
 	rep = json.load(open(rp, encoding="utf-8"))
 	text = "\n".join(p["text"] for p in rep["paragraphs"])
 	title = rep["paragraphs"][0]["text"].splitlines()[0] if rep["paragraphs"] else ""
-	return cid, props, title, split_numbered_paragraphs(text)
+	return cid, props, title, split_numbered_paragraphs(text), detect_forum(rep["paragraphs"][0]["text"] if rep["paragraphs"] else "")
 
 
 def run(props_dir: str, reports_dir: str, literal: bool = False) -> dict:
@@ -64,8 +64,9 @@ def run(props_dir: str, reports_dir: str, literal: bool = False) -> dict:
 		loaded = load_case(pf, reports_dir)
 		if not loaded:
 			continue
-		cid, props, title, texts = loaded
+		cid, props, title, texts, forum = loaded
 		parties = parse_parties(title)
+		parties.forum = forum
 		parties.normalize = not literal
 		if parties.minister_first:
 			minister_first_cases.append((cid, title))

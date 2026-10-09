@@ -115,3 +115,54 @@ class ParagraphTests(unittest.TestCase):
 
 if __name__ == "__main__":
 	unittest.main()
+
+
+class LayerTests(unittest.TestCase):
+	def layer(self, sentence, title="Smith v. Canada (Citizenship and Immigration)"):
+		from backend.position_holder import assign_layer
+		cue = sentence_cue(sentence, parse_parties(title))
+		assign_layer(sentence, cue)
+		return cue
+
+	def test_court_layer(self):
+		self.assertEqual(self.layer("I am not persuaded by this argument.").layer, 1)
+
+	def test_jr_party_layer(self):
+		c = self.layer("The applicant argues that the Officer erred.")
+		self.assertEqual((c.holder, c.layer), (APPLICANT, 2))
+
+	def test_earlier_decision_maker_layer(self):
+		self.assertEqual(self.layer("The Officer was not satisfied that the documents were genuine.").layer, 3)
+
+	def test_first_instance_party_reported_inside_decision(self):
+		c = self.layer("The Board noted that the claimant said he feared the police.")
+		self.assertEqual((c.holder, c.layer, c.inner_holder), ("earlier_decision_maker", 4, APPLICANT))
+		c = self.layer("Before the RPD, the appellant alleged that he suffered from depression.")
+		self.assertEqual((c.layer, c.inner_holder), (4, APPLICANT))
+
+	def test_authority_layer(self):
+		self.assertEqual(self.layer("In Vavilov, the Supreme Court held that reasonableness is presumptive.").layer, 5)
+
+	def test_mixed_layers_flagged(self):
+		r = tag_paragraph("The applicant argues that the Officer erred. The Officer found that the claimant lacked credibility.")
+		self.assertTrue(r.mixed_layers)
+
+
+class ForumTests(unittest.TestCase):
+	def test_detect_forum(self):
+		from backend.position_holder import detect_forum
+		self.assertEqual(detect_forum("RAD File / Dossier de la SAR : TB9-1"), "rad")
+		self.assertEqual(detect_forum("X v. Y\nCourt (s) Database\nFederal Court Decisions"), "fc")
+		self.assertEqual(detect_forum("X v. Y\nFederal Court of Appeal Decisions"), "fca")
+
+	def test_tribunal_is_author_of_its_own_decision(self):
+		p = parse_parties("")
+		p.forum = "rpd"
+		self.assertEqual(tag_paragraph("The panel finds that the claimant is not credible.", p).sentence_holders, [COURT])
+		p.forum = "fc"
+		self.assertEqual(tag_paragraph("The panel finds that the claimant is not credible.", p).sentence_holders, [EARLIER])
+
+	def test_rad_reviewing_rpd(self):
+		p = parse_parties("")
+		p.forum = "rad"
+		self.assertEqual(tag_paragraph("The RPD found that the appellant was not credible.", p).sentence_holders, [EARLIER])

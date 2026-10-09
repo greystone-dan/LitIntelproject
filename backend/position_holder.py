@@ -69,6 +69,9 @@ class Parties:
 	# Which decider wrote the text: "fc", "fca", "scc", "rpd", "rad", "iad" or "" (unknown). In a tribunal's own
 	# decision, "the panel", "the Division" and "the member" are the author, not an earlier decision maker.
 	forum: str = ""
+	# From the case frame: False when the proceeding has no earlier decision (a tribunal's first hearing, a motion),
+	# so layers 3 and 4 cannot exist. None when unknown.
+	has_earlier: bool | None = None
 
 
 def _aliases(name: str) -> tuple[str, ...]:
@@ -126,7 +129,7 @@ def parse_parties(title: str) -> Parties:
 # Cue vocabulary
 # ---------------------------------------------------------------------------
 
-_ARGUE = (r"(?:submit|argu(?:e)?|contend|say|said|told|state|allege|claim|assert|maintain|emphasi[sz]e|stress|point out|"
+_ARGUE = (r"(?:submit|argu(?:e)?|contend|raise|say|said|told|state|allege|claim|assert|maintain|emphasi[sz]e|stress|point out|"
 	r"suggest|dispute|object|respond|reply|insist|plead|urge|add|reassert|seek|opine|make the point|makes the point|"
 	r"take the position|takes the position|"
 	r"concede|acknowledge|admit|also submit|further submit|contest|complain|testif|swear|swore|rely|relies)")
@@ -351,6 +354,7 @@ class Result:
 	sentence_holders: list[str] = field(default_factory=list)
 	sentence_holders_extra: list[str] = field(default_factory=list)  # paragraph-level only (citations)
 	layers: list[int] = field(default_factory=list)
+	lead_out: object = None  # Lead to pass to the next paragraph
 	has_framework: bool = False  # some sentence is legal framework / precedent commentary
 	mixed_layers: bool = False  # two or more of layers 1-4 run together in this paragraph
 
@@ -602,8 +606,35 @@ def _author_fix(cue: Cue | None, parties: Parties) -> Cue | None:
 	return cue
 
 
-def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | None = None) -> Result:
-	"""Tag one paragraph. ``previous`` is the holder of the paragraph before it (for run carry-over)."""
+@dataclass
+class Lead:
+	"""A lead-in line such as "The applicant raises two issues:" whose holder applies to the list that follows."""
+	holder: str
+	layer: int
+	inner_holder: str | None
+	paragraphs_left: int = 6
+
+
+def parties_from_frame(frame, title: str = "") -> Parties:
+	"""Sides, forum and layer availability come from the case frame first; the title only adds short names."""
+	p = parse_parties(title or frame.applicant_name + " v. " + frame.respondent_name if (title or frame.applicant_name) else "")
+	if frame.applicant_is_minister.known:
+		p.minister_first = frame.applicant_is_minister.value == "yes"
+	p.forum = frame.court.value if frame.court.known else p.forum
+	if frame.proceeding.known and frame.proceeding.value in ("direct", "motion") and not frame.earlier_decision_maker.known:
+		p.has_earlier = False
+	elif frame.earlier_decision_maker.known:
+		p.has_earlier = True
+	return p
+
+
+_LIST_END = re.compile(r":\s*$")
+
+
+def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | None = None,
+		lead: Lead | None = None) -> Result:
+	"""Tag one paragraph. ``previous`` is the holder of the paragraph before it (for run carry-over);
+	``lead`` is an open lead-in from earlier (see ``Lead``)."""
 	parties = parties or Parties()
 	sentences = split_sentences(text)
 	res = Result()
@@ -612,14 +643,28 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 		cue = _author_fix(sentence_cue(s, parties, index=i), parties)
 		if cue:
 			assign_layer(s, cue)
-			if parties.forum == "rpd" and cue.layer == LAYER_FIRST_INSTANCE:
-				cue.layer, cue.inner_holder = LAYER_JR_PARTY, None  # no earlier decision: the parties speak to this tribunal
+			if parties.forum == "rpd" or parties.has_earlier is False:
+				# no earlier decision here: layers 3 and 4 cannot exist, so fold them into 1 and 2
+				if cue.layer == LAYER_FIRST_INSTANCE:
+					cue.layer, cue.inner_holder = LAYER_JR_PARTY, None
+				elif cue.layer == LAYER_EARLIER:
+					cue.layer = LAYER_COURT
+			if lead is not None:
+				if cue.holder in (COURT, AUTHORITY):
+					lead = None
+				elif cue.holder == EARLIER and lead.holder in (APPLICANT, RESPONDENT) and cue.layer == LAYER_EARLIER:
+					# the list is the party's argument about the earlier decision ("The Officer erred in...")
+					cue.holder, cue.layer, cue.confidence = lead.holder, lead.layer, "lead_in"
 			res.cues.append(cue)
 			res.sentence_holders.append(cue.holder)
 			last = cue.holder
 			continue
-		# no cue: carry a submission/finding run, but not past a first-person reset
-		if last in (APPLICANT, RESPONDENT) and _CONTINUES.match(s) and not _COURT_RESET.match(s) \
+		# no cue: a lead-in list, or a submission run, carries the holder; not past a first-person reset
+		if lead is not None and not _COURT_RESET.match(s):
+			res.cues.append(Cue(lead.holder, "", i, "lead_in", layer=lead.layer, inner_holder=lead.inner_holder))
+			res.sentence_holders.append(lead.holder)
+			last = lead.holder
+		elif last in (APPLICANT, RESPONDENT) and _CONTINUES.match(s) and not _COURT_RESET.match(s) \
 				and not _DATE.search(s):
 			prev_cue = res.cues[-1] if res.cues else None
 			carried = Cue(last, "", i, "carried", layer=prev_cue.layer if prev_cue else LAYER_JR_PARTY,
@@ -632,6 +677,12 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 			res.cues.append(dflt)
 			res.sentence_holders.append(COURT)
 			last = COURT if last in (None, COURT, AUTHORITY) else last
+	if text.rstrip().endswith(":") and res.cues:
+		lc = res.cues[-1]
+		if lc.holder in (APPLICANT, RESPONDENT) and lc.confidence in ("explicit", "lead_in", "carried"):
+			res.lead_out = Lead(lc.holder, lc.layer, lc.inner_holder)
+	elif lead is not None and res.cues and res.cues[-1].confidence == "lead_in":
+		res.lead_out = Lead(lead.holder, lead.layer, lead.inner_holder, lead.paragraphs_left - 1) if lead.paragraphs_left > 1 else None
 	res.layers = [c.layer for c in res.cues]
 	res.mixed_layers = len({l for l in res.layers if l <= LAYER_FIRST_INSTANCE}) > 1
 	res.has_framework = LAYER_FRAMEWORK in res.layers
@@ -671,14 +722,18 @@ def split_numbered_paragraphs(text: str) -> dict[int, str]:
 	return out
 
 
-def tag_decision(paragraphs: list[str], title: str = "") -> list[Result]:
-	"""Tag a whole decision in order, carrying submission runs from one paragraph to the next."""
-	parties = parse_parties(title)
+def tag_decision(paragraphs: list[str], title: str = "", frame=None) -> list[Result]:
+	"""Tag a whole decision in order, carrying submission runs and lead-in lists from one paragraph to the next.
+	``frame`` is an optional ``backend.case_frame.CaseFrame``; when given, sides, forum and layer availability
+	are resolved from it first."""
+	parties = parties_from_frame(frame, title) if frame is not None else parse_parties(title)
 	results: list[Result] = []
 	prev: str | None = None
+	lead: Lead | None = None
 	for p in paragraphs:
-		r = tag_paragraph(p, parties, previous=prev)
+		r = tag_paragraph(p, parties, previous=prev, lead=lead)
 		results.append(r)
+		lead = r.lead_out
 		last_explicit = [c.holder for c in r.cues if c.confidence == "explicit"]
 		last_any = r.sentence_holders[-1] if r.sentence_holders else None
 		if last_any in (COURT, None) or re.match(r"^\s*(?:\[\d+\]\s*)?(?:I\b|In my\b)", p):

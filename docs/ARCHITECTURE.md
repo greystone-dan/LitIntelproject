@@ -154,6 +154,7 @@ test checks that these paths continue to exist.
 | `backend/audit.py` | Optional metadata-only request audit middleware |
 | `backend/batch_jobs.py` | Batch calculations and cache handling for discussion-unit work |
 | `backend/batch_safety.py` | Safety rails for batch jobs next to the live site: low priority, one connection, time limits, throttling, site health gate, stop file |
+| `backend/case_frame.py` | Deterministic case frame (court, proceeding, earlier decision maker, which side the Minister is on) built before any paragraph is read; no model |
 | `backend/case_compare.py` | Stored ID/citation input resolution and comparison of stored cross-citations and pinpoints |
 | `backend/case_comparison.py` | Read-only case facts, outcome provenance, and distinct shared/unique legal signals |
 | `backend/case_fingerprint.py` | Case fingerprint: deterministic "similar cases by subject" and "shares authorities" (no AI) |

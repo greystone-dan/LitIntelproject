@@ -21,8 +21,9 @@ from collections import Counter, defaultdict
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 
+from backend.case_frame import build_frame  # noqa: E402
 from backend.position_holder import (  # noqa: E402
-	APPLICANT, COURT, HOLDERS, RESPONDENT, detect_forum, parse_parties, split_numbered_paragraphs, split_sentences, tag_paragraph,
+	APPLICANT, COURT, HOLDERS, RESPONDENT, Lead, detect_forum, parse_parties, parties_from_frame, split_numbered_paragraphs, split_sentences, tag_paragraph,
 )
 
 _WORD = re.compile(r"[a-z0-9]{3,}")
@@ -48,25 +49,47 @@ def load_case(props_path: str, reports_dir: str):
 	rep = json.load(open(rp, encoding="utf-8"))
 	text = "\n".join(p["text"] for p in rep["paragraphs"])
 	title = rep["paragraphs"][0]["text"].splitlines()[0] if rep["paragraphs"] else ""
-	return cid, props, title, split_numbered_paragraphs(text), detect_forum(rep["paragraphs"][0]["text"] if rep["paragraphs"] else "")
+	header = rep["paragraphs"][0]["text"] if rep["paragraphs"] else ""
+	frame = build_frame(header, "\n".join(p["text"] for p in rep["paragraphs"][1:]))
+	return cid, props, title, split_numbered_paragraphs(text), detect_forum(header), frame
 
 
-def run(props_dir: str, reports_dir: str, literal: bool = False) -> dict:
+def frame_report(frames: list) -> dict:
+	"""How often each frame field could be built, and which decisions failed."""
+	n = len(frames)
+	rep: dict = {"decisions": n}
+	for name in ("court", "proceeding", "earlier_decision_maker", "applicant_is_minister", "standard_of_review"):
+		known = sum(1 for _, f in frames if getattr(f, name).known)
+		stated = sum(1 for _, f in frames if getattr(f, name).known and getattr(f, name).source != "default")
+		rep[name] = {"known": known, "known_not_defaulted": stated}
+	rep["confident"] = sum(1 for _, f in frames if f.confident)
+	rep["not_confident"] = [{"case_id": c, "court": f.court.value, "proceeding": f.proceeding.value,
+		"earlier": f.earlier_decision_maker.value} for c, f in frames if not f.confident]
+	return rep
+
+
+def run(props_dir: str, reports_dir: str, literal: bool = False, use_frame: bool = True, use_lead: bool = True) -> dict:
 	pairs: Counter = Counter()  # (stored, predicted) for propositions
 	para_pairs: Counter = Counter()
 	examples: dict[tuple[str, str], list] = defaultdict(list)
 	minister_first_cases = []
 	n_props = n_missing = 0
 	mf_n = mf_ok = 0
+	frames: list = []
 	by_conf: Counter = Counter()
 	by_conf_ok: Counter = Counter()
 	for pf in sorted(glob.glob(os.path.join(props_dir, "*.json"))):
 		loaded = load_case(pf, reports_dir)
 		if not loaded:
 			continue
-		cid, props, title, texts, forum = loaded
-		parties = parse_parties(title)
-		parties.forum = forum
+		cid, props, title, texts, forum, frame = loaded
+		if use_frame:
+			parties = parties_from_frame(frame, title)
+		else:
+			parties = parse_parties(title)
+			parties.forum = forum
+		frames.append((cid, frame))
+		lead = None
 		parties.normalize = not literal
 		if parties.minister_first:
 			minister_first_cases.append((cid, title))
@@ -77,7 +100,8 @@ def run(props_dir: str, reports_dir: str, literal: bool = False) -> dict:
 			if not text:
 				n_missing += len(row["propositions"])
 				continue
-			res = tag_paragraph(text, parties, previous=prev)
+			res = tag_paragraph(text, parties, previous=prev, lead=lead if use_lead else None)
+			lead = res.lead_out
 			prev = res.sentence_holders[-1] if res.sentence_holders and res.sentence_holders[-1] != COURT else None
 			sents = split_sentences(text)
 			stored = {p["holder"] for p in row["propositions"]}
@@ -130,6 +154,7 @@ def run(props_dir: str, reports_dir: str, literal: bool = False) -> dict:
 			for s, p, v in confusion[:10]],
 		"minister_first_cases": minister_first_cases,
 		"minister_first_party_propositions": {"n": mf_n, "agree": mf_ok},
+		"frame_report": frame_report(frames),
 		"mode": "literal" if literal else "normalized",
 	}
 
@@ -139,14 +164,16 @@ def main() -> None:
 	ap.add_argument("--props", required=True)
 	ap.add_argument("--reports", required=True)
 	ap.add_argument("--out")
+	ap.add_argument("--no-frame", action="store_true")
+	ap.add_argument("--no-lead", action="store_true")
 	ap.add_argument("--literal", action="store_true", help="treat applicant/respondent as the title says, not as individual/Minister")
 	a = ap.parse_args()
-	out = run(a.props, a.reports, a.literal)
+	out = run(a.props, a.reports, a.literal, not a.no_frame, not a.no_lead)
 	text = json.dumps(out, indent=1, ensure_ascii=False)
 	if a.out:
 		open(a.out, "w", encoding="utf-8").write(text)
 	print(json.dumps({k: out[k] for k in ("propositions_scored", "propositions_without_text",
-		"overall_agreement", "per_label", "by_confidence", "minister_first_party_propositions", "mode")}, indent=1))
+		"overall_agreement", "per_label", "by_confidence", "minister_first_party_propositions", "mode", "frame_report")}, indent=1))
 
 
 if __name__ == "__main__":

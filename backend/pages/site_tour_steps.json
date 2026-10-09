@@ -1611,7 +1611,17 @@
       "top": true,
       "lead": "Next, let's go to the Workbench",
       "leadText": "Your own space for cases, saved decisions and document tools.",
-      "via": "nav.primary-groups a.primary-link[href='/workbench']"
+      "via": "nav.primary-groups a.primary-link[href='/workbench']",
+      "before": [
+        {
+          "do": "waitFor",
+          "selector": {
+            "css": "#caseRows",
+            "text": "^(?!\\s*Loading)"
+          },
+          "timeout": 20
+        }
+      ]
     },
     {
       "id": "workbench-pins",

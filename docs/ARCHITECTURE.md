@@ -252,9 +252,9 @@ test checks that these paths continue to exist.
 | `backend/pages/citation_map.py` | Citation Map page builder |
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/coming_soon_content.py` | Words for the Coming soon pages |
+| `backend/pages/coming_soon_demo.html` | Seven clickable Coming soon demos (reference library, smarter tags, coverage, Supreme Court data expansion, profiles and teams, argument breakdown, live document reader) that run on fixed, invented data in the browser with no network calls. |
 | `backend/pages/coming_soon_page.py` | Coming soon: the roadmap, one overview page plus one page per section |
 | `backend/pages/coming_soon_preview.html` | Guided, Next-only tour of the Coming soon ideas (library, tags, teams, future local AI) using real screenshots and clearly labelled mock-ups. |
-| `backend/pages/coming_soon_demo.html` | Seven clickable Coming soon demos (reference library, smarter tags, coverage, Supreme Court data expansion, profiles and teams, argument breakdown, live document reader) that run on fixed, invented data in the browser with no network calls. |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
 | `backend/pages/deidentify.py` | De-identification page builder |
 | `backend/pages/discussion_units_sandbox.py` | Experimental discussion-unit page builder |
@@ -280,6 +280,8 @@ test checks that these paths continue to exist.
 | `backend/pages/preview_img/workbench.webp` | Real Workbench screenshot used by the Coming soon preview. |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
+| `backend/pages/reader_positions.css` | TODO: describe this file |
+| `backend/pages/reader_positions.js` | TODO: describe this file |
 | `backend/pages/reader_v6.css` | TODO: describe this file |
 | `backend/pages/reader_v6.js` | TODO: describe this file |
 | `backend/pages/research.py` | Experimental research page builder |
@@ -305,6 +307,7 @@ test checks that these paths continue to exist.
 | `backend/paragraph_search.py` | Plain-language search over the paragraph keyword index (table paragraph_search); no model or AI call |
 | `backend/paragraph_similarity.py` | Bounded paragraph matching using stored evidence |
 | `backend/position_holder.py` | Deterministic "whose position is this paragraph reporting" rules (applicant, respondent, earlier decision maker, court, authority, witness); no model |
+| `backend/position_tags.py` | Whose-position tags for the reader (preview) |
 | `backend/precedent_finder.py` | Bounded V3 tag matching and resolved-authority ranking without storing propositions |
 | `backend/prompt_registry.py` | Loads versioned prompt text and header-declared versions |
 | `backend/prompts/citation_aware_assessment.txt` | Citation-aware issue-assessment prompt, versioned independently |

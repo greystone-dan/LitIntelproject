@@ -141,7 +141,7 @@ def _overview() -> str:
 		'What comes next is in three parts: better data, which improves every page at once; new features built on that data; and the groundwork a deployment inside the Agency would need. '
 		'Each item says honestly how far it has got and, where it helps, what existing tools offer today.</p>'
 		'<div class="note"><strong>Take the guided preview.</strong> A short, paced tour of what is coming: a larger reference library, profiles and teams, and a future local AI layer, drawn in the site\'s own look. <a href="/coming-soon-preview" target="_top"><strong>Start the preview &rarr;</strong></a></div>',
-		'<div class="note"><strong>Try the demos.</strong> Six working demos you can click through on fixed, invented data: the reference library, smarter tags, coverage, profiles and teams, and two future local-AI ideas (an argument breakdown and a live document reader). <a href="/data-explorer?tab=roadmap-demos&amp;group=roadmap" target="_top"><strong>Open the demos &rarr;</strong></a></div>'
+		'<div class="note"><strong>Try the demos.</strong> Seven working demos you can click through on fixed, invented data: the reference library, smarter tags, coverage, Supreme Court data, profiles and teams, and two future local-AI ideas (an argument breakdown and a live document reader). <a href="/data-explorer?tab=roadmap-demos&amp;group=roadmap" target="_top"><strong>Open the demos &rarr;</strong></a></div>'
 		f'<div class="note">{_RULE}</div></header>'
 		f'<section id="areas"><h2>{len(ORDER) - 1} areas in three parts</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
 		f'{parts}</section>'
@@ -170,7 +170,7 @@ def _pager(slug: str) -> str:
 
 _DEMO_LINKS = {
 	"accuracy": [("tags", "Smarter tags", "pick a tag and see the exact words it matched")],
-	"expansion": [("library", "Reference library", "search the law and see the decisions and guidance tied to a paragraph"), ("coverage", "Coverage", "choose sources and years and run a pretend daily update")],
+	"expansion": [("library", "Reference library", "search the law and see the decisions and guidance tied to a paragraph"), ("coverage", "Coverage", "choose sources and years and run a pretend daily update"), ("scc", "Supreme Court expansion", "factums and interveners beside what the Court decided")],
 	"intelligence": [("tags", "Smarter tags", "pick a tag and see the exact words it matched"), ("ai", "Argument breakdown", "a decision split into positions, issues and citations")],
 	"fc-files": [("coverage", "Coverage", "choose sources and years and run a pretend daily update")],
 	"team": [("teams", "Profiles and teams", "sign in, join a team, share an insight, comment on a draft")],

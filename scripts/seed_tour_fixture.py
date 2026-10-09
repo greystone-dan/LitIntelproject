@@ -3,7 +3,7 @@
 The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes
 wrong on long lists. This adds the 10 example decisions the tour opens (Vavilov, Abadi, Baker, Dunsmuir, Khosa and five
 made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find:
-best interests of the child, non-refoulement statutory interpretation, and cessation involving India won by the
+best interests of the child, non-refoulement statutory interpretation, and cessation involving Sri Lanka won by the
 Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles
 and pinpoint linking the real library has.
 
@@ -52,15 +52,15 @@ EXAMPLES = [
     ("Gurpreet Singh Sandhu and Harpreet Kaur Sandhu v. Canada (Minister of Citizenship and Immigration and Minister of Public Safety and Emergency Preparedness)",
      "Federal Court", "2025-03-04", "2025 FC 321", "IMM-777-24",
      "Judicial review of a decision of the Refugee Protection Division allowing the Minister's application for cessation of refugee protection under "
-     "section 108 of the Immigration and Refugee Protection Act. The applicant, a citizen of India, renewed his Indian passport and travelled to India, "
+     "section 108 of the Immigration and Refugee Protection Act. The applicant, a citizen of Sri Lanka, renewed his Sri Lankan passport and travelled to Sri Lanka, "
      "and so reavailed himself of the protection of that country. Reasonableness applies per Vavilov, 2019 SCC 65 at para 5. Reavailment is assessed on the test in Abadi v Canada (Citizenship and Immigration), 2016 FC 29 at para 16. The application for "
      "judicial review is dismissed."),
     ("Abadi v. Canada (Citizenship and Immigration)", "Federal Court", "2016-01-12", "2016 FC 29", "IMM-2468-15",
      "Judicial review of a decision of the Refugee Protection Division that the applicant's refugee protection had ceased under paragraph 108(1)(a) "
      "of the Immigration and Refugee Protection Act because he had voluntarily reavailed himself of the protection of his country of nationality."),
     ("Second Applicant v. Canada (Citizenship and Immigration)", "Federal Court", "2024-09-09", "2024 FC 900", "IMM-888-23",
-     "Judicial review of a cessation decision under section 108 of the Immigration and Refugee Protection Act. The applicant is a citizen of India who "
-     "returned to India voluntarily and obtained a new passport. Cessation of refugee protection under paragraph 108(1)(a). The application for judicial "
+     "Judicial review of a cessation decision under section 108 of the Immigration and Refugee Protection Act. The applicant is a citizen of Sri Lanka who "
+     "returned to Sri Lanka voluntarily and obtained a new passport. Cessation of refugee protection under paragraph 108(1)(a). The application for judicial "
      "review is dismissed."),
 ]
 BULK = [
@@ -71,8 +71,8 @@ BULK = [
      "Statutory interpretation of section 115 of the Immigration and Refugee Protection Act and the principle of non-refoulement. Reasonableness "
      "applies per Vavilov, 2019 SCC 65. The application is dismissed."),
     ("Cessation Applicant {n} v. Canada (Citizenship and Immigration)",
-     "Judicial review of a cessation decision under section 108 of the Immigration and Refugee Protection Act. The applicant, a citizen of India, "
-     "renewed an Indian passport and travelled to India, and so reavailed himself of the protection of India. Reasonableness applies per Vavilov, "
+     "Judicial review of a cessation decision under section 108 of the Immigration and Refugee Protection Act. The applicant, a citizen of Sri Lanka, "
+     "renewed a Sri Lankan passport and travelled to Sri Lanka, and so reavailed himself of the protection of Sri Lanka. Reasonableness applies per Vavilov, "
      "2019 SCC 65 at para 5. Reavailment is assessed on the test in Abadi v Canada (Citizenship and Immigration), 2016 FC 29 at para 16. The application for judicial review is dismissed."),
 ]
 
@@ -104,7 +104,8 @@ def main() -> int:
         return 0
     ids = []
     for title, court, date, citation, second, body in EXAMPLES:
-        judge = "Justice Rowe" if "SCC" in citation else ("Justice Stratas" if "FCA" in citation else "Justice Smith")
+        judge = "Justice Rowe" if "SCC" in citation else ("Justice Stratas" if "FCA" in citation else
+                                                          "Justice Brouwer" if "cessation" in body else "Justice Smith")   # the tour opens Brouwer's profile
         ids.append(ingest(base, dict(title=title, court=court, date=date, citation=citation, secondary_citation=second,
                                      docket_number=second if second.startswith(("IMM", "A-")) else None,
                                      full_text=decision(title, court, date, citation, judge, body, 12), summary=body)))

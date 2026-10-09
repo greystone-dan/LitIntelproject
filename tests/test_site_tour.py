@@ -211,7 +211,7 @@ def test_tour_is_calm_and_leaves_the_page_usable():
     typed = {a.get("text") for name in ("plain-search", "plain-search-2") for a in by_id[name]["act"] if a.get("do") == "type"}
     assert typed == {"best interests of the child", "non-refoulement statutory interpretation"}
     filters = json.dumps([by_id[n].get("act") for n in ("adv-tag", "adv-tag-india", "adv-cites")])
-    assert "cessation" in filters and "india" in filters and "2019 SCC 65" in filters
+    assert "cessation" in filters and "india" in filters and "2016 FC 29" in filters and "Vavilov" not in filters   # Cases citing: Abadi, not Vavilov
     assert not any(a.get("do") in ("type", "fill") and a.get("selector") == "#searchQuery"   # filters only, no typed query
                    for step in steps if step["id"].startswith("adv-") for a in step.get("before", []) + (step.get("act") or []))
     click = by_id["reader-cite-card"]["act"][0]                              # clicks a citation that has a pinpoint
@@ -308,3 +308,28 @@ def test_card_and_rings_follow_the_layout_rules():
     assert "html.ilit-tour-on .inline-case-reader{height:calc(100vh - 124px)!important}" in css   # the reader fits above the bar
     assert ".ilit-tour-card{transition:transform" in css           # it glides when it moves, never jumps
     assert "u.skip.style.visibility" in js                          # Next keeps its place when Skip section is not offered
+
+
+def test_cards_state_what_is_shown_and_the_decision_is_a_cessation_case():
+    data = tour_steps()
+    for step in data["steps"]:                      # no narration of the tour's own buttons ("Next clicks it", "I'll...")
+        for key in ("text", "say", "lead", "leadText"):
+            words = step.get(key) or ""
+            assert "Next " not in words and "I'll" not in words and "I will" not in words, (step["id"], key)
+    cessation = data["cases"]["cessation"]
+    assert cessation["citation"] == "2023 FC 1553" and "case_type=refugee_cessation" in cessation["search"]
+    tour_decision = next(p for p in data["probes"] if p["id"] == "tour-decision")
+    assert "case_type=refugee_cessation" in tour_decision["url"]
+
+
+def test_tour_never_opens_the_outline():
+    assert "outl" not in json.dumps(tour_steps()["steps"])   # Daniel: the tour should not click on the Outline at all
+
+
+def test_filter_demo_is_checked_to_put_the_tour_decision_first():
+    data = tour_steps()
+    probe = next(p for p in data["probes"] if p["id"] == "cessation-india-won")
+    assert probe["first"] == "cessation" and "cites_case_id={cited}" in probe["url"] and "sort_by=newest" in probe["url"]
+    assert data["cases"]["cited"]["citation"] == "2016 FC 29"
+    script = (Path(__file__).resolve().parents[1] / "scripts" / "check_site_tour.py").read_text(encoding="utf-8")
+    assert "NOT the first result of the filter demo" in script and "WRONG FIRST" in script

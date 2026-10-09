@@ -1,7 +1,7 @@
 """Fill an empty local database with a test library for checking the site tour (scripts/check_site_tour.py).
 
 The real library's result lists run to thousands of pixels, so a tour checked on a handful of cases misses what goes
-wrong on long lists. This adds the 9 example decisions the tour opens (Vavilov, Baker, Dunsmuir, Khosa and five
+wrong on long lists. This adds the 10 example decisions the tour opens (Vavilov, Abadi, Baker, Dunsmuir, Khosa and five
 made-up Federal Court files) and --bulk more made-up Federal Court files (default 300) that the tour's searches find:
 best interests of the child, non-refoulement statutory interpretation, and cessation involving India won by the
 Minister. Every decision says it is a TEST FIXTURE. Then it runs the same processing, case types, judge profiles
@@ -53,8 +53,11 @@ EXAMPLES = [
      "Federal Court", "2025-03-04", "2025 FC 321", "IMM-777-24",
      "Judicial review of a decision of the Refugee Protection Division allowing the Minister's application for cessation of refugee protection under "
      "section 108 of the Immigration and Refugee Protection Act. The applicant, a citizen of India, renewed his Indian passport and travelled to India, "
-     "and so reavailed himself of the protection of that country. Reasonableness applies per Vavilov, 2019 SCC 65 at para 5. The application for "
+     "and so reavailed himself of the protection of that country. Reasonableness applies per Vavilov, 2019 SCC 65 at para 5. Reavailment is assessed on the test in Abadi v Canada (Citizenship and Immigration), 2016 FC 29 at para 16. The application for "
      "judicial review is dismissed."),
+    ("Abadi v. Canada (Citizenship and Immigration)", "Federal Court", "2016-01-12", "2016 FC 29", "IMM-2468-15",
+     "Judicial review of a decision of the Refugee Protection Division that the applicant's refugee protection had ceased under paragraph 108(1)(a) "
+     "of the Immigration and Refugee Protection Act because he had voluntarily reavailed himself of the protection of his country of nationality."),
     ("Second Applicant v. Canada (Citizenship and Immigration)", "Federal Court", "2024-09-09", "2024 FC 900", "IMM-888-23",
      "Judicial review of a cessation decision under section 108 of the Immigration and Refugee Protection Act. The applicant is a citizen of India who "
      "returned to India voluntarily and obtained a new passport. Cessation of refugee protection under paragraph 108(1)(a). The application for judicial "
@@ -70,7 +73,7 @@ BULK = [
     ("Cessation Applicant {n} v. Canada (Citizenship and Immigration)",
      "Judicial review of a cessation decision under section 108 of the Immigration and Refugee Protection Act. The applicant, a citizen of India, "
      "renewed an Indian passport and travelled to India, and so reavailed himself of the protection of India. Reasonableness applies per Vavilov, "
-     "2019 SCC 65 at para 5. The application for judicial review is dismissed."),
+     "2019 SCC 65 at para 5. Reavailment is assessed on the test in Abadi v Canada (Citizenship and Immigration), 2016 FC 29 at para 16. The application for judicial review is dismissed."),
 ]
 
 
@@ -120,8 +123,10 @@ def main() -> int:
         for case_id in ids:
             process_case_in_five_layers(db, case_id)
             db.commit()
-        db.execute(text("UPDATE citations SET target_case_id = (SELECT id FROM cases WHERE citation = '2019 SCC 65' LIMIT 1) "
-                        "WHERE citation_text ILIKE '%2019 SCC 65%' AND target_case_id IS NULL AND source_case_id = ANY(:ids)"), {"ids": ids})
+        for cited in ("2019 SCC 65", "2016 FC 29"):              # the tour's Cases citing examples
+            db.execute(text("UPDATE citations SET target_case_id = (SELECT id FROM cases WHERE citation = :c LIMIT 1) "
+                            "WHERE citation_text ILIKE :like AND target_case_id IS NULL AND source_case_id = ANY(:ids)"),
+                       {"c": cited, "like": f"%{cited}%", "ids": ids})
         db.commit()
     finally:
         db.close()

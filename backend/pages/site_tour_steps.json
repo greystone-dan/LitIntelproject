@@ -6,11 +6,17 @@
       "label": "Vavilov"
     },
     "cessation": {
-      "citation": "2022 FC 650",
+      "citation": "2023 FC 1553",
       "label": "the tour's cessation decision",
-      "search": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&sort_by=newest&limit=1&facets=0&citation_stats=0",
-      "note": "picked with scripts/check_site_tour.py --pick-case: an outline, a pinpoint citation to a library case, a statute, a judge",
-      "id": 6662
+      "id": 31503,
+      "search": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={cited}&government_outcome=won&case_type=refugee_cessation&sort_by=newest&limit=1&facets=0&citation_stats=0",
+      "note": "Saha v. Canada, a reavailment cessation (s. 108(1)(a)) decision; picked with scripts/check_site_tour.py --pick-case, which only considers Refugee cessation decisions"
+    },
+    "cited": {
+      "citation": "2016 FC 29",
+      "id": 13521,
+      "label": "Abadi",
+      "note": "the Cases citing filter: an earlier cessation decision that Saha cites, so Saha heads the filtered list"
     }
   },
   "texts": {
@@ -21,7 +27,13 @@
       "id": "vavilov-by-citation",
       "url": "/analytics/search/cases?query=2019%20SCC%2065&limit=5",
       "min": 1,
-      "note": "Vavilov must be found by citation (the Cases citing filter picks it)"
+      "note": "Vavilov must be found by citation (the reader and Live analysis examples link to it)"
+    },
+    {
+      "id": "cited-by-citation",
+      "url": "/analytics/search/cases?query=Abadi&limit=6&sort_by=relevance&facets=0&citation_stats=0",
+      "min": 1,
+      "note": "the Cases citing picker must offer Abadi (2016 FC 29) when Abadi is typed"
     },
     {
       "id": "plain-search",
@@ -51,15 +63,16 @@
     },
     {
       "id": "cessation-india-won",
-      "url": "/analytics/search/cases?tags=cessation%2Cindia&government_outcome=won&limit=5",
+      "url": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={cited}&government_outcome=won&case_type=refugee_cessation&sort_by=newest&limit=10&facets=0&citation_stats=0",
       "min": 1,
-      "note": "the filtered search (before Cases citing Vavilov)"
+      "note": "the filter demo's search: the tour's decision must be the first result",
+      "first": "cessation"
     },
     {
       "id": "tour-decision",
-      "url": "/analytics/search/cases?query=2022%20FC%20650&limit=5",
+      "url": "/analytics/search/cases?query=2023%20FC%201553&case_type=refugee_cessation&limit=5",
       "min": 1,
-      "note": "the cessation decision the tour opens"
+      "note": "the decision the tour opens, and it must be a Refugee cessation decision"
     }
   ],
   "warm": [
@@ -159,8 +172,8 @@
       "text": "Research is where most work starts. One box takes a case name, a citation such as 2019 SCC 65, or words from the reasons. Filters narrow any search.",
       "target": "#caseSearch",
       "top": true,
-      "lead": "Welcome to the iLit feature tour. Each step says what is about to happen; press Next to see it done.",
-      "leadText": "We start in Research. Next clicks it in the header.",
+      "lead": "Welcome to iLit",
+      "leadText": "A short tour of the main features, starting with Research.",
       "via": "nav.primary-groups [data-group='research']"
     },
     {
@@ -176,7 +189,7 @@
         }
       ],
       "timeout": 25,
-      "say": "First, a plain search. Next types best interests of the child and runs it.",
+      "say": "A plain search: best interests of the child.",
       "act": [
         {
           "do": "type",
@@ -208,7 +221,7 @@
       ],
       "timeout": 25,
       "optional": true,
-      "say": "Plain words work for legal questions too. Next searches for non-refoulement statutory interpretation.",
+      "say": "A legal question in plain words: non-refoulement statutory interpretation.",
       "act": [
         {
           "do": "type",
@@ -237,7 +250,7 @@
       "title": "The filters",
       "text": "The filters sit on the left, and they all combine: outcome, court, case type, cases citing a decision, topic tags, judge, Minister and year.",
       "target": ".sp-rail",
-      "say": "Now the filters. Next clears the search box and opens Advanced.",
+      "say": "The advanced filters, starting from an empty search box.",
       "act": [
         {
           "do": "click",
@@ -271,7 +284,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Case type",
-      "text": "Each group opens to its types. The box beside a group selects every type in it; a single line picks just that type. Case types come from the provisions a decision applies, worked out by fixed rules.",
+      "text": "Refugee cessation (s. 108) is selected. Each group opens to its types, and the box beside a group selects every type in it. Case types come from the provisions a decision applies, worked out by fixed rules.",
       "target": "#caseTypeBoxes",
       "before": [
         {
@@ -280,12 +293,20 @@
           "unless": "#searchPanel.sp-adv"
         }
       ],
-      "say": "Case type sorts decisions by the kind of case. Next opens the Refugee protection group.",
+      "say": "Case type sorts decisions by the kind of case: here, Refugee cessation, in the Refugee protection group.",
       "act": [
         {
           "do": "click",
           "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
           "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
+        },
+        {
+          "do": "wait",
+          "ms": 500
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-box[value='refugee_cessation']"
         }
       ]
     },
@@ -306,9 +327,18 @@
           "do": "click",
           "selector": "#toggleAdvancedSearch",
           "unless": "#searchPanel.sp-adv"
+        },
+        {
+          "do": "click",
+          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
+          "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-box[value='refugee_cessation']"
         }
       ],
-      "say": "Tags are the legal topics found in each decision. Next types cessation and picks it.",
+      "say": "Tags are the legal topics found in each decision. The first: cessation.",
       "act": [
         {
           "do": "type",
@@ -356,6 +386,15 @@
           "unless": "#searchPanel.sp-adv"
         },
         {
+          "do": "click",
+          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
+          "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-box[value='refugee_cessation']"
+        },
+        {
           "do": "type",
           "selector": "#tagSearch",
           "text": "cessation",
@@ -386,7 +425,7 @@
           }
         }
       ],
-      "say": "Tags combine. Next adds India.",
+      "say": "Tags combine. The second: India.",
       "act": [
         {
           "do": "type",
@@ -425,7 +464,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Cases citing a decision",
-      "text": "Only decisions that cite Vavilov, the Supreme Court's leading case on the standard of review, are kept.",
+      "text": "Only the decisions that cite Abadi are kept. Any decision in the library can be the anchor, from a Supreme Court leading case to a single Federal Court ruling.",
       "target": "#citesPickNote",
       "also": [
         {
@@ -437,6 +476,15 @@
           "do": "click",
           "selector": "#toggleAdvancedSearch",
           "unless": "#searchPanel.sp-adv"
+        },
+        {
+          "do": "click",
+          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
+          "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-box[value='refugee_cessation']"
         },
         {
           "do": "type",
@@ -499,19 +547,19 @@
           }
         }
       ],
-      "say": "Cases citing keeps the decisions that cite a case you name. Next types Vavilov and picks it.",
+      "say": "Cases citing keeps only the decisions that cite a named case: here, Abadi v. Canada, 2016 FC 29, an earlier cessation decision.",
       "act": [
         {
           "do": "type",
           "selector": "#citesFilter",
-          "text": "Vavilov",
+          "text": "Abadi",
           "unless": "#citesPickNote:not([hidden])"
         },
         {
           "do": "waitFor",
           "selector": {
             "css": "#citesPickList button[data-id]",
-            "text": "2019 SCC 65"
+            "text": "2016 FC 29\\b"
           },
           "timeout": 10,
           "unless": "#citesPickNote:not([hidden])"
@@ -519,7 +567,7 @@
         {
           "do": "click",
           "selector": "#citesPickList button[data-id]",
-          "match": "2019 SCC 65",
+          "match": "2016 FC 29\\b",
           "unless": "#citesPickNote:not([hidden])"
         }
       ]
@@ -529,7 +577,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Run the search",
-      "text": "Cessation decisions involving India, citing Vavilov, that the Minister won: four filters, one list. Words in the search box would narrow it further.",
+      "text": "Refugee cessation decisions tagged cessation and India, citing Abadi, that the Minister won: five filters, one list, with the newest first. Words in the search box would narrow it further.",
       "target": "#searchResults",
       "also": [
         {
@@ -544,6 +592,15 @@
           "unless": "#searchPanel.sp-adv"
         },
         {
+          "do": "click",
+          "selector": "#caseTypeBoxes .sp-ct-group:first-child .sp-ct-name",
+          "unless": "#caseTypeBoxes .sp-ct-group:first-child[open]"
+        },
+        {
+          "do": "check",
+          "selector": "#caseTypeBoxes .sp-ct-box[value='refugee_cessation']"
+        },
+        {
           "do": "type",
           "selector": "#tagSearch",
           "text": "cessation",
@@ -606,14 +663,14 @@
         {
           "do": "type",
           "selector": "#citesFilter",
-          "text": "Vavilov",
+          "text": "Abadi",
           "unless": "#citesPickNote:not([hidden])"
         },
         {
           "do": "waitFor",
           "selector": {
             "css": "#citesPickList button[data-id]",
-            "text": "2019 SCC 65"
+            "text": "2016 FC 29\\b"
           },
           "timeout": 10,
           "unless": "#citesPickNote:not([hidden])"
@@ -621,11 +678,11 @@
         {
           "do": "click",
           "selector": "#citesPickList button[data-id]",
-          "match": "2019 SCC 65",
+          "match": "2016 FC 29\\b",
           "unless": "#citesPickNote:not([hidden])"
         }
       ],
-      "say": "Last, the outcome. Next presses Government won, which runs the search with all four filters.",
+      "say": "Last, the outcome: Government won.",
       "act": [
         {
           "do": "click",
@@ -648,11 +705,11 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "The reader",
-      "text": "The decision opens in the reader: the text as a clean document with numbered paragraphs, and what iLit found in it around the text. The reader has three parts, shown one at a time.",
+      "text": "The decision as a clean document with numbered paragraphs, and what iLit found in it around the text. The reader has three parts: the header, the decision and the side panel.",
       "target": "#caseReaderPanel",
       "top": true,
-      "lead": "Now, one of these decisions.",
-      "leadText": "Next opens the decision this tour uses from here on.",
+      "lead": "The first result, in the reader",
+      "leadText": "Saha v. Canada, 2023 FC 1553, a refugee cessation decision used for the rest of the tour.",
       "via": "#searchResults .case-result[data-case-id='{cessation}']",
       "before": [
         {
@@ -778,103 +835,6 @@
       ]
     },
     {
-      "id": "reader-outline",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "The Outline",
-      "text": "The decision's sections, each with the paragraph it starts at. It is marked Coming soon because section detection is not yet reliable on every decision.",
-      "target": ".v6-outline",
-      "also": [
-        {
-          "sel": "[data-v6-outl-toggle]"
-        }
-      ],
-      "focus": 0,
-      "optional": true,
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='about']",
-          "unless": "#decisionTarget [data-v6-tab='about'].on"
-        }
-      ],
-      "say": "Further down is the Outline. Next scrolls to it and opens it.",
-      "act": [
-        {
-          "do": "click",
-          "selector": "[data-v6-outl-toggle]",
-          "unless": ".v6-outline"
-        }
-      ]
-    },
-    {
-      "id": "reader-outline-jump",
-      "section": "Reading a decision",
-      "url": "/data-explorer?case_id={cessation}",
-      "title": "Jump to a section",
-      "text": "The text moved to that section and marked it. In a long decision, the Outline is the quickest way to the analysis or the conclusion.",
-      "target": "#decisionBody .v6-flash",
-      "also": [
-        {
-          "sel": ".v6-outline"
-        }
-      ],
-      "optional": true,
-      "settle": 400,
-      "before": [
-        {
-          "do": "waitFor",
-          "selector": "#v6Card .v6-facts-strip",
-          "timeout": 20
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .fmt-para",
-          "timeout": 20
-        },
-        {
-          "do": "wait",
-          "ms": 600
-        },
-        {
-          "do": "click",
-          "selector": "#decisionTarget [data-v6-tab='about']",
-          "unless": "#decisionTarget [data-v6-tab='about'].on"
-        },
-        {
-          "do": "click",
-          "selector": "[data-v6-outl-toggle]",
-          "unless": ".v6-outline"
-        }
-      ],
-      "say": "Next clicks one of the sections.",
-      "act": [
-        {
-          "do": "click",
-          "selector": ".v6-outline .v6-orow:nth-child(3), .v6-outline .v6-orow:nth-child(2)"
-        },
-        {
-          "do": "waitFor",
-          "selector": "#decisionBody .v6-flash",
-          "timeout": 4
-        }
-      ]
-    },
-    {
       "id": "reader-judge",
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
@@ -882,7 +842,7 @@
       "text": "The Intelligence tab opens on the judge: their decisions in the library, how often the government won before them, decisions per year and the most recent ones. Open full judge profile goes further.",
       "target": ".reader-pane.target",
       "timeout": 15,
-      "say": "Now the judge. Next clicks the decision maker's name in the header.",
+      "say": "The decision maker's name in the header opens the judge's snapshot.",
       "act": [
         {
           "do": "click",
@@ -940,7 +900,7 @@
           "unless": "#decisionTarget [data-v6-isub]"
         }
       ],
-      "say": "Beside it is Citation intelligence. Next opens it.",
+      "say": "Beside the judge is Citation intelligence.",
       "act": [
         {
           "do": "click",
@@ -973,7 +933,7 @@
         }
       ],
       "optional": true,
-      "say": "Back to the text. Resting the mouse on a gold citation shows a preview. Next moves to one that names a paragraph.",
+      "say": "Back in the text: a gold citation that names a paragraph.",
       "act": [
         {
           "do": "hover",
@@ -984,8 +944,12 @@
             },
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)[data-target-case-id]",
             "#decisionBody .fmt-para [data-cite-id]:not(.chunk-statute):not(.tag-highlight)"
-          ],
-          "high": true
+          ]
+        },
+        {
+          "do": "waitFor",
+          "selector": ".reader-hover-tooltip.is-visible",
+          "timeout": 4
         }
       ],
       "before": [
@@ -1003,7 +967,8 @@
           "do": "wait",
           "ms": 600
         }
-      ]
+      ],
+      "settle": 400
     },
     {
       "id": "reader-cite-card",
@@ -1025,7 +990,7 @@
         }
       ],
       "optional": true,
-      "say": "Clicking the citation keeps the passage open as a card. Next clicks it.",
+      "say": "A click on the citation keeps the passage open as a card.",
       "act": [
         {
           "do": "click",
@@ -1110,7 +1075,7 @@
           "timeout": 6
         }
       ],
-      "say": "The pin keeps the card open. Next pins it.",
+      "say": "The pin keeps a card open.",
       "act": [
         {
           "do": "click",
@@ -1132,12 +1097,17 @@
         }
       ],
       "optional": true,
-      "say": "Statutes, in purple, work the same way. Next rests the mouse on one.",
+      "say": "Statutes, in purple, work the same way.",
       "act": [
         {
           "do": "hover",
           "selector": "#decisionBody .fmt-para mark.chunk-statute",
           "high": true
+        },
+        {
+          "do": "waitFor",
+          "selector": ".reader-hover-tooltip.is-visible",
+          "timeout": 4
         }
       ],
       "before": [
@@ -1155,7 +1125,8 @@
           "do": "wait",
           "ms": 600
         }
-      ]
+      ],
+      "settle": 400
     },
     {
       "id": "reader-stat-card",
@@ -1170,7 +1141,7 @@
         }
       ],
       "optional": true,
-      "say": "Next clicks it.",
+      "say": "A click opens the provision as a card.",
       "act": [
         {
           "do": "click",
@@ -1208,7 +1179,7 @@
       "title": "Authorities",
       "text": "Every case and statute the decision cites, with how many times and at which paragraphs. The arrow on a row shows the cited passage, and the filter at the top finds one quickly.",
       "target": ".reader-pane.target",
-      "say": "Now the Authorities tab. Next opens it.",
+      "say": "The Authorities tab.",
       "act": [
         {
           "do": "click",
@@ -1238,7 +1209,7 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "Go to where it is cited",
-      "text": "Each click moved the text to the next place that case is cited and marked it. The counter shows which one is showing, and the up arrow goes back.",
+      "text": "The text moved to each place that case is cited in turn and marked it. The counter shows which one is showing, and the up arrow goes back.",
       "target": ".v6-arow:has(.v6-find[data-v6-find='cite'])",
       "also": [
         {
@@ -1268,7 +1239,7 @@
           "unless": "#decisionTarget [data-v6-tab='auth'].on"
         }
       ],
-      "say": "Each row can step through every place that authority is cited. Next clicks the first row's button twice.",
+      "say": "Each row steps through every place that authority is cited.",
       "act": [
         {
           "do": "click",
@@ -1291,7 +1262,7 @@
         }
       ],
       "optional": true,
-      "say": "Search this decision finds any word in the text. Next types cessation and steps through the matches.",
+      "say": "Search this decision finds any word in the text: here, cessation.",
       "act": [
         {
           "do": "type",
@@ -1331,11 +1302,11 @@
       "section": "Reading a decision",
       "url": "/data-explorer?case_id={cessation}",
       "title": "Keep it on your Workbench",
-      "text": "The decision is now on your own list in the Workbench, where the tour will show it later.",
+      "text": "The decision is now on your own list in the Workbench.",
       "target": "#v6SaveWb",
       "optional": true,
-      "writes": "This step saved the tour's cessation decision to the demo Workbench list. Remove it any time from the Workbench.",
-      "say": "Last in the reader: Save to Workbench. Next saves this decision.",
+      "writes": "Saved to the demo Workbench list. It can be removed from the Workbench at any time.",
+      "say": "Save to Workbench keeps a decision on your own list.",
       "act": [
         {
           "do": "click",
@@ -1373,8 +1344,8 @@
         "#judgeProfilePanel"
       ],
       "top": true,
-      "lead": "Next, Intelligence / Statistics.",
-      "leadText": "Next clicks it in the header.",
+      "lead": "Intelligence / Statistics",
+      "leadText": "Judge profiles, citation intelligence and Federal Court activity.",
       "via": "nav.primary-groups [data-group='intel']"
     },
     {
@@ -1391,7 +1362,7 @@
           "selector": "#jpList .jp-item"
         }
       ],
-      "say": "Next opens the judge with the most decisions.",
+      "say": "The judge with the most decisions in the library.",
       "act": [
         {
           "do": "click",
@@ -1420,8 +1391,8 @@
         "#ciBody"
       ],
       "top": true,
-      "lead": "Now Citation Intelligence.",
-      "leadText": "Next opens its tab.",
+      "lead": "Citation Intelligence",
+      "leadText": "How one decision has been relied on since.",
       "point": "#researchViews [data-tab='citation-intelligence']"
     },
     {
@@ -1444,8 +1415,8 @@
       ],
       "timeout": 12,
       "top": true,
-      "lead": "Now Federal Court Analytics.",
-      "leadText": "Next opens its tab.",
+      "lead": "Federal Court Analytics",
+      "leadText": "The Federal Court's own registry of immigration files.",
       "via": "#researchViews [data-tab='fc-analytics']"
     },
     {
@@ -1527,7 +1498,7 @@
         }
       ],
       "timeout": 12,
-      "say": "Filters change every figure at once. Next presses Last 5 years.",
+      "say": "Filters change every figure at once: for example, Last 5 years.",
       "act": [
         {
           "do": "click",
@@ -1549,11 +1520,11 @@
       "section": "Workbench",
       "url": "/workbench",
       "title": "Your Workbench",
-      "text": "The Workbench is your own space. The tour signed you in as Demo analyst (no password; the name only keeps lists apart). Your case list follows your IMM files and flags when the Federal Court docket has moved.",
+      "text": "The Workbench is your own space. You are signed in as Demo analyst, a demonstration account with no password; the name only keeps lists apart. Your case list follows your IMM files and flags when the Federal Court docket has moved.",
       "target": "#view-home .homegrid > .stack:first-child > .card:first-child",
       "top": true,
-      "lead": "On to the Workbench.",
-      "leadText": "Next clicks it in the header.",
+      "lead": "The Workbench",
+      "leadText": "Your own space for cases, saved decisions and document tools.",
       "via": "nav.primary-groups a.primary-link[href='/workbench']"
     },
     {
@@ -1588,8 +1559,8 @@
       "target": "#liveAnalysisPanel .la-inputs",
       "top": true,
       "fresh": true,
-      "lead": "Now Live analysis.",
-      "leadText": "Next opens it from the Workbench.",
+      "lead": "Live analysis",
+      "leadText": "The reader's features, applied to your own documents.",
       "point": "#tab-live"
     },
     {
@@ -1605,14 +1576,14 @@
       "section": "Live analysis",
       "url": "/live-analysis",
       "title": "A Word file, dropped in",
-      "text": "This is a fictional Memorandum of Argument from a refugee cessation judicial review, written for the tour. A text PDF works the same way.",
+      "text": "A fictional Memorandum of Argument from a refugee cessation judicial review, written for this demonstration. A text PDF works the same way.",
       "target": "#laDrop",
       "also": [
         {
           "sel": "#laStatus"
         }
       ],
-      "say": "Next drags in a Word file, as you would from your desktop.",
+      "say": "A Word file, dropped in as it would be from a desktop.",
       "act": [
         {
           "do": "drop",
@@ -1667,7 +1638,7 @@
           "unless": "#decisionBody span.citation-link"
         }
       ],
-      "say": "Next presses Read document.",
+      "say": "Read document runs the same rules used on the library.",
       "act": [
         {
           "do": "click",
@@ -1837,7 +1808,7 @@
           "when": "#laModalClose"
         }
       ],
-      "say": "One table lists every authority in the memo. Next opens it.",
+      "say": "One table lists every authority in the memo.",
       "act": [
         {
           "do": "click",
@@ -1857,7 +1828,7 @@
       "title": "Pull those cases in one click",
       "text": "Every case in the memo that the library holds is now pinned to your list, ready to open, compare and read.",
       "target": ".la-dialog",
-      "writes": "This step saved the library cases cited in the fictional MOA to the demo Workbench list. Remove them any time from the Workbench.",
+      "writes": "The library cases cited in the fictional memo were saved to the demo Workbench list. They can be removed from the Workbench at any time.",
       "before": [
         {
           "do": "drop",
@@ -1901,7 +1872,7 @@
           "selector": ".la-dialog"
         }
       ],
-      "say": "Save library cases to Workbench pins them all at once. Next presses it.",
+      "say": "Save library cases to Workbench pins them all at once.",
       "act": [
         {
           "do": "click",
@@ -1967,8 +1938,8 @@
       "text": "The memo's cases that the library holds are now on your Workbench, beside the decision saved earlier. Each can be opened, annotated and compared side by side.",
       "target": "#pinRows",
       "optional": true,
-      "lead": "Back to the Workbench to see them.",
-      "leadText": "Next follows the link.",
+      "lead": "Back to the Workbench",
+      "leadText": "The memo's cases, now on your list.",
       "point": "#laWorkbench, a[href='/workbench']"
     },
     {
@@ -1984,8 +1955,8 @@
         },
         "#progress"
       ],
-      "lead": "Last, how the library stays current.",
-      "leadText": "Next goes to About, How it works.",
+      "lead": "Keeping it current",
+      "leadText": "How new decisions reach the library.",
       "point": "#brandHome, .topbar a[href^='/data-explorer?tab=about']"
     },
     {
@@ -1993,7 +1964,7 @@
       "section": "Keeping it current",
       "url": "/data-explorer?tab=about&about=how",
       "title": "That is the tour",
-      "text": "Search and its filters, the reader, judges, citation intelligence, Federal Court analytics, the Workbench and Live analysis. Start the tour again from the About page at any time. Press Done to explore on your own.",
+      "text": "Search and its filters, the reader, judges, citation intelligence, Federal Court analytics, the Workbench and Live analysis. The tour can be started again from the About page at any time.",
       "target": null
     }
   ]

@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 200
+Active scripts documented: 201
 
 ## Catalog
 
@@ -198,6 +198,7 @@ Active scripts documented: 200
 | `sample_pinpoint_forms.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_pinpoint_forms.py --help` |
 | `sample_statute_extraction.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\sample_statute_extraction.py --help` |
 | `scheduled_intake_daemon.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help` |
+| `score_position_holder.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_position_holder.py --help` |
 | `score_search_gold.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\score_search_gold.py --help` |
 | `seed_tour_fixture.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\seed_tour_fixture.py --help` |
 | `select_discussion_unit_cohort.py` | Utility | inspect implementation before execution | `.\venv\Scripts\python.exe scripts\select_discussion_unit_cohort.py --help` |
@@ -2841,6 +2842,20 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\scheduled_intake_daemon.py --help
+```
+
+## `scripts/score_position_holder.py`
+
+**Purpose:** Score backend/position_holder.py against stored model labels. Offline only: reads two folders of JSON (no database, no network). --props folder of proposition files (para number, propositions with holder) --reports folder of deterministic case reports holding the paragraph text Example: python scripts/score_position_holder.py --props ai_poc_data/bundle5/props --reports ai_poc_data/bundle4/recent/reports --out position_holder_scores.json The stored labels are model output, not a lawyer's truth; this measures agreement only.
+
+**Operational class:** Utility
+
+**Write/network risk:** inspect implementation before execution
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\score_position_holder.py --help
 ```
 
 ## `scripts/score_search_gold.py`

@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any, Protocol
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "position_preview"
+LAYERS_DIR = Path(__file__).resolve().parents[1] / "data" / "position_layers"  # rules output: level per paragraph
 
 # key -> label shown on the tag. The keys match the stored holder names.
 POSITION_LABELS: dict[str, str] = {
@@ -44,6 +45,7 @@ LAYERS: dict[str, dict[str, Any]] = {
 	"jr_party": {"label": "Argument to the Court", "depth": 1, "detected": True},
 	"earlier_decision": {"label": "Earlier decision", "depth": 1, "detected": True},
 	"first_instance": {"label": "Position reported in the earlier decision", "depth": 2, "detected": True},
+	"framework": {"label": "Legal framework", "depth": 1, "detected": True},
 	"source": {"label": "Authority or document", "depth": 1, "detected": True},
 	"unknown": {"label": "Level not yet detected", "depth": None, "detected": False},
 }
@@ -118,6 +120,19 @@ def _row(
 	}
 
 
+_RULE_LAYER = {1: "judge", 2: "jr_party", 3: "earlier_decision", 4: "first_instance", 5: "source", 6: "framework"}
+
+
+def _rule_layers(directory: Path, case_id: int) -> dict[str, dict[str, Any]] | None:
+	"""Per-paragraph level from the rules export. Rows decided only by default are left out: the level is not detected."""
+	path = directory / f"case_{int(case_id)}.json"
+	try:
+		stored = json.loads(path.read_text(encoding="utf-8"))
+	except (OSError, ValueError):
+		return None
+	return {n: r for n, r in stored.get("paragraphs", {}).items() if r.get("c") != "default" and r.get("l") in _RULE_LAYER}
+
+
 def _framework(kinds: list[str], role: str | None) -> str:
 	"""Stored labels say it directly: a legal-rule statement, or a paragraph whose role is "law"."""
 	return "yes" if role == "law" or (kinds and kinds[0] == "rule_of_law") else "no"
@@ -126,8 +141,9 @@ def _framework(kinds: list[str], role: str | None) -> str:
 class FilePositionSource:
 	"""Compact per-decision files built from the propositions run."""
 
-	def __init__(self, directory: Path = DATA_DIR) -> None:
+	def __init__(self, directory: Path = DATA_DIR, layers_directory: Path | None = LAYERS_DIR) -> None:
 		self.directory = directory
+		self.layers_directory = layers_directory
 
 	def paragraphs_for(self, case_id: int) -> dict[str, dict[str, Any]] | None:
 		path = self.directory / f"case_{int(case_id)}.json"
@@ -137,11 +153,16 @@ class FilePositionSource:
 			stored = json.loads(path.read_text(encoding="utf-8"))
 		except (OSError, ValueError):
 			return None
-		out = {
-			number: _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"), layer=row.get("l"),
-				framework=_framework(row.get("k", []), row.get("r")))
-			for number, row in stored.get("paragraphs", {}).items()
-		}
+		rules = _rule_layers(self.layers_directory, case_id) if self.layers_directory else None
+		out = {}
+		for number, row in stored.get("paragraphs", {}).items():
+			rule = rules.get(number) if rules is not None else None
+			framework = _framework(row.get("k", []), row.get("r"))
+			if rule and rule.get("law"):
+				framework = "yes"
+			# With a rules export for this decision, a paragraph it only defaulted stays "not detected".
+			layer = row.get("l") or (_RULE_LAYER[rule["l"]] if rule else ("unknown" if rules is not None else None))
+			out[number] = _row(row.get("h", []), row.get("s", ""), row.get("k", []), row.get("r"), layer=layer, framework=framework)
 		return out or None
 
 

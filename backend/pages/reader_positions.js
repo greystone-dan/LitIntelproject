@@ -32,7 +32,7 @@
  function levels(data){
   const rows=Object.values(data.layers||{}).filter(l=>l.detected).sort((a,b)=>a.depth-b.depth);
   return '<details class="pos-levels"><summary>How to read the levels</summary><p>'+E(data.legend||'')+'</p><ul>'
-   +['judge','earlier_decision','first_instance'].map(k=>{const l=(data.layers||{})[k];return l?'<li class="pos-d'+l.depth+'"><b>'+E(l.label)+'</b></li>':'';}).join('')
+   +['judge','jr_party','earlier_decision','first_instance'].map(k=>{const l=(data.layers||{})[k];return l?'<li class="pos-d'+l.depth+'"><b>'+E(l.label)+'</b></li>':'';}).join('')
    +'</ul><p><span class="pos-chip pos-framework">Legal framework</span> '+E(data.framework_note||'')+(data.mode==='rules'?' Not yet detected in this rule-based preview.':'')+'</p></details>';
  }
 

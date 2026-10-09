@@ -88,7 +88,7 @@ def test_reader_page_injects_the_assets_and_makes_no_model_calls() -> None:
 
 def test_layer_is_set_where_the_holder_decides_it_and_marked_undetected_otherwise() -> None:
 	data = case_positions(28105)
-	layers = {row["positions"][0]["key"]: row["layer"] for row in data["paragraphs"].values()}
+	layers = {row["positions"][0]["key"]: row["layer"] for row in FilePositionSource(layers_directory=None).paragraphs_for(28105).values()}
 	assert layers["court"]["key"] == "judge" and layers["court"]["depth"] == 0
 	# An applicant or respondent paragraph could be a review argument or a position inside the earlier decision.
 	assert layers["respondent"] == {"key": "unknown", **data["layers"]["unknown"]}
@@ -114,3 +114,11 @@ def test_framework_commentary_is_flagged_from_stored_labels_and_unknown_in_rules
 	text = "The applicant submits the test in Vavilov applies."
 	assert rules_positions(text, _blocks(text))["1"]["framework"] == "unknown"
 	assert "not linked to the cited cases" in case_positions(28105)["framework_note"]
+
+
+def test_rules_export_sets_the_level_and_default_rows_stay_not_detected() -> None:
+	paragraphs = case_positions(28105)["paragraphs"]
+	keys = {row["layer"]["key"] for row in paragraphs.values()}
+	assert {"jr_party", "framework", "unknown"} <= keys
+	assert paragraphs["10"]["layer"]["key"] == "unknown"  # rules decided it by default only
+	assert paragraphs["15"]["layer"]["key"] == "framework" and paragraphs["15"]["framework"] == "yes"

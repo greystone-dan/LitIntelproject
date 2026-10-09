@@ -337,9 +337,10 @@ def test_cards_state_what_is_shown_and_the_decision_is_a_cessation_case():
     assert "case_type=refugee_cessation" in tour_decision["url"]
 
 
-def test_switching_tabs_drops_the_judge_profile_judge():
-    # a judge profile's ?judge=slug used to carry into Federal Court Analytics as a judge filter, showing 0 files
-    assert "url.searchParams.delete('judge');history.pushState" in routes._data_explorer_page_html()
+def test_opening_fc_analytics_drops_another_tab_s_judge():
+    # a judge profile's ?judge=slug used to carry into Federal Court Analytics as a judge filter, showing 0 files;
+    # the other tabs that read judge (the Testing tabs) keep it
+    assert "if(selected==='fc-analytics'&&from!=='fc-analytics')url.searchParams.delete('judge')" in routes._data_explorer_page_html()
 
 
 def test_tour_never_opens_the_outline():

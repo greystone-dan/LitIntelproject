@@ -9,8 +9,14 @@
       "citation": "2023 FC 1553",
       "label": "the tour's cessation decision",
       "id": 31503,
-      "search": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&case_type=refugee_cessation&sort_by=newest&limit=1&facets=0&citation_stats=0",
+      "search": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={cited}&government_outcome=won&case_type=refugee_cessation&sort_by=newest&limit=1&facets=0&citation_stats=0",
       "note": "Saha v. Canada, a reavailment cessation (s. 108(1)(a)) decision; picked with scripts/check_site_tour.py --pick-case, which only considers Refugee cessation decisions"
+    },
+    "cited": {
+      "citation": "2016 FC 29",
+      "id": 13521,
+      "label": "Abadi",
+      "note": "the Cases citing filter: an earlier cessation decision that Saha cites, so Saha heads the filtered list"
     }
   },
   "texts": {
@@ -21,7 +27,13 @@
       "id": "vavilov-by-citation",
       "url": "/analytics/search/cases?query=2019%20SCC%2065&limit=5",
       "min": 1,
-      "note": "Vavilov must be found by citation (the Cases citing filter picks it)"
+      "note": "Vavilov must be found by citation (the reader and Live analysis examples link to it)"
+    },
+    {
+      "id": "cited-by-citation",
+      "url": "/analytics/search/cases?query=Abadi&limit=6&sort_by=relevance&facets=0&citation_stats=0",
+      "min": 1,
+      "note": "the Cases citing picker must offer Abadi (2016 FC 29) when Abadi is typed"
     },
     {
       "id": "plain-search",
@@ -51,9 +63,10 @@
     },
     {
       "id": "cessation-india-won",
-      "url": "/analytics/search/cases?tags=cessation%2Cindia&government_outcome=won&case_type=refugee_cessation&limit=5",
+      "url": "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={cited}&government_outcome=won&case_type=refugee_cessation&sort_by=newest&limit=10&facets=0&citation_stats=0",
       "min": 1,
-      "note": "the filtered search (before Cases citing Vavilov)"
+      "note": "the filter demo's search: the tour's decision must be the first result",
+      "first": "cessation"
     },
     {
       "id": "tour-decision",
@@ -451,7 +464,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Cases citing a decision",
-      "text": "Only decisions that cite Vavilov, the Supreme Court's leading case on the standard of review, are kept.",
+      "text": "Only the decisions that cite Abadi are kept. Any decision in the library can be the anchor, from a Supreme Court leading case to a single Federal Court ruling.",
       "target": "#citesPickNote",
       "also": [
         {
@@ -534,19 +547,19 @@
           }
         }
       ],
-      "say": "Cases citing keeps only the decisions that cite a named case: here, Vavilov.",
+      "say": "Cases citing keeps only the decisions that cite a named case: here, Abadi v. Canada, 2016 FC 29, an earlier cessation decision.",
       "act": [
         {
           "do": "type",
           "selector": "#citesFilter",
-          "text": "Vavilov",
+          "text": "Abadi",
           "unless": "#citesPickNote:not([hidden])"
         },
         {
           "do": "waitFor",
           "selector": {
             "css": "#citesPickList button[data-id]",
-            "text": "2019 SCC 65"
+            "text": "2016 FC 29\\b"
           },
           "timeout": 10,
           "unless": "#citesPickNote:not([hidden])"
@@ -554,7 +567,7 @@
         {
           "do": "click",
           "selector": "#citesPickList button[data-id]",
-          "match": "2019 SCC 65",
+          "match": "2016 FC 29\\b",
           "unless": "#citesPickNote:not([hidden])"
         }
       ]
@@ -564,7 +577,7 @@
       "section": "Research",
       "url": "/data-explorer?tab=search",
       "title": "Run the search",
-      "text": "Refugee cessation decisions tagged cessation and India, citing Vavilov, that the Minister won: five filters, one list. Words in the search box would narrow it further.",
+      "text": "Refugee cessation decisions tagged cessation and India, citing Abadi, that the Minister won: five filters, one list, with the newest first. Words in the search box would narrow it further.",
       "target": "#searchResults",
       "also": [
         {
@@ -650,14 +663,14 @@
         {
           "do": "type",
           "selector": "#citesFilter",
-          "text": "Vavilov",
+          "text": "Abadi",
           "unless": "#citesPickNote:not([hidden])"
         },
         {
           "do": "waitFor",
           "selector": {
             "css": "#citesPickList button[data-id]",
-            "text": "2019 SCC 65"
+            "text": "2016 FC 29\\b"
           },
           "timeout": 10,
           "unless": "#citesPickNote:not([hidden])"
@@ -665,7 +678,7 @@
         {
           "do": "click",
           "selector": "#citesPickList button[data-id]",
-          "match": "2019 SCC 65",
+          "match": "2016 FC 29\\b",
           "unless": "#citesPickNote:not([hidden])"
         }
       ],
@@ -695,8 +708,8 @@
       "text": "The decision as a clean document with numbered paragraphs, and what iLit found in it around the text. The reader has three parts: the header, the decision and the side panel.",
       "target": "#caseReaderPanel",
       "top": true,
-      "lead": "One decision, in the reader",
-      "leadText": "A refugee cessation decision, used for the rest of the tour.",
+      "lead": "The first result, in the reader",
+      "leadText": "Saha v. Canada, 2023 FC 1553, a refugee cessation decision used for the rest of the tour.",
       "via": "#searchResults .case-result[data-case-id='{cessation}']",
       "before": [
         {

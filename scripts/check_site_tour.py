@@ -99,19 +99,35 @@ def validate_steps(data: dict) -> list[str]:
 
 def run_probes(base: str) -> int:
     """Search the example data the tour relies on (read-only GETs). Returns how many came back short."""
+    import urllib.parse
     import urllib.request
 
     short = 0
-    for probe in json.loads(STEPS_FILE.read_text(encoding="utf-8")).get("probes") or []:
+    data = json.loads(STEPS_FILE.read_text(encoding="utf-8"))
+    cases = data.get("cases") or {}
+
+    def case_id(name: str) -> str:                       # a {name} in a probe URL is that tour case, found by citation
+        want = re.sub(r"\s+", " ", cases[name]["citation"]).lower()
+        found = _get_json(base, "/analytics/search/cases?" + urllib.parse.urlencode({"query": cases[name]["citation"], "limit": 8, "facets": 0}))
+        return next((str(r["case_id"]) for r in found.get("results") or [] if want in str(r.get("citation")).lower()), "0")
+
+    for probe in data.get("probes") or []:
+        first = ""
         try:
-            request = urllib.request.Request(base + probe["url"], headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
+            url = re.sub(r"\{(\w+)\}", lambda m: case_id(m.group(1)), probe["url"])
+            request = urllib.request.Request(base + url, headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
             with urllib.request.urlopen(request, timeout=60) as response:
-                count = len(json.load(response).get(probe.get("key", "results"), []))
+                rows = json.load(response).get(probe.get("key", "results"), [])
+            count = len(rows)
+            first = str(rows[0].get("citation")) if rows and isinstance(rows[0], dict) else ""
         except Exception as error:  # noqa: BLE001
             count, note = -1, f" ({str(error)[:60]})"
         else:
             note = ""
         verdict = "ok" if count >= probe["min"] else "NO DATA"
+        if verdict == "ok" and probe.get("first"):          # this case must head the list
+            if cases[probe["first"]]["citation"] not in first:
+                verdict, note = "WRONG FIRST", f" (first is {first or 'nothing'})"
         short += verdict != "ok"
         print(f"probe {probe['id']:<32} {count:>3} results  {verdict}{note}  - {probe.get('note', '')}")
     return short
@@ -421,6 +437,7 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
         print(f"{'#':>2}  {'step':<22} {'ms':>6}  {'scroll':>6}  highlights   (ms: Next to result; 'say' and 'lead' cards are not timed here)")
         last_page, last_y = "", 0
         previous_card = None
+        first_result = None                                    # the top result once the filter demo has run
 
         def check_geometry(label: str) -> list[str]:
             nonlocal previous_card
@@ -482,6 +499,14 @@ def run_walk(base: str, width: int, shots: Path | None, require_data: bool = Fal
                 "() => /has not matched|no pinpoint/i.test(document.querySelector('.v6-card2:not(.v6-para)')?.innerText || '')"
             ):
                 data_notes.append("citation card has NO PINPOINT")
+            # The filter demo must end with the tour's decision at the top of the list, and that is the one it opens.
+            if step_id == "adv-won":
+                first_result = page.evaluate("() => document.querySelector('#searchResults .case-result')?.dataset.caseId || ''")
+            if step_id == "reader-open":
+                opened = page.evaluate("() => new URLSearchParams(location.search).get('case_id') || ''")
+                if first_result is not None and opened != first_result:
+                    notes.append(f"the decision opened ({opened}) is NOT the first result of the filter demo ({first_result})")
+                    problems += 1
             if require_data:
                 problems += len(data_notes)
             index = next((k for k, step in enumerate(steps) if step["id"] == step_id), -1)

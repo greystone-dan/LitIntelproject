@@ -117,7 +117,8 @@ def run_probes(base: str) -> int:
             url = re.sub(r"\{(\w+)\}", lambda m: case_id(m.group(1)), probe["url"])
             request = urllib.request.Request(base + url, headers={"User-Agent": "Mozilla/5.0 (iLit tour check)"})
             with urllib.request.urlopen(request, timeout=60) as response:
-                rows = json.load(response).get(probe.get("key", "results"), [])
+                body = json.load(response)
+            rows = body if isinstance(body, list) else body.get(probe.get("key", "results"), [])   # a list endpoint (judge profiles)
             count = len(rows)
             first = str(rows[0].get("citation")) if rows and isinstance(rows[0], dict) else ""
         except Exception as error:  # noqa: BLE001
@@ -133,7 +134,7 @@ def run_probes(base: str) -> int:
     return short
 
 
-PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Cindia&cites_case_id={vavilov}&government_outcome=won&case_type=refugee_cessation&limit=25&facets=0"   # only real cessation decisions (tags alone also match other kinds)
+PICK_SEARCH = "/analytics/search/cases?tags=cessation%2Csri%20lanka&government_outcome=won&case_type=refugee_cessation&limit=25&facets=0"   # only real cessation decisions (tags alone also match other kinds)
 
 
 def _get_json(base: str, path: str):
@@ -576,8 +577,10 @@ def run_controls(base: str, width: int) -> int:
             problems.append("a refresh lost the place")
         page.click(".ilit-tour-btn:has-text('Skip section')")
         after_skip = counter()
-        if after_skip.startswith("Step 1 ") or after_skip.startswith("Step 2 "):
-            problems.append(f"Skip section did not leave the section ({after_skip})")
+        sections = [step["section"] for step in json.loads(STEPS_FILE.read_text(encoding="utf-8"))["steps"]]
+        next_section = next((k for k, name in enumerate(sections) if name != sections[0]), len(sections)) + 1   # 1-based
+        if not after_skip.startswith(f"Step {next_section} "):
+            problems.append(f"Skip section did not go to the next section ({after_skip}, expected step {next_section})")
         page.keyboard.press("Escape")
         page.wait_for_timeout(300)
         if page.locator(".ilit-tour").count() or page.evaluate("sessionStorage.getItem('ilit.tour.v1')"):

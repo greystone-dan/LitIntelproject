@@ -23,6 +23,7 @@ from .database import Case
 from .live_analysis import LiveParagraph, analyze_extracted
 from .contextual_authority.case_structure import structure_outline
 from .live_decision import decision_details, decision_format_blocks, looks_like_decision
+from .position_tags import live_positions
 from .paragraph_cited_by_db import load_pinpoint_cited_by
 from .citation_refine import refine_case_citations
 from .citation_refine.pinpoints import target_paragraphs
@@ -254,6 +255,7 @@ def build_live_reader_payload(
 			"chunks": [],
 			"citations": rows,
 			"tags": document_tags(text),
+			"position_tags": live_positions(text, format_blocks),
 			"extracted_metadata": [],
 			"evidence_summary": None,
 			"structure_outline": _outline(text, format_blocks),

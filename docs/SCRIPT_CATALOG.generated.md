@@ -4,7 +4,7 @@ This file is generated from active `scripts/*.py` modules by `scripts/generate_s
 
 Run every script from the repository root with the project virtual environment. For database/network writers, read `--help`, use dry-run/preflight/limit options where available, and confirm no other bulk PostgreSQL writer is active.
 
-Active scripts documented: 200
+Active scripts documented: 201
 
 ## Catalog
 
@@ -57,6 +57,7 @@ Active scripts documented: 200
 | `build_mason_case_intelligence_request.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_case_intelligence_request.py --help` |
 | `build_mason_citation_review_ledger.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_mason_citation_review_ledger.py --help` |
 | `build_paragraph_cited_by.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help` |
+| `build_position_preview.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_position_preview.py --help` |
 | `build_prototype_cohort.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_prototype_cohort.py --help` |
 | `build_refined_citations.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_refined_citations.py --help` |
 | `build_statute_demand_report.py` | Evaluation, audit, or build artifact | usually read-only/filesystem output | `.\venv\Scripts\python.exe scripts\build_statute_demand_report.py --help` |
@@ -867,6 +868,20 @@ Active scripts documented: 200
 
 ```powershell
 .\venv\Scripts\python.exe scripts\build_paragraph_cited_by.py --help
+```
+
+## `scripts/build_position_preview.py`
+
+**Purpose:** Build the compact per-decision "whose position" files the reader preview reads. Input: the propositions run (batch 4) JSON files, one per decision, e.g. ``case_28105_prop_prop_v4_gpt-4.1-mini.json``. Output: ``data/position_preview/case_<id>.json``. Offline and read-only against the database: no AI calls. python scripts/build_position_preview.py --src path/to/bundle5/props
+
+**Operational class:** Evaluation, audit, or build artifact
+
+**Write/network risk:** usually read-only/filesystem output
+
+**Safe first command**
+
+```powershell
+.\venv\Scripts\python.exe scripts\build_position_preview.py --help
 ```
 
 ## `scripts/build_prototype_cohort.py`

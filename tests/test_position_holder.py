@@ -141,7 +141,7 @@ class LayerTests(unittest.TestCase):
 		self.assertEqual((c.layer, c.inner_holder), (4, APPLICANT))
 
 	def test_authority_layer(self):
-		self.assertEqual(self.layer("In Vavilov, the Supreme Court held that reasonableness is presumptive.").layer, 5)
+		self.assertEqual(self.layer("In Vavilov, the Supreme Court held that reasonableness is presumptive.").layer, 6)
 
 	def test_mixed_layers_flagged(self):
 		r = tag_paragraph("The applicant argues that the Officer erred. The Officer found that the claimant lacked credibility.")
@@ -166,3 +166,22 @@ class ForumTests(unittest.TestCase):
 		p = parse_parties("")
 		p.forum = "rad"
 		self.assertEqual(tag_paragraph("The RPD found that the appellant was not credible.", p).sentence_holders, [EARLIER])
+
+
+class FrameworkTests(unittest.TestCase):
+	def test_law_statement_without_citation(self):
+		r = tag_paragraph("The test is whether the decision is justified, transparent and intelligible.")
+		self.assertEqual(r.layers, [6])
+		self.assertTrue(r.has_framework)
+
+	def test_leading_case_commentary(self):
+		r = tag_paragraph("The leading case on this point is Baker, which held that the duty of fairness is flexible.")
+		self.assertIn(6, r.layers)
+
+	def test_finding_on_these_facts_is_not_framework(self):
+		r = tag_paragraph("I find that the Officer's reasons on this record were adequate.")
+		self.assertEqual(r.layers, [1])
+
+	def test_party_argument_stays_with_party(self):
+		r = tag_paragraph("The applicant argues that the test is not met.")
+		self.assertEqual(r.layers, [2])

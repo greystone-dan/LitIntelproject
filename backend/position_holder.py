@@ -37,9 +37,10 @@ LAYER_COURT = 1
 LAYER_JR_PARTY = 2
 LAYER_EARLIER = 3
 LAYER_FIRST_INSTANCE = 4
-LAYER_SOURCE = 5
-LAYER_NAMES = {1: "court_own_evaluation", 2: "judicial_review_party_submission", 3: "earlier_decision_maker_reasoning",
-	4: "first_instance_party_as_reported", 5: "authority_or_source"}
+LAYER_SOURCE = 5      # witnesses and documents
+LAYER_FRAMEWORK = 6   # legal framework and precedent commentary: what a case stands for, how a test works
+LAYER_NAMES = {6: "legal_framework_or_precedent_commentary", 1: "court_own_evaluation", 2: "judicial_review_party_submission", 3: "earlier_decision_maker_reasoning",
+	4: "first_instance_party_as_reported", 5: "witness_or_document"}
 
 # ---------------------------------------------------------------------------
 # Case header
@@ -275,17 +276,44 @@ _STANDARD_REVIEW = re.compile(
 	r"whether the (?:decision|finding|conclusion)s? (?:was|were|is|are) reasonable|(?:justified, )?transparent and intelligible)\b", re.I)
 
 
+# Language of "what the law is": a test, a principle, what a precedent stands for. Detected by wording only;
+# the cited case is not looked up or linked.
+_LAW_FRAME = re.compile(
+	r"\b(?:the (?:test|framework|analysis|approach|principle|rule|standard|inquiry|question|doctrine) (?:is|are|for|under|set out|requires|has|involves|asks)|"
+	r"(?:is|are) (?:well[- ]established|trite law|settled law|settled)|it is (?:well|trite|settled)|"
+	r"leading (?:case|authority|decision)|this court has (?:held|said|stated|repeatedly|consistently|recognized|recognised)|"
+	r"courts? (?:have|has) (?:held|said|stated|repeatedly|consistently|recognized|recognised|interpreted|treated|applied)|"
+	r"the jurisprudence|case law|caselaw|in (?:that|this|the) (?:case|decision),? the (?:court|supreme court)|"
+	r"stands for|(?:was|were) (?:held|decided) that|established (?:in|that)|"
+	r"(?:must|should|may|cannot|can) (?:be|show|establish|demonstrate|meet|satisfy)[^.]{0,40}\b(?:test|standard|requirement|threshold|criteria)\b|"
+	r"(?:officers|decision[- ]makers|courts|tribunals|applicants|claimants|parties|the moving party|a (?:decision|party|claimant|applicant|person)|an? (?:officer|decision[- ]maker|court|tribunal))\s+"
+	r"(?:must|may not|should|cannot|are required to|is required to|bears? the|has the burden|may be unreasonable|is unreasonable where|will be unreasonable|can be unreasonable|may be set aside)\b|"
+	r"(?:is|are) (?:presumed|deemed|entitled to deference)|owed deference|"
+	r"\b(?:threshold|burden|presumption|binding (?:jurisprudence|authority|precedent)|plain and obvious|requires that|duty to|duty of)\b|"
+	r"as (?:explained|stated|held|noted|set out|observed) by|"
+	r"(?:may|can|will) (?:only|not) be (?:issued|granted|set aside|allowed|accepted)|"
+	r"(?:three|two|four|five)[- ](?:part|prong|step)|(?:first|second|third) (?:prong|branch|element|step|requirement) of|"
+	r"standard of review|presumptive|correctness|reasonableness (?:review|standard)|"
+	r"(?:statutory|legislative) (?:scheme|interpretation|context|purpose|intent)|"
+	r"\bmodern (?:principle|approach) (?:of|to) (?:statutory )?interpretation|the legal (?:test|principle|framework|standard)|"
+	r"as (?:a )?(?:matter of )?law\b|\bin law\b)", re.I)
+_FIRST_PERSON_FACT = re.compile(r"\b(?:I|in this case|here|in the present case|on the facts|on these facts|in the case at bar|on the record)\b", re.I)
+
+
 def assign_layer(sentence: str, cue: Cue) -> None:
 	"""Set ``cue.layer`` (and ``inner_holder``) in place from the holder and the sentence frame."""
 	h = cue.holder
-	if h in (AUTHORITY, WITNESS):
+	if h == AUTHORITY:
+		cue.layer = LAYER_FRAMEWORK
+		return
+	if h == WITNESS:
 		cue.layer = LAYER_SOURCE
 		return
 	if h == COURT:
-		cue.layer = LAYER_COURT
+		cue.layer = LAYER_FRAMEWORK if (_LAW_FRAME.search(sentence) and not _FIRST_PERSON_FACT.search(sentence)) else LAYER_COURT
 		return
 	if _STANDARD_REVIEW.search(sentence) and h not in (APPLICANT, RESPONDENT):
-		cue.layer = LAYER_COURT
+		cue.layer = LAYER_FRAMEWORK
 		return
 	if h == EARLIER:
 		# "The Board noted that the claimant said..." : an earlier decision maker reporting a first-instance party
@@ -323,6 +351,7 @@ class Result:
 	sentence_holders: list[str] = field(default_factory=list)
 	sentence_holders_extra: list[str] = field(default_factory=list)  # paragraph-level only (citations)
 	layers: list[int] = field(default_factory=list)
+	has_framework: bool = False  # some sentence is legal framework / precedent commentary
 	mixed_layers: bool = False  # two or more of layers 1-4 run together in this paragraph
 
 
@@ -598,11 +627,14 @@ def tag_paragraph(text: str, parties: Parties | None = None, *, previous: str | 
 			res.cues.append(carried)
 			res.sentence_holders.append(last)
 		else:
-			res.cues.append(Cue(COURT, "", i, "default"))
+			dflt = Cue(COURT, "", i, "default")
+			assign_layer(s, dflt)
+			res.cues.append(dflt)
 			res.sentence_holders.append(COURT)
 			last = COURT if last in (None, COURT, AUTHORITY) else last
 	res.layers = [c.layer for c in res.cues]
 	res.mixed_layers = len({l for l in res.layers if l <= LAYER_FIRST_INSTANCE}) > 1
+	res.has_framework = LAYER_FRAMEWORK in res.layers
 	if AUTHORITY not in res.sentence_holders and _CITES.search(text or ""):
 		res.sentence_holders_extra = [AUTHORITY]
 	order: list[str] = []

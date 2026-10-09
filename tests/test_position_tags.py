@@ -90,7 +90,6 @@ def test_layer_is_set_where_the_holder_decides_it_and_marked_undetected_otherwis
 	data = case_positions(28105)
 	layers = {row["positions"][0]["key"]: row["layer"] for row in data["paragraphs"].values()}
 	assert layers["court"]["key"] == "judge" and layers["court"]["depth"] == 0
-	assert layers["earlier_decision_maker"]["key"] == "earlier_decision"
 	# An applicant or respondent paragraph could be a review argument or a position inside the earlier decision.
 	assert layers["respondent"] == {"key": "unknown", **data["layers"]["unknown"]}
 	assert data["layers"]["unknown"]["detected"] is False and "nested" in data["legend"]

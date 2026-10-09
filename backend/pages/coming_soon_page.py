@@ -140,7 +140,8 @@ def _overview() -> str:
 		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. '
 		'What comes next is in three parts: better data, which improves every page at once; new features built on that data; and the groundwork a deployment inside the Agency would need. '
 		'Each item says honestly how far it has got and, where it helps, what existing tools offer today.</p>'
-		'<div class="note"><strong>Take the guided preview.</strong> A short, paced tour of what is coming: a larger reference library, profiles and teams, and a future local AI layer, drawn in the site\'s own look. <a href="/coming-soon-preview" target="_top"><strong>Start the preview &rarr;</strong></a></div>'
+		'<div class="note"><strong>Take the guided preview.</strong> A short, paced tour of what is coming: a larger reference library, profiles and teams, and a future local AI layer, drawn in the site\'s own look. <a href="/coming-soon-preview" target="_top"><strong>Start the preview &rarr;</strong></a></div>',
+		'<div class="note"><strong>Try the demos.</strong> Seven working demos you can click through on fixed, invented data: the reference library, smarter tags, coverage, Supreme Court data, profiles and teams, and two future local-AI ideas (an argument breakdown and a live document reader). <a href="/data-explorer?tab=roadmap-demos&amp;group=roadmap" target="_top"><strong>Open the demos &rarr;</strong></a></div>'
 		f'<div class="note">{_RULE}</div></header>'
 		f'<section id="areas"><h2>{len(ORDER) - 1} areas in three parts</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
 		f'{parts}</section>'
@@ -167,6 +168,24 @@ def _pager(slug: str) -> str:
 	return f'<nav class="pager" aria-label="Coming soon areas">{"".join(links)}</nav>'
 
 
+_DEMO_LINKS = {
+	"accuracy": [("tags", "Smarter tags", "pick a tag and see the exact words it matched")],
+	"expansion": [("library", "Reference library", "search the law and see the decisions and guidance tied to a paragraph"), ("coverage", "Coverage", "choose sources and years and run a pretend daily update"), ("scc", "Supreme Court expansion", "factums and interveners beside what the Court decided")],
+	"intelligence": [("tags", "Smarter tags", "pick a tag and see the exact words it matched"), ("ai", "Argument breakdown", "a decision split into positions, issues and citations")],
+	"fc-files": [("coverage", "Coverage", "choose sources and years and run a pretend daily update")],
+	"team": [("teams", "Profiles and teams", "sign in, join a team, share an insight, comment on a draft")],
+	"local-ai": [("ai", "Argument breakdown", "a decision split into positions, issues and citations"), ("reader", "Live document reader", "a memo read beside its authorities")],
+}
+
+
+def _demo_note(slug: str) -> str:
+	links = _DEMO_LINKS.get(slug)
+	if not links:
+		return ""
+	items = "; ".join(f'<a href="/coming-soon-demo#{key}" target="_top"><strong>{_e(label)}</strong></a> ({_e(what)})' for key, label, what in links)
+	return f'<div class="note"><strong>See it working.</strong> Click through a demo on fixed, invented data: {items}.</div>'
+
+
 def _section_page(slug: str) -> str:
 	area = SECTIONS[slug]
 	rows = "".join(
@@ -176,7 +195,7 @@ def _section_page(slug: str) -> str:
 	note = f'<div class="note">{_e(area["note"])}</div>' if area.get("note") else ""
 	body = (
 		f'<header><p class="eyebrow">Coming soon · {_e(PART_OF[slug])}</p><h1>{_e(area["label"])}</h1><p class="lede">{_e(area["lede"])}</p>'
-		f'<p>{_e(area["why"])}</p>{note}</header>'
+		f'<p>{_e(area["why"])}</p>{note}{_demo_note(slug)}</header>'
 		'<section id="glance"><h2>At a glance</h2><div class="table-wrap"><table class="glance"><thead><tr><th>Item</th><th>Where it stands</th><th>On the site today</th></tr></thead>'
 		f"<tbody>{rows}</tbody></table></div></section>"
 	)

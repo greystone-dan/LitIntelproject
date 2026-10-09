@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iLit: coming soon demos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<style>
+:root{--surface:#fffef9;--alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#5f6863;--blue:#315d8d;--blue-soft:#e7eef6;--rust:#a4412b;--rust-soft:#f7e8e3;--teal:#176c68;--teal-soft:#edf5f3;--amber:#8a6418;--amber-soft:#f8f0dc;--ink:#202522;--ai:#3d5aa8;--ai-soft:#f1f4fb;--serif:"Newsreader",Georgia,serif}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#efede4;color:var(--text);font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;min-height:100vh}
+a{color:var(--blue)}
+button{font-family:inherit}
+.top{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
+.top .brand{font-weight:800;letter-spacing:-.03em;font-size:16px;color:var(--text);text-decoration:none}.top .sp{flex:1}
+.top a.exit{font-weight:600;font-size:12.5px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:5px;padding:9px 12px;text-decoration:none}
+body.framed .top{display:none}
+#ribbon{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:7px 14px;background:repeating-linear-gradient(-45deg,#111 0 12px,#f5c400 12px 24px)}
+#ribbon span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:3px;font-size:11.5px;text-align:center}
+body.ai #ribbon{background:repeating-linear-gradient(-45deg,#1d2a4a 0 12px,#5b7fc7 12px 24px)}body.ai #ribbon span{background:#1d2a4a;color:#cfdcff}
+.wrap{max-width:1360px;margin:0 auto;padding:16px 18px 40px}
+#dnav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+#dnav button{padding:9px 14px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text);font:600 13px/1 inherit;font-family:inherit;cursor:pointer}
+#dnav button:hover{border-color:var(--text)}
+#dnav button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+#dnav button.ai{border-color:var(--ai);color:var(--ai)}#dnav button.ai.on{background:var(--ai);color:#fff}
+#dnav .sep{width:1px;background:var(--border);margin:0 4px}
+.intro{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+.intro h1{margin:0;font:600 28px/1.15 var(--serif)}.intro p{margin:4px 0 0;max-width:70ch;font-size:15px;color:var(--text)}
+.intro .grow{flex:1;min-width:260px}
+.chip{display:inline-block;padding:1px 9px;border-radius:10px;font-size:11px;font-weight:700;white-space:nowrap;vertical-align:1px}
+.c-built{background:var(--teal-soft);color:var(--teal)}.c-mock{background:var(--amber-soft);color:var(--amber)}.c-ai{background:#1d2a4a;color:#dbe5ff}.c-grey{background:#ecebe4;color:var(--muted)}.c-blue{background:var(--blue-soft);color:var(--blue)}.c-rust{background:var(--rust-soft);color:var(--rust)}
+.pane{border:1px solid var(--border);border-radius:8px;background:var(--surface);padding:14px 16px}
+.pane h3{margin:0 0 8px;font:600 18px var(--serif)}
+.pane h4{margin:0 0 6px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.mut{color:var(--muted);font-size:12.5px}
+.row{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid #ecebe4;flex-wrap:wrap}.row:first-child{border-top:0}.row .grow{flex:1;min-width:120px}
+.btn{display:inline-block;padding:7px 14px;border-radius:5px;border:1px solid var(--ink);background:var(--ink);color:#fff;font:600 12.5px/1.2 inherit;font-family:inherit;cursor:pointer;text-decoration:none}
+.btn:hover{background:#a4412b;border-color:#a4412b}.btn.ghost{background:#fff;color:var(--ink);border-color:var(--border)}.btn.ghost:hover{border-color:var(--ink);background:#fff;color:var(--ink)}.btn.sm{padding:4px 9px;font-size:11.5px}.btn[disabled]{opacity:.45;cursor:default}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#fff}.seg button{padding:6px 11px;border:0;border-right:1px solid var(--border);background:#fff;font:600 12px/1 inherit;font-family:inherit;color:var(--muted);cursor:pointer}.seg button:last-child{border-right:0}.seg button.on{background:var(--ink);color:#fff}
+.fc{padding:4px 11px;border:1px solid var(--border);border-radius:999px;background:#fff;font:600 12px/1.2 inherit;font-family:inherit;cursor:pointer;color:var(--text)}.fc.on{background:var(--teal-soft);border-color:var(--teal);color:var(--teal)}.fc:hover{border-color:var(--text)}
+input[type=text],input[type=search],textarea,select{font:inherit;padding:8px 10px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--text);width:100%}
+textarea{resize:vertical;min-height:70px}
+input:focus,textarea:focus,select:focus,button:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:11.5px;flex:0 0 auto}.avatar.t{background:var(--teal-soft);color:var(--teal)}.avatar.a{background:var(--amber-soft);color:var(--amber)}.avatar.b{width:48px;height:48px;font-size:15px}
+.cmt{display:flex;gap:9px;margin-top:10px;font-size:13px}.cmt .bub{flex:1;padding:8px 10px;border-radius:6px;background:var(--alt);border:1px solid #ecebe4}.cmt .bub.new{animation:fade .6s ease both;border-color:var(--teal)}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.flash{animation:flash 1.4s ease}@keyframes flash{0%,40%{background:#fbe7a1}100%{background:transparent}}
+mark{background:#fbe7a1;padding:0 2px;border-radius:2px}mark.sel{background:#f5c400}
+.doc{font-family:var(--serif);font-size:16px;line-height:1.6}
+.empty{padding:26px 14px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:8px;background:var(--alt)}
+.bars{display:flex;align-items:flex-end;gap:5px;height:90px;padding-top:6px}.bars .c{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;height:100%;min-width:0}.bars .c i{display:block;background:var(--teal);border-radius:2px 2px 0 0;min-height:2px}.bars .c i.f{background:#f5c400;border-radius:0}.bars-x{display:flex;gap:5px;font-size:10.5px;color:var(--muted)}.bars-x span{flex:1;text-align:center;min-width:0;overflow:hidden}
+.hb{display:grid;grid-template-columns:90px 1fr 80px;gap:8px;align-items:center;font-size:12.5px;padding:3px 0}.hb .t{height:12px;border-radius:3px;background:#ecebe4;overflow:hidden}.hb .t i{display:block;height:100%;background:var(--teal)}
+.sitehd{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px 8px 0 0}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:12px;flex-wrap:wrap}.tabs button{padding:9px 14px;border:0;border-bottom:2px solid transparent;background:none;font:600 12.5px/1 inherit;font-family:inherit;letter-spacing:.04em;color:var(--muted);cursor:pointer}.tabs button.on{color:var(--text);border-bottom-color:var(--text)}.tabs button:hover{color:var(--text)}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:90;padding:10px 16px;border-radius:8px;background:var(--ink);color:#fff;font-size:13px;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:calc(100vw - 30px);animation:fade .25s ease both}
+.lay{display:grid;grid-template-columns:260px minmax(0,1fr) 300px;gap:0;border:1px solid var(--border);border-radius:8px;background:var(--surface);overflow:hidden;min-height:480px}
+.lay>div{padding:14px 16px;min-width:0}.lay>div+div{border-left:1px solid var(--border)}
+.lay .side{background:var(--alt)}
+.item{display:block;width:100%;text-align:left;padding:8px 10px;border:1px solid transparent;border-radius:6px;background:none;font:inherit;color:var(--text);cursor:pointer}.item:hover{background:#fff;border-color:var(--border)}.item.on{background:#fff;border-color:var(--teal);box-shadow:inset 3px 0 0 var(--teal)}
+.item small{display:block;color:var(--muted);font-size:11.5px}
+.sp{height:8px}
+.p-r{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:9px 8px 9px 8px;border-left:4px solid transparent;border-radius:4px;cursor:pointer;transition:opacity .2s}.p-r:hover{background:var(--alt)}.p-r.sel{background:#f1f4fb;border-left-color:var(--ai)!important}.p-r.dim{opacity:.28}
+.p-r .no{color:var(--muted);font-weight:600;font-size:12.5px;padding-top:2px}.p-r .txt{font-family:var(--serif);font-size:15.5px;line-height:1.55}
+.p-r.court{border-left-color:var(--teal)}.p-r.resp{border-left-color:var(--rust)}.p-r.app{border-left-color:var(--blue)}.p-r.below{border-left-color:var(--amber)}.p-r.nol{border-left-color:transparent}
+.sec{margin:12px 0 4px;padding:6px 8px;font:700 13px var(--serif);letter-spacing:.05em;text-transform:uppercase;background:var(--alt);border-radius:4px}
+.pos{padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;margin-right:6px;font-family:"IBM Plex Sans",sans-serif;display:inline-block}.pos.court{background:var(--teal-soft);color:var(--teal)}.pos.resp{background:var(--rust-soft);color:var(--rust)}.pos.app{background:var(--blue-soft);color:var(--blue)}.pos.below{background:var(--amber-soft);color:var(--amber)}.pos.evid{background:#ecebe4;color:var(--muted)}
+.sum{margin-top:5px;padding:5px 9px;border-radius:5px;background:var(--ai-soft);font:13px/1.45 "IBM Plex Sans",sans-serif}
+.prop{margin-top:5px;padding:5px 9px;border:1px solid #dbe3f3;border-radius:5px;background:#fff;font:12.5px/1.4 "IBM Plex Sans",sans-serif}.prop b{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ai)}
+.cite{display:inline-block;padding:1px 8px;border:1px solid var(--ai);border-radius:4px;background:var(--ai-soft);color:#1d2a4a;font:600 12px "IBM Plex Sans",sans-serif;cursor:pointer}.cite:hover,.cite.on{background:var(--ai);color:#fff}
+.fn{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:10px;background:#1d2a4a;color:#dbe5ff;font:700 11px "IBM Plex Sans",sans-serif}
+.blk{margin-top:8px;padding:8px 11px;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:5px;background:#fff;font-size:13px}.blk.resp{border-left-color:var(--rust)}.blk.app{border-left-color:var(--blue)}.blk.issue{border-left-color:#1d2a4a;background:var(--ai-soft)}.blk.below{border-left-color:var(--amber)}
+.blk b.k{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.limits{margin-top:12px;padding:10px 14px;border:1px solid var(--text);border-radius:6px;background:var(--alt);font-size:13px}.limits b{font-family:var(--serif);font-size:15px}
+.lk{color:var(--blue);cursor:pointer;text-decoration:underline;background:none;border:0;padding:0;font:inherit}
+@media(max-width:900px){.lay{grid-template-columns:minmax(0,1fr)!important}.sitehd{flex-wrap:wrap}.two,.three{grid-template-columns:minmax(0,1fr)!important}.lay>div+div{border-left:0;border-top:1px solid var(--border)}.two,.three{grid-template-columns:1fr}.wrap{padding:12px 12px 30px}.intro h1{font-size:23px}}
+</style>
+</head>
+<body>
+<header class="top"><a class="brand" href="/data-explorer?tab=about&amp;group=info">ILIT</a><span class="sp" style="flex:1"></span><a class="exit" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Back to Coming soon</a></header>
+<div id="ribbon" role="note"></div>
+<div class="wrap">
+<nav id="dnav" aria-label="Demos"></nav>
+<main id="demo"></main>
+</div>
+<div id="toast" hidden></div>
+<script>
+(function(){
+'use strict';
+var TABS=[['home','Start here',0],['library','Reference library',0],['tags','Smarter tags',0],['coverage','Coverage',0],['teams','Profiles and teams',0],['ai','Argument breakdown',1],['reader','Live document reader',1],['scc','Supreme Court expansion',0]];
+var S={tab:'home'};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function chip(k){return {mock:'<span class="chip c-mock">Mock-up</span>',real:'<span class="chip c-built">Real screen</span>',ai:'<span class="chip c-ai">Future local AI · mock-up</span>'}[k];}
+function toast(msg){var t=document.getElementById('toast');t.className='toast';t.textContent=msg;t.hidden=false;if(document.body.classList.contains('framed')){t.style.position='absolute';t.style.bottom='auto';t.style.top=Math.max(10,(window.__cy||200)-80)+'px';}clearTimeout(toast.h);toast.h=setTimeout(function(){t.hidden=true;},2600);}
+function head(title,lead,kind,extra){return '<div class="intro"><div class="grow"><div>'+chip(kind)+'</div><h1>'+title+'</h1><p>'+lead+'</p></div><div style="display:flex;gap:8px;flex-wrap:wrap">'+(extra||'')+'<button type="button" class="btn ghost" data-a="reset">Reset this demo</button></div></div>';}
+function seg(name,opts,cur){return '<span class="seg">'+opts.map(function(o){return '<button type="button" data-a="'+name+'" data-v="'+o[0]+'" class="'+(cur===o[0]?'on':'')+'">'+o[1]+'</button>';}).join('')+'</span>';}
+function fcs(name,opts,cur){return opts.map(function(o){return '<button type="button" class="fc'+(cur===o[0]?' on':'')+'" data-a="'+name+'" data-v="'+o[0]+'">'+o[1]+'</button>';}).join(' ');}
+function initials(n){return n.split(/[ .]+/).filter(Boolean).map(function(x){return x[0];}).join('').slice(0,2).toUpperCase();}
+
+/* ================= shared fictional decisions ================= */
+var NAMES=['Alder','Bernier','Castellan','Dumont','Eskander','Fontaine','Gagnon','Haddad','Iversen','Jovanovic','Kowalski','Lefebvre'];
+var YEARS=[2024,2023,2023,2022,2022,2021,2021,2020,2019,2019,2018,2018];
+var COURTS=['FC','FC','FC','FCA','FC','FC','FCA','FC','SCC','FC','FC','FCA'];
+var OUT=['Allowed','Dismissed','Allowed','Dismissed','Dismissed','Allowed','Dismissed','Allowed','Dismissed','Dismissed','Allowed','Dismissed'];
+function decisionsFor(k){var o=[];for(var i=0;i<12;i++){var j=(i+k*3)%12;o.push({name:NAMES[j]+' v. Canada',cite:(YEARS[i]+' '+COURTS[i]+' '+(100+((j*97+k*131+i*17)%900))),year:YEARS[i],court:COURTS[i],out:OUT[(i+k)%12],para:['a','b','c','a','b','a','c','b','a','c','b','a'][(i+k)%12]});}return o;}
+
+/* ================= 1. REFERENCE LIBRARY ================= */
+var LIB_ITEMS=[
+ {id:'33',kind:'act',n:'33',t:'Rules of interpretation',paras:{a:'The facts that constitute inadmissibility under sections 34 to 37 include facts arising from omissions and, unless otherwise provided, include facts for which there are reasonable grounds to believe that they have occurred, are occurring or may occur.'}},
+ {id:'34',kind:'act',n:'34',t:'Security',paras:{a:'34 (1) A permanent resident or a foreign national is inadmissible on security grounds for (a) engaging in an act of espionage that is against Canada or that is contrary to Canada’s interests; (b) engaging in or instigating the subversion by force of any government; (c) engaging in terrorism; (d) being a danger to the security of Canada; (e) engaging in acts of violence that would or might endanger the lives or safety of persons in Canada; or',b:'(f) being a member of an organization that there are reasonable grounds to believe engages, has engaged or will engage in acts referred to in paragraph (a), (b), (b.1) or (c).',c:'(2) The matters referred to in subsection (1) do not constitute inadmissibility in respect of a permanent resident or a foreign national who satisfies the Minister that their presence in Canada would not be detrimental to the national interest.'}},
+ {id:'35',kind:'act',n:'35',t:'Human or international rights violations',paras:{a:'35 (1) A permanent resident or a foreign national is inadmissible on grounds of violating human or international rights for (a) committing an act outside Canada that constitutes an offence referred to in sections 4 to 7 of the Crimes Against Humanity and War Crimes Act; (b) being a prescribed senior official in the service of a government that engages or has engaged in terrorism, systematic or gross human rights violations, or genocide, a war crime or a crime against humanity; …'}},
+ {id:'36',kind:'act',n:'36',t:'Serious criminality',paras:{a:'36 (1) A permanent resident or a foreign national is inadmissible on grounds of serious criminality for (a) having been convicted in Canada of an offence under an Act of Parliament punishable by a maximum term of imprisonment of at least 10 years, or of an offence for which a term of imprisonment of more than six months has been imposed; …'}},
+ {id:'37',kind:'act',n:'37',t:'Organized criminality',paras:{a:'37 (1) A permanent resident or a foreign national is inadmissible on grounds of organized criminality for (a) being a member of an organization that is believed on reasonable grounds to be or to have been engaged in activity that is part of a pattern of criminal activity planned and organized by a number of persons acting in concert; or (b) engaging, in the context of transnational crime, in activities such as people smuggling, trafficking in persons or laundering of money or other proceeds of crime.'}},
+ {id:'38',kind:'act',n:'38',t:'Health grounds',paras:{a:'38 (1) A foreign national is inadmissible on health grounds if their health condition (a) is likely to be a danger to public health; (b) is likely to be a danger to public safety; or (c) might reasonably be expected to cause excessive demand on health or social services.'}},
+ {id:'72',kind:'act',n:'72',t:'Judicial review',paras:{a:'72 (1) Judicial review by the Federal Court with respect to any matter — a decision, determination or order made, a measure taken or a question raised — under this Act is commenced by making an application for leave to the Court.'}},
+ {id:'g1',kind:'guid',n:'OB 5',t:'Operational bulletin: Inadmissibility (invented)',paras:{a:'Invented text for the demo. Officers consider the nature of the organization and the person’s involvement when assessing membership, and record the reasons for the finding.'}},
+ {id:'g2',kind:'guid',n:'PDI',t:'Delivery instruction: Judicial review (invented)',paras:{a:'Invented text for the demo. Explains how the standard of review is described in submissions, and who prepares the record.'}},
+ {id:'r1',kind:'rules',n:'RPD',t:'Tribunal rules: Refugee Protection Division (placeholder)',paras:{a:'Placeholder for the demo. The tribunal rules would sit here with the same links to decisions that apply them.'}}
+];
+var GUIDE={ '34':[['Operational bulletin','OB 5 · Inadmissibility (invented)','Invented excerpt: membership is read broadly, but the officer records the nature of the organization and what the person did.'],['Delivery instruction','PDI · Security screening (invented)','Invented excerpt: how a security referral is prepared and what the file must contain.']],'72':[['Delivery instruction','PDI · Judicial review (invented)','Invented excerpt: deadlines for the application for leave and who serves the record.']],'36':[['Operational bulletin','OB 9 · Serious criminality (invented)','Invented excerpt: how a foreign conviction is compared with a Canadian offence.']]};
+var VERS=['2013-06-19 (current)','2012-12-15','2010-06-29','2002-06-28'];
+function libInit(){return {q:'',type:'all',sel:'34',para:'',tab:'dec',court:'all',out:'all',sort:'new',ver:0,open:{}};}
+S.lib=libInit();
+function libItem(){return LIB_ITEMS.filter(function(x){return x.id===S.lib.sel;})[0];}
+function renderLibrary(){var L=S.lib,it=libItem();
+ var items=LIB_ITEMS.filter(function(x){return (L.type==='all'||x.kind===L.type)&&(!L.q||(x.n+' '+x.t+' '+Object.keys(x.paras).map(function(k){return x.paras[k];}).join(' ')).toLowerCase().indexOf(L.q.toLowerCase())>=0);});
+ var list=items.length?items.map(function(x){return '<button type="button" class="item'+(x.id===L.sel?' on':'')+'" data-a="libsel" data-v="'+x.id+'"><b>'+esc(x.n)+'</b> '+esc(x.t)+'<small>'+{act:'Act',guid:'Guidance',rules:'Tribunal rules'}[x.kind]+'</small></button>';}).join(''):'<div class="empty">Nothing matches &ldquo;'+esc(L.q)+'&rdquo;. Try &ldquo;member&rdquo; or &ldquo;judicial&rdquo;.</div>';
+ var ids=Object.keys(it.paras),text=ids.map(function(k){var cur=L.para===k;return '<p data-a="libpara" data-v="'+k+'" style="cursor:pointer;padding:6px 8px;border-radius:5px;'+(cur?'background:#fbe7a1':'')+'" title="Select this paragraph">'+esc(it.paras[k])+'</p>';}).join('');
+ var decs=decisionsFor(Number(it.n)||1).filter(function(d){return (L.court==='all'||d.court===L.court)&&(L.out==='all'||d.out===L.out)&&(!L.para||d.para===L.para);}).sort(function(a,b){return L.sort==='new'?b.year-a.year:a.year-b.year;});
+ var yrs={};decs.forEach(function(d){yrs[d.year]=(yrs[d.year]||0)+1;});var ys=[2018,2019,2020,2021,2022,2023,2024],mx=Math.max.apply(null,ys.map(function(y){return yrs[y]||0;}).concat([1]));
+ var right='';
+ if(it.kind!=='act'){right='<div class="empty">Decisions are linked to sections of the Act. Pick a section such as 34 to see them.</div>';}
+ else if(L.tab==='dec'){right='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">'+fcs('libcourt',[['all','All courts'],['FC','FC'],['FCA','FCA'],['SCC','SCC']],L.court)+'</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px">'+fcs('libout',[['all','Any outcome'],['Allowed','Allowed'],['Dismissed','Dismissed']],L.out)+' '+seg('libsort',[['new','Newest'],['old','Oldest']],L.sort)+'</div>'+
+  '<b style="font:700 26px var(--serif)">'+decs.length+'</b> <span class="mut">decision'+(decs.length===1?'':'s')+' cite '+(L.para?'this paragraph':'this section')+'</span><div class="bars">'+ys.map(function(y){return '<div class="c" title="'+y+': '+(yrs[y]||0)+'"><i style="height:'+Math.round((yrs[y]||0)/mx*100)+'%"></i></div>';}).join('')+'</div><div class="bars-x">'+ys.map(function(y){return '<span>'+String(y).slice(2)+'</span>';}).join('')+'</div>'+
+  (decs.length?decs.map(function(d){return '<div class="row"><span class="grow"><b>'+esc(d.name)+'</b><br><span class="mut">'+d.cite+'</span></span><span class="chip '+(d.out==='Allowed'?'c-built':'c-grey')+'">'+d.out+'</span><button type="button" class="btn ghost sm" data-a="open" data-v="'+esc(d.name)+'">Open</button></div>';}).join(''):'<div class="empty" style="margin-top:8px">No decisions match these filters. Clear a filter or choose another paragraph.</div>');}
+ else if(L.tab==='gd'){var g=GUIDE[it.id]||[];right=g.length?g.map(function(x,i){var o=L.open[it.id+i];return '<div class="pane" style="margin-bottom:8px;padding:10px 12px"><div style="display:flex;gap:8px;align-items:center"><span class="chip c-blue">'+x[0]+'</span><b class="grow">'+esc(x[1])+'</b><button type="button" class="btn ghost sm" data-a="libopen" data-v="'+it.id+i+'">'+(o?'Hide':'Read')+'</button></div>'+(o?'<p class="mut" style="margin:8px 0 0">'+esc(x[2])+'</p>':'')+'</div>';}).join(''):'<div class="empty">No guidance is linked to section '+esc(it.n)+' in this demo.</div>';}
+ else {right='<label class="mut" for="libver">Version in force</label><select id="libver" data-i="libver">'+VERS.map(function(v,i){return '<option value="'+i+'"'+(L.ver===i?' selected':'')+'>'+v+'</option>';}).join('')+'</select><p class="mut" style="margin-top:10px">'+(L.ver===0?'This is the text shown. Earlier versions would be kept so an old decision can be read against the law as it stood.':'Showing the law as it stood from '+VERS[L.ver].split(' ')[0]+'. In this demo only the current wording is filled in.')+'</p>';}
+ return head('Statute and reference library','Search the law, pick a section, select a paragraph, and see the decisions and guidance tied to it. Everything here is fixed demo data.','mock')+
+ '<div class="lay"><div class="side"><input type="search" id="libq" data-i="libq" placeholder="Search the library" value="'+esc(L.q)+'" aria-label="Search the library"><div style="display:flex;gap:6px;flex-wrap:wrap;margin:8px 0">'+fcs('libtype',[['all','All'],['act','Act'],['guid','Guidance'],['rules','Tribunal rules']],L.type)+'</div>'+list+'</div>'+
+ '<div><div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap"><b style="font:700 22px var(--serif)">'+esc(it.n)+' '+esc(it.t)+'</b><span class="chip c-grey">in force</span></div><div class="doc" style="margin-top:8px">'+text+'</div><p class="mut">Text shortened for the demo, not a legal source. Select a paragraph to narrow the decisions.</p></div>'+
+ '<div><div class="tabs" style="margin-bottom:10px"><button type="button" data-a="libtab" data-v="dec" class="'+(L.tab==='dec'?'on':'')+'">DECISIONS</button><button type="button" data-a="libtab" data-v="gd" class="'+(L.tab==='gd'?'on':'')+'">GUIDANCE</button><button type="button" data-a="libtab" data-v="ver" class="'+(L.tab==='ver'?'on':'')+'">VERSIONS</button></div>'+right+'</div></div>';}
+
+/* ================= 2. SMARTER TAGS ================= */
+var TAGTREE=[
+ {id:'inad',l:1,t:'Inadmissibility',p:['inadmissible']},
+ {id:'sec',l:2,t:'Security',par:'inad',p:['security grounds','danger to the security']},
+ {id:'mem',l:3,t:'Membership in an organization',par:'sec',p:['member of an organization','membership']},
+ {id:'crim',l:2,t:'Serious criminality',par:'inad',p:['serious criminality','convicted']},
+ {id:'pf',l:1,t:'Procedural fairness',p:['procedural fairness','opportunity to respond']},
+ {id:'rea',l:2,t:'Duty to give reasons',par:'pf',p:['adequate reasons','reasons that justify']},
+ {id:'sor',l:1,t:'Standard of review',p:['standard of review','reasonableness']},
+ {id:'pres',l:2,t:'Presumption of reasonableness',par:'sor',p:['presumption of reasonableness','presumptively']},
+ {id:'ev',l:1,t:'Evidence',p:['evidence']},
+ {id:'cred',l:2,t:'Credibility finding',par:'ev',p:['credibility']}];
+var TAGDEC=[
+ [1,'The applicant says the officer gave no opportunity to respond, which engaged procedural fairness. The officer had concluded that the applicant was inadmissible on security grounds.'],
+ [2,'The Court reviews the finding on the standard of review of reasonableness. The presumption of reasonableness applies unless a recognised exception is shown.'],
+ [3,'The officer found that the applicant was a member of an organization that engaged in violence. Membership was inferred from two public events.'],
+ [4,'The officer did not explain why the evidence of involvement was sufficient. The reasons that justify a decision must be transparent and intelligible.'],
+ [5,'The officer doubted the applicant’s credibility because of omissions in the interview. The credibility finding is entitled to deference.'],
+ [6,'The applicant had been convicted of an offence, but the officer did not turn to serious criminality. The Minister did not rely on that ground.']];
+var TAGLIB=[['Alder v. Canada','2024 FC 211',['mem','pf']],['Bernier v. Canada','2023 FC 804',['sor','pres','cred']],['Castellan v. Canada','2023 FC 1190',['sec','rea']],['Dumont v. Canada','2022 FC 377',['crim']],['Eskander v. Canada','2022 FC 920',['mem','sec','sor']],['Fontaine v. Canada','2021 FC 118',['pf','rea','ev']],['Gagnon v. Canada','2021 FC 1066',['cred','ev']],['Haddad v. Canada','2020 FC 455',['crim','sor','pres']],['Iversen v. Canada','2019 FC 612',['mem','rea','pf']],['Jovanovic v. Canada','2018 FC 98',['inad','sor']]];
+function tagsInit(){return {mode:'det',sel:{},ev:null};}
+S.tags=tagsInit();
+function tagDesc(id){var o=[id];TAGTREE.forEach(function(x){if(x.par===id)o=o.concat(tagDesc(x.id));});return o;}
+function tagHits(tag){var o=[];TAGDEC.forEach(function(d){tag.p.forEach(function(ph){var i=d[1].toLowerCase().indexOf(ph);if(i>=0)o.push({n:d[0],ph:d[1].substr(i,ph.length)});});});return o;}
+function renderTags(){var T=S.tags,sel=Object.keys(T.sel).filter(function(k){return T.sel[k];});
+ var tree=TAGTREE.filter(function(x){return true;}).map(function(x){var hits=tagHits(x),n=new Set(hits.map(function(h){return h.n;})).size;
+  if(T.mode==='flat')return '';
+  return '<button type="button" class="item'+(T.sel[x.id]?' on':'')+'" style="margin-left:'+(x.l-1)*18+'px;width:calc(100% - '+(x.l-1)*18+'px)" data-a="tagsel" data-v="'+x.id+'"><b>'+esc(x.t)+'</b> <span class="chip c-grey" style="float:right">'+n+'</span></button>';}).join('');
+ var flat=T.mode==='flat'?'<div style="display:flex;gap:6px;flex-wrap:wrap">'+TAGTREE.filter(function(x){return x.l===1;}).map(function(x){var n=new Set(tagHits(x).map(function(h){return h.n;})).size;return '<button type="button" class="fc'+(T.sel[x.id]?' on':'')+'" data-a="tagsel" data-v="'+x.id+'">'+esc(x.t)+' '+n+'</button>';}).join('')+'</div><p class="mut" style="margin-top:10px">Flat chips: one word per issue, with a count. They say nothing about which part of the issue, or where.</p>':'';
+ var active=[];sel.forEach(function(id){active=active.concat(TAGTREE.filter(function(x){return x.id===id;}));});
+ var hlmap=[];active.forEach(function(t){t.p.forEach(function(ph){hlmap.push(ph);});});
+ var text=TAGDEC.map(function(d){var h=esc(d[1]);hlmap.forEach(function(ph){h=h.replace(new RegExp('('+ph.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark'+(T.ev===d[0]?' class="sel"':'')+'>$1</mark>');});return '<div class="p-r nol'+(T.ev===d[0]?' flash':'')+'" id="td'+d[0]+'" style="cursor:default"><span class="no">['+d[0]+']</span><span class="txt">'+h+'</span></div>';}).join('');
+ var evid='';active.forEach(function(t){var hits=tagHits(t);evid+='<div class="blk"><b class="k">'+esc(t.t)+' · matched on</b>'+(hits.length?hits.map(function(h){return '<button type="button" class="lk" data-a="tagev" data-v="'+h.n+'">&ldquo;'+esc(h.ph)+'&rdquo; at ['+h.n+']</button>';}).join('; '):'No match in this decision.')+'</div>';});
+ var ids={};sel.forEach(function(id){tagDesc(id).forEach(function(x){ids[x]=1;});});
+ var lib=TAGLIB.filter(function(r){if(!sel.length)return true;return sel.every(function(id){return tagDesc(id).some(function(x){return r[2].indexOf(x)>=0;});});});
+ var chips=function(r){return r[2].map(function(id){var t=TAGTREE.filter(function(x){return x.id===id;})[0];return '<span class="chip c-grey">'+esc(t.t)+'</span>';}).join(' ');};
+ return head('Smarter, more detailed tags','Pick a tag to see exactly which words triggered it in a decision, and to narrow a list of decisions. Fixed rules, so the same decision always gets the same tags.','mock',seg('tagmode',[['flat','Today: flat chips'],['det','Detailed tags']],T.mode))+
+ '<div class="lay" style="grid-template-columns:280px minmax(0,1fr) 320px"><div class="side"><h4 class="mut" style="margin:0 0 8px;text-transform:uppercase;letter-spacing:.07em;font-size:11px">'+(T.mode==='det'?'Tag tree':'Tags')+'</h4>'+tree+flat+(sel.length?'<div style="margin-top:10px"><button type="button" class="btn ghost sm" data-a="tagclear">Clear selection</button></div>':'')+'</div>'+
+ '<div><div class="mut" style="margin-bottom:6px">Invented decision · highlighted words are what the selected tag matched'+(T.mode==='flat'?' (switch to Detailed tags to select and see evidence)':'')+'</div>'+text+'</div>'+
+ '<div><h4 class="mut" style="margin:0 0 6px;text-transform:uppercase;letter-spacing:.07em;font-size:11px">'+(sel.length?'Evidence':'Evidence')+'</h4>'+(evid||'<div class="empty">Select a tag on the left to see the words it matched.</div>')+
+ '<h4 class="mut" style="margin:14px 0 6px;text-transform:uppercase;letter-spacing:.07em;font-size:11px">Decisions in the library · '+lib.length+'</h4>'+(lib.length?lib.map(function(r){return '<div class="row" style="padding:6px 0"><span class="grow"><b>'+r[0]+'</b> <span class="mut">'+r[1]+'</span><br>'+chips(r)+'</span></div>';}).join(''):'<div class="empty">No decision carries all of the selected tags. Clear one.</div>')+'</div></div>';}
+
+/* ================= 3. COVERAGE ================= */
+var SRC=[['FC','Federal Court','2001',96,'Oct 8',34],['FCA','Federal Court of Appeal','2001',81,'Oct 8',18],['SCC','Supreme Court of Canada','1876',34,'Oct 8',22],['RPD','Refugee Protection Division','2012',62,'Oct 5',0],['RAD','Refugee Appeal Division','2013',45,'Oct 5',0],['IAD','Immigration Appeal Division','',0,'',0],['ID','Immigration Division','',0,'',0]];
+function covInit(){return {on:{FC:1,FCA:1,SCC:1,RPD:1,RAD:1},from:2014,to:2025,fr:false,row:null,log:['Library opened.'],bump:{}};}
+S.cov=covInit();
+function covCount(code,y){var i=SRC.map(function(s){return s[0];}).indexOf(code),base=SRC[i][3];if(!base)return 0;var v=Math.round(base*(8+((y*7+i*13)%9))*(1+(y-2010)*0.03));return v+(S.cov.bump[code+y]||0);}
+function renderCoverage(){var C=S.cov,ys=[];for(var y=C.from;y<=C.to;y++)ys.push(y);
+ var codes=SRC.filter(function(s){return C.on[s[0]]&&s[3];}).map(function(s){return s[0];});
+ var totals=ys.map(function(y){var t=0;codes.forEach(function(c){t+=covCount(c,y);});return t;}),mx=Math.max.apply(null,totals.concat([1])),sum=totals.reduce(function(a,b){return a+b;},0);
+ var fr=0;if(C.fr){codes.forEach(function(c){var s=SRC.filter(function(x){return x[0]===c;})[0];ys.forEach(function(y){fr+=Math.round(covCount(c,y)*s[5]/100);});});}
+ var yopt=function(cur){var o='';for(var y=2010;y<=2025;y++)o+='<option value="'+y+'"'+(cur===y?' selected':'')+'>'+y+'</option>';return o;};
+ var rows=SRC.map(function(s){var total=0;if(s[3])ys.forEach(function(y){total+=covCount(s[0],y);});return '<tr data-a="covrow" data-v="'+s[0]+'" style="border-top:1px solid #ecebe4;cursor:pointer;'+(C.row===s[0]?'background:var(--teal-soft)':'')+'"><td style="padding:8px 6px"><b>'+s[0]+'</b> <span class="mut">'+s[1]+'</span></td><td>'+(s[3]?total.toLocaleString():'<span class="chip c-grey">Not in library</span>')+'</td><td>'+(s[4]||'–')+'</td><td>'+(s[3]?(C.fr?s[5]+'%':'<span class="mut">hidden</span>'):'–')+'</td></tr>';}).join('');
+ var d='';if(C.row){var s=SRC.filter(function(x){return x[0]===C.row;})[0];d=s[3]?'<div class="pane" style="margin-top:12px"><h3>'+esc(s[1])+'</h3><dl style="display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0"><dt class="mut">Earliest year</dt><dd style="margin:0">'+s[2]+'</dd><dt class="mut">Last added</dt><dd style="margin:0">'+s[4]+'</dd><dt class="mut">French counterparts</dt><dd style="margin:0">'+s[5]+'% of decisions</dd></dl><p class="mut" style="margin:8px 0 0">All figures here are invented. Today the library holds only a few hundred French decisions; the percentages show what the goal could look like.</p></div>':'<div class="empty" style="margin-top:12px">'+esc(s[1])+' decisions are not in the library yet. They are on the plan once a public source is confirmed.</div>';}
+ return head('Coverage, kept current','Choose which sources count, narrow the years, include French counterparts, and run a pretend daily update. Counts are invented.','mock','<button type="button" class="btn" data-a="covupd">Run a daily update</button>')+
+ '<div class="three" style="margin-bottom:14px"><div class="pane" style="text-align:center"><b style="font:700 28px var(--serif)">'+sum.toLocaleString()+'</b><div class="mut">decisions in view</div></div><div class="pane" style="text-align:center"><b style="font:700 28px var(--serif)">'+(C.fr?fr.toLocaleString():'–')+'</b><div class="mut">with a French counterpart (illustrative)</div></div><div class="pane" style="text-align:center"><b style="font:700 28px var(--serif)">'+(C.log.length>1?'just now':'Oct 8')+'</b><div class="mut">last updated</div></div></div>'+
+ '<div class="pane" style="margin-bottom:14px"><div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">'+SRC.map(function(s){return '<button type="button" class="fc'+(C.on[s[0]]?' on':'')+'" data-a="covsrc" data-v="'+s[0]+'">'+s[0]+'</button>';}).join(' ')+'<span style="flex:1"></span><label class="mut">From <select data-i="covfrom" style="width:auto;padding:5px 8px">'+yopt(C.from)+'</select></label> <label class="mut">To <select data-i="covto" style="width:auto;padding:5px 8px">'+yopt(C.to)+'</select></label> <label class="mut" style="display:flex;align-items:center;gap:6px"><input type="checkbox" data-i="covfr" '+(C.fr?'checked':'')+' style="width:auto"> French counterparts</label></div>'+
+ (codes.length&&ys.length?'<div class="bars" style="height:140px;margin-top:12px">'+ys.map(function(y,i){return '<div class="c" title="'+y+': '+totals[i].toLocaleString()+'"><i style="height:'+Math.round(totals[i]/mx*100)+'%"></i></div>';}).join('')+'</div><div class="bars-x">'+ys.map(function(y){return '<span>'+(ys.length>9?String(y).slice(2):y)+'</span>';}).join('')+'</div>':'<div class="empty" style="margin-top:12px">'+(ys.length?'Choose at least one source to see the chart.':'The start year is after the end year. Adjust the range.')+'</div>')+'</div>'+
+ '<div class="two" style="grid-template-columns:1.4fr 1fr"><div class="pane"><h4>By source (click a row)</h4><table style="width:100%;border-collapse:collapse;font-size:13px"><tr style="text-align:left;color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase"><th style="padding:4px 6px">Source</th><th>Decisions</th><th>Last added</th><th>French</th></tr>'+rows+'</table></div><div><div class="pane"><h4>Update log</h4>'+C.log.slice().reverse().map(function(l){return '<div class="row" style="padding:5px 0;font-size:12.5px">'+esc(l)+'</div>';}).join('')+'</div>'+d+'</div></div>';}
+
+/* ================= HOME ================= */
+function renderHome(){var cards=[['library','Reference library','Search the law, select a paragraph, see the decisions and guidance tied to it.','mock'],['tags','Smarter tags','Pick a tag and see the exact words that triggered it. Filter a list of decisions by tag.','mock'],['coverage','Coverage','Choose sources and years, include French counterparts, run a pretend daily update.','mock'],['teams','Profiles and teams','Sign in, join a team, share an insight, pin a decision, comment on a shared draft.','mock'],['ai','Argument breakdown','A decision split into positions, propositions, issues and citations, then read as a story.','ai'],['reader','Live document reader','A memo split into issue and arguments, each beside its authority.','ai'],['scc','Supreme Court expansion','Factums, interveners and hearing material beside the decision: what was argued versus what the Court said.','mock']];
+ return '<div class="intro"><div class="grow"><h1>Try what is coming</h1><p>Seven working demos, drawn in the site&rsquo;s own look. They run on fixed, invented data in your browser. Nothing here reads the library, signs anyone in, or calls an AI. Every demo says whether it is a mock-up or a future local-AI idea.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="/coming-soon-preview" target="_top">&#9654; Take the guided Coming soon tour</a></div></div>'+
+ '<div class="three">'+cards.map(function(c){return '<button type="button" class="pane item" style="padding:16px" data-a="go" data-v="'+c[0]+'"><div>'+chip(c[3])+'</div><h3 style="margin-top:8px">'+c[1]+'</h3><p class="mut" style="margin:0;font-size:13.5px">'+c[2]+'</p><span class="lk" style="margin-top:8px;display:inline-block">Open the demo &rarr;</span></button>';}).join('')+'</div>'+
+ '<div class="pane" style="margin-top:14px"><h4>How to read these demos</h4><div class="row"><span class="chip c-mock">Mock-up</span><span class="grow">Works without AI. A picture of what the site could do, with invented names and figures.</span></div><div class="row"><span class="chip c-ai">Future local AI · mock-up</span><span class="grow">Would need a private model running on the agency&rsquo;s own machine. Not built, not on the site, and the accuracy figures come from small early tests that no lawyer has checked.</span></div></div>';}
+
+/* ================= 4. PROFILES AND TEAMS ================= */
+var PINDEC=[['d1','Alder v. Canada','2024 FC 211','Membership after an organization stopped operating'],['d2','Bernier v. Canada','2023 FC 804','Presumption of reasonableness'],['d3','Castellan v. Canada','2023 FC 1190','Reasons for a security finding'],['d4','Dumont v. Canada','2022 FC 377','Serious criminality and a foreign conviction'],['d5','Eskander v. Canada','2022 FC 920','Standard of review on judicial review']];
+var DOCP=['1. The tribunal must be satisfied on reasonable grounds that the organization engaged in the acts described. The Court has read “member” broadly.','2. On these facts, the evidence of involvement was thin. The applicant attended two public events and held no office.','3. The finding of membership was therefore unreasonable, because it rests on the organization’s aims and not on anything the applicant did.'];
+function teamsInit(){return {stage:'signin',me:'A. Morin',cur:null,joined:{},tab:'feed',doc:null,comp:null,showRes:false,flash:'',
+ teams:{s34:{name:'Section 34 files',lead:'R. Caron',members:[['R. Caron','Lead'],['L. Bouchard','Analyst'],['J. Dunn','Analyst'],['M. Pelletier','Analyst'],['S. Kaur','Analyst'],['T. Lavoie','Analyst']],
+  feed:[{who:'R. Caron',when:'today',txt:'Pinned Alder v. Canada: useful on membership once an organization stopped operating.',vis:'team'},{who:'L. Bouchard',when:'yesterday',txt:'Shared a search: section 34(1)(f), Federal Court, last 3 years, allowed.',vis:'team'},{who:'J. Dunn',when:'Monday',txt:'Tag note: two decisions tagged “membership” are really about complicity.',vis:'team'}],
+  pins:{d1:{by:'R. Caron',note:'Paragraphs 38 to 44.',vis:'team'},d3:{by:'L. Bouchard',note:'',vis:'team'}},
+  hasDoc:true,comments:[{id:1,p:0,who:'R. Caron',txt:'Add the recent line of cases that narrows this.',res:false,rep:[{who:'L. Bouchard',txt:'Agree. I pinned two in the team space.'}]},{id:2,p:1,who:'J. Dunn',txt:'Cite the record page for the evidence.',res:false,rep:[]},{id:3,p:2,who:'M. Pelletier',txt:'Should we address s. 34(2) as well?',res:false,rep:[]}]},
+ det:{name:'Detention reviews',lead:'P. Roy',members:[['P. Roy','Lead'],['N. Tremblay','Analyst'],['D. Sauvé','Analyst']],feed:[],pins:{},hasDoc:false,comments:[]}}};}
+S.tm=teamsInit();
+function team(){return S.tm.teams[S.tm.cur];}
+var nextId=10;
+function renderTeams(){var T=S.tm,h='';
+ if(T.stage==='signin'){return head('Profiles and teams','Sign in, join a team, share what you find, and comment on a shared draft. A pretend agency sign-in: nothing is sent anywhere.','mock')+
+ '<div class="two" style="max-width:900px;margin:0 auto"><div class="pane"><div style="font:700 26px var(--serif)">ILIT</div><div class="mut">Immigration Litigation Intelligence System</div><h3 style="margin-top:16px">Sign in</h3><label class="mut" for="who">Pretend to be</label><select id="who" data-i="tmme"><option'+(T.me==='A. Morin'?' selected':'')+'>A. Morin</option><option'+(T.me==='S. Kaur'?' selected':'')+'>S. Kaur</option><option'+(T.me==='T. Lavoie'?' selected':'')+'>T. Lavoie</option></select><div class="sp"></div><button type="button" class="btn" style="width:100%;padding:11px" data-a="tmsign">Continue with your agency account</button><p class="mut" style="margin:10px 0 0">Today the Workbench uses a demo sign-in with no password. Real sign-in would need agency approval.</p></div>'+
+ '<div class="pane"><h4>What changes once you are signed in</h4><div class="row"><span class="grow">Your lists, pins and notes</span><span class="chip c-built">Follow you</span></div><div class="row"><span class="grow">Private notes</span><span class="chip c-grey">Only you</span></div><div class="row"><span class="grow">Anything shared</span><span class="chip c-blue">Your choice, per item</span></div><div class="row"><span class="grow">Teams</span><span class="chip c-blue">Invite only</span></div></div></div>';}
+ var me=T.me;
+ var top='<div class="sitehd"><span class="avatar t">'+initials(me)+'</span><b>'+esc(me)+'</b><span class="mut">Hearings and Litigation · Analyst</span><span style="flex:1"></span>'+(T.stage==='team'?'<button type="button" class="btn ghost sm" data-a="tmhome">&larr; My profile</button>':'')+'<button type="button" class="btn ghost sm" data-a="tmout">Sign out</button></div><div class="sp"></div>';
+ if(T.stage==='home'){var inv=Object.keys(T.teams).map(function(k){var t=T.teams[k],j=T.joined[k];return '<div class="row"><span class="avatar">'+initials(t.name)+'</span><span class="grow"><b>'+esc(t.name)+'</b><br><span class="mut">'+t.members.length+' members · led by '+esc(t.lead)+'</span></span>'+(j?'<button type="button" class="btn sm" data-a="tmopen" data-v="'+k+'">Open</button> <button type="button" class="btn ghost sm" data-a="tmleave" data-v="'+k+'">Leave</button>':'<button type="button" class="btn sm" data-a="tmjoin" data-v="'+k+'">Join team</button>')+'</span></div>';}).join('');
+  var mypins=0;Object.keys(T.teams).forEach(function(k){Object.keys(T.teams[k].pins).forEach(function(d){if(T.teams[k].pins[d].by===me)mypins++;});});
+  return head('Profiles and teams','Your profile, and the teams you were invited to. Join one to open its space.','mock')+top+'<div class="two"><div class="pane"><h3>Teams you were invited to</h3>'+inv+'</div><div class="pane"><h3>Your profile</h3><div class="row"><span class="avatar b">'+initials(me)+'</span><span class="grow"><b>'+esc(me)+'</b><br><span class="mut">Hearings and Litigation · Analyst</span></span></div><div class="row"><span class="grow">Teams joined</span><b>'+Object.keys(T.joined).filter(function(k){return T.joined[k];}).length+'</b></div><div class="row"><span class="grow">Decisions you pinned for a team</span><b>'+mypins+'</b></div><p class="mut" style="margin:8px 0 0">Private notes stay private. Only what you choose to share appears in a team space.</p></div></div>';}
+ var tm=team(),tabs=[['feed','ACTIVITY'],['pins','PINNED'],['docs','DOCUMENTS'],['mem','MEMBERS']];
+ var body='';
+ if(T.tab==='feed'){var visible=tm.feed.filter(function(f){return f.vis==='team'||f.who===me;});
+  body='<div class="two" style="grid-template-columns:1.2fr 1fr"><div class="pane"><h3>Recent from the team</h3>'+(visible.length?visible.map(function(f,i){return '<div class="cmt" style="margin-top:'+(i?10:0)+'px"><span class="avatar '+(i%3===0?'t':i%3===1?'':'a')+'">'+initials(f.who)+'</span><div class="bub'+(f.fresh?' new':'')+'"><b>'+esc(f.who)+'</b> <span class="mut">· '+f.when+'</span>'+(f.vis==='me'?' <span class="chip c-grey">Only you</span>':'')+'<br>'+esc(f.txt)+'</div></div>';}).join(''):'<div class="empty">Nothing shared yet. Be the first: use the box on the right.</div>')+'</div>'+
+  '<div class="pane"><h3>Share an insight</h3><textarea id="shtxt" data-i="shtxt" placeholder="What did you find?" aria-label="Insight text">'+esc(T.draft||'')+'</textarea><div class="sp"></div><label class="mut" for="shdec">Attach a decision (optional)</label><select id="shdec" data-i="shdec"><option value="">None</option>'+PINDEC.map(function(d){return '<option value="'+d[0]+'"'+(T.shd===d[0]?' selected':'')+'>'+d[1]+' · '+d[2]+'</option>';}).join('')+'</select><div class="sp"></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">'+seg('shvis',[['team','Share with the team'],['me','Only me']],T.shv||'team')+'<span style="flex:1"></span><button type="button" class="btn" data-a="tmshare">Post</button></div></div></div>';}
+ if(T.tab==='pins'){body='<div class="pane"><h3>Decisions</h3><p class="mut" style="margin-top:-4px">Pin a decision for the team, then add a note and choose who sees it.</p>'+PINDEC.map(function(d){var p=tm.pins[d[0]];return '<div class="row" style="align-items:flex-start"><span class="grow"><b>'+d[1]+'</b> <span class="mut">'+d[2]+'</span><br><span class="mut">'+d[3]+'</span>'+(p?'<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center"><input type="text" data-c="tmnote" data-v="'+d[0]+'" value="'+esc(p.note)+'" placeholder="Add a note (press Enter)" style="max-width:320px" aria-label="Note for '+esc(d[1])+'"> <button type="button" class="fc" data-a="tmpvis" data-v="'+d[0]+'">'+(p.vis==='team'?'Shared with the team':'🔒 Only you')+'</button> <span class="mut">pinned by '+esc(p.by)+'</span></div>':'')+'</span><button type="button" class="btn '+(p?'ghost ':'')+'sm" data-a="tmpin" data-v="'+d[0]+'">'+(p?'Unpin':'Pin for team')+'</button></div>';}).join('')+'</div>';}
+ if(T.tab==='docs'){if(!tm.hasDoc){body='<div class="empty">No shared documents in '+esc(tm.name)+' yet.<br><br><button type="button" class="btn" data-a="tmnewdoc">Start a draft</button></div>';}
+  else{var open=tm.comments.filter(function(c){return !c.res;}).length,resn=tm.comments.length-open;
+   body='<div class="pane"><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap"><h3 style="margin:0">Draft: submissions on membership</h3><span class="chip c-mock">Draft</span><span class="mut">'+open+' open comment'+(open===1?'':'s')+'</span><span style="flex:1"></span>'+(resn?'<button type="button" class="fc'+(T.showRes?' on':'')+'" data-a="tmshowres">Show resolved ('+resn+')</button>':'')+'</div><div class="doc" style="margin-top:10px">'+DOCP.map(function(p,i){var cs=tm.comments.filter(function(c){return c.p===i&&(T.showRes||!c.res);});return '<div style="padding:8px 4px;border-top:1px solid #ecebe4"><p style="margin:0 0 6px">'+esc(p)+'</p><div style="font-family:\'IBM Plex Sans\',sans-serif">'+cs.map(function(c){return '<div class="cmt"><span class="avatar">'+initials(c.who)+'</span><div class="bub'+(c.fresh?' new':'')+'" style="'+(c.res?'opacity:.6':'')+'"><b>'+esc(c.who)+'</b>'+(c.res?' <span class="chip c-built">Resolved</span>':'')+'<br>'+esc(c.txt)+c.rep.map(function(r){return '<div class="cmt"><span class="avatar a">'+initials(r.who)+'</span><div class="bub"><b>'+esc(r.who)+'</b><br>'+esc(r.txt)+'</div></div>';}).join('')+'<div style="margin-top:6px"><button type="button" class="lk" data-a="tmreply" data-v="'+c.id+'">Reply</button> &middot; <button type="button" class="lk" data-a="tmres" data-v="'+c.id+'">'+(c.res?'Reopen':'Resolve')+'</button></div>'+(T.comp==='r'+c.id?'<div class="sp"></div><textarea id="comp" data-i="comp" placeholder="Write a reply" style="min-height:50px">'+esc(T.cd||'')+'</textarea><div class="sp"></div><button type="button" class="btn sm" data-a="tmsend" data-v="r'+c.id+'">Send reply</button>':'')+'</div></div>';}).join('')+(T.comp==='p'+i?'<div class="sp"></div><textarea id="comp" data-i="comp" placeholder="Comment on paragraph '+(i+1)+'" style="min-height:50px">'+esc(T.cd||'')+'</textarea><div class="sp"></div><button type="button" class="btn sm" data-a="tmsend" data-v="p'+i+'">Add comment</button> <button type="button" class="btn ghost sm" data-a="tmcancel">Cancel</button>':'<button type="button" class="lk" data-a="tmcomment" data-v="p'+i+'" style="font-size:12.5px;margin-top:4px">Add a comment</button>')+'</div></div>';}).join('')+'</div><p class="mut">The draft stays inside the team space. Today, uploaded documents are read in memory and never stored.</p></div>';}}
+ if(T.tab==='mem'){body='<div class="pane"><h3>Members</h3>'+tm.members.concat([[me,'Analyst']]).map(function(m,i){return '<div class="row"><span class="avatar '+(i%3===0?'t':i%3===1?'':'a')+'">'+initials(m[0])+'</span><span class="grow"><b>'+esc(m[0])+'</b>'+(m[0]===me?' <span class="chip c-blue">You</span>':'')+'</span><span class="chip c-grey">'+m[1]+'</span></div>';}).join('')+'<div class="sp"></div><button type="button" class="btn ghost sm" data-a="tminvite">Invite a colleague</button> <button type="button" class="btn ghost sm" data-a="tmleave" data-v="'+T.cur+'">Leave team</button></div>';}
+ return head(esc(tm.name),'A small group that chooses what to share. Everything below is held in this browser tab only and disappears when you reset or reload.','mock')+top+'<div class="tabs">'+tabs.map(function(t){return '<button type="button" data-a="tmtab" data-v="'+t[0]+'" class="'+(T.tab===t[0]?'on':'')+'">'+t[1]+'</button>';}).join('')+'</div>'+body;}
+
+
+/* ================= 7. SUPREME COURT DATA EXPANSION ================= */
+var SCCP=[
+ [1,'This appeal asks whether a decision-maker who relies on an undisclosed report must give the person a chance to answer it.'],
+ [2,'The appellant, Ms. Marchetti (invented), was refused a licence on the strength of a report she was never shown. She argues that fairness required disclosure.'],
+ [3,'Procedural fairness is flexible. What it requires depends on the stakes for the person, the statute, and the way the decision is made.'],
+ [4,'The report was the only evidence on the central finding, and the finding ended the appellant’s livelihood. The stakes were high.'],
+ [5,'The respondent says the statute is silent on disclosure and that a summary of concerns was enough. A summary can be enough where it lets the person know the case to meet. Here it did not.'],
+ [6,'The Court need not decide whether the statute can ever displace the duty to disclose, because it does not do so in clear words here.'],
+ [7,'The appeal is allowed and the matter is returned to the decision-maker.']];
+var SCCPT=[
+ ['a1','app','Fairness required disclosure of the report','a',[2,4],'accepted'],
+ ['a2','app','The summary of concerns did not tell her the case to meet','a',[5],'accepted'],
+ ['a3','app','The decision-maker should be reviewed on correctness','a',[],'not addressed'],
+ ['r1','resp','The statute is silent, so no duty to disclose arises','r',[5,6],'rejected'],
+ ['r2','resp','A summary of concerns is always enough','r',[5],'rejected'],
+ ['i1','int1','Disclosure duties should depend on the stakes for the person','i',[3,4],'accepted'],
+ ['i2','int2','Courts should not add procedural steps to licensing schemes','i',[6],'rejected']];
+var WHO={app:'Appellant',resp:'Respondent',int1:'Intervener: Licensing Rights Clinic (invented)',int2:'Intervener: Association of Regulators (invented)'};
+var OUTL={accepted:'c-built',rejected:'c-rust','not addressed':'c-grey'};
+function sccInit(){return {tab:'dec',side:'all',out:'all',sel:'a1'};}
+S.scc=sccInit();
+function renderSCC(){var X=S.scc,tabs=[['dec','DECISION'],['fac','FACTUMS'],['int','INTERVENERS'],['hear','HEARING'],['cmp','ARGUED VS DECIDED']],b='';
+ var pt=function(id){return SCCPT.filter(function(p){return p[0]===id;})[0];};
+ var links=function(p){return p[4].length?p[4].map(function(n){return '<button type="button" class="fn" data-a="sccgo" data-v="'+n+'" style="border:0;cursor:pointer">¶'+n+'</button>';}).join(' '):'<span class="mut">no paragraph answers it</span>';};
+ if(X.tab==='dec'){b='<div class="pane"><h3>Marchetti v. Canada (invented), 2026 SCC 99</h3><p class="mut" style="margin-top:-4px">Decision text, shortened. Highlighted paragraphs answer a point someone argued.</p>'+SCCP.map(function(p){var by=SCCPT.filter(function(q){return q[4].indexOf(p[0])>=0;});return '<div class="p-r nol" id="sc'+p[0]+'" style="cursor:default"><span class="no">['+p[0]+']</span><div><span class="txt">'+esc(p[1])+'</span>'+(by.length?'<div style="margin-top:5px">'+by.map(function(q){return '<button type="button" class="cite" data-a="sccpt" data-v="'+q[0]+'">answers: '+esc(q[2].slice(0,34))+'…</button>';}).join(' ')+'</div>':'')+'</div></div>';}).join('')+'</div>';}
+ if(X.tab==='fac'){b='<div class="two">'+[['app','Appellant'],['resp','Respondent']].map(function(s){return '<div class="pane"><h3>'+s[1]+'’s factum</h3><p class="mut" style="margin-top:-4px">Invented summary of the points argued. Click one to see how the Court dealt with it.</p>'+SCCPT.filter(function(p){return p[1]===s[0];}).map(function(p,i){return '<div class="row"><span class="grow"><b>Part III · point '+(i+1)+'</b><br>'+esc(p[2])+'</span><button type="button" class="btn ghost sm" data-a="sccpt" data-v="'+p[0]+'">Compare</button></div>';}).join('')+'<p class="mut" style="margin:8px 0 0">Today only the decision is in the library. The factum would be stored with the case and tied to the same parties.</p></div>';}).join('')+'</div>';}
+ if(X.tab==='int'){b='<div class="two">'+['int1','int2'].map(function(k){var p=SCCPT.filter(function(q){return q[1]===k;})[0];return '<div class="pane"><h3>'+esc(WHO[k])+'</h3><p style="margin:0 0 6px">Invented position: '+esc(p[2])+'.</p><span class="chip '+OUTL[p[5]]+'">'+p[5]+'</span> '+links(p)+'<div class="sp"></div><button type="button" class="btn ghost sm" data-a="sccpt" data-v="'+p[0]+'">Compare with the decision</button></div>';}).join('')+'</div>';}
+ if(X.tab==='hear'){b='<div class="two"><div class="pane"><h3>Hearing</h3><dl style="display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin:0"><dt class="mut">Heard</dt><dd style="margin:0">March 12, 2026 (invented)</dd><dt class="mut">Appellant counsel</dt><dd style="margin:0">A. Vachon (invented) · 60 min</dd><dt class="mut">Respondent counsel</dt><dd style="margin:0">B. Leclerc (invented) · 60 min</dd><dt class="mut">Interveners</dt><dd style="margin:0">10 min each</dd><dt class="mut">Webcast</dt><dd style="margin:0">Link would appear here</dd></dl><div class="sp"></div><button type="button" class="btn ghost sm" data-a="open" data-v="the webcast">Open the webcast</button></div><div class="pane"><h3>Questions from the bench</h3><p class="mut" style="margin-top:-4px">Invented examples of what a transcript or summary could add.</p><div class="row"><span class="grow">“If the summary named the concerns, what was missing?”</span><button type="button" class="btn ghost sm" data-a="sccpt" data-v="a2">Compare</button></div><div class="row"><span class="grow">“Does silence in the statute settle the question?”</span><button type="button" class="btn ghost sm" data-a="sccpt" data-v="r1">Compare</button></div></div></div>';}
+ if(X.tab==='cmp'){var rows=SCCPT.filter(function(p){return (X.side==='all'||p[1]===X.side||(X.side==='int'&&p[1].indexOf('int')===0))&&(X.out==='all'||p[5]===X.out);}),p=pt(X.sel);
+  var par=p&&p[4].length?p[4].map(function(n){var t=SCCP.filter(function(q){return q[0]===n;})[0];return '<div class="blk court"><b class="k">The Court at ¶'+n+'</b>'+esc(t[1])+' <button type="button" class="lk" data-a="sccgo" data-v="'+n+'">Read in the decision</button></div>';}).join(''):'<div class="empty" style="margin-top:8px">The decision does not take this point up. A real version would show that plainly, not leave a gap.</div>';
+  b='<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">'+fcs('sccside',[['all','Everyone'],['app','Appellant'],['resp','Respondent'],['int','Interveners']],X.side)+' '+fcs('sccout',[['all','Any result'],['accepted','Accepted'],['rejected','Rejected'],['not addressed','Not addressed']],X.out)+'</div><div class="lay" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:0"><div><h4 class="mut" style="margin:0 0 6px;text-transform:uppercase;letter-spacing:.07em;font-size:11px">What was argued</h4>'+(rows.length?rows.map(function(q){return '<button type="button" class="item'+(q[0]===X.sel?' on':'')+'" data-a="sccpt" data-v="'+q[0]+'"><b>'+esc(WHO[q[1]].split(':')[0])+'</b> '+esc(q[2])+'<small><span class="chip '+OUTL[q[5]]+'">'+q[5]+'</span></small></button>';}).join(''):'<div class="empty">No argued point matches these filters.</div>')+'</div><div><h4 class="mut" style="margin:0 0 6px;text-transform:uppercase;letter-spacing:.07em;font-size:11px">What the Court said</h4>'+(p?'<div class="blk issue"><b class="k">Selected point</b>'+esc(p[2])+' <span class="chip '+OUTL[p[5]]+'">'+p[5]+'</span></div>'+par:'')+'<p class="mut">Accepted, rejected and not addressed are labels for the demo. A real version would need a lawyer to check each link.</p></div></div>';}
+ return head('Supreme Court data expansion','The Court publishes the full arguments for its cases: factums, intervener submissions and hearing material. Stored beside the decision, they would show what was argued and where the Court answered. Invented case and data.','mock')+'<div class="tabs">'+tabs.map(function(t){return '<button type="button" data-a="scctab" data-v="'+t[0]+'" class="'+(X.tab===t[0]?'on':'')+'">'+t[1]+'</button>';}).join('')+'</div>'+b;}
+
+/* ================= 5. ARGUMENT BREAKDOWN (future local AI) ================= */
+var SPK={court:['The Court','court'],resp:['Minister','resp'],app:['Applicant','app'],below:['Officer below','below'],evid:['Facts / record','evid']};
+var AUTH={
+ vav:{n:'Canada (MCI) v. Vavilov',c:'2019 SCC 65',real:1,note:'Sets the presumption of reasonableness review.'},
+ pos:{n:'Poshteh v. Canada (MCI)',c:'2005 FCA 85',real:1,note:'Reads “member” broadly in the inadmissibility provisions.'},
+ ezo:{n:'Ezokola v. Canada (MCI)',c:'2013 SCC 40',real:1,note:'Complicity in a refugee exclusion setting, which asks for a significant contribution.'}};
+var AID=[
+ {n:1,s:'evid',iss:'',t:'The applicant, a citizen of an invented country, applied for permanent residence in 2021. He attended two public meetings of a youth association in 2018 and 2019 and held no office in it.',sum:'Background: who the applicant is and what he did.',prop:'',cites:[]},
+ {n:2,s:'below',iss:'i3',t:'An immigration officer found him inadmissible on security grounds under paragraph 34(1)(f), concluding that he was a member of an organization that engages in subversion by force.',sum:'The officer’s finding, as the Court describes it.',prop:'Attending events can support a finding of membership.',cites:[]},
+ {n:3,s:'app',iss:'i2',t:'The applicant argues that the officer gave “member” an overly broad reading and did not explain what he personally did that amounted to membership.',sum:'Applicant: the officer read “member” too broadly and gave no reasons for it.',prop:'Reasons must link the person to the group.',cites:[]},
+ {n:4,s:'resp',iss:'i2',t:'The Minister replies that membership has always been read broadly and that the officer’s view of the facts deserves deference.',sum:'Minister: broad meaning of membership; deference to the officer.',prop:'Membership is read broadly.',cites:['pos']},
+ {n:5,s:'court',iss:'i1',t:'The decision is reviewed on the reasonableness standard. A decision is reasonable when it is transparent, intelligible and justified in light of the facts and law.',sum:'The Court states the standard of review.',prop:'The presumption of reasonableness applies.',cites:['vav'],purpose:{vav:'applied the test'}},
+ {n:6,s:'court',iss:'i2',t:'The Court has repeatedly given “member” a broad and unrestricted meaning. No formal membership is needed, and the question is asked on the facts of each case.',sum:'The Court confirms “member” is read broadly.',prop:'No formal membership is required.',cites:['pos'],purpose:{pos:'followed it'}},
+ {n:7,s:'court',iss:'i2',t:'A broad reading is not a limitless one. Where a person is said to have joined a group by doing things, the officer must say what those things were. Compare the care the Supreme Court took with contribution in the exclusion context.',sum:'Breadth has a limit: the officer has to say what the person did.',prop:'The officer must identify the conduct that makes the person a member.',cites:['ezo'],purpose:{ezo:'contrasted the setting'}},
+ {n:8,s:'app',iss:'i3',t:'The applicant says the meetings were open to the public, that he left within a year, and that he never took part in any act of force.',sum:'Applicant: the facts show only attendance.',prop:'Attendance alone is thin evidence.',cites:[]},
+ {n:9,s:'resp',iss:'i3',t:'The Minister submits that reasonable grounds to believe is a low standard and that attending twice was enough.',sum:'Minister: low standard; two meetings were enough.',prop:'The standard is reasonable grounds to believe.',cites:[]},
+ {n:10,s:'court',iss:'i3',t:'Reasonable grounds to believe is more than suspicion, but less than proof on a balance of probabilities. It still requires a reasoned path from the facts to the finding.',sum:'The Court states what the standard means.',prop:'The standard requires a reasoned link from facts to finding.',cites:[]},
+ {n:11,s:'court',iss:'i3',t:'Here the officer described the aims of the association at length but said almost nothing about the applicant’s own involvement. The finding of membership does not follow from the reasons given, and is unreasonable.',sum:'The reasons describe the group, not the applicant, so the finding fails.',prop:'A finding based on the group’s aims alone is unreasonable.',cites:[]},
+ {n:12,s:'court',iss:'i4',t:'The application is allowed. The matter is returned to a different officer for redetermination.',sum:'Outcome: allowed, sent back.',prop:'',cites:[]}];
+var AISS={i1:['Which standard of review applies?','Reasonableness. See ¶5.'],i2:['What does “member” mean?','Broad, but the officer must say what the person did. See ¶3, ¶4, ¶6, ¶7.'],i3:['Did the evidence support the finding?','No: the reasons describe the group, not the applicant. See ¶2, ¶8–¶11.'],i4:['What is the remedy?','Allowed; sent to a different officer. See ¶12.']};
+var NARR=[['The applicant attended two public meetings of a youth association and was found inadmissible for membership.',[1,2]],['He argued the officer read “member” too broadly; the Minister said membership has always been broad.',[3,4]],['The Court reviewed the finding for reasonableness.',[5]],['It agreed the word is broad, but held that the officer must still say what the person did.',[6,7]],['The officer’s reasons talked about the group, not about him, so the link from facts to finding was missing.',[10,11]],['The application was allowed and the matter sent back.',[12]]];
+function aiInit(){return {layers:{sum:1,pos:1,prop:0,cit:1},view:'par',spk:'all',sel:null,card:null};}
+S.ai=aiInit();
+function aiPar(p,A){var dim=A.spk!=='all'&&p.s!==A.spk;
+ var h='<div class="p-r '+SPK[p.s][1]+(A.sel===p.n?' sel':'')+(dim?' dim':'')+'" id="ap'+p.n+'" data-a="aipar" data-v="'+p.n+'" tabindex="0" role="button" aria-label="Paragraph '+p.n+'"><span class="no">['+p.n+']</span><div>';
+ if(A.layers.pos)h+='<span class="pos '+SPK[p.s][1]+'">'+SPK[p.s][0]+'</span>';
+ h+='<span class="txt">'+esc(p.t)+'</span>';
+ if(A.layers.sum)h+='<div class="sum"><b style="font-size:10.5px;letter-spacing:.06em;color:var(--ai)">SUMMARY</b> '+esc(p.sum)+'</div>';
+ if(A.layers.prop&&p.prop)h+='<div class="prop"><b>Proposition</b> '+esc(p.prop)+'</div>';
+ if(A.layers.cit&&p.cites.length)h+='<div style="margin-top:6px">'+p.cites.map(function(c){return '<button type="button" class="cite'+(A.card===c?' on':'')+'" data-a="aicite" data-v="'+c+'">'+esc(AUTH[c].n.split(' v. ')[0].replace('Canada (MCI)','Vavilov'))+(p.purpose&&p.purpose[c]?' · '+p.purpose[c]:'')+'</button>';}).join(' ')+'</div>';
+ return h+'</div></div>';}
+function aiSide(A){var p=A.sel?AID.filter(function(x){return x.n===A.sel;})[0]:null,h='';
+ if(A.card){var a=AUTH[A.card],used=AID.filter(function(x){return x.cites.indexOf(A.card)>=0;});
+  h+='<div class="blk issue"><b class="k">Authority</b><b>'+esc(a.n)+'</b><br><span class="mut">'+a.c+'</span><p style="margin:6px 0 0">'+esc(a.note)+'</p><p class="mut" style="margin:6px 0 0">Cited at '+used.map(function(u){return '<button type="button" class="lk" data-a="aigo" data-v="'+u.n+'">¶'+u.n+'</button>'+(u.purpose&&u.purpose[A.card]?' ('+u.purpose[A.card]+')':'');}).join(', ')+'</p><p class="mut" style="margin:6px 0 0">The label is the model’s guess at <i>why</i> the case is cited. In the real tool it would open the cited paragraph in the case reader.</p><button type="button" class="btn ghost sm" data-a="open" data-v="'+esc(a.n)+'">Open on the site</button> <button type="button" class="btn ghost sm" data-a="aicard" data-v="">Close</button></div>';}
+ if(p){var iss=AISS[p.iss];h+='<div class="blk '+SPK[p.s][1]+'"><b class="k">¶'+p.n+' · '+SPK[p.s][0]+'</b>'+esc(p.sum)+(p.prop?'<p class="mut" style="margin:6px 0 0">Proposition: '+esc(p.prop)+'</p>':'')+(iss?'<p class="mut" style="margin:6px 0 0">Part of: <button type="button" class="lk" data-a="aiissue" data-v="'+p.iss+'">'+esc(iss[0])+'</button></p>':'')+'<p class="mut" style="margin:6px 0 0">Who is speaking is sometimes “not stated” in a real decision, and tribunal text can be mistaken for the Court’s. Treat the label as a prompt, not a fact.</p></div>';}
+ if(!h)h='<div class="empty">Click a paragraph for its detail, or a citation chip for the authority.</div>';
+ return h;}
+function renderAI(){var A=S.ai,lay=A.layers,body='';
+ var vt=seg('aiview',[['par','Paragraphs'],['iss','Issues'],['nar','Narrative']],A.view);
+ var ctl='<div class="pane" style="margin-bottom:12px"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">'+(A.view==='par'?'<b class="mut" style="text-transform:uppercase;letter-spacing:.07em;font-size:11px">Layers</b>'+[['sum','Summaries'],['pos','Positions'],['prop','Propositions'],['cit','Citations']].map(function(l){return '<button type="button" class="fc'+(lay[l[0]]?' on':'')+'" data-a="ailayer" data-v="'+l[0]+'" aria-pressed="'+(lay[l[0]]?'true':'false')+'">'+l[1]+'</button>';}).join(' '):'')+'<span style="flex:1"></span>'+vt+'</div>'+
+  (A.view==='par'?'<div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:10px"><b class="mut" style="text-transform:uppercase;letter-spacing:.07em;font-size:11px">Whose words</b>'+fcs('aispk',[['all','Everyone'],['court','The Court'],['app','Applicant'],['resp','Minister'],['below','Officer below']],A.spk)+'</div>':'')+'</div>';
+ if(A.view==='par'){body='<div class="lay" style="grid-template-columns:minmax(0,1fr) 340px;min-height:0"><div>'+AID.map(function(p){return aiPar(p,A);}).join('')+'</div><div>'+aiSide(A)+'</div></div>';}
+ else if(A.view==='iss'){body=['i1','i2','i3','i4'].map(function(k,ix){var ps=AID.filter(function(p){return p.iss===k;});var by=function(s){return ps.filter(function(p){return p.s===s;});};var line=function(lab,cls,arr){return arr.length?'<div class="blk '+cls+'"><b class="k">'+lab+'</b>'+arr.map(function(p){return esc(p.sum)+' <button type="button" class="lk" data-a="aigo" data-v="'+p.n+'">¶'+p.n+'</button>';}).join('<br>')+'</div>':'';};
+  return '<div class="pane" id="is'+k+'" style="margin-bottom:12px'+(A.flashIss===k?';box-shadow:0 0 0 3px var(--ai)':'')+'"><h4>Issue '+(ix+1)+'</h4><h3 style="margin-bottom:4px">'+esc(AISS[k][0])+'</h3>'+line('Applicant says','app',by('app'))+line('Minister says','resp',by('resp'))+line('Officer below','below',by('below'))+line('The Court','court',by('court'))+'<div class="blk issue"><b class="k">Answer in one line</b>'+esc(AISS[k][1])+'</div></div>';}).join('');}
+ else{body='<div class="pane"><h3>The decision as a short story</h3><p class="mut" style="margin-top:-4px">Each sentence is tied to the paragraphs that support it. Click a ¶ to jump there.</p>'+NARR.map(function(n,i){return '<p style="font:17px/1.55 var(--serif);margin:10px 0">'+(i+1)+'. '+esc(n[0])+' '+n[1].map(function(x){return '<button type="button" class="fn" data-a="aigo" data-v="'+x+'" style="border:0;cursor:pointer">¶'+x+'</button>';}).join(' ')+'</p>';}).join('')+'</div>';}
+ return head('Argument breakdown','An invented decision, split into who is speaking, what each paragraph says, which issue it belongs to, and which cases it relies on. This idea needs a private model running on the agency&rsquo;s own machine. It is not built.','ai')+ctl+body+
+ '<div class="limits"><b>What we can and cannot claim.</b> In one early test on a hard sample of 30 paragraphs, a reader judged 24 of the summaries right and 6 partly right; no lawyer checked them. Speaker labels are sometimes &ldquo;not stated&rdquo;, and tribunal text can be mistaken for the Court&rsquo;s. Every label here is meant as a prompt that points you back to the paragraph, never as a verdict.</div>';}
+
+/* ================= 6. LIVE DOCUMENT READER (future local AI) ================= */
+var MEMO=[
+ {n:1,k:'iss',t:'Issue. Whether Mr. K. is inadmissible under paragraph 34(1)(f) for membership in the Northern Youth Forum (invented).'},
+ {n:2,k:'fact',t:'Facts. Mr. K. attended two public meetings in 2018 and 2019. He held no office, paid no dues and left within a year.'},
+ {n:3,k:'for',t:'Argument for the Minister. Membership is read broadly and attendance can suffice: Poshteh v. Canada, 2005 FCA 85.',cites:['pos']},
+ {n:4,k:'against',t:'Argument for the applicant. The finding must still be reasonable and justified in light of the record: Canada (MCI) v. Vavilov, 2019 SCC 65.',cites:['vav']},
+ {n:5,k:'for',t:'Further argument for the Minister. Recent decisions confirm a low threshold: Smith v. Canada, 2021 FC 9999.',cites:['smi']},
+ {n:6,k:'concl',t:'Conclusion. The finding is likely defensible, but weaker if the record does not show what Mr. K. actually did.'}];
+var RAUTH={pos:{n:'Poshteh v. Canada (MCI)',c:'2005 FCA 85',found:1,line:'In the library. Cited by 41 later decisions in this demo. Reads “member” broadly.'},vav:{n:'Canada (MCI) v. Vavilov',c:'2019 SCC 65',found:1,line:'In the library. Sets the reasonableness standard of review. Cited by a very large number of decisions.'},smi:{n:'Smith v. Canada',c:'2021 FC 9999',found:0,line:''}};
+var ELSE={3:[['Alder v. Canada','2024 FC 211','app','Allowed','Argued that attendance alone is not membership'],['Eskander v. Canada','2022 FC 920','resp','Dismissed','Argued attendance plus later support was enough'],['Haddad v. Canada','2020 FC 455','resp','Dismissed','Argued membership is read broadly']],4:[['Bernier v. Canada','2023 FC 804','app','Allowed','Argued the reasons did not justify the finding'],['Fontaine v. Canada','2021 FC 118','app','Allowed','Argued the reasons ignored the record'],['Iversen v. Canada','2019 FC 612','resp','Dismissed','Argued deference to the officer']],5:[['Castellan v. Canada','2023 FC 1190','resp','Dismissed','Argued a low threshold'],['Gagnon v. Canada','2021 FC 1066','app','Allowed','Argued a low threshold still needs reasons']]};
+function rdInit(){return {loaded:false,labels:true,sel:null,side:'all'};}
+S.rd=rdInit();
+var KL={iss:['Issue','c-blue'],fact:['Facts','c-grey'],for:['Argument · Minister','c-rust'],against:['Argument · Applicant','c-built'],concl:['Conclusion','c-ai']};
+function renderReader(){var R=S.rd;
+ var intro=head('Live document reader','Open a memo and see its structure and every authority it cites, with a prompt where a citation cannot be found. Nothing is uploaded: this uses a fictional memo that is part of the page. A real version would need a private model on the agency&rsquo;s own machine, and is not built.','ai');
+ if(!R.loaded)return intro+'<div class="empty" style="padding:50px 14px"><b style="font:600 20px var(--serif);color:var(--text)">No document open</b><br><br>Today the Live Analysis page reads a Word file in memory and never stores it.<br>This demo uses a fictional two-minute memo instead.<br><br><button type="button" class="btn" data-a="rdload">Open the fictional memo</button></div>';
+ var sel=R.sel?MEMO.filter(function(m){return m.n===R.sel;})[0]:null,main='';
+ main=MEMO.map(function(m){var unm=(m.cites||[]).some(function(c){return !RAUTH[c].found;});
+  return '<div class="p-r nol'+(R.sel===m.n?' sel':'')+'" id="mp'+m.n+'" data-a="rdpar" data-v="'+m.n+'" tabindex="0" role="button" aria-label="Memo paragraph '+m.n+'"><span class="no">['+m.n+']</span><div>'+(R.labels?'<span class="chip '+KL[m.k][1]+'" style="margin-bottom:4px">'+KL[m.k][0]+'</span>':'')+(unm&&R.labels?' <span class="chip c-rust">Check a citation</span>':'')+'<div class="txt">'+esc(m.t)+'</div></div></div>';}).join('');
+ var side='';
+ if(sel){
+  if(sel.cites){side+=sel.cites.map(function(c){var a=RAUTH[c];return '<div class="blk '+(a.found?'':'below')+'"><b class="k">Authority cited in ¶'+sel.n+'</b><b>'+esc(a.n)+'</b> <span class="mut">'+a.c+'</span><p style="margin:6px 0 0">'+(a.found?'<span class="chip c-built">Found in the library</span> '+esc(a.line):'<span class="chip c-rust">Not found</span> The library has no decision with this citation. It may be mistyped, a decision we do not hold, or not a real decision. Check it before relying on it.')+'</p>'+(a.found?'<button type="button" class="btn ghost sm" data-a="open" data-v="'+esc(a.n)+'">Open the case</button>':'<button type="button" class="btn ghost sm" data-a="rdfix" data-v="'+c+'">Search for a similar citation</button>')+'</div>';}).join('');}
+  var el=ELSE[sel.n];
+  if(el){var rows=el.filter(function(e){return R.side==='all'||e[2]===R.side;});side+='<div class="blk issue"><b class="k">Argued elsewhere</b><div style="margin:4px 0">'+fcs('rdside',[['all','Both sides'],['app','Applicant'],['resp','Minister']],R.side)+'</div>'+(rows.length?rows.map(function(e){return '<div class="row" style="padding:6px 0"><span class="grow"><b>'+e[0]+'</b> <span class="mut">'+e[1]+'</span><br><span class="mut">'+(e[2]==='app'?'Applicant':'Minister')+': '+esc(e[4])+'</span></span><span class="chip '+(e[3]==='Allowed'?'c-built':'c-grey')+'">'+e[3]+'</span></div>';}).join(''):'<div class="empty" style="padding:12px">No decision in this demo matches that side.</div>')+'<p class="mut" style="margin:6px 0 0">These are decisions where a similar argument was made. They show what happened, not what will happen to this memo.</p></div>';}
+  if(!sel.cites&&!el)side+='<div class="blk"><b class="k">¶'+sel.n+' · '+KL[sel.k][0]+'</b>No citations or similar arguments to show for this paragraph.'+(sel.k==='concl'?'<p class="mut" style="margin:6px 0 0">Prompt, not a verdict: the conclusion leans on three authorities, and one of them could not be found.</p>':'')+'</div>';
+ }else side='<div class="empty">Click a memo paragraph to see its authorities and where similar arguments were made.</div>';
+ var unf=MEMO.reduce(function(n,m){return n+(m.cites||[]).filter(function(c){return !RAUTH[c].found;}).length;},0);
+ var summary='<div class="three" style="margin-bottom:12px"><div class="pane" style="text-align:center"><b style="font:700 26px var(--serif)">6</b><div class="mut">paragraphs read</div></div><div class="pane" style="text-align:center"><b style="font:700 26px var(--serif)">3</b><div class="mut">authorities cited</div></div><div class="pane" style="text-align:center"><b style="font:700 26px var(--serif);color:'+(unf?'var(--rust)':'inherit')+'">'+unf+'</b><div class="mut">not found in the library</div></div></div>';
+ return intro+summary+'<div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap"><button type="button" class="fc'+(R.labels?' on':'')+'" data-a="rdlabels" aria-pressed="'+(R.labels?'true':'false')+'">Show structure labels</button><button type="button" class="btn ghost sm" data-a="rdclose">Close memo</button><span class="mut">Fictional memo · names invented</span></div><div class="lay" style="grid-template-columns:minmax(0,1fr) 360px;min-height:0"><div>'+main+'</div><div>'+side+'</div></div><div class="limits"><b>Prompts, not verdicts.</b> The reader would point at what to check: a citation it cannot find, an argument made the other way elsewhere. It would not tell you who is right, and its labels have not been checked by a lawyer.</div>';}
+
+/* ================= router / render ================= */
+var VIEWS={scc:renderSCC,home:renderHome,library:renderLibrary,tags:renderTags,coverage:renderCoverage,teams:renderTeams,ai:renderAI,reader:renderReader};
+function renderTabs(){document.getElementById('dnav').innerHTML=TABS.map(function(t,i){return (i===5?'<span class="sep"></span>':'')+(i===7?'<span class="sep"></span>':'')+'<button type="button" data-a="go" data-v="'+t[0]+'" class="'+(t[2]?'ai ':'')+(S.tab===t[0]?'on':'')+'"'+(S.tab===t[0]?' aria-current="page"':'')+'>'+t[1]+'</button>';}).join('');}
+function render(){var act=document.activeElement,key=null,pos=null;
+ if(act&&act!==document.body&&document.getElementById('demo').contains(act)){key=act.id?('#'+act.id):(act.getAttribute('data-i')?('[data-i="'+act.getAttribute('data-i')+'"]'):null);try{pos=[act.selectionStart,act.selectionEnd];}catch(e){}}
+ var ai=S.tab==='ai'||S.tab==='reader';document.body.className=(document.body.className.replace(/\bai\b/g,'').trim()+(ai?' ai':'')).trim();
+ document.getElementById('ribbon').innerHTML=ai?'<span>Future local AI · concept only · not built</span><span>Invented data · no lawyer has checked these</span>':(S.tab==='home'?'<span>Demos · invented data only</span>':'<span>Mock-up · fixed demo data</span><span>Not connected to the library</span>');
+ document.getElementById('demo').innerHTML=VIEWS[S.tab]();renderTabs();
+ if(key){var e=document.querySelector(key);if(e){e.focus();if(pos&&pos[0]!=null){try{e.setSelectionRange(pos[0],pos[1]);}catch(x){}}}}}
+function reset(){var t=S.tab;if(t==='library')S.lib=libInit();if(t==='tags')S.tags=tagsInit();if(t==='coverage')S.cov=covInit();if(t==='teams')S.tm=teamsInit();if(t==='ai')S.ai=aiInit();if(t==='reader')S.rd=rdInit();if(t==='scc')S.scc=sccInit();toast('Demo reset.');}
+function goto(el,id){var e=document.getElementById(id);if(e){e.scrollIntoView({behavior:'smooth',block:'center'});e.classList.remove('flash');void e.offsetWidth;e.classList.add('flash');}}
+function act(a,v,el){var L=S.lib,T=S.tags,C=S.cov,M=S.tm,A=S.ai,R=S.rd,again=true,after=null;
+ switch(a){
+ case 'go':document.getElementById('toast').hidden=true;if(TABS.some(function(t){return t[0]===v;})){S.tab=v;try{history.replaceState(null,'','#'+v);}catch(e){}window.scrollTo(0,0);}break;
+ case 'reset':reset();break;
+ case 'open':toast('The real site would open '+v+' in the case reader. This demo stays on fixed data.');again=false;break;
+ case 'libsel':L.sel=v;L.para='';L.tab='dec';break;
+ case 'libpara':L.para=L.para===v?'':v;break;
+ case 'libtype':L.type=v;break;case 'libcourt':L.court=v;break;case 'libout':L.out=v;break;case 'libsort':L.sort=v;break;case 'libtab':L.tab=v;break;
+ case 'libopen':L.open[v]=!L.open[v];break;
+ case 'tagmode':T.mode=v;break;
+ case 'tagsel':T.sel[v]=!T.sel[v];T.ev=null;break;
+ case 'tagclear':T.sel={};T.ev=null;break;
+ case 'tagev':T.ev=Number(v);after='td'+v;break;
+ case 'covsrc':if(v==='IAD'||v==='ID'){toast(v+' decisions are not in the library yet.');again=false;break;}C.on[v]=C.on[v]?0:1;break;
+ case 'covrow':C.row=C.row===v?null:v;break;
+ case 'covupd':C.bump.FC2025=(C.bump.FC2025||0)+4;C.bump.FCA2025=(C.bump.FCA2025||0)+1;C.log.push('Checked 5 sources: FC 4 new, FCA 1 new, SCC 0 new (invented).');toast('Update finished: 5 new decisions (invented).');break;
+ case 'tmsign':M.stage='home';break;
+ case 'tmout':M.stage='signin';break;
+ case 'tmhome':M.stage='home';break;
+ case 'tmopen':M.cur=v;M.stage='team';M.tab='feed';M.comp=null;break;
+ case 'tmjoin':M.joined[v]=true;toast('Joined '+M.teams[v].name+'.');break;
+ case 'tmleave':M.joined[v]=false;if(M.stage==='team')M.stage='home';toast('You left the team.');break;
+ case 'tmtab':M.tab=v;M.comp=null;break;
+ case 'shvis':M.shv=v;break;
+ case 'tmshare':var tx=(M.draft||'').trim();if(!tx){toast('Write something to share first.');again=false;break;}
+  var dd=PINDEC.filter(function(d){return d[0]===M.shd;})[0];team().feed.unshift({who:M.me,when:'just now',txt:tx+(dd?' ['+dd[1]+', '+dd[2]+']':''),vis:M.shv||'team',fresh:1});M.draft='';M.shd='';toast((M.shv==='me'?'Saved for you only.':'Shared with the team.'));break;
+ case 'tmpin':var pn=team().pins;if(pn[v])delete pn[v];else pn[v]={by:M.me,note:'',vis:'team'};break;
+ case 'tmpvis':team().pins[v].vis=team().pins[v].vis==='team'?'me':'team';toast(team().pins[v].vis==='team'?'Shared with the team.':'Only you can see this pin.');break;
+ case 'tmnewdoc':team().hasDoc=true;team().comments=[];toast('Draft started. Add a comment on any paragraph.');break;
+ case 'tmshowres':M.showRes=!M.showRes;break;
+ case 'tmcomment':M.comp=v;M.cd='';break;
+ case 'tmreply':M.comp='r'+v;M.cd='';break;
+ case 'tmcancel':M.comp=null;break;
+ case 'tmsend':var ct=(M.cd||'').trim();if(!ct){toast('Write something first.');again=false;break;}
+  if(v[0]==='p'){team().comments.push({id:nextId++,p:Number(v.slice(1)),who:M.me,txt:ct,res:false,rep:[],fresh:1});}
+  else{team().comments.forEach(function(c){if(c.id===Number(v.slice(1)))c.rep.push({who:M.me,txt:ct});});}
+  M.comp=null;M.cd='';toast('Comment posted for the team.');break;
+ case 'tmres':team().comments.forEach(function(c){if(c.id===Number(v))c.res=!c.res;});break;
+ case 'tminvite':toast('Invitation sent (pretend).');again=false;break;
+ case 'aipar':A.sel=A.sel===Number(v)?null:Number(v);break;
+ case 'aicite':A.card=A.card===v?null:v;break;
+ case 'aicard':A.card=null;break;
+ case 'ailayer':A.layers[v]=A.layers[v]?0:1;break;
+ case 'aiview':A.view=v;A.flashIss=null;break;
+ case 'aispk':A.spk=v;break;
+ case 'aigo':A.view='par';A.spk='all';A.sel=Number(v);after='ap'+v;break;
+ case 'aiissue':A.view='iss';A.flashIss=v;after='is'+v;break;
+ case 'scctab':S.scc.tab=v;break;
+ case 'sccside':S.scc.side=v;break;
+ case 'sccout':S.scc.out=v;break;
+ case 'sccpt':S.scc.sel=v;S.scc.tab='cmp';S.scc.side='all';S.scc.out='all';break;
+ case 'sccgo':S.scc.tab='dec';after='sc'+v;break;
+ case 'rdload':R.loaded=true;break;
+ case 'rdclose':S.rd=rdInit();break;
+ case 'rdlabels':R.labels=!R.labels;break;
+ case 'rdpar':R.sel=R.sel===Number(v)?null:Number(v);break;
+ case 'rdside':R.side=v;break;
+ case 'rdfix':toast('Would search the library for citations close to “'+RAUTH[v].c+'”. None found in this demo.');again=false;break;
+ default:again=false;}
+ if(again){render();if(after)setTimeout(function(){goto(el,after);},30);}}
+document.addEventListener('click',function(e){window.__cy=e.pageY;var el=e.target.closest('[data-a]');if(!el)return;if(el.tagName==='A')return;act(el.getAttribute('data-a'),el.getAttribute('data-v'),el);});
+document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('.p-r[data-a]')){e.preventDefault();e.target.click();}});
+document.addEventListener('input',function(e){var el=e.target,i=el.getAttribute&&el.getAttribute('data-i');if(!i)return;var v=el.type==='checkbox'?el.checked:el.value;
+ switch(i){case 'libq':S.lib.q=v;render();break;case 'libver':S.lib.ver=Number(v);render();break;case 'covfrom':S.cov.from=Number(v);render();break;case 'covto':S.cov.to=Number(v);render();break;case 'covfr':S.cov.fr=v;render();break;
+ case 'tmme':S.tm.me=v;break;case 'shtxt':S.tm.draft=v;break;case 'shdec':S.tm.shd=v;break;case 'comp':S.tm.cd=v;break;}});
+document.addEventListener('change',function(e){var el=e.target,c=el.getAttribute&&el.getAttribute('data-c');if(c==='tmnote'){var p=team().pins[el.getAttribute('data-v')];if(p){p.note=el.value;toast('Note saved.');}}});
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.getAttribute&&e.target.getAttribute('data-c')==='tmnote')e.target.blur();});
+if(window.top!==window)document.body.className+=' framed';
+var h0=(location.hash||'').replace('#','');if(TABS.some(function(t){return t[0]===h0;}))S.tab=h0;
+window.addEventListener('hashchange',function(){var h=(location.hash||'').replace('#','');if(h!==S.tab&&TABS.some(function(t){return t[0]===h;})){S.tab=h;render();}});
+render();
+})();
+</script>
+</body>
+</html>

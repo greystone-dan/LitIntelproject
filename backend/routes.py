@@ -1536,6 +1536,14 @@ def coming_soon_preview_page() -> HTMLResponse:
 	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/coming-soon-preview/img/{name}", include_in_schema=False)
+def coming_soon_preview_image(name: str) -> Response:
+	if name not in {"reader.webp", "workbench.webp", "live.webp", "authorities.webp"}:
+		raise HTTPException(status_code=404, detail="Unknown image")
+	image = Path(__file__).resolve().parent / "pages" / "preview_img" / name
+	return Response(image.read_bytes(), media_type="image/webp", headers={"Cache-Control": "public, max-age=86400"})
+
+
 @router.get("/coming-soon/{section}", include_in_schema=False)
 def coming_soon_page(section: str) -> HTMLResponse:
 	from .pages.coming_soon_page import render

@@ -363,3 +363,6 @@ def test_coming_soon_preview_page_is_served_and_linked():
     assert page.status_code == 200
     assert "Future local AI" in page.text and 'id="next"' in page.text
     assert 'href="/coming-soon-preview"' in client.get("/data-explorer").text
+    assert 'id="comingSoonPreviewStart"' in client.get("/data-explorer").text
+    assert client.get("/coming-soon-preview/img/reader.webp").status_code == 200
+    assert client.get("/coming-soon-preview/img/secret.webp").status_code == 404

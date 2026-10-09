@@ -272,6 +272,10 @@ test checks that these paths continue to exist.
 | `backend/pages/overruling_risk_reader.js` | Additive, escaped overruling-risk banner for the active case reader |
 | `backend/pages/pitch_nav.py` | Pitch navigation: four top-level tabs on the main explorer page |
 | `backend/pages/precedent_finder.py` | Ephemeral proposition-to-authority research page builder |
+| `backend/pages/preview_img/authorities.webp` | Real Authorities-panel screenshot used by the Coming soon preview. |
+| `backend/pages/preview_img/live.webp` | Real Live Analysis screenshot used by the Coming soon preview. |
+| `backend/pages/preview_img/reader.webp` | Real case-reader screenshot used by the Coming soon preview. |
+| `backend/pages/preview_img/workbench.webp` | Real Workbench screenshot used by the Coming soon preview. |
 | `backend/pages/prototype.py` | Prototype explorer page builder |
 | `backend/pages/quick_search.py` | Lightweight search page builder |
 | `backend/pages/reader_v6.css` | TODO: describe this file |

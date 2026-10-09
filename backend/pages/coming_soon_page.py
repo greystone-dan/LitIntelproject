@@ -140,6 +140,7 @@ def _overview() -> str:
 		'<p class="lede">iLit today is a library of Canadian immigration decisions with a formatted reader, search, citations and law links. '
 		'What comes next is in three parts: better data, which improves every page at once; new features built on that data; and the groundwork a deployment inside the Agency would need. '
 		'Each item says honestly how far it has got and, where it helps, what existing tools offer today.</p>'
+		'<div class="note"><strong>Take the guided preview.</strong> A short, paced tour of what is coming: a larger reference library, profiles and teams, and a future local AI layer, drawn in the site\'s own look. <a href="/coming-soon-preview" target="_top"><strong>Start the preview &rarr;</strong></a></div>'
 		f'<div class="note">{_RULE}</div></header>'
 		f'<section id="areas"><h2>{len(ORDER) - 1} areas in three parts</h2><p class="intro">Each area has its own tab above, with a full page on every item. The labels count how far its items have got.</p>'
 		f'{parts}</section>'

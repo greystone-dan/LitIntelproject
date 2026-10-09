@@ -7,12 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
-:root{--surface:#fffef9;--alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#5f6863;--blue:#315d8d;--blue-soft:#e7eef6;--rust:#a4412b;--teal:#176c68;--teal-soft:#edf5f3;--amber:#8a6418;--amber-soft:#f8f0dc;--ink:#202522;--serif:"Newsreader",Georgia,serif}
+:root{--surface:#fffef9;--alt:#f8f6ef;--border:#d8d5ca;--text:#202522;--muted:#5f6863;--blue:#315d8d;--blue-soft:#e7eef6;--rust:#a4412b;--rust-soft:#f7e8e3;--teal:#176c68;--teal-soft:#edf5f3;--amber:#8a6418;--amber-soft:#f8f0dc;--ink:#202522;--ai:#3d5aa8;--ai-soft:#f1f4fb;--serif:"Newsreader",Georgia,serif}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:#efede4;color:var(--text);font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;min-height:100vh;padding-bottom:96px}
+body{background:#efede4;color:var(--text);font:14px/1.5 "IBM Plex Sans",system-ui,sans-serif;min-height:100vh;padding-bottom:110px}
+html.locked{overflow:hidden}
 a{color:var(--blue)}
-.top{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border)}
+.top{display:flex;align-items:center;gap:14px;padding:10px 20px;background:var(--surface);border-bottom:1px solid var(--border);position:relative;z-index:60}
 .top .brand{font-weight:800;letter-spacing:-.03em;font-size:16px;color:var(--text);text-decoration:none}
 .top .sp{flex:1}
 .top a.exit{font-weight:600;font-size:12.5px;color:var(--text);background:#fff;border:1px solid var(--border);border-radius:5px;padding:9px 12px;text-decoration:none}
@@ -20,207 +21,259 @@ a{color:var(--blue)}
 #ribbon span{background:#111;color:#f5c400;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:3px;font-size:11.5px;text-align:center}
 body.ai #ribbon{background:repeating-linear-gradient(-45deg,#1d2a4a 0 12px,#5b7fc7 12px 24px)}
 body.ai #ribbon span{background:#1d2a4a;color:#cfdcff}
-.wrap{max-width:1180px;margin:0 auto;padding:22px 20px}
-.grid{display:grid;grid-template-columns:minmax(260px,330px) minmax(0,1fr);gap:22px;align-items:start}
-.card{position:sticky;top:14px;padding:20px 22px;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:8px;background:var(--surface)}
-body.ai .card{border-left-color:#3d5aa8}
+.wrap{max-width:1440px;margin:0 auto;padding:20px 20px}
+.grid{display:grid;grid-template-columns:minmax(260px,310px) minmax(0,1fr);gap:20px;align-items:start}
+.card{position:sticky;top:14px;padding:20px 22px;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:8px;background:var(--surface);z-index:5}
+body.ai .card{border-left-color:var(--ai)}
 .kicker{color:var(--teal);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-body.ai .kicker{color:#3d5aa8}
+body.ai .kicker{color:var(--ai)}
 .card h1{margin:6px 0 0;font:600 25px/1.2 var(--serif)}
 .card p{margin:10px 0 0;font-size:15.5px;line-height:1.55}
+.card .chips{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
 .card .aside{margin-top:14px;padding:9px 12px;border-radius:5px;background:var(--alt);font-size:13px;color:var(--muted)}
+.card .nxt{margin-top:16px;padding-top:12px;border-top:1px solid #ecebe4;font-size:13.5px;color:var(--muted);font-style:italic}
 .chip{display:inline-block;padding:1px 9px;border-radius:10px;font-size:11px;font-weight:700;white-space:nowrap;vertical-align:1px}
 .c-built{background:var(--teal-soft);color:var(--teal)}.c-mock{background:var(--amber-soft);color:var(--amber)}.c-ai{background:#1d2a4a;color:#dbe5ff}.c-grey{background:#ecebe4;color:var(--muted)}.c-blue{background:var(--blue-soft);color:var(--blue)}
-.stage{padding:18px 20px;border:1px solid var(--border);border-radius:8px;background:var(--surface);min-width:0}
-.stage .bar{display:flex;align-items:center;gap:8px;margin:-4px 0 14px;padding-bottom:10px;border-bottom:1px solid #ecebe4;font-size:12px;color:var(--muted)}
-.stage .bar b{color:var(--text)}
+.stage{min-width:0}
+.win{border:1px solid var(--border);border-radius:9px;background:var(--surface);overflow:hidden;box-shadow:0 2px 10px rgba(32,37,34,.07)}
+.win .wbar{display:flex;align-items:center;gap:10px;padding:8px 12px;background:#f1efe6;border-bottom:1px solid var(--border)}
+.win .dots{display:flex;gap:5px}.win .dots i{width:9px;height:9px;border-radius:50%;background:#d3d0c4}
+.win .url{flex:1;min-width:0;padding:3px 10px;border-radius:5px;background:#fff;border:1px solid var(--border);font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win .body{padding:16px 18px}
+.win .body.flush{padding:0}
+.shot{position:relative;container-type:inline-size;background:#f1efe8;--fs:calc(100cqw/var(--w)*20)}
+.shot img{width:100%;display:block;user-select:none;-webkit-user-drag:none}
+.shot.dim img{filter:brightness(.62)}
+.ov{position:absolute;overflow:hidden;font-size:var(--fs);line-height:1.4;background:var(--surface);color:var(--text)}
+.ov.bare{background:transparent;overflow:visible}
+.ov.clear{background:transparent}
+.ov.box{border:.08em solid var(--border);border-radius:.4em}
+.ov .mk{position:absolute;top:.35em;right:.4em;padding:.05em .6em;border-radius:1em;background:var(--amber-soft);color:var(--amber);font-size:.6em;font-weight:700;letter-spacing:.04em}
+.ov h5{margin:0 0 .35em;font-size:.82em;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.ov .pad{padding:.7em .8em}
+.ov .tr{display:flex;align-items:center;gap:.5em;padding:.28em 0;font-size:.95em}
+.ov .tr.l2{margin-left:1.2em}.ov .tr.l3{margin-left:2.4em}
+.ov .sq{width:.55em;height:.55em;border-radius:.12em;background:var(--teal);flex:0 0 auto}.ov .l2 .sq{background:var(--blue)}.ov .l3 .sq{background:var(--amber)}
+.ov .ct{margin-left:auto;color:var(--muted);font-size:.85em}
+.ov .evd{margin:.2em 0 .3em 3.1em;padding:.3em .6em;border-left:.2em solid var(--teal);background:var(--teal-soft);font-size:.8em}
+.ov .tab{display:inline-block;padding:.45em .9em;font-size:.9em;color:var(--muted)}.ov .tab.on{color:var(--text);font-weight:600;border-bottom:.15em solid var(--ai)}
+.ov .cardy{margin:.45em .7em;padding:.5em .7em;border:.08em solid var(--border);border-left:.25em solid #d9b441;background:#fffbea;border-radius:.3em;font-size:.9em}
+.ov .cardy.st{border-left-color:#8a6fb8;background:#f7f2fc}.ov .cardy.gd{border-left-color:var(--teal);background:var(--teal-soft)}
+.ov .cardy b{display:block}.ov .cardy span{color:var(--muted);font-size:.85em}
+.ov .btnx{display:inline-block;padding:.35em .9em;border-radius:.3em;border:.08em solid var(--ink);background:var(--ink);color:#fff;font-weight:600;font-size:.85em}
+.ov .btnx.g{background:#fff;color:var(--ink);border-color:var(--border)}
+.ov .av{display:inline-flex;align-items:center;justify-content:center;width:1.9em;height:1.9em;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:.78em}
+.ov .av.t{background:var(--teal-soft);color:var(--teal)}.ov .av.a{background:var(--amber-soft);color:var(--amber)}
+.ov .pl{display:inline-block;padding:.05em .6em;border-radius:1em;font-size:.8em;font-weight:700;background:var(--teal-soft);color:var(--teal)}
 .pane{border:1px solid var(--border);border-radius:6px;background:#fff;padding:12px 14px}
 .pane h4{margin:0 0 6px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .mut{color:var(--muted);font-size:12.5px}
-.row{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid #ecebe4;font-size:13.5px;flex-wrap:wrap}
-.row:first-of-type{border-top:0}
-.row .grow{flex:1;min-width:120px}
+.row{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid #ecebe4;font-size:13.5px;flex-wrap:wrap}.row:first-of-type{border-top:0}.row .grow{flex:1;min-width:120px}
 mark{background:#fbe7a1;padding:0 2px}
-.btn{display:inline-block;padding:6px 12px;border-radius:5px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:600;font-size:12.5px}
-.btn.ghost{background:#fff;color:var(--ink);border-color:var(--border)}
-.avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:11.5px;flex:0 0 auto}
-.avatar.t{background:var(--teal-soft);color:var(--teal)}.avatar.a{background:var(--amber-soft);color:var(--amber)}
-.tree{font-size:13.5px}.tree .n{padding:5px 0 5px 0}.tree .n.l2{margin-left:20px}.tree .n.l3{margin-left:40px}.tree .n::before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:2px;background:var(--teal)}.tree .n.l2::before{background:var(--blue)}.tree .n.l3::before{background:var(--amber)}
-.ev{margin:3px 0 0 48px;padding:6px 10px;border-left:3px solid var(--teal);background:var(--teal-soft);font-size:12.5px}
+.btn{display:inline-block;padding:7px 14px;border-radius:5px;border:1px solid var(--ink);background:var(--ink);color:#fff;font-weight:600;font-size:12.5px}.btn.ghost{background:#fff;color:var(--ink);border-color:var(--border)}
+.avatar{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:11.5px;flex:0 0 auto}.avatar.t{background:var(--teal-soft);color:var(--teal)}.avatar.a{background:var(--amber-soft);color:var(--amber)}
+.siteh{display:flex;align-items:center;gap:14px;padding:11px 18px;background:var(--surface);border-bottom:1px solid var(--border)}.siteh b.logo{font:700 22px var(--serif);margin-left:auto}.siteh span.nv{font-size:12.5px;font-weight:600;color:var(--muted)}.siteh span.on{background:var(--ink);color:#fff;padding:7px 12px;border-radius:5px}
+.pgbg{background:#f1efe8;padding:18px}
+.eyeb{color:var(--rust);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.pgbg h2{margin:2px 0 4px;font:700 28px var(--serif)}
+.tree{font-size:13.5px}.tree .n{padding:5px 0}.tree .n.l2{margin-left:20px}.tree .n.l3{margin-left:40px}.tree .n::before{content:"";display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:2px;background:var(--teal)}.tree .n.l2::before{background:var(--blue)}.tree .n.l3::before{background:var(--amber)}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px}.kv dt{color:var(--muted)}.kv dd{margin:0}
-.bars{display:flex;flex-direction:column;gap:7px}.bars .b{display:grid;grid-template-columns:70px 1fr 90px;gap:8px;align-items:center;font-size:12.5px}.bars .t{height:12px;border-radius:3px;background:#ecebe4;overflow:hidden}.bars .t i{display:block;height:100%;background:var(--teal)}.bars .t i.n{background:#f5c400}
-.cmt{display:flex;gap:9px;margin-top:10px;font-size:13px}.cmt .bub{flex:1;padding:8px 10px;border-radius:6px;background:var(--alt);border:1px solid #ecebe4}.cmt .bub b{font-size:12.5px}
+.bars{display:flex;flex-direction:column;gap:8px}.bars .b{display:grid;grid-template-columns:70px 1fr 100px;gap:8px;align-items:center;font-size:12.5px}.bars .t{height:12px;border-radius:3px;background:#ecebe4;overflow:hidden}.bars .t i{display:block;height:100%;background:var(--teal)}.bars .t i.n{background:#f5c400}
+.cmt{display:flex;gap:9px;margin-top:10px;font-size:13px}.cmt .bub{flex:1;padding:8px 10px;border-radius:6px;background:var(--alt);border:1px solid #ecebe4}
 .doc{font-family:var(--serif);font-size:15.5px;line-height:1.6}.doc p{margin:0 0 10px}.doc .anch{background:#fbe7a1;border-bottom:2px solid #d9b441}
-/* AI decision stage */
-.dec .p{display:grid;grid-template-columns:44px 1fr;gap:8px;padding:8px 8px;border-top:1px solid #ecebe4;border-radius:4px;font-size:13.5px}
-.dec .p:first-child{border-top:0}
-.dec .p .no{color:var(--muted);font-weight:600;font-size:12.5px}
-.dec .p .txt{font-family:var(--serif);font-size:14.5px}
-.dec .sec{margin:0;padding:6px 8px;font:600 12px/1.3 inherit;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--alt);border-radius:4px}
+.rd{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:420px}
+.rd .lp{border-right:1px solid var(--border);padding:0 0 12px;background:var(--surface)}
+.rd .lp .tabs{display:flex;border-bottom:1px solid var(--border);font-size:12.5px}.rd .lp .tabs span{flex:1;text-align:center;padding:9px 4px;color:var(--muted)}.rd .lp .tabs span.on{color:var(--text);font-weight:600;border-bottom:2px solid var(--text)}.rd .lp .tabs span.new{border-bottom-color:var(--ai);color:var(--ai)}
+.rd .lp .cont{padding:12px 14px;font-size:13px}
+.rd .rp{padding:12px 16px;background:var(--surface)}
+.rhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 18px;border-bottom:1px solid var(--border);background:var(--surface)}
+.rhead h3{margin:0;font:600 21px var(--serif)}
+.pill{display:inline-block;padding:2px 9px;border-radius:5px;background:var(--ink);color:#fff;font-size:11.5px;font-weight:700}
+.dec .p{display:grid;grid-template-columns:40px 1fr;gap:8px;padding:8px 6px 8px 8px;border-left:4px solid transparent;border-radius:3px;font-size:13.5px}
+.dec .p.court{border-left-color:var(--teal)}.dec .p.resp{border-left-color:var(--rust)}.dec .p.app{border-left-color:var(--blue)}
+.dec .p .no{color:var(--muted);font-weight:600;font-size:12.5px}.dec .p .txt{font-family:var(--serif);font-size:14.5px}
+.dec .sec{margin:0 0 4px;padding:6px 8px;font:700 13px var(--serif);letter-spacing:.04em;text-transform:uppercase}
 .pos{padding:1px 8px;border-radius:10px;font-size:11px;font-weight:700;margin-right:6px}
-.pos.court{background:var(--teal-soft);color:var(--teal)}.pos.resp{background:#f7e8e3;color:var(--rust)}.pos.app{background:var(--blue-soft);color:var(--blue)}.pos.below{background:var(--amber-soft);color:var(--amber)}
-.sum{margin-top:4px;font-size:13px;color:var(--text)}
-.blk{margin-top:8px;padding:9px 12px;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:5px;background:#fff;font-size:13px}
-.blk.resp{border-left-color:var(--rust)}.blk.app{border-left-color:var(--blue)}.blk.issue{border-left-color:#1d2a4a;background:#f1f4fb}
-.blk b{display:block;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
-.cite{display:inline-block;padding:1px 8px;border:1px solid #3d5aa8;border-radius:4px;background:#f1f4fb;color:#1d2a4a;font-size:12px;font-weight:600}
+.pos.court{background:var(--teal-soft);color:var(--teal)}.pos.resp{background:var(--rust-soft);color:var(--rust)}.pos.app{background:var(--blue-soft);color:var(--blue)}
+.sum{margin-top:4px;font-size:12.5px;font-family:"IBM Plex Sans",system-ui,sans-serif;padding:4px 8px;border-radius:4px;background:var(--ai-soft)}
+.blk{margin-top:8px;padding:8px 11px;border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:5px;background:#fff;font-size:12.5px}.blk.resp{border-left-color:var(--rust)}.blk.app{border-left-color:var(--blue)}.blk.issue{border-left-color:#1d2a4a;background:var(--ai-soft)}
+.blk b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.cite{display:inline-block;padding:1px 8px;border:1px solid var(--ai);border-radius:4px;background:var(--ai-soft);color:#1d2a4a;font-size:12px;font-weight:600;font-family:"IBM Plex Sans",sans-serif}
 .fn{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:10px;background:#1d2a4a;color:#dbe5ff;font-size:11px;font-weight:700}
-.limits{margin-top:12px;padding:10px 14px;border:1px solid var(--text);border-radius:6px;background:var(--alt);font-size:13px}
-.limits b{font-family:var(--serif);font-size:15px}
-.hl{background:#dbe5ff;outline:2px solid #3d5aa8;border-radius:3px}
+.limits{margin-top:12px;padding:10px 14px;border:1px solid var(--text);border-radius:6px;background:var(--alt);font-size:12.5px}.limits b{font-family:var(--serif);font-size:15px}
+.hl{background:#dbe5ff;border-radius:3px}
 .fade{animation:fade .5s ease both}@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-.lop{grid-template-columns:1.1fr .9fr}
-.stage,.pane{overflow-wrap:anywhere}
-.divider{text-align:center;padding:34px 10px}
-.divider h2{margin:10px auto 0;max-width:22ch;font:600 36px/1.15 var(--serif)}
-.divider p{max-width:62ch;margin:14px auto 0;font-size:16px}
-.dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:12px;padding:9px 10px 9px 18px;border:1px solid var(--border);border-radius:10px;background:var(--surface);box-shadow:0 6px 24px rgba(32,37,34,.16);max-width:calc(100vw - 24px)}
-.dock .where{display:flex;flex-direction:column;gap:5px;min-width:170px}.dock .count{font-size:13px;color:var(--muted);white-space:nowrap}
-.dock .prog{width:170px;height:4px;border-radius:2px;background:#e6e3d8;overflow:hidden}.dock .prog i{display:block;height:100%;background:var(--teal);transition:width .25s ease}
-body.ai .dock .prog i{background:#3d5aa8}
-.dock button{min-width:104px;min-height:40px;padding:7px 18px;border:1px solid var(--ink);border-radius:6px;background:var(--ink);color:#fff;font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
-@media(max-width:860px){.lop{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.card{position:static}.two,.three{grid-template-columns:1fr}.wrap{padding:14px 16px}.dock .prog{width:90px}.dock .where{min-width:100px}.divider h2{font-size:28px}}
+.divider{text-align:center;padding:26px 10px 8px}.divider h2{margin:10px auto 0;max-width:24ch;font:600 34px/1.15 var(--serif)}.divider p{max-width:62ch;margin:14px auto 0;font-size:16px}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;justify-content:center;margin:22px 0 6px}
+.flow .bx{flex:1 1 150px;max-width:200px;padding:12px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:12.5px;text-align:left}.flow .bx b{display:block;font-size:13px;margin-bottom:3px}.flow .bx.ai{border-color:var(--ai);background:var(--ai-soft)}.flow .ar{align-self:center;color:var(--muted);font-size:20px}
+.collage{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.collage .pane{padding:0;overflow:hidden}.collage .th{height:120px;background-size:cover;background-position:top left;border-bottom:1px solid var(--border)}.collage .tx{padding:12px 14px}
+#dim{position:fixed;left:0;top:0;width:0;height:0;border-radius:8px;border:3px solid var(--teal);box-shadow:0 0 0 4px rgba(23,108,104,.16),0 0 0 9999px rgba(32,37,34,.13);pointer-events:none;z-index:30;opacity:0;transition:transform .55s cubic-bezier(.45,0,.2,1),width .55s ease,height .55s ease,opacity .25s ease}
+body.ai #dim{border-color:var(--ai);box-shadow:0 0 0 4px rgba(61,90,168,.16),0 0 0 9999px rgba(32,37,34,.13)}
+#lock{position:fixed;inset:0;z-index:40}
+.dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:8px;padding:9px 10px 9px 18px;border:1px solid var(--border);border-radius:10px;background:var(--surface);box-shadow:0 6px 24px rgba(32,37,34,.16);max-width:calc(100vw - 20px)}
+.dock .where{display:flex;flex-direction:column;gap:5px;min-width:150px;margin-right:6px}.dock .count{font-size:13px;color:var(--muted);white-space:nowrap}
+.dock .prog{width:150px;height:4px;border-radius:2px;background:#e6e3d8;overflow:hidden}.dock .prog i{display:block;height:100%;background:var(--teal);transition:width .25s ease}body.ai .dock .prog i{background:var(--ai)}
+.dock button{min-height:40px;padding:7px 16px;border:1px solid var(--border);border-radius:6px;background:#fff;color:var(--ink);font:600 14px/1 inherit;font-family:inherit;cursor:pointer}
+.dock button:hover:not(:disabled){border-color:var(--ink)}.dock button:disabled{opacity:.45;cursor:default}
+.dock button.primary{min-width:96px;border-color:var(--ink);background:var(--ink);color:#fff}
+.dock button.quiet{border-color:transparent;background:transparent;color:var(--muted);font-weight:500}
+.dock button.x{width:36px;padding:0;font-size:22px;line-height:1}
+@media(max-width:860px){.grid{grid-template-columns:1fr}.card{position:static}.two,.three,.collage{grid-template-columns:1fr}.rd,.rd.lib{grid-template-columns:1fr!important}.rd .lp{border-right:0;border-bottom:1px solid var(--border)}.wrap{padding:14px 12px}.dock{gap:4px;padding:8px 8px 8px 12px}.dock .prog{width:70px}.dock .where{min-width:76px}.dock button{padding:7px 10px}.dock .skip{display:none}.divider h2{font-size:27px}.card{padding:16px}}
 </style>
 </head>
 <body>
-<header class="top"><a class="brand" href="/data-explorer?tab=about&amp;group=info">ILIT</a><span class="sp"></span><a class="exit" href="/data-explorer?group=roadmap">Leave the preview</a></header>
+<header class="top"><a class="brand" href="/data-explorer?tab=about&amp;group=info">ILIT</a><span class="sp"></span><a class="exit" id="leave" href="/data-explorer?tab=roadmap-overview&amp;group=roadmap">Leave the preview</a></header>
 <div id="ribbon" role="note"></div>
 <div class="wrap"><div class="grid" id="grid"><aside class="card" id="card" aria-live="polite"></aside><section class="stage" id="stage"></section></div></div>
-<div class="dock"><div class="where"><span class="count" id="count"></span><div class="prog"><i id="prog"></i></div></div><button type="button" id="next">Next</button></div>
+<div id="dim"></div><div id="lock"></div>
+<div class="dock"><button type="button" class="quiet" id="back">Back</button><div class="where"><span class="count" id="count"></span><div class="prog"><i id="prog"></i></div></div><button type="button" class="quiet skip" id="skip">Skip section</button><button type="button" class="primary" id="next">Next</button><button type="button" class="quiet x" id="close" aria-label="Leave the preview">&times;</button></div>
 <script>
 (function(){
-var P1="Part 1 · Deterministic improvements",P2="Part 2 · Profiles and teams",P3="Part 3 · Future local AI";
-var CHIP={built:'<span class="chip c-built">On the site today</span>',part:'<span class="chip c-blue">Partly on the site</span>',mock:'<span class="chip c-mock">Mock-up</span>',ai:'<span class="chip c-ai">Future local AI · mock-up</span>'};
+var P0="Preview",P1="Part 1 · Deterministic improvements",P2="Part 2 · Profiles and teams",P3="Part 3 · Future local AI";
+var CH={built:'<span class="chip c-built">On the site today</span>',real:'<span class="chip c-built">Real screen</span>',mock:'<span class="chip c-mock">Mock-up</span>',onreal:'<span class="chip c-mock">Mock-up on a real screen</span>',ai:'<span class="chip c-ai">Future local AI · mock-up</span>',part:'<span class="chip c-blue">Partly on the site</span>'};
 var RIB_PLAIN='<span>Coming soon preview</span><span>Mock-ups use invented names and numbers</span>';
 var RIB_AI='<span>Future · needs a local private AI</span><span>Not part of the site today</span>';
+function win(url,chips,inner,flush){return '<div class="win"><div class="wbar"><span class="dots"><i></i><i></i><i></i></span><span class="url">'+url+'</span>'+chips+'</div><div class="body'+(flush?' flush':'')+'">'+inner+'</div></div>';}
+function shot(img,W,H,ovs,dim){var h='<div class="shot'+(dim?' dim':'')+'" style="--w:'+W+';aspect-ratio:'+W+'/'+H+'"><img src="/coming-soon-preview/img/'+img+'.webp" alt="" draggable="false">';
+ ovs.forEach(function(o){h+='<div class="ov '+(o.c||'')+'"'+(o.f?' data-focus':'')+' style="left:'+(o.x/W*100)+'%;top:'+(o.y/H*100)+'%;width:'+(o.w/W*100)+'%;'+(o.h?'height:'+(o.h/H*100)+'%;':'')+'">'+(o.mk?'<span class="mk">Mock-up</span>':'')+o.html+'</div>';});return h+'</div>';}
+function site(active){var t=['About','Case search','Intelligence / Statistics','Workbench','Coming soon'];return '<div class="siteh">'+t.map(function(x){return '<span class="nv'+(x===active?' on':'')+'">'+x+'</span>';}).join('')+'<b class="logo">ILIT</b></div>';}
 
-/* ---------- Part 1 ---------- */
-function intro(){return '<div class="three">'+
-'<div class="pane"><h4>Part 1</h4><b>Better data, still no AI</b><p class="mut">A larger statute and reference library, tags that say more, and decisions that are easier to scan. Works the way the site works today.</p></div>'+
-'<div class="pane"><h4>Part 2</h4><b>Profiles and teams</b><p class="mut">Analyst sign-in, joining a team, sharing what was found, and shared documents with comments.</p></div>'+
-'<div class="pane" style="border-color:#3d5aa8;background:#f1f4fb"><h4>Part 3</h4><b>Future: a local private AI on top</b><p class="mut">Clearly separate. How a decision could be split into arguments and tied to its citations, and the same idea in the live document reader.</p></div></div>'+
-'<div class="row" style="margin-top:14px;border-top:0"><span class="chip c-built">On the site today</span><span class="mut">Exists and works now</span><span class="chip c-mock">Mock-up</span><span class="mut">Shown as a picture, invented data</span><span class="chip c-ai">Future local AI</span><span class="mut">Needs a model that runs on the agency&rsquo;s own machine</span></div>';}
-function statutes(){return '<div class="bar">'+CHIP.mock+'<span><b>Statute and reference library</b> · a mock-up of the expanded version</span></div>'+
-'<div class="two"><div class="pane"><h4>Sources in the library</h4>'+
-'<div class="row"><span class="grow">Federal acts and regulations</span>'+CHIP.built+'</div>'+
-'<div class="row"><span class="grow">Tribunal rules (RPD, RAD, ID, IAD)</span>'+CHIP.mock+'</div>'+
-'<div class="row"><span class="grow">Ministerial instructions</span>'+CHIP.mock+'</div>'+
-'<div class="row"><span class="grow">Operational bulletins</span>'+CHIP.mock+'</div>'+
-'<div class="row"><span class="grow">Program delivery instructions</span>'+CHIP.mock+'</div>'+
-'<div class="row"><span class="grow">Historic versions of a provision</span>'+CHIP.mock+'</div></div>'+
-'<div class="pane"><h4>One provision, everything about it</h4><b style="font-family:var(--serif);font-size:17px">IRPA s. 34(1)(f)</b><div class="mut">Security: membership in an organization</div>'+
-'<dl class="kv" style="margin-top:10px"><dt>Text</dt><dd>As in force, with earlier versions</dd><dt>Decisions</dt><dd>Cited in 1,248 decisions, by year, court and outcome</dd><dt>Guidance</dt><dd>Mentioned in 3 bulletins and 2 delivery instructions</dd><dt>Regulations</dt><dd>Linked to the sections that apply it</dd></dl>'+
-'<div class="mut" style="margin-top:8px">Counts here are invented for the picture.</div></div></div>';}
-function tags(){return '<div class="bar">'+CHIP.mock+'<span><b>Tags</b> · today and with more detail</span></div>'+
-'<div class="two"><div class="pane"><h4>Today</h4><div class="row"><span class="chip c-grey">inadmissibility</span><span class="chip c-grey">procedural fairness</span><span class="chip c-grey">credibility finding</span></div><p class="mut">One flat word per issue. Useful for a filter, but it does not say which part of the issue, or where.</p></div>'+
-'<div class="pane"><h4>With more detail</h4><div class="tree"><div class="n">Inadmissibility</div><div class="n l2">Security</div><div class="n l3">Membership in an organization <span class="mut">(s. 34(1)(f))</span></div>'+
-'<div class="ev">Matched on &ldquo;<mark>member of an organization</mark>&rdquo; at paragraph 41, and on the section reference at paragraph 44.</div>'+
-'<div class="n" style="margin-top:6px">Procedural fairness</div><div class="n l2">Duty to give an opportunity to respond</div></div></div></div>'+
-'<p class="mut" style="margin:10px 2px 0">Every tag is a fixed rule that points at the words that triggered it, so it can be checked and does not change from one run to the next.</p>';}
-function coverage(){return '<div class="bar">'+CHIP.mock+'<span><b>Coverage</b> · what is in the library and how current it is</span></div>'+
-'<div class="two"><div class="pane"><h4>Decisions by source</h4><div class="bars">'+
-'<div class="b"><span>FC</span><span class="t"><i style="width:92%"></i></span><span class="mut">complete to date</span></div>'+
-'<div class="b"><span>FCA</span><span class="t"><i style="width:84%"></i></span><span class="mut">complete to date</span></div>'+
-'<div class="b"><span>SCC</span><span class="t"><i style="width:96%"></i></span><span class="mut">complete to date</span></div>'+
-'<div class="b"><span>RPD</span><span class="t"><i style="width:55%"></i></span><span class="mut">growing</span></div>'+
-'<div class="b"><span>RAD</span><span class="t"><i style="width:40%"></i></span><span class="mut">growing</span></div>'+
-'<div class="b"><span>IAD / ID</span><span class="t"><i class="n" style="width:6%"></i></span><span class="mut">not yet</span></div></div></div>'+
-'<div class="pane"><h4>Also on the way</h4><div class="row"><span class="grow">French counterparts of English decisions</span>'+CHIP.mock+'</div><div class="row"><span class="grow">New decisions added every day</span>'+CHIP.part+'</div><div class="row"><span class="grow">&ldquo;Last updated&rdquo; shown on every page</span>'+CHIP.mock+'</div><p class="mut">The daily update is built and has been run by hand. It is not scheduled yet. Bars are illustrative.</p></div></div>';}
+/* ---------- intro ---------- */
+function intro(){function th(i,t,b,c){return '<div class="pane"><div class="th" style="background-image:url(/coming-soon-preview/img/'+i+'.webp)"></div><div class="tx"><h4>'+t+'</h4><b>'+b+'</b><p class="mut" style="margin:4px 0 0">'+c+'</p></div></div>';}
+ return '<div class="collage">'+
+ th('authorities','Part 1','Better data, still no AI','A larger statute and reference library, tags that say more, and fresher coverage. Works the way the site works today.')+
+ th('workbench','Part 2','Profiles and teams','Analyst sign-in, joining a team, sharing what was found, and shared documents with comments.')+
+ '<div class="pane" style="border-color:var(--ai)"><div class="th" style="background-image:url(/coming-soon-preview/img/reader.webp);filter:saturate(.6) hue-rotate(190deg)"></div><div class="tx" style="background:var(--ai-soft)"><h4>Part 3</h4><b>Future: a local private AI on top</b><p class="mut" style="margin:4px 0 0">Clearly separate. How a decision could be split into arguments and tied to its citations, and the same in the live document reader.</p></div></div></div>'+
+ '<div class="pane" style="margin-top:12px"><div class="row" style="border:0"><span class="chip c-built">On the site today</span><span class="mut">A real screen from the site, as it is now</span></div><div class="row"><span class="chip c-mock">Mock-up</span><span class="mut">A picture of an idea, with invented names and numbers. Where it sits on a real screen, only the highlighted part is invented.</span></div><div class="row"><span class="chip c-ai">Future local AI</span><span class="mut">Needs a model that runs on the agency&rsquo;s own machine</span></div></div>';}
 
-/* ---------- Part 2 ---------- */
-function profile(){return '<div class="bar">'+CHIP.mock+'<span><b>Analyst profile</b> · after agency sign-in</span></div>'+
-'<div class="two"><div class="pane"><div class="row" style="border:0"><span class="avatar" style="width:44px;height:44px;font-size:15px">AM</span><div class="grow"><b>A. Morin</b><div class="mut">Analyst · Hearings and Litigation</div></div></div>'+
-'<dl class="kv" style="margin-top:8px"><dt>Teams</dt><dd>Section 34 files, Detention reviews</dd><dt>Pinned</dt><dd>14 decisions</dd><dt>Notes</dt><dd>9, private by default</dd></dl></div>'+
-'<div class="pane"><h4>What a profile would hold</h4><div class="row"><span class="grow">Pinned decisions and saved searches</span>'+CHIP.part+'</div><div class="row"><span class="grow">Private notes on a decision</span>'+CHIP.part+'</div><div class="row"><span class="grow">Team memberships</span>'+CHIP.mock+'</div><div class="row"><span class="grow">Sign-in through the agency account</span>'+CHIP.mock+'</div><p class="mut">The Workbench already has pins and notes with a demo sign-in. Real sign-in needs agency approval.</p></div></div>';}
-function teams(){return '<div class="bar">'+CHIP.mock+'<span><b>Teams</b> · joining one</span></div>'+
-'<div class="two"><div class="pane"><h4>Invitation</h4><b style="font-family:var(--serif);font-size:17px">Section 34 files</b><div class="mut">Hearings and Litigation · 7 members</div><div class="row" style="border:0;margin-top:8px"><span class="avatar">LB</span><span class="avatar t">RC</span><span class="avatar a">JD</span><span class="avatar">+4</span></div><div style="margin-top:10px"><span class="btn">Join team</span> <span class="btn ghost">Not now</span></div></div>'+
-'<div class="pane"><h4>What joining means</h4><div class="row"><span class="grow">Sees pins and notes the team chose to share</span></div><div class="row"><span class="grow">Sees shared documents and their comments</span></div><div class="row"><span class="grow">Private items stay private</span></div><div class="row"><span class="grow">A lead can add or remove members</span></div></div></div>';}
-function insights(){return '<div class="bar">'+CHIP.mock+'<span><b>Team space</b> · shared insights</span></div>'+
-'<div class="pane"><h4>Recent from the team</h4>'+
-'<div class="cmt" style="margin-top:0"><span class="avatar t">RC</span><div class="bub"><b>R. Caron</b> pinned a decision <span class="mut">· today</span><br>Useful on membership after the organization stopped operating. Paragraphs 38 to 44.</div></div>'+
-'<div class="cmt"><span class="avatar">LB</span><div class="bub"><b>L. Bouchard</b> shared a search <span class="mut">· yesterday</span><br>Section 34(1)(f), Federal Court, last 3 years, outcome: allowed.</div></div>'+
-'<div class="cmt"><span class="avatar a">JD</span><div class="bub"><b>J. Dunn</b> added a tag note <span class="mut">· Monday</span><br>Two decisions tagged &ldquo;membership&rdquo; are really about complicity.</div></div></div>'+
-'<p class="mut" style="margin:10px 2px 0">Names are invented. A shared item is something a person chose to share, nothing is shared automatically.</p>';}
-function shareddoc(){return '<div class="bar">'+CHIP.mock+'<span><b>Shared document</b> · comments the team can see</span></div>'+
-'<div class="two"><div class="pane doc"><p><b>Draft: submissions on membership</b></p><p>The tribunal must be satisfied on reasonable grounds that the organization engaged in the acts described. <span class="anch">The Court has read &ldquo;member&rdquo; broadly</span> <span class="cite" style="font-family:inherit">[example citation]</span>.</p><p>On these facts, the evidence of involvement was thin.</p></div>'+
-'<div class="pane"><h4>Comments · 2</h4><div class="cmt" style="margin-top:0"><span class="avatar t">RC</span><div class="bub"><b>R. Caron</b><br>Add the recent line of cases that narrows this.</div></div><div class="cmt"><span class="avatar">LB</span><div class="bub"><b>L. Bouchard</b><br>Agree. I pinned two in the team space.</div></div><div class="mut" style="margin-top:10px">Draft kept inside the team space. Today, uploaded documents are read in memory and never stored.</div></div></div>';}
-
-/* ---------- Part 3 divider ---------- */
-function divider(){return '<div class="divider"><span class="chip c-ai">Future local AI</span><h2>A different kind of improvement</h2><p>Everything so far works without AI, and so will the site. This part imagines a private AI model that runs on the agency&rsquo;s own machine, layered on top. It is not built into the site, nothing is sent to any outside service, and the figures come from small early tests that no lawyer has checked.</p></div>';}
-
-/* ---------- Part 3 decision stage ---------- */
-var PAR=[
+/* ---------- part 1 ---------- */
+function tags(){var tree='<div class="pad"><h5>Topics in the text</h5>'+
+'<div class="tr"><span class="sq"></span><b>Judicial review</b><span class="ct">12</span></div><div class="tr l2"><span class="sq"></span>Standard of review<span class="ct">9</span></div><div class="tr l3"><span class="sq"></span>Presumption of reasonableness<span class="ct">6</span></div><div class="evd">Matched on &ldquo;<b>reasonableness review</b>&rdquo; at paragraph 2, and on &ldquo;standard of review&rdquo; at paragraph 3.</div>'+
+'<div class="tr" style="margin-top:.5em"><span class="sq"></span><b>Administrative law</b><span class="ct">8</span></div><div class="tr l2"><span class="sq"></span>Justification and reasons<span class="ct">5</span></div>'+
+'<div class="evd" style="margin-left:1.2em">Matched on &ldquo;<b>reasons that justify</b>&rdquo; at paragraphs 95 to 98.</div><div class="tr" style="margin-top:.5em"><span class="sq"></span><b>Federal Court of Appeal</b><span class="ct">3</span></div><div style="margin-top:.8em;padding-top:.6em;border-top:.08em solid var(--border);font-size:.8em;color:var(--muted)">Today: flat chips such as &ldquo;Reasonableness 230&rdquo;. Each tag above links to the words that triggered it, and to a filter across the library.</div></div>';
+ return win('ilit.ca/data-explorer · case reader',CH.onreal,shot('reader',1440,900,[{x:33,y:258,w:430,h:618,html:tree,mk:1,f:1}]),1);}
+function guidance(){var left='<div style="padding:.9em .9em .3em;font-size:.9em"><span style="color:#8a6418">&#9632;</span> Case citations &nbsp; <span style="color:#6f4f9a">&#9632;</span> Statutes &nbsp; <span style="color:var(--teal)">&#9632;</span> Guidance</div>'+
+ '<div style="margin:.3em .9em;display:flex;gap:.4em;font-size:.85em"><span class="btnx">All 257</span><span class="btnx g">Cases 213</span><span class="btnx g">Statutes 40</span><span class="btnx g" style="border-color:var(--teal);color:var(--teal)">Guidance 4</span></div>'+
+ '<div class="cardy gd"><b>Operational bulletin 5, Inadmissibility</b><span>Mentions s. 34(1)(f) · linked to this decision&rsquo;s statute</span></div>'+
+ '<div class="cardy st"><b>Immigration and Refugee Protection Act</b><span>s. 72 · cited 13 times in this decision</span></div>'+
+ '<div class="cardy"><b>Dunsmuir v. New Brunswick</b><span>2008 SCC 9 · cited 61 times</span></div>'+
+ '<div class="cardy gd"><b>Delivery instruction: Judicial review</b><span>Refers to the standard of review</span></div>';
+ return win('ilit.ca/data-explorer · case reader',CH.onreal,shot('authorities',1440,900,[{x:33,y:258,w:430,h:618,html:left,mk:1,f:1}]),1);}
+/* ---------- part 2 ---------- */
+function library(){var secs=['Part 1 · Immigration to Canada','Division 4 · Inadmissibility','33 Rules of interpretation','34 Security','35 Human or international rights violations','36 Serious criminality','37 Organized criminality','38 Health grounds'];
+ var tree=secs.map(function(x,k){return '<div class="row" style="padding:5px 0;'+(k===3?'font-weight:700;color:var(--teal)':'')+(k>1?';margin-left:'+(k<3?10:14)+'px':'')+'"><span class="grow">'+x+'</span></div>';}).join('');
+ var dec=[['2023 FC 1553','Saha v. Canada','Allowed','c-built'],['2021 FC 1127','Bahadur v. Canada','Dismissed','c-grey'],['2019 FC 888','Nguyen v. Canada','Allowed','c-built'],['2018 FC 402','Rahman v. Canada','Dismissed','c-grey'],['2017 FC 66','Okafor v. Canada','Dismissed','c-grey']];
+ return win('ilit.ca/statute-library/irpa/34',CH.mock,site('Coming soon')+'<div class="pgbg" style="padding:14px 16px"><div style="display:flex;gap:10px;align-items:center;margin-bottom:8px"><div class="eyeb">Statute and reference library</div><div style="flex:1"></div><div class="pane" style="padding:5px 12px;min-width:240px;color:var(--muted);font-size:12.5px">Search the library &nbsp;&middot;&nbsp; IRPA 34(1)(f)</div></div><div class="mut" style="margin-bottom:6px">Acts &rsaquo; Immigration and Refugee Protection Act &rsaquo; Division 4 &rsaquo; <b>Section 34</b></div>'+
+ '<div class="rd lib" style="grid-template-columns:200px minmax(0,1fr) 290px;min-height:0;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:#fff"><div class="lp" style="padding:10px 12px;font-size:12.5px"><h4 style="margin:0 0 6px;font-size:11px;color:var(--muted);letter-spacing:.07em;text-transform:uppercase">Contents</h4>'+tree+'<h4 style="margin:12px 0 6px;font-size:11px;color:var(--muted);letter-spacing:.07em;text-transform:uppercase">Source types</h4><div class="row"><span class="grow">Act and regulations</span>'+CH.built+'</div><div class="row"><span class="grow">Tribunal rules</span>'+CH.mock+'</div><div class="row"><span class="grow">Ministerial instructions</span>'+CH.mock+'</div><div class="row"><span class="grow">Operational bulletins</span>'+CH.mock+'</div><div class="row"><span class="grow">Delivery instructions</span>'+CH.mock+'</div></div>'+
+ '<div style="padding:12px 18px" data-focus><div style="display:flex;align-items:baseline;gap:8px"><b style="font:700 22px var(--serif)">34 Security</b><span class="chip c-grey">in force</span><span class="chip c-blue">Version: 2013-06-19 &#9662;</span></div><div class="doc" style="font-size:14.5px;margin-top:8px"><p><b>34 (1)</b> A permanent resident or a foreign national is inadmissible on security grounds for</p><p style="margin-left:18px">(a) engaging in an act of espionage&hellip;;<br>(b) engaging in or instigating the subversion by force of any government;<br>(c) engaging in terrorism;<br>(d) being a danger to the security of Canada;<br>(e) engaging in acts of violence that would or might endanger the lives or safety of persons in Canada; or<br><span style="background:#fbe7a1;padding:2px 4px;border-radius:3px">(f) being a <b>member of an organization</b> that there are reasonable grounds to believe engages, has engaged or will engage in acts referred to in paragraph (a), (b), (b.1) or (c).</span></p><div class="pane" style="font-family:\'IBM Plex Sans\',sans-serif;font-size:12.5px;margin:2px 0 10px 18px;border-left:4px solid var(--teal)"><b>Operational bulletin 5 · Inadmissibility</b><br>&ldquo;Membership is interpreted broadly; the officer considers the nature of the organization and the person&rsquo;s involvement.&rdquo; <span class="chip c-mock">invented text</span></div><p><b>(2)</b> Paragraphs (1)(a), (b), (b.1) and (c) do not apply in respect of a permanent resident or a foreign national who satisfies the Minister that their presence in Canada would not be detrimental to the national interest.</p></div></div>'+
+ '<div style="padding:12px 14px;border-left:1px solid var(--border);background:var(--alt);font-size:12.5px"><div class="row" style="gap:12px;font-weight:700;font-size:11.5px;letter-spacing:.06em;border-top:0"><span style="border-bottom:2px solid var(--text)">DECISIONS</span><span style="color:var(--muted)">GUIDANCE</span><span style="color:var(--muted)">REGULATIONS</span></div><b style="font:700 26px var(--serif)">1,248</b> <span class="mut">decisions cite 34(1)(f)</span><div class="bars" style="margin:8px 0 10px"><div class="b" style="grid-template-columns:34px 1fr 30px"><span>2023</span><span class="t"><i style="width:70%"></i></span><span>142</span></div><div class="b" style="grid-template-columns:34px 1fr 30px"><span>2022</span><span class="t"><i style="width:55%"></i></span><span>111</span></div><div class="b" style="grid-template-columns:34px 1fr 30px"><span>2021</span><span class="t"><i style="width:60%"></i></span><span>120</span></div></div>'+dec.map(function(d){return '<div class="row" style="padding:5px 0"><span class="grow"><b>'+d[1]+'</b><br><span class="mut">'+d[0]+'</span></span><span class="chip '+d[3]+'">'+d[2]+'</span></div>';}).join('')+'<div class="mut" style="margin-top:6px">Names, counts and guidance text are invented.</div></div></div></div>',1);}
+function coverage(){var rows=[['Federal Court','FC','2001 to 2026','Oct 8','Partly','c-built'],['Federal Court of Appeal','FCA','2001 to 2026','Oct 8','Partly','c-built'],['Supreme Court of Canada','SCC','1876 to 2026','Oct 8','Partly','c-built'],['Refugee Protection Division','RPD','2012 to 2026','Oct 5','Not yet','c-mock'],['Refugee Appeal Division','RAD','2013 to 2026','Oct 5','Not yet','c-mock'],['Immigration Appeal Division','IAD','Not in library','','','c-grey'],['Immigration Division','ID','Not in library','','','c-grey']];
+ return win('ilit.ca/library',CH.mock,site('About')+'<div class="pgbg"><div class="eyeb">The library</div><h2>What is in it, and how current</h2><div class="row" style="border:0;margin-bottom:8px"><div class="pane" style="flex:1;text-align:center"><b style="font:700 24px var(--serif)">75,000+</b><div class="mut">decisions</div></div><div class="pane" style="flex:1;text-align:center"><b style="font:700 24px var(--serif)">Oct 8</b><div class="mut">last updated</div></div><div class="pane" style="flex:1;text-align:center"><b style="font:700 24px var(--serif)">6</b><div class="mut">more tribunals planned</div></div></div>'+
+ '<div class="pane" data-focus><h4>Coverage by court and tribunal</h4><div style="overflow:auto"><table style="width:100%;border-collapse:collapse;font-size:12.5px"><tr style="text-align:left;color:var(--muted);font-size:11px;letter-spacing:.06em;text-transform:uppercase"><th style="padding:5px 4px">Source</th><th>Years</th><th>Last added</th><th>French counterpart</th></tr>'+rows.map(function(r){return '<tr style="border-top:1px solid #ecebe4"><td style="padding:7px 4px"><b>'+r[1]+'</b> <span class="mut">'+r[0]+'</span></td><td>'+r[2]+'</td><td>'+r[3]+'</td><td>'+(r[4]?'<span class="chip '+r[5]+'">'+r[4]+'</span>':'<span class="mut">&ndash;</span>')+'</td></tr>';}).join('')+'</table></div><p class="mut" style="margin:8px 0 0">The daily update is built and has been run by hand. It is not scheduled yet. Dates and years are illustrative.</p></div></div>',1);}
+function signin(){return win('ilit.ca/sign-in',CH.mock,'<div class="pgbg" style="padding:30px 18px"><div class="two" style="max-width:860px;margin:0 auto;align-items:stretch"><div class="pane" style="padding:22px 24px" data-focus><div style="font:700 26px var(--serif)">ILIT</div><div class="mut">Immigration Litigation Intelligence System</div><h3 style="font:600 20px var(--serif);margin:18px 0 6px">Sign in</h3><div class="btn" style="display:block;text-align:center;padding:11px">Continue with your agency account</div><div class="mut" style="margin:10px 0 14px">Your agency sign-in decides who you are and which teams you can join.</div><div class="row"><span class="grow">Your lists, pins and notes</span><span class="chip c-built">Follow you</span></div><div class="row"><span class="grow">Private notes</span><span class="chip c-grey">Only you</span></div><div class="row"><span class="grow">Anything shared</span><span class="chip c-blue">Your choice, per item</span></div></div><div class="pane"><h4>First time in</h4><div class="cmt" style="margin-top:0"><span class="avatar t">AM</span><div class="bub"><b>A. Morin</b><br>Hearings and Litigation · Analyst</div></div><h4 style="margin-top:14px">Teams you were invited to</h4><div class="row"><span class="grow"><b>Section 34 files</b><br><span class="mut">7 members</span></span><span class="btn">Join</span></div><div class="row"><span class="grow"><b>Detention reviews</b><br><span class="mut">4 members</span></span><span class="btn ghost">Join</span></div><p class="mut" style="margin-top:10px">Today the Workbench uses a demo sign-in with no password. Real sign-in needs agency approval.</p></div></div></div>',1);}
+function teamspace(){var tr=[['2021 FC 1436','Timeliness and extension of time','R. Caron','3'],['2019 SCC 65','Standard of review (Vavilov)','L. Bouchard','5'],['2023 FC 1553','Cessation, state protection','J. Dunn','1'],['2018 FC 402','Membership in an organization','R. Caron','2']];
+ return win('ilit.ca/teams/section-34-files',CH.mock,site('Workbench')+'<div class="pgbg"><div class="eyeb">Team</div><div style="display:flex;align-items:baseline;gap:12px"><h2 style="margin:0">Section 34 files</h2><span class="mut">7 members · Hearings and Litigation</span><span style="flex:1"></span><span class="btn ghost">Invite</span></div><div class="row" style="border:0;gap:18px;font-weight:600;font-size:12.5px;letter-spacing:.08em"><span style="border-bottom:2px solid var(--text)">ACTIVITY</span><span style="color:var(--muted)">PINNED</span><span style="color:var(--muted)">SEARCHES</span><span style="color:var(--muted)">DOCUMENTS</span><span style="color:var(--muted)">MEMBERS</span></div>'+
+ '<div class="two" style="grid-template-columns:1.1fr 1fr;margin-top:8px"><div class="pane" data-focus><h4>Recent from the team</h4><div class="cmt" style="margin-top:0"><span class="avatar t">RC</span><div class="bub"><b>R. Caron</b> pinned a decision <span class="mut">· today</span><br><span class="mut">Useful on membership once an organization stopped operating. Paragraphs 38 to 44.</span></div></div><div class="cmt"><span class="avatar">LB</span><div class="bub"><b>L. Bouchard</b> shared a search <span class="mut">· yesterday</span><br><span class="mut">Section 34(1)(f), Federal Court, last 3 years, allowed. <span class="chip c-blue">Run it</span></span></div></div><div class="cmt"><span class="avatar a">JD</span><div class="bub"><b>J. Dunn</b> added a tag note <span class="mut">· Monday</span><br><span class="mut">Two decisions tagged &ldquo;membership&rdquo; are really about complicity.</span></div></div><div class="cmt"><span class="avatar t">RC</span><div class="bub"><b>R. Caron</b> commented on <i>Draft: submissions on membership</i> <span class="mut">· Monday</span></div></div></div>'+
+ '<div><div class="pane"><h4>Pinned this week</h4>'+tr.map(function(r){return '<div class="row" style="padding:6px 0"><span class="grow"><b>'+r[0]+'</b> <span class="mut">'+r[1]+'</span></span><span class="mut">'+r[2]+'</span><span class="chip c-grey">'+r[3]+' notes</span></div>';}).join('')+'</div><div class="pane" style="margin-top:10px"><h4>Members</h4><div class="row" style="border:0"><span class="avatar t">RC</span><span class="avatar">LB</span><span class="avatar a">JD</span><span class="avatar">AM</span><span class="avatar">MP</span><span class="avatar t">SK</span><span class="avatar a">TL</span></div><p class="mut" style="margin:6px 0 0">Names are invented. Only what a person chose to share appears here.</p></div></div></div></div>',1);}
+function shareddoc(){return win('ilit.ca/teams/section-34-files/documents/membership-submissions',CH.mock,site('Workbench')+'<div class="pgbg"><div class="eyeb">Shared document · Section 34 files</div><div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h2 style="margin:0">Draft: submissions on membership</h2><span class="chip c-mock">Draft</span><span class="mut">3 people editing · saved 2 minutes ago</span></div><div class="row" style="border:0;gap:8px;margin:6px 0"><span class="btn ghost">B</span><span class="btn ghost">&ldquo; Quote</span><span class="btn ghost">Insert citation</span><span class="btn ghost">Comment</span><span style="flex:1"></span><span class="btn ghost">Version history</span></div>'+
+ '<div class="two" style="grid-template-columns:1.3fr 1fr"><div class="pane doc" data-focus><p><b>1. The test for membership</b></p><p>The tribunal must be satisfied on reasonable grounds that the organization engaged in the acts described. <span class="anch">The Court has read &ldquo;member&rdquo; broadly</span><sup style="font-family:sans-serif;color:var(--teal)">1</sup> <span class="cite" style="font-family:inherit">Example v. Canada, 2010 FC 100</span> <span class="chip c-built" style="font-family:sans-serif">found in the library</span>.</p><p><b>2. Application to these facts</b></p><p><span class="anch" style="background:#f4dcd4;border-color:#d8a595">On these facts, the evidence of involvement was thin.</span><sup style="font-family:sans-serif;color:var(--rust)">2</sup> The applicant attended two public events and held no office.</p><p><span class="mut" style="font-family:sans-serif;font-size:12.5px">Authorities in this draft: 1 case, 1 statute section, checked against the library.</span></p></div>'+
+ '<div class="pane"><h4>Comments · 3 open</h4><div class="cmt" style="margin-top:0"><span class="avatar t">RC</span><div class="bub"><b>R. Caron</b> on 1 · <span class="mut">Mon</span><br>Add the recent line of cases that narrows this.<div class="cmt"><span class="avatar">LB</span><div class="bub"><b>L. Bouchard</b><br>Agree. I pinned two in the team space.</div></div><div class="mut" style="margin-top:6px">Reply &nbsp;&middot;&nbsp; Resolve</div></div></div><div class="cmt"><span class="avatar a">JD</span><div class="bub"><b>J. Dunn</b> on 2 · <span class="mut">Tue</span><br>Cite the record page for the evidence.</div></div><div class="cmt"><span class="avatar">MP</span><div class="bub"><b>M. Pelletier</b> · <span class="mut">Tue</span><br>Should we address s. 34(2) as well?</div></div><p class="mut" style="margin-top:10px">The draft stays inside the team space. Today, uploaded documents are read in memory and never stored.</p></div></div></div>',1);}
+function workbench(){var chip='<div style="display:flex;align-items:center;gap:.6em;height:100%;white-space:nowrap;background:var(--surface)"><span class="av t">AM</span><span><b>A. Morin</b> · Section 34 files &#9662;</span><u style="color:var(--teal);margin-left:.5em">Sign out</u></div>';
+ var team='<div style="color:var(--text);font-weight:700;letter-spacing:.1em;font-size:.82em;padding-top:.3em">TEAM <span class="pl" style="background:var(--amber-soft);color:var(--amber)">new</span></div>';
+ var act='<div class="pad"><h5 style="font:700 1.25em var(--serif);text-transform:none;letter-spacing:0;color:var(--text)">Team activity</h5><div class="tr"><span class="av t">RC</span><span><b>R. Caron</b> pinned <i>Vavilov</i></span></div><div class="tr"><span class="av">LB</span><span><b>L. Bouchard</b> shared a search</span></div></div>';
+ return win('ilit.ca/workbench',CH.onreal,shot('workbench',1366,908,[{x:452,y:16,w:340,h:36,html:chip,f:1,mk:0},{x:422,y:204,w:130,h:30,html:team,c:'bare'},{x:848,y:746,w:446,h:114,html:act,c:'box',mk:1}]),1);}
+function join(){var m='<div class="pad" style="padding:1.2em 1.4em"><h5>Invitation</h5><div style="font:600 1.7em var(--serif)">Section 34 files</div><div style="color:var(--muted)">Hearings and Litigation · 7 members · invited by L. Bouchard</div><div style="margin:.9em 0;display:flex;gap:.3em"><span class="av">LB</span><span class="av t">RC</span><span class="av a">JD</span><span class="av">+4</span></div><div style="font-size:.92em;margin-bottom:.9em">Joining lets you see what the team chooses to share. Your private notes stay private.</div><span class="btnx">Join team</span> <span class="btnx g">Not now</span></div>';
+ return win('ilit.ca/workbench',CH.onreal,shot('workbench',1366,908,[{x:380,y:250,w:600,h:340,html:m,c:'box',f:1,mk:1}],1),1);}
+function sharedread(){var badge='<div style="display:flex;align-items:center;gap:.5em;height:100%;white-space:nowrap;background:var(--surface);color:var(--teal);font-weight:700;font-size:.9em"><span class="av t">RC</span>Pinned for Section 34 files by R. Caron</div>';
+ var cm='<div class="pad" style="border-left:.35em solid var(--teal);background:var(--teal-soft);height:100%"><div style="display:flex;gap:.6em"><span class="av t">RC</span><div><b>R. Caron</b> <span style="color:var(--muted)">· 2 hours ago · paragraph 2</span><div>Read this with the Dunsmuir line in paragraph 2 and the standard of review in paragraph 3.</div><div style="margin-top:.4em;color:var(--muted);font-size:.85em">Reply to the team&hellip;</div></div></div></div>';
+ return win('ilit.ca/data-explorer · case reader',CH.onreal,shot('reader',1440,900,[{x:515,y:50,w:480,h:30,html:badge},{x:561,y:497,w:821,h:93,html:cm,f:1,mk:1}]),1);}
+/* ---------- part 3 ---------- */
+function divider(){return '<div class="divider"><span class="chip c-ai">Future local AI</span><h2>A different kind of improvement</h2><p>Everything so far works without AI, and so will the site. This part imagines a private AI model on the agency&rsquo;s own machine, layered on top. It is not built into the site, nothing is sent to any outside service, and the figures come from small early tests that no lawyer has checked.</p></div>'+
+'<div class="flow"><div class="bx"><b>Public decision</b>Text as published</div><span class="ar">&rarr;</span><div class="bx"><b>Fixed rules</b>Paragraphs, headings, citations, statutes, tags <span class="chip c-built">Today</span></div><span class="ar">&rarr;</span><div class="bx ai"><b>Local private model</b>On the agency&rsquo;s own machine, run in advance <span class="chip c-ai">Future</span></div><span class="ar">&rarr;</span><div class="bx"><b>Stored as data</b>Summaries, positions, issue blocks, citation use</div><span class="ar">&rarr;</span><div class="bx"><b>Reader and search</b>Read what is stored. No AI when someone uses the site</div></div>';}
+var PAR=[ ['','Background',null],
+ ['5','This is an application for judicial review of two decisions of the Social Security Tribunal.','Application concerns two Tribunal decisions.','court','Court'],
+ ['15','The Applicant was injured in 2010 and says he has been unable to work since.','Applicant says he has been unable to work since a 2010 injury.','app','Applicant'],
  ['','Analysis',null],
  ['25','The Respondent asks the Court to dismiss the application as late, as without merit, and as prejudicial.','Respondent asks to dismiss for delay, no merit and prejudice.','resp','Respondent'],
  ['29','The Applicant says he learned of the final decision on December 7.','Applicant says he learned of the decision on December 7.','app','Applicant'],
  ['30','The final decision was only communicated on December 7, so the application was filed in time.','Filed in time: the final decision was only communicated on December 7.','court','Court'],
  ['35','Even if the application were late, the interests of justice favour extending the time.','Even if late, time should be extended in the interests of justice.','court','Court'],
  ['40','The time to file is extended and the matter is returned for a fresh decision.','Time extended; matter returned for a fresh decision.','court','Court']];
-function decision(L){var h='<div class="bar">'+CHIP.ai+'<span><b>A decision, split up</b> · invented example in the shape of a real one</span></div><div class="st" data-l="'+L+'"><div class="two lop"><div class="pane dec">';
- PAR.forEach(function(p,i){if(p[2]===null){h+='<div class="sec">'+p[1]+'</div>';return;}
+function outline(){return '<div style="margin-top:14px"><b style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Outline</b><div class="row"><span class="grow">Background</span><span class="mut">5</span></div><div class="row"><span class="grow">Analysis</span><span class="mut">25</span></div><div class="row"><span class="grow">Disposition</span><span class="mut">40</span></div></div>';}
+function leftpanel(L){var t='<div class="tabs"><span>About</span><span>Authorities</span><span>Intelligence</span><span class="'+(L>=2?'on new':'')+'">Structure</span></div><div class="cont">';
+ if(L<2)return t+'<b>Outline</b><div class="row"><span class="grow">Analysis</span><span class="mut">8</span></div><div class="row"><span class="grow">Disposition</span><span class="mut">26</span></div><p class="mut">Today: an outline from headings, numbered paragraphs, and the citations found in the text. All by fixed rules.</p></div>';
+ if(L===2)return t+'<span class="chip c-ai">Added by the model</span><p style="margin:8px 0">A one-line summary of each paragraph, and whose position it reports: the court&rsquo;s own, a party&rsquo;s, or an earlier decision-maker&rsquo;s.</p><div class="mut">The court is always the writer. What matters is whose position the paragraph describes.</div><div style="margin-top:10px"><span class="pos court">Court</span><span class="pos app">Applicant</span><span class="pos resp">Respondent</span></div>'+outline()+'</div>';
+ if(L===3)return t+'<span class="chip c-ai">Added by the model</span><div class="mut" style="margin:6px 0">Paragraph 29 &middot; 30</div><div class="blk app fade"><b>Applicant · allegation</b>Learned of the decision on December 7.</div><div class="blk fade"><b>Court · finding, answers the above</b>Only communicated on December 7, so filed in time.</div></div>';
+ if(L===4)return t+'<span class="chip c-ai">Issues</span><div class="blk issue fade"><b>Issue · 25 to 40</b>Was the application late, and should time be extended?</div><div class="blk resp fade"><b>Respondent · 25</b>Dismiss for delay, no merit, prejudice.</div><div class="blk app fade"><b>Applicant · 29</b>Learned of the decision on December 7.</div><div class="blk fade"><b>Court · 30 to 40</b>In time; and if not, extended in the interests of justice.</div></div>';
+ if(L===5)return t+'<span class="chip c-ai">Authority used</span><div class="blk issue fade" data-focus><b>Example v. Canada, 2010 FC 100</b><span class="fn" style="margin:0 6px 0 0">applied the test</span><div class="mut" style="margin-top:6px">Supports the issue &ldquo;filed in time?&rdquo;, and is linked to paragraph 18 of the cited decision, where the rule is stated.</div></div><div class="blk fade"><b>Used in</b>Paragraph 30</div></div>';
+ return t+'<span class="chip c-ai">Narrative</span><p class="fade" style="font-size:13px;margin:8px 0">The question was whether the application was late. The Respondent said it was, and lacked merit. The Applicant said he only learned of the decision on December 7. The Court agreed it was in time, citing <span class="cite">Example v. Canada</span> for the test, and extended time anyway. <span class="mut">Result: time extended; fresh decision.</span></p></div>';}
+function decision(L){var h='<div class="win"><div class="wbar"><span class="dots"><i></i><i></i><i></i></span><span class="url">ilit.ca/data-explorer · case reader · invented example in the shape of a real decision</span>'+CH.ai+'</div><div class="rhead"><h3>Example v. Canada (Citizenship and Immigration)</h3><span class="pill">FC</span><span class="mut">2021 FC 1436</span><span style="flex:1"></span><span class="mut">Cited by -</span><span class="mut">Cites 6</span><span class="mut">Statutes 2</span></div><div class="rd"><div class="lp">'+leftpanel(L)+'</div><div class="rp dec">';
+ PAR.forEach(function(p){if(p[2]===null){h+='<div class="sec">'+p[1]+'</div>';return;}
   var cite=(p[0]==='30'&&L>=5)?' <span class="cite">Example v. Canada, 2010 FC 100 at para 18</span><span class="fn">applied the test</span>':'';
-  h+='<div class="p'+((L===5&&p[0]==='30')?' hl':'')+'"><span class="no">['+p[0]+']</span><div><div class="txt">'+p[1]+cite+'</div>'+(L>=2?'<div class="sum fade"><span class="pos '+p[3]+'">'+p[4]+'</span>'+p[2]+'</div>':'')+'</div></div>';});
- h+='<div class="mut" style="margin-top:8px">Paragraph text shortened. '+(L<2?'Today the site already numbers paragraphs and carries headings as section titles.':'')+'</div></div><div>';
- if(L<2)h+='<div class="pane"><h4>What exists today</h4><p class="mut" style="margin:0">Numbered paragraphs, headings kept as section titles, an outline, and the citations found in the text. All by fixed rules.</p></div>';
- if(L===2)h+='<div class="pane fade"><h4>Added by the model</h4><p class="mut" style="margin:0">A one-line summary of each paragraph, and whose position it reports: the court&rsquo;s own, a party&rsquo;s, or what the earlier decision-maker found. The court is always the writer; what matters is whose position the paragraph describes.</p></div>';
- if(L===3)h+='<div class="pane fade"><h4>Added by the model</h4><p class="mut" style="margin:0">Paragraphs that mix voices become short lists of propositions.</p><div class="blk app"><b>Applicant · allegation</b>Learned of the decision on December 7.</div><div class="blk"><b>Court · finding, answers the above</b>The decision was only communicated on December 7, so the filing was in time.</div></div>';
- if(L===4)h+='<div class="fade"><div class="blk issue"><b>Issue · paragraphs 25 to 40</b>Was the application late, and should time be extended?</div><div class="blk resp"><b>Respondent · 25</b>Dismiss for delay, no merit, prejudice.</div><div class="blk app"><b>Applicant · 29</b>Learned of the decision on December 7.</div><div class="blk"><b>Court · 30 to 40</b>In time; and if not, extended in the interests of justice.</div></div>';
- if(L===5)h+='<div class="fade"><div class="blk"><b>Court · paragraph 30</b>Filed in time because the decision was only communicated on December 7.</div><div class="blk issue"><b>Authority used here</b><span class="cite">Example v. Canada, 2010 FC 100</span><span class="fn">applied the test</span><div class="mut" style="margin-top:6px">Linked to the issue it supports, and to paragraph 18 of the cited decision, where that rule is stated.</div></div></div>';
- if(L===6)h+='<div class="fade pane"><h4>Read as a short narrative</h4><p style="margin:0;font-size:14px">The question was whether the application was late. The Respondent said it was, and that it lacked merit. The Applicant said he only learned of the decision on December 7. The Court agreed it was filed in time, citing <span class="cite">Example v. Canada</span> for the test, and extended time anyway. <span class="mut">Result: time extended; fresh decision.</span></p></div><div class="limits"><b>What this does not claim.</b> In one small test a single reader judged 24 of 30 paragraph summaries fully right and 6 partly right, on a sample picked to be hard. No lawyer has checked it. Sides are sometimes left &ldquo;not stated&rdquo;, and tribunal text can be mistaken for the court&rsquo;s own.</div>';
+  h+='<div class="p'+(L>=2?' '+p[3]:'')+(L===5&&p[0]==='30'?' hl':'')+'"><span class="no">['+p[0]+']</span><div><div class="txt">'+p[1]+cite+'</div>'+(L>=2?'<div class="sum fade"><span class="pos '+p[3]+'">'+p[4]+'</span>'+p[2]+'</div>':'')+'</div></div>';});
+ h+='<div class="mut" style="margin-top:6px">Paragraph text shortened.</div>';
+ if(L===6)h+='<div class="limits"><b>What this does not claim.</b> In one small test a single reader judged 24 of 30 paragraph summaries fully right and 6 partly right, on a sample picked to be hard. No lawyer has checked it. Sides are sometimes left &ldquo;not stated&rdquo;, and tribunal text can be mistaken for the court&rsquo;s own.</div>';
  return h+'</div></div></div>';}
-
-/* ---------- Part 3 live reader stage ---------- */
-function reader(L){var h='<div class="bar">'+(L===1?CHIP.built:CHIP.ai)+'<span><b>Live Analysis</b> · a fictional memo, read in memory</span></div><div class="two lop"><div class="pane doc">';
- function lab(t){return L>=2?'<span class="pos court fade" style="font-family:inherit;margin-right:6px">'+t+'</span>':'';}
- h+='<p>'+lab('Issue')+'Whether the applicant was a member of the organization within the meaning of s. 34(1)(f).</p>';
- h+='<p'+(L===3?' class="hl"':'')+'>'+lab('Argument')+'The Court has read &ldquo;member&rdquo; broadly <span class="cite" style="font-family:inherit">Example v. Canada, 2010 FC 100</span>.</p>';
- h+='<p>'+lab('Argument')+'Here, the evidence of involvement was thin.</p>';
- h+='<p>'+lab('Conclusion')+'The finding of membership was unreasonable.</p></div><div>';
- if(L===1)h+='<div class="pane"><h4>Found in the memo</h4><div class="row"><span class="grow">Example v. Canada, 2010 FC 100</span>'+CHIP.built+'</div><div class="row"><span class="grow">IRPA s. 34(1)(f)</span>'+CHIP.built+'</div><p class="mut">Cases and statutes the memo cites, linked into the library. The memo is not stored.</p></div>';
- if(L===2)h+='<div class="pane fade"><h4>Structure of the memo</h4><div class="tree"><div class="n">Issue: membership</div><div class="n l2">Argument 1: broad reading of &ldquo;member&rdquo;</div><div class="n l2">Argument 2: thin evidence of involvement</div><div class="n">Conclusion: finding unreasonable</div></div><p class="mut">Found by a local model reading the memo on the same machine. Nothing leaves it.</p></div>';
- if(L===3)h+='<div class="pane fade"><h4>Argument 1 and its authority</h4><span class="cite">Example v. Canada, 2010 FC 100</span><span class="fn">applied the test</span><div class="blk" style="margin-top:8px"><b>In the cited decision · paragraph 18</b>States the rule the memo relies on, and applies it.</div><p class="mut">Shown as a prompt for the analyst to check, not a verdict.</p></div>';
- if(L===4)h+='<div class="pane fade"><h4>How the same issue was argued elsewhere</h4><div class="blk resp"><b>Respondent · seen in 12 decisions</b>Relies on the organization&rsquo;s aims, not on the person&rsquo;s own acts.</div><div class="blk app"><b>Applicant · seen in 9 decisions</b>Points to the absence of any formal tie.</div><div class="blk"><b>Court · most often</b>Looks at the person&rsquo;s actual involvement.</div><p class="mut">Counts are invented. The memo&rsquo;s second argument sits close to that last point.</p></div>';
- return h+'</div></div>';}
-
-function end(){return '<div class="divider"><h2>What stays the same</h2><p>The site works without any AI, and every number on the pages the public sees comes from fixed rules. The ideas in Part 3 would add to that on a machine the agency controls, and the analyst would still decide what to rely on.</p><p><span class="chip c-built">Built</span> <span class="chip c-mock">Mock-up</span> <span class="chip c-ai">Future local AI</span></p></div>';}
+function readertoday(){return win('ilit.ca/data-explorer · case reader',CH.real,shot('reader',1440,900,[{x:561,y:497,w:821,h:93,html:'',c:'clear',f:1}]),1);}
+function livetoday(){return win('ilit.ca/live-analysis',CH.real,shot('live',1400,900,[{x:1172,y:106,w:184,h:60,html:'',c:'clear',f:1}]),1);}
+function reader(L){var left='<div class="tabs"><span>About</span><span>Authorities</span><span>Intelligence</span><span class="on new">Structure</span></div><div class="cont">';
+ if(L===2)left+='<span class="chip c-ai">Structure of the memo</span><div class="tree fade" style="margin-top:8px"><div class="n">Issue: membership</div><div class="n l2">Argument 1: broad reading of &ldquo;member&rdquo;</div><div class="n l2">Argument 2: thin evidence of involvement</div><div class="n">Conclusion: finding unreasonable</div></div><p class="mut">Found by a local model reading the memo on the same machine. Nothing leaves it.</p>';
+ if(L===3)left+='<span class="chip c-ai">Argument 1 and its authority</span><div class="blk issue fade" data-focus><b>Example v. Canada, 2010 FC 100</b><span class="fn" style="margin:0 6px 0 0">applied the test</span><div class="blk" style="margin-top:8px"><b>In the cited decision · paragraph 18</b>States the rule the memo relies on, and applies it.</div></div><p class="mut">Shown as a prompt for the analyst to check, not a verdict.</p>';
+ if(L===4)left+='<span class="chip c-ai">How the issue was argued elsewhere</span><div class="blk resp fade"><b>Respondent · 12 decisions</b>Relies on the organization&rsquo;s aims, not the person&rsquo;s own acts.</div><div class="blk app fade"><b>Applicant · 9 decisions</b>Points to the absence of any formal tie.</div><div class="blk fade"><b>Court · most often</b>Looks at the person&rsquo;s actual involvement.</div><p class="mut">Counts are invented. The memo&rsquo;s second argument sits close to that last point.</p>';
+ left+='</div>';
+ function lab(t,c){return L>=2?'<span class="pos '+(c||'court')+' fade" style="font-family:inherit">'+t+'</span> ':'';}
+ var m='<div class="doc"><p style="text-align:center;font-weight:700;font-size:13px;letter-spacing:.06em">MEMORANDUM OF ARGUMENT (FICTIONAL DEMONSTRATION DOCUMENT)</p><p class="mut" style="font-family:sans-serif;font-size:12px">Part II &middot; Issue and argument</p><p'+(L===2?' class="hl"':'')+'>'+lab('Issue','app')+'Whether the applicant was a member of the organization within the meaning of s. 34(1)(f).</p>';
+ m+='<p'+(L===3?' class="hl"':'')+'>'+lab('Argument')+'The Court has read &ldquo;member&rdquo; broadly <span class="cite">Example v. Canada, 2010 FC 100</span>.</p><p'+(L===4?' class="hl"':'')+'>'+lab('Argument')+'Here, the evidence of involvement was thin.</p><p>'+lab('Conclusion','resp')+'The finding of membership was unreasonable, because it rests on the organization&rsquo;s aims and not on anything the applicant did. <span class="cite" style="background:#f7f2fc;border-color:#8a6fb8">IRPA s. 34(1)(f)</span></p><p class="mut" style="font-family:sans-serif;font-size:12.5px">3 authorities found: 1 case, 1 statute section, 1 unmatched</p></div>';
+ return '<div class="win"><div class="wbar"><span class="dots"><i></i><i></i><i></i></span><span class="url">ilit.ca/live-analysis · a fictional memo, read in memory</span>'+CH.ai+'</div><div class="rhead"><h3>Pasted text</h3><span class="mut">Back to Live Analysis</span></div><div class="rd"><div class="lp">'+left+'</div><div class="rp">'+m+'</div></div></div>';}
+function end(){return '<div class="divider"><h2>What stays the same</h2><p>The site works without any AI, and everything the public pages show comes from fixed rules. The ideas in Part 3 would add to that on a machine the agency controls, and the analyst would still decide what to rely on.</p><p><span class="chip c-built">On the site today</span> <span class="chip c-mock">Mock-up</span> <span class="chip c-ai">Future local AI</span></p></div>';}
 
 var S=[
- {p:'Coming soon',k:'Preview',t:'What is coming, and what is only an idea',x:'Some of what follows is already on the site. Most is shown as a picture so that it can be discussed. Every screen says which is which.',r:intro},
- {p:P1,k:'Part 1 · Library',t:'A larger statute and reference library',x:'The statutes are on the site today. The next step is the guidance that sits around them, all linked to the same provision.',r:statutes},
- {p:P1,k:'Part 1 · Tags',t:'Tags that say more',x:'A tag would carry its place in the issue, and the words that triggered it.',r:tags,a:'Fixed rules, so the same decision always gets the same tags.'},
- {p:P1,k:'Part 1 · Coverage',t:'More decisions, kept current',x:'Wider coverage of the tribunals, French counterparts, and a visible last-updated date.',r:coverage},
- {p:P2,k:'Part 2 · Profile',t:'A profile for each analyst',x:'Pins, searches and notes follow the person, not the browser.',r:profile},
- {p:P2,k:'Part 2 · Teams',t:'Joining a team',x:'A team is a small group that chooses what to share with each other.',r:teams},
- {p:P2,k:'Part 2 · Sharing',t:'Insights the team can see',x:'What one analyst finds becomes a starting point for the next.',r:insights},
- {p:P2,k:'Part 2 · Documents',t:'Shared documents with comments',x:'A draft sits in the team space and everyone on the team sees the comments on it.',r:shareddoc},
- {p:P3,ai:1,k:'Part 3 · Future',t:'Layering a local private AI',x:'',r:divider,full:1},
- {p:P3,ai:1,k:'Part 3 · A decision',t:'Start with the decision as published',x:'The site already numbers the paragraphs and keeps the headings. This is the starting point.',r:function(){return decision(1);}},
- {p:P3,ai:1,k:'Part 3 · Paragraphs',t:'Each paragraph, in one line, with whose position it reports',x:'The model reads each paragraph and says who is speaking for what: the court, a party, or the earlier decision-maker.',r:function(){return decision(2);}},
- {p:P3,ai:1,k:'Part 3 · Propositions',t:'Mixed paragraphs become short statements',x:'Where a paragraph carries more than one voice, each statement is kept apart, and a finding is tied to the point it answers.',r:function(){return decision(3);}},
- {p:P3,ai:1,k:'Part 3 · Issues',t:'Grouped by issue',x:'The paragraphs fall into an issue, what each side said, and what the court decided.',r:function(){return decision(4);}},
- {p:P3,ai:1,k:'Part 3 · Citations',t:'Each authority tied to the point it supports',x:'In theory, a citation could be connected to the issue it serves, the way it is used, and the paragraph being relied on.',r:function(){return decision(5);}},
- {p:P3,ai:1,k:'Part 3 · Narrative',t:'The decision as a short story',x:'Question, positions, answer, result, each sentence traceable to the paragraphs behind it.',r:function(){return decision(6);}},
- {p:P3,ai:1,k:'Part 3 · Live reader',t:'The same idea in Live Analysis',x:'Today, a memo is read in memory and the cases and statutes it cites are listed. The memo is never stored.',r:function(){return reader(1);}},
- {p:P3,ai:1,k:'Part 3 · Live reader',t:'The memo, split into issue, arguments and conclusion',x:'A local model could mark the structure of the memo the way it marks a decision.',r:function(){return reader(2);}},
- {p:P3,ai:1,k:'Part 3 · Live reader',t:'Each argument beside its authority',x:'The cited case is shown with the paragraph that states the rule, for the analyst to check.',r:function(){return reader(3);}},
- {p:P3,ai:1,k:'Part 3 · Live reader',t:'How the same issue was argued elsewhere',x:'Because every decision would have the same structure, a memo could be set beside the way others argued the point.',r:function(){return reader(4);}},
- {p:'Wrap-up',k:'Closing',t:'Where this leaves things',x:'',r:end,full:1}
+ {p:P0,k:'Preview',t:'What is coming, and what is only an idea',x:'Some of what follows is on the site now. The rest is drawn in the site&rsquo;s own look so that it can be discussed. Each screen says which is which.',n:'Next, let&rsquo;s start with the library itself.',r:intro},
+ {p:P1,k:'Part 1 · Library',t:'A larger statute and reference library',x:'The statutes are on the site today. Around them would sit the guidance that officers and counsel read alongside, all attached to the same provision.',c:CH.mock,n:'Next, the tags that label every decision.',r:library},
+ {p:P1,k:'Part 1 · Tags',t:'Tags that say more',x:'The reader shows flat topic chips today. A tag could carry its place in the issue and the words that triggered it.',c:CH.onreal,a:'Fixed rules, so the same decision always gets the same tags.',n:'Next, the same panel for authorities.',r:tags},
+ {p:P1,k:'Part 1 · Reference rail',t:'Guidance beside the case law',x:'The Authorities panel lists cases and statutes today. Guidance that mentions a provision would join them.',c:CH.onreal,n:'Next, how current the library is.',r:guidance},
+ {p:P1,k:'Part 1 · Coverage',t:'More decisions, kept current',x:'Wider coverage of the tribunals, French counterparts, and a visible last-updated date.',c:CH.mock,n:'Next, let&rsquo;s turn to people: profiles and teams.',r:coverage},
+ {p:P2,k:'Part 2 · Sign-in',t:'Signing in as an analyst',x:'Lists and notes follow the person, not the browser.',c:CH.mock,n:'Next, what the Workbench looks like once you are signed in.',r:signin},
+ {p:P2,k:'Part 2 · Profile',t:'A profile, and a Team tab',x:'The Workbench is on the site today with a demo sign-in. Signed in as a person, it would also show which team you belong to.',c:CH.onreal,n:'Next, joining a team.',r:workbench},
+ {p:P2,k:'Part 2 · Teams',t:'Joining a team',x:'A team is a small group that chooses what to share with each other.',c:CH.onreal,n:'Next, the team&rsquo;s own space.',r:join},
+ {p:P2,k:'Part 2 · Sharing',t:'Insights the team can see',x:'What one analyst finds becomes a starting point for the next.',c:CH.mock,n:'Next, how a shared pin looks in the reader.',r:teamspace},
+ {p:P2,k:'Part 2 · Comments',t:'Comments on a decision',x:'A pinned decision carries the team&rsquo;s comments next to the paragraph they are about.',c:CH.onreal,n:'Next, a document the whole team works on.',r:sharedread},
+ {p:P2,k:'Part 2 · Documents',t:'Shared documents with comments',x:'A draft sits in the team space and everyone on the team sees the comments on it.',c:CH.mock,n:'Next, let&rsquo;s move to the future local AI section.',r:shareddoc},
+ {p:P3,ai:1,k:'Part 3 · Future',t:'Layering a local private AI',x:'',full:1,n:'',r:divider},
+ {p:P3,ai:1,k:'Part 3 · A decision',t:'Start with the decision as it is shown today',x:'Numbered paragraphs, the headings, and a card that says how many decisions cite a paragraph. This is the starting point for everything after.',c:CH.real,n:'Next, let&rsquo;s see the model add a line to each paragraph.',r:readertoday},
+ {p:P3,ai:1,k:'Part 3 · Paragraphs',t:'Each paragraph in one line, and whose position it reports',x:'The model reads each paragraph and says who is speaking for what: the court, a party, or the earlier decision-maker.',c:CH.ai,n:'Next, paragraphs that carry more than one voice.',r:function(){return decision(2);}},
+ {p:P3,ai:1,k:'Part 3 · Propositions',t:'Mixed paragraphs become short statements',x:'Where a paragraph carries more than one voice, each statement is kept apart, and a finding is tied to the point it answers.',c:CH.ai,n:'Next, grouping them by issue.',r:function(){return decision(3);}},
+ {p:P3,ai:1,k:'Part 3 · Issues',t:'Grouped by issue',x:'The paragraphs fall into an issue, what each side said, and what the court decided.',c:CH.ai,n:'Next, how citations fit in.',r:function(){return decision(4);}},
+ {p:P3,ai:1,k:'Part 3 · Citations',t:'Each authority tied to the point it supports',x:'In theory, a citation could be connected to the issue it serves, the way it is used, and the paragraph being relied on.',c:CH.ai,n:'Next, the decision read as a short story.',r:function(){return decision(5);}},
+ {p:P3,ai:1,k:'Part 3 · Narrative',t:'The decision as a short story',x:'Question, positions, answer, result, each sentence traceable to the paragraphs behind it.',c:CH.ai,n:'Next, the same idea in the live document reader.',r:function(){return decision(6);}},
+ {p:P3,ai:1,k:'Part 3 · Live reader',t:'Live Analysis today',x:'A memo is read in memory, and the cases and statutes it cites are listed. The memo is never stored.',c:CH.real,n:'Next, what the model could add to the memo.',r:livetoday},
+ {p:P3,ai:1,k:'Part 3 · Live reader',t:'The memo, split into issue, arguments and conclusion',x:'A local model could mark the structure of a memo the way it marks a decision.',c:CH.ai,n:'Next, each argument beside its authority.',r:function(){return reader(2);}},
+ {p:P3,ai:1,k:'Part 3 · Live reader',t:'Each argument beside its authority',x:'The cited case is shown with the paragraph that states the rule, for the analyst to check.',c:CH.ai,n:'Next, how others argued the same point.',r:function(){return reader(3);}},
+ {p:P3,ai:1,k:'Part 3 · Live reader',t:'How the same issue was argued elsewhere',x:'Because every decision would have the same structure, a memo could be set beside the way others argued the point.',c:CH.ai,n:'Next, where this leaves things.',r:function(){return reader(4);}},
+ {p:'Wrap-up',k:'Closing',t:'Where this leaves things',x:'',full:1,n:'',r:end}
 ];
-var i=0,card=document.getElementById('card'),stage=document.getElementById('stage'),grid=document.getElementById('grid'),btn=document.getElementById('next');
-function show(){var s=S[i];
- document.body.classList.toggle('ai',!!s.ai);
- document.getElementById('ribbon').innerHTML=s.ai?RIB_AI:RIB_PLAIN;
+var i=0,card=document.getElementById('card'),stage=document.getElementById('stage'),grid=document.getElementById('grid'),btn=document.getElementById('next'),dim=document.getElementById('dim'),narrow=function(){return window.matchMedia('(max-width:860px)').matches;};
+function ring(){var el=stage.querySelector('[data-focus]');if(!el){dim.style.opacity=0;return;}
+ if(narrow()){el.scrollIntoView({block:'center'});}else{var r0=el.getBoundingClientRect();if(r0.bottom>innerHeight-110||r0.top<60)window.scrollTo({top:window.scrollY+r0.top-120});}
+ var r=el.getBoundingClientRect(),pad=6;dim.style.opacity=1;dim.style.width=(r.width+pad*2)+'px';dim.style.height=(r.height+pad*2)+'px';dim.style.transform='translate('+(r.left-pad)+'px,'+(r.top-pad)+'px)';}
+function show(){var s=S[i];document.body.classList.toggle('ai',!!s.ai);document.getElementById('ribbon').innerHTML=s.ai?RIB_AI:RIB_PLAIN;
  card.hidden=!!s.full;grid.style.gridTemplateColumns=s.full?'1fr':'';
- card.innerHTML='<div class="kicker">'+s.k+'</div><h1>'+s.t+'</h1>'+(s.x?'<p>'+s.x+'</p>':'')+(s.a?'<div class="aside">'+s.a+'</div>':'');
- stage.innerHTML=s.r();
- document.getElementById('count').textContent=s.p+' · '+(i+1)+' of '+S.length;
+ card.innerHTML='<div class="kicker">'+s.k+'</div><h1>'+s.t+'</h1>'+(s.x?'<p>'+s.x+'</p>':'')+(s.c?'<div class="chips">'+s.c+'</div>':'')+(s.a?'<div class="aside">'+s.a+'</div>':'')+(s.n?'<div class="nxt">'+s.n+'</div>':'');
+ stage.innerHTML=s.r();document.getElementById('count').textContent=s.p+' · '+(i+1)+' of '+S.length;
  document.getElementById('prog').style.width=((i+1)/S.length*100)+'%';
- btn.textContent=i===S.length-1?'Start again':'Next';
- if(window.matchMedia('(max-width:860px)').matches)window.scrollTo(0,0);}
-btn.addEventListener('click',function(){i=(i+1)%S.length;show();});
-document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='Enter'){if(document.activeElement!==btn){e.preventDefault();btn.click();}}});
+ btn.textContent=i===S.length-1?'Start again':'Next';document.getElementById('back').disabled=i===0;
+ dim.style.transition='none';window.scrollTo(0,0);requestAnimationFrame(function(){dim.style.transition='';requestAnimationFrame(ring);});}
+function go(d){i=(i+d+S.length)%S.length;show();}
+btn.addEventListener('click',function(){go(1);});document.getElementById('back').addEventListener('click',function(){if(i>0)go(-1);});
+document.getElementById('skip').addEventListener('click',function(){var p=S[i].p,j=i;while(j<S.length&&S[j].p===p)j++;i=j%S.length;show();});
+document.getElementById('close').addEventListener('click',function(){location.href=document.getElementById('leave').href;});
+function lock(){document.documentElement.classList.toggle('locked',!narrow());}
+lock();window.addEventListener('resize',function(){lock();ring();});
+function stop(e){if(!e.target.closest||!e.target.closest('.dock,.top'))e.preventDefault();}
+window.addEventListener('wheel',function(e){if(!narrow())e.preventDefault();},{passive:false});
+window.addEventListener('touchmove',function(e){if(!narrow())e.preventDefault();},{passive:false});
+document.addEventListener('keydown',function(e){var k=e.key;if(k==='ArrowRight'||k==='Enter'){if(document.activeElement.tagName!=='BUTTON'||document.activeElement===btn){e.preventDefault();go(1);}}else if(k==='ArrowLeft'){e.preventDefault();if(i>0)go(-1);}else if(k==='Escape'){document.getElementById('close').click();}else if([' ','PageDown','PageUp','ArrowDown','ArrowUp','Home','End'].indexOf(k)>=0&&!narrow()){e.preventDefault();}});
 show();
 })();
 </script>

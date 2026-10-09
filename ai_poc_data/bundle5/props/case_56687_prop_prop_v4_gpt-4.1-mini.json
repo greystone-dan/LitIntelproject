@@ -1,0 +1,5304 @@
+{
+ "case_id": 56687,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.070988
+ },
+ "verification": {
+  "paragraphs": 263,
+  "rows": 263,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 545,
+  "holders": {
+   "court": 343,
+   "applicant": 42,
+   "respondent": 20,
+   "earlier_decision_maker": 79,
+   "prior_court_or_authority": 56,
+   "other": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 6,
+  "split_paragraphs": 0,
+  "headings_before": 10
+ },
+ "headings": {
+  "12": "B. Parties\u2019 Positions",
+  "14": "C. Issues",
+  "59": "B. Corporate Law Points",
+  "78": "C. Prescription and Remedy",
+  "81": "IV. Disposition",
+  "106": "II. Facts",
+  "142": "IV. Issues",
+  "163": "B. Significance of Formalism in Corporate Law",
+  "168": "C. Oppression Remedy",
+  "263": "VI. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns an oppression claim by Mennillo against Intramodal Inc. under the CBCA, alleging wrongful removal as shareholder. The trial judge found Mennillo had agreed to transfer shares to Rosati and dismissed the claim. The Supreme Court allowed the appeal, finding the company acted oppressively by registering the share transfer without proper formalities and without Mennillo's valid consent.",
+  "background_paras": "1-3, 20-31, 83-113, 143-153, 202-207, 243-244",
+  "disposition_paras": "81-82, 105, 263",
+  "blocks": [
+   {
+    "issue": "Was Mennillo's oppression claim valid given the alleged transfer of shares to Rosati?",
+    "paras": "1-5, 12-13, 33-35, 56-58, 86-88",
+    "court_conclusion": "Mennillo's oppression claim is groundless as he had no reasonable expectation to be treated as shareholder after transfer.",
+    "conclusion_paras": "5, 56-58, 86-88",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claims he was oppressed as investor frozen out and denied shareholder rights; alleges unlawful removal from shareholder list.",
+      "paras": "1, 3, 12"
+     },
+     {
+      "holder": "respondent",
+      "text": "Denies oppression; says Mennillo wanted removal as director and shareholder and transferred shares to Rosati.",
+      "paras": "3, 13"
+     },
+     {
+      "holder": "court",
+      "text": "Trial judge accepted respondent's version; found Mennillo agreed to transfer shares and did not want to remain shareholder.",
+      "paras": "4, 5, 10, 17, 33-35, 56-58"
+     }
+    ]
+   },
+   {
+    "issue": "Did the trial judge err in accepting the version that Mennillo transferred shares to Rosati and ceased to be shareholder?",
+    "paras": "2-4, 17-18, 33-35, 40-48, 238-245",
+    "court_conclusion": "Trial judge's findings on transfer and withdrawal intention were based on credibility but contained palpable and overriding errors.",
+    "conclusion_paras": "238-245",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues no valid transfer occurred; challenges trial judge's rejection of his shareholder claim.",
+      "paras": "15, 36, 121"
+     },
+     {
+      "holder": "respondent",
+      "text": "Maintains Mennillo resigned and transferred shares; advances repaid with bonus; no longer shareholder.",
+      "paras": "13, 27, 229"
+     },
+     {
+      "holder": "court",
+      "text": "Trial judge erred rejecting Mennillo's evidence; resignation letter did not mention shareholder status; evidence supports no agreement on share disposal.",
+      "paras": "40-48, 238-245"
+     }
+    ]
+   },
+   {
+    "issue": "Did Intramodal comply with legal and corporate formalities in registering the share transfer?",
+    "paras": "22, 68-73, 165-170, 186-196, 199-201",
+    "court_conclusion": "Intramodal failed to make required inquiries and registered transfer without endorsement, constituting oppressive conduct.",
+    "conclusion_paras": "194-201",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges failure to observe corporate formalities and legal duties in registering share transfer.",
+      "paras": "237"
+     },
+     {
+      "holder": "respondent",
+      "text": "Argues shares transferred and registered properly; no formalities needed due to agreement.",
+      "paras": "229"
+     },
+     {
+      "holder": "court",
+      "text": "Corporation failed to inquire about endorsement; registered transfer improperly; acted as puppet of majority shareholder; conduct oppressive.",
+      "paras": "194-201"
+     }
+    ]
+   },
+   {
+    "issue": "Is the alleged agreement between Mennillo and Rosati to transfer shares valid under corporate and civil law?",
+    "paras": "59-77, 209-231",
+    "court_conclusion": "No valid juridical operation or contract existed for share transfer; conditional shareholding theory rejected as contrary to law.",
+    "conclusion_paras": "222-237",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues no valid share transfer contract; shares not cancelled retroactively; no conditional shareholder status under law.",
+      "paras": "60, 95, 160"
+     },
+     {
+      "holder": "respondent",
+      "text": "Claims shares transferred by agreement; Mennillo ceased guaranteeing debts and transferred shares.",
+      "paras": "60, 229"
+     },
+     {
+      "holder": "court",
+      "text": "No contract formed; share cancellation requires formalities; conditional shares not recognized; transfer not valid without formalities.",
+      "paras": "222-237"
+     }
+    ]
+   },
+   {
+    "issue": "Is Mennillo's oppression claim barred by prescription?",
+    "paras": "78, 246-262",
+    "court_conclusion": "Prescription issue not finally decided due to groundless claim; generally, unlawful stripping of shareholder status is imprescriptible.",
+    "conclusion_paras": "79, 253-256",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Adopts dissenting reasoning that claim is not prescribed; prescription period should start later.",
+      "paras": "78"
+     },
+     {
+      "holder": "respondent",
+      "text": "Supports trial judge's position that claim is prescribed after three years.",
+      "paras": "78, 246"
+     },
+     {
+      "holder": "court",
+      "text": "Declines to decide prescription finally; unlawful stripping of shareholder status claim is imprescriptible under Quebec law.",
+      "paras": "79, 253-256"
+     }
+    ]
+   },
+   {
+    "issue": "Did the trial judge and Court of Appeal err in law by disregarding corporate formalities and the distinct legal personality of the corporation?",
+    "paras": "90-94, 150-164, 209-211, 238-245",
+    "court_conclusion": "Trial judge and majority erred by ignoring corporate law formalities and distinct personality; their reasoning undermines corporate law pillars.",
+    "conclusion_paras": "150-164, 238-245",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues trial judge and Court of Appeal disregarded corporate law formalities and distinct legal personality.",
+      "paras": "93, 95, 160"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated explicitly on this point.",
+      "paras": ""
+     },
+     {
+      "holder": "court",
+      "text": "Majority disregarded corporate formalities and distinct personality; their approach undermines legal principles and equity.",
+      "paras": "150-164, 238-245"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an oppression proceeding under the CBCA concerning whether Intramodal's affairs were oppressive to appellant Mennillo.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo alleges Intramodal's business was conducted oppressively or unfairly prejudicial to his interests under s. 241(2) CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is an oppression proceeding under the CBCA; Mennillo alleges oppressive conduct by Intramodal.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The parties dealt informally, raising technical corporate law points about share transfer registration and cancellation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key question is which version of facts to accept: Mennillo's or Rosati's controlling shareholder's.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes informal dealings raised technical issues; the key question is which party's version of facts to accept.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo claims he was oppressed as an investor frozen out of equity participation by Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal denies oppression, says Mennillo wanted removal as director and shareholder and transferred shares to Rosati.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mennillo claims oppression by being frozen out; Intramodal denies and says Mennillo resigned and transferred shares.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge rejected Mennillo's version and accepted Intramodal's version of events.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Judge found Mennillo agreed to remain shareholder only if guaranteeing debts, later decided not to and transferred shares to Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Failure to observe formalities in share transfer was due to Rosati's lawyer's error or oversight.",
+     "answers": 0
+    }
+   ],
+   "summary": "The trial judge rejected Mennillo's version, found he agreed to remain shareholder only if guaranteeing debts, then transferred shares; paperwork failure was lawyer's error.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge's findings should be accepted; Mennillo's oppression claim is groundless.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Critical finding: Mennillo did not want to remain shareholder and told Rosati to remove him.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Sloppy paperwork alone does not constitute oppression.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporation treated Mennillo as he wanted; errors in corporate law points do not affect dismissal of oppression claim.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mennillo's oppression claim was properly dismissed; appeal should be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge's facts correct; sloppy paperwork is not oppression; dismisses Mennillo's appeal.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Understanding the legal framework is important to understand facts and issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states understanding the legal framework is important to understand facts and issues.",
+   "role": "other"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "All relief requested by Mennillo is based solely on oppression claim under s. 241 CBCA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Other claims not made are irrelevant and cannot be considered.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 241 CBCA provides the statutory basis for oppression claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mennillo's relief is solely based on s. 241 CBCA oppression claim; other claims irrelevant.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "BCE Inc. v. 1976 Debentureholders defines oppression remedy as equity-based, enforcing fairness beyond legality.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Oppression judged by business realities, not narrow legalities.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonable expectations of stakeholders in context determine what is just and equitable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites BCE case defining oppression remedy as equity-based, judged by business realities and reasonable expectations.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Oppression claim requires claimant to identify and establish reasonably held expectations.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimant must show those expectations were violated by oppressive, unfairly prejudicial or disregarding conduct under s. 241(2) CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states oppression claim requires proving reasonable expectations and their violation by oppressive conduct under s. 241(2) CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found Mennillo agreed to remain shareholder only if guaranteeing debts, later decided not to and transferred shares to Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo could have no reasonable expectation to be treated as shareholder after transfer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo could reasonably expect corporate formalities to be observed in registering transfer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to observe formalities is not oppressive, unfairly prejudicial or disregarding of interests.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This was a two-person private company with extreme informality in dealings.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts may allow more latitude to directors of small, closely held corporations to deviate from strict formalities (BCE para. 74).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo was treated as he wanted; failure of lawyer to comply with formalities is not oppression.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mennillo had no reasonable expectation as shareholder after transfer; informal company dealings and lawyer's failure do not constitute oppression.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to comply with CBCA requirements alone does not constitute oppression.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Oppression remedy is discretionary and equitable in nature.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Oppression remedy triggered by conduct frustrating reasonable expectations, not mere CBCA non-compliance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleague Justice C\u00f4t\u00e9's approach departs from jurisprudence and allows oppression proceedings to be used oppressively.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CBCA non-compliance alone is not oppression; remedy is equitable and triggered by frustrated reasonable expectations; criticizes colleague's approach.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo submits he was unlawfully removed from shareholders list via amended declaration filed July 18, 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo argues he was denied shareholder right to access corporate records until fourth day of trial.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo's oppression claim is that he is a shareholder and investor frozen out of the corporation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mennillo alleges unlawful removal from shareholders list and denial of record access; claims he was frozen out.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal says Mennillo resigned as director, asked to be removed as shareholder, and transferred shares to Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo's advances were repaid with a healthy bonus; he did not want to be equity shareholder and is no longer one.",
+     "answers": 0
+    }
+   ],
+   "summary": "Intramodal says Mennillo resigned and transferred shares; he was repaid with bonus and is no longer shareholder.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Mennillo raises two legal points and one factual point on appeal, aside from prescription and remedy.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mennillo raises two legal and one factual point on appeal, excluding prescription and remedy issues.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Trial judge erred in finding Mennillo transferred shares to Rosati when no valid transfer occurred (2012 QCCS 1640).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Court of Appeal majority erred in allowing retroactive cancellation of share subscription by verbal agreement without formalities (2014 QCCA 1515).",
+     "answers": 0
+    }
+   ],
+   "summary": "Mennillo argues trial judge erred on share transfer validity and Court of Appeal erred on retroactive cancellation without formalities.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo relies on dissenting judge's conclusion that trial judge erred in rejecting his shareholder claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mennillo relies on dissenting judge's view that trial judge wrongly rejected his shareholder claim.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with Mennillo on second legal point about corporate law but it does not affect oppression result.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found Mennillo did not want to remain shareholder in May 2005 and transferred shares to Rosati; paperwork incomplete due to lawyer's error.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "From May 25, 2005, Mennillo ceased to be shareholder and agreed to be lender to Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporation treated Mennillo as he wanted; dissenting justice was wrong to overturn trial judge's findings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Sloppy paperwork existed but corporation treated Mennillo as he wanted; he was repaid with bonus.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees on a corporate law point but finds trial judge's key findings correct; Mennillo ceased as shareholder and was treated accordingly.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Main question is whether trial judge erred in finding Mennillo did not want to remain shareholder and transferred shares in May 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If findings stand, Mennillo's oppression claim is groundless; corporation treated him as he asked.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Oppression claims judged by business realities, not narrow legalities (BCE para. 58).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the main issue is trial judge's factual finding; if upheld, oppression claim fails; oppression judged by business realities.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appeal raises corporate law and prescription points that do not affect ultimate disposition.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court will address legal points after affirming trial judge's fundamental conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes legal points raised do not affect outcome and will address them after affirming trial judge's conclusions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In winter 2004, Mennillo and Rosati discussed creating a company; Mennillo to provide money, Rosati skills for road transportation business.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Rosati reserved the name 'Intramodal' in April 2004.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mennillo and Rosati planned a company in 2004; Rosati reserved the name Intramodal.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Rosati incorporated the company on July 13, 2004 and the board accepted subscription notices and issued shares to Mr. Rosati and Mr. Mennillo.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Notices of subscription and resolution were signed by Mr. Rosati alone.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Rosati incorporated the company and signed subscription notices and resolutions alone on July 13, 2004.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Legal difficulties arose from lack of formality in parties' dealings, rarely complying with CBCA or putting anything in writing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "They had no partnership or shareholders' agreement and agreed roles by handshake before incorporation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "After incorporation, they became directors and shareholders but neither paid for shares as required by s. 25(3) CBCA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Mennillo's share certificate was never signed as required by s. 49(4)(a) CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains legal difficulties arose from informal dealings, no agreements, handshake roles, unpaid shares, and unsigned share certificate.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No written contract or legal formality existed for Mr. Mennillo's advances of money to Mr. Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Evidence of money advanced is two Rolodex sheets marked by Mr. Mennillo and initialed by Mr. Rosati.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no written contract existed for Mr. Mennillo's money advances, only two marked Rolodex sheets as evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On May 25, 2005, Mr. Mennillo resigned as officer and director; parties disagree on reasons and extent of resignation.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal argues Mr. Mennillo transferred his shares to Mr. Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Mennillo asserts he never intended to stop being a shareholder.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On July 18, 2005, Intramodal's lawyer filed an amending declaration removing Mr. Mennillo as director and shareholder.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Mennillo resigned May 25, 2005; Intramodal says he transferred shares, Mr. Mennillo denies stopping as shareholder.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Between Sept and Dec 5, 2005, Mr. Mennillo advanced $145,000 to Mr. Rosati; total advances reached $440,000 including that amount.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Intramodal began operating Dec 2005; men met twice in July 2007 with differing accounts of meetings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Mennillo advanced $440,000 by Dec 2005; they met twice in July 2007 with conflicting accounts.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Mennillo said at July 14, 2007 meeting he complained about not sharing company success.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "At July 21, 2007 meeting, Mr. Mennillo asked for loan repayment and share of profits, rejecting share transfer offer.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Mennillo alleges he complained about no profit share and requested repayment and profits at July 2007 meetings, rejecting share transfer.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rosati said Mr. Mennillo was unhappy about no return on $440,000 investment after July 14 meeting.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rosati said at July 21 meeting Mr. Mennillo fixed $150,000 to settle dispute, totaling $690,000 with interest and bonus.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Rosati alleges Mr. Mennillo was unhappy about no return and fixed $150,000 settlement amount at July 21 meeting.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Mennillo said October 2007 meetings aimed to fix redemption price of shares and advisers suggested false invoices for repayment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Papadimitriou suggested increasing repayment by 35% due to tax paid by Mr. Mennillo's management company.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Mennillo alleges October 2007 meetings aimed to fix share redemption price with advisers suggesting false invoices and tax adjustments.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rosati claims he attended October 2007 meetings alone and purpose was to increase repayment amount.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rosati says tax specialist suggested share correction for capital gains exemption, which he rejected.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Rosati claims October 2007 meetings were to increase repayment and rejected tax specialist's share correction suggestion.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Mennillo's advances were repaid fully between July 2006 and Dec 7, 2009 by Intramodal via cheques for false invoices.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Total paid to Mr. Mennillo's management company was $690,000 for consultation or management fees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Mennillo's advances were fully repaid by Intramodal via false invoice payments totaling $690,000.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Dec 7, 2009, Mr. Rosati gave Mr. Mennillo a $40,000 cheque marked 'Full and Final Payment'.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Mennillo consulted lawyer days later and first understood he was no longer a shareholder.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Rosati gave a final payment cheque Dec 7, 2009; Mr. Mennillo then realized he was no longer shareholder.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Mennillo applied for oppression remedy claiming wrongful stripping of shareholder status on Sept 7, 2010.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Mr. Kaufman sent demand letter to Intramodal on Feb 25, 2010.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Mennillo applied for oppression remedy Sept 2010 claiming wrongful shareholder stripping; lawyer sent demand letter Feb 2010.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found case turned on witness credibility and rejected Mr. Mennillo's version entirely.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Judge concluded Mr. Mennillo refused to be equity shareholder as of May 25, 2005 and agreed only to be lender.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Failure to complete share transfer was error or oversight by Mr. Rosati's lawyer.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Since May 25, 2005, Mr. Mennillo was no longer shareholder or director.",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found Mr. Mennillo refused equity shareholder role from May 25, 2005, became lender only, and ceased shareholder status due to lawyer's oversight.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge understood Mr. Mennillo ceased shareholder status by transferring shares to Mr. Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Judge found Mr. Mennillo intended removal and accepted Mr. Rosati's unshaken evidence on this point.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence was confused but supported conclusion Mr. Mennillo did not wish to be shareholder as of May 25, 2005.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds trial judge understood and accepted Mr. Mennillo transferred shares and ceased shareholder status as of May 25, 2005.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge based conclusions on nine factual findings including false resignation reason, loans not investments, and documents showing Mr. Rosati sole shareholder.",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge's conclusions rested on nine findings including false resignation reason, loans not investments, and Mr. Rosati as sole shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Mennillo relies on dissenting judge's findings of errors in trial judge's reasoning to set aside findings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Mennillo relies on dissenting judge's identified errors to challenge trial judge's findings.",
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found Mr. Mennillo's explanation for resigning as director was false.",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found Mr. Mennillo's resignation explanation false.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Mennillo said Labatt wanted to review books and visit premises, and his involvement would be unfavourable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Mennillo placed Labatt visit when Intramodal was acquiring equipment and referred repeatedly to visit.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Mennillo alleges Labatt wanted to review books and visit premises, which motivated his resignation.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found resignation could not be linked to Labatt visit as Intramodal had no equipment or premises then.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Resignation would not remove Mr. Mennillo from books if he remained shareholder; inconsistencies noted in his evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found resignation unrelated to Labatt visit and noted inconsistencies in Mr. Mennillo's evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissenting judge found trial judge erred in rejecting Mr. Mennillo's version of events.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissenting judge reasoned Labatt visit made sense due to public relations activities and minority shareholder status.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "finding",
+     "text": "Dissenting judge noted problem could be resolved by share transfer to management company.",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting judge found trial judge erred rejecting Mr. Mennillo's version, reasoning Labatt visit and resignation made sense.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No basis for dissenting judge to set aside trial judge's rejection of Mr. Mennillo's resignation explanation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Mennillo linked Labatt's visit to equipment acquisition, but Intramodal was not acquiring equipment before May 2005 resignation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal had no premises at Mr. Mennillo's resignation date, so visit timing argument made no sense",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge rightly concluded Mr. Mennillo's shareholder involvement would be obvious from corporate books and public register",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no basis to overturn trial judge's rejection of Mennillo's resignation explanation, noting timing and premises facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No clear and determinative error by trial judge on this point",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no clear error by the trial judge on this point.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge questioned trial judge's reliance on life insurance documents where Mr. Rosati claimed sole shareholding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Majority noted Mr. Rosati dealt with broker familiar with Mr. Mennillo for 20+ years",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge could consider Mr. Rosati's claim that Mr. Mennillo was not shareholder as enhancing credibility of theory",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No basis to interfere with trial judge's findings on life insurance documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no basis to interfere with trial judge's findings on life insurance documents despite dissent's concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge believed trial judge misinterpreted Mr. Carzoli's memorandum",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes dissenting judge's view that trial judge misinterpreted Carzoli memorandum.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Carzoli wrote memorandum after meeting with Mr. Mennillo's accountant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Memorandum stated minute book showed only one shareholder; other was only investor",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge took this as evidence Mr. Mennillo did not believe he was shareholder as of Nov 26, 2007",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes trial judge's finding that Carzoli's memo indicated Mennillo did not believe he was shareholder in 2007.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge thought trial judge's inference erroneous because memorandum said register needed correction to reflect reality",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge viewed memorandum as showing Carzoli's strategy premised on Mennillo being shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes dissenting judge's view that memorandum showed Carzoli's strategy assumed Mennillo was shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Majority in Court of Appeal noted statement of one shareholder was made to Mennillo's accountant and passed in silence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Memorandum inconsistent with Mennillo's testimony that he learned he was not shareholder only in winter 2009",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes majority's finding that memorandum contradicted Mennillo's testimony about shareholder knowledge timing.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge's reliance on Carzoli memorandum did not justify appellate intervention rejecting Mennillo's evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no basis for appellate intervention on trial judge's reliance on Carzoli memorandum.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge disputed trial judge's reliance on October 31, 2007 letter from Mennillo's lawyer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge believed letter was not contrary to Mennillo's position",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes dissenting judge's view that October 31, 2007 letter was not contrary to Mennillo's position.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge noted letter said nothing about share purchase but acknowledged debt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court of Appeal majority and court see no error in trial judge's inference from letter's silence on share purchase",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with trial judge and majority that letter's silence on share purchase supports inference against Mennillo.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge thought trial judge drew erroneous inferences from February 25, 2010 demand letter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Letter referred to Mennillo's resignation from company and alleged share not remitted after resignation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes dissenting judge's view that trial judge erred inferences from February 25, 2010 letter about resignation and shares.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge used letter to infer Mennillo knew by May 2005 he was no longer shareholder and to date he stopped being shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes trial judge inferred from letter that Mennillo knew by May 2005 he was no longer shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge thought phrase 'resign from company' referred only to director resignation, not shareholder status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter insisted Mennillo was 50% partner and entitled to profits",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge saw letter as clear expression Mennillo considered himself shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes dissenting judge's interpretation that letter showed Mennillo considered himself shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No basis for appellate intervention on trial judge's reliance on February 25, 2010 letter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Majority rejected dissent's contention; letter interpretation not clearly wrong and defensible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo's claim implies he is not shareholder since he claims $1M for failure to remit share",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with majority that trial judge's interpretation of letter is defensible and no appellate intervention warranted.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Trial judge's factual findings reviewable only if palpable and overriding error: Housen v. Nikolaisen and others",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No palpable and overriding error present in trial judge's conclusions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissent preferred different evidence interpretation but cannot substitute view absent palpable and overriding error",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states standard for reviewing trial judge's findings and finds no palpable and overriding error here.",
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "From May 25, 2005, Mennillo did not want to be shareholder, did not want to be treated as such, and transferred shares to Rosati",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Mennillo ceased wanting shareholder status and transferred shares to Rosati from May 25, 2005.",
+   "role": "conclusion"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mennillo's oppression claim is groundless as he had no reasonable expectation to be treated as shareholder",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporation failed to carry out Mennillo's wishes due to not observing corporate formalities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Corporation did not act oppressively or illegally strip Mennillo of shareholder status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporation's acts were taken in accordance with Mennillo's express wishes, albeit imperfectly",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mennillo cannot attack share transfer he wished to happen; all claims must fail",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Mennillo's oppression claim fails as corporation acted per his wishes despite formalities failure.",
+   "role": "conclusion"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to observe formalities removing Mennillo as shareholder per his wishes is not unfairly prejudicial",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to properly remove him as shareholder cannot justify regaining shareholder status",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds failure to observe formalities per Mennillo's wishes is not unfairly prejudicial or just cause to regain shares.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will address three corporate law points for clarification though not strictly necessary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Points: retroactive cancellation of share transfer; consequence of failure to observe CBCA formalities; conditional share issuance",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will clarify three corporate law points: retroactive share transfer cancellation, CBCA formalities, and conditional share issuance.",
+   "role": "other"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo argued he was shareholder from incorporation and remained so",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal argued Mennillo became shareholder only if he supported corporation financially and guaranteed debts, which he declined",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal's second theory: Mennillo resigned as director and transferred shares to Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal focused on second theory before Court of Appeal, arguing shares transferred May 25, 2005",
+     "answers": 0
+    }
+   ],
+   "summary": "Mennillo claims continuous shareholder status; Intramodal argues he declined financial support and resigned, transferring shares in 2005.",
+   "role": "facts"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found Mennillo agreed to remain shareholder only if guaranteeing debts, then transferred shares to Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal majority concluded shares transfer was retroactive cancellation of association agreement",
+     "answers": 0
+    }
+   ],
+   "summary": "The trial judge found Mennillo transferred shares after refusing to guarantee debts; Court of Appeal majority saw it as retroactive cancellation of agreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Retroactive cancellation theory was neither adopted by trial judge nor pleaded by parties",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the retroactive cancellation theory was not adopted by trial judge nor pleaded by parties.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Retroactive cancellation of share issuance by simple oral consent is not possible",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo argues share issuance can be cancelled only by amending articles or agreement with director resolution, shareholder consent, solvency and liquidity tests",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Such cancellation act without CBCA requirements met is invalid",
+     "answers": 2
+    }
+   ],
+   "summary": "The court rejects retroactive cancellation by oral consent; Mennillo argues cancellation requires formal steps under CBCA; court agrees such act is invalid without them.",
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Commentators agree share capital maintenance requirements are mandatory to protect creditors",
+     "answers": 0
+    }
+   ],
+   "summary": "Commentators agree share capital maintenance requirements are mandatory to protect creditors, court notes.",
+   "role": "law"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "American commentators say strong entity shielding and limited liability require strict protection of capital stock",
+     "answers": 0
+    }
+   ],
+   "summary": "American commentators emphasize strict capital stock protection complements limited liability and prevents asset runs, court notes.",
+   "role": "law"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Respondent failed to explain why strict creditor protection requirements could be ignored",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court finds no satisfactory answer and sides against respondent on this point",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds respondent failed to justify ignoring creditor protection requirements and sides against respondent.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge held Mennillo ceased to be shareholder May 25, 2005; transfer failure due to Rosati's lawyer error",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found Mennillo ceased shareholder May 25, 2005; transfer failure due to Rosati's lawyer error.",
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No written evidence of share transfer between Mennillo and Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge reasonably rejected Mennillo's version and accepted Intramodal's",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court accepts trial judge's finding Mennillo refused guarantor role and transferred shares to Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence on transfer is conflicting but trial judge's view was open given informality and inattention to formalities",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Martin v. Dupont supports view of onerous contract for share transfer",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no written transfer evidence but accepts trial judge's finding Mennillo transferred shares to Rosati, supported by case law.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal did not verify corporate formalities compliance when registering share transfer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Failure to verify formalities does not invalidate transfer between Mennillo and Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Inspecteur g\u00e9n\u00e9ral and Martel support that improper registration alone does not invalidate transfer",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Intramodal's failure to verify formalities does not invalidate transfer; supported by prior authorities.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 76 CBCA is stated",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states section 76 CBCA.",
+   "role": "facts"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Section 76(1)(a) CBCA requirements not fulfilled; shares not endorsed by Mennillo",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal registered transfer not meeting CBCA criteria",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Improper registration does not help Mennillo; he lost shares by transfer to Rosati",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds shares not endorsed as required; improper registration does not help Mennillo who lost shares by transfer.",
+   "role": "analysis"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Endorsement required to complete share transfer and delivery under ss. 60(1) and 65(3) CBCA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Non-compliance with endorsement formality leads to nullity under arts. 1414 and 1416 C.C.Q.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Martel supports endorsement as important legal formality",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states endorsement is required to complete share transfer; non-compliance causes nullity under Quebec law, supported by Martel.",
+   "role": "law"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo knew endorsement formality was not complied with when transfer registered",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo aware he had not endorsed share certificate when shares transferred to Rosati",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Mennillo knew endorsement was missing when transfer registered and shares transferred.",
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo could have attacked transfer for non-compliance but did not within prescription period",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 2925 C.C.Q. prescribes claims after three years from awareness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Nullity requires judicial pronouncement; contract deemed never to have existed only after nullity declared",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Gaudet, Baudoin, Lluelles authorities explain nullity and prescription rules",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Mennillo's claim on transfer nullity prescribed; nullity requires judicial pronouncement within three years, supported by authorities.",
+   "role": "law"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal dissent read trial judge as holding shares issuance conditional on Mennillo remaining guarantor",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Dissent said conditional status not in CBCA and needed specification in company books",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Dissent said conditional shareholder status cannot depend on informal agreement between individuals",
+     "answers": 0
+    }
+   ],
+   "summary": "Court of Appeal dissent viewed shares as conditionally issued on guarantor status, needing formal specification, not informal agreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 76,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Conditions on shares must be in articles and securities register; resolution must specify conditional status under ss. 24(4), 49(13), 50(1)(c) CBCA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These formalities were not fulfilled",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states share conditions require formalities under CBCA, which were not fulfilled here.",
+   "role": "law"
+  },
+  {
+   "para": 77,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissent misread trial judge; no party argued shares were conditionally issued",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge viewed condition as agreement between Mennillo and Rosati that Mennillo be shareholder only if guarantor",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal was not party to this agreement; corporate formalities do not apply",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No legal error in trial judge's approach on this issue",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds dissent misread trial judge; condition was private agreement between Mennillo and Rosati, not corporate condition; no legal error.",
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found Mennillo's oppression claim prescribed; three-year period started May 2005 when Mennillo knew he was not shareholder",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal majority did not address prescription; dissent found time started Dec 2009 and acts were continuing",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mennillo adopts dissenting judge's reasoning on prescription before this Court",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal supports trial judge's position on prescription",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found oppression claim prescribed from May 2005; Court of Appeal dissent disagreed; Mennillo supports dissent; Intramodal supports trial judge.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 79,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Given limited judicial consideration and groundless oppression claim, court declines to decide prescription issue finally",
+     "answers": 0
+    }
+   ],
+   "summary": "Court declines to decide prescription issue due to limited prior consideration and groundless oppression claim.",
+   "role": "disposition"
+  },
+  {
+   "para": 80,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Because oppression claim is dismissed, court need not address remedies for oppression",
+     "answers": 0
+    }
+   ],
+   "summary": "Court will not address remedies as oppression claim is dismissed.",
+   "role": "disposition"
+  },
+  {
+   "para": 81,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal with costs and affirm costs orders by Superior Court and Court of Appeal",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would dismiss the appeal with costs and affirm prior costs orders.",
+   "role": "disposition"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal for the following reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "The Chief Justice states the appeal will be dismissed for stated reasons.",
+   "role": "disposition"
+  },
+  {
+   "para": 83,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an action for oppression by Mr. Mennillo against Intramodal Inc. for removing him as shareholder from company books",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is an oppression action by Mennillo against Intramodal for removing him as shareholder.",
+   "role": "facts"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To establish oppression, shareholder must show reasonable expectation and breach of that expectation (BCE Inc. v. 1976 Debentureholders)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Oppression remedy protects reasonable and legitimate shareholder expectations, cornerstone of oppression remedy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Evidence of shareholder expectations is essential to determine if conduct is oppressive",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains oppression requires showing reasonable expectation and breach, with evidence essential, citing BCE Inc. and legal texts.",
+   "role": "law"
+  },
+  {
+   "para": 85,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether there was an effective transfer of Mennillo's shares to Rosati is not necessary to determine",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Assessing the nature of prestations under onerous contract between Mennillo and Rosati is perplexing, noted by dissenting judge",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unnecessary to decide on effective share transfer and notes complexity of contract between Mennillo and Rosati.",
+   "role": "analysis"
+  },
+  {
+   "para": 86,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal can be disposed on basis Mennillo failed to show reasonable expectation not to be removed as shareholder",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found Mennillo agreed to transfer shares to Rosati and asked to be removed as shareholder and director",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Mennillo failed to show reasonable expectation to remain shareholder; trial judge found he agreed to transfer shares and removal.",
+   "role": "analysis"
+  },
+  {
+   "para": 87,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mennillo asked to be removed as shareholder and ceased acting as equity shareholder, advancing money as loans",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge's finding supported by evidence",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds Mennillo asked removal and ceased shareholder conduct, supported by evidence and trial judge's findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 88,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mennillo failed to establish reasonable expectation to remain shareholder; oppression action must fail",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Trial judge did not err in denying Mennillo's claim",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concludes Mennillo's oppression claim fails and trial judge did not err in denial.",
+   "role": "conclusion"
+  },
+  {
+   "para": 89,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Dissenting reasons by C\u00f4t\u00e9 J. begin",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes dissenting reasons by C\u00f4t\u00e9 J. begin.",
+   "role": "other"
+  },
+  {
+   "para": 90,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Sometimes essential to recall basics of law to render appropriate decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissenting judge states recalling basics of law is essential for appropriate decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 91,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Two key principles: corporation's legal personality distinct from shareholders; maintenance of capital",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissenting judge states two key principles: corporate personality distinct from shareholders and maintenance of capital.",
+   "role": "law"
+  },
+  {
+   "para": 92,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Trial judge and majority Court of Appeal disregarded these two principles in their analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissenting judge alleges trial judge and majority Court of Appeal disregarded key corporate law principles.",
+   "role": "analysis"
+  },
+  {
+   "para": 93,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Analysis must consider interplay of Quebec civil law and CBCA and not weaken strict corporate formalities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Registration of share transfer does not mean contract for transfer existed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Trial judge's and Court of Appeal's views on share issuance and cancellation conflict with corporate and civil law principles",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissenting judge argues analysis must respect Quebec civil law and CBCA, and criticizes trial judge and Court of Appeal's views on share transfer formalities.",
+   "role": "analysis"
+  },
+  {
+   "para": 94,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dissenting judge cannot agree with majority opinion",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissenting judge states disagreement with majority opinion.",
+   "role": "conclusion"
+  },
+  {
+   "para": 95,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant Mennillo objects to resolution and registration of transfer of his shares to majority shareholder Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal initially argued Mennillo was never shareholder but now acknowledges he was",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal refuses to recognize Mennillo's shareholder status and associated advantages contrary to law and company articles",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant objects to share transfer registration; Intramodal first denied then acknowledged Mennillo's shareholder status but refuses recognition.",
+   "role": "facts"
+  },
+  {
+   "para": 96,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "This proceeding is brought by appellant against Intramodal under s. 241 CBCA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "This is not a case of one shareholder suing another; Rosati is not a party",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant brings proceeding under s. 241 CBCA against Intramodal; court notes Rosati is not a party.",
+   "role": "facts"
+  },
+  {
+   "para": 97,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant asked for resolution revocation and register rectification",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claim could also be under s. 243 or s. 247 CBCA",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argued Intramodal breached legal duties by passing resolution and registering transfer without formalities",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argued conduct was oppressive and sought remedy under s. 241 CBCA",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant sought declaration of continuous shareholder status and revocation of transfer resolution",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant sought revocation of resolution, register rectification, and declared continuous shareholder status, alleging oppression and breach of legal duties.",
+   "role": "facts"
+  },
+  {
+   "para": 98,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge and majority Court of Appeal found appellant's claim without merit due to expressed intention to withdraw in May 2005",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Intramodal could register transfer despite no exchange of wills or formalities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Dissenting judge found colleagues disregarded corporate law formal requirements",
+     "answers": 0
+    }
+   ],
+   "summary": "The trial judge and majority Court of Appeal found appellant's claim meritless due to withdrawal intention; dissenting judge disagreed on formalities.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 99,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Majority found shareholder's intention to withdraw bars oppression claim for shareholder status recognition",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Cromwell J. finds such intention equals share transfer causing loss of shareholder status",
+     "answers": 0
+    }
+   ],
+   "summary": "Majority found withdrawal intention bars oppression claim; Cromwell J. equates intention with share transfer causing loss of status.",
+   "role": "analysis"
+  },
+  {
+   "para": 100,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Shareholder agreement on share transfer does not relieve corporation of duty to inquire before approving transfer and registering it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal did not discharge legal duties to inquire before passing resolution and registering transfer",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Proper inquiries would have revealed share certificate was not endorsed, violating CBCA and company restrictions",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Intramodal should have refrained from registering transfer and passing resolution",
+     "answers": 1
+    }
+   ],
+   "summary": "The court argues corporation must inquire before approving share transfer; Intramodal failed duties and should not have registered transfer or passed resolution.",
+   "role": "analysis"
+  },
+  {
+   "para": 101,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal confused its interests with its majority shareholder's and showed wilful blindness to legal duties",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal defended majority shareholder's interests vigorously despite shareholder not intervening",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Intramodal defended an alleged agreement it was not party to without verifying its scope or genuineness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Intramodal confused its interests with its majority shareholder's, defended shareholder's interests vigorously, and defended an agreement it was not party to without verification.",
+   "role": "analysis"
+  },
+  {
+   "para": 102,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge and Court of Appeal focused only on alleged agreement scope, ignoring respondent company's conduct and legal duties",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "They disregarded company's distinct legal personality and corporate law requirements",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "They endorsed respondent company's unlawful conduct instead of punishing it",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds lower courts ignored respondent company's conduct and legal duties, disregarded corporate personality, and endorsed unlawful conduct.",
+   "role": "analysis"
+  },
+  {
+   "para": 103,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge made palpable and overriding errors and disregarded key evidence on share transfer conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge erred and disregarded key evidence on share transfer conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 104,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge and Court of Appeal erred concluding appellant's claim was prescribed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties agreed appellant was at some point a shareholder of Intramodal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Ownership of shares is not subject to extinctive prescription under CBCA or Quebec Civil Code",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Three-year prescription period cannot be set up against appellant's oppression claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds lower courts erred on prescription; parties agree appellant was shareholder; ownership not subject to prescription; prescription period cannot bar claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 105,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal should be allowed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the appeal should be allowed.",
+   "role": "disposition"
+  },
+  {
+   "para": 106,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In 2004 appellant and Mr. Rosati agreed appellant would finance and Rosati would contribute skills to form a transportation company",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states appellant and Mr. Rosati agreed in 2004 on financing and skills contributions to form a company.",
+   "role": "facts"
+  },
+  {
+   "para": 107,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Intramodal incorporated July 13, 2004; Rosati and Mennillo appointed directors and officers; Rosati held 51 shares, Mennillo 49",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Intramodal was incorporated in 2004 with Rosati and Mennillo as directors and shareholders holding 51 and 49 shares respectively.",
+   "role": "facts"
+  },
+  {
+   "para": 108,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mennillo resigned as director and officer May 25, 2005; resignation notice did not mention shareholder status; reasons disputed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mennillo resigned as director and officer in 2005; resignation notice omitted shareholder status; reasons disputed.",
+   "role": "facts"
+  },
+  {
+   "para": 109,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Intramodal inactive for months; July 18, 2005 amending declaration filed removing Mennillo as director, officer, and shareholder; signed by lawyer not Mennillo",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Intramodal filed a July 2005 declaration removing Mennillo as director, officer, and shareholder, signed by lawyer but not Mennillo.",
+   "role": "facts"
+  },
+  {
+   "para": 110,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Rosati left Canvec August 5, 2005 to work full time on Intramodal; Mennillo advanced $440,000 between June 2004 and October 2006 recorded by Rosati",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Rosati left Canvec in 2005 to work on Intramodal; Mennillo advanced $440,000 recorded by Rosati.",
+   "role": "facts"
+  },
+  {
+   "para": 111,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Intramodal repaid Mennillo $690,000 between 2006 and 2009 via cheques marked consultation or management fees",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Intramodal repaid Mennillo $690,000 from 2006 to 2009 via cheques marked consultation or management fees.",
+   "role": "facts"
+  },
+  {
+   "para": 112,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "By 2006, the company had become very successful",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the company was very successful by 2006.",
+   "role": "facts"
+  },
+  {
+   "para": 113,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "March 24, 2006 annual declaration filed listing Mennillo as shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a 2006 declaration listed Mennillo as shareholder.",
+   "role": "facts"
+  },
+  {
+   "para": 114,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In 2007 Intramodal passed retroactive resolution acknowledging Mennillo's resignation and approving share transfer to Rosati; resolution not signed by Mennillo; share certificate not endorsed or delivered",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a 2007 retroactive resolution acknowledged Mennillo's resignation and share transfer to Rosati, unsigned by Mennillo, share certificate not endorsed or delivered.",
+   "role": "facts"
+  },
+  {
+   "para": 115,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Fall 2007 discussions involved accountant, tax lawyer, commercial lawyer; appellant and Rosati gave different accounts of purpose; appellant's version corroborated by professionals",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states fall 2007 discussions involved professionals; appellant and Rosati differed on purpose; appellant's version corroborated.",
+   "role": "facts"
+  },
+  {
+   "para": 116,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "December 22, 2008 Intramodal amended articles removing rights of Class A-G shares, issuing new shares to Fiducie Intra 4 and Rosati",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Intramodal amended articles in 2008 removing old share rights and issuing new shares to a trust and Rosati.",
+   "role": "facts"
+  },
+  {
+   "para": 117,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "December 7, 2009 Rosati gave appellant $40,000 cheque marked full and final payment; appellant's lawyer discovered appellant no longer listed as shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Rosati gave appellant a $40,000 cheque in 2009; appellant's lawyer found appellant no longer listed as shareholder.",
+   "role": "facts"
+  },
+  {
+   "para": 118,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "February 25, 2010 formal notice sent to Intramodal; appellant filed oppression claim September 7, 2010",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states formal notice sent in February 2010 and appellant filed oppression claim in September 2010.",
+   "role": "facts"
+  },
+  {
+   "para": 119,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's version of events differs from Rosati's",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states appellant's version differs from Rosati's.",
+   "role": "facts"
+  },
+  {
+   "para": 120,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Rosati says appellant agreed to finance and guarantee debts; relationship deteriorated July 2004; appellant intended to withdraw; no formal withdrawal terms; company not operating yet; appellant agreed to provide $300,000",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Rosati's account of appellant's financing, relationship deterioration, withdrawal intent, and $300,000 agreement.",
+   "role": "facts"
+  },
+  {
+   "para": 121,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Denies expressing intention to withdraw as shareholder or agreement on withdrawal; admits withdrawing as director and officer at friend's request",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Rosati told him Labatt Brewing wanted to look at Intramodal's registers before May 25, 2005",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Resigned as director and officer after promise of reinstatement",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Resignation letter sent by Mr. Rosati's lawyer and signed immediately",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant denies withdrawing as shareholder, admits resigning as director/officer at friend's request, and describes related events and resignation letter.",
+   "role": "facts"
+  },
+  {
+   "para": 122,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rosati says appellant was dissatisfied with loan return and they scheduled meetings to settle dispute and increase agreed amount",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says July 14, 2007 meeting was to agree on loan repayment and share redemption price; discussions unsuccessful",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant learned in December 2009 from Mr. Kaufman he was no longer a shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent says meetings were about loan disputes; the applicant says meetings included share redemption talks and learned he was no longer shareholder in 2009.",
+   "role": "facts"
+  },
+  {
+   "para": 123,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Both agree no mention on May 25, 2005 of sale, exchange or gift of shares",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Rosati says appellant lost shareholder status by expressing intention to withdraw since shares were conditional on financing and guaranteeing debts",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge accepted Mr. Rosati's version that appellant lost shareholder status on withdrawal intention",
+     "answers": 0
+    }
+   ],
+   "summary": "Both agree no share transfer mentioned May 25, 2005; respondent and trial judge find appellant lost shareholder status by withdrawal intention.",
+   "role": "facts"
+  },
+  {
+   "para": 124,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge found case outcome depended on witness credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Contradictory testimony on appellant's resignation May 25, 2005, July 14 and 21, 2007 meetings, and meetings with accountant Oct-Dec 2007",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found outcome depended on witness credibility and noted contradictions on key events in 2005 and 2007.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 125,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge rejected appellant's claim that resignation was to reassure Labatt representatives",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge rejected appellant's version of other events",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge rejected appellant's claim about resignation reason and other event versions.",
+   "role": "analysis"
+  },
+  {
+   "para": 126,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge analyzed exhibits and found several contradicted appellant's version",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found exhibits contradicted appellant's version.",
+   "role": "analysis"
+  },
+  {
+   "para": 127,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant held 49 common shares conditional on financing and guaranteeing debts",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Shares distributed 51% to Mr. Rosati and 49% to appellant at incorporation",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found appellant held 49 conditional shares and shares were split 51% Rosati, 49% appellant at incorporation.",
+   "role": "facts"
+  },
+  {
+   "para": 128,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant asked to be removed as director, officer, and shareholder effective May 25, 2005",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant became lender of $440,000 to Mr. Rosati after May 25, 2005",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Shares transferred to Mr. Rosati when appellant wished to be relieved of obligations",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appellant continued financing operations after May 25, 2005",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Failure to complete share transfer due to lawyer's error or oversight",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Appellant no longer shareholder, director or officer; claim dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found appellant requested removal as shareholder and shares transferred to Rosati; claim dismissed due to no longer shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 129,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal majority agreed outcome depended on witness credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No palpable and overriding error by trial judge; appellant excluded as shareholder at own request",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Claim dismissal upheld",
+     "answers": 0
+    }
+   ],
+   "summary": "Court of Appeal majority upheld trial judge's credibility findings and dismissal of appellant's claim.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 130,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Majority gave little weight to business records due to sloppy preparation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Lack of reliable documents requires looking at all evidence to determine actual agreement",
+     "answers": 0
+    }
+   ],
+   "summary": "Majority found business records unreliable and emphasized considering all evidence to determine parties' agreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 131,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Doubt whether genuine share transfer occurred; parties agreed to retroactively cancel association agreement",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Cancellation informal like initial agreement; appellant was and was not shareholder",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Only Mr. Rosati remained in company and developed business",
+     "answers": 0
+    }
+   ],
+   "summary": "Majority doubted share transfer, found parties informally cancelled agreement, leaving only Rosati as shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 132,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Majority expressed doubts about trial judge's conclusion on share transfer",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No evidence on terms of appellant's removal as shareholder",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Parties agreed on removal but did not specify how; informal agreement can be cancelled informally",
+     "answers": 0
+    }
+   ],
+   "summary": "Majority doubted share transfer conclusion, noted no terms specified, and accepted informal cancellation of agreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 133,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Dissenting judge would allow appeal due to errors of law and fact in trial judge's reasons",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Trial judge and majority wrongly reduced case to credibility issue, ignoring law and company rules",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissenting judge faults trial judge and majority for legal and factual errors and reducing case to credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 134,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Dissent says trial judge wrong to find appellant's shares conditional; law does not allow conditional shareholder status",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "No register evidence supports conditional shareholder status",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent argues no legal or register basis for conditional shareholder status found by trial judge.",
+   "role": "analysis"
+  },
+  {
+   "para": 135,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Shareholder status cannot depend on informal agreement or unilateral resiliation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Evidence shows appellant was founding shareholder from July 13, 2004 to May 25, 2005",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "issue",
+     "text": "Issue is whether and how appellant ceased to be shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent says shareholder status not informal, appellant was founding shareholder, issue is cessation and how.",
+   "role": "issue"
+  },
+  {
+   "para": 136,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Onus on Mr. Rosati to prove he was duly registered transferee of appellant's shares under s. 53(d) CBCA",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent finds burden on Rosati to prove proper share transfer registration under CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 137,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Respondent's argument that appellant's failure to guarantee debts was price paid confuses company and majority shareholder interests",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent rejects respondent's argument confusing company and majority shareholder interests.",
+   "role": "analysis"
+  },
+  {
+   "para": 138,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Dissent rejects theory that appellant gifted shares to Mr. Rosati without required notarial act or delivery",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Art. 1824 C.C.Q. requires notarial act for gift of movable property except with delivery and possession",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent rejects gift theory due to lack of notarial act or delivery, citing art. 1824 C.C.Q.",
+   "role": "law"
+  },
+  {
+   "para": 139,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Respondent must show Mr. Rosati was actual transferee with endorsed share certificate under s. 64 CBCA",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal's articles require board resolution to consent to share transfer",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Intramodal could not disregard requirements and approve transfer without formalities",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent says respondent must prove proper transfer with endorsement and board consent per articles and CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 140,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge should not have rejected appellant's version; palpable and overriding errors in analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Dissent finds trial judge erred in rejecting appellant's version with palpable and overriding errors.",
+   "role": "analysis"
+  },
+  {
+   "para": 141,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Gagnon J.A. rejected the argument that the claim was prescribed",
+     "answers": 0
+    }
+   ],
+   "summary": "Gagnon J.A. rejected the argument that the claim was prescribed, as found by the earlier decision-maker.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 142,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the respondent company create an oppressive situation by transferring appellant's shares contrary to law and articles?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Can appellant's intention to withdraw be a bar to the oppression claim?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the trial judge make palpable and overriding errors in assessing evidence?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Is the appellant's claim prescribed?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies four main issues: oppressive conduct by respondent, appellant's withdrawal intention as bar, trial judge's errors, and prescription of claim.",
+   "role": "issue"
+  },
+  {
+   "para": 143,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A corporation was formed under CBCA on July 13, 2004, with appellant as shareholder until at least May 25, 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant and Mr. Rosati did not prepare complete documents and took a lax approach to corporate documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a corporation was formed under CBCA with appellant as shareholder despite lax corporate documentation by appellant and Mr. Rosati.",
+   "role": "facts"
+  },
+  {
+   "para": 144,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Arguments include appellant was never a shareholder, agreed to transfer shares, ownership was conditional, or shares were cancelled retroactively.",
+     "answers": 0
+    }
+   ],
+   "summary": "Various arguments concern appellant's shareholder status and share ownership conditions or cancellation.",
+   "role": "facts"
+  },
+  {
+   "para": 145,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Cancellation of shares can only be effected by amending articles or redeeming shares if paid for.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues share cancellation requires legal formalities like amending articles or redeeming shares.",
+   "role": "issue"
+  },
+  {
+   "para": 146,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CBCA regulates share cancellation to ensure integrity of share capital and creditor protection via maintenance of capital rule.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Maintenance of capital rule prohibits transactions affecting paid-up capital except statutory exceptions.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Trust fund doctrine underlies maintenance of capital rule and personal liability of directors for violations.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Any action outside statutory exceptions infringing maintenance of capital rule is unlawful.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains CBCA's maintenance of capital rule protects share capital integrity and creditors, prohibiting unauthorized capital transactions.",
+   "role": "law"
+  },
+  {
+   "para": 147,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A business corporation differs from a partnership by requiring stricter adherence to formalities for independent existence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states business corporations require stricter formalities than partnerships to ensure independent existence.",
+   "role": "law"
+  },
+  {
+   "para": 148,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "A corporation is a joint stock corporation incorporated by the State, not subject to partnership rules.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that a corporation is a state-incorporated joint stock entity, not governed by partnership rules.",
+   "role": "law"
+  },
+  {
+   "para": 149,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Founders choosing a corporation accept formalities and gain advantages like limited liability from distinct legal personality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes founders choosing a corporation accept formalities and gain limited liability from its distinct personality.",
+   "role": "law"
+  },
+  {
+   "para": 150,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant and Mr. Rosati chose a corporation, so must comply with its stricter rules and cannot rely on partnership consensualism.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant and Mr. Rosati must comply with corporate formalities since they chose a corporation, not a partnership.",
+   "role": "analysis"
+  },
+  {
+   "para": 151,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "A business corporation is a legal person with distinct personality and patrimony, acting through board resolutions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Board decisions must be made at lawful meetings or by unanimous written resolution under s.117(1) CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains a corporation acts through board resolutions made at meetings or unanimous written consent per CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 152,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Shareholders may manage only via unanimous shareholder agreement under s.146 CBCA; some board powers cannot be delegated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No unanimous shareholder agreement was entered into in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states shareholders need unanimous agreement to manage; no such agreement exists here.",
+   "role": "facts"
+  },
+  {
+   "para": 153,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Once shareholders subscribe shares, invested amounts belong to corporation and capital is locked to protect creditors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states invested capital belongs to the corporation and is locked to protect creditors under maintenance of capital.",
+   "role": "law"
+  },
+  {
+   "para": 154,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Shareholders cannot unilaterally require corporation to redeem shares or withdraw without corporation's involvement.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court holds shareholders cannot unilaterally redeem shares or withdraw without corporation's consent.",
+   "role": "law"
+  },
+  {
+   "para": 155,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Corporate documents have statutory importance to protect third parties relying on them, e.g., under Quebec's legal publicity act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes statutes value corporate documents to protect third parties relying on them.",
+   "role": "law"
+  },
+  {
+   "para": 156,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Corporate formalities are conditions for validity of corporate acts, protecting distinct personality and capital maintenance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states corporate formalities are essential for validity, protecting legal personality and capital maintenance.",
+   "role": "law"
+  },
+  {
+   "para": 157,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Principles of distinct personality and capital maintenance apply equally to small and large companies and require formalities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court emphasizes corporate principles and formalities apply equally to small and large companies.",
+   "role": "law"
+  },
+  {
+   "para": 158,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court of Appeal majority's retroactive cancellation of shares without formalities jeopardizes Canadian corporate law pillars.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court criticizes the Court of Appeal majority for undermining corporate law by allowing retroactive share cancellation without formalities.",
+   "role": "analysis"
+  },
+  {
+   "para": 159,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Any agreement between shareholders to change share terms cannot affect corporation without required formalities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes shareholder agreements altering shares have no effect on corporation without formalities.",
+   "role": "analysis"
+  },
+  {
+   "para": 160,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Court of Appeal majority erred by disregarding CBCA mandatory formalities for share redemption and transfer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appellant is right; majority's reasoning equates corporation with partnership and undermines legal personality and capital maintenance.",
+     "answers": 1
+    }
+   ],
+   "summary": "Appellant argues Court of Appeal erred ignoring CBCA formalities; court agrees, finding it undermines corporate principles.",
+   "role": "analysis"
+  },
+  {
+   "para": 161,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant and Mr. Rosati disregarded necessary formalities in conducting affairs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Superior Court and Court of Appeal majority were not authorized to disregard formalities",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds appellant and Mr. Rosati disregarded formalities, but lower courts were not authorized to do so.",
+   "role": "analysis"
+  },
+  {
+   "para": 162,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Shareholders can enter agreements but statutory formalities must be observed for binding on corporation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Smith v. Gow-Ganda Mines that shareholder agreements require statutory formalities to bind the corporation.",
+   "role": "law"
+  },
+  {
+   "para": 163,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge and Court of Appeal majority relied on appellant's expressed intention to withdraw to dismiss oppression claim",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "They viewed the only issue as one of credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-makers dismissed the appellant's oppression claim focusing on his intention to withdraw and credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 164,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Conclusion disregards corporate law formalism and respondent company's distinct legal personality",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge and Court of Appeal sidestepped main issue of whether respondent's conduct was oppressive",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds earlier decisions disregarded formalism and sidestepped whether respondent's conduct was oppressive.",
+   "role": "analysis"
+  },
+  {
+   "para": 165,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 76 CBCA requires corporation to make inquiries before registering share transfers",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Strict requirements include endorsement and rightful transfer",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 76 CBCA requires strict inquiries before registering share transfers, including endorsement and rightful transfer.",
+   "role": "law"
+  },
+  {
+   "para": 166,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CBCA and company articles require minimal inquiries before registering transfer, including endorsement of share certificate",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent's failure to make inquiries was oppression",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Requirement was clearly stated on share certificate",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondent failed required inquiries before registering transfer, constituting oppression, as stated on share certificate.",
+   "role": "analysis"
+  },
+  {
+   "para": 167,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Quebec civil law opposes respondent's argument that appellant's intention created agreement without juridical operation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's expressed intention was at most an offer to contract without agreement on withdrawal terms",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Concluding intention bars oppression claim and approves transfer is contrary to law, fairness, and common sense",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant's intention was only an offer, and concluding it bars oppression claim is contrary to law and fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 168,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will analyze oppression remedy in four parts: conditions, duties in share transfer, alleged agreement, and prescription",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines its analysis of the oppression remedy in four parts.",
+   "role": "other"
+  },
+  {
+   "para": 169,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 241(2) CBCA allows court to rectify oppressive or unfairly prejudicial conduct by corporation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 241(2) CBCA permits court to rectify oppressive or unfairly prejudicial corporate conduct.",
+   "role": "law"
+  },
+  {
+   "para": 170,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Budd v. Gentra describes oppression remedy as judicial brake against abuse of corporate powers",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 241 enables court to override corporate governance decisions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Budd v. Gentra describing oppression remedy as judicial brake allowing court to override corporate governance.",
+   "role": "law"
+  },
+  {
+   "para": 171,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Oppression remedy is equitable, allowing resolution of disputes among directors, officers, shareholders",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the oppression remedy is equitable and allows resolution of internal corporate disputes.",
+   "role": "law"
+  },
+  {
+   "para": 172,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Shareholders may have legitimate expectations beyond articles and by-laws, justifying oppression remedy",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes shareholders' legitimate expectations justify the oppression remedy beyond corporate documents.",
+   "role": "law"
+  },
+  {
+   "para": 173,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "BCE Inc. v. 1976 Debentureholders states s. 241 CBCA is broad and prevents corporation from relying on legality to deny remedy",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites BCE Inc. that s. 241 CBCA is broad and prevents corporations from denying remedy based on legality.",
+   "role": "law"
+  },
+  {
+   "para": 174,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Oppression remedy can sanction failure to discharge legal duties though proof not prerequisite",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Oppression focuses on fairness and equity, not just legal rights",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Conduct may be oppressive even if legal",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Finding oppression does not require legal claim or breach",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts should consider business realities over narrow legalities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that oppression remedy focuses on fairness, can apply even if conduct is legal, and does not require legal breach.",
+   "role": "law"
+  },
+  {
+   "para": 175,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "BCE analytical approach: first determine reasonable expectation, then if conduct was oppressive under s. 241 CBCA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states BCE approach requires determining reasonable expectation then oppressive conduct under s. 241 CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 176,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If oppressive conduct found, court has broad discretion on remedial order considering parties' mutual interests",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it has broad discretion on remedies if oppression is found, considering mutual interests.",
+   "role": "law"
+  },
+  {
+   "para": 177,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "BCE lists factors for reasonable expectation: commercial practice, corporation nature, relationships, past practice, claimant's protection steps, representations, fair resolution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites BCE factors for reasonable expectation including commercial practice, relationships, and past practice.",
+   "role": "law"
+  },
+  {
+   "para": 178,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Expression of intention to withdraw does not extinguish reasonable expectations or bar oppression claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Logic would defeat oppression remedy if intention barred claim",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court rejects reasoning that intention bars claim for reasons to follow",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds intention to withdraw does not bar oppression claim and rejects contrary reasoning.",
+   "role": "analysis"
+  },
+  {
+   "para": 179,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 238 CBCA allows complainant to be former registered security holder, so remedy available to former shareholders",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s. 238 CBCA allows former shareholders to access oppression remedy.",
+   "role": "law"
+  },
+  {
+   "para": 180,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Where expectations are based on legal rules and conduct is unlawful, reasonable expectations play limited or no role",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Shareholders expect lawful corporate action and directors' duties; unlawful conduct can give relief without reasonable expectation analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds unlawful conduct allows oppression relief without relying on reasonable expectations analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 181,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Reasonable expectations are more relevant to shareholder rights not specifically provided for in legislation or articles/by-laws.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "BCE states oppression remedy enforces what is legal and fair (para. 58).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states reasonable expectations matter more for shareholder rights not in legislation or articles, citing BCE on oppression remedy enforcing fairness.",
+   "role": "law"
+  },
+  {
+   "para": 182,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "When a corporation is alleged to have acted unlawfully, focus is on whether conduct was unlawful and oppressive, not reasonable expectations.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Martel supports focusing on unlawfulness and oppression (p. 31-80).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court says unlawful corporate conduct focuses on unlawfulness and oppression, not reasonable expectations, citing Martel.",
+   "role": "law"
+  },
+  {
+   "para": 183,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Size, nature, and structure of corporation affect reasonable expectations assessment (BCE para. 74).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "More latitude is given to directors of small, closely held corporations than large public companies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Latitude depends on nature of alleged violation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes BCE says corporation size affects reasonable expectations and latitude depends on violation nature.",
+   "role": "law"
+  },
+  {
+   "para": 184,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mere irregularities not oppressive or unfairly prejudicial do not justify oppression remedy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Failure to comply with mandatory legislative or article/by-law provisions on shareholder status may justify oppression remedy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "This protection is important for minority shareholders in closely held corporations like Intramodal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Without remedy, shareholders unlawfully dispossessed have no recourse.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes only serious violations justify oppression remedy, important for minority shareholders like in Intramodal.",
+   "role": "law"
+  },
+  {
+   "para": 185,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Several aspects of respondent company's conduct are problematic.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states respondent company's conduct has several problematic aspects.",
+   "role": "analysis"
+  },
+  {
+   "para": 186,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Impugned resolution passed in 2007, retroactive to 2005, date unclear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant learned of resolution only after bringing claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Resolution text begins: IT WAS RESOLVED THAT: ...",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the impugned resolution was passed retroactively, appellant learned of it after claim, and its text is given.",
+   "role": "facts"
+  },
+  {
+   "para": 187,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent company registered the transfer referred to in the resolution in its registers.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Under CBCA, company cannot register transfer unless security was endorsed, which was not the case here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondent registered the transfer without endorsement, which CBCA forbids.",
+   "role": "analysis"
+  },
+  {
+   "para": 188,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 60(1) CBCA: purchaser acquires rights on delivery of security, except if fraud or adverse claim known.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites s.60(1) CBCA on purchaser rights upon delivery of security, barring fraud or adverse claims.",
+   "role": "law"
+  },
+  {
+   "para": 189,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 64 CBCA: purchaser becomes bona fide purchaser only at endorsement time.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 65(3) CBCA defines endorsement as signature on security or separate document.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites s.64 and s.65(3) CBCA defining bona fide purchaser timing and endorsement.",
+   "role": "law"
+  },
+  {
+   "para": 190,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Endorsement is required for shareholder purchase contracts to affect corporation legally.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Corporation registering transfer without endorsement liable for resulting loss (s.79(1)(a) CBCA).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Corporation must make inquiries before registering transfer, including about endorsements (s.76 CBCA).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains endorsement is legally required, and corporation liable if registering transfer without it, per CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 191,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Company's articles impose restrictions: no transfer registration without duly endorsed share certificate and transfer requirements met.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes company articles require endorsement and transfer requirements before registering share transfers.",
+   "role": "facts"
+  },
+  {
+   "para": 192,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Endorsement as precondition to transfer registration was important to respondent company's founders.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds endorsement was important enough to be expressly included in company articles.",
+   "role": "analysis"
+  },
+  {
+   "para": 193,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's certificate notes only named person or authorized agent may validly transfer shares.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes appellant's certificate restricts valid transfer to named person or authorized agent.",
+   "role": "facts"
+  },
+  {
+   "para": 194,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Legal duty to make inquiries before registering transfer created reasonable expectation for shareholders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent company failed to make inquiries; failure was more than mere irregularity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondent's failure to make required inquiries breached reasonable shareholder expectations and was serious.",
+   "role": "analysis"
+  },
+  {
+   "para": 195,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant reasonably expected respondent to act lawfully and make inquiries before depriving shareholder status.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to do so was unfairly prejudicial, depriving appellant of shareholder status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant had reasonable expectations respondent act lawfully, and failure unfairly prejudiced him.",
+   "role": "analysis"
+  },
+  {
+   "para": 196,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Share certificate was not endorsed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent made no inquiries before passing retroactive resolution signed by single shareholder Mr. Rosati.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent's lawyer admitted acting only on majority shareholder Mr. Rosati's instructions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds share certificate lacked endorsement, no inquiries were made, and lawyer acted only on majority shareholder's instructions.",
+   "role": "facts"
+  },
+  {
+   "para": 197,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Intramodal had no way of knowing appellant's intention to withdraw, as it made no inquiries and deemed them unnecessary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Intramodal did not know appellant's withdrawal intention due to lack of inquiries.",
+   "role": "facts"
+  },
+  {
+   "para": 198,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Finding oppression here is not misuse of s.241 CBCA but recognition that majority shareholder stripped appellant of status.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ontario Court of Appeal in Budd said s.241 CBCA was introduced to prevent such conduct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes oppression occurred as majority shareholder stripped appellant, citing Budd on s.241 CBCA purpose.",
+   "role": "conclusion"
+  },
+  {
+   "para": 199,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "If inquiries had been made, transfer would not have been registered without proper steps.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "If appellant agreed to transfer, parties would have had to meet again to meet legal conditions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Appellant could have been asked to sign resolution; disagreement could lead to requiring endorsement and documents.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Martel states transferor must provide documents for registration or purchaser may reject or rescind transfer (p.16-30).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court says proper inquiries would prevent improper registration; legal steps and Martel support this.",
+   "role": "analysis"
+  },
+  {
+   "para": 200,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Intramodal's conduct unlawfully stripped appellant of shareholder status, a highly oppressive act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Intramodal's conduct unlawfully and oppressively deprived appellant of shareholder status.",
+   "role": "conclusion"
+  },
+  {
+   "para": 201,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporation approving share transfer without inquiries and acting as puppet is oppressive despite shareholder's withdrawal intention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Suggesting otherwise encourages shareholders to avoid discussions about share transfers.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds that a corporation approving a share transfer without inquiries is oppressive despite a shareholder's withdrawal intention, rejecting contrary suggestions.",
+   "role": "analysis"
+  },
+  {
+   "para": 202,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Case involves complainant recognized as shareholder alleging corporation's legal and by-law violations and seeking oppression remedy under s. 241 CBCA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Oppressive situation can be remedied by oppression claim or applications under ss. 243 or 247 CBCA if conditions met, which they are here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 241(3)(k) empowers courts to order register rectification and sanction unlawful corporate conduct independently of ss. 243 and 247 CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the complainant alleges violations and seeks oppression remedy under s. 241 CBCA, which can be remedied by various applications including s. 241(3)(k).",
+   "role": "facts"
+  },
+  {
+   "para": 203,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Journet v. Superchef Food Industries Ltd. found corporation's unlawful and fraudulent acts oppressive, sufficient for oppression remedy without extra evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Journet case where unlawful acts sufficed for oppression remedy without additional evidence.",
+   "role": "law"
+  },
+  {
+   "para": 204,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant proved oppression claim validity; company violated legislation and articles by transferring appellant's shares and registering transfer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Company's conduct was oppressive and prejudicial, justifying revocation of resolution and register rectification.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant proved oppression; company violated laws by transferring shares, warranting revocation and register correction.",
+   "role": "analysis"
+  },
+  {
+   "para": 205,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant seeks conclusion company failed legal duties and order to rectify registers.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant would have succeeded under ss. 243 or 247 CBCA if applied there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Dismissing claim under s. 241 CBCA for not using ss. 243 or 247 would be impractical given liberal interpretation and remedy nature.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "allegation_or_argument",
+     "text": "Cr\u00eate and Rousseau note courts pragmatically allow oppression remedy claims even when unlawful acts suggest alternative recourses.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "allegation_or_argument",
+     "text": "Claimants may join oppression remedy with other recourses like derivative action, investigation, rectification, or liquidation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains appellant seeks register rectification; would succeed under ss. 243 or 247; courts pragmatically allow s. 241 claims despite alternatives.",
+   "role": "analysis"
+  },
+  {
+   "para": 206,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 241 CBCA is broad and grants courts broad powers (citing BCE, para. 58).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Broad scope of oppression remedy justifies considering recourses under ss. 243 and 247 CBCA here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes s. 241 CBCA's broad scope and finds it appropriate to consider recourses under ss. 243 and 247 CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 207,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent unlawfully deprived appellant of shareholder status, constituting oppressive conduct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Being unlawfully stripped of shareholder status is the epitome of oppression.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondent unlawfully deprived appellant of shareholder status, which is highly oppressive.",
+   "role": "analysis"
+  },
+  {
+   "para": 208,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This conclusion suffices to decide merits, but discussion on alleged agreement between Mennillo and Rosati is important due to parties' emphasis and potential wider impact.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the finding suffices but will discuss the alleged agreement due to its importance and potential consequences.",
+   "role": "analysis"
+  },
+  {
+   "para": 209,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge did not find appellant and Rosati agreed on share transfer; respondent's interpretation is fragmented and distorts conclusions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge found appellant's shares issued conditionally on guaranteeing debts; appellant's withdrawal intention sufficed to strip shareholder status.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge concluded Mennillo held shares conditionally, refused participation, asked removal, agreed to be lender, and ceased shareholder and director status from May 25, 2005.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge did not find share transfer agreement but conditional issuance and withdrawal intention sufficed to strip shareholder status.",
+   "role": "analysis"
+  },
+  {
+   "para": 210,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Deference is owed to trial judge's factual findings absent palpable and overriding error; isolated passages cannot be misinterpreted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge's findings must be considered as a whole; it is inaccurate to say share transfer finding was independent of conditional issuance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states deference to trial judge's findings is required and finds it inaccurate to separate share transfer from conditional issuance.",
+   "role": "law"
+  },
+  {
+   "para": 211,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleague's reasoning is contradictory accepting conditional shareholding but denying legal possibility of conditional shares here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleague finds evidence confused but supports trial judge's conclusion of conditional shareholding agreement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court cannot accept trial judge's conditional shareholding finding and legal denial of conditional shares simultaneously.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds colleague's reasoning contradictory accepting conditional shareholding but denying its legal validity here.",
+   "role": "analysis"
+  },
+  {
+   "para": 212,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal majority concluded appellant lost shareholder status due to retroactive cancellation from withdrawal intention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Court of Appeal majority found appellant lost shareholder status by retroactive cancellation from withdrawal intention.",
+   "role": "facts"
+  },
+  {
+   "para": 213,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties characterized alleged agreement variously as conditional issuance, retroactive cancellation, sale, or gift contract.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence shows juridical operation by Rosati and Mennillo on May 25, 2005 causing share transfer; courts struggled to characterize agreement.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds parties varied in characterizing alleged agreement and no evidence shows juridical operation causing share transfer.",
+   "role": "analysis"
+  },
+  {
+   "para": 214,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CBCA allows share cancellation only by article amendment or share redemption (unilateral or mutual).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CBCA permits share cancellation only by article amendment or redemption.",
+   "role": "law"
+  },
+  {
+   "para": 215,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent did not amend articles before May 25, 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Unilateral redemption requires article provision, which did not exist for appellant's Class A shares.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Articles allowed unilateral redemption only for Class G shares.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no article amendment occurred and unilateral redemption was not possible for appellant's Class A shares.",
+   "role": "facts"
+  },
+  {
+   "para": 216,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Mutual redemption requires formalities including directors' resolution and solvency and liquidity tests under s. 34 CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states mutual redemption requires formalities including resolution and solvency tests under s. 34 CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 217,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CBCA provides that redemption results in cancellation of acquired shares.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CBCA mandates redemption results in share cancellation.",
+   "role": "law"
+  },
+  {
+   "para": 218,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Assuming appellant consented to redemption, none of the required formalities were performed, so shares were not cancelled by redemption.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no formalities for redemption were performed, so shares were not cancelled by redemption.",
+   "role": "analysis"
+  },
+  {
+   "para": 219,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Respondent states stated capital was never reduced and no resolution approved share redemption.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only resolution concerned share transfer between appellant and majority shareholder Rosati.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes respondent admits no capital reduction or redemption resolution; only a share transfer resolution existed.",
+   "role": "facts"
+  },
+  {
+   "para": 220,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Liquidity and solvency tests could not be met as respondent had no assets at the time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds liquidity and solvency tests could not be met since respondent had no assets.",
+   "role": "facts"
+  },
+  {
+   "para": 221,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant\u2019s shares were not cancelled retroactively by redemption due to legal requirements, not mere technical irregularities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the appellant\u2019s shares were not retroactively cancelled due to legal requirements, not technical irregularities.",
+   "role": "analysis"
+  },
+  {
+   "para": 222,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge\u2019s conclusion that appellant\u2019s shares were issued on condition to guarantee debts and that desire to cease guaranteeing deprived shareholder status is contrary to CBCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the trial judge\u2019s conclusion about conditional shares and loss of shareholder status contrary to CBCA.",
+   "role": "analysis"
+  },
+  {
+   "para": 223,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Trial judge wrote appellant held 49 common shares issued on condition to guarantee all debts once company began operating.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the trial judge\u2019s statement that appellant held 49 shares issued on condition to guarantee debts.",
+   "role": "facts"
+  },
+  {
+   "para": 224,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent company\u2019s registers show no suspensive condition related to issuance of appellant\u2019s shares in board resolution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Suspensive condition must appear in company\u2019s registers to affect share capital and inform creditors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no suspensive condition in company registers and states such condition must appear there to affect share capital.",
+   "role": "analysis"
+  },
+  {
+   "para": 225,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Impossible as a matter of law that appellant transferred shares to Mr. Rosati on May 25, 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant\u2019s intention to withdraw had no effect on shareholder rights regardless of witness credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no legal transfer of shares on May 25, 2005 and appellant\u2019s withdrawal intention did not affect shareholder rights.",
+   "role": "analysis"
+  },
+  {
+   "para": 226,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Share transfers under CBCA remain subject to contract formation conditions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states share transfers under CBCA are subject to contract formation conditions.",
+   "role": "law"
+  },
+  {
+   "para": 227,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Cromwell J. states appellant transferred shares by onerous contract but does not specify contract nature or prestation.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "An innominate contract is still subject to legislative scheme (Lluelles and Moore).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Cromwell J.\u2019s claim of onerous contract transfer and cites authority that innominate contracts are legislatively regulated.",
+   "role": "analysis"
+  },
+  {
+   "para": 228,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Civil Code of Qu\u00e9bec defines contract as agreement obligating performance of prestation (art. 1378).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "No meeting of minds means no contract exists (Karim, Lluelles and Moore).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Proposal must be firmly directed toward specific juridical operation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Civil Code and authorities that a contract requires meeting of minds and a firm proposal for a juridical operation.",
+   "role": "law"
+  },
+  {
+   "para": 229,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits appellant transferred shares to Mr. Rosati and was relieved of financing and guaranteeing debts.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds this is not a valid prestation and confuses company\u2019s legal personality with shareholder\u2019s.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues a transfer relieved appellant\u2019s obligations, but the court finds this is not a valid prestation and confuses legal personalities.",
+   "role": "analysis"
+  },
+  {
+   "para": 230,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant\u2019s intention was at most an invitation to contract; registration alone does not prove transfer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Concluding contract formed from registered transfer is circular reasoning.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant\u2019s intention was only an invitation to contract and registration alone does not prove transfer, calling such reasoning circular.",
+   "role": "analysis"
+  },
+  {
+   "para": 231,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No gift existed; civil law presumes onerous acts and gift requires absence of consideration and intent to impoverish.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent states appellant wants money for life, opposite of intent to impoverish.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Neither party argues shares were given as gift; respondent says contract was not gratuitous; appellant denies exchange of wills.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no gift existed; respondent says appellant wants money, and neither party claims shares were gifted.",
+   "role": "analysis"
+  },
+  {
+   "para": 232,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Article 1824 C.C.Q. is cited.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Article 1824 C.C.Q.",
+   "role": "law"
+  },
+  {
+   "para": 233,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Without published notarial act, gratuitous contract must meet manual gift conditions or is null (Par\u00e9 v. Par\u00e9).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states gratuitous contracts without notarial act must meet manual gift conditions or are null.",
+   "role": "law"
+  },
+  {
+   "para": 234,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CBCA s. 65(3) requires share certificate endorsement for manual gift (Grusk v. Sparling).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CBCA requires share certificate endorsement for manual gift transfers.",
+   "role": "law"
+  },
+  {
+   "para": 235,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant never intended to gift shares and conditions for manual gift were not met.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant never intended a gift and manual gift conditions were unmet.",
+   "role": "analysis"
+  },
+  {
+   "para": 236,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Onus not on appellant to prove nullity of alleged May 25, 2005 agreement given no contract formation and unknown registration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant was not required to prove nullity of alleged agreement given no contract and unknown registration.",
+   "role": "analysis"
+  },
+  {
+   "para": 237,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges respondent failed legal duties and registered share transfer without formalities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges respondent failed legal duties and improperly registered share transfer.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 238,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Cromwell J. accepts trial judge\u2019s finding of appellant\u2019s withdrawal and share transfer in May 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge\u2019s finding is legally baseless, unsupported by evidence, and based on palpable and overriding errors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Agree with Court of Appeal dissent that trial judge\u2019s errors warrant appellate intervention (Housen v. Nikolaisen).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge\u2019s withdrawal and transfer finding legally baseless and erroneous, agreeing with dissent for appellate intervention.",
+   "role": "analysis"
+  },
+  {
+   "para": 239,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Finding appellant told Mr. Rosati of withdrawal on May 25, 2005 based solely on Mr. Rosati\u2019s testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge erred rejecting appellant\u2019s testimony based on unreasonable evidence interpretation noted by Court of Appeal dissent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds trial judge erred rejecting appellant\u2019s testimony and relied solely on Mr. Rosati\u2019s testimony for withdrawal finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 240,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant\u2019s May 25, 2005 resignation letter shows withdrawal as director and officer, not shareholder.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter prepared by respondent\u2019s lawyer could have included more if parties intended withdrawal as shareholder, but did not.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes appellant\u2019s resignation letter shows withdrawal as director/officer, not shareholder, and no shareholder withdrawal was intended.",
+   "role": "analysis"
+  },
+  {
+   "para": 241,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Various life insurance documents show respondent was beneficiary and Mr. Rosati sole shareholder, but policy covered appellant and Rosati",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "What insurable interest did respondent have in appellant's life if appellant was no longer shareholder?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The question answers itself that respondent had no insurable interest in appellant's life if he was no longer shareholder",
+     "answers": 2
+    }
+   ],
+   "summary": "Court notes life insurance documents naming respondent beneficiary and Rosati sole shareholder, questions respondent's insurable interest in appellant's life, concluding none if appellant not shareholder.",
+   "role": "analysis"
+  },
+  {
+   "para": 242,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter by Mr. Kaufman to appellant could not reasonably infer appellant relinquished shares by insisting on repayment",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Dissenting judge of Court of Appeal agreed letter could not lead to inference of relinquishing shares",
+     "answers": 1
+    }
+   ],
+   "summary": "Court agrees with dissenting judge that Kaufman's letter could not reasonably infer appellant relinquished shares by insisting on repayment.",
+   "role": "analysis"
+  },
+  {
+   "para": 243,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Formal notice by Mr. Kaufman on Feb 25, 2010 could not lead to negative inference about appellant's shareholder status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "By Feb 25, 2010 appellant was no longer shareholder in respondent's registers",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant claimed entitlement to 50% profits and continuation of partnership with Rosati in letter",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Purpose of letter was to have shareholder status remedied or claim $1,000,000 from Rosati",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds formal notice could not imply negative inference; appellant claimed profit share and partnership continuation, seeking remedy or damages from Rosati.",
+   "role": "analysis"
+  },
+  {
+   "para": 244,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge rejected appellant's reason for withdrawal as director/officer as false",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Dissenting judge noted appellant's assertion of meetings with Labatt representatives was not contradicted",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Company was inactive but meetings occurred and amounts advanced before Dec 2005 until Oct 2006",
+     "answers": 0
+    }
+   ],
+   "summary": "Trial judge found appellant's withdrawal reason false; dissenting judge found meetings with Labatt representatives uncontradicted and financial advances occurred.",
+   "role": "analysis"
+  },
+  {
+   "para": 245,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Evidence does not support conclusion that appellant and Rosati agreed appellant withdrew as shareholder",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Trial judge made palpable and overriding errors and disregarded key evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence shows appellant intended to divest shares but no agreement on disposal was reached",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes evidence does not support shareholder withdrawal agreement; trial judge erred and evidence shows only appellant's intention to divest shares without agreement.",
+   "role": "analysis"
+  },
+  {
+   "para": 246,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent argues appellant's claim is prescribed and must be dismissed",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge and majority of Court of Appeal agreed claim was prescribed",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues claim is prescribed; trial judge and Court of Appeal majority agreed.",
+   "role": "issue"
+  },
+  {
+   "para": 247,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CBCA does not specify prescription period for oppression remedy but provides two-year period for other remedies",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parliament intended to defer to general civil law principles for oppression claims in Quebec (Martel)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states CBCA lacks prescription period for oppression remedy; Parliament defers to general civil law principles in Quebec (Martel).",
+   "role": "law"
+  },
+  {
+   "para": 248,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Article 2925 C.C.Q. provides prescription rules relevant to the case",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes article 2925 C.C.Q. provides relevant prescription rules.",
+   "role": "law"
+  },
+  {
+   "para": 249,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claim under s.241 CBCA normally enforces personal rights like minority shareholder interests or directors' acts",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Examples include B\u00e9nard v. Gagnon and Regroupement des marchands actionnaires inc. v. M\u00e9tro Inc.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Oppression claim can enforce real rights like dividends owed to shareholder",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains s.241 CBCA claims enforce personal rights or real rights like dividends, citing relevant cases.",
+   "role": "law"
+  },
+  {
+   "para": 250,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Sometimes claim is to have ownership of shares acknowledged, not to enforce a real right",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states some claims seek acknowledgment of ownership rather than enforcement of real rights.",
+   "role": "law"
+  },
+  {
+   "para": 251,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Right of ownership is perpetual and not lost by non-use or passage of time (Lamontagne)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Owner can destroy, renounce, transfer property or lose right by acquisitive prescription",
+     "answers": 0
+    }
+   ],
+   "summary": "Lamontagne states ownership right is perpetual but can be lost by destruction, renunciation, transfer, or acquisitive prescription.",
+   "role": "law"
+  },
+  {
+   "para": 252,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ownership right is not lost by extinctive prescription; revendication action is imprescriptible (Lafond)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Extinctive prescription provisions do not apply to petitory actions seeking acknowledgment",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Imprescriptibility may be defeated by acquisitive prescription claims",
+     "answers": 0
+    }
+   ],
+   "summary": "Lafond explains ownership right and revendication actions are imprescriptible, except by acquisitive prescription claims.",
+   "role": "law"
+  },
+  {
+   "para": 253,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Extinctive prescription cannot be set up against person seeking acknowledgment of ownership",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes extinctive prescription cannot bar claims seeking acknowledgment of ownership.",
+   "role": "law"
+  },
+  {
+   "para": 254,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Share ownership is a real right; ownership claims may be inadmissible outside Quebec (Martel)",
+     "answers": 0
+    }
+   ],
+   "summary": "Martel states share ownership is a real right and ownership claims may be inadmissible outside Quebec.",
+   "role": "law"
+  },
+  {
+   "para": 255,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Prescription period for s.241 CBCA claim depends on claim basis; unlawful stripping of shareholder status claim is imprescriptible",
+     "answers": 0
+    }
+   ],
+   "summary": "Court holds prescription depends on claim basis; unlawful shareholder status stripping claims are imprescriptible.",
+   "role": "law"
+  },
+  {
+   "para": 256,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Quebec Court of Appeal in Greenberg reached similar conclusion on prescription",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Quebec Court of Appeal in Greenberg reached similar conclusion on prescription.",
+   "role": "law"
+  },
+  {
+   "para": 257,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Complainant claimed shares held by respondents as nominees and sought register rectification and share certificate",
+     "answers": 0
+    }
+   ],
+   "summary": "Complainant in Greenberg claimed shares held by respondents as nominees and sought register correction and share certificate.",
+   "role": "facts"
+  },
+  {
+   "para": 258,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondents argued extinctive prescription barred claim",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Trial judge held prescription applied but claim not prescribed; respondents appealed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issue was whether extinctive prescription can argue shareholder lost ownership right by failure to act timely",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "If yes, which prescription period applies: 10 years or 3 years under C.C.Q.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondents argued prescription barred claim; trial judge disagreed; issue was if prescription bars shareholder ownership claims and which period applies.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 259,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal accepted complainant's argument that extinctive prescription cannot bar ownership or shareholder status claims under s.241 CBCA",
+     "answers": 0
+    }
+   ],
+   "summary": "Court of Appeal held extinctive prescription cannot bar ownership or shareholder status claims under s.241 CBCA.",
+   "role": "law"
+  },
+  {
+   "para": 260,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal held failure to contest denial of shareholder status within 3 years does not bar ownership assertion",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "To terminate ownership right, respondents must prove acquisitive prescription, which they did not",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Owner cannot be prevented from asserting ownership by mere refusal to acknowledge right",
+     "answers": 0
+    }
+   ],
+   "summary": "Court of Appeal held failure to contest shareholder denial does not bar ownership claims absent acquisitive prescription; owner cannot be prevented from asserting ownership.",
+   "role": "law"
+  },
+  {
+   "para": 261,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I am in complete agreement with that reasoning.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees completely with the reasoning referred to.",
+   "role": "analysis"
+  },
+  {
+   "para": 262,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The respondent company is not arguing ownership of appellant's shares by acquisitive prescription.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The respondent company refuses to acknowledge appellant's shareholder status.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent's argument is that majority shareholder Mr. Rosati owns shares by alleged informal verbal agreement with appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Rosati is not a party and cannot claim acquisitive prescription for shares.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent company cannot claim acquisitive prescription on Mr. Rosati's behalf.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the respondent company denies appellant's shareholder status, relying on Mr. Rosati's alleged verbal agreement, but neither can claim acquisitive prescription.",
+   "role": "analysis"
+  },
+  {
+   "para": 263,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I would allow the appeal and revoke the resolution transferring appellant's shares.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Order respondent company's registers be rectified to show appellant as shareholder.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Costs awarded throughout.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Appeal dismissed with costs, C\u00f4t\u00e9 J. dissenting.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Solicitors for appellant: Blake, Cassels & Graydon, Montr\u00e9al.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Solicitors for respondent: Langlois lawyers, Montr\u00e9al.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would allow the appeal, revoke share transfer, order register correction, award costs; earlier decision dismissed appeal with costs, C\u00f4t\u00e9 J. dissenting; solicitors named.",
+   "role": "conclusion"
+  }
+ ]
+}

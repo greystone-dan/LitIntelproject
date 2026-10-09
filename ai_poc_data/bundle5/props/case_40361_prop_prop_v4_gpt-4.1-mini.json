@@ -1,0 +1,725 @@
+{
+ "case_id": 40361,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.008972
+ },
+ "verification": {
+  "paragraphs": 26,
+  "rows": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 73,
+  "holders": {
+   "applicant": 17,
+   "court": 53,
+   "respondent": 1,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "2": "ALLEGATIONS",
+  "3": "ISSUES",
+  "25": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a claimant seeking refugee protection in Canada due to alleged persecution as a Roma in Hungary. The claimant alleges discrimination, attacks, and lack of state protection. The tribunal found the claimant not credible and rejected the claim for protection.",
+  "background_paras": "1-2, 5, 17, 18, 21, 25",
+  "disposition_paras": "26",
+  "blocks": [
+   {
+    "issue": "Is the claimant's identity and ethnicity as Roma established?",
+    "paras": "4-5",
+    "court_conclusion": "Claimant's Hungarian citizenship and Roma ethnicity established on balance of probabilities.",
+    "conclusion_paras": "4-5",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Submitted document confirming Roma ethnicity and birthplace.",
+      "paras": "5"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant's personal and citizenship identity established by passport and testimony; Roma ethnicity established on balance of probabilities.",
+      "paras": "4-5"
+     }
+    ]
+   },
+   {
+    "issue": "Does the claimant credibly establish a well-founded fear of persecution in Hungary?",
+    "paras": "6-20, 25",
+    "court_conclusion": "Claimant's credibility undermined by inconsistencies; attacks not proven; fear of persecution not established.",
+    "conclusion_paras": "15-16, 20, 25",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claims two attacks causing fear and discrimination as Roma; poor education and harassment.",
+      "paras": "1-2, 6-7, 17, 25"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant not straightforward; inconsistencies in testimony and narrative; attacks not proven; credibility undermined.",
+      "paras": "8-16, 19-20, 25"
+     },
+     {
+      "holder": "respondent",
+      "text": "Claims memory issues due to injuries and cognitive difficulties from special school placement.",
+      "paras": "17"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimant seek and was refused adequate state protection in Hungary?",
+    "paras": "21-24, 25",
+    "court_conclusion": "Claimant failed to rebut presumption of adequate state protection; no credible evidence of seeking or being refused protection.",
+    "conclusion_paras": "22-24, 25",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Did not file police reports due to fear and attackers being masked; inconsistent reasons given.",
+      "paras": "21"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant did not meet burden to show state protection unavailable; presumption of protection not rebutted.",
+      "paras": "22-24, 25"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Seeks protection in Canada under IRPA sections 96 and 97(1) due to well-founded fear of persecution in Hungary for ethnicity as Roma",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges a well-founded fear of persecution in Hungary due to his Roma ethnicity and seeks protection under IRPA sections 96 and 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claims discrimination as Roma in all public life facets, including school segregation and being followed in stores",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Alleges substandard education led to poor employment opportunities",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "States he was victim of random attacks by non-Roma Hungarians with no police action taken",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges widespread discrimination, poor education, employment difficulties, and unaddressed attacks by non-Roma Hungarians in Hungary.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Determinative issues are identity, credibility, and state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies identity, credibility, and state protection as the determinative issues in the hearing.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's personal and Hungarian citizenship identity established by passport and oral testimony",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant's personal and Hungarian citizenship identity established by documents and testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Submitted document from Roma Ethnicity Self Government confirming Roma ethnicity and birthplace",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, claimant established Roma ethnicity based on evidence and testimony",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant submitted a certificate confirming Roma ethnicity, and the court finds this established on a balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether claimant credibly establishes well-founded fear of persecution in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claims two attacks caused fear: August 2010 beating by five men who knocked out front teeth, police refused report",
+     "answers": 0
+    }
+   ],
+   "summary": "The court frames credibility as central and notes the claimant alleges two attacks, including a 2010 beating with police refusal to file a report.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claims second attack in 2011 at pharmacy, stopped by passerby, no police complaint made",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Decided to leave Hungary for Canada with friends' financial help",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges a 2011 attack and states he left Hungary for Canada with friends' financial help.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ticket purchased in Canada, inconsistent with claimant's claim of friends in Hungary paying",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant gave no rational explanation for ticket purchase location",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant disclaimed knowledge of ticket purchase circumstances",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the ticket was bought in Canada, inconsistent with claimant's story, and claimant gave no explanation or knowledge.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant not straightforward; former common-law partner was in Canada before claimant's arrival",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel infers common-law spouse likely purchased ticket",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Lack of straightforwardness undermines claimant's credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court infers the claimant's common-law spouse likely bought the ticket and finds this undermines claimant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's testimony inconsistent with written narrative about separation from common-law spouse since 2009",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inconsistency further undermines claimant's credibility",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds claimant's testimony inconsistent with his narrative about separation, further undermining credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant testified front teeth lost in a fight, showed gap, but timeline unclear",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant gave different version of incident involving family and a fight, inconsistent with narrative",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's testimony about losing front teeth and incident details inconsistent and unclear.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Oral testimony differs fundamentally from narrative where claimant was alone and attacked by Hungarian Guard",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant could not identify correct version and had limited understanding of translation and process",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's oral testimony fundamentally differs from narrative and claimant had limited understanding of process.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant unable to coherently explain inconsistency between narrative and oral testimony despite counsel's efforts",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant remembers family presence but cannot explain omission in narrative",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant unable to explain inconsistencies about family presence in incident between narrative and testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant failed to satisfactorily explain major inconsistency between narrative and testimony about 2010 incident",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant could reasonably be expected to provide accurate version in PIF filed less than two years after incident",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inconsistency undermines claimant's credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant failed to explain major inconsistency in 2010 incident versions, undermining credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inconsistency not explained by claimant's lack of sophistication or translation issues",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant had opportunity to correct narrative but did not",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Panel rejects claimant's allegation of attack and finds no attack by Hungarian Guard in August 2010",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects claimant's attack allegation due to unexplained inconsistencies and finds no attack by Hungarian Guard in 2010.",
+   "role": "conclusion"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant equivocated about timing and manner of losing front teeth",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No medical attention sought and credibility about incident compromised",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Cannot be certain claimant lost teeth as claimed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant equivocated about losing teeth and cannot be certain of claimant's claim due to credibility issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claims second beating in 2011 but cannot remember details",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "States he was attacked several times in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submits claimant's memory issues due to injuries and cognitive difficulties from special school placement",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Rejects submissions due to lack of evidence of cognitive difficulties from injuries",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant admitted illiteracy and difficulty with comprehension but did not claim mental challenge",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges multiple attacks and memory issues; counsel claims cognitive difficulties, but court rejects due to lack of evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documentary evidence shows Roma children disproportionately placed in special schools for disabilities in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "European Court of Human Rights ruled such placements violate rights and noted Hungary's history of wrongful placement",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Government policies continue to entrench racial discrimination in education",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes documentary evidence and ECHR rulings on wrongful placement of Roma children in special schools in Hungary.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Placement in special school does not reflect intellectual capacity of individual Roma child",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Bare assertion of claimant's special school placement insufficient to find intellectual challenges",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds special school placement does not prove intellectual challenges and rejects counsel's submission on this basis.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Not persuaded claimant's alleged attacks occurred",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Accepts claimant may have faced discrimination and harassment as Roma",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant failed to establish credible well-founded fear of persecution in Hungary",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts claimant faced discrimination but finds no credible evidence of attacks and denies well-founded fear of persecution.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant gave oral testimony inconsistent with his written narrative about attempts to obtain state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant said he did not file a police report about August 2010 incident.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant's oral reason for not filing police report differed from written narrative.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Written narrative said no report filed because claimant and mother did not know attackers' names.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified he did not file report due to fear of second attack and for family's safety.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant stated attackers were masked, only eyes visible, causing fear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant did not attempt to file police report after 2011 attack.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant gave inconsistent testimony about not filing police reports after attacks, citing fear and lack of attacker names, as the court notes.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has not met onus to establish credible evidence that incidents occurred.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel not persuaded claimant sought and was refused state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant failed to credibly prove the incidents occurred or that he sought and was refused state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Country documents show widespread intolerance and discrimination against Roma in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel relies on Kotai that claimant must show state protection would not be available.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kotai says Roma must make reasonable efforts to seek state protection before refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimant bears burden to provide clear and convincing evidence state is unwilling or unable to protect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Panel not obliged to prove state can protect; claimant must rebut presumption of protection on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes country evidence of Roma discrimination but holds claimant must prove state protection unavailable, citing Kotai precedent.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issue is whether adequate state protection is or would be available if claimant returned to Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "States presumed capable of protecting nationals; claimant can rebut with clear and convincing evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has not rebutted presumption of adequate state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "State protection issue applies equally to claims under sections 96 and 97.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant failed to rebut presumption of adequate state protection if returned to Hungary, applying relevant law.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant based claim on Roma ethnicity and anti-Roma discrimination in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant alleged long history of discrimination and severe beatings in 2010 and 2011.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "It is undisputed Roma face widespread discrimination in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issue was whether claimant credibly established incidents amounted to persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issue was likelihood of persecution if returned and availability of adequate state protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has not met onus to prove claim basis or lack of adequate state protection by clear and convincing evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleged persecution based on Roma ethnicity, but the court finds he failed to prove persecution or lack of state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is not a Convention refugee nor a person in need of protection under sections 96 and 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the claimant is neither a Convention refugee nor in need of protection under the Act.",
+   "role": "conclusion"
+  }
+ ]
+}

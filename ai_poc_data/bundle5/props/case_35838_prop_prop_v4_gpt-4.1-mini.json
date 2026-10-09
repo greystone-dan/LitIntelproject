@@ -1,0 +1,451 @@
+{
+ "case_id": 35838,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0057536
+ },
+ "verification": {
+  "paragraphs": 17,
+  "rows": 17,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 40,
+  "holders": {
+   "court": 31,
+   "earlier_decision_maker": 5,
+   "applicant": 1,
+   "prior_court_or_authority": 3
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 1,
+  "headings_before": 1
+ },
+ "headings": {
+  "2": "I. Background"
+ },
+ "split_from": {
+  "2": 1
+ },
+ "blocks": {
+  "overview": "This case concerns Mr. Nguyen's judicial review application challenging IRCC decisions finding him inadmissible for misrepresentation and refusing work and study permits. Mr. Nguyen, the applicant, is a Vietnamese citizen who applied for permanent residence and work permits in Canada. The court granted the application, finding the Officer's decisions unreasonable and ordering redetermination.",
+  "background_paras": "1-6, 12",
+  "disposition_paras": "1, 14-18",
+  "blocks": [
+   {
+    "issue": "Was the Officer's finding of misrepresentation and refusal of permits reasonable?",
+    "paras": "7-9, 12-16",
+    "court_conclusion": "The Officer's decision was unreasonable for ignoring contradictory evidence and failing to justify the finding of misrepresentation.",
+    "conclusion_paras": "13-16",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found Mr. Nguyen inadmissible for misrepresentation under IRPA and refused applications, giving little weight to 'typo' explanation.",
+      "paras": "7, 9"
+     },
+     {
+      "holder": "applicant",
+      "text": "Challenges the reasonableness of the Officer's decisions and asserts procedural unfairness.",
+      "paras": "10"
+     },
+     {
+      "holder": "court",
+      "text": "Officer ignored contradictory application materials and focused only on venture report; decision lacked justification and was unreasonable.",
+      "paras": "13-16"
+     }
+    ]
+   },
+   {
+    "issue": "Should the court assess procedural fairness given the unreasonableness finding?",
+    "paras": "17",
+    "court_conclusion": "The court declines to assess procedural fairness due to the unreasonable decision finding.",
+    "conclusion_paras": "17",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Because the decisions are unreasonable, procedural fairness arguments need not be assessed.",
+      "paras": "17"
+     },
+     {
+      "holder": "applicant",
+      "text": "not stated",
+      "paras": ""
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an application for judicial review of IRCC decisions finding Mr. Nguyen inadmissible for misrepresentation and refusing work and study permits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application of IRCC decisions finding Mr. Nguyen inadmissible and refusing permits, and grants the application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Nguyen and his family are Vietnamese citizens; he co-founded a Canadian modular home startup.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In June 2024, Mr. Nguyen applied for permanent residence under the Start Up Visa program.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In August 2024, he applied for a work permit under the Temporary Foreign Worker Program and related permits for his spouse and child.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Nguyen and family are Vietnamese citizens; he co-founded a startup and applied for permanent residence and work/study permits in 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Nguyen submitted application forms, CV, education certificates, explanation letter, and venture report supporting his TFWP application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Nguyen submitted various documents including forms, CV, certificates, letter, and venture report for his TFWP application.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On August 28, 2024, IRCC sent a procedural fairness letter expressing concern about possible misrepresentation of Mr. Nguyen's educational credentials.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The letter noted Mr. Nguyen claimed a Bachelor of Computer Science from University of Waikato but did not provide proof.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "IRCC requested Mr. Nguyen provide his degree and transcripts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRCC sent a procedural fairness letter on August 28, 2024, concerned about Mr. Nguyen's claimed degree and requested proof.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Officer noted other concerns and gave Mr. Nguyen 30 days to respond.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Officer noted other concerns and gave Mr. Nguyen 30 days to respond.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Nguyen responded promptly, explaining he attended University of Waikato for two years but did not complete a degree.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He stated his highest education was Level 4 certification in automotive engineering.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He said he accurately reflected this in his permanent residence application and did not claim a degree in his CV or other documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He acknowledged the venture report inaccurately stated he earned a degree, calling it a 'typo' and said he tried to correct it but the wrong version was submitted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He hoped his explanation and academic records would clarify the matter and offered to provide further documents if needed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Nguyen explained he did not complete a degree, called the venture report error a 'typo', and offered clarifications and documents.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "On October 3, 2024, the Officer found Mr. Nguyen inadmissible for misrepresentation under IRPA section 40(1)(a) and refused his application.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Officer refused the related applications of Mr. Nguyen's spouse and child because his application was refused.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found Mr. Nguyen inadmissible for misrepresentation and refused his and his dependents' applications on October 3, 2024.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "IRCC issued three refusal letters; dependent refusals were based on Mr. Nguyen's refusal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "A finding that Mr. Nguyen's refusal was unreasonable means dependent refusals were unreasonable too.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The matters are properly before the Court as a single judicial review application focused on Mr. Nguyen's TFWP refusal reasonableness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRCC issued three refusals; dependent refusals depend on Mr. Nguyen's; the Court reviews all as one application focused on reasonableness.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Officer gave little weight to Mr. Nguyen's 'typo' explanation and found the degree claim may have misled the Officer.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Officer found Mr. Nguyen may not have obtained a LMIAE if the true information was disclosed.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Officer concluded Mr. Nguyen is inadmissible for misrepresentation under IRPA section 40(1)(a) and 40(2)(a) for five years.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker gave little weight to the 'typo' explanation, found possible inducement of error, and concluded Mr. Nguyen inadmissible for five years.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicants challenge the reasonableness of the Officer's decisions and assert procedural unfairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicants argue the Officer's decisions were unreasonable and procedurally unfair.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Other application documents contradict the venture report and commitment certificate statements about Mr. Nguyen's education.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Nguyen's application form states his highest education is an Automotive Engineering Level 4 certificate, not University of Waikato studies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "His CV indicates two years at University of Waikato without a degree and completion of the automotive certificate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "His cover letter mentions only the automotive certificate and work experience, not University of Waikato studies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states other application documents contradict the venture report, showing Mr. Nguyen did not claim a degree and only completed an automotive certificate.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer's reasons do not indicate awareness of the contradictory application materials or consideration of them in the inadmissibility finding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer focused only on the venture report sentence repeated in the commitment certificate, ignoring contradictory materials.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer ignored contradictory application materials and focused solely on the venture report statement in making the inadmissibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the Applicants that the Officer's focus was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the Applicants that the Officer's focus on the venture report was unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "A reasonable decision must show justification, transparency, and intelligibility (Vavilov at para 99).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Decision expectations rise with the impact on the person affected (Li at para 26, citing Vavilov at para 133).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Vavilov and Li for the rule that reasonable decisions require justification, transparency, and higher standards for impactful decisions.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The decisions impose a five-year bar on Mr. Nguyen's re-entry, a particularly harsh consequence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "A five-year bar is recognized as harsh (Kasimova citing Lamsen).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Officer was required to acknowledge contradictory documentation and justify the decision, including assessing innocence (Toki).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer did neither, making the decisions unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the five-year bar is harsh; the Officer failed to acknowledge contradictions or justify the decision, rendering it unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Because the decisions are unreasonable, the court declines to assess procedural fairness arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mr. Nguyen's application and related applications must be redetermined.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court declines to assess procedural fairness, finds decisions unreasonable, and orders redetermination of Mr. Nguyen's and dependents' applications.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises as none was proposed or found by the court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no question for certification arises as none was proposed or found.",
+   "role": "disposition"
+  }
+ ]
+}

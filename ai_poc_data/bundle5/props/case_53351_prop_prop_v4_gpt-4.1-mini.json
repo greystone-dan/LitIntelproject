@@ -1,0 +1,3710 @@
+{
+ "case_id": 53351,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.05585999999999999
+ },
+ "verification": {
+  "paragraphs": 143,
+  "rows": 143,
+  "paragraphs_missing": [],
+  "retried": 4,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 423,
+  "holders": {
+   "court": 269,
+   "applicant": 19,
+   "respondent": 25,
+   "earlier_decision_maker": 41,
+   "prior_court_or_authority": 69
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 7
+ },
+ "headings": {
+  "3": "II. Background",
+  "14": "IV. Parties\u2019 Arguments",
+  "17": "V. Issues",
+  "73": "VII. Conclusion",
+  "79": "II. Background",
+  "126": "IV. Application of the Law to the Facts",
+  "142": "V. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns the scope of public access to court records and exhibits under Quebec's Code of Civil Procedure, involving MediaQMI (applicant) seeking access to exhibits removed by CIUSSS (respondent) after discontinuance of proceedings against Kamel. The Supreme Court clarified that public access under art. 11 C.C.P. extends only to exhibits while they remain in the court record and that parties' rights to retrieve exhibits under art. 108 C.C.P. limit openness. The appeal was allowed and the case remanded to the Superior Court to decide MediaQMI's access application under the Dagenais/Mentuck framework.",
+  "background_paras": "1-4, 75-83, 126-128",
+  "disposition_paras": "142-143",
+  "blocks": [
+   {
+    "issue": "What is the scope of the public's right to access court records and exhibits under Quebec's Code of Civil Procedure?",
+    "paras": "1-2, 17-20, 31-35, 48-56",
+    "court_conclusion": "Art. 11 C.C.P. grants access only to exhibits while in the court record; retrieval under art. 108 C.C.P. ends public access.",
+    "conclusion_paras": "18, 48-49, 54-56",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Art. 11 C.C.P. guarantees access to court records and contents at consultation time, excluding removed exhibits; art. 108 C.C.P. governs retrieval and ends public access.",
+      "paras": "2, 18, 48-49, 54-56"
+     },
+     {
+      "holder": "applicant",
+      "text": "MediaQMI argues art. 11 C.C.P. guarantees right to access exhibits beyond court record and Dagenais/Mentuck test should apply.",
+      "paras": "14"
+     },
+     {
+      "holder": "respondent",
+      "text": "CIUSSS argues right to consult records limited to content at consultation time; art. 108 C.C.P. creates exception restricting access to removed exhibits.",
+      "paras": "15"
+     }
+    ]
+   },
+   {
+    "issue": "Does the discontinuance of proceedings affect MediaQMI's right to access exhibits and argue its motion?",
+    "paras": "6, 11-14, 62-70, 131-135, 138-141",
+    "court_conclusion": "Discontinuance terminates parties' rights but does not affect MediaQMI's acquired right to argue motion filed before discontinuance.",
+    "conclusion_paras": "132, 134-135, 140-141",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Discontinuance ends proceeding and restores prior state but does not extinguish third party's acquired rights; MediaQMI's motion retains effect.",
+      "paras": "11-14, 62-70, 131-135, 138-141"
+     },
+     {
+      "holder": "applicant",
+      "text": "MediaQMI contends discontinuance and exhibit retrieval do not make motion obsolete; it has acquired right to argue and access exhibits.",
+      "paras": "14"
+     },
+     {
+      "holder": "respondent",
+      "text": "CIUSSS and Kamel argue discontinuance ends proceeding and MediaQMI, as non-party, cannot contest it or its consequences.",
+      "paras": "15-16, 136, 138"
+     }
+    ]
+   },
+   {
+    "issue": "Does art. 108 C.C.P. allow parties to remove exhibits from the court record and limit public access?",
+    "paras": "2, 9, 11-13, 33-37, 40-45, 117-125",
+    "court_conclusion": "Art. 108 C.C.P. governs exhibits' filing, retrieval, and removal; parties can remove exhibits after proceeding ends, limiting public access.",
+    "conclusion_paras": "2, 35, 45, 54, 117-125",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Art. 108 C.C.P. revises rules on exhibits, allowing removal after proceeding ends; removal limits public access under art. 11 C.C.P.",
+      "paras": "2, 33-37, 40-45, 54, 117-125"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Majority viewed art. 108 C.C.P. as procedural to reduce costs; dissent argued it cannot override open court principle.",
+      "paras": "9, 11-13, 36"
+     },
+     {
+      "holder": "applicant",
+      "text": "MediaQMI argues art. 108 C.C.P. does not override constitutional rights or open court principle.",
+      "paras": "14"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondents argue art. 108 C.C.P. confers no discretion and displaces open court principle.",
+      "paras": "15-16"
+     }
+    ]
+   },
+   {
+    "issue": "Should the Dagenais/Mentuck test apply to MediaQMI's access application after discontinuance and exhibit removal?",
+    "paras": "8, 11-13, 14, 57, 58, 77, 78, 130-133, 143",
+    "court_conclusion": "Dagenais/Mentuck test does not apply where no judicial discretion exists under arts. 11 and 108 C.C.P., but case remanded to apply test properly.",
+    "conclusion_paras": "8, 11-13, 57-58, 78, 143",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Dagenais/Mentuck test applies only where discretion exists; arts. 11 and 108 C.C.P. leave no discretion; remand needed to apply test properly.",
+      "paras": "8, 11-13, 57-58, 78, 143"
+     },
+     {
+      "holder": "applicant",
+      "text": "MediaQMI argues Dagenais/Mentuck test should apply to access exhibits even after discontinuance.",
+      "paras": "14"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Superior Court applied Dagenais/Mentuck test to unseal motion but did not decide access to exhibits.",
+      "paras": "8, 91"
+     }
+    ]
+   },
+   {
+    "issue": "How should parties' control over their case be balanced with the principle of open court proceedings?",
+    "paras": "1, 77, 94-105, 125, 127-130",
+    "court_conclusion": "Parties control their case but within limits of public order and open civil justice accessible to public and media.",
+    "conclusion_paras": "105, 125, 128",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Parties have circumscribed freedom to control case but must comply with public order and openness principles; parties cannot override judicial discretion.",
+      "paras": "1, 77, 94-105, 125, 127-130"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondents argue private dispute resolution character must be respected and parties can resolve dispute out of public view.",
+      "paras": "127"
+     },
+     {
+      "holder": "applicant",
+      "text": "MediaQMI argues openness and freedom of the press require access to court records and exhibits.",
+      "paras": "14, 84-86"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principle of open court proceedings is important and uncontested today",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The appeal requires clarifying the limits of openness in court proceedings",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Determine how far transparency should go and when secrecy prevails",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the principle of open court proceedings is important but the appeal concerns its limits and when secrecy can prevail.",
+   "role": "issue"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Quebec Code of Civil Procedure art. 11 gives public right to access court records without prior authorization",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 108 C.C.P. governs retrieval of exhibits by parties during and after proceedings",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether art. 11 C.C.P. allows public to consult exhibits retrieved by parties under art. 108 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Right to access court records under art. 11 C.C.P. does not extend beyond what is in records at consultation time",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Once parties retrieve exhibits, public can consult record but not removed exhibits",
+     "answers": 4
+    }
+   ],
+   "summary": "The court explains Quebec law on public access to court records and concludes public cannot access exhibits once parties retrieve them.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Oct 6, 2016, CIUSSS sued former manager Kamel alleging misappropriation and sought repayment and damages",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS filed four exhibits including PwC forensic accounting report",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Superior Court made Norwich order and sealed entire record on Oct 7, 2016",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts that CIUSSS sued Kamel with exhibits filed and record sealed by court order.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Seizures at Kamel's residences occurred Oct 17 and Nov 22, 2016",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI published articles about seizures and filed motion to unseal court record and exhibits on Mar 29, 2017",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI sought termination of any order restricting public and applicant access to court record",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states MediaQMI published articles and moved to unseal the court record and exhibits, seeking to end access restrictions.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Hearing postponed from Apr 5 to Apr 25, 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS discontinued originating application on Apr 19, 2017 and tried to retrieve exhibits but court office could not find record",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the hearing was postponed and CIUSSS discontinued the application and tried to retrieve exhibits but record was missing.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Apr 21, 2017, Kamel applied to withdraw originating application or prevent public access",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS did not oppose Kamel's application",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "MediaQMI opposed Kamel's application on Apr 24, 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Kamel applied to withdraw or restrict access, CIUSSS did not oppose, MediaQMI opposed.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Apr 25, 2017, Gagnon J. heard MediaQMI's motion in camera",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS counsel orally requested to retrieve exhibits, emphasizing PwC report was private",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "MediaQMI opposed retrieval request",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Gagnon J. took case under advisement and extended sealing order until judgment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No other conservatory measures sought",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the in camera hearing where CIUSSS requested exhibit retrieval, MediaQMI opposed, and sealing order extended.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Gagnon J. decided motion to unseal using Dagenais/Mentuck test",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Evidence insufficient to depart from open court principle",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Desire to avoid embarrassment or negative publicity does not justify confidentiality",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Ordered record to be unsealed",
+     "answers": 0
+    }
+   ],
+   "summary": "The Superior Court judge applied the Dagenais/Mentuck test, found insufficient evidence to restrict openness, and ordered unsealing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Journalists' rights do not override Code of Civil Procedure rules",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Civil procedure efficiency relies on out-of-court settlements and discontinuances",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Parties have freedom to retrieve exhibits after proceeding ends; art. 108 C.C.P. requires it",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Authorized CIUSSS to remove exhibits after discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CIUSSS retrieved exhibits July 21, 2017",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CIUSSS counsel emailed MediaQMI counsel confirming keeping copy of exhibits until appeal decided",
+     "answers": 0
+    }
+   ],
+   "summary": "The Superior Court judge found parties can retrieve exhibits after discontinuance, authorized removal, and noted CIUSSS kept copies pending appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Quebec Court of Appeal judges wrote separate reasons on appeal about retrieval of exhibits",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Court of Appeal judges wrote separate reasons on the appeal about exhibit retrieval.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Samson J. cited Lac d\u2019Amiante du Qu\u00e9bec Lt\u00e9e that Quebec courts cannot create civil procedure rules contrary to Code",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "MediaQMI's motion was ancillary to litigation between Kamel and CIUSSS",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Discontinuance terminated proceeding and ancillary motion lost jurisdiction",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Parties control case course; CIUSSS could retrieve exhibits after discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Dagenais/Mentuck test does not apply as no discretion exists under art. 108 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Appeal should be dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Samson J. found discontinuance ended jurisdiction, art. 108 C.C.P. allows retrieval without discretion, so appeal should be dismissed.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Schrager J.A. agreed appeal should be dismissed but for different reasons",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Discontinuance returns parties to pre-litigation position and removes exhibits from public domain",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Justification for dismissal is no active proceedings and documents are private",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Art. 108 C.C.P. is procedural to reduce court record costs, not basis to deny access",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Dagenais/Mentuck test does not apply without active proceedings",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Obiter: test might allow access to documents after litigation ended if scrutinizing judicial process, but not here",
+     "answers": 0
+    }
+   ],
+   "summary": "Schrager J.A. agreed dismissal was correct as discontinuance ended proceedings and documents became private; Dagenais/Mentuck test inapplicable.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Marcotte J.A. dissented, finding art. 108 C.C.P. is administrative to declutter records but cannot override open court principle",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Superior Court erred by ignoring motion to unseal was filed before discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "Motion concerned public funds management litigation context",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Superior Court should have determined confidentiality of exhibits before authorizing retrieval",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Would have referred case back to Superior Court for Dagenais/Mentuck test",
+     "answers": 0
+    }
+   ],
+   "summary": "Marcotte J.A. dissented, arguing the motion was filed before discontinuance and Superior Court should have applied Dagenais/Mentuck test on confidentiality.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "MediaQMI does not challenge constitutionality of arts. 11 or 108 C.C.P. or CIUSSS discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI argues open proceedings principle scope must consider Canadian and Quebec Charters and apply Dagenais/Mentuck test",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Art. 108 C.C.P. does not override constitutional rights",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Discontinuance and exhibit retrieval did not make motion obsolete; motion gave acquired right to argue",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Art. 11 C.C.P. guarantees right to access exhibits beyond court record",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Motion to unseal protects right to have access applications decided even years after proceeding ends",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applying Dagenais/Mentuck test, exhibits should be public and CIUSSS ordered to provide copies",
+     "answers": 0
+    }
+   ],
+   "summary": "MediaQMI argues open proceedings must consider Charter rights, Dagenais/Mentuck test applies, and it should access exhibits despite discontinuance.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CIUSSS argues public access to court record does not mean exhibits remain part of it",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Right to consult records limited to content at consultation time, governed by parties' control and art. 108 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Art. 108 C.C.P. creates exception to open proceedings principle restricting access to certain documents",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Art. 108 C.C.P. confers no discretion, so Dagenais/Mentuck test does not apply",
+     "answers": 0
+    }
+   ],
+   "summary": "CIUSSS argues access is limited to current record content, art. 108 C.C.P. restricts access without discretion, so Dagenais/Mentuck test inapplicable.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Kamel argues MediaQMI's position would create new procedural rule contrary to Code",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Preliminary Code provisions and statutory interpretation prevent reducing art. 108 C.C.P. to administrative only",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Words of art. 108 C.C.P. are clear and legislature would have used different language to limit parties' retrieval freedom",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI was never party and cannot contest discontinuance or its consequences",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Art. 108 C.C.P. determines outcome of access application and makes Dagenais/Mentuck test inapplicable",
+     "answers": 0
+    }
+   ],
+   "summary": "Kamel argues MediaQMI's claim conflicts with Code, art. 108 C.C.P. is clear, MediaQMI lacks standing, and Dagenais/Mentuck test does not apply.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Appeal raises two questions: extent of right to access court records under Code and entitlement to exhibits at motion filing time",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the appeal raises two issues: scope of access right under Code and entitlement to exhibits at motion filing.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 11 C.C.P. guarantees access to court records and contents at consultation time, excluding confidential info",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Exhibits retrieved under art. 108 C.C.P. generally return to private sphere",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Art. 11 C.C.P. does not confer right to access exhibits once removed from records",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interpretation supported by text, object, scheme, legislative history, civil procedure principles, and practical dispute resolution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds art. 11 C.C.P. grants access only to current record content; retrieved exhibits return to private sphere and are not accessible.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Colleagues suggest this result allows parties to circumvent open court principle, which is public order",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This criticism is unfounded; art. 11 C.C.P. access governed by art. 108 C.C.P.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Retrieval of exhibits during pending application does not infringe public order rule",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Retrieval is exercise of right under Code, not extension of open proceedings principle",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Open proceedings principle is limited by Code provisions and does not grant access to removed exhibits",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects colleagues' criticism, explaining exhibit retrieval is a Code right and open proceedings principle is limited by Code.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In Quebec civil procedure, open proceedings principle cannot be interpreted as MediaQMI and colleagues suggest without rewriting Code rules",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Fauteux CJ stated Constitution contemplates one law system, not diverging systems",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Legislature can fix scope of open proceedings principle in enacted rules",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Courts should not rewrite legislature's role; absent constitutional challenge, Code rules apply",
+     "answers": 0
+    }
+   ],
+   "summary": "The court holds that legislature sets open proceedings scope, courts should not rewrite rules, and Code rules apply absent constitutional challenge.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Lac d\u2019Amiante, Quebec civil procedure law is enacted by the National Assembly in a general code: para. 35",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts have a secondary or interstitial role making rules or exercising powers under arts. 25 and 49 C.C.P.: paras. 36-38",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "In Quebec civil law, law creation is the legislature's prerogative; courts have a limited role",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Quebec civil procedure law is legislated by the National Assembly, with courts having a secondary role under arts. 25 and 49 C.C.P.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The role of judges reflects a civilian separation of judicial and legislative functions: Lac d\u2019Amiante, paras. 37-39",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Montesquieu described judges as 'the mouth that pronounces the words of the law'",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Modern view sees judges as giving life to the law's text, discovering potentialities and completing legislature's work",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Judges must avoid countering the letter with the spirit and vice versa",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states prior authorities describe judges as interpreters who discover law's potential, avoiding extremes between letter and spirit.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Quebec legislature reiterated judicial role principles in a preliminary provision with normative value: Lac d\u2019Amiante para. 40; Prud\u2019homme para. 30",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The Code of Civil Procedure must be interpreted as a whole, in civil law tradition, compensating for silence if context admits",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Quebec legislature's preliminary provision requires interpreting the Code of Civil Procedure as a whole in civil law tradition.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The Code governs procedure in harmony with the Charter of human rights and freedoms",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts must draw on Charter principles but not deviate from clear legislative intent",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Code must harmonize with the Charter but not deviate from clear legislative intent.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Charters protect rights but preserve legislature's autonomy via justificatory provisions like s. 1 of Canadian Charter",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Quebec Charter ss. 9.1 and 51 fix scope and limits of freedoms by law",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states charters protect rights but preserve legislative autonomy, with Quebec Charter fixing scope and limits by law.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Bell ExpressVu rejected interpreting statutes to conform to Charter principles except to resolve ambiguity after contextual interpretation",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts must give effect to clear legislative intent and avoid using Charter to achieve different results",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Bell ExpressVu that courts must respect clear legislative intent and not reinterpret statutes to conform to Charter values.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This approach accords with interpretative provisions of Quebec Charter, including s. 53",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the approach aligns with Quebec Charter interpretative provisions including s. 53.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Quebec had four codes of civil procedure: 1867, 1897, 1965, 2016",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Open court principle codified since 1897 Code, focusing on public nature of oral argument",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "1965 Code stated 'sittings of the courts' were public; Quebec Charter 1975 extended principle beyond courts",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts Quebec's civil procedure codes and the historical codification of the open court principle.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Open court principle extended to court records by rules of practice under art. 47 former Code",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Superior Court and Court of Qu\u00e9bec had rules allowing public access to records during business hours with exceptions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Right of access concerned physical court records with exhibits filed and retrieved after proceedings",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains open court principle extended to records by court rules allowing public access with exceptions.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "2001 Civil Procedure Review Committee noted courts' rules changed open court principle",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Committee recommended codifying open court principle including criteria for limiting or excluding it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Committee recommended stating civil justice is public regarding proceeding and record",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the 2001 Committee recommended codifying and structuring the open court principle for proceedings and records.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "2016 Code of Civil Procedure arts. 11-16 set general scheme on public nature of civil justice",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 11 gives public right to attend hearings and access court records and registers",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Legislature included right to access records but not a specific right to access exhibits filed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the 2016 Code grants public rights to attend hearings and access records but not exhibits.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Code allows law to restrict access to court records or certain documents: art. 11 para. 2",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court may restrict access if public order requires it: art. 12",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exceptions exist for sensitive matters and sealed envelope documents: art. 16",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Code permits restrictions on access to records for public order or sensitive matters.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 108 para. 1 C.C.P. requires filing exhibits with personal/confidential info in a form protecting confidentiality",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 108 references general scheme of arts. 11-16 C.C.P., confirmed by parliamentary record and Minister's commentary",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains art. 108 requires confidential filing of exhibits and references the general public access scheme.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 108 and Code use 'dossier' to mean court record, subject to arts. 11-16 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Holistic reading of Code required by preliminary provision and Interpretation Act s. 41.1",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states 'dossier' means court record and a holistic reading of the Code is required.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Art. 108 C.C.P. concerns content of records under arts. 11-16 C.C.P., governing exhibits filed in records",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes art. 108 governs exhibits filed in court records subject to arts. 11-16.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Schrager and Marcotte JJ.A. accepted MediaQMI's argument limiting art. 108 C.C.P. scope based on parliamentary debates",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Marcotte J.A. dissented, stating art. 108 reiterates former art. 331.9 aiming to reduce costs and streamline records but cannot override open court principle",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the appellate judges accepted MediaQMI's narrow art. 108 scope argument, with Marcotte J.A. dissenting on open court principle.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "No statutory interpretation rule justifies overriding clear legal rule based on parliamentary debates",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Legislative intent discerned from statutory text in context, grammatical and ordinary sense, scheme and objects",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parliamentary debates inform interpretation but with caveats on extrinsic evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states clear statutory text prevails over parliamentary debates, which inform interpretation with caveats.",
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parliamentary debates useful when confirming correct interpretation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Interpretation must not refuse clear rule based on parliamentary history to preserve predictability",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI's and appellate judges' approach contradicts this recommendation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court says parliamentary debates confirm interpretation but must not override clear rules; MediaQMI's approach contradicts this.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Courts interpret text to achieve legislative objective, not implement objective at all costs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Multiple objectives may apply and must be considered simultaneously",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 108 C.C.P. involves multiple objectives",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains interpretation balances legislative objectives; art. 108 involves multiple objectives.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Art. 108 C.C.P. is more than a reiteration of former art. 331.9; first and third paragraphs are new law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Second paragraph reiterates two complementary rules from former arts. 83 and 331.9",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds art. 108 C.C.P. partly new law and partly reiteration of former complementary rules.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Under former C.C.P. art. 83, exhibits remain in record until end of proceeding, removable with consent or clerk's authorization.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "New Code requires consent of all parties for exhibit removal; exhibits must remain until proceeding ends.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "After proceeding ends, exhibits need not remain in record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Former C.C.P. art. 331.9 required retrieval within one year post-proceeding or destruction; similar rule in art. 108 C.C.P.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains exhibit retention and retrieval rules under former and new C.C.P. articles 83, 331.9, and 108.",
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Art. 331.9 former C.C.P. enacted in 1994 via Bill 24, reforming exhibit communication, filing, retrieval, and destruction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Bill 24 encouraged parties to exchange evidence directly before filing in court record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Bill 24 delayed exhibit filing until near trial start and allowed record streamlining when exhibits no longer needed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes Bill 24's 1994 reforms to exhibit handling, encouraging direct exchange and delayed filing.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Bill 24's scheme incorporated into new C.C.P., removing court office as intermediary for exhibits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties and lawyers became more accountable for proceeding conduct and fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "This reflects principles of party control over case (art. 19 C.C.P.) and duty to cooperate (art. 20 C.C.P.).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Bill 24's scheme incorporated into new C.C.P., increasing party accountability and reflecting arts. 19 and 20.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Scope of arts. 83 and 331.9 former C.C.P. should not be narrowed due to general cost-reduction objective.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Economic considerations may have motivated art. 331.9 but legislature aimed to increase party responsibility and lessen court's role.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds cost reduction is a limited interpretive aid; legislature intended to increase party responsibility, lessen court's role.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Art. 108 C.C.P. revises and unifies rules on keeping, retrieval, preservation of exhibits filed in court record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Art. 108 C.C.P. impacts public access to court record content under art. 11 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "C.A. called art. 108 C.C.P. a 'purely procedural (if not mechanical)' measure displaceable by open proceedings principle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court rejects C.A.'s view; art. 108 C.C.P. governs court record content and public access.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court rejects C.A.'s view that art. 108 C.C.P. is purely procedural, finding it governs court record content and public access.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Civil Procedure Review Committee recommended computerized system for storing court documents and records.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Recommendation was not implemented, so court cannot order parties to provide copies of retrieved exhibits to public.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Ordering parties to provide copies to public would encroach on legislature's sphere.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes a recommended computerized system was not implemented and ordering parties to provide copies would encroach legislature's role.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibits relate intrinsically to evidence parties intend to adduce.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties control their case and evidence, including exhibits, and can retrieve exhibits anytime with other parties' consent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Filing exhibits does not transfer ownership to court; court has custody only.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Vickery v. Nova Scotia Supreme Court confirms court custody, not ownership, of exhibits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states parties control exhibits and can retrieve them; filing does not transfer ownership to court, which has custody only.",
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 11 C.C.P. grants public access to court records and exhibits contained at consultation time, subject to confidentiality exceptions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Exhibits remain accessible to public until retrieved or destroyed after proceeding ends.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Once exhibits are retrieved or destroyed, public access ceases.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains art. 11 C.C.P. grants public access to exhibits in records unless retrieved or destroyed.",
+   "role": "law"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Conclusion aligns with legislative intent, Code scheme, and civil law interpretation principles.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Conclusion avoids distorting public civil justice principle and undermining Code objectives like dispute resolution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes its interpretation aligns with legislative intent and avoids distorting public justice or undermining Code objectives.",
+   "role": "conclusion"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties use courts to enforce rights and resolve conflicts via social constraints.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Code allows parties to settle and terminate proceedings anytime, subordinating judicial resolution to social peace restoration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states parties use courts for social enforcement but may settle anytime, prioritizing social peace over judicial resolution.",
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Confidentiality promotes settlements and is recognized by art. 4 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties must be free to retrieve exhibits to preserve confidentiality when terminating proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Code requires parties to retrieve exhibits upon proceeding termination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds confidentiality promotes settlements and parties must retrieve exhibits to preserve confidentiality as required by Code.",
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Exhibits may reveal private life aspects but remain publicly accessible during proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Civil justice's public nature means partial, temporary privacy waiver by parties.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI argues Dagenais/Mentuck test should apply to access exhibits removed years earlier, making waiver permanent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Such permanent waiver and burden on parties is unjustified and heavy.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds exhibits reveal private life but are temporarily public; MediaQMI's permanent waiver argument is unjustified and burdensome.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "MediaQMI's position conflicts with legislative intent, Code scheme, and dispute resolution objective.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Position is unworkable given art. 108 para. 2 C.C.P. allowing destruction of unclaimed exhibits after one year.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Open proceedings principle would vary depending on exhibit destruction status, which is problematic.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds MediaQMI's position conflicts with law and is unworkable due to exhibit destruction rules affecting openness.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "MediaQMI's position must be rejected; art. 11 C.C.P. does not guarantee perpetual access to exhibits once removed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Openness relates to due process and judicial accountability, not private exhibits parties use to prove arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Openness linked to judicial accountability per Attorney General of Nova Scotia v. MacIntyre.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects MediaQMI's position, stating openness protects due process and judicial accountability, not perpetual exhibit access.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Charter expanded openness to public access to court-held information.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cases like Canadian Broadcasting Corp. and Sierra Club recognize openness limits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Openness has limits, e.g., confidential discovery, filming restrictions, judicial deliberation secrecy.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Secrecy in judicial deliberations is well established per British Columbia v. Provincial Court Judges and Tremblay.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Authors note openness does not apply at all trial stages; secrecy can promote impartial justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Charter expanded openness but it has limits, including confidentiality and secrecy in judicial processes.",
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Art. 11 C.C.P. grants public access to court records and exhibits only while exhibits remain in record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 108 C.C.P. allows parties to retrieve exhibits during and after proceedings; retrieval or destruction ends public access.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes arts. 11 and 108 C.C.P. allow public access only while exhibits remain in record; retrieval ends access.",
+   "role": "conclusion"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Arts. 11 and 108 C.C.P. do not confer judicial discretion; Dagenais/Mentuck test does not apply.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Dagenais/Mentuck test applies where discretion exists balancing Charter rights.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Without discretion, test does not apply per Named Person and Canadian Broadcasting Corp. cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Constitutionality of arts. 11 and 108 C.C.P. not challenged; no further comment needed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rules arts. 11 and 108 C.C.P. do not allow discretion; Dagenais/Mentuck test does not apply here.",
+   "role": "law"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Schrager J.A.'s concern about integrity of judicial process is legitimate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If integrity questioned with retrieved exhibits, Dagenais/Mentuck test might apply but only under discretionary provisions like arts. 25 and 49 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This issue not raised here; court refrains from definitive answer.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Civil procedure is flexible and can address fundamental principle violations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court acknowledges Schrager J.A.'s concern but says Dagenais/Mentuck test applies only under discretion, not here.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Having defined scope of arts. 11 and 108 C.C.P., court will apply them to case facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will apply arts. 11 and 108 C.C.P. to the case facts.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI filed motion to unseal on March 29, 2017, unaware of record contents and exhibits due to sealing order.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Motion heard April 25, 2017; CIUSSS discontinued application and tried to retrieve exhibits but court office staff could not find record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states MediaQMI filed a motion unaware of exhibits; CIUSSS tried to retrieve exhibits but record was lost.",
+   "role": "facts"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS made an oral request at April 25, 2017 hearing that led to this appeal",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Superior Court authorized CIUSSS to remove Exhibits P-1 to P-4 from the record",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Authorization from court not strictly necessary under art. 108 para. 2 C.C.P.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court explains CIUSSS's oral request led to appeal; Superior Court authorized exhibit removal but such authorization is not legally required under art. 108 para. 2 C.C.P.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS's discontinuance terminated proceeding and restored prior state under art. 213 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parties' rights revert as if no proceeding occurred per H. Maillette commentary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents and exhibits no longer had to remain in Superior Court record after termination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties must retrieve exhibits within one year per art. 108 para. 2 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS retrieved exhibits day after Superior Court judgment, not waiting one year",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CIUSSS's discontinuance ended the proceeding restoring prior rights; exhibits no longer had to remain in record and must be retrieved within one year, which CIUSSS did promptly.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Record and exhibits were publicly accessible between judgment and retrieval due to sealing order ending",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Schrager J.A. argued discontinuance put exhibits back in private sphere",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees with Schrager J.A. because exhibits remained public after discontinuance until retrieval",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Discontinuance should not create imbalance in openness of records compared to other termination methods",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Unclear why exhibits from discontinued proceeding would be confidential before retrieval but not in other terminations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds exhibits remained public after discontinuance until retrieval, rejecting Schrager J.A.'s view and noting inconsistency in confidentiality treatment.",
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "MediaQMI could have accessed exhibits by applying for access while exhibits were available",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unusual circumstances create a race against time due to Code of Civil Procedure rules, not party speed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 11 C.C.P. grants access to public content and exhibits present at consultation time only",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds MediaQMI could have accessed exhibits while available; access depends on exhibits present at consultation time per art. 11 C.C.P.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "MediaQMI's right to access court records was never compromised, only terms and content changed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Change in record content fell under art. 108 C.C.P., not art. 11",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states MediaQMI's access right was intact; only record content changed under art. 108 C.C.P., not art. 11.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Colleagues view 'Motion to unseal' as application for access to exhibits filed before discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees that filing motion before discontinuance grants MediaQMI acquired right under Dagenais/Mentuck",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI's application was argued but not under desired legal framework due to no judicial discretion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees that MediaQMI's pre-discontinuance motion grants acquired rights under Dagenais/Mentuck; application was argued but not under that framework.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Filing motion under art. 11 C.C.P. does not freeze court record content until decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleagues do not identify legal situation granting MediaQMI right to argue under Dagenais/Mentuck or freeze record",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Colleagues argue discontinuance cannot be invoked against MediaQMI as non-party, so proceeding did not end for it",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds filing art. 11 motion does not freeze record; colleagues fail to identify legal right for MediaQMI and argue discontinuance does not end proceeding for non-party MediaQMI.",
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleagues' position avoids legal consequence of discontinuance terminating proceeding under art. 213 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Termination of proceeding requires parties to retrieve exhibits under art. 108 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Power to retrieve exhibits arises only if discontinuance is not contested",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds colleagues' reasoning avoids discontinuance's legal effect terminating proceeding and requiring exhibit retrieval under arts. 213 and 108 C.C.P.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleagues rely on decisions contrary to their position ignoring discontinuance's legal effect",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Application to set aside discontinuance can be made if others' rights are adversely affected",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Alleging prejudice alone does not negate discontinuance's effect; contesting is necessary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleagues' reasoning makes L\u2019Esp\u00e9rance v. Atkins jurisprudence superfluous and rewrites art. 213 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "French law requires non-parties to seek setting aside discontinuance to prevent extinguishing proceeding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If MediaQMI rights were affected, it was due to exhibit retrieval, not discontinuance itself",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds colleagues rely on contrary decisions, that setting aside discontinuance is needed if rights affected, and MediaQMI's rights affected by exhibit retrieval, not discontinuance.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance nullifies parties' procedural relationship and ends trial",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Defendant or intervener can contest prejudicial discontinuance; third party must apply to set aside",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Extinguishment of procedural relationship has no effect on third party unless prejudiced and applies to set aside",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "MediaQMI did not contest discontinuance and thus CIUSSS could retrieve exhibits",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states discontinuance ends trial and procedural relationship; third parties must contest to prevent effect; MediaQMI did not contest, so CIUSSS could retrieve exhibits.",
+   "role": "analysis"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleagues do not explain how remand would help MediaQMI access exhibits already retrieved",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS agreed to keep copy of exhibits without prejudice or admission",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No legal fiction created to treat exhibits as never retrieved",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Colleagues' position departs from MediaQMI's request to declare exhibits public and order copy",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Schrager J.A. said MediaQMI confuses access to information mechanisms and open proceedings principle",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds remand would not help MediaQMI access retrieved exhibits; no legal fiction exists; colleagues' position differs from MediaQMI's request; Schrager J.A. says MediaQMI confuses access and openness.",
+   "role": "analysis"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "MediaQMI cannot obtain copy of exhibits once in Superior Court record at time of Motion to unseal filing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes MediaQMI cannot obtain copies of exhibits that were in the record when its motion was filed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal would be dismissed with costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would dismiss the appeal with costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Colleagues agree art. 11 C.C.P. does not grant right to access exhibits once validly removed or destroyed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees with colleagues on when to determine if exhibits are in court record",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Court says state of record must be assessed when appellant asserted right to access exhibits",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissent agrees art. 11 C.C.P. does not grant access to removed exhibits but disagrees on timing to assess record state, favoring time of appellant's access assertion.",
+   "role": "analysis"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS filed legal action alleging misappropriation of public funds by Kamel",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS alleged Kamel used scheme to steal $410,266 from health services",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Two main methods: expense claims without vouchers and with unfounded vouchers",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissent states CIUSSS filed action alleging Kamel misappropriated $410,266 using two expense claim methods.",
+   "role": "facts"
+  },
+  {
+   "para": 76,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS hired PwC to investigate irregularities against Kamel",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS filed four exhibits including confidential PwC forensic accounting report",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "MediaQMI applied for access to exhibits relying on art. 11 C.C.P. and freedom of the press",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "CIUSSS discontinued judicial application after MediaQMI's access application",
+     "answers": 0
+    }
+   ],
+   "summary": "The dissent notes CIUSSS hired PwC and filed exhibits; MediaQMI applied for access relying on art. 11 C.C.P.; CIUSSS discontinued application after.",
+   "role": "facts"
+  },
+  {
+   "para": 77,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The appeal concerns reconciling openness of court proceedings and parties' control over their case under art. 11, 12, 19 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 108 C.C.P. allows parties to remove exhibits from court record under certain conditions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Plaintiff's ability to discontinue cannot deprive appellant of right to argue motion for access to exhibits and have access if granted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties' control over their case cannot override legitimate interests of third persons or public order requiring public civil justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the appeal involves balancing court openness and parties' control under C.C.P. articles, protecting appellant's right to access exhibits despite plaintiff's discontinuance.",
+   "role": "issue"
+  },
+  {
+   "para": 78,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed and case remanded to Superior Court to decide MediaQMI's access application on Dagenais and Mentuck framework.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Dagenais, Mentuck, and Sierra Club establish analytical framework for access to exhibits in civil proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and remands for Superior Court to apply established analytical framework for MediaQMI's access application.",
+   "role": "disposition"
+  },
+  {
+   "para": 79,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On Oct 6, 2016, CIUSSS sued former manager Kamel for $510,266 for alleged misappropriation of public health funds.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CIUSSS alleged Kamel used a scheme to steal public funds from CIUSSS and hospital.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CIUSSS stated Kamel fraudulently obtained reimbursement for personal expenses unrelated to hospital activities, misappropriating $410,266 from Apr 1, 2009 to Mar 31, 2015.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Two main modus operandi: (A) expense claims without vouchers, (B) claims with vouchers that proved unfounded.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found CIUSSS sued Kamel for misappropriating $410,266 via fraudulent expense claims from 2009-2015.",
+   "role": "facts"
+  },
+  {
+   "para": 80,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CIUSSS hired PwC to investigate alleged irregularities against Kamel.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CIUSSS filed four exhibits including confidential PwC forensic accounting report supporting its application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found CIUSSS hired PwC and filed exhibits including a confidential forensic report against Kamel.",
+   "role": "facts"
+  },
+  {
+   "para": 81,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Kamel was initially suspended and resigned from his managerial position with the CIUSSS before proceedings were filed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "His resignation letter was an exhibit filed in support of the CIUSSS\u2019s application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Mr. Kamel was suspended and resigned before proceedings, and his resignation letter was filed as an exhibit by CIUSSS.",
+   "role": "facts"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS filed an application for a Norwich order to obtain Mr. Kamel's bank records from a financial institution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Fraud allegations against Mr. Kamel were mainly based on PwC's forensic accounting investigation report.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS is a public legal person responsible for local health and social services networks in Quebec.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CIUSSS sought a Norwich order for bank records based on PwC's report and is a public legal person managing Quebec health services.",
+   "role": "facts"
+  },
+  {
+   "para": 83,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On October 7, 2016, the Superior Court made a Norwich order and sealed the entire record for 120 days, later extended to April 18, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Superior Court sealed the record for 120 days starting October 7, 2016, later extended to April 18, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "On March 29, 2017, the appellant filed a motion to unseal the court record relying partly on art. 11 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant claimed entitlement to access the court record under art. 11 C.C.P. and s. 23 Quebec Charter, citing openness and freedom of the press.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant filed a motion to unseal the court record citing procedural and Charter rights to openness and press freedom.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 85,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "conclusion_or_order",
+     "text": "The appellant sought to grant the motion, terminate any order restricting public and applicant access to the court record, and no legal costs unless contested.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant sought an order to end restrictions on public and applicant access to the court record without legal costs unless contested.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 86,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant sought access to the court record including originating application, pleadings, and exhibits filed by parties.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The objective behind the appellant's conclusions is clear: access to the record and exhibits.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellant sought access to the entire court record including exhibits, and the court finds this objective clear.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 87,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The motion was scheduled for April 5, 2017; CIUSSS requested postponement to April 18, the expiry of the sealing order.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Due to appellant counsel's unavailability on April 18, parties agreed to argue on April 25 and extended the sealing order until then.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts the motion hearing was postponed from April 5 to April 25 with sealing order extended accordingly.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 88,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On April 19, 2017, CIUSSS discontinued its judicial application more than three weeks after appellant's motion to unseal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CIUSSS unsuccessfully tried to remove exhibits from the court record but the record could not be found.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CIUSSS discontinued its application and unsuccessfully tried to remove exhibits from the record which was missing.",
+   "role": "facts"
+  },
+  {
+   "para": 89,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On April 21, 2017, Mr. Kamel applied to withdraw or seal the originating application; CIUSSS did not contest but MediaQMI opposed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI opposed withdrawal or sealing relying on open court principle and freedom of the press.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Kamel applied to withdraw or seal the application; CIUSSS did not contest but MediaQMI opposed citing openness and press freedom.",
+   "role": "facts"
+  },
+  {
+   "para": 90,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On April 25, 2017, CIUSSS requested to retrieve exhibits including PwC report; appellant objected, reiterating request for access to exhibits.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argued a constitutional right to access exhibits in the record and it would be unfair to remove them now.",
+     "answers": 0
+    }
+   ],
+   "summary": "At hearing, CIUSSS sought to retrieve exhibits; appellant objected, asserting constitutional right to access exhibits in the record.",
+   "role": "facts"
+  },
+  {
+   "para": 91,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Superior Court ordered record unsealed but did not decide access to exhibits, allowing parties to remove exhibits after discontinuance.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court authorized CIUSSS to remove exhibits but required originating application to remain in record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On July 21, 2017, CIUSSS removed exhibits but kept copies until appeal was decided or settled.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Superior Court unsealed the record, allowed removal of exhibits after discontinuance, and CIUSSS removed exhibits but kept copies pending appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 92,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Court of Appeal majority dismissed MediaQMI\u2019s appeal; dissenting judge would have allowed appeal and remanded for access to exhibits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court of Appeal majority dismissed the appeal; dissent would have allowed it and remanded for access to exhibits.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 93,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The appeal raises the interplay between parties' control over their case and the principle of open court proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "It is important to reconcile the parties' right to privacy with the public's right to open court proceedings when they conflict.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the issue as reconciling parties' control over their case with the principle of open court proceedings.",
+   "role": "issue"
+  },
+  {
+   "para": 94,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Code of Civil Procedure groups principles including precedence of substantive law, adversarial process, control over cases, judicial intervention, openness, and proportionality.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "The 2001 Civil Procedure Review Committee proposed grouping these principles to emphasize their primacy.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "These principles are now in arts. 8 to 28 C.C.P. under 'Principles of procedure applicable before the courts'.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Code of Civil Procedure groups key procedural principles emphasizing their primacy in arts. 8 to 28 C.C.P.",
+   "role": "law"
+  },
+  {
+   "para": 95,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 19 C.C.P. sets the guiding principle that parties have circumscribed freedom to control their case, including settling or terminating proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "This principle includes parties' right to settle or terminate proceedings at any stage (Minist\u00e8re de la Justice, Imperial Oil v. Jacques).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states art. 19 C.C.P. grants parties circumscribed freedom to control their case, including settlement or termination rights.",
+   "role": "law"
+  },
+  {
+   "para": 96,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Code values private civil justice highly, recognizing dispute resolution without court intervention as possible and desirable.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Private dispute resolution offers confidentiality, informality, flexibility, better conflict management, lower costs, and individualized solutions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Code values private dispute resolution for its confidentiality, flexibility, and benefits over court intervention.",
+   "role": "law"
+  },
+  {
+   "para": 97,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties' control over their case is limited by public order rules and legitimate third-party interests; parties must comply with procedural principles.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Judges have priority duties over parties' rights to protect judicial process and parties' rights (J. Plamondon, Pich\u00e9).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states parties' control is limited by public order and judges' duties to protect the judicial process and rights.",
+   "role": "law"
+  },
+  {
+   "para": 98,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Courts must ensure proper case management and orderly proceedings, limiting parties' control (art. 19 para. 1 C.C.P.).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The principle of proportionality (art. 18 C.C.P.) restricts parties' freedom to conduct their case as they wish.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parties have incomplete control over their case due to competing principles in the Code (Ferland and Emery, Guillemard and Men\u00e9trey).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains courts' active role and proportionality principle limit parties' control, resulting in incomplete control over cases.",
+   "role": "law"
+  },
+  {
+   "para": 99,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties cannot override judges' discretion to ensure open court proceedings or infringe third parties' legitimate interests.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Art. 11 C.C.P. guarantees public access to court hearings and records, supported by Quebec and Canadian Charter rights (Lac d\u2019Amiante, Globe and Mail, Harkat).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Open court proceedings are a hallmark of a free and democratic society (Harkat).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states parties cannot override judges' discretion for openness, which is constitutionally protected as a democratic hallmark.",
+   "role": "law"
+  },
+  {
+   "para": 100,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 11 para. 2 C.C.P. allows exceptions to openness for in camera proceedings or restricted access, e.g. family matters.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 12 C.C.P. codifies judicial discretion to restrict openness if public order or legitimate interests require it, per Sierra Club principles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains exceptions to openness under arts. 11(2) and 12 C.C.P. for in camera proceedings and judicial discretion.",
+   "role": "law"
+  },
+  {
+   "para": 101,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties cannot shield their record from public scrutiny to circumvent open proceedings principle.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Baudouin J.A. stated courts have strict duty to uphold public order and open proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties cannot agree to anonymity or sealed records as it cannot bind the court.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts must apply Dagenais, Mentuck and Sierra Club framework when limiting openness, even if unopposed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds parties cannot shield records from public scrutiny; courts must uphold open proceedings and apply established frameworks even if unopposed.",
+   "role": "law"
+  },
+  {
+   "para": 102,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Public and media have interest to enforce open proceedings principle under art. 11 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Edmonton Journal affirms public's right to information about courts; media act as surrogates for public.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Court of Appeal recognized press interest affected by anonymous proceedings judgments.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "procedure",
+     "text": "Appellant newspaper can seek revocation of judgment affecting openness under art. 349 C.C.P.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds public and media have rights to open proceedings; prior cases affirm media's role and ability to challenge anonymity orders.",
+   "role": "law"
+  },
+  {
+   "para": 103,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties know public may access court proceedings when using civil justice system.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Public scrutiny may encourage dispute resolution but cannot replace open proceedings principle during ongoing cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Open proceedings principle does not apply to private resolution processes, which are confidential under art. 4 C.C.P.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds parties accept public access when using courts; open proceedings apply during cases but not private resolutions.",
+   "role": "law"
+  },
+  {
+   "para": 104,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Open proceedings principle covers both judicial action scrutiny and dispute subject matter access.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Canadian Broadcasting Corp. states access to exhibits is corollary to open court principle.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Media and public need not justify presence or record consultation; burden to limit openness lies on applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Dagenais, Mentuck and Sierra Club set criteria for limiting open proceedings; burden on limiting party.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds open proceedings include access to exhibits; media need not justify access; burden to limit openness is on applicant.",
+   "role": "law"
+  },
+  {
+   "para": 105,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Parties control their case but within context of open civil justice accessible to public and media.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes parties control cases but within open civil justice accessible to public and media.",
+   "role": "conclusion"
+  },
+  {
+   "para": 106,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties' control over case is limited by public order and third parties' legitimate interests, especially regarding discontinuance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds parties' control is limited by public order and third parties' interests, especially on discontinuance.",
+   "role": "law"
+  },
+  {
+   "para": 107,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 213 C.C.P. allows plaintiff to discontinue proceeding unilaterally, restoring matters to former state.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Discontinuance rules flow from parties' control over case (art. 19 para. 3 C.C.P.).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Unilateral discontinuance must be notified to other parties per art. 213 to be effective.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states art. 213 C.C.P. allows unilateral discontinuance restoring prior state, requiring notification to other parties.",
+   "role": "law"
+  },
+  {
+   "para": 108,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Right of discontinuance is not absolute; other plaintiffs may continue under art. 214 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Discontinuance generally does not affect defendant's cross-application rights.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Court of Appeal held discontinuance cannot avoid suit already brought against party; cross demands survive.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds discontinuance right is limited; other plaintiffs and cross-applications survive discontinuance.",
+   "role": "law"
+  },
+  {
+   "para": 109,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance may not prejudice rights of other parties or third persons, including pending applications.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "L\u2019Esp\u00e9rance v. Atkins: discontinuance renounces only own rights, not those of third persons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states discontinuance cannot prejudice others' rights; L\u2019Esp\u00e9rance v. Atkins confirms renunciation applies only to own rights.",
+   "role": "law"
+  },
+  {
+   "para": 110,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Graham-Albulet confirms discontinuance cannot renounce rights or advantages of others by unilateral act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Graham-Albulet confirming discontinuance cannot renounce others' rights unilaterally.",
+   "role": "law"
+  },
+  {
+   "para": 111,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Discontinuance is voluntary renunciation of a right by holder with full disposition of that right.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Renunciation requires only renouncing party's will to produce legal effects.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Art. 213 C.C.P. allows discontinuance because renouncing party prejudices only itself.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds discontinuance is voluntary renunciation needing only renouncing party's will; art. 213 C.C.P. reflects this.",
+   "role": "law"
+  },
+  {
+   "para": 112,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Discontinuance affects only renouncing party's rights; cannot affect third persons' rights.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Renunciation produces ex nunc effects, not retroactive; discontinuance valid but ineffective against third parties' rights.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds discontinuance affects only renouncing party's rights and has no retroactive effect on third parties' rights.",
+   "role": "law"
+  },
+  {
+   "para": 113,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Courts remain seized of pending incidental applications despite discontinuance of initial application.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Discontinuance cannot affect right to have prior application decided by court.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Pigeon: litigant has vested right to court's competence once proceedings instituted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds courts retain jurisdiction over pending applications despite discontinuance; litigants have vested rights to court competence.",
+   "role": "law"
+  },
+  {
+   "para": 114,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Classic Fabrics: discontinuance cannot prejudice defendant's acquired right to argue cross demand.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Right of discontinuance is limited to prevent prejudice to rights acquired by other parties.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "At time of motion to amend and cross demand, appellant had acquired right to argue demand.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Classic Fabrics holding discontinuance cannot prejudice acquired rights to argue cross demands.",
+   "role": "law"
+  },
+  {
+   "para": 115,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance cannot be used to avoid suit already brought against party; court may declare rights preserved.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rules discontinuance cannot avoid existing suits; courts may preserve rights from prior motions.",
+   "role": "law"
+  },
+  {
+   "para": 116,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Renunciation effects are ex nunc, not retroactive, per Grammatikas.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes renunciation effects are ex nunc, not retroactive, per Grammatikas.",
+   "role": "law"
+  },
+  {
+   "para": 117,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 108 para. 2 C.C.P. requires exhibits remain in record until end of proceeding; removal allowed only at end or with all parties' consent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states art. 108 para. 2 C.C.P. requires exhibits remain until proceeding ends; removal only at end or with consent.",
+   "role": "law"
+  },
+  {
+   "para": 118,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court of Appeal judges viewed art. 108 para. 2 C.C.P. as administrative rule to reduce justice system costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parliamentary debates confirm art. 108 para. 2 C.C.P. aims to reduce justice system costs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court notes differing interpretation of art. 108 para. 2 C.C.P. but need not decide here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Even if substantive, parties cannot use art. 108 para. 2 C.C.P. to affect acquired rights after application to unseal filed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds art. 108 para. 2 C.C.P. aims to reduce costs; parties cannot use it to affect acquired rights after unsealing application.",
+   "role": "analysis"
+  },
+  {
+   "para": 119,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Logic limiting parties' control over discontinuance extends to exhibit removal under art. 108 para. 2 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties cannot remove exhibits after application under art. 11 C.C.P. to protect third persons' interests and public order.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Art. 19 C.C.P. requires parties' control to comply with civil procedure principles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes parties cannot remove exhibits after art. 11 C.C.P. application; control must comply with civil procedure principles.",
+   "role": "conclusion"
+  },
+  {
+   "para": 120,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties cannot infringe public order rules like openness of proceedings even by consent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties cannot circumvent public order rules or open court principle by mutual consent or exhibit removal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial process cannot allow private justice where parties decide court conduct ignoring open court principle.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parties cannot displace public order rules by mutual consent, per Berenbaum and Entreprises de b\u00e9ton Fern Leclerc.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rules parties cannot override public order or open court principles by consent; judicial process forbids private justice.",
+   "role": "law"
+  },
+  {
+   "para": 121,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Right to remove exhibits with all parties' consent cannot harm legitimate third persons' interests",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Superior Court set aside discontinuance harming child's rights despite defendant's consent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance cannot renounce others' rights; unilateral or mutual discontinuance cannot defeat third persons' rights",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that removing exhibits with all parties' consent cannot harm third persons' rights, citing Superior Court family law case.",
+   "role": "law"
+  },
+  {
+   "para": 122,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Art. 108 para. 2 C.C.P. requires all parties' consent to remove exhibits as removal affects only parties' interests",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties can remove exhibits by mutual consent without prejudice when only parties have legitimate interest",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Consent requirement ensures removal does not prejudice others (Sirius, para. 4)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Unilateral removal not prejudicial to others is not fatal despite lack of consent (Wetherall v. Macdonald)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains art. 108 para. 2 C.C.P. requires all parties' consent to remove exhibits, but removal by mutual consent is allowed if no prejudice.",
+   "role": "law"
+  },
+  {
+   "para": 123,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Removal of exhibits by mutual consent cannot infringe public order or third persons' legitimate interests",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Parties cannot renounce or deprive others of rights or advantages they possess (Graham-Albulet)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states removal of exhibits by mutual consent cannot infringe public order or third persons' rights, citing Graham-Albulet.",
+   "role": "law"
+  },
+  {
+   "para": 124,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Court of Appeal recognized procedural acts cannot prejudice rights of parties or third persons (9163-5771 Qu\u00e9bec inc. v. Bonifier inc.)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Principle clarifies scope of right to remove exhibits by mutual consent under art. 108 para. 2 C.C.P.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Court of Appeal's recognition that procedural acts cannot prejudice rights, clarifying art. 108 para. 2 C.C.P.'s scope.",
+   "role": "law"
+  },
+  {
+   "para": 125,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties' control over case is limited by Quebec jurisprudence, Code of Civil Procedure, and Quebec Charter",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Code provisions must be interpreted harmoniously with Quebec Charter and general law principles (Lac d\u2019Amiante, Globe and Mail)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties must comply with procedural principles, objectives, rules including public order and third persons' interests (art. 19 para. 1 C.C.P.)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states parties' control is limited by law and must comply with procedural rules, public order, and third persons' interests.",
+   "role": "law"
+  },
+  {
+   "para": 126,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI's application was in a case with a judge's order limiting open court principle from filing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent CIUSSS obtained ex parte Norwich order sealing application and exhibits",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is not a purely private case; judicial institution's legitimacy and openness engaged",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "MediaQMI's art. 11 C.C.P. application to check open proceedings exception is prima facie legitimate",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes MediaQMI's application was in a sealed case with a Norwich order, making its art. 11 C.C.P. application prima facie legitimate.",
+   "role": "facts"
+  },
+  {
+   "para": 127,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CIUSSS and Mr. Kamel argue private dispute resolution character must be respected and parties can resolve dispute out of public view",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties can agree to terminate litigation and remove exhibits but only affects principal litigation",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondents argue for private dispute resolution; the court finds parties can terminate litigation but only affects principal litigation.",
+   "role": "analysis"
+  },
+  {
+   "para": 128,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court record was sealed including CIUSSS exhibits",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI's application to unseal started a new proceeding beyond private interests",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance cannot defeat new proceeding concerning judicial institution's openness and legitimacy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Parties no longer had complete control over exhibits after MediaQMI's unsealing application",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds MediaQMI's unsealing application started a public-interest proceeding, limiting parties' control over exhibits.",
+   "role": "analysis"
+  },
+  {
+   "para": 129,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI's application under art. 11 C.C.P. sought access to court records, specifically exhibits",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Name of juridical act does not determine its nature (Ditomene v. Syndicat des enseignants)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states MediaQMI sought access to exhibits under art. 11 C.C.P., noting the act's name does not define its nature.",
+   "role": "facts"
+  },
+  {
+   "para": 130,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court must exercise discretion under art. 12 C.C.P. due to respondents' opposition to MediaQMI's access application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI acts as surrogate for public to inform about court proceedings involving alleged fraud in public body",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Public has legitimate interest in information about court proceedings alleging misappropriation of public funds",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it must exercise discretion on MediaQMI's access application, which serves public interest in alleged fraud case.",
+   "role": "analysis"
+  },
+  {
+   "para": 131,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Without discontinuance, Superior Court would apply Dagenais, Mentuck, Sierra Club framework to MediaQMI's application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance cannot deprive MediaQMI of right to argue motion or access exhibits",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Right to court's pronouncement on legal issues crystallizes upon application filing (Byer v. Qu\u00e9bec)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states discontinuance cannot deprive MediaQMI of its right to argue and access exhibits, citing crystallization principle.",
+   "role": "law"
+  },
+  {
+   "para": 132,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court retained jurisdiction under art. 11 C.C.P. to decide MediaQMI's application despite discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "MediaQMI had acquired right to argue demand which respondent could not prejudice by discontinuance (Classic Fabrics)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties' control principle cannot adversely affect MediaQMI's legitimate interests in public order rule application",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes it retained jurisdiction to decide MediaQMI's application and parties' control cannot harm MediaQMI's interests.",
+   "role": "conclusion"
+  },
+  {
+   "para": 133,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "MediaQMI's motion was to be argued April 5, 2017, before CIUSSS's discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CIUSSS requested postponement of hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "It would be incongruous to lose right to argue application due to hearing date",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Dagenais, Mentuck, Sierra Club framework applies if hearing held before discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance cannot adversely affect right to have application decided when already filed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds postponement by CIUSSS should not affect MediaQMI's right to argue application, which would be decided under established framework.",
+   "role": "analysis"
+  },
+  {
+   "para": 134,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Norwich orders can be ex parte, in camera, and sealed (Fers et m\u00e9taux am\u00e9ricains v. Picard)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Norwich orders' exceptional nature discussed in legal literature (Pich\u00e9-Messier and Bussi\u00e8res McNicoll)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If discontinuance could defeat access application, Norwich orders could make justice system private, circumventing open proceedings",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Norwich orders can be sealed and discontinuance cannot defeat access applications, preserving open proceedings principle.",
+   "role": "law"
+  },
+  {
+   "para": 135,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "MediaQMI was not required to set aside discontinuance to be heard",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance valid only between CIUSSS and Mr. Kamel, cannot extinguish MediaQMI's prior rights",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "MediaQMI's counsel objected to exhibit removal and said discontinuance had no effect on access application",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes MediaQMI need not set aside discontinuance; discontinuance does not extinguish MediaQMI's rights, as counsel argued.",
+   "role": "conclusion"
+  },
+  {
+   "para": 136,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CIUSSS concedes court had jurisdiction to decide MediaQMI's motion despite discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CIUSSS acknowledges discontinuance does not impact right to argue prior application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "CIUSSS implicitly confirms discontinuance could not affect MediaQMI's right to merits decision, Superior Court erred",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CIUSSS concedes jurisdiction and that Superior Court erred in allowing discontinuance to affect MediaQMI's rights.",
+   "role": "analysis"
+  },
+  {
+   "para": 137,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CIUSSS argues MediaQMI's motion aimed only to unseal record, which Superior Court granted",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Argument is meritless; motion to unseal aims to access record content including exhibits",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Motion stated purpose was access to exhibits; appellant's counsel reiterated at hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Superior Court did not address access to exhibits request",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects CIUSSS's argument that motion was only to unseal, noting Superior Court did not address access to exhibits.",
+   "role": "analysis"
+  },
+  {
+   "para": 138,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondents argue discontinuance affects appellant's application as appellant was not party to principal litigation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Appellant's status does not affect appeal; discontinuance renounces only renouncing party's rights",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parties' control principle cannot adversely affect rights of third persons held by others",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects respondents' argument that appellant's non-party status affects appeal, affirming discontinuance affects only renouncing party's rights.",
+   "role": "analysis"
+  },
+  {
+   "para": 139,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Discontinuance may not prejudice third persons' rights (Pratte J. in Atkins)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rule applies to parties' and third persons' existing legitimate rights (citing multiple cases)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Media have interest in revoking judgments contrary to open proceedings; a fortiori in access to exhibits application",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that discontinuance cannot prejudice third persons' rights, emphasizing media's interest in open proceedings.",
+   "role": "law"
+  },
+  {
+   "para": 140,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Superior Court should have decided MediaQMI's application as it was filed before discontinuance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discontinuance fully effective against applications filed after it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Application filed after discontinuance would fail unless constitutionality of art. 108 C.C.P. challenged",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court does not accept appellant's argument that open proceedings protect applications years after proceeding ended and exhibits removed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Superior Court erred by not deciding MediaQMI's timely application; discontinuance affects only later applications.",
+   "role": "conclusion"
+  },
+  {
+   "para": 141,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CIUSSS and Mr. Kamel cannot prevent MediaQMI from having its application for access to exhibits decided, even by mutual consent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Preventing access would circumvent open proceedings and extinguish a right not held by CIUSSS and Mr. Kamel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Allowing parties to remove exhibits during proceedings despite prior application undermines public access to court records under art. 11 C.C.P.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Art. 108 C.C.P. cannot have the effect of allowing removal of exhibits in these circumstances",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CIUSSS and Mr. Kamel cannot prevent MediaQMI's access application, as removing exhibits would undermine public access to court records under art. 11 C.C.P.",
+   "role": "analysis"
+  },
+  {
+   "para": 142,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal should be allowed with costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the appeal should be allowed with costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 143,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Cannot grant appellant's application for access to exhibits because respondents have not had opportunity to present arguments",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Exhibits are not in the court record, making it impossible to apply Dagenais, Mentuck and Sierra Club framework abstractly",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Case must be remanded to Superior Court to decide application for access to exhibits according to applicable law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Superior Court judge erred in allowing CIUSSS to remove exhibits from the record",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cannot grant access application without respondents' arguments, remands case to Superior Court, and finds Superior Court erred removing exhibits.",
+   "role": "disposition"
+  }
+ ]
+}

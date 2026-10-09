@@ -1,0 +1,1417 @@
+{
+ "case_id": 69769,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.01958
+ },
+ "verification": {
+  "paragraphs": 61,
+  "rows": 61,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 147,
+  "holders": {
+   "applicant": 34,
+   "earlier_decision_maker": 11,
+   "court": 96,
+   "respondent": 6
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "7": "DECISION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns Nigerian and Mexican citizens appealing the rejection of their refugee claim by the Refugee Protection Division (RPD). The appellants fear persecution from the Sinaloa Cartel and due to bisexuality if returned to Mexico or Nigeria. The Refugee Appeal Division (RAD) dismissed the appeal, finding the appellants have a viable internal flight alternative (IFA) in M\u00e9rida and are not refugees or in need of protection.",
+  "background_paras": "1-5, 13-15",
+  "disposition_paras": "7, 25, 34, 41, 60-61",
+  "blocks": [
+   {
+    "issue": "Is the Sinaloa Cartel motivated and able to find and harm the appellants if they relocate to M\u00e9rida?",
+    "paras": "16-34",
+    "court_conclusion": "The appellants failed to establish the cartel's motivation or means to harm them in M\u00e9rida.",
+    "conclusion_paras": "17, 19-21, 23-25, 28, 30, 32-34",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Sinaloa Cartel (SC) can find and harm appellants anywhere in Mexico, including M\u00e9rida, due to connections and resources.",
+      "paras": "14, 15, 26, 27, 31"
+     },
+     {
+      "holder": "court",
+      "text": "SC is powerful but lacks persuasive evidence of motivation or means to harm appellants in M\u00e9rida years later.",
+      "paras": "17, 19, 20, 21, 22, 23, 28, 30, 32, 33"
+     },
+     {
+      "holder": "respondent",
+      "text": "Police refused to register complaint when appellants sought to lodge report about SC threats.",
+      "paras": "22"
+     }
+    ]
+   },
+   {
+    "issue": "Is the internal flight alternative (IFA) in M\u00e9rida viable for the appellants considering the Principal Appellant's bisexuality?",
+    "paras": "35-56",
+    "court_conclusion": "Principal Appellant has not credibly established that discrimination in M\u00e9rida would amount to persecution or make IFA unviable.",
+    "conclusion_paras": "38, 39, 41, 47, 49, 52-56",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Principal Appellant fears persecution in Mexico due to bisexuality and Sinaloa Cartel threats.",
+      "paras": "35"
+     },
+     {
+      "holder": "respondent",
+      "text": "IFA in M\u00e9rida is not viable due to bisexuality and need to conceal orientation per SOGIE Guidelines and country evidence.",
+      "paras": "35, 36, 37"
+     },
+     {
+      "holder": "court",
+      "text": "Discrimination exists but does not rise to persecution; improvements in law and society support IFA viability.",
+      "paras": "38, 39, 41, 42, 43, 44, 45, 46, 47, 49, 50, 51, 52, 53, 54, 55, 56"
+     }
+    ]
+   },
+   {
+    "issue": "Is the IFA in M\u00e9rida objectively unreasonable for the Associate Appellant due to social and economic factors?",
+    "paras": "57-59",
+    "court_conclusion": "Conditions in M\u00e9rida are not objectively unreasonable for the Associate Appellant despite challenges.",
+    "conclusion_paras": "58, 59",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Relocation to M\u00e9rida is unreasonable for Associate Appellant due to lack of support, skills, minority status, and social services.",
+      "paras": "57"
+     },
+     {
+      "holder": "court",
+      "text": "Associate Appellant has adapted to Mexico, with no credible evidence of unreasonable conditions in M\u00e9rida.",
+      "paras": "58, 59"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Principal and Associate Appellants are Nigerian and Mexican citizens appealing RPD's refugee claim rejection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. XXXX is representative of Minor Associate Appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant states appellants are Nigerian and Mexican citizens appealing RPD decision; Ms. XXXX represents Minor Associate Appellants.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. XXXX fears return to Mexico due to participation in anti-corruption demonstration against Sinaloa Cartel (SC).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He and Associate Appellant fear SC retaliation against them or their children.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "They left Mexico for Nigeria in 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges fear of SC retaliation in Mexico due to protest participation; they left Mexico for Nigeria in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. XXXX fears arrest in Nigeria for bisexuality after partner's confession.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mrs. XXXX fears police harassment and children's safety in Nigeria.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "They arrived in Canada in 2019 and filed refugee claim in 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges fears of persecution in Nigeria due to sexual orientation and safety concerns; arrived in Canada 2019, claim filed 2020.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD focused on credibility, state protection in Mexico, IFA in Merida, and nexus.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Credibility was determinative; Principal Appellant failed to establish bisexual orientation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD considered SOGIE Guideline, updated after decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No well-founded fear of persecution in Nigeria; not wanted by Nigerian authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "RPD did not assess credibility regarding Mexico due to Nigeria finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier_decision_maker found credibility determinative, rejected bisexuality claim, found no Nigerian persecution, and did not assess Mexico credibility.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD breached procedural fairness and over-scrutinized testimony on bisexuality.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD failed to meaningfully engage with evidence on bisexuality claim.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD did not properly apply SOGIE Guidelines in assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges RPD breached fairness, over-scrutinized evidence, and failed to apply SOGIE Guidelines properly.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "RAD identified new issue: availability of IFA in Merida, invited submissions, and relied on updated Mexico NDP.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Appellants made additional submissions on new IFA issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identified new IFA issue, invited submissions; applicant submitted additional evidence.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal dismissed; panel correct that appellants are not refugees or in need of protection for different reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses appeal, agreeing appellants are not refugees or protected persons for different reasons than RPD.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellants have viable IFA in M\u00e9rida, Yucat\u00e1n if returned to Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants have viable IFA in M\u00e9rida, Yucat\u00e1n upon return to Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejected claim due to discrepancies undermining credibility about same-sex relationship.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found appellant's story about US immigration lawyer not credible.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Principal Appellant's behavior at Canadian border inconsistent with subjective fear, undermining credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD detailed reasons including vacation claim, WhatsApp messages, and ticket purchase to Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier_decision_maker rejected claim due to credibility issues including inconsistent testimony and behavior at border.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No new evidence submitted under IRPA section 110(4).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "No oral hearing held as no new evidence per IRPA section 110(6).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes no new evidence submitted; no oral hearing held under IRPA provisions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court reviews all evidence to decide if RPD decision correct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court will not reassess credibility on Nigerian persecution claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds appellants have viable IFA in M\u00e9rida, supporting RPD overall conclusion of no refugee status.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court reviews evidence, declines to reassess Nigerian credibility, finds viable IFA, upholds RPD conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "IFA test requires no serious persecution risk and reasonable conditions to seek refuge in IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court applies two-prong IFA test to M\u00e9rida for appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court applies two-prong IFA test requiring no serious risk and reasonable conditions in M\u00e9rida.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Principal Appellant became Mexican national via marriage, sponsored wife and son.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Lived in Mexico 2008-2016, owned business since 2012, lived in peace before 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant states Principal Appellant became Mexican national, lived there 2008-2016, owned business, lived peacefully before 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant fears SC due to extortion and threats.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He protested against corrupt officials collaborating with SC who kidnapped 46 students.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Police refused to take statements after complaint about SC.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges fear of SC extortion and threats, protested kidnappings, police refused to record complaint.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants relocated to Mexico City for safety after SC threats and shooting of friend.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC threatened to kill anyone protesting or reporting them; appellants left Mexico in 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges SC threats and shooting prompted relocation to Mexico City; appellants left Mexico in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether SC has means and motivation to find and harm appellants in M\u00e9rida IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court raises issue whether SC has means and motivation to harm appellants in M\u00e9rida IFA.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Appellant failed to establish SC motivation or means to harm in M\u00e9rida.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Principal Appellant did not establish SC motivation or means to harm in M\u00e9rida.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD questioned Principal Appellant on SC motivation and means to find him after five years.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Principal Appellant testified SC upset about police report and would harm him in M\u00e9rida.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He testified SC is powerful, connected to government, and has their pictures.",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier_decision_maker questioned SC motivation; applicant testified SC upset, powerful, connected, and has their pictures.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees SC is powerful but finds no persuasive evidence of motivation to harm appellants years later.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees SC is powerful but finds no persuasive evidence of motivation to harm appellants years later.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's testimony vague and lacking detail on SC motivation to find them in M\u00e9rida.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD asked repeatedly about SC motivation; appellant said SC doesn't forget and maintains superiority.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified SC works with police and government to get information.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellant's testimony vague; earlier_decision_maker recorded appellant's claims SC doesn't forget and works with police.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has not provided sufficient evidence to establish credibility of allegations about SC's threatening texts or calls during stay in Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Appellant never alleged SC used social media to extort or threaten Appellants with violence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant has not credibly established SC sent threatening texts or used social media to threaten during their stay in Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No police complaint against SC was submitted or sought by Principal Appellant due to police refusal to register complaint",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Police refused to register complaint when Appellants sought to lodge report",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient evidence that SC would be motivated to find Appellants if they relocate to M\u00e9rida",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no police complaint was submitted due to refusal, and insufficient evidence SC would seek Appellants in M\u00e9rida.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "SC threats imply warning against future protests or reports, not retribution for past acts",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has not credibly established SC motivated by vendetta to find Appellants",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds SC threats warn against future protests, and Appellant has not credibly shown SC motivated by vendetta.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Wikipedia article undermines Appellant's allegation that SC was behind student abduction and motivated to harm Appellants in Yucat\u00e1n",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Wikipedia article undermines the Appellant's claim that SC was behind student abduction and motivated to harm them in Yucat\u00e1n.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Principal Appellant's evidence fails to credibly establish agents of harm motivated to locate him and family if moved to M\u00e9rida",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Principal Appellant failed to credibly establish agents of harm motivated to find him and family in M\u00e9rida.",
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC can find you anywhere in Mexico once they mark your name",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC is well connected with police and military, enabling them to find people quickly",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges SC can find anyone anywhere in Mexico due to connections with police and military.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC used a call tracker to identify and track Mr. XXXX's whereabouts",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant unsure how call tracker works, only told by someone",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RIR in NDP supports allegation that drug cartels use GPS trackers on cars",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges SC used a call tracker to find Mr. XXXX, supported by a RIR indicating drug cartels use GPS trackers.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has not persuasively established SC would use call tracker to find Appellants in M\u00e9rida years later",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient evidence of personal vendetta or large debt motivating SC to track Appellants outside area",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant has not established SC would use call tracker to find them in M\u00e9rida due to lack of motive.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective evidence shows SC operates in Mexico City, explaining how SC found and killed Mr. XXXX there",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective evidence supports Appellant's allegation SC had means to find Appellants if they stayed in Mexico City",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds objective evidence supports SC's presence in Mexico City and ability to find Mr. XXXX and possibly Appellants there.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Map shows M\u00e9rida lies outside SC's area of influence, supporting conclusion SC lacks means to find and harm Appellants there",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds M\u00e9rida is outside SC's influence, supporting conclusion SC lacks means to find and harm Appellants there.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC operates everywhere including M\u00e9rida due to police providing information",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC has vast resources and alliances allowing impunity anywhere in Mexico and abroad",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "SC uses affiliations with other cartels in areas not under primary control",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges SC operates everywhere including M\u00e9rida due to police info and alliances with other cartels.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective evidence does not support Appellant's claim SC has means to find and harm Appellants in M\u00e9rida",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "SC is under pressure, facing decline, infighting, and competition from CJNG cartel",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds objective evidence shows SC is weakened and does not have means to find and harm Appellants in M\u00e9rida.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RIR cited by Appellant does not support claim SC has alliances; SC's enemies include CJNG, Gulf Cartel, Juarez Cartel, Los Zetas",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "SC, CJNG, Gulf Cartel may be present in Yucat\u00e1n but keep low profile; no cartel hegemony established",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Yucat\u00e1n not on drug routes nor attractive drug market",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RIR does not support SC alliances; cartels keep low profile in Yucat\u00e1n, which is not a drug route or market.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Principal Appellant failed to establish agents of harm have means to find and harm Appellants if relocated to M\u00e9rida",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Principal Appellant failed to establish agents of harm have means to find and harm them in M\u00e9rida.",
+   "role": "conclusion"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant fears living in Mexico due to SC and bisexuality",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant did not expose bisexual orientation, only had one bisexual friend and frequented gay bars",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues IFA in M\u00e9rida not viable due to Principal Appellant's bisexuality and need to suppress orientation",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "SOGIE Guidelines say IFA not viable if individual must conceal sexual orientation to live there",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges fear due to bisexuality; Counsel argues IFA in M\u00e9rida not viable due to need to conceal orientation per SOGIE Guidelines.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Objective country documentation supports allegations that IFA in M\u00e9rida is unsafe and unreasonable for Principal Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "RIR states machismo causes homophobia and discrimination; legislative changes have little effect; police violence reported",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel alleges country documents show M\u00e9rida unsafe for Principal Appellant due to machismo, homophobia, and police violence.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Another RIR states discrimination against LGBTQ is structural, promoted by Catholic Church, worse in small cities including M\u00e9rida",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Principal Appellant alleges police routinely mistreat LGBTQ persons in custody per RIR",
+     "answers": 0
+    }
+   ],
+   "summary": "Counsel and Appellant allege structural discrimination and police mistreatment of LGBTQ persons, especially in M\u00e9rida.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Individuals of diverse sexual orientations continue to face discrimination and harassment in Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "IFA not viable if individual must conceal sexual orientation to live there",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees discrimination against sexual minorities continues and IFA is not viable if concealment of orientation is required.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Appellant has not credibly established discrimination and harassment in M\u00e9rida would rise to persecution level",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Country conditions evidence does not support allegations of persecution based on bisexuality in M\u00e9rida",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Principal Appellant has not credibly established discrimination in M\u00e9rida would amount to persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Risk of persecution assessed case by case considering harm seriousness, repetition, persistence, and cumulative discrimination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discrimination may be persecution if it causes substantially prejudicial consequences on rights",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discrimination does not always equal persecution if harm not serious enough",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considered Principal Appellant's personal circumstances and vulnerabilities in assessing fear of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains persecution risk assessment and considered Appellant's circumstances in assessing fear of persecution.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No serious possibility that Principal Appellant would face persecution in M\u00e9rida for bisexual orientation on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious possibility of persecution in M\u00e9rida for the Principal Appellant due to bisexual orientation.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Significant discrimination and violence against LGBTQ persons in Mexico motivated by social prejudice",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Police authorities sometimes fail to investigate and punish complicity in abuses",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Discrimination and violence remain significant human rights challenges despite gradual public acceptance",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds significant discrimination, violence, and police failures against LGBTQ persons in Mexico despite some public acceptance.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Progress on LGBTQ rights in Mexico is slow but not non-existent or minimal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "NDP sources acknowledge improvements in law, practice, and social acceptance for LGBTQ individuals",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's Memorandum of Appeal acknowledges improvements in small cities and rural areas recently",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds slow but real progress on LGBTQ rights in Mexico, supported by NDP sources and the Appellant's memorandum.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mexican constitution updated to prohibit discrimination based on sexual preference",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Judicial mechanisms guarantee rights of same-sex couples including marriage, adoption, social security, alimony, family life",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Supreme Court ruled in 2019 to protect rights of same-sex couples to register children",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Twelve states allow transgender people to change names and gender markers administratively",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Twenty of 32 states have legalized same-sex marriage",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes constitutional and judicial progress in Mexico protecting LGBTQ rights including marriage and gender marker changes.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mexico joined LGBT Core Group of UN and OAS since 2016",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mexico conducted national survey on discrimination in 2017 leading to protocols for non-discriminatory health access",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Migrants and refugees can receive free medical treatment regardless of immigration status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Organizations recognize developments like anti-discrimination campaigns and dialogues for LGBTQ rights",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "National Commission condemned homophobic protests incited by Catholic diocese",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Mexico has taken steps including surveys, protocols, and condemnations to improve LGBTQ rights and health access.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Activist states legislation protecting sexual minorities is partially effective; societal change driven by campaigns and media",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "National Catholic Opinion Survey shows majority support equal rights and same-sex marriage among Catholics",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes partial legislative effectiveness and societal shifts supporting LGBTQ rights, including Catholic survey results.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Significant challenges remain for LGBTQ community but discrimination does not cumulatively amount to persecution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Workplace discrimination reported variably; some companies adopt LGBT inclusion policies",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds ongoing challenges but no persecution, noting workplace discrimination statistics and increasing inclusion policies.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Health discrimination reported variably with many denying derogatory comments from providers",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes mixed reports on health care discrimination against LGBTQ persons in Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Violence and impunity against sexual minorities is a structural problem, especially for trans people",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Reports show increased killings of LGBTQ individuals and many detained or mistreated by police",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite disturbing numbers, discrimination does not amount to persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court acknowledges violence and impunity against LGBTQ persons but finds discrimination does not amount to persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Some judicial progress and police protocol adherence noted by Fundaci\u00f3n Trans Amor",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NDP sources show mixed results and progress; discrimination does not amount to persecution cumulatively",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds mixed progress and that discrimination faced by the Principal Appellant does not amount to persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Yucat\u00e1n allegedly most ostracizing state but no high police discrimination complaints there",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Yucat\u00e1n Human Rights Commission provides free legal services for abuses",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Local groups and municipal council work to fight discrimination against sexual minorities in M\u00e9rida",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes local protections and organizations in M\u00e9rida and no high police discrimination complaints in Yucat\u00e1n.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Appellant has not shown connection between country conditions and personal circumstances leading to persecution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CBSA notes show Principal Appellant initially had no fear of returning to Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Appellant purchased tickets to Cancun after denying fear of Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Appellant has not demonstrated personal risk of persecution in Mexico and initially denied fear of return.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Appellant disclosed bisexuality and fears of Nigeria but not fear of Mexico due to sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Appellant fears returning to Mexico due to protest participation and police refusal to protect",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Principal Appellant fears Mexico for protest reasons but not for bisexual orientation persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Appellant does not allege fear of persecution in Mexico due to bisexual orientation in testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If fear existed, it would have been included in written testimony",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No past acts of persecution or discrimination in Mexico alleged due to sexual orientation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no allegation or evidence of fear or past persecution in Mexico due to bisexual orientation by the Principal Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No serious possibility of persecution or serious violence in Mexico due to bisexuality considering personal circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Appellant had relationships and frequented gay bars without problems",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Appellant did not conceal sexual orientation due to fear but for family reasons",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Appellant relocating with wife and children and does not seek same-sex family life in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious persecution risk in Mexico; Principal Appellant's concealment was for family, not fear, and he lives with wife and children.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Persecution can be established by treatment of similarly situated individuals; past persecution not required",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering country conditions and personal circumstances, relocation to M\u00e9rida is not to a place of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies law on persecution and finds relocation to M\u00e9rida is not persecution given conditions and personal circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Relocation to M\u00e9rida is objectively unreasonable due to Associate Appellant's lack of support, family, skills, language, minority status, and social services",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues relocation to M\u00e9rida is unreasonable due to Associate Appellant's vulnerabilities and lack of support.",
+   "role": "issue"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Associate Appellant would not be sole breadwinner and has lived in Mexico for 8 years adapting despite challenges",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Economic activity rates in Mexico are high including for women",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Challenges faced would not be significantly worse than prior experience",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Associate Appellant has prior Mexico experience and challenges would not be worse; economic activity is high.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Unreasonableness of IFA requires conditions jeopardizing life and safety of claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Second prong asks if relocation is unduly harsh given personal circumstances, not convenience",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Absence of family in IFA must jeopardize safety to render IFA unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Associate Appellant has not established social services are inaccessible or lacking",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No credible evidence Associate Appellant would face difficulties as visible minority making M\u00e9rida unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No other allegations meet second prong of IFA test for Appellants",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states high threshold for IFA unreasonableness and finds no evidence that M\u00e9rida is unduly harsh for the Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Conditions in M\u00e9rida are not objectively unreasonable for Appellants to seek refuge there",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes M\u00e9rida conditions are not objectively unreasonable for the Appellants.",
+   "role": "conclusion"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal and confirm the decision of the RPD that the Appellants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision that the Appellants are neither Convention refugees nor persons in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

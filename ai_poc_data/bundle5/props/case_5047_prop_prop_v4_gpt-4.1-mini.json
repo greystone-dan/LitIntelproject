@@ -1,0 +1,771 @@
+{
+ "case_id": 5047,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.010754
+ },
+ "verification": {
+  "paragraphs": 31,
+  "rows": 31,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 76,
+  "holders": {
+   "court": 32,
+   "earlier_decision_maker": 19,
+   "prior_court_or_authority": 2,
+   "applicant": 21,
+   "respondent": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "11": "II. Issue",
+  "12": "III. Standard of review",
+  "31": "V. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "Mr. Shah and his family seek judicial review of an Immigration Officer's refusal to grant permanent residence on humanitarian and compassionate grounds. The case examines the reasonableness of the officer's decision regarding establishment in Canada and availability of autism services in Bangladesh. The Federal Court dismisses the application, finding no unreasonableness in the decision.",
+  "background_paras": "1-10",
+  "disposition_paras": "31",
+  "blocks": [
+   {
+    "issue": "Was the Immigration Officer's assessment of the family's establishment in Canada reasonable?",
+    "paras": "11-19",
+    "court_conclusion": "Officer's assessment was reasonable, used 'typical' descriptively, and did not apply a higher legal standard.",
+    "conclusion_paras": "14-17",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Officer applied impermissible exceptionality requirement and ended analysis prematurely on establishment.",
+      "paras": "13,15"
+     },
+     {
+      "holder": "court",
+      "text": "Officer used 'typical' descriptively, assessed factors properly, and gave little positive weight to establishment.",
+      "paras": "14-17"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Officer found family's establishment efforts typical and insufficient to justify exemption.",
+      "paras": "7"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Immigration Officer err in assessing availability and adequacy of autism services in Bangladesh for the applicant's son?",
+    "paras": "20-30",
+    "court_conclusion": "No unreasonableness found; services exist though not identical; onus on applicant to prove unavailability.",
+    "conclusion_paras": "25-30",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Services exist but do not match son's Toronto services; affordability and availability uncertain; officer ignored contrary evidence.",
+      "paras": "21,24,27,30"
+     },
+     {
+      "holder": "respondent",
+      "text": "Best interests of children not necessarily determinative; onus on applicant to show basis for positive discretion.",
+      "paras": "22"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Officer found specialized autism services available in Bangladesh; reviewed SWAC and UNICEF reports.",
+      "paras": "20,23,26,30"
+     },
+     {
+      "holder": "court",
+      "text": "Officer cannot assess unraised issues; presumption officer reviewed evidence; difference in service level not unreasonable.",
+      "paras": "25,28,30"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant is A K M Firoj Shah, his wife, and their son with ASD, all Bangladeshi citizens; two daughters born in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Shah seeks judicial review of Immigration Officer's October 4, 2019 decision refusing second permanent residence application on H&C grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Immigration Officer weighed factors but was not satisfied to grant exemption under the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the applicant family background and that Mr. Shah seeks judicial review of a refusal of permanent residence on H&C grounds by the Immigration Officer.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Shah's education and work history in Bangladesh and UK; family arrived in Canada in 2014 claiming refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejected refugee claim for lack of subjective fear and no evidence of being targeted as anti-government blogger.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Refugee Appeal Division upheld RPD decision in 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts Mr. Shah's education, family arrival in Canada, and refugee claim rejection by RPD and Refugee Appeal Division.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Son diagnosed with moderate to severe ASD in November 2015; receives behavioural services and has an individual education plan.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the son's ASD diagnosis and the services he receives in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "First H&C application refused in 2017 on grounds of discrimination, ties to Canada, and best interests of children.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found no hardship from Bangladesh employment situation, establishment insufficient, and services for autism available in Bangladesh.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer concluded return would not negatively impact children to justify exemption.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker refused first H&C application citing insufficient hardship, establishment, and available autism services in Bangladesh.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "2018 judicial review dismissed; officer did not breach procedural fairness or fetter discretion in first H&C refusal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the 2018 judicial review dismissal affirming the officer's procedural fairness and assessment in first H&C refusal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Pre-removal risk assessment applied for and refused in September 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the family applied for and was refused a pre-removal risk assessment in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second H&C application filed in June 2018 raising same factors: establishment, best interests, country conditions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Immigration Officer found family's establishment efforts typical, not overcoming burden for exemption.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer noted family's continued time in Canada despite removal order, aware of uncertain status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the second H&C application and the Immigration Officer's finding of typical establishment and awareness of removal risk.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah argues children's safety, health, education, and well-being oppose removal to Bangladesh.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer acknowledged son's difficulty leaving Canada but noted autism services and education centre exist in Bangladesh.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found girls dependent on parents with no significant Canadian ties; education in Bangladesh available but inferior.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer recognized Canada offers better opportunities but sociological advantage alone not determinative for exemption.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports Mr. Shah's argument on children's best interests and the officer's findings on autism services, education, and sociological advantage.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah argues poor employment prospects and low liveability in Bangladesh cause hardship.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer disagreed, noting Mr. Shah is educated and mobile and economic hardship is ordinary consequence of removal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Shah's hardship argument on Bangladesh conditions and the officer's rejection as ordinary reintegration hardship.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer gave little positive weight to establishment and children's best interests, no weight to country factors, refused exemption under subsection 25(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the officer's cumulative weighing of factors and refusal of exemption under the Act.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Whether the Decision was reasonable; specifically, errors on establishment test and evidence on son's services in Bangladesh.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah raises the issue of reasonableness of the Decision, focusing on establishment test and son's service evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review is reasonableness for both issues, citing Vavilov, Kanthasamy, Khir.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "H&C exemption under subsection 25(1) is exceptional, discretionary, entitled to deference.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the reasonableness standard applies and H&C exemptions are discretionary and deferential.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Immigration Officer applied impermissible exceptionality requirement by finding only typical establishment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah relies on cases rejecting 'exceptional establishment' as legal standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah argues the officer wrongly applied an exceptionality test for establishment, citing case law.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah concedes 'typical level' wording not inherently a heightened standard but says it was here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court not persuaded officer's assessment was tainted by exceptionality test or higher legal standard.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer used 'typical' descriptively consistent with Kanthasamy and Damian decisions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects Mr. Shah's argument that 'typical level' wording imposed a higher legal standard, finding descriptive use.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Officer failed to assess whether establishment factors warranted humanitarian relief, ending analysis prematurely.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah contrasts this with prior case where officer considered establishment in context of all evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Decision lacks transparency and intelligibility required by Vavilov.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah argues the officer failed to fully assess establishment factors' impact on relief, lacking transparency.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds officer did not set higher standard or feel constrained by 'typical' wording.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer assessed factors put forward; Mr. Shah's submissions on establishment were minimal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants must show establishment and hardship beyond normal to weigh in favour of exemption.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer gave little positive weight to typical establishment factors; no lack of analysis chain.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer properly assessed establishment factors and that Mr. Shah failed to show exceptional hardship.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer considered Kanthasamy factors including equity, compassion, hardship on return to Bangladesh.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Hardship on employment and children's quality of life considered under country conditions and best interests.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Shah's principal concern was children's well-being but failed to show greater adverse impact than others.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Deference owed to officer's identification of typical establishment level; no reason to disturb conclusions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer considered relevant hardship factors and Mr. Shah failed to show exceptional impact warranting relief.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah argues officer improperly turned positive establishment factor into negative by noting his education and mobility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah argues the officer wrongly treated his education and mobility as a negative factor.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees; officer's statement was in country conditions section addressing employment prospects, not establishment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects Mr. Shah's argument, finding the officer's comment related to country conditions, not establishment.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer acknowledged son's care in Toronto and need for help managing autism.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found evidence confirms availability of specialized autism support services in Bangladesh.",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer recognized son's care needs in Canada and found evidence of similar autism support services in Bangladesh.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah concedes services exist in Bangladesh but argues they do not match his son's Toronto services and no assessment was made on reasonable availability there",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah submits Immigration Officer ignored parts of SWAC website and UNICEF report",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah concedes services exist in Bangladesh but argues they do not match his son's Toronto services and no assessment was made; he says Immigration Officer ignored SWAC and UNICEF info.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister says best interests of children are not necessarily determinative of H&C application",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister says onus to show basis for positive discretion is on applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister argues best interests of children are not determinative and onus is on applicant to show basis for positive discretion.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "SWAC school is a not-for-profit special needs school run by parents providing intensive individualized instruction",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Immigration Officer noted intensive one-on-one interaction and detailed programs and faculty of 51 professionals",
+     "answers": 0
+    }
+   ],
+   "summary": "Immigration Officer found SWAC is a not-for-profit special needs school with intensive individualized instruction and 51 professionals.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah argues Immigration Officer erred assuming services at SWAC school would be available to his son",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah says website shows limited enrolment and unclear fees, so affordability and availability are uncertain",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah argues existence of services does not ensure availability or same level as in Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah argues Immigration Officer erred assuming SWAC services available; website shows limited enrolment and unclear fees; availability and level uncertain.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah says no evidence on accessibility and affordability was before Immigration Officer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Immigration Officer cannot assess issues not raised or evidenced before him/her",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Shah identified SWAC as one of many programs for autistic children in Bangladesh",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah did not assert programs were inaccessible or unaffordable to his son",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Immigration Officer not at fault for not addressing unraised issues",
+     "answers": 1
+    }
+   ],
+   "summary": "Mr. Shah says no evidence on accessibility or affordability was before Immigration Officer; court finds Officer cannot assess unraised issues and was not at fault.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Immigration Officer reviewed UNICEF report highlighting extensive efforts by organizations aiding children with ASD",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "UNICEF report lists laws, centers, strategic plans, and NGOs supporting neurodevelopmental disabilities in Bangladesh",
+     "answers": 0
+    }
+   ],
+   "summary": "Immigration Officer reviewed UNICEF report showing extensive efforts and organizations aiding children with ASD in Bangladesh.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah argues Immigration Officer ignored contrary UNICEF evidence about service availability and discrimination",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah cites UNICEF statements on discrimination, slow implementation, inadequate funding, and uneven rights realization",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Shah argues Immigration Officer ignored UNICEF evidence about discrimination and inadequate services for children with disabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "UNICEF info is general on disabled children, not specific to ASD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Presumption that Immigration Officer reviewed evidence; court will not reweigh evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mr. Shah failed to show son's best interests would influence positive discretion under subsection 25(1) if returned to Bangladesh",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision reflects Immigration Officer's assessment of case presented",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds UNICEF info general, presumes Immigration Officer reviewed evidence, and concludes Mr. Shah failed to show son's best interests would influence discretion.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Shah's submissions were moving but better living in Canada or better services alone insufficient for H&C grant",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Sanchez and Vasquez cases that better living conditions alone do not justify H&C application grant",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds better living or services in Canada alone insufficient for H&C grant, citing Sanchez and Vasquez cases.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Immigration Officer found specialized services required and available in Bangladesh",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds no unreasonableness in Immigration Officer's finding after reviewing SWAC, UNICEF, and other materials",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Shah alleges Immigration Officer misapprehended or failed to account for evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Onus was on Mr. Shah to show services unavailable; documents insufficient to establish unavailability",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents suggest services similar to those in Toronto are available in Dhaka",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Difference in service level does not render decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Immigration Officer reasonably found specialized services available in Bangladesh; Mr. Shah failed to show unavailability; difference in service level not unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses application for judicial review.",
+   "role": "disposition"
+  }
+ ]
+}

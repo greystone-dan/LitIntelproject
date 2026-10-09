@@ -1,0 +1,445 @@
+{
+ "case_id": 44207,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.006824400000000001
+ },
+ "verification": {
+  "paragraphs": 21,
+  "rows": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 33,
+  "holders": {
+   "court": 26,
+   "applicant": 5,
+   "earlier_decision_maker": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "Keystone RV Company appeals a Tax Court decision dismissing its motion and granting the respondent's motion to amend pleadings in a GST/HST reassessment dispute. The case concerns the correctness of reassessments and procedural motions under the Excise Tax Act. The Federal Court of Appeal dismissed Keystone's appeal with costs.",
+  "background_paras": "1-4",
+  "disposition_paras": "20-21",
+  "blocks": [
+   {
+    "issue": "Should Keystone's Rule 170.1 motion for judgment based on the Minister's concession be granted?",
+    "paras": "3, 6-14",
+    "court_conclusion": "No palpable and overriding error in rejecting Keystone's Rule 170.1 motion; material disputes remain requiring trial.",
+    "conclusion_paras": "6, 10, 11, 14",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Only issue is correct GST/HST adjustment; Minister admitted reassessments incorrect, so Rule 170.1 motion must be granted.",
+      "paras": "3, 9, 12"
+     },
+     {
+      "holder": "court",
+      "text": "No palpable and overriding error in rejecting Rule 170.1 motion; disputes remain requiring trial; Rule 170.1 requires no controversy on facts or legal issues.",
+      "paras": "6, 7, 8, 10, 11, 14"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Minister's concession did not eliminate controversy; assumptions about underreporting and invalid credits remain disputed.",
+      "paras": "11"
+     }
+    ]
+   },
+   {
+    "issue": "Was the Tax Court's granting of the respondent's Rule 54 motion to amend its Reply appropriate?",
+    "paras": "4, 17-19",
+    "court_conclusion": "No reviewable error in granting Rule 54 motion; amendment clarifies issues and serves justice; Minister's concession is not an appeal.",
+    "conclusion_paras": "18, 19",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Respondent's Rule 54 motion was an abusive attempt to appeal the Minister's assessment.",
+      "paras": "17"
+     },
+     {
+      "holder": "court",
+      "text": "No error in granting Rule 54 motion; broad amendment rights apply; amendment clarifies issues and causes no injustice; Minister's concession not an appeal.",
+      "paras": "18, 19"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Motions judge found no factual foundation for improper conduct allegations; Rule 170.1 motion not proper vehicle for such allegations.",
+      "paras": "16"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Tax Court err in awarding costs to the respondent?",
+    "paras": "20",
+    "court_conclusion": "No error in costs awards; Keystone was satisfied with costs award in Rule 54 motion.",
+    "conclusion_paras": "20",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "No error in costs awards; Keystone was satisfied with costs award in Rule 54 motion.",
+      "paras": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Keystone RV Company is the appellant appealing an interlocutory Tax Court decision dated December 15, 2023.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Tax Court dismissed Keystone's Rule 170.1 motion and granted the respondent's Rule 54 motion to amend its Reply.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Tax Court awarded costs to the respondent on both motions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Keystone appeals a December 15, 2023 Tax Court decision dismissing its Rule 170.1 motion, granting respondent's Rule 54 motion, and awarding costs to respondent.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Keystone appeals CRA reassessments dated February 21, 2018 under the Excise Tax Act for seven monthly GST/HST periods in 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The reassessments imposed an additional net GST/HST of $24,695,247.20 on Keystone.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Keystone appeals CRA reassessments imposing over $24 million GST/HST for seven 2014 reporting periods.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent conceded in a November 14, 2022 letter that the correct net GST/HST adjustment is $4,203,799.29.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Keystone relied on this concession to bring a Rule 170.1 motion arguing the only issue is the correct net GST/HST adjustment and the Minister admitted the reassessments were incorrect.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states respondent conceded a lower GST/HST adjustment in November 2022, and Keystone moved under Rule 170.1 relying on this admission.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent filed a Rule 54 motion to amend its Reply consistent with the November 14, 2022 letter, including a proposed amended Reply as Schedule A.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes respondent filed a Rule 54 motion to amend its Reply consistent with the November 2022 concession.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review is palpable and overriding error for fact and mixed fact-law questions, correctness for law questions, citing Housen v. Nikolaisen.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "An error is palpable if obvious or plainly seen, and overriding if it affects the result, citing Canadian Imperial Bank of Commerce v. Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is palpable and overriding error for facts, correctness for law, defining palpable and overriding errors.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court finds no error of law or palpable and overriding error in the Tax Court's rejection of Keystone's Rule 170.1 motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no legal or palpable overriding error in the Tax Court's rejection of Keystone's Rule 170.1 motion.",
+   "role": "conclusion"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rule 170.1 allows a party to apply for judgment at any stage based on admissions in pleadings, documents, or examination of a party.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Rule 170.1 permits judgment applications based on admissions in pleadings or examinations at any stage.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Tax Court correctly identified Rule 170.1 requires no controversy on facts or fairly arguable legal issues to grant judgment, citing Georgeson and Iris Technologies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Tax Court correctly applied the principle that Rule 170.1 requires no factual or legal controversy to grant judgment.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Keystone argues the only issue is correctness of reassessments and the Minister admitted reassessments are incorrect, so Rule 170.1 motion must be granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "Keystone argues only the reassessment correctness is at issue and the Minister's admission requires granting its Rule 170.1 motion.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court disagrees and finds no palpable and overriding error in the Tax Court's application of Georgeson to Keystone's Rule 170.1 motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with Keystone and finds no palpable overriding error in the Tax Court's application of the Georgeson test.",
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Tax Court found Minister's November 2022 concession did not eliminate controversy; assumptions about underreporting and invalid credits remain disputed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees there remain clear, material disputes requiring trial as few facts are established and no discoveries held, citing Iris FCA.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court agrees with the Tax Court that material disputes remain despite the Minister's concession, requiring trial.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Keystone argues the November 14 letter and amended Reply show the Minister abandoned original assumptions and conceded all matters, entitling Keystone to judgment under Rule 170.1.",
+     "answers": 0
+    }
+   ],
+   "summary": "Keystone argues the Minister abandoned original assumptions and conceded all matters, entitling Keystone to judgment under Rule 170.1.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Keystone did not raise the 'matters' argument in its Rule 170.1 motion or before the motions judge, so cannot now claim error for failure to consider it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Keystone also did not assert error in the notice of appeal or memorandum regarding the motions judge's focus, so the court need not address this argument on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Keystone did not raise the 'matters' argument below or on appeal, so the court need not address it now.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court finds Keystone's argument unpersuasive and notes no authority limits Georgeson to specific matters or assumptions in reassessments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsections 298(6.1)-(6.3) of the Act allow the Minister to advance alternative bases or arguments supporting assessments, not limited to specific matters.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court rejects Keystone's argument, noting the Act allows the Minister to advance alternative bases or arguments supporting assessments.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Keystone submits the Tax Court failed to consider evidence of alleged improper and abusive CRA conduct fabricating reassessment facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "Keystone submits the Tax Court failed to consider evidence of alleged improper and abusive CRA conduct fabricating reassessment facts.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Motions judge found no factual foundation to assess improper conduct allegations due to inadequate time and that Rule 170.1 motion was not the proper vehicle for such allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees the Rule 170.1 motion concerned only whether the net GST/HST amount remains disputed.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court agrees the motions judge properly declined to assess improper conduct allegations in the Rule 170.1 motion focused on net GST/HST dispute.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Keystone argues the respondent's Rule 54 motion was an abusive attempt to appeal the Minister's assessment, citing Continental Bank of Canada v. Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Keystone argues the respondent's Rule 54 motion was an abusive attempt to appeal the Minister's assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court disagrees and finds no reviewable error in granting the respondent's Rule 54 motion, noting broad amendment rights and application of subsections 298(3), (6.1)-(6.3).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The amended Reply clarifies real issues, causes no injustice, and serves justice interests, citing Pomeroy.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds no error in granting respondent's Rule 54 motion, as the amended Reply clarifies issues and serves justice.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Minister's concession reducing the assessed amount is not an appeal of the assessment, citing Beaulieu v. The Queen.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "TPine Leasing confirms the Minister cannot appeal an assessment but allows alternative bases under different legislation; motions judge's reasoning aligns with TPine.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Keystone has not shown palpable and overriding error in the motions judge's analysis of the Rule 54 motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Minister's concession is not an appeal, aligns with TPine, and Keystone shows no error in the Rule 54 motion analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court finds no error in the Tax Court's awards of costs and notes Keystone was satisfied with the costs award in the Rule 54 motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in the Tax Court's costs awards and notes Keystone's satisfaction with the Rule 54 motion costs award.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal with costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal with costs.",
+   "role": "disposition"
+  }
+ ]
+}

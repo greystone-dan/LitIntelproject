@@ -1,0 +1,787 @@
+{
+ "case_id": 29592,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.010018800000000001
+ },
+ "verification": {
+  "paragraphs": 35,
+  "rows": 35,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 73,
+  "holders": {
+   "court": 42,
+   "earlier_decision_maker": 11,
+   "applicant": 11,
+   "prior_court_or_authority": 8,
+   "respondent": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 4,
+  "headings_before": 4
+ },
+ "headings": {
+  "8": "B. The Decision",
+  "10": "III. Issues and Standard of Review",
+  "23": "B. The misrepresentation is material",
+  "34": "V. Conclusion"
+ },
+ "split_from": {
+  "3": 2,
+  "8": 7,
+  "12": 11,
+  "23": 22
+ },
+ "blocks": {
+  "overview": "The case concerns the judicial review of a decision denying the Applicant, a Hong Kong citizen, a work permit and finding them inadmissible for misrepresentation under IRPA paragraph 40(1)(a). The Applicant challenges the Decision-Maker's findings on the innocent error exception and materiality of the misrepresentation. The Federal Court dismissed the application, finding the Decision-Maker's conclusions reasonable and within the acceptable range.",
+  "background_paras": "1-9",
+  "disposition_paras": "34",
+  "blocks": [
+   {
+    "issue": "Did the Decision-Maker unreasonably fail to consider the innocent error exception to misrepresentation?",
+    "paras": "10-22",
+    "court_conclusion": "Decision-Maker reasonably rejected Applicant's explanation and was not required to consider innocent error exception.",
+    "conclusion_paras": "18,22",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Decision-Maker failed to consider innocent error exception, making decision unreasonable.",
+      "paras": "10,14"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Did not accept Applicant's explanation; found misrepresentation deliberate and explanation unreasonable.",
+      "paras": "8,9,15-17,19,21"
+     },
+     {
+      "holder": "court",
+      "text": "Decision-Maker's reasoning is coherent and satisfactory; no requirement to consider exception if explanation rejected.",
+      "paras": "11,13,14,18,19,21,22"
+     }
+    ]
+   },
+   {
+    "issue": "Was the misrepresentation material under IRPA paragraph 40(1)(a)?",
+    "paras": "23-33",
+    "court_conclusion": "Decision-Maker reasonably concluded omission was material misrepresentation inducing error in eligibility and admissibility review.",
+    "conclusion_paras": "33",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Materiality finding unreasonable given police clearance certificate and that misrepresentation did not foreclose investigations.",
+      "paras": "24,31"
+     },
+     {
+      "holder": "respondent",
+      "text": "No temporal limit on criminal history question; 'ever' includes all convictions.",
+      "paras": "20"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Omission was material as it could induce error in eligibility and admissibility review.",
+      "paras": "1,9,23"
+     },
+     {
+      "holder": "court",
+      "text": "Materiality upheld; police certificate does not cure misrepresentation; duty of candour requires full disclosure.",
+      "paras": "25-32"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant was denied a work permit and found inadmissible for misrepresentation under IRPA paragraph 40(1)(a).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Decision-Maker concluded Applicant knowingly omitted previous criminal history to obtain work permit.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Omission was material as it could induce error in eligibility and admissibility review leading to incorrect permit issuance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant was denied a work permit for misrepresentation, with the Decision-Maker finding a knowing omission of criminal history was material.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant seeks judicial review arguing Decision-Maker unreasonably failed to consider innocent error exception and erred on materiality of misrepresentation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is dismissed; Applicant failed to show unreasonableness on either ground.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues unreasonableness on two grounds, but the court dismisses the judicial review application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant, a Hong Kong citizen, applied for work permit under International Mobility Program and answered 'no' to criminal history question.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant applied for a work permit and answered 'no' to criminal history question.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police clearance from Hong Kong revealed Applicant had four prior convictions from 1996 and 2005 for impaired driving and speeding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the police clearance showed four prior convictions for the Applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Reviewing Officer sent procedural fairness letter expressing concern about Applicant's truthful answer regarding criminal convictions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant was warned misrepresentation could lead to inadmissibility for five years and given opportunity to respond.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Reviewing Officer sent a fairness letter about misrepresentation and gave Applicant chance to respond.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant submitted lawyer's letter and personal email explaining mistaken belief that some convictions were spent under Hong Kong law.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Lawyer argued mistake was inadvertent and convictions should not negatively impact application due to lack of dishonesty or high criminality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant submitted lawyer's letter and personal response explaining inadvertent mistake about spent convictions.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant stated no intention to misrepresent and answered 'no' based on mistaken belief convictions were spent.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant acknowledged should have answered 'yes' but misunderstood Hong Kong law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant personally responded denying intent to misrepresent, citing misunderstanding of law.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Reviewing Officer did not accept Applicant's explanation and gave less weight to Hong Kong ordinance as irrelevant to Canadian visa.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found convictions important for criminality assessment regardless of punishment severity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "Application forwarded to designated officer for determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Reviewing Officer rejected Applicant's explanation, found convictions material, and forwarded application for determination.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Decision-Maker found Applicant inadmissible under IRPA 40(1)(a) for misrepresenting criminal history.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant failed to provide reasonable explanation for omission and should have declared convictions even if spent.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Omission was intentional and material as it could induce error in eligibility and admissibility review.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Applicant found inadmissible for five years due to misrepresentation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Decision-Maker found the Applicant intentionally omitted convictions, making him inadmissible for five years.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant alleges Decision-Maker erred by not considering innocent error exception and by finding misrepresentation material.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant alleges two errors by the Decision-Maker regarding innocent error and materiality.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review is reasonableness per Vavilov, requiring coherent, justified, transparent, and intelligible decisions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the reasonableness standard of review per Vavilov applies to both issues.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To find inadmissibility under IRPA 40(1)(a), misrepresentation and materiality inducing error must be established.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Malik, Gill, Kazzi for criteria of misrepresentation and materiality under IRPA 40(1)(a).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal criteria for inadmissibility under IRPA 40(1)(a) citing prior cases.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Jurisprudence recognizes narrow innocent error exception for honest and reasonable belief of no withholding material info.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Alalami, Gallardo, Ram, Kataria for innocent error exception.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the innocent error exception recognized in jurisprudence with supporting cases.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Decision-Maker failed to consider innocent error exception, making decision unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Jurisprudence holds officers need not consider exception if explanation for omission is rejected.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Alalami, Malik, Gallardo, Pal, Ram for this principle.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Southcott in Alalami states exception applies only if error is found innocent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues failure to consider innocent error exception, but court cites jurisprudence that exception need not be considered if explanation rejected.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker did not accept Applicant's explanation for misrepresentation as per GCMS notes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Decision-Maker did not accept the Applicant's explanation for misrepresentation.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker reasoned Applicant was aware of convictions and should have declared them despite being spent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker found it unreasonable that Applicant would not truthfully answer criminal history question.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Decision-Maker found the Applicant aware of convictions and unreasonable in not declaring them.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Decision-Maker concluded misrepresentation was deliberate on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Decision-Maker concluded the misrepresentation was deliberate.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court cannot conclude Decision is unreasonable and finds it within acceptable range per Vavilov.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Decision is reasonable and defensible under Vavilov.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker reasonably rejected Applicant's explanation based on question wording about criminal history.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Decision-Maker reasonably rejected the Applicant's explanation based on the question's wording.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Barnes in Bundhel held criminal history question allows no ambiguity and includes arrests and charges.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent points out no temporal limit on question due to word 'ever'.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Bundhel and Respondent's argument that the criminal history question is unambiguous and has no time limit.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker\u2019s GCMS notes reflect the perspective that the applicant should have declared convictions despite them being 'spent'",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Administrative decision-makers should not be held to formalistic constraints per Vavilov",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker\u2019s reasoning 'adds up' and is satisfactory in this case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Decision-Maker\u2019s notes reflect the view that convictions should be declared, applying Vavilov, and finds the reasoning satisfactory.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision is reasonable on the innocent error exception issue",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker did not accept Applicant\u2019s explanation for misrepresentation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker was not required to conduct innocent error exception analysis",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds the Decision-Maker reasonably rejected the Applicant\u2019s explanation and thus did not need to analyze innocent error exception.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Misrepresentation is material if it induces or could induce an error in Act administration (Malik, Gill, Kazzi)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant\u2019s failure to disclose criminal history was material misrepresentation as it could induce error in eligibility and admissibility review",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states materiality means inducing error per authorities and the Decision-Maker found Applicant\u2019s omission material.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Decision-Maker\u2019s materiality finding was unreasonable given police clearance certificate was provided",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Misrepresentation did not foreclose investigations since correct info was disclosed via police certificate",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court rejects Applicant\u2019s arguments for reasons explained later",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues materiality was unreasonable due to police certificate disclosure; the court rejects these arguments.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant\u2019s interpretation would mean misrepresentation about criminality is always cured by police certificate",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Such interpretation conflicts with section 40 purpose and established jurisprudence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant\u2019s interpretation conflicts with section 40\u2019s purpose and jurisprudence as it would always cure misrepresentation.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 40 aims to maintain immigration integrity by deterring misrepresentation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants bear onus to ensure application completeness and accuracy (Singh, Goburdhun, Kazzi, Gill)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 40\u2019s broad purpose is deterrence and applicants must ensure application accuracy per authorities.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants have duty of candour to provide complete, honest, truthful info under IRPA subsection 16(1) (Singh, Goburdhun, Malik)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Little in Singh: candour is overriding IRPA principle aiding interpretation including section 40",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains applicants\u2019 duty of candour under IRPA and cites Singh for candour as overriding principle.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Accepting Applicant\u2019s interpretation would absolve applicants of duty of candour under IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants could escape inadmissibility by relying on police certificate revealing truth",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant\u2019s view would let applicants avoid duty of candour and inadmissibility by relying on police certificates.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Immigration officials\u2019 ability to uncover truth before decision does not render misrepresentation immaterial (Vahora, Hasham, Goburdhun, Alalami)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Strickland\u2019s conclusion in Goburdhun supports materiality despite later discovery of truth",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states prior cases hold that ability to uncover truth does not negate materiality of misrepresentation.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Police clearance certificate requirement does not undermine materiality of misrepresentation about criminal history",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds police certificates do not undermine materiality of misrepresentation under IRPA.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Decision-Maker erred by compartmentalizing application and not considering totality of evidence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant facilitated submission and complied by providing police certificate showing criminal history",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court cannot conclude this case is like Lamsen or Berlin where correct info was disclosed elsewhere in application",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues Decision-Maker erred by ignoring total evidence; court finds case unlike those where correct info was disclosed elsewhere.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Case is similar to Alalami where materiality unaffected by truth discovered independently",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Truth discovered via police certificate from third party Hong Kong Police Force",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant facilitating submission does not affect materiality finding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Providing police certificate differs from disclosing correct info in application form",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds this case like Alalami; truth from third party police certificate does not affect materiality.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision-Maker reasonably concluded Applicant\u2019s omission was material misrepresentation under IRPA paragraph 40(1)(a)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Decision-Maker reasonably concluded the omission was a material misrepresentation.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Decision-Maker made no reviewable errors finding Applicant inadmissible under IRPA paragraph 40(1)(a)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is dismissed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application, finds no errors, and notes no certification question arises.",
+   "role": "disposition"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants who risk misrepresentation hoping to avoid penalty on materiality grounds do so at their peril",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Immigration authorities\u2019 ability to catch misrepresentation does not undermine materiality",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds applicants risk penalty if misrepresenting and that authorities\u2019 ability to detect does not undermine materiality.",
+   "role": "analysis"
+  }
+ ]
+}

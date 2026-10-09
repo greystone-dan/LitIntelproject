@@ -1,0 +1,823 @@
+{
+ "case_id": 33953,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0107916
+ },
+ "verification": {
+  "paragraphs": 39,
+  "rows": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 76,
+  "holders": {
+   "respondent": 14,
+   "earlier_decision_maker": 2,
+   "court": 42,
+   "prior_court_or_authority": 10,
+   "applicant": 8
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 6,
+  "headings_before": 2
+ },
+ "headings": {
+  "20": "III. Assessable Services",
+  "30": "C. Item 26 \u2013 Assessment of costs"
+ },
+ "split_from": {
+  "11": 10,
+  "13": 12,
+  "20": 19,
+  "24": 23,
+  "30": 29,
+  "35": 34
+ },
+ "blocks": {
+  "overview": "This case concerns a cost assessment dispute between Penner (applicant) and Canada (respondent) following a prior court decision. The applicant claims costs have been extinguished by payment, which the respondent disputes. The Federal Court allowed 8 units of costs with adjustments, rejecting the applicant's extinguishment argument.",
+  "background_paras": "2-7",
+  "disposition_paras": "40",
+  "blocks": [
+   {
+    "issue": "What is the impact of the absence of opposition on the cost assessment and the role of the assessment officer?",
+    "paras": "10-19",
+    "court_conclusion": "Assessment officer cannot certify unlawful items; assessment proceeds as parties have not settled; Defendant entitled to assessment.",
+    "conclusion_paras": "19",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Does not dispute cost amount but asserts costs have been extinguished.",
+      "paras": "11,14,15"
+     },
+     {
+      "holder": "respondent",
+      "text": "Argues no payment received; letter and bill of exchange do not amount to payment.",
+      "paras": "13,18,20"
+     },
+     {
+      "holder": "court",
+      "text": "Assessment officer ensures compliance with judgment and rules; role does not include receiving payment; assessment proceeds.",
+      "paras": "12,16,17,18,19"
+     }
+    ]
+   },
+   {
+    "issue": "Are the units claimed in the Bill of Costs allowable and compliant with the Judgment and Rules?",
+    "paras": "20-40",
+    "court_conclusion": "8 units allowed with adjustments; 2 units reallocated; additional unit under Item 27 denied to avoid double indemnification.",
+    "conclusion_paras": "22,28,29,33,35,36,38,39,40",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Claims 8 units per Column III, low end; supports attendance and preparation costs; requests additional unit under Item 27.",
+      "paras": "20,21,23,24,35,37"
+     },
+     {
+      "holder": "court",
+      "text": "Allows units with adjustments to comply with Judgment; reallocates units; denies additional unit under Item 27; prevents double indemnification.",
+      "paras": "22,23,25,26,27,28,29,31,32,33,34,36,38,39,40"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Defendant served and filed Bill of Costs, affidavit, and written submissions on December 3, 2024, initiating cost assessment",
+     "answers": 0
+    }
+   ],
+   "summary": "The Defendant filed a Bill of Costs, affidavit, and submissions on December 3, 2024, starting the cost assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Documents returned to Plaintiff by Registry on January 7, 2025, as payment into Court of costs claimed by Defendant without Court ruling or statutory provision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Issued first Direction on January 8, 2025, about conduct and filing of documents for cost assessment",
+     "answers": 0
+    }
+   ],
+   "summary": "Registry returned documents to Plaintiff as payment on January 7, 2025; court issued Direction on January 8, 2025, about filing conduct.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "procedure",
+     "text": "Court Direction (Battista J.) on January 10, 2025, confirmed cost assessment proceeds under section 406 of Federal Courts Rules",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Further Direction issued January 14, 2025, restating timelines for filing costs materials",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Defendant reasserted request for cost assessment on January 14, 2025",
+     "answers": 0
+    }
+   ],
+   "summary": "Court confirmed cost assessment under Rules on January 10, issued further Direction on January 14, Defendant reasserted request same day.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Plaintiff submitted unserved materials dated January 25, 2025, to Registry on February 6, 2025",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Direction on February 12, 2025, accepted Plaintiff's materials except five pages with unclear public status financial info",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Five pages sent to Defendant as attachment; Plaintiff advised to resubmit suitable for public viewing",
+     "answers": 0
+    }
+   ],
+   "summary": "Plaintiff submitted unserved materials on February 6, 2025; court accepted them except five financial pages, sent to Defendant, advised Plaintiff to resubmit.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Direction of February 12 extended timelines due to Plaintiff's non-adherence to filing sequence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Direction clarified if Plaintiff consents to payment, it must be paid directly to Defendant, not Registry or Court",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Assessment of costs would proceed unless parties settled and request discontinued",
+     "answers": 0
+    }
+   ],
+   "summary": "Court extended timelines on February 12, clarified payment must go directly to Defendant if consented, and assessment proceeds unless settled.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Defendant did not file additional materials after February 12 Direction",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Plaintiff filed supplemental materials on March 31, 2025, indicating documents considered as payment delivered to Defendant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Supplemental materials unserved; attached to July 8, 2025 Direction allocating time for Defendant's reply",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant filed no new materials after February 12; Plaintiff filed supplemental materials March 31; court attached them to July 8 Direction for Defendant's reply.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Defendant served and filed reply on July 24, 2025, confirming assessment still required and no effective payment made",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant replied on July 24, 2025, confirming assessment needed and no effective payment made.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Plaintiff's short letter with questions placed in Court record on July 16, 2025, not submitted per timelines or served on Defendant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Letter will not be considered as it lacks submissions or evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering letter would not change assessment outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "Plaintiff's July 16 letter with questions not timely submitted or served; court will not consider it and says it would not affect outcome.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Preliminary issues: impact of absence of opposition on assessment and role of assessment officer",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies preliminary issues: absence of opposition impact and assessment officer's role.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Plaintiff does not dispute cost amount or content but asserts costs have been extinguished",
+     "answers": 0
+    }
+   ],
+   "summary": "Plaintiff does not dispute cost amount but claims costs have been extinguished.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Without substantive opposition, assessment officer cannot certify unlawful items outside judgment and Tariff (Dahl v Canada)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Assessment officer not bound by consent to costs for items not complying with legal framework",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Assessment officer will ensure claimed services comply with Judgment, procedural steps, Rules, and jurisprudence",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states assessment officer cannot certify unlawful items and must ensure claimed services comply with law despite no opposition.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant argues it did not receive payment; letter and bill of exchange do not amount to payment",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Defendant notes bill of exchange similar to one in Plaintiff's struck Statement of Claim was sent",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant argues no payment received; letter and bill of exchange insufficient; bill similar to one in struck claim was sent.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Plaintiff disagrees with Defendant's position that costs have not been extinguished",
+     "answers": 0
+    }
+   ],
+   "summary": "Plaintiff disagrees that costs have not been extinguished.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Plaintiff's documents refer to bill of exchange tendered as payment of $1,440 costs claimed",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Plaintiff's documents mention remittance sent to set off and discharge amount stated on Defendant's Bill of Costs",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Plaintiff alleges payment delivered by sending bill on March 24, 2025, and refusal to receive payment under protest loses right of recourse",
+     "answers": 0
+    }
+   ],
+   "summary": "Plaintiff's documents claim bill of exchange and remittance sent as payment and allege refusal to accept payment loses recourse rights.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Assessment of costs purpose is not to determine validity of payment method or extinguishment of costs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Assessment officer role does not include receiving payment unless Court instructs, which is not the case",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states assessment officer does not determine payment validity or receive payment unless Court instructs, which did not occur.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Assessment officers are Registry officers appointed by Court; Court consists of judges under Federal Courts Act",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Assessment officer's jurisdiction is to establish quantum of costs awarded by Court (Rule 405; Pelletier v Canada)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains assessment officers are Registry officers with jurisdiction to establish cost quantum awarded by Court.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant contends Plaintiff's actions during assessment were improper",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court did not consider Defendant's argument about validity of Plaintiff's documents as outside assessment officer's jurisdiction",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant alleges Plaintiff acted improperly; court did not consider this as outside assessment officer's jurisdiction.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties have not settled; request for assessment maintained; Defendant entitled to assessment to establish costs payable by Plaintiff",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no settlement; Defendant entitled to cost assessment to establish amount payable by Plaintiff.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Defendant claims 8 units for assessable services totaling $1,440; no disbursements claimed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Plaintiff did not substantially oppose Bill of Costs content",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant claims 8 units totaling $1,440; Plaintiff did not substantially oppose the Bill of Costs.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant submits Bill of Costs prepared per Column III of Rule 407, intending low end of range, though units differ for some items",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant submits Bill of Costs prepared per Rule 407 Column III, intending low end, though units differ for some items.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "8 units claimed in the Bill of Costs will be allowed with some adjustments to comply with the Judgment",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows 8 units claimed in the Bill of Costs with some adjustments to comply with the Judgment.",
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The single unit under Item 25 for 'Services after judgment not otherwise specified' is allowed as submitted",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Item 25 is routinely permitted to cover counsel\u2019s review of the final decision concluding the file (Halford v Seed Hawk Inc)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The single unit claimed under Item 6 for Defendant\u2019s attendance at the hearing to strike is allowed as submitted",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant\u2019s submissions and evidence support the claim for attendance at the hearing (Defendant\u2019s Written Submissions, paras 1 and 3; Affidavit of Jessica Vallatti, para 2)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the single units claimed under Items 25 and 6 are allowed as submitted, supported by Defendant\u2019s submissions and Halford precedent.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "5 units are claimed under Item 5 for preparing and filing the Motion to Strike the Statement of Claim",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant\u2019s costs materials state intent to formulate claims based on the low end of Column III",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes 5 units claimed under Item 5, but Defendant intended claims based on the low end of Column III.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claim under Item 26 is 1 unit below the minimum under Column III warranted by the Judgment",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Assessment officer cannot go beyond or contradict the judge\u2019s order (Pelletier at para 7)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Assessment officer cannot depart from Column III or change minimum allowable amount (Interactive Sports Technologies Inc v Canada)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Rule 3 will be applied to resolve the discrepancy regarding Item 26",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Item 26 claim below minimum; assessment officer cannot contradict judge\u2019s order; Rule 3 will resolve the discrepancy.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Rule 3 requires Rules be interpreted to secure just, expeditious, and least expensive outcomes",
+     "answers": 0
+    }
+   ],
+   "summary": "Rule 3 requires interpreting Rules to secure just, expeditious, and least expensive outcomes.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Assessment Officer in Mitchell v Canada emphasized positive application of provisions to achieve equitable results on assessment",
+     "answers": 0
+    }
+   ],
+   "summary": "The Assessment Officer in Mitchell emphasized positive application of provisions for equitable assessment results.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "2 units claimed under Item 5 will be subtracted and reallocated to Item 26 to comply with Judgment and secure just outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reallocates 2 units from Item 5 to Item 26 to comply with Judgment and ensure just outcome.",
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "After subtracting 2 units, 3 units are allowed under Item 5",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows 3 units under Item 5 after subtracting 2 units.",
+   "role": "conclusion"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Defendant claims 1 unit under Item 26 for work on assessment of costs, below minimum under Column III",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "An error appears to have been made in preparing Bill of Costs for Item 26",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Defendant claims 1 unit under Item 26, below minimum, likely due to error in Bill of Costs preparation.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Rule 408(3) allows assessment officer to assess and allow or refuse costs of assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Defendant prepared comprehensive costs materials and increased Directions required effort",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Units should be allowed for work performed on this assessment, but single unit claimed does not comply with Judgment",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds units should be allowed for assessment work, but single unit claimed does not comply with Judgment.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Carlile decision states taxing at zero dollars is improper alternative to full amount",
+     "answers": 0
+    }
+   ],
+   "summary": "Carlile decision states taxing at zero dollars is improper alternative to full amount.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Correcting units claimed for Item 26 is appropriate to comply with Judgment, adding 2 units to claimed 1 unit for total 3 units",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "3 units allowed fall within lower end of Column III and align with Defendant\u2019s intended claim and Rule 400(3) factors",
+     "answers": 0
+    }
+   ],
+   "summary": "The court corrects Item 26 units to 3, within Column III and aligned with Defendant\u2019s intent and Rule 400(3) factors.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Court concluded Plaintiff may be engaging in vexatious and abusive conduct (Defendant\u2019s Reply, p 1)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considered result of proceeding and amount of work by Defendant in allowing 3 units under Item 26 per Rule 400(3)(a) and (g)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considered Plaintiff\u2019s vexatious conduct and Defendant\u2019s work amount in allowing 3 units under Item 26.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant requests additional unit under Item 27 due to Plaintiff\u2019s improper payment delays and waste of court time",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This additional unit under Item 27 will not be allowed",
+     "answers": 0
+    }
+   ],
+   "summary": "The Defendant requests an additional unit under Item 27 for Plaintiff\u2019s improper conduct; the court denies this request.",
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claim under Item 27 must be included in Bill of Costs or revised Bill per Tariff B and Rule 406",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No unit would be allowed under Item 27 based on submissions even if claim included",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rules Item 27 claims must be in Bill of Costs; no unit would be allowed even if included.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendant says Item 27 indemnifies counsel for extraordinary items not covered elsewhere in Tariff",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Item 27 compensates for assessable services by counsel, not work by assessment officer or judicial resources",
+     "answers": 0
+    }
+   ],
+   "summary": "Defendant says Item 27 covers extraordinary items; court rules it compensates counsel\u2019s assessable services, not assessment officer\u2019s work.",
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Compensation for work on assessment should be claimed under Item 26, not Item 27",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes work on assessment should be claimed under Item 26, not Item 27.",
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Item 27 applies only for services not addressed by Items 1 to 26 (Halford at para 131)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Defendant already compensated with 3 units under Item 26; allowing additional unit under Item 27 would be double indemnification",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Double indemnification is not permitted",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds Item 27 applies only to services not covered by Items 1-26; Defendant already compensated under Item 26; double indemnification disallowed.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "8 units are allowed for assessable services, totaling $1,440",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows 8 units for assessable services totaling $1,440.",
+   "role": "conclusion"
+  }
+ ]
+}

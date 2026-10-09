@@ -1,0 +1,400 @@
+{
+ "case_id": 39984,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.00506
+ },
+ "verification": {
+  "paragraphs": 14,
+  "rows": 14,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 37,
+  "holders": {
+   "applicant": 7,
+   "court": 29,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 2
+ },
+ "headings": {
+  "3": "DETERMINATION",
+  "14": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a Chinese citizen claiming refugee protection in Canada due to persecution for practicing Falun Gong. The claimant alleges persecution and smuggling out of China, but the Refugee Protection Division found him not credible and rejected his claim. The tribunal concluded he was neither a Convention refugee nor a person in need of protection.",
+  "background_paras": "1-2, 10",
+  "disposition_paras": "14",
+  "blocks": [
+   {
+    "issue": "Did the claimant credibly establish he was a Falun Gong practitioner persecuted in China?",
+    "paras": "1-2, 3-5, 9, 10-13",
+    "court_conclusion": "Claimant is not and never was a Falun Gong practitioner and is not credible on this point.",
+    "conclusion_paras": "9, 13",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant alleges he started Falun Gong in 2011 and was persecuted in China.",
+      "paras": "1-2, 10"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant is not credible and on balance was never a Falun Gong practitioner or persecuted.",
+      "paras": "3-5, 9, 11-13"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimant credibly establish he was smuggled out of China to Canada?",
+    "paras": "2, 6-8",
+    "court_conclusion": "Claimant's story of smuggling is not credible and he likely left China using a genuine passport.",
+    "conclusion_paras": "8",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant alleges he was smuggled out of China after persecution.",
+      "paras": "2"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant's account is inconsistent and not credible; he left China using a genuine passport without being smuggled.",
+      "paras": "6-8"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant is a Chinese citizen fearing persecution for practicing Falun Gong under sections 96 and 97 of IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the claimant is a Chinese citizen fearing persecution for practicing Falun Gong, as alleged by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges he started Falun Gong in 2011 after a personal event and was raided by PSB in 2012",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges he hid at a relative's home and PSB searched his home",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges he was smuggled out of China and came to Canada in 2012 to claim refugee protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 summarizes the claimant's allegations about his Falun Gong practice, PSB raids, hiding, and escape to Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant is neither a Convention refugee nor a person in need of protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court acknowledges difficulties claimant faced including cultural factors and stress in hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court took these difficulties into account in making negative credibility findings",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 states the court finds claimant not a refugee or protected person, noting difficulties but making negative credibility findings.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's oral testimony and documents establish his identity as a Chinese national",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 finds claimant's identity as a Chinese national established by testimony and documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, claimant was not a Falun Gong practitioner in China",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 finds claimant was not a Falun Gong practitioner in China on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant used genuine passport to leave China and hid successfully for 2.5 months",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "PSB did not leave summons at claimant's home despite multiple visits",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter from school dismissal has no weight due to lack of security features and claimant's non-practitioner status",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter from claimant's mother is self-serving and given no weight",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 finds claimant used genuine passport, PSB did not leave summons, and dismisses letters as unreliable or self-serving.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court considered Chairperson's Jurisprudential Guide TB6-11632 and opposing case law Huang v. MCI",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Huang v. MCI outlines arguments about bribery and corruption allowing exit from China undetected",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD in TB6-11632 addressed opposing case law and outlined exit controls in China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's description of flight from China is inconsistent with national documentation evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant was vague about how he left China despite Golden Shield system",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 states court considered jurisprudence and case law, finds claimant's flight description inconsistent and vague.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Arguments about bribery and corruption do not address court's concerns about claimant's credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court adopts RAD reasoning that smuggling is plausible but not probable here",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Given claimant's lack of credibility, court finds unlikely he was smuggled out",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, claimant did not leave China as described using genuine passport",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant is not sought by Chinese authorities for Falun Gong practice",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 finds bribery arguments insufficient, adopts RAD reasoning, and finds claimant not credible or sought by authorities.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, claimant was never a Falun Gong practitioner nor wanted by Chinese authorities",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 concludes claimant was never a Falun Gong practitioner nor wanted by authorities on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified he started Falun Gong in China in 2011 and practiced 3-4 times weekly",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant came to Canada in 2012 and practiced Falun Gong for three months only",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 states claimant's testimony about Falun Gong practice in China and Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant incorrectly answered questions about Zhuan Falun and Falun Gong exercises",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant unable to name or demonstrate exercises or recite verses",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant gave incorrect explanation of 'truth' in Falun Gong context",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 finds claimant lacks knowledge about Falun Gong exercises and principles, giving incorrect answers.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal Court cautions against determining religious identity solely on knowledge",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Falun Gong requires knowledge as an essential component of proper cultivation",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 states Federal Court cautions on religious knowledge but Falun Gong requires knowledge for proper practice.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant knows very little about Falun Gong despite claiming to practice regularly",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant says he stopped practicing years ago and feared Chinese spies in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court rejects claimant's explanations about not practicing in Canada as not credible or plausible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds claimant is not and never was a Falun Gong practitioner in China or Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 finds claimant's lack of knowledge and explanations not credible, concluding he never practiced Falun Gong.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is neither a Convention refugee nor a person in need of protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Refugee Protection Division rejects claimant's claim",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 concludes claimant is not a refugee or protected person and rejects his claim.",
+   "role": "disposition"
+  }
+ ]
+}

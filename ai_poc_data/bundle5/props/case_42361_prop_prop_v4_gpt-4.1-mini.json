@@ -1,0 +1,1502 @@
+{
+ "case_id": 42361,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.022191600000000002
+ },
+ "verification": {
+  "paragraphs": 67,
+  "rows": 67,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 150,
+  "holders": {
+   "court": 111,
+   "earlier_decision_maker": 17,
+   "applicant": 1,
+   "prior_court_or_authority": 20,
+   "respondent": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 7,
+  "headings_before": 4
+ },
+ "headings": {
+  "4": "I. The Statement of Claim",
+  "37": "V. Analysis",
+  "65": "D. Did the Federal Court err in finding certain other claims to be non-justiciable?",
+  "70": "VI. Proposed Disposition"
+ },
+ "split_from": {
+  "4": 3,
+  "37": 36,
+  "42": 41,
+  "54": 53,
+  "65": 64,
+  "68": 67,
+  "70": 69
+ },
+ "blocks": {
+  "overview": "The case concerns an appeal by plaintiffs challenging COVID-19 vaccination policies and travel restrictions imposed by the Canadian government. The plaintiffs include RCMP members and federal public service employees, and the respondent is Canada. The Federal Court's judgment striking claims under section 236 of FPSLRA was partially set aside, granting all plaintiffs leave to amend their Statement of Claim, with no costs awarded.",
+  "background_paras": "1-7, 9-10, 20-37",
+  "disposition_paras": "69-70",
+  "blocks": [
+   {
+    "issue": "Did the Federal Court err in applying section 236 of FPSLRA to bar claims by RCMP-employed plaintiffs?",
+    "paras": "2, 12, 41-45, 60-64",
+    "court_conclusion": "Federal Court erred in applying section 236 bar to RCMP plaintiffs; leave to amend granted for TB Policy claims.",
+    "conclusion_paras": "42, 44-45, 53-54, 60-64",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Section 236 barred claims of RCMP members and federal employees listed in Schedule A without leave to amend.",
+      "paras": "2, 12"
+     },
+     {
+      "holder": "court",
+      "text": "Section 236 bar applies only if grievance rights exist; unclear if RCMP plaintiffs had such rights; Federal Court erred in barring their claims.",
+      "paras": "41-45, 60-64"
+     },
+     {
+      "holder": "respondent",
+      "text": "Defendants argued Statement of Claim should be struck as grievance process was available for TB Policy claims.",
+      "paras": "64"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Federal Court err in striking claims related to the Interim Order and travel restrictions?",
+    "paras": "2, 6-7, 41, 50-53, 56, 66",
+    "court_conclusion": "Federal Court erred in striking Interim Order claims; leave to amend should have been granted.",
+    "conclusion_paras": "53, 56",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Claims on Interim Order struck for failure to plead material facts and non-justiciability.",
+      "paras": "2, 13-16"
+     },
+     {
+      "holder": "court",
+      "text": "Interim Order claims not subject to grievance; Federal Court erred in striking without leave to amend.",
+      "paras": "41, 50-53, 56, 66"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Federal Court err in striking the Statement of Claim for being improperly pleaded and lacking material facts?",
+    "paras": "11, 13, 41, 46-48, 68-69",
+    "court_conclusion": "No error in striking the Statement of Claim as improperly pleaded; leave to amend granted.",
+    "conclusion_paras": "68-69",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Statement of Claim was embarrassing, confusing, and lacked requisite material facts; struck with leave to amend for some plaintiffs.",
+      "paras": "11, 13"
+     },
+     {
+      "holder": "court",
+      "text": "Statement of Claim is prolix and improper; must be struck in whole but leave to amend granted.",
+      "paras": "41, 46-48, 68-69"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Federal Court err in striking claims related to the TB Policy for plaintiffs outside the RCMP?",
+    "paras": "2, 12-13, 54, 59",
+    "court_conclusion": "No error in striking TB Policy claims of non-RCMP plaintiffs under section 236 FPSLRA.",
+    "conclusion_paras": "54, 59",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Claims of non-RCMP plaintiffs struck without leave to amend under section 236 bar.",
+      "paras": "2, 12"
+     },
+     {
+      "holder": "court",
+      "text": "Federal Court did not err in striking TB Policy claims of non-RCMP plaintiffs due to lack of evidence on grievance process efficacy.",
+      "paras": "54, 59"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The appellants appeal from the Federal Court judgment in Adelberg v. Canada, 2023 FC 252.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants appeal from the Federal Court judgment in Adelberg v. Canada, 2023 FC 252, says the court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court struck claims of plaintiffs subject to section 236 of FPSLRA without leave to amend.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Plaintiffs struck without leave were RCMP members or employed in federal departments/agencies listed in Schedule A.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court struck claims of other plaintiffs but granted them leave to amend.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court awarded defendants costs of $5,000 payable forthwith and in any event of the cause.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court struck claims of plaintiffs subject to section 236 FPSLRA without leave to amend, granted leave to others, and awarded defendants costs, says the earlier decision maker.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court would grant the appeal in part and set aside the Federal Court judgment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court would amend the judgment to provide all plaintiffs leave to amend the Statement of Claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Because success is divided, no costs would be granted and Federal Court's costs award would be set aside.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would grant the appeal in part, set aside the Federal Court judgment, allow all plaintiffs leave to amend, and deny costs, says the court.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court reviews the nature of claims in the plaintiffs' Statement of Claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Statement of Claim advances two sorts of claims on behalf of all plaintiffs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reviews the Statement of Claim and finds it advances two types of claims for all plaintiffs.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "First claim: employer policies mandating COVID-19 vaccination violated plaintiffs' Charter rights or gave rise to other claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Policies include Treasury Board Policy on COVID-19 Vaccination for Core Public Administration including RCMP and similar policies by other federally-regulated employers.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Statement of Claim alleges respondents liable for other employers adopting similar policies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Bulk of Statement of Claim directed towards employment-related vaccination policies causing harm to plaintiffs who declined vaccination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first claim alleges employer vaccination policies violated Charter rights and caused harm to plaintiffs who declined vaccination.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second claim: limitations imposed by Interim Order Respecting Certain Requirements for Civil Aviation Due to COVID-19 violated Charter rights and gave rise to other claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Plaintiffs claim they were prevented from travelling by airplane due to the Interim Order because they chose not to be vaccinated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Plaintiffs also challenge comparable measures applicable to train and water travel for similar reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the second claim alleges travel restrictions due to the Interim Order violated Charter rights and affected all plaintiffs.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Travel impediment claims advanced on behalf of all plaintiffs, as shown in paragraphs 1(f), 12, 30, 67, and 69 of the Statement of Claim.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Plaintiffs claim the Interim Order No. 61 requiring vaccination and masking on planes, trains, and boats is unconstitutional and of no force and effect for multiple reasons including lack of jurisdiction and Charter violations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes travel claims are advanced for all plaintiffs; plaintiffs allege Interim Order No. 61 is unconstitutional and violates Charter rights for multiple reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "TB Policy issued by Treasury Board under sections 7 and 11.1 of Financial Administration Act, applied to core public administration employees including RCMP and others listed in Schedule A.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "TB Policy required most employees to be vaccinated or face administrative leave without pay.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Vaccine requirements were terms and conditions of employment for affected employees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the TB Policy was issued under FAA, applied to core public administration including RCMP, required vaccination, and set terms of employment.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence before Federal Court about nature of grievance rights possessed by plaintiffs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Grievance rights could only be discerned through review of relevant statutory, regulatory provisions and case law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no evidence was before Federal Court on plaintiffs' grievance rights, which must be discerned from statutes, regulations, and case law.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statement of claim is an embarrassing pleading containing unnecessary material and constructed to confuse defendants, making it prejudicial.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Striking and amending portions likely to cause more confusion about real issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the statement of claim embarrassing, confusing, prejudicial, and that amendments would likely cause more confusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Section 236 of FPSLRA barred claims of plaintiffs listed in Schedule A who were RCMP members or worked in federal departments/agencies.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "These plaintiffs could have filed grievances challenging the matters in the Statement of Claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No reason to relieve plaintiffs from application of section 236 bar.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Claims of these plaintiffs dismissed in entirety without leave to amend.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found section 236 FPSLRA barred claims of Schedule A plaintiffs, dismissed their claims without leave to amend, says the earlier decision maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "For other plaintiffs, section 236 FPSLRA does not apply.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court struck Statement of Claim for failure to plead requisite material facts and for non-justiciable allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "Federal Court granted these plaintiffs leave to amend their claims.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court adopted reasoning from BC Supreme Court in Action4Canada that the pleading was bad beyond argument.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found section 236 did not apply to other plaintiffs, struck their claims for pleading defects, granted leave to amend, and adopted Action4Canada reasoning, says the earlier decision maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court held identical reasoning applied to the Statement of Claim in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court held the same reasoning applied to the Statement of Claim here, says the earlier decision maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Numerous claims pleaded could not be advanced in civil action, including allegations of criminal behaviour and declarations about medical knowledge and crimes against humanity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found many claims pleaded could not be advanced in civil action, including criminal allegations and declarations about medical treatment, says the earlier decision maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Relief seeking to set aside Interim Order and TB Policy could only be obtained by judicial review, not by action.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court held relief to set aside Interim Order and TB Policy is only available by judicial review, not action, says the earlier decision maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interim Order is no longer in force, so claim to set it aside may be moot as held in Ben Naoum and Pickford cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Similar conclusion may apply to claim to set aside TB Policy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Interim Order is no longer in force, making claims to set it aside possibly moot, as held in prior cases, and similar may apply to TB Policy.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court granted plaintiffs not subject to section 236 leave to amend potentially justiciable claims.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court cautioned these plaintiffs as set out in paragraphs 55-57 of its Reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court granted leave to amend to plaintiffs not subject to section 236 and cautioned them, says the earlier decision maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Paragraph 7(1)(e) and sections 11 and 11.1 of FAA grant Treasury Board authority to set terms and conditions of employment for employees in public service including RCMP and others listed in Schedules I, IV, and V.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states FAA provisions grant Treasury Board authority to set employment terms for public service employees including RCMP and others listed in schedules.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Part 2 of FPSLRA sets grievance rights for certain federal public service employees; Part 2.1 sets different grievance rights for RCMP members.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Additional grievance and complaint rights for RCMP members under RCMP Act and its Regulations and Standing Orders.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states FPSLRA Parts 2 and 2.1 and RCMP Act provide grievance rights for federal employees and RCMP members.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Part 2 of FPSLRA defines 'employee' excluding certain categories including officers under RCMP Act subsection 2(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Part 2 of FPSLRA defines 'employee' excluding officers as defined in RCMP Act subsection 2(1).",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Public service is defined in subsection 2(1) of the FPSLRA with specific inclusions from the Financial Administration Act schedules.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that 'public service' is defined in subsection 2(1) of the FPSLRA with specific inclusions from the Financial Administration Act schedules.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The parties developed a list of departments and agencies where plaintiffs worked, appended as Schedule A to the Federal Court's Reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the parties created a list of departments and agencies where plaintiffs worked, appended as Schedule A to the Federal Court's Reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 236 of the FPSLRA bars employees from seeking redress by action if they have grievance rights for employment disputes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 236(1) replaces any right of action with grievance rights for employment disputes.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 236(2) applies regardless of whether the employee uses grievance rights or if grievance can be adjudicated.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 236(3) excepts employees of separate agencies not designated under subsection 209(3) for termination disputes unrelated to discipline or misconduct.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court explains section 236 of the FPSLRA bars employees from suing if grievance rights exist, with exceptions for some separate agency employees.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Grievance is defined in the FPSLRA, including group, individual, and policy grievances; only individual grievances are relevant here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Individual grievances are defined in subsection 206(1) as grievances under sections 208 or 238.24 of the FPSLRA.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states that only individual grievances, defined in subsection 206(1), are relevant to this case.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 208 applies generally to employees; section 238.4 applies to RCMP members defined as employees under the FPSLRA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes section 208 applies generally, while section 238.4 applies to RCMP members under the FPSLRA.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 208(1) entitles employees to present individual grievances if aggrieved by interpretation or application of employment terms or collective agreements.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 208(2) bars grievances if an administrative procedure exists under another Act, except the Canadian Human Rights Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 208(4) requires bargaining agent approval and representation for grievances on collective agreements or arbitral awards.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes section 208 of the FPSLRA, detailing employee grievance rights and limitations.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 238.02 states Part 2 provisions do not apply to RCMP members; Part 1 and 2 apply only as indicated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 238.02(2) lists specific inconsistent provisions including 208(1) and 209(1) and (2).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 238.02(3) clarifies Part 1 and 2 apply to RCMP members unless indicated otherwise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains section 238.02 excludes Part 2 provisions from applying to RCMP members except as indicated.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 238.24 limits RCMP members to individual grievances only on collective agreement or arbitral award interpretation or application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 238.24 limits RCMP members' grievance rights to collective agreement or arbitral award issues.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Only some grievances under the FPSLRA can be referred to adjudication before the FPSLREB.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes only some grievances can be referred to adjudication before the FPSLREB.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 209(1) allows non-RCMP employees to refer individual grievances to adjudication if related to collective agreements, disciplinary actions, demotion, termination, or deployment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes subsection 209(1) allowing non-RCMP employees to refer certain grievances to adjudication.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 238.25 limits RCMP members to refer individual grievances to adjudication only on collective agreement or arbitral award issues with bargaining agent approval.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Grievances related to Accessible Canada Act regulations require harm or loss to be referred to adjudication by RCMP members.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains section 238.25 limits RCMP members' adjudication rights and requires bargaining agent approval.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RCMP members also have grievance rights under the RCMP Act, Regulations, and Standing Orders.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes RCMP members have grievance rights under the RCMP Act and related regulations and orders.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 31 of the RCMP Act allows members to present grievances in writing at all levels if no other redress process exists.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 31(1.01) requires grievances on collective agreements to be presented under the FPSLRA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 31(1.1) bars grievances if administrative redress exists under another Act, except Canadian Human Rights Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 31(1.2) bars grievances on equal pay for work of equal value.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines section 31 of the RCMP Act detailing grievance rights and limitations for members.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Part 2 of the RCMP Regulations and Commissioner\u2019s Standing Orders prescribe grievance processes and complaint provisions for disciplined members.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states grievance processes for RCMP members are prescribed in regulations and standing orders, including complaint provisions.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Appellate standard of review: errors of law reviewed for correctness; errors of fact or mixed fact and law for palpable and overriding error.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Housen v. Nikolaisen sets appellate review standards for errors of law and fact.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mahjoub v. Canada and other cases confirm standards of review for Federal Court judgments.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states appellate review standards: errors of law for correctness; errors of fact or mixed fact and law for palpable and overriding error.",
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal Court's determinations of no cause of action are legal and reviewable for correctness.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Jensen v. Samsung Electronics confirms legal issues are reviewable for correctness.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court's interpretation of statutory provisions raises legal issues reviewable for correctness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Federal Court's no cause of action determinations and statutory interpretations are legal issues reviewable for correctness.",
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal Court's conclusions on adequacy of pleaded facts are reviewable for palpable and overriding error.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court's discretion to allow action to advance is reviewable for palpable and overriding error.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Federal Court's conclusions on pleaded facts and discretion are reviewable for palpable and overriding error.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A pleading may be struck for no reasonable cause of action only if plain and obvious.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Berenguer and Nevsun Resources set the plain and obvious test for striking pleadings.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Plain and obvious test applies to justiciability and Federal Court jurisdiction issues.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Evidence is admissible and may be required for jurisdictional issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the plain and obvious test for striking pleadings and its application to jurisdiction and justiciability.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the Federal Court err in finding RCMP-employed plaintiffs subject to section 236 bar of FPSLRA?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the Federal Court err in finding section 236 bar forecloses claims on Interim Order and travel restrictions?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the Federal Court err in striking TB Policy claims by plaintiffs from Schedule A organizations?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the Federal Court err in finding certain claims non-justiciable?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did the Federal Court err in striking Statement of Claim for being improper and lacking material facts?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists issues on whether the Federal Court erred on section 236 bar, claims striking, justiciability, and pleading adequacy.",
+   "role": "issue"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Federal Court erred in finding section 236 bar applies to plaintiffs who were RCMP members.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Federal Court erred in applying section 236 bar to RCMP member plaintiffs.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Subsection 236(1) of the FPSLRA bars employee actions if grievance rights exist for the dispute.",
+     "answers": 0
+    }
+   ],
+   "summary": "Subsection 236(1) of the FPSLRA bars employee actions if grievance rights exist for the dispute, as stated by prior authority.",
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Definition of grievance in subsection 206(1) FPSLRA includes grievances under sections 208 or 238.4.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Section 236 bar applies only to those who could seek redress via grievance under sections 208 or 238.4.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court explains that section 236 bar applies only to grievances under sections 208 or 238.4 of FPSLRA, per subsection 206(1).",
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 238.4 applies only to grievances under collective agreements for RCMP members defined as employees in FPSLRA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "It is impossible to ascertain if a collective agreement exists for RCMP members from materials before Federal Court and this Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "National Police Federation certified as bargaining agent for RCMP members in 2019 by FPSLREB.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Unclear if collective agreement achieved or if TB Policy challenge could be subject of grievance under such agreement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Not plain and obvious that RCMP plaintiffs had grievance rights under section 238.24 of FPSLRA regarding TB Policy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unclear if RCMP members had grievance rights under section 238.24 of FPSLRA about the TB Policy due to lack of collective agreement evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NOCC cannot be mended by striking portions; analogous to Statement of Claim in Homalco Indian Band case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the NOCC cannot be mended and is analogous to a Statement of Claim in Homalco Indian Band case.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "In Homalco, piecemeal striking and amending pleadings invites confusion and wastes resources.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Same applies here to NOCC; piecemeal amendments would cause confusion and waste resources.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court applies Homalco's principle that piecemeal amendments cause confusion and waste resources to the NOCC.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NOCC is prolix and not a proper pleading that can be answered by defendants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NOCC cannot be mended and must be struck in whole.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the NOCC prolix, unamendable, and orders it struck in whole.",
+   "role": "conclusion"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interim Order and related measures could not be subject of grievance under FPSLRA, RCMP Act, Regulations or Standing Orders.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Interim Order and related measures not subject to grievance under FPSLRA or RCMP statutes.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "FPSLRA grievance rights apply only to employment-related disputes under section 236.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interim Order and travel measures were general, not employment-imposed, so not grievable under FPSLRA.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds FPSLRA grievance rights apply only to employment disputes; Interim Order was general and not grievable.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interim Order and travel measures not subject to grievance under RCMP Act or related Regulations or Standing Orders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Interim Order applied to all Canadians, not a decision in RCMP administration under section 31 of RCMP Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Interim Order not grievable under RCMP Act as it applied generally and was not an RCMP administrative decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court erred in finding plaintiffs' claims on Interim Order could have been grieved or subject to section 236.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claims lack proper pleadings and material facts but should not have been struck without leave to amend.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Plaintiffs should have been granted leave to amend claims related to Interim Order and travel measures.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court erred by striking Interim Order claims without leave to amend and orders leave to amend granted.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court did not err in striking claims related to TB Policy for plaintiffs employed outside RCMP.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court erred in striking claims of RCMP members related to TB Policy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Federal Court rightly struck non-RCMP TB Policy claims but erred in striking RCMP members' TB Policy claims.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Plaintiffs employed outside federal public administration must allege sufficient facts for Crown liability in amended pleading.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states non-federal public administration plaintiffs must allege sufficient facts for Crown liability in amendments.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Plaintiffs not subject to section 236 have standing to challenge TB Policy and Interim Order as Charter infringements.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There is prospect plaintiffs could advance valid claims on COVID-related health measures violating Charter rights.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds plaintiffs not barred by section 236 may have standing and prospects to claim Charter violations by COVID measures.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Plaintiffs must plead causes of action intelligibly, confined to matters adjudicable by this Court, per Action4Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court requires plaintiffs to plead intelligibly and within the Court's jurisdiction, citing Action4Canada.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 236 FPSLRA is a complete bar to actions subject to grievance, except possibly if grievance process inadequate or case exceptional.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cases Ebadi, Bron, Robichaud support discretion to hear claims if grievance process inadequate or exceptional.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites case law that section 236 FPSLRA bars actions unless grievance process is inadequate or case exceptional.",
+   "role": "law"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Federal Court had no evidence on efficacy of grievance process.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court did not err in striking TB Policy claims of non-RCMP plaintiffs under section 236 FPSLRA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Plaintiffs had burden to file evidence on grievance process efficacy to seek court discretion, as in Greenwood.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In absence of such evidence, Federal Court properly struck claims without leave to amend for non-RCMP plaintiffs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court rightly struck non-RCMP TB Policy claims without evidence on grievance efficacy, per Greenwood.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "For RCMP plaintiffs, unclear if they had grievance rights under RCMP Act or Regulations and Standing Orders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Not plain and obvious they could have grieved under FPSLRA either.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unclear if RCMP plaintiffs had grievance rights under RCMP Act or FPSLRA.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "TB Policy adopted by Treasury Board, not RCMP.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not plain and obvious that TB Policy application is grievable under section 31 of RCMP Act as RCMP administrative decision.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Similar policies found not grievable under RCMP Act as not decisions in RCMP administration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds TB Policy by Treasury Board not plainly grievable under RCMP Act; similar policies were not grievable.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Pasic v. Canada, Federal Court upheld dismissal of grievance as pay fixed by Treasury Board, not RCMP.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Pasic where grievance was dismissed as pay decisions by Treasury Board are not RCMP grievances.",
+   "role": "law"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In grievance G-335, Commissioner found no jurisdiction over Treasury Board decisions affecting RCMP members.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In grievance G-255, Commissioner found no jurisdiction over Treasury Board Isolated Posts Directive affecting allowances.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In grievance G-484, Commissioner found no standing to grieve Treasury Board fixed Vacation Travel Assistance rates.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites RCMP grievance decisions G-335, G-255, G-484 finding no jurisdiction over Treasury Board decisions affecting RCMP members.",
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Defendants sought to strike Statement of Claim because grievance process was available",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Defendants must establish TB Policy could have been grieved by RCMP members to strike claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence was tendered that TB Policy could be grieved by RCMP members",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statutory scheme unclear if TB Policy could be grieved by RCMP members",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court erred in striking RCMP members' claims related to TB Policy without leave to amend",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RCMP member plaintiffs should be granted leave to amend claims related to TB Policy",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argued grievance process barred claim; court finds no evidence or clarity on grievance, so Federal Court erred striking RCMP claims without leave to amend and grants leave to amend.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No error in Federal Court finding criminal behaviour allegations and broad declarations not justiciable in civil action",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no error in Federal Court ruling that certain criminal and broad medical allegations are not justiciable in civil action.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Validity of TB Policy and Interim Order may now be moot",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Supreme Court in TeleZone allows invalidity argument in justiciable claim for relief on other basis",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court did not err holding order setting aside TB Policy and Interim Order only by judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds TB Policy validity may be moot; TeleZone allows invalidity argument; Federal Court correct that only judicial review can set aside policies.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No basis to set aside Federal Court rulings discussed above",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes no basis to overturn Federal Court rulings on justiciability and policy validity.",
+   "role": "conclusion"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No error in Federal Court finding Statement of Claim improperly pleaded and lacking necessary material facts",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mancuso requires plaintiff to plead constituent facts with sufficient detail to support relief sought",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court rightly noted plaintiffs must plead facts with particularity including impact and bases for claims",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statement of Claim as drafted lacks necessary material facts",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees Federal Court correctly found Statement of Claim improperly pleaded and lacking material facts per Mancuso standard.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No reviewable error in decision to strike Statement of Claim in entirety",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Leave to amend should be granted to all plaintiffs per these reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no error in striking Statement of Claim but grants leave to amend to all plaintiffs.",
+   "role": "conclusion"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed in part; plaintiffs granted leave to amend Statement of Claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court\u2019s costs award set aside; no costs awarded for this appeal",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows appeal in part, grants leave to amend, sets aside Federal Court costs award, and awards no costs for appeal.",
+   "role": "disposition"
+  }
+ ]
+}

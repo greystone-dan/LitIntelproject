@@ -1,0 +1,609 @@
+{
+ "case_id": 34269,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.007988799999999999
+ },
+ "verification": {
+  "paragraphs": 26,
+  "rows": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 59,
+  "holders": {
+   "court": 12,
+   "applicant": 24,
+   "earlier_decision_maker": 23
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 4,
+  "headings_before": 3
+ },
+ "headings": {
+  "8": "B. The RAD\u2019s Decision",
+  "13": "C. Issues",
+  "28": "IV. CONCLUSION"
+ },
+ "split_from": {
+  "8": 7,
+  "13": 12,
+  "15": 14,
+  "28": 27
+ },
+ "blocks": {
+  "overview": "The case concerns a judicial review application by an individual claiming refugee protection in Canada, challenging the Refugee Appeal Division's (RAD) decision. The applicant alleged risk of persecution in Sri Lanka due to his taxi business and associations, while the RAD found no credible risk. The Federal Court dismissed the application, upholding the RAD's reasonable decision.",
+  "background_paras": "4-6",
+  "disposition_paras": "2, 28",
+  "blocks": [
+   {
+    "issue": "Did the RAD err in assessing the applicant's sur place refugee claim and risk of persecution upon return to Sri Lanka?",
+    "paras": "13-27",
+    "court_conclusion": "The RAD reasonably assessed the sur place claim and risk, with no reviewable errors identified.",
+    "conclusion_paras": "22, 23, 24, 25, 26, 27, 28",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The RAD erred by unreasonable speculation, failing to properly assess sur place claim, and misapplying evidence on identity, LTTE links, and criminal record.",
+      "paras": "13, 15, 17-21, 23, 24, 25, 26, 27"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RAD found no credible evidence of LTTE links or risk, accepted taxi business facts but rejected terrorism-related claims, and found no risk upon return.",
+      "paras": "8, 9, 10, 11, 12, 16, 23, 25, 26"
+     },
+     {
+      "holder": "court",
+      "text": "The RAD's findings on credibility, identity, and evidence were reasonable; credibility findings relevant to risk; judicial review does not reassess evidence weight.",
+      "paras": "14, 22, 23, 24, 25, 26, 27, 28"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The RAD\u2019s decision was reasonable and the application for judicial review is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RAD\u2019s decision was reasonable and dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In December 2018, the Applicant was stopped by two men claiming to be CID officers and accused of illegal taxi business activities",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The men told him to go to police headquarters and bring vehicle ownership books to competitor Rino",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He tried to complain at local police but was advised to go to Colombo headquarters, which he avoided fearing a trap",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states he was stopped by CID officers in 2018, accused of illegal taxi activities, and avoided police headquarters fearing a trap.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Due to taxi business problems, the Applicant resumed marine career and trained in India from Jan 30 to Feb 6, 2019",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Upon return to Sri Lanka, he alleges being questioned by immigration and police for two hours",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant resumed marine career, trained in India, and alleges two-hour questioning by Sri Lankan authorities upon return.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "After return, two Tamil drivers were detained on terrorism charges and he was summoned about employing former LTTE members",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He did not appear out of fear of implication and stayed with a friend",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Two officers visited his home and told his wife he failed to appear",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He left Sri Lanka for Canada shortly after and claimed refugee protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states Tamil drivers were detained, he feared implication, avoided summons, and fled to Canada claiming refugee protection.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Applicant failed to prove existence of rival taxi owner or links to Sri Lankan army",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD concluded the Tamil employees\u2019 arrest never occurred",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD relied on documentary evidence showing low chance of encountering non-rehabilitated LTTE members and inconsistencies in Applicant\u2019s testimony",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the applicant failed to prove rival taxi owner or army links, concluded arrests never occurred, citing documentary evidence and testimony inconsistencies.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD upheld the RPD\u2019s findings that the Applicant was neither a Convention refugee nor a protected person due to credibility and evidence issues",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD upheld the RPD\u2019s findings denying refugee status due to credibility and insufficient evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD accepted the Applicant and his father operated a taxi company and hired Tamil drivers",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD agreed with RPD that no evidence showed authorities\u2019 interest in the Applicant for over four and a half years",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD accepted the taxi business facts but found no evidence of authorities\u2019 interest in the Applicant for over four years.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD noted the Applicant was involved in the taxi business only from June 2018 to February 2019",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Applicant\u2019s father started and resumed the business and hired the Tamil drivers who were arrested",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The father had no problems with authorities and closed the business after the Applicant left",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Any harm to family members from Rino and employees was extinguished by business closure",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found the Applicant\u2019s father ran the taxi business, hired arrested drivers, had no authority issues, and closed the business after Applicant left.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD agreed the Applicant would not face risk of harm returning as a failed refugee claimant",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant is Sinhalese, has no LTTE connections or criminal record, and had no prior authority problems before 2018",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD found Applicant did not credibly establish targeting by authorities due to hiring non-rehabilitated LTTE drivers",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found no risk of harm on return, noting Applicant\u2019s Sinhalese ethnicity, no LTTE links, no criminal record, and lack of credible targeting evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD independently assessed evidence and noted most returnees are not monitored, though some with LTTE links in North and East are",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD acknowledged possibility of monitoring if individual opposed government",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant is not wanted in Sri Lanka and unlikely to be a person of interest",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Claiming asylum abroad is not an offence and questioning at airport would not amount to persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found most returnees not monitored, Applicant not wanted, asylum claims not offences, and airport questioning not persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Did the RAD err by relying on unreasonable speculation about Sri Lankan authorities\u2019 actions?",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Did the RAD conduct an unreasonable assessment of the Applicant's sur place claim?",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant raised issues whether the RAD erred by speculation and unreasonably assessed the sur place claim.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Applicant abandoned the first issue and pursued only the RAD\u2019s sur place assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review for this issue is reasonableness, citing Vavilov and Mason",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant abandoned the first issue and the court states the reasonableness standard applies to the sur place assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued authorities in Sri Lanka would learn of his claim and that puts him at risk",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues Sri Lankan authorities would learn of his claim and that creates risk.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD disagreed, rejecting perception of Applicant as LTTE supporter based on hired drivers",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found most returnees not monitored, though some with suspected LTTE links in North and East are",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant is Sinhalese, had no prior authority problems, no LTTE connections, and frequently traveled as marine engineer",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD rejected LTTE supporter perception, found most returnees not monitored, and noted Applicant\u2019s Sinhalese ethnicity and travel history.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RAD failed to explain relevance of identity aspects to risk, making findings unjustified and non-transparent",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RAD failed to explain how identity aspects relate to risk, lacking justification and transparency.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD erred by referring to Sinhalese identity as evidence eliminating risk of mistreatment",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RAD erred by relying on Sinhalese identity to eliminate risk of mistreatment.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant states lack of criminal record is irrelevant to risk of return as failed asylum seeker",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues his lack of criminal record is irrelevant to risk upon return as failed asylum seeker.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant maintains RAD\u2019s finding of no LTTE connection was unreasonable because he hired Tamil drivers",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RAD unreasonably ignored his connection to LTTE through hiring Tamil drivers.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant cites Iyampillai to argue credibility concerns cannot determine risk of persecution as failed refugee claimant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD erred by finding no risk because it disbelieved targeting due to LTTE association",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues credibility cannot determine risk and RAD erred by disbelieving targeting due to LTTE association.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RAD reasonably assessed the sur place claim based on Applicant\u2019s return as a failed asylum seeker",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD reasonably assessed the sur place claim based on the Applicant\u2019s return to Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred in finding that his Sinhalese identity would prevent persecution",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD agreed the Sinhalese identity point but found it of little consequence due to lack of credible evidence on LTTE connection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I see nothing unreasonable in the RAD's conclusion on the LTTE connection",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argued the RPD erred on ethnicity; the RAD agreed but found it irrelevant due to credibility issues; the court finds this reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RAD wrongly considered the absence of a criminal record irrelevant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RAD's consideration of criminal record evidence was relevant though not determinative",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argued the RAD wrongly considered criminal record evidence; the court finds the RAD's consideration relevant though not determinative.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RAD accepted that the applicant hired Tamil drivers affiliated with LTTE and that he was wanted by authorities for this",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD accepted hiring Tamil drivers but did not accept LTTE affiliation or that the applicant was wanted by authorities for this",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It was not contradictory for the RAD to find no perceived LTTE connection upon return given its findings",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant misstates RAD's acceptance of LTTE affiliation; the RAD accepted hiring Tamil drivers but rejected LTTE links; the court finds no contradiction.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Credibility findings should be irrelevant to evaluating risk profile upon return",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Credibility findings impacting perceived or real profile are relevant to risk analysis",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD's credibility findings on LTTE assistance relate directly to perceived political profile and risk",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It was not an error for the RAD to rely on credibility findings to conclude no serious risk",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues credibility findings are irrelevant; the court states they are relevant; the RAD's findings on LTTE assistance relate to risk; reliance on these findings was not error.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RAD erred in the weight it placed on documentary evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Judicial review does not extend to assessing weight of evidence, citing Akinde and Vavilov",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant criticizes the RAD's weight on evidence; the court states judicial review excludes weighing evidence, citing precedent.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The applicant has not identified reviewable errors in the RAD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no reviewable errors, dismisses the judicial review application, and finds no question for certification.",
+   "role": "conclusion"
+  }
+ ]
+}

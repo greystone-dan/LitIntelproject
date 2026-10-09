@@ -1,0 +1,439 @@
+{
+ "case_id": 42638,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0053232
+ },
+ "verification": {
+  "paragraphs": 15,
+  "rows": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 43,
+  "holders": {
+   "court": 32,
+   "earlier_decision_maker": 4,
+   "respondent": 2,
+   "prior_court_or_authority": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 5
+ },
+ "headings": {
+  "3": "I. Test for granting leave to intervene",
+  "4": "II. UNHCR\u2019s motion",
+  "7": "III. CARL\u2019s motion",
+  "10": "IV. The JFCY/ICIWG motion",
+  "15": "V. Disposition"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns the interpretation and application of cessation of refugee protection under section 108 of IRPA. The applicant is the Minister of Citizenship and Immigration, appealing a Federal Court decision that set aside the Refugee Protection Division's cessation of the respondent's refugee status. The Federal Court's decision was challenged on procedural and substantive grounds regarding state protection and intervention motions.",
+  "background_paras": "1-5",
+  "disposition_paras": "15",
+  "blocks": [
+   {
+    "issue": "Should the motions for leave to intervene by UNHCR, CARL, and JFCY/ICIWG be granted?",
+    "paras": "2-15",
+    "court_conclusion": "Grant motions by UNHCR and CARL; dismiss motion by JFCY/ICIWG due to new issues and scope expansion.",
+    "conclusion_paras": "15",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Opposes CARL and JFCY/ICIWG motions; does not oppose UNHCR motion.",
+      "paras": "2"
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     },
+     {
+      "holder": "court",
+      "text": "UNHCR and CARL provide useful, distinct legal perspectives; JFCY/ICIWG raise new issues expanding appeal scope impermissibly.",
+      "paras": "2-15"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Canadian Council for Refugees and other cases require interveners to further legal issues, not raise new ones.",
+      "paras": "3"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This appeal concerns interpretation and application of cessation of refugee protection under section 108 of IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court set aside Refugee Protection Division decision ceasing respondent's refugee status as unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD failed to give respondent opportunity to rebut presumption of state protection from Colombian passport use.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "Federal Court certified three questions for appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Requisition for hearing filed; hearing date not assigned yet.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the appeal concerns IRPA section 108, Federal Court set aside RPD decision ceasing refugee status, certified questions, and hearing pending.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Three motions for leave to intervene filed: UNHCR, CARL, and JFCY/ICIWG.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Appellant Minister does not oppose UNHCR motion but opposes CARL and JFCY/ICIWG motions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Grant motions by UNHCR and CARL; dismiss motion by JFCY/ICIWG.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes three intervention motions, Minister opposes two, and grants UNHCR and CARL but dismisses JFCY/ICIWG.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Several articulations of test for leave to intervene under rule 109 exist.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Critical test element is whether intervener will provide useful submissions that further legal issues, not new issues.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Canadian Council for Refugees at para 6 states intervener must further legal issues, not raise new ones.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Sport Maska Inc. and Gordillo cases support this test element.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the key test for intervention is whether submissions aid legal issues without raising new issues, citing authorities.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR is a UN subsidiary organ safeguarding refugee rights and supervising international refugee covenants.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "1951 Refugee Convention incorporated into Canadian law by IRPA section 108(1)(a).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "IRPA must be construed to comply with human rights instruments Canada signed, per section 3(3)(f).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes UNHCR's role and the incorporation of the 1951 Refugee Convention into Canadian law under IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR issues interpretive guidelines on refugee protection provisions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court and parties referred to UNHCR guidance on Article 1C.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Supreme Court and other courts find UNHCR guidance significantly helpful.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR granted intervener status in Supreme Court of Canada and Ontario Court of Appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes UNHCR issues guidance relied on by courts and parties and has intervener status in high courts.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "UNHCR's experience and responsibilities position it well to assist the Court on appeal issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "UNHCR's proposed submissions reinforce its usefulness; no disqualifying factors found.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds UNHCR well-positioned to assist and sees no disqualifying factors for intervention.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CARL's members include legal professionals interested in refugee and migrant rights across Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CARL mandates research, litigation, and advocacy for refugees and migrants, including public interest litigation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CARL has been granted intervener status multiple times in Supreme Court, FCA, and Federal Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes CARL's membership, mandate, and history of intervener status in courts.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CARL's motion material outlines proposed submissions if granted leave to intervene.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister opposes CARL's motion due to overlap with respondent and UNHCR submissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes CARL's proposed submissions and Minister's opposition based on overlap with other parties.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court sympathizes with Minister's position on overlap but finds CARL likely to bring distinct, useful perspective.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court can limit duplication by controlling interveners' oral argument time if needed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court sympathizes with Minister but finds CARL's distinct perspective useful and can limit duplication if needed.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "JFCY promotes rights of children and youth, including those in immigration system, with casework and litigation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "JFCY has extensive experience as intervener in immigration-related youth rights cases.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes JFCY's role promoting youth rights and experience as intervener in immigration cases.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "ICIWG is a group of legal professionals assisting protected persons with immigration and cessation applications.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "ICIWG members provide poverty law services and advice on passports and cessation applications.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes ICIWG's composition and services assisting protected persons with immigration issues.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "JFCY and ICIWG have expertise on IRPA's impact on children and youth.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Their proposed submissions raise new issues that would impermissibly expand appeal scope.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds JFCY/ICIWG have expertise but their submissions raise new issues expanding appeal scope impermissibly.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "JFCY/ICIWG argue dependent children are unique and generally should not face cessation applications.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This issue was not raised in Federal Court, certified questions, or parties' memorandums.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds JFCY/ICIWG's argument on dependent children not facing cessation is new and not raised below or in appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "JFCY/ICIWG propose invoking Convention on Rights of the Child and Canadian Charter in submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These instruments were not raised in Federal Court or parties' memorandums.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "They propose evaluating unique procedural and substantive refugee claim considerations for dependent children.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Record before Federal Court and this Court not developed for such evaluation.",
+     "answers": 3
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Despite importance, appeal is not proper forum to address these issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds JFCY/ICIWG's proposed issues and instruments are new, record undeveloped, and appeal is improper forum.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Grant motions by UNHCR and CARL on terms in accompanying order.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss motion by JFCY and ICIWG.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants UNHCR and CARL motions and dismisses JFCY/ICIWG motion as ordered.",
+   "role": "disposition"
+  }
+ ]
+}

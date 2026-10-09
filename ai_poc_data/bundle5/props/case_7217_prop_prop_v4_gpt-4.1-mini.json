@@ -1,0 +1,688 @@
+{
+ "case_id": 7217,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.009237200000000001
+ },
+ "verification": {
+  "paragraphs": 27,
+  "rows": 27,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 67,
+  "holders": {
+   "applicant": 17,
+   "court": 27,
+   "earlier_decision_maker": 18,
+   "prior_court_or_authority": 3,
+   "respondent": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 2
+ },
+ "headings": {
+  "15": "B. Did the RAD err in its IFA analysis?",
+  "26": "IV. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns an application for judicial review of the Refugee Appeal Division's (RAD) decision confirming the Refugee Protection Division's (RPD) finding that the applicant, a Nigerian citizen fearing persecution by kidnappers, is not a Convention refugee or person in need of protection. The applicant challenges the RAD's findings on nexus to a Convention ground and the internal flight alternative (IFA) analysis. The Federal Court dismissed the judicial review, finding the RAD's decision reasonable.",
+  "background_paras": "1-2",
+  "disposition_paras": "5,14,17,26,27",
+  "blocks": [
+   {
+    "issue": "Did the RAD err in finding no nexus between the applicant's fear of persecution and a Convention ground?",
+    "paras": "3-4,9-13",
+    "court_conclusion": "The RAD did not err; the risk based on perceived wealth is general criminality risk, not discriminatory targeting.",
+    "conclusion_paras": "10-14",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RAD erred in finding no nexus; targeted due to perceived wealth as social group; IFA analysis irrelevant without nexus; compares risk to Cejudo Hernandez case.",
+      "paras": "4,9"
+     },
+     {
+      "holder": "court",
+      "text": "Applicant's argument on nexus and reliance on Cejudo Hernandez misplaced; perceived wealth alone not a particular social group; risk is general criminality risk.",
+      "paras": "10-13"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Perceived wealth alone does not constitute particular social group per prior cases.",
+      "paras": "11"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RAD err in its internal flight alternative (IFA) analysis?",
+    "paras": "3,4,15-25",
+    "court_conclusion": "RAD's IFA analysis is reasonable; alleged errors are disagreements or reweighing evidence, which is not permitted on review.",
+    "conclusion_paras": "14,17,26",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RAD erred by failing to consider evidence properly; errors include lack of forward-looking risk analysis, speculation, contradictory logic, and misinterpretation of country documents.",
+      "paras": "4,15,22"
+     },
+     {
+      "holder": "respondent",
+      "text": "RAD made minor error summarizing kidnappings related to oil industry but error not serious; RAD dismissed appeal for failure to meet onus.",
+      "paras": "20,25"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RAD found no evidence kidnappers currently interested; family relocated without contact; applicant not high profile; business low profile; insufficient evidence of forward-looking risk; police responded; state protection adequate; relocation not unreasonable.",
+      "paras": "3,18,19,21,23,24,25"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Unreasonableness of IFA requires conditions jeopardizing life and safety; hardship beyond disadvantage must be shown.",
+      "paras": "21,22"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant is Nigerian citizen fearing persecution by unknown kidnappers for perceived wealth",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Application for judicial review of RAD decision confirming RPD's finding that applicant is not a Convention refugee or person in need of protection",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD found applicant unlikely to face risk if relocated to Port Harcourt",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges fear of persecution by kidnappers; court reviews RAD decision confirming RPD's finding applicant not refugee due to safe relocation to Port Harcourt.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant ran construction supply business in Lagos; family threatened and relocated within Nigeria",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's home and office vandalized; assistant kidnapped; police unhelpful; applicant left Nigeria",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Threatening calls made to applicant's wife; family relocated to mother's home in Ibadan",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's family threatened and relocated; applicant's home vandalized and assistant kidnapped; applicant left Nigeria fearing for safety.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejected refugee claim due to viable internal flight alternative in Port Harcourt",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found no nexus to Convention grounds but this was not determinative due to IFA findings",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD dismissed appeal on same basis as RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD rejected claim due to internal flight alternative; no nexus found but not determinative; RAD dismissed appeal similarly.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RAD erred in finding no nexus to Convention ground",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RAD erred in internal flight alternative analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD erred on nexus to Convention ground and in internal flight alternative analysis.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant has not shown RAD decision is unreasonable; judicial review dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds applicant failed to show RAD decision unreasonable; dismisses judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issues: Did RAD err on nexus to Convention ground? Did RAD err on internal flight alternative analysis?",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies issues: errors on nexus to Convention ground and internal flight alternative analysis by RAD.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Both issues are reviewable under reasonableness standard per Vavilov and other cases",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states issues are reviewable under reasonableness standard per Vavilov and related cases.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness is deferential but robust standard requiring justification, transparency, intelligibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonable decision must be internally coherent and justified by facts and law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Challenger bears onus to prove decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains reasonableness standard requires justified, transparent, coherent decision; challenger bears burden to prove unreasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD erred finding no nexus; claims targeted due to perceived wealth as social group",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues IFA analysis irrelevant without nexus; claim has nexus",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant compares risk to Cejudo Hernandez case of targeted extortion",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD erred on nexus finding, claims targeting due to perceived wealth as social group, and cites Cejudo Hernandez case.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's argument that IFA analysis is irrelevant without nexus and reliance on Cejudo Hernandez misplaced",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Cejudo Hernandez did not discuss nexus to s. 96 Convention ground but assessed personalized risk under s. 97(1)(b)(ii)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds applicant's argument on IFA irrelevance and reliance on Cejudo Hernandez misplaced; that case assessed risk under s. 97(1)(b)(ii).",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No error in RAD's finding of no nexus to Convention ground based on perceived wealth",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Perceived wealth alone does not constitute particular social group per prior cases",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no error in RAD's no nexus finding; prior cases hold perceived wealth alone is not a particular social group.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Risk based on perceived wealth is general criminality risk, not discriminatory targeting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's business activities not fundamental to human dignity; RAD not persuaded by applicant's argument",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds risk is general criminality, not discriminatory; RAD not persuaded business activities fundamental to dignity.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD's nexus finding not determinative as IFA analysis also considered under s. 97",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes RAD's nexus finding not determinative since IFA analysis under s. 97 also considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant has not shown RAD's no nexus finding unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes applicant failed to show RAD's no nexus finding unreasonable.",
+   "role": "conclusion"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant alleges RAD erred in IFA analysis by failing to consider evidence properly in multiple ways",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Errors include failure of forward-looking risk analysis and speculation without evidentiary basis",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD failed to explain why kidnappers could not find family again despite prior contact",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD speculated applicant could maintain low profile while running business, increasing risk",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD relied on contradictory logic about business success and profile",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD misconstrued country documentation about kidnappings, exaggerating oil industry link",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant cites U.S. DOS report to corroborate kidnapping fear",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges multiple errors in RAD's IFA analysis including speculative reasoning, failure to explain risk, contradictory logic, and misconstrued country documents.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Burden on applicant to show serious shortcomings making RAD decision unjustified or unintelligible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD has discretion and expertise to assess and evaluate evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states applicant must show serious shortcomings; RAD has discretion and expertise to assess evidence.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Alleged errors amount to disagreement and request to reweigh evidence, which court must not do",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant has not shown alleged errors render RAD decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds alleged errors are mere disagreement and reweighing requests; applicant fails to show unreasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD independently assessed evidence and found lack of evidence kidnappers currently interested in locating applicant or family",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Last call to applicant's wife was March 2018; family moved within Ibadan without further contact",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "If kidnappers could not find family in Ibadan after 20 months, unlikely to find them in Port Harcourt",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant not high profile enough to be targeted nationally; consistent with evidence and business success",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found no current interest by kidnappers; family not contacted for 20 months; unlikely to be found in Port Harcourt; applicant not high profile nationally.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found applicant ran business in Lagos with low profile marketing; wider marketing plans speculative",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant's evidence insufficient to establish forward-looking risk; kidnappers unlikely to locate applicant or family in Port Harcourt",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found applicant's marketing plans speculative; evidence insufficient for forward-looking risk; kidnappers unlikely to locate applicant in Port Harcourt.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent agrees RAD made mistake summarizing kidnappings related to oil industry but error not serious",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not clear RAD erred as country documents describe kidnappings related to oil industry conflict",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "If RAD summary inaccurate, error not serious enough to render decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent agrees RAD erred on kidnapping summary but error not serious; court finds unclear error and not unreasonable if inaccurate.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD did not err in assessing if Mr. Yusuff's personal circumstances make the proposed IFA unreasonable, requiring conditions jeopardizing life and safety",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Unreasonableness of IFA requires conditions jeopardizing life and safety: Ranganathan v Canada",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD reasonably found indigeneship status less important in big cities and non-indigenes can find employment",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Mr. Yusuff has experience in construction/building supplies and no evidence suggests difficulty finding work or establishing business in Port Harcourt",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD reasonably found Mr. Yusuff's relocation to Port Harcourt not unreasonable, citing Ranganathan and his employment prospects, the court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Yusuff asserts he would be disadvantaged by the proposed IFA",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "To prove IFA unreasonable, hardship beyond disadvantage must be shown: Ranganathan para 15",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Hardship like loss of employment, status, quality of life, aspirations, loved ones, or frustration is insufficient to prove unreasonableness",
+     "answers": 1
+    }
+   ],
+   "summary": "Mr. Yusuff must prove more than disadvantage to show IFA unreasonableness; hardship alone is insufficient, per Ranganathan, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD gave clear reasons why the psychotherapist's report was insufficient to show Mr. Yusuff's medical condition makes relocation unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The report did not specify why treatment in Nigeria is unavailable or how condition might worsen",
+     "answers": 1
+    }
+   ],
+   "summary": "The RAD found the psychotherapist's report insufficient to prove medical reasons against relocation, the court notes.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD reasonably found police responded to family complaints and state protection is not inadequate or inoperable despite corruption",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "State protection adequacy means IFA is not unreasonable",
+     "answers": 1
+    }
+   ],
+   "summary": "The RAD found state protection adequate despite corruption, so relocation is not unreasonable, the court agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD reasonably found Mr. Yusuff did not establish more than a mere possibility of persecution or risk to life in Port Harcourt",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD found it not unreasonable for Mr. Yusuff to relocate to Port Harcourt",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The respondent says RAD dismissed Mr. Yusuff's appeal for failure to meet onus",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RAD's findings are transparent, intelligible, and justified",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found no serious risk to Mr. Yusuff in Port Harcourt and dismissed his appeal for failure of proof; the court agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The RAD's decision is reasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concludes the RAD's decision is reasonable and dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Neither party proposes a question for certification",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "There is no question to certify in this case",
+     "answers": 1
+    }
+   ],
+   "summary": "The court notes no question for certification is proposed or exists in this case.",
+   "role": "disposition"
+  }
+ ]
+}

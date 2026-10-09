@@ -1,0 +1,962 @@
+{
+ "case_id": 5085,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.012502000000000001
+ },
+ "verification": {
+  "paragraphs": 50,
+  "rows": 50,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 91,
+  "holders": {
+   "court": 33,
+   "respondent": 11,
+   "applicant": 25,
+   "earlier_decision_maker": 17,
+   "prior_court_or_authority": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a judicial review of a Refugee Protection Division (RPD) decision rejecting the Applicant's refugee claim based on identity and credibility issues. The Applicant, an Eritrean refugee claimant, challenges the RPD's findings that she is not credible and likely not Eritrean. The Federal Court dismissed the application, finding the RPD's decision reasonable overall despite some errors.",
+  "background_paras": "1-13",
+  "disposition_paras": "1",
+  "blocks": [
+   {
+    "issue": "Is the Applicant's identity and refugee claim credible and reasonable?",
+    "paras": "14-26, 59-60",
+    "court_conclusion": "The RPD's decision that the Applicant is not credible and identity not established is reasonable overall.",
+    "conclusion_paras": "47, 59-60",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Applicant has not proven identity; arrival narrative not plausible; likely Italian national; no credible basis to claim.",
+      "paras": "14-16, 25, 35"
+     },
+     {
+      "holder": "applicant",
+      "text": "Denies being Italian national; photos do not prove identity; challenges RPD's findings on documents and credibility.",
+      "paras": "17, 21, 27, 29-34, 39-44"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found Applicant's explanations implausible; gave no weight to documents due to bribery and credibility concerns; rejected claim.",
+      "paras": "18-26, 59-60"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an application for judicial review of a January 29, 2021 RPD decision rejecting the Applicant's refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application of the RPD's January 29, 2021 decision rejecting the Applicant's refugee claim and dismisses the application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant is a refugee claimant, allegedly from Eritrea.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant is a refugee claimant, allegedly from Eritrea.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In 2000, the Applicant left Massawa for Asmara to avoid mandatory military service but was caught and detained by police.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "She was released after five days upon promising to report to the military but did not and stayed in hiding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant left Massawa in 2000 to avoid military service, was detained, released after promising to report, but stayed in hiding.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant was caught again in January 2005 and imprisoned, where she was beaten and tortured, causing injuries making her unfit for military service.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant was imprisoned in 2005, beaten and tortured, resulting in injuries making her unfit for military service.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Despite being unfit for military service, the Applicant faced difficulties due to failure to serve and had to pay bribes for documents including a business license.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant faced difficulties and paid bribes for documents despite being unfit for military service.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In early 2019, the Applicant helped her half-sister escape to Sudan after a man with government connections tried to make her his second wife.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant was detained in April 2019, believed at the man's behest, interrogated, beaten, and forced to confess helping her sister escape and communicating with Ethiopian opposition.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant helped her half-sister escape in 2019, was detained, beaten, and forced to confess involvement with opposition.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant was released with conditions after a week and fled to Sudan fearing re-arrest, then decided to come to Canada as a refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant was released, fled to Sudan, then decided to come to Canada as a refugee.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant came to Canada on May 20, 2019, with a smuggler, posing as his wife, using a brown passport with her picture but unknown country or name inside.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant arrived in Canada May 20, 2019, with a smuggler, using a brown passport of unknown origin and name.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Upon clearing customs, the smuggler took the Applicant's passport and travel documents and told her to take a taxi to any Eritrean restaurant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the smuggler took the Applicant's documents after customs and told her to take a taxi to an Eritrean restaurant.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant fears arrest and torture in Eritrea for political opposition, leaving illegally, violating release terms, and applying for protection in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant fears arrest and torture in Eritrea for political opposition and related reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant claims no contacts in Eritrea; her mother was killed in 1990, no contact with father since 1998, and does not know her half-sister's whereabouts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant claims no contacts in Eritrea and lost contact with family members.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant provided an Eritrean birth certificate, a 2004 business license photocopy, and two letters from Eritrean friends now in Canada with her refugee application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant submitted birth certificate, business license copy, and letters from friends with her refugee claim.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Minister of Public Safety and Emergency Preparedness intervened in December 2020 on grounds of identity, credibility, and program integrity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister intervened in December 2020 citing identity, credibility, and program integrity concerns.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant has not proven her identity and her arrival narrative is not plausible.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant should be presumed a national of the passport country until proven otherwise.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "No fingerprint match suggests Applicant is from a visa-exempt country, not Eritrea, so she did not travel on an Eritrean passport or prove Eritrean nationality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister argues the Applicant failed to prove identity, her arrival story is implausible, and she should be presumed from the passport country, not Eritrea.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On January 9, 2021, the Minister filed further submissions claiming the Applicant is Italian national Rahel Mokenen who entered Canada April 14, 2019, earlier than claimed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister submitted on January 9, 2021, that the Applicant is Italian national Rahel Mokenen who entered Canada earlier than claimed.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "The Minister submitted a May 2018 photo of Ms. Mokenen at Pearson Airport alongside the Applicant's refugee claim photo, alleging fraud.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister submitted photos comparing Ms. Mokenen and the Applicant, alleging the claim is fraudulent.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant denies being Rahel Mokenen and says photos do not prove they are the same person.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant denies being Rahel Mokenen and argues photos do not prove identity.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The RPD reviewed the Applicant's evidence and testimony, noting she was told by the smuggler to keep quiet and was not questioned on arrival.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD reviewed evidence and noted the Applicant said the smuggler told her to keep quiet and she was not questioned on arrival.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Applicant claimed all travel documents were taken by the smuggler; counsel argued smuggler gave minimal information to protect himself.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted the Applicant claimed the smuggler took her documents and counsel argued minimal information was given to protect the smuggler.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD did not accept the explanation and found it reasonable the smuggler would provide more instructions and passport details.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Failure to produce the passport and inability to provide details cast doubt on identity and raised credibility concerns.",
+     "answers": 1
+    }
+   ],
+   "summary": "The RPD found the explanation not credible and that failure to produce passport details cast doubt on identity and credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The RPD noted the birth certificate was issued in Asmara, not Massawa, where the Applicant claimed birth.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant explained she applied for the birth certificate in Asmara to obtain a business license and had to bribe someone.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD accepted the explanation about place of issue as plausible but gave no weight to the birth certificate due to bribery.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the birth certificate issued in Asmara, accepted the Applicant's bribery explanation, but gave it no weight due to bribery.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The RPD considered the Applicant's business license with a photograph possibly of the claimant in 2004.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Applicant could not recall the business address at hearing despite operating it for 4 years and closing 11-12 years ago.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found it reasonable to expect Applicant to remember the business address and gave no weight to the business license due to bribery concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the business license photo possibly of Applicant but gave no weight due to bribery and Applicant's failure to recall address.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The RPD considered letters from two individuals claiming to know the Applicant in Eritrea.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Letters were almost identical, provided little information, and authors did not appear as witnesses; RPD gave no weight to letters.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD gave no weight to two similar letters from individuals claiming to know the Applicant, as authors did not testify.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "No other identification was provided by the Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submitted no one remains in Eritrea to obtain documents or support Applicant's identity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD acknowledged counsel's submission about lack of support in Eritrea.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted no other ID was provided but acknowledged counsel's submission about no one left in Eritrea to support identity.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The RPD considered Minister's post-hearing submissions claiming Applicant is an Italian national.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found two photographs were likely of the same person based on skin tone, facial features, and a mole's position.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the two photographs likely depict the same person, supporting the Minister's claim Applicant is an Italian national.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Applicant falsified her application and rejected her claim as having no credible basis.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Paragraph 110(2)(c) of Immigration and Refugee Protection Act prevents appeal to Refugee Appeal Division if claim has no credible basis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Applicant falsified her application, rejected her claim, and barred appeal under paragraph 110(2)(c) IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Whether the RPD's finding that Applicant is not a refugee or person in need of protection is reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Whether the RPD's finding that there is no credible basis to the claim is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant raises two issues: reasonableness of RPD's findings on refugee status and credible basis of claim.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The decision is reviewed on the reasonableness standard per Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the decision is reviewed on the reasonableness standard from Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits a heightened reasonableness requirement applies due to serious consequences, citing para 133 of Vavilov.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Individuals deserve greater procedural protection when decisions have significant personal impact or harm (Baker, para 25).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Decision makers must provide responsive justification reflecting legislature's intention when consequences threaten life, liberty, dignity, or livelihood.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues for heightened reasonableness review due to serious consequences, citing Vavilov and Baker principles.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RPD made unreasonable findings on reliability of identity documents.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Respondent concedes treatment of birth certificate is unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RPD's findings on identity documents are unreasonable; Respondent concedes birth certificate treatment was unreasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits finding birth certificate unreliable due to bribery is unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RPD failed to consider widespread corruption in Eritrea making bribery necessary to obtain entitled services.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues it was unreasonable to discredit birth certificate due to bribery given Eritrea's widespread corruption.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits same bribery reasoning applies to business license, which is a legitimate document.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant had no proof of military service or exemption, so bribery was necessary to obtain business license.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues bribery to obtain business license was reasonable due to lack of military service proof.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant notes she described business district section and argues forgetting exact address after 12 years is plausible.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits it is plausible people direct others by location description rather than precise address.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues it is plausible she forgot exact business address after 12 years and described location instead.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant notes no family or friends remain in Eritrea to obtain documents.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits it is unreasonable to draw negative inference from having only two documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues it is unreasonable to infer negatively from having only two documents given no one remains in Eritrea.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent concedes it was unreasonable for RPD to give no weight to birth certificate due to bribery.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with Respondent that RPD's finding on business license is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent concedes error on birth certificate; court agrees RPD's business license finding is reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is reasonable to expect Applicant to remember business address.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Bribery allegation and lack of original document justify RPD giving business license no weight.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds it reasonable to expect Applicant to recall business address and justifies RPD's rejection of business license.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Error on birth certificate is not fatal to ultimate finding.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Lin v Canada, 2011 FC 1235 supports that other evidence can overcome unreasonable decision on birth certificate.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds birth certificate error not fatal, citing Lin v Canada that other evidence can suffice.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Challenges to business license and identification photos overcome unreasonable birth certificate decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds challenges to business license and photos sufficient to overcome birth certificate error.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant notes courts' concern about dangers of misidentification.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant cites R v Nikolovski allowing judge to decide based on video if quality is good and clear.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant cites courts' concern on misidentification and R v Nikolovski on quality video evidence for identification.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RPD only commented on video feed quality, not photograph quality.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues poor photograph quality makes it impossible to conclude photos depict same person.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RPD erred by not assessing photo quality, making identification conclusion unreliable.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The authority cited is in a criminal law context.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Quality of visual evidence is important when assessing photo comparison reasonableness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant was before decision-maker via video.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Nothing suggests the photo comparison was not reasonably open to the decision maker.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court would likely have reached the same decision as the member after examining photos.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent says authority cited is criminal law; court finds video evidence quality important and photo comparison reasonable, likely same decision reached.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD unreasonably found her testimony about passport and arrival implausible.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RPD unreasonably found her arrival and passport testimony implausible.",
+   "role": "issue"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Error to draw negative inference for using false passport or following agent's instructions, citing cases.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues it is erroneous to infer negatively from use of false passport or agent instructions, citing cases.",
+   "role": "issue"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Traveling with smuggler as couple and family treatment reduces risk of questioning.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submits traveling with smuggler as couple and family treatment reduces questioning risk.",
+   "role": "issue"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "RPD entitled to draw credibility inferences from inability to relate travel identities and passport details.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "In Su v Canada, following instructions does not explain inability to relate travel document info.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Competent smuggler would provide basic identity info if questioned by border officials.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees with Respondent on RPD's entitlement to draw credibility inferences and expectations of smuggler.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues RPD can infer credibility from travel document details; court agrees citing Su v Canada and smuggler expectations.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "RPD did not draw adverse inference from false documents but from implausible testimony and lack of document details.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Reasonable to expect smuggler to provide more instructions and passport name knowledge.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ahmedin v Canada supports expectation of smuggler providing instructions and passport name.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees with Respondent on basis of adverse inference and expectations from smuggler.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent says adverse inference was from implausible testimony, not false documents; court agrees citing Ahmedin v Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Decision under review is reasonable on refugee status and protection claim credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds decision reasonable on refugee status and credibility of protection claim.",
+   "role": "conclusion"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "No question was posed for certification.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes no question was posed for certification.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if RPD erred on Occupational Certificate credibility, decision is reasonable overall due to other credibility findings.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Stelco Inc v British Steel: tribunal error on some facts does not overturn decision if other facts support conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds decision reasonable despite possible error on Occupational Certificate, citing Stelco Inc v British Steel.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Evans's guidance in Stelco followed in immigration cases like Zazay, Ogiriki, Agbon.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD found Applicant not credible on multiple factors beyond Occupational Certificate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Enough evidence supports conclusion Applicant not credible and identity not established.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Stelco guidance followed in immigration cases; RPD's multiple credibility findings support decision.",
+   "role": "analysis"
+  }
+ ]
+}

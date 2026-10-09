@@ -1,0 +1,938 @@
+{
+ "case_id": 66908,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.011903200000000001
+ },
+ "verification": {
+  "paragraphs": 46,
+  "rows": 46,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 85,
+  "holders": {
+   "court": 59,
+   "applicant": 17,
+   "earlier_decision_maker": 8,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a Jordanian appellant seeking refugee protection in Canada, fearing harm from a powerful Bedouin tribe after his girlfriend's murder. The Refugee Protection Division (RPD) rejected his claim based on credibility issues and lack of corroborative evidence. The appeal was allowed, and the claim was referred back to the RPD for re-determination by a different panel due to errors in assessing the appellant's mental health and credibility.",
+  "background_paras": "2-3, 8",
+  "disposition_paras": "45-46",
+  "blocks": [
+   {
+    "issue": "Did the RPD properly assess the appellant's credibility and evidence regarding his relationship and fear of harm?",
+    "paras": "4, 16-18, 22, 28, 33, 42, 45",
+    "court_conclusion": "RPD erred in credibility assessment and ignoring mental health impact; appeal allowed for re-determination.",
+    "conclusion_paras": "45-46",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Credibility was determinative; appellant lacked corroborative evidence; circumstances implausible; no evidence of murder or conviction; mental health evidence disregarded.",
+      "paras": "4, 28"
+     },
+     {
+      "holder": "applicant",
+      "text": "Appellant fears harm from girlfriend's family; provided explanations for delays; mental health issues affect testimony; RPD ignored these factors.",
+      "paras": "2, 5-7, 27"
+     },
+     {
+      "holder": "court",
+      "text": "RPD failed to consider psychological and memory impairments affecting credibility; dismissed medical evidence without proper analysis; erred in assessment.",
+      "paras": "22, 33, 42, 45"
+     }
+    ]
+   },
+   {
+    "issue": "Should the new evidence submitted on appeal be admitted and considered?",
+    "paras": "8-19, 35-41",
+    "court_conclusion": "Some new medical and psychological evidence admitted; motel receipts and 2018 assessment rejected.",
+    "conclusion_paras": "19, 35-41",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Submitted new affidavit, assessments, letters, receipts, and medication list as new evidence.",
+      "paras": "11"
+     },
+     {
+      "holder": "court",
+      "text": "New evidence accepted only if arose after RPD decision and was not reasonably available before; some evidence admitted, some rejected.",
+      "paras": "8-19, 35-41"
+     }
+    ]
+   },
+   {
+    "issue": "Did the appellant's mental health and psychological condition affect his ability to testify and the credibility assessment?",
+    "paras": "5, 22-27, 29-34, 36-44",
+    "court_conclusion": "RPD erred by ignoring mental health impact on testimony; new evidence shows severe memory issues; appeal allowed.",
+    "conclusion_paras": "42-46",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mental health issues impaired testimony; RPD ignored evidence and failed to adjourn hearing.",
+      "paras": "5, 27"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Considered medical state but found evidence unhelpful and contradictory; dismissed mental health impact.",
+      "paras": "28"
+     },
+     {
+      "holder": "court",
+      "text": "RPD failed to analyze memory issues' effect on credibility; psychological evidence probative; dismissal was circular reasoning; counsel ineffective.",
+      "paras": "22-27, 29-34, 36-44"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Allowing this appeal and referring the claim back to the RPD for re-determination by a different panel",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and refers the claim back to the RPD for re-determination by a different panel.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant is a 24-year-old Jordanian citizen who had an affair with a girl from a powerful Bedouin tribe",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant's girlfriend was murdered by her brother after becoming pregnant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant fears being killed by the brother or girlfriend's family",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant is a 24-year-old Jordanian who fears harm after his girlfriend from a powerful Bedouin tribe was murdered by her brother.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant came to Canada in 2014 to study and claimed refugee protection in December 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant came to Canada in 2014 to study and claimed refugee protection in December 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Credibility was determinative of the Appellant's claim",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant did not provide corroborative documentation that should have been easily available",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Circumstances of the affair were implausible",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No evidence connecting girlfriend to powerful Bedouin tribe",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No evidence of girlfriend's murder or brother's conviction",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Evidence of Appellant's mental state did not explain these issues",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No weight given to letters from psychiatrist, lawyer, and father",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found credibility determinative, rejected corroborative evidence, found affair implausible, no evidence of murder or tribe connection, and gave no weight to letters.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Former counsel lacked time to evaluate Appellant's fitness to testify",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant's mental status indicated inability to provide clear testimony",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Panel erred by ignoring Appellant's mental health in credibility assessment",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Hearing should have been adjourned",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues counsel lacked time to assess fitness, mental health was ignored, and hearing should have been adjourned.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD ignored evidence that honour-based violence incidents go unreported",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Plausible that girlfriend's tribe would not want story published",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD unreasonably gave little weight to lawyer's and father's letters",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD did not adequately explain conclusions on relationship plausibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues RPD ignored unreported honour violence, gave little weight to letters, and inadequately explained relationship plausibility conclusions.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant provided reasonable explanations for delay in claiming protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues he provided reasonable explanations for delay in claiming protection.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No state protection or viable Internal Flight Alternative in Jordan",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "New evidence from XXXX/XXXX accepted; 2018 assessment and 2013/2014 motel receipts rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues no state protection or IFA exists; the court accepts some new evidence but rejects 2018 assessment and motel receipts.",
+   "role": "issue"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Evidence accepted only if it arose after RPD decision, was not reasonably available, or could not reasonably have been brought before RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states evidence is accepted only if it arose after RPD decision, was not reasonably available, or could not reasonably have been brought before RPD.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If evidence meets requirements, must decide if it is new, credible, and relevant before acceptance",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must decide if evidence is new, credible, and relevant before accepting it if it meets requirements.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant submits new evidence including affidavit, assessments, letters, motel receipts, and medication list",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits new evidence including affidavit, assessments, letters, motel receipts, and medication list.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's affidavit forms part of submissions and will be considered as part of Memorandum",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's affidavit forms part of submissions and will be considered as part of the Memorandum.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "2018 psychological assessment not admitted as it arose and was available before claim rejection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant put mental condition in issue and had time to provide medical evidence before claim rejection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant could reasonably have been expected to provide 2018 assessment before claim rejection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 2018 psychological assessment not admitted as it was available before claim rejection and appellant could have provided it.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Motel receipts from 2013 and 2014 not admitted as they arose before claim rejection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds motel receipts from 2013 and 2014 not admitted as they arose before claim rejection.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant failed to explain why motel receipts were only obtained recently",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "It is appellant's responsibility to show why documents could not have been submitted earlier",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant failed to explain recent receipt acquisition and must show why documents were not submitted earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's explanation for not obtaining proof of relationship is not credible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant was represented by counsel and aware of importance of evidence supporting relationship",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant was aware relationship bona fides were in issue",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant's explanation for not obtaining proof not credible and that he was aware relationship evidence was important.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Motel receipts were reasonably available and could have been expected to be presented before claim rejection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds motel receipts were reasonably available and could have been expected before claim rejection.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Motel receipts are not credible due to source and circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Receipts contradict appellant's narrative about meeting at different places",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Receipts are not genuine on balance of probabilities and will not be admitted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds motel receipts not credible, contradict narrative, and not genuine, so they will not be admitted.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Remaining new evidence relates to medical and psychological state and arose after claim rejection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This evidence is new, relevant, and credible to limited extent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Psychiatrist's letter, doctor's letter, psychosocial assessment, and medication list will be admitted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds remaining new medical evidence new, relevant, credible, and admits it.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Oral hearing is not necessary and request for oral hearing is denied",
+     "answers": 0
+    }
+   ],
+   "summary": "The court denies the request for an oral hearing as it is not necessary.",
+   "role": "disposition"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "My role is to assess if the RPD made the correct decision based on all evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to decide if the RPD made the correct decision based on all evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD failed to consider the Appellant's psychological and memory impairments in relation to credibility issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD failed to engage with evidence of the Appellant's psychological and memory impairments affecting credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At hearing outset, counsel requested a pre-hearing conference and disclosed Appellant's medical conditions and medication.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RPD noted medication side effects but found no indication of intellectual impairment and offered accommodations if needed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts counsel's disclosure of Appellant's medical conditions and RPD's consideration of medication side effects and accommodations.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified about medication use, follow-up care, side effects including exhaustion, drowsiness, and anxiety but affirmed ability to testify.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RPD considered anxiety normal and confirmed Appellant's ability to testify after questioning.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes Appellant's testimony on medication side effects and RPD's view that anxiety was normal and Appellant could testify.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant had difficulty recalling dates and experienced a panic attack during hearing; hearing was paused but continued after Appellant agreed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Appellant's memory difficulties and panic attack during hearing, with hearing paused then resumed.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Post-hearing, Appellant was given 11 days to submit further medical evidence and written submissions, which included a letter from his doctor about memory struggles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant was allowed time post-hearing to submit medical evidence including a letter about memory issues.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in assessing Appellant's state of mind and unreasonably dismissed his anxiety as normal.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "New medical and psychological evidence supports this assertion on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RPD erred in assessing his state of mind and dismissing anxiety, supported by new evidence on appeal.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD considered Appellant's medical state but found the letter unhelpful, focusing on lack of evidence and contradictions instead.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found the medical letter unhelpful and focused on evidence issues instead.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD did not analyze how Appellant's memory issues affected credibility despite hearing difficulties beyond normal expectations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD failed to analyze how memory issues affected credibility despite abnormal hearing difficulties.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Psychological problems do not automatically prove the truth of past persecution claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that psychological problems alone do not prove past persecution claims.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "A psychological report is not a cure-all but was submitted to alert RPD to Appellant's condition affecting testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the psychological report was submitted to alert the RPD to the Appellant's condition affecting testimony, not to prove persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The psychological letter is probative, authored by a qualified doctor with a longstanding medical relationship to the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The letter's conclusions relate to Appellant's ability to testify and recall events.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the psychological letter probative and relevant to Appellant's ability to testify and recall events.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD ignored these factors and dismissed the letter due to Appellant's lack of credibility, which is circular reasoning.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD used circular reasoning by dismissing the letter because it found the Appellant not credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RPD must clearly state why evidence of Appellant's condition does not affect its conclusions if it rejects it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RPD must clearly explain why evidence of the Appellant's condition does not affect its conclusions if rejected.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On appeal, new detailed medical and psychological evidence was accepted and considered in analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepted and considered new detailed medical and psychological evidence on appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The new psychological letter describes severe memory issues and difficulty recalling events under stress but lacks detail on identification of issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the new psychological letter describes severe memory issues but lacks detail on how they were identified.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court accepts ongoing pain from 2018 accident but rejects the psychologist's comments on memory as unqualified expert opinion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts pain from accident but rejects psychologist's memory comments as unqualified expert opinion.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The psychological assessment was done by a qualified psychologist after multiple sessions but lacks details of pre-migration trauma and may offer unauthorized diagnosis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the psychological assessment was by a qualified psychologist but lacks trauma details and may improperly offer diagnosis.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Psychologist's memory questionnaire showed weak scores and inconsistent answers; Appellant was irritated and unstable during interview.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Results suggest Appellant suffers symptoms of psychological disorder.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes psychologist's testing showing weak memory and symptoms of psychological disorder in the Appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Medication list shows Appellant on medication since before 2018 accident but lacks details on medication at hearing or side effects.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes medication list shows long-term use but lacks details on medication at hearing or side effects.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant suffers pain related to 2018 accident and has had XXXX XXXX XXXX since before coming to Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant currently has symptoms or sequelae of XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has suffered from 'XXXX XXXX XXXX' related to trauma before leaving Jordan, though no details provided",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant suffers pain from a 2018 accident, has had XXXX XXXX XXXX before Canada, and trauma from Jordan.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's testimony must be considered through the lens of trauma he underwent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant suffers chronic pain and XXXX from Canadian motor vehicle accident and has pre-existing mental health issues",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These issues negatively affect appellant's memory and ability to recall events",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred by not assessing appellant's testimony in light of these issues",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant's trauma affects testimony and RPD erred by not considering this.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not mention motor vehicle accident, assessments, surgeries, or chronic pain when questioned by RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This indicates appellant was not capable of clearly articulating evidence that could have helped at hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant failed to mention key health issues to RPD, showing inability to articulate evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Former counsel was of little assistance as he met appellant only just before hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Counsel was uninformed about crucial issues for adequate representation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This is poor practice",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds former counsel poorly prepared and uninformed, constituting poor practice.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred and appeal must be allowed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Unable to determine claim without hearing evidence presented to RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred, allows appeal, but cannot determine claim without RPD evidence.",
+   "role": "conclusion"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal is allowed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant's claim referred back to RPD for re-determination by different panel under IRPA s.111(1)(c)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows appeal and refers claim back to RPD for re-determination by different panel.",
+   "role": "disposition"
+  }
+ ]
+}

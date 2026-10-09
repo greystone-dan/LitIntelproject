@@ -1,0 +1,505 @@
+{
+ "case_id": 5968,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.007731200000000001
+ },
+ "verification": {
+  "paragraphs": 26,
+  "rows": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 39,
+  "holders": {
+   "court": 32,
+   "prior_court_or_authority": 7
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 2
+ },
+ "headings": {
+  "10": "III. Assessable Services",
+  "25": "IV. Disbursements"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns the assessment of costs following the Applicant's discontinuance of a judicial review against the Respondent, Tataskweyak Cree Nation. The Applicant discontinued the proceeding, and the Respondent sought costs for work done on a motion to strike. The court allowed part of the Respondent's Bill of Costs totaling $1,075.20 payable by the Applicant.",
+  "background_paras": "1,4-7,10-13,20-22,25",
+  "disposition_paras": "26",
+  "blocks": [
+   {
+    "issue": "Are the claims for costs related to Items 5, 13(a), and 15 allowable given the Applicant discontinued the proceeding before the motion hearing?",
+    "paras": "11-19",
+    "court_conclusion": "Claims for Items 5, 13(a), and 15 are disallowed as the motion was not abandoned and no court order on costs exists.",
+    "conclusion_paras": "18",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Claimed 5 units for Item 5, 3 units for Item 13(a), and 5 units for Item 15 related to motion to strike.",
+      "paras": "12-13"
+     },
+     {
+      "holder": "court",
+      "text": "Rules 370, 402, 411 apply to abandonment by moving party; here Respondent did not abandon motion, Applicant discontinued proceeding before hearing; no authority to allow these claims.",
+      "paras": "16-18"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Costs are discretionary; silence on costs implies no costs awarded; court cannot revisit earlier orders silent on costs.",
+      "paras": "16-17"
+     }
+    ]
+   },
+   {
+    "issue": "What amount of costs is reasonable and necessary for the Respondent's work on the motion to strike the Applicant's judicial review application?",
+    "paras": "20-24",
+    "court_conclusion": "Allowing 2 units under Item 27 and 6 units total for assessable services is reasonable, totaling $1,075.20 inclusive of taxes.",
+    "conclusion_paras": "23-24",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Performed considerable work preparing motion to strike including affidavit and 13-page Written Representations; claimed costs accordingly.",
+      "paras": "20"
+     },
+     {
+      "holder": "court",
+      "text": "Some indemnification for work on motion is supported; discretion must be reasonable and equitable; allowed 2 units under Item 27 and 6 units total.",
+      "paras": "21-24"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Discretion in costs is fettered by reasonable necessity and limits; costs must be just, expeditious, and least expensive.",
+      "paras": "21-22"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant filed a Notice of Discontinuance on April 12, 2022, discontinuing judicial review against Respondents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant discontinued the judicial review proceeding against the Respondents on April 12, 2022, as stated by the court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rules 402 and 412 of Federal Courts Rules govern costs for discontinued proceedings and motions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Rules 402 and 412 of the Federal Courts Rules govern costs for discontinued proceedings and motions.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "In absence of specific court decision, costs assessed per Rule 407 of FCR using Tariff B column III.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will assess costs under Rule 407 of the FCR using Tariff B column III absent specific court orders.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent Tataskweyak Cree Nation filed Bill of Costs and covering letter on April 20, 2022, requesting cost assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent filed a Bill of Costs and covering letter on April 20, 2022, requesting cost assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Tataskweyak Cree Nation will be referred to as Respondent in these Reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court clarifies Tataskweyak Cree Nation is the Respondent in these Reasons.",
+   "role": "other"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Direction issued April 25, 2022, for filing additional documents; no further documents filed except Respondent's Bill of Costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court issued a direction for additional documents, but only the Respondent's Bill of Costs was filed.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant did not file responding documents; Respondent's Bill of Costs is substantially unopposed.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Dahl v Canada states absence of relevant representations leaves bill of costs unopposed; assessment officer must not act as advocate but cannot certify unlawful items.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant did not respond, leaving the Respondent's Bill of Costs unopposed, per Dahl v Canada guidance on assessment officers' roles.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Carlile v Canada states Taxing Officers must balance avoiding unnecessary costs and indemnifying real costs on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "Carlile v Canada guides that Taxing Officers must balance avoiding unnecessary costs and indemnifying real costs on balance of probabilities.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Despite no Applicant response, court must ensure allowed claims are necessary and reasonable using Dahl and Carlile as guidelines.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must ensure allowed costs are necessary and reasonable despite no Applicant response, guided by Dahl and Carlile.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent claimed 17 units for assessable services totaling $3,046.00 inclusive of taxes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent claimed 17 units of assessable services totaling $3,046.00 inclusive of taxes.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Items 25 and 26 services are necessary and reasonable; 1 unit allowed for Item 25 and 3 units for Item 26.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Items 5, 13(a), and 15 claims have issues requiring detailed assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows Items 25 and 26 as necessary and reasonable but finds issues with Items 5, 13(a), and 15 requiring further assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent claimed 5 units for Item 5, 3 units for Item 13(a), and 5 units for Item 15 related to motion to strike filed April 8, 2022.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent claimed units for Items 5, 13(a), and 15 related to the motion to strike filed April 8, 2022.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Items 5, 13(a), and 15 relate to Respondent's motion to strike Applicant's judicial review application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rule 402 FCR entitles party against whom action discontinued to costs unless otherwise ordered or agreed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Items 5, 13(a), and 15 relate to Respondent's motion to strike; Rule 402 FCR entitles costs to party against whom action discontinued unless ordered otherwise.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rule 411 FCR allows costs for abandoned motions assessed on filing of notice of motion or abandonment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Rule 411 FCR allows costs for abandoned motions assessed on filing of notice of motion or abandonment.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rule 370 FCR defines abandonment of motion by serving notice or failure to appear as deemed abandonment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Rule 370 FCR defines abandonment of motion by notice or failure to appear as deemed abandonment.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Rules 370, 402, 411 apply to abandonment by moving party; here Respondent did not abandon motion, Applicant discontinued proceeding before hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Tursunbayev v Canada states court cannot revisit earlier orders silent on costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds abandonment rules apply to moving party; Respondent did not abandon motion; Applicant discontinued proceeding; Tursunbayev says court cannot revisit silent cost orders.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Canada v Uzoni states costs are discretionary; silence on costs implies no costs awarded; supported by Mark M. Orkin and Kibale v Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "Canada v Uzoni and authorities hold that silence on costs implies no costs awarded as costs are discretionary.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Assessment Officer lacks authority to allow Items 5, 13(a), 15 claims as motion not abandoned and no court costs order exists.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Items 13 and 15 do not apply to motions but to trials and hearings; only Item 5 claim was accurate but still disallowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it lacks authority to allow Items 5, 13(a), and 15 claims; Items 13 and 15 do not apply to motions; Item 5 claim disallowed.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Jurisprudence does not guide motions not disposed or abandoned when underlying proceeding discontinued.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Possible indemnification for preparation and filing of motion not disposed or abandoned depends on file facts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes lack of guidance for motions not disposed or abandoned when proceeding discontinued; indemnification may depend on facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent filed Motion Record April 8, 2022; Applicant did not respond and discontinued proceeding April 12, 2022.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent performed considerable work preparing motion to strike, including affidavit and 13-page Written Representations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Respondent filed Motion Record April 8; Applicant discontinued April 12; Respondent did considerable work preparing motion and representations.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Some indemnification for work by Respondent on motion to strike Applicant's judicial review application is supported",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mitchell v Canada states discretion in costs is fettered by reasonable necessity and limits of award",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Discretion in costs should be part of a reasoned process to achieve equitable results for both sides",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds some indemnification for Respondent's work on motion to strike is supported, citing Mitchell v Canada on costs discretion.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Rule 3 of the FCR requires just, expeditious, and least expensive determination of proceedings",
+     "answers": 0
+    }
+   ],
+   "summary": "Rule 3 of the FCR mandates just, expeditious, and least expensive determination of proceedings.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Assessing Respondent's claim under Item 27 is acceptable and allows positive application of costs provisions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Zero dollars at taxation would be absurd",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considered factors under Rule 400(3) including result, work amount, conduct, and other relevant matters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Allowing 2 units under Item 27 for Respondent's work on motion to strike Applicant's judicial review application is reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds assessing Respondent's claim under Item 27 reasonable, considering Rule 400(3) factors and avoiding zero costs.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "6 units allowed for Respondent's assessable services totaling $1,075.20 inclusive of taxes",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds 6 units allowed for Respondent's services totaling $1,075.20 inclusive of taxes.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent did not submit any claims for disbursements",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Respondent did not submit any disbursement claims.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent Tataskweyak Cree Nation's Bill of Costs allowed in total $1,075.20 payable by Applicant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Certificate of Assessment will be issued",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders Respondent's Bill of Costs allowed at $1,075.20 payable by Applicant and issues Certificate of Assessment.",
+   "role": "conclusion"
+  }
+ ]
+}

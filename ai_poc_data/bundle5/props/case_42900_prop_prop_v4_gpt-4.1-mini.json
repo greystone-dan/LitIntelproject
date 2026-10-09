@@ -1,0 +1,1020 @@
+{
+ "case_id": 42900,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0138224
+ },
+ "verification": {
+  "paragraphs": 46,
+  "rows": 46,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 98,
+  "holders": {
+   "court": 57,
+   "applicant": 22,
+   "earlier_decision_maker": 9,
+   "respondent": 5,
+   "other": 2,
+   "prior_court_or_authority": 3
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 6
+ },
+ "headings": {
+  "6": "A. Facts",
+  "10": "B. Trudeau II Report 2019",
+  "13": "II. Issues",
+  "17": "III. Legislative Framework",
+  "22": "B. Is the matter justiciable?",
+  "45": "C. Should the applicant be granted public interest standing?"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "Democracy Watch applied for judicial review of the Ethics Commissioner's decision not to investigate eight public office holders allegedly influencing the Attorney General. The Commissioner found only Prime Minister Trudeau had influence, refusing jurisdiction over others. The Federal Court of Appeal dismissed the application, finding the decision not reviewable and no reasonable apprehension of bias.",
+  "background_paras": "1-12",
+  "disposition_paras": "44-46",
+  "blocks": [
+   {
+    "issue": "Was there a reasonable apprehension of bias by the Ethics Commissioner?",
+    "paras": "18-21",
+    "court_conclusion": "No reasonable apprehension of bias found; prior decisions affirmed.",
+    "conclusion_paras": "19-21",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges reasonable apprehension of bias based on prior Federal Court case challenging Commissioner's appointment.",
+      "paras": "18"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Dismissed prior application; appointment process met statutory requirements and was reasonable.",
+      "paras": "18"
+     },
+     {
+      "holder": "court",
+      "text": "Affirmed Federal Court decision; no error in refusing recusal; no reason to depart from previous conclusion rejecting bias.",
+      "paras": "19-21"
+     }
+    ]
+   },
+   {
+    "issue": "Is the Commissioner's decision justiciable and subject to judicial review?",
+    "paras": "22-44",
+    "court_conclusion": "Decision not to investigate eight public office holders is not reviewable; matter not justiciable as it does not affect legal rights or cause prejudice.",
+    "conclusion_paras": "39-44",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues matter is justiciable; Commissioner exercised jurisdiction and made final decision; challenges restrictive judicial review test.",
+      "paras": "24-28,33-34"
+     },
+     {
+      "holder": "court",
+      "text": "Applies Democracy Watch 2009 test; decision not to investigate is not reviewable; no legal rights affected or prejudicial effects caused.",
+      "paras": "23,29-32,35-38,39-44"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Commissioner unreasonably refuse jurisdiction over eight public office holders under section 9 of the Conflict of Interest Act?",
+    "paras": "1-4,10-12,26-27,40-42",
+    "court_conclusion": "Commissioner found no reasonable grounds to investigate others besides Trudeau; refusal not unreasonable as wrongdoing emanated from Trudeau.",
+    "conclusion_paras": "40-42",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Commissioner fettered discretion; should have applied section 9 to eight public office holders influencing Attorney General.",
+      "paras": "1,26-27"
+     },
+     {
+      "holder": "respondent",
+      "text": "Commissioner found only Trudeau could influence AG; no grounds to examine others; investigation focused on Trudeau's conduct.",
+      "paras": "10-12,40-42"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Democracy Watch is the applicant applying for judicial review of the Ethics Commissioner's August 14, 2019 decision in the Trudeau II Report.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Commissioner initiated an investigation under subsection 45(1) of the Conflict of Interest Act regarding undue influence on the Attorney General to halt SNC-Lavalin prosecution.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Commissioner fettered his discretion and unreasonably refused jurisdiction over eight public office holders acting under the Prime Minister's authority.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Commissioner should have applied section 9 of the Act to the eight public office holders' actions in influencing the Attorney General.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Democracy Watch applies for judicial review of the Commissioner's decision; the applicant alleges unreasonable refusal to exercise jurisdiction over eight public office holders.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "conclusion_or_order",
+     "text": "The applicant requests quashing the part of the Report refusing jurisdiction over the eight public office holders.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant requests quashing the Report's part refusing jurisdiction over eight public office holders.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant attempts to add to its application a request for examination of the same matter made by MP Elizabeth May on April 4, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant attempts to add MP May's April 4, 2019 examination request to its judicial review application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The applicant filed a separate judicial review application (Court File A-434-19) to quash the Commissioner's refusal to examine eight public office holders per MP May's request.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Court dismissed that application as out of time and not in the interest of justice, denying public interest standing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Court advised the applicant it could amend its current application to raise the refusal of MP May's request but the applicant did not do so.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The current notice of application is insufficient to question MP May's request as it alleges no shortcomings in the Commissioner's response but incorrectly alleges no response.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Only the Commissioner's own initiative Report is currently subject to judicial review in this application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant's separate application was dismissed; the current application insufficiently challenges MP May's request; only the Commissioner's own initiative Report is under review.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Some facts are useful to provide context to these reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states some facts are useful for context.",
+   "role": "other"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On February 4, 2019, the Globe and Mail reported PMO officials pressured the Attorney General to instruct prosecution service to negotiate remediation with SNC-Lavalin.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Globe and Mail reported PMO officials pressured the Attorney General regarding SNC-Lavalin on February 4, 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On February 8, 2019, the applicant petitioned the Commissioner to examine PMO members for influencing the AG, including section 9 violations, and requested recusal of the Commissioner.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On February 26, 2019, the Commissioner responded he had already started an examination.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On March 4, 2019, the applicant sent another petition requesting examination of everyone named by the AG in her House of Commons testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant petitioned the Commissioner on February 8 and March 4, 2019, for examinations; the Commissioner responded on February 26 that an examination had started.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "On April 4, 2019, MP May requested the Commissioner examine the same individuals.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On April 11, 2019, the Commissioner replied he had commenced an investigation and asked MP May to specify whom to investigate.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "On May 2, 2019, MP May provided a list of eight public office holders to be investigated.",
+     "answers": 0
+    }
+   ],
+   "summary": "MP May requested an examination on April 4, 2019; the Commissioner replied April 11 and MP May listed eight public office holders on May 2.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On August 14, 2019, the Commissioner issued the Report and sent a letter to MP May referring her to it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner issued the Report and referred MP May to it on August 14, 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Commissioner had reason to believe a possible section 9 contravention occurred and commenced an examination under subsection 45(1).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On February 8, 2019, the Commissioner informed the Prime Minister he was initiating an examination of his conduct.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "The Commissioner\u2019s office received documentation from fourteen witnesses and interviewed six.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner commenced an examination under subsection 45(1), informed the Prime Minister on February 8, 2019, and gathered evidence from fourteen witnesses, interviewing six.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Commissioner considered Mr. Trudeau\u2019s submissions, witness documents and testimony, including actions of eight public office holders named by MP May.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Commissioner found Mr. Trudeau was the only public office holder who could clearly influence the AG by virtue of his position.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner considered evidence and found Mr. Trudeau alone could clearly influence the Attorney General by position.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Commissioner found individuals acting under the Prime Minister or other ministers could not have influenced the AG simply by their position.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The Commissioner found no reasonable grounds to examine these individuals concurrently or believe they breached the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner found no reasonable grounds to examine eight public office holders as they could not influence the AG by position.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Court's power to review the Commissioner's decisions is restricted by a privative clause in section 66 of the Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 66 provides Commissioner's decisions are final and not reviewable except under Federal Courts Act paragraph 18.1(4)(a), (b), or (e).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Errors of law are specifically excluded as grounds of review under the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states section 66 restricts review of the Commissioner's decisions, allowing review only on specific grounds excluding errors of law.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant relies on paragraph 18.1(4)(a) of the Federal Courts Act to challenge the Commissioner's decision as unreasonable for limiting section 9 application to the Prime Minister only.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the Commissioner's decision to apply section 9 only to the Prime Minister was an unreasonable jurisdiction exercise under Federal Courts Act.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Three questions must be answered before considering the merits: reasonable apprehension of bias, justiciability, and public interest standing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies three preliminary questions: bias, justiciability, and public interest standing before considering merits.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "If no bias is found, the court considers justiciability, then discretion to grant public interest standing, then merits of jurisdiction exercise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines the sequential approach: bias, justiciability, public interest standing, then merits.",
+   "role": "other"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court reproduces relevant legislative provisions from the Conflict of Interest Act for reference, including sections 9, 45, and 66.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reproduces relevant legislative provisions from the Conflict of Interest Act for reference.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The applicant alleges reasonable apprehension of bias based on arguments from a prior Federal Court case challenging the Commissioner's appointment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court dismissed the prior application, finding the appointment process met statutory requirements and was reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This Court affirmed the Federal Court's decision and the Supreme Court of Canada dismissed leave to appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges bias based on prior case; Federal Court dismissed it; this Court affirmed; Supreme Court denied leave to appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Commissioner did not err in refusing to recuse himself.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "The allegation of bias is essentially the same whether challenging appointment process or impartiality from that process.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No reason to depart from this Court\u2019s previous conclusion rejecting bias.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error in the Commissioner's refusal to recuse and no reason to depart from prior rejection of bias allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Act defines public office holders to include ministerial staff and ministers, so examination of Governor in Council members is contemplated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No circumstances in the Act require the Commissioner to recuse himself.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 89 of the Parliament of Canada Act permits but does not require the Commissioner to delegate powers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Act contemplates examining ministerial staff; no recusal required; delegation permitted but not required under Parliament Act.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Ocean Port Hotel confirms tribunal independence may be ousted by express statutory language or necessary implication",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Act contemplates the Commissioner may examine complaints against Governor in Council members",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant\u2019s submissions cannot stand",
+     "answers": 0
+    }
+   ],
+   "summary": "The court relies on Ocean Port Hotel to find the Act allows Commissioner to examine complaints against Governor in Council members and rejects applicant's submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the matter is justiciable, i.e. subject to judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "The court raises the issue of whether the matter is justiciable and subject to judicial review.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If conduct fails to affect legal rights, impose obligations, or cause prejudice, no right to judicial review exists",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Toronto Port Authority and Democracy Watch 2009 affirm this test for judicial review",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states the rule from Toronto Port Authority and Democracy Watch 2009 that judicial review requires conduct affecting legal rights, obligations, or prejudice.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The matter is justiciable because the Commissioner exercised jurisdiction and made a final decision on eight public office holders",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Even if only discretion under subsection 45(1) was exercised, it is subject to judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the matter is justiciable as the Commissioner exercised jurisdiction and made a final decision, subject to judicial review.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The prerequisite from Toronto Port Authority and Democracy Watch 2009 is contested, absent from subsection 18.1(1) of Federal Courts Act, and conflicts with Parliament\u2019s intent",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant contests the judicial review prerequisite as absent from statute and contrary to Parliament\u2019s intent.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Court has jurisdiction to review Commissioner\u2019s Report as a government decision with legal consequences and prejudicial effects",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Commissioner\u2019s inaction permitted wrongdoing, harmed public confidence and democratic process",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Had Commissioner investigated, public office holders would have faced prejudicial effect",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits the Court can review the Commissioner\u2019s Report due to legal consequences and harm from inaction.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "It was unreasonable for Commissioner to refuse jurisdiction under section 45 and avoid applying section 9 to eight public office holders",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Commissioner\u2019s discretion under subsection 45(1) cannot be unfettered",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Section 9 covers influence by a public office holder over a subordinate",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Commissioner\u2019s Wright Report found Chief of Staff violated section 9 by influencing a Senator over whom he had no authority",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues Commissioner unreasonably refused jurisdiction and discretion is not unfettered, citing section 9 and Wright Report.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The case raises serious justiciable issues about public office holders\u2019 compliance, interpretation of requirements, and Commissioner impartiality",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits the case raises serious justiciable issues about compliance, interpretation, and impartiality.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reviewable matter is broader than decision but must allow remedy under subsection 18.1(3)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Democracy Watch 2009 criteria require matter to affect legal rights, obligations, or cause prejudice to be justiciable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds a reviewable matter must allow remedy and meet Democracy Watch 2009 criteria for justiciability.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In Democracy Watch 2009, Commissioner\u2019s refusal to investigate was not a reviewable decision or order",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant had no legal right to investigation and Commissioner had no duty to act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Decision not to investigate a public complaint under the Act is not reviewable under section 66",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Democracy Watch 2009 held refusal to investigate is not reviewable and no legal right to investigation exists.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 45(2) allows Commissioner to discontinue examination on own initiative",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Determination to act does not necessarily create reviewable order or decision (2018 FCA 194)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states subsection 45(2) allows discontinuance and determination to act is not necessarily reviewable.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In Democracy Watch 2020, Lobbying Act does not create public complaints process and refusal to investigate is not reviewable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Democracy Watch 2020 held refusal to investigate under Lobbying Act is not reviewable.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Democracy Watch 2009 test is outmoded and too restrictive since 1990 Federal Courts Act amendments",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues Democracy Watch 2009 test is outdated and too restrictive after 1990 legislative amendments.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "There is a divide among Court justices on correct judicial review test",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Since 2018, three panels acknowledged or applied Supreme Court\u2019s Wall test for judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant contends a judicial divide exists and three panels have applied the Wall test since 2018.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees with applicant\u2019s contention about judicial review test",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with the applicant\u2019s contention about the judicial review test.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To overrule Democracy Watch 2009, applicant must show it is manifestly wrong",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant\u2019s argument based on 1990 amendments does not meet high bar to overrule Democracy Watch 2009",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Toronto Port Authority found not all matters are subject to judicial review despite broader 'matter' definition",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds applicant fails to show Democracy Watch 2009 is manifestly wrong and Toronto Port Authority supports test.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant\u2019s argument about Wall test is rejected",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Wall test determines if application is public law matter and requires legal right at stake",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Democracy Watch 2020 did not revert to outmoded test; Democracy Watch 2009 test remains applicable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects applicant\u2019s Wall test argument and confirms Democracy Watch 2009 test remains applicable.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant submits Democracy Watch 2009 test prerequisites are met here",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes applicant submits Democracy Watch 2009 test prerequisites are met.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Commissioner\u2019s decision not to commence examination of eight public office holders is not reviewable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Commissioner\u2019s decision not to examine eight public office holders is not reviewable.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commissioner stated no reasonable grounds to pursue examinations or believe breaches occurred",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Must determine if conduct fails to affect legal rights, impose obligations, or cause prejudice",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Commissioner found no reasonable grounds and must determine if conduct affects legal rights or causes prejudice.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Report does not affect legal rights, impose legal obligations or cause prejudicial effects to eight public office holders",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Report concerns investigation of Mr. Trudeau's conduct through his actions or agents",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Commissioner wrote to Mr. Trudeau about initiating examination of his conduct",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Commissioner received documents and interviewed public office holders but examined Mr. Trudeau's conduct",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Commissioner found other individuals' actions would establish Mr. Trudeau's contravention of the Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Legal rights and prejudicial effects relate solely to Mr. Trudeau's liability, not his agents'",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Report concerns Mr. Trudeau's conduct and does not affect legal rights or prejudicial effects of eight public office holders.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Commissioner found Mr. Trudeau knowingly sought to influence Mrs. Wilson-Raybould directly and through agents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Commissioner is not permitting wrongdoing to go unpunished as wrongdoing emanated from Mr. Trudeau through agents",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commissioner found Mr. Trudeau knowingly influenced Mrs. Wilson-Raybould, so wrongdoing is attributed to him, not unpunished.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Prejudicial effect requires the impugned act to cause prejudicial effects",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Question is whether decision not to investigate caused prejudicial effects, not whether investigation would cause prejudicial effects",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commissioner retains discretion to investigate later if new information arises despite current decision not to investigate",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states prejudicial effect means harm caused by the act, here the decision not to investigate, and Commissioner may investigate later if new facts arise.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Issue is not justiciable as it does not affect rights, impose obligations or cause prejudicial effects",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application should be dismissed on this basis",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concludes the issue is not justiciable and dismisses the application on that basis.",
+   "role": "conclusion"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "No need to consider public interest standing given conclusion on justiciability",
+     "answers": 0
+    }
+   ],
+   "summary": "The court declines to consider public interest standing due to its justiciability conclusion.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Proposes to dismiss application for judicial review with costs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Judges Yves de Montigny and George R. Locke agree",
+     "answers": 0
+    }
+   ],
+   "summary": "The court proposes dismissing the application with costs, with agreement from two other judges.",
+   "role": "disposition"
+  }
+ ]
+}

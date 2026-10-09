@@ -1,0 +1,1399 @@
+{
+ "case_id": 8528,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0189784
+ },
+ "verification": {
+  "paragraphs": 56,
+  "rows": 56,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 153,
+  "holders": {
+   "court": 71,
+   "earlier_decision_maker": 36,
+   "prior_court_or_authority": 20,
+   "applicant": 19,
+   "respondent": 7
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a judicial review of the Refugee Appeal Division's (RAD) decision to uphold the Refugee Protection Division's (RPD) refusal of a Chinese national's refugee claim based on political persecution fears. The applicant challenges the RAD's findings on procedural fairness and evidence assessment, particularly regarding the denial of his wife's teleconference testimony and the credibility of documents. The court concluded that the RAD did not err in remedying the procedural fairness breach and that its decision was reasonable, dismissing the applicant's review.",
+  "background_paras": "1-6",
+  "disposition_paras": "56",
+  "blocks": [
+   {
+    "issue": "Did the RAD err in finding that the RPD's procedural fairness breach was remedied and refusing to remit the claim?",
+    "paras": "7,9-14,16-19,20-35,39-47",
+    "court_conclusion": "RAD properly remedied the procedural fairness breach; no material effect justified remitting the claim.",
+    "conclusion_paras": "29,31,34-35,39-42,44-46",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RAD erred applying Marin exception; breach affected claim core; remedy decision unreasonable and lacked transparency; wife's testimony could have changed outcome.",
+      "paras": "9,11-12,18,30"
+     },
+     {
+      "holder": "respondent",
+      "text": "Breach may be overlooked if no material effect; RAD can make credibility findings without hearing; sufficient reasons to dismiss appeal.",
+      "paras": "13,19,38"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RAD found RPD breach did not affect claim core; breach remedied by accepting Shen Letters; declined remittal citing Marin.",
+      "paras": "3,14"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RAD misapprehend evidence, making its decision unreasonable?",
+    "paras": "7,10,30,31,48-56",
+    "court_conclusion": "RAD's findings on credibility and document authenticity were reasonable; alleged misapprehensions do not render decision unreasonable.",
+    "conclusion_paras": "31,42,53-56",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RAD wrongly found conflicting evidence on PSB interest timing; summons format evidence outdated; alleged typographical errors unaddressed.",
+      "paras": "30,48,50-51"
+     },
+     {
+      "holder": "respondent",
+      "text": "RAD reasonably concluded summons fraudulent; identified significant differences; applicant's challenges speculative and insufficient.",
+      "paras": "52"
+     },
+     {
+      "holder": "court",
+      "text": "RAD entitled to assess evidence weight; no evidence summons format changed; no reviewable error in summons delivery finding.",
+      "paras": "32,54-55"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant is a Chinese national fearing persecution for political opinion on land expropriation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD refused Applicant's refugee claim for lack of credible evidence and proof he is wanted by PSB",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD dismissed Applicant's appeal and confirmed RPD's decision under IRPA sections 96 and 97",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "This is judicial review of the RAD's decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant fears persecution; RPD and RAD refused protection; this is judicial review of RAD's decision.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD accepted new evidence not before RPD: two letters from Applicant's wife and a USCIS letter",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD considered but declined oral hearing as criteria in IRPA s.110(6) were not met",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD accepted new evidence and decided no oral hearing was required under IRPA s.110(6).",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD agreed RPD breached procedural fairness by not hearing Applicant's wife by teleconference",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found breach did not affect claim's core and rejected remitting claim to RPD citing Marin",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found breach remedied by accepting Shen Letters but gave them little weight",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found USCIS Letter did not corroborate visa refusal and hurt Applicant's credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found RPD breached fairness but breach did not affect claim core; accepted but gave little weight to new evidence; found credibility issues.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD accepted Applicant's argument that exiting China with smuggler on own passport is plausible",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD agreed with RPD that Applicant left China undetected because he was not a PSB person of interest",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD accepted smuggler argument but agreed Applicant left China undetected as not a PSB interest.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Applicant omitted alleged PSB visit on Sept 30, 2017 and embellished it",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found conflicting evidence on whether Applicant was wanted before or after leaving China",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Applicant evasive about smuggler role and visa information truthfulness",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found summons document likely fraudulent and other supporting documents not credible",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found omissions, contradictions, evasiveness, and likely fraudulent documents undermining Applicant's credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD concluded RPD did not err in finding Applicant not credible and not wanted by PSB",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "RAD upheld RPD's decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD upheld RPD's decision finding Applicant not credible and not wanted by PSB.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether RAD erred in finding RPD's procedural fairness breach was remedied and not remitting claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether RAD misapprehended evidence making decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court frames issues: did RAD err on procedural fairness breach remedy and misapprehend evidence?",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness questions reviewed on correctness standard (Khosa, Khela)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Court must consider fairness of procedure with no deference (Canadian Pacific Railway)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states procedural fairness is reviewed on correctness standard with no deference.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD erred applying Marin exception; error reviewable on correctness standard",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Whether RAD erred applying Marin is not determinative; key is if breach was remedied",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Breach remedy issues determined on correctness standard (McBain)",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD erred applying Marin; court finds key is if breach was remedied, decided on correctness standard.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness is presumptive standard for administrative decisions (Vavilov)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No rebuttal of reasonableness presumption applies here",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness means decision is justified, transparent, intelligible (Vavilov)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonable decisions have rational analysis and deference is owed (Vavilov)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains reasonableness is the standard for review unless rebutted; decision must be justified and rational.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD erred rejecting remittal request after finding RPD breached procedural fairness by denying wife's teleconference testimony",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Error arose from RAD applying Marin exception derived from Mobil Oil case",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Wife's testimony could have changed understanding of Sept 30, 2017 PSB visit; breach affected claim core",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD erred applying Marin exception and rejecting remittal; wife's testimony was material.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD's finding that breach was remedied is incorrect or unreasonable due to lack of justification and transparency",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant submits RAD's remedy finding lacks justification and transparency and is incorrect or unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Breach of procedural fairness may be overlooked if it had no material effect on decision",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "RAD can make credibility findings without hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues breach can be overlooked if no material effect; RAD can make credibility findings without hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found RPD breach did not affect overall outcome or core of claim citing Marin",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD's analysis justified upholding RPD decision despite breach, remedying breach by accepting Shen Letters",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found breach did not affect claim core and remedied breach by accepting Shen Letters, justifying upholding RPD decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Marin, court found RAD's new issue was not legally or factually distinct from appeal grounds",
+     "answers": 0
+    }
+   ],
+   "summary": "Marin court found RAD's new issue was not distinct from appeal grounds.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Marin concluded even if breach occurred, it was not material to justify quashing and remitting RAD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD in this case similarly found RPD breach did not affect overall claim outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Marin held breach was not material; RAD similarly found breach did not affect claim outcome here.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Even if Marin exception erred, a satisfactorily remedied breach does not warrant redetermination (McBain FCA)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites McBain FCA that a remedied breach does not require redetermination even if Marin exception erred.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant cites Ayele where IAD breached fairness by refusing witness who could support appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In Ayele, no remedy was suggested unlike this case",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant cites Ayele where breach was material; court notes no remedy was offered there unlike here.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent cites Han where breach was overlooked as it had no material effect",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Breach may be overlooked if beyond doubt it had no material effect (Nagulesan)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In Han, original documents would not outweigh defects in RAD decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent cites Han and Nagulesan that breaches without material effect can be overlooked; court notes defects outweighed documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Real question is whether RPD breach had material effect and if RAD's acceptance of Shen Letters remedied it",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states real question is if RPD breach had material effect and if RAD's remedy was sufficient.",
+   "role": "issue"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "To determine the issue, first review the content of the Shen Letters.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Shen Letter #1 states Applicant\u2019s wife was willing to testify at March 16, 2018 RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submitted Shen Letter #1 to RAD to support appeal that RPD refusal to allow wife to testify breached procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Content of Shen Letter #1 is irrelevant to Applicant\u2019s submission that RAD erred in remedying RPD procedural fairness breach.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court reviews Shen Letters; Shen Letter #1 shows Applicant\u2019s wife willing to testify; Applicant says RPD refusal breached fairness; court finds Letter #1 irrelevant to remedy issue.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Shen Letter #2 states incidents happened on September 30 and November 17, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Letter addressed to whom it may concern, elaborates on incidents on those dates.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On September 30, 2017, three PSB came to wife\u2019s home looking for Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Wife told PSB she did not know Applicant\u2019s whereabouts; PSB asked her to tell him to go to police office when back.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On November 17, 2017, PSB returned, asked if Applicant had been home since September 30; wife said no; PSB gave her a summons to give Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Shen Letter #2 describes PSB visits to wife\u2019s home on September 30 and November 17, 2017, seeking Applicant and delivering summons.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD accurately described both Shen Letters\u2019 content.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found wife\u2019s evidence in Shen Letter #2 lacked detail about alleged persecution incidents.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant testified PSB came on November 10, 2017; Shen Letter #2 states November 17, 2017 for summons delivery.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "September 30, 2017 incident not found in Applicant\u2019s BOC or amendments.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found wife\u2019s evidence lacked probative value and gave it little weight in corroborating Applicant\u2019s testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found Shen Letters accurately described; wife\u2019s evidence lacked detail and probative value; discrepancies in dates and omissions noted.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant stated he sought to admit new evidence under s.110(4) IRPA but did not request oral hearing under s.110(6).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD noted new evidence accepted and assessed if oral hearing required under s.110(6) criteria.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Oral hearing granted only if new evidence raises serious credibility issue, is central, and justifies claim outcome.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Shen Letters did not justify allowing Applicant refugee protection alone; oral hearing not granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant sought to admit new evidence but not oral hearing; RAD assessed criteria and denied oral hearing as Shen Letters insufficient alone.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Shen Letter #2\u2019s purpose was to elaborate on two incidents described.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant knew credibility was at issue regarding PSB visits.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant sought remedy that RAD remit matter to RPD for redetermination due to wife\u2019s denied testimony opportunity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Nothing prevented Applicant\u2019s wife from providing further details in new evidence supporting remedy request.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Shen Letter #2 elaborates incidents; Applicant knew credibility issue; sought remedy for wife\u2019s denied testimony; nothing prevented more details.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant\u2019s BOC made no mention of September 30, 2017 PSB visit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant\u2019s BOC states July 17, 2017 petition bureau visit; next event is October 2017 trip to Beijing, hiding due to PSB presence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Amended BOC also omits September 30, 2017 PSB home visit, predating Beijing trip.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Applicant\u2019s BOC and amended BOC omit September 30, 2017 PSB visit, describing other events instead.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Partial transcript excerpts show Applicant testified he phoned wife on September 30, who said PSB had been looking for him.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Unclear if PSB attended on September 30 or earlier date from excerpts.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Applicant testified wife said PSB looked for him on September 30, but date unclear from transcript excerpts.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD noted Applicant\u2019s omission of September 30 PSB visit from BOC and rejected translation error explanation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Applicant submitted BOC amendment and fresh translations but did not address omission or provide new translation for that paragraph.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found omission unlikely due to translation error and concluded Applicant embellished claim; PSB did not visit on September 30, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD found omission of September 30 PSB visit not due to translation error; concluded Applicant embellished claim; PSB visit likely did not occur.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant\u2019s submissions on inadequacy of procedural fairness breach remedy are not compelling.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicant\u2019s submissions on remedy inadequacy unpersuasive.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD\u2019s remedy decision was unreasonable, lacking justification and transparency, failing to reference Taiga factors.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits RAD considered Shen Letter #2\u2019s dates but his evidence and summons date differ (November 10 vs. 17, 2017).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant suggests one character difference may be typographical error, which RAD could have addressed if wife testified.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD\u2019s remedy decision unreasonable, citing date discrepancies in Shen Letter #2 and evidence, suggesting typographical error.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Submission about typographical error is speculative and without merit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Shen Letter #2 repeatedly states November 17, 2017, inconsistent with Applicant\u2019s testimony and evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant\u2019s BOC dated November 13, 2017, does not mention PSB visit on November 10, 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant did not file personal affidavit for judicial review; errors must appear on record face.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ebrahimshani v Canada requires errors to appear on record face without personal affidavit evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence supports typographical error or explains Shen Letter #2\u2019s inconsistency with Applicant\u2019s testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence that wife\u2019s testimony would have added more information than Shen Letter #2 on PSB visits.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects typographical error claim; notes no affidavit filed; no evidence wife\u2019s testimony would add beyond Shen Letter #2.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD entitled to assess new evidence\u2019s probative value, credibility, and weight after admitting it.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Shen Letter #2 inconsistent with Applicant\u2019s evidence on second PSB visit date and did not corroborate it.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Shen Letter #2 corroborated Applicant\u2019s testimony of October 30, 2017 PSB visit but did not overcome omission concerns or translation error explanation rejection.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Shen Letter #2 did not justify oral hearing under s.110(6) as it did not overcome other credibility concerns.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD upheld RPD decision based on assessment of all evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD assessed Shen Letter #2\u2019s value, found inconsistencies, upheld RPD decision, and denied oral hearing as credibility concerns remained.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "McBain FC (aff\u2019d 2017 FCA 204) states procedural fairness breaches can be cured by appeal tribunals in appropriate circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites McBain FC that appeal tribunals can cure procedural fairness breaches in appropriate cases.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD refusal to permit wife to testify was significant procedural fairness breach recognized by RAD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Prejudicial effects of error did not permeate RAD\u2019s hearing of appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD considered and weighed Shen Letter #2 and decided oral hearing not required.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence wife\u2019s testimony would have expanded or differed from Shen Letter #2 content.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant speculates about typographical error in Shen Letter #2.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD\u2019s refusal was significant breach but RAD remedied it; no evidence wife\u2019s testimony would differ; Applicant\u2019s speculation noted.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This case differs from McBain FC where multiple procedural breaches and inadmissible evidence permeated record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Here breach was discrete and evidence wife would testify to was considered by RAD as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court distinguishes this case from McBain FC; breach here was discrete and evidence considered by RAD.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Consequences to Applicant are serious as RPD refusal upheld by RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes serious consequences for Applicant as RPD refusal was upheld by RAD.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "RAD can make independent credibility findings without giving Applicant opportunity to respond: Koffi, Ortiz.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to give opportunity to respond to credibility finding does not necessarily breach procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states RAD can make credibility findings without Applicant\u2019s response opportunity; this does not necessarily breach fairness.",
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant\u2019s credibility was determinative before RPD and RAD; sufficient reasons existed to dismiss appeal apart from document inconsistencies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with Respondent on credibility being determinative and sufficient reasons to dismiss appeal.",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent argues credibility was determinative and sufficient to dismiss appeal; court agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "General rule: procedural fairness breach renders decision void and matter remitted for reconsideration.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Limited exception: court may disregard breach if claim is hopeless (Mobil Oil, Yassine, McBain).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Exception applies where outcome is legally inevitable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states general rule that procedural fairness breach voids decision, but limited exception applies if claim is hopeless and outcome inevitable.",
+   "role": "law"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mobil Oil exception applied by Federal Court and FCA in various cases including Farwaha, Ilaslan, Yassine, McBain, Dhaliwal, Singh.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Mobil Oil exception applied by Federal Court and FCA in multiple cases.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if time stamps were a new issue, no need to return matter for reconsideration before a different RAD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Alleged breach not material enough to justify quashing RAD decision and remitting for third determination",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Material breach justifying quashing and remitting requires significant breach as in Farwaha and Ilaslan",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the alleged breach about time stamps is not material enough to quash the RAD decision or remit for reconsideration, citing Farwaha and Ilaslan.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision maker would have reached same decision despite time stamp differences",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No purpose in remitting appeal for reconsideration given RAD's other findings",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Preferable for RAD to have given Applicant notice and opportunity to explain time stamp inconsistencies",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD's decision would be the same despite time stamp issues, though notice to Applicant would have been preferable.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "s. 110(6) threshold had to be met to allow oral hearing",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found new evidence in Shen Letter #2 did not justify refugee protection or meet s. 110(6) requirements",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD gave little weight to Shen Letters corroborating Applicant's testimony about PSB search",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD made adverse credibility findings on USCIS Letter, PSB interest, smuggler assistance, and summons authenticity",
+     "answers": 0
+    }
+   ],
+   "summary": "The RAD found new evidence insufficient for protection or oral hearing and made adverse credibility findings on multiple documents and claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD remedied RPD's procedural fairness breach as failure to permit wife's oral testimony had no material effect",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence wife would provide testimony beyond Shen Letter #2",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD remedied procedural fairness breach since wife's oral testimony would not materially affect fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's credibility was determinative issue before RPD and RAD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Sufficient reasons to dismiss appeal even without wife's testimony which contradicts Shen Letter #2",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds credibility was key and appeal dismissal was justified even without wife's testimony contradicting Shen Letter #2.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees with Respondent that appellate tribunals can cure procedural lapses in subordinate adjudications in some circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Taiga Works and Schmidt confirm appellate tribunals' power to cure procedural fairness breaches",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cardinal does not overrule Harelkin and King that breaches can be cured by appellate tribunals",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "BCCA in Taiga Works advocates reviewing entire proceedings to assess fairness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees appellate tribunals can cure procedural fairness breaches, citing Taiga Works, Schmidt, Cardinal, Harelkin, and King.",
+   "role": "law"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Factors to consider if appeal cured procedural fairness breach: gravity of error, likelihood of prejudice, seriousness of consequences, appellate powers, basis of decision",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Factors from Taiga Works citing de Smith, Woolf & Jowell and Schmidt",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states factors to assess if appeal cured procedural fairness breach, citing Taiga Works and de Smith, Woolf & Jowell.",
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD wrongly found conflicting evidence on whether Applicant was wanted before or after leaving China",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant was consistent in testimony about PSB efforts to find and arrest him",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the RAD wrongly found conflicting evidence and that his testimony about PSB efforts was consistent.",
+   "role": "issue"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees Applicant's testimony was consistent that PSB wanted him only for questioning before departure and arrest after",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD's adverse credibility finding on this point is unreasonable",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD also found this undermined credibility on why smuggler assistance was needed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD found Applicant evasive about smuggler's role and truthfulness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees Applicant's testimony was consistent and RAD's adverse credibility finding is unreasonable but notes RAD's other credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD relied on NDP 2017 and RIR 2013 to find no summons format variation since 2003",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD compared Applicant's summons to sample in NDP 2017 from 2015",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the RAD relied on outdated NDP and RIR documents to assess summons format consistency.",
+   "role": "issue"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No evidence summons format did not change from 2015 to 2017 when Applicant's summons issued",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Outdated foreign document samples cannot be probative, citing Ma 2018 FC 163",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues summons format may have changed and outdated samples are not probative, citing Ma.",
+   "role": "issue"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "RAD identified significant differences between sample summons and Applicant's summons",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Documentary evidence indicates no variations; RAD reasonably concluded summons is fraudulent",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant only raises possibility of error; Ma distinguished in Lin 2019 FC 450",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues RAD reasonably found summons fraudulent and Ma was distinguished in Lin.",
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's argument similar to Lin where applicants failed to specify errors in RAD's document assessment",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Lin held applicants must specify errors with reasonable precision to challenge RAD findings",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant's argument like Lin where applicants failed to specify errors in RAD's document assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence summons format changed from 2003 to 2013; not implausible no change from 2015 to 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inclusion of 2015 RIR in 2017 NDP indicates it remained current",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD reasonably relied on 2015 RIR in 2017 NDP to assess summons authenticity",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no evidence summons format changed and RAD reasonably relied on 2015 RIR in 2017 NDP.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD incorrectly stated Applicant testified summons delivered online but this is not a reviewable error",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD found no indication summons was delivered electronically and made no negative credibility finding on this",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD concluded summons did not conform to sample, prevalence of fraudulent documents, and summons is fraudulent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD confirmed RPD's assessment of summons authenticity as correct",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD's minor error on summons delivery does not affect conclusion that summons is fraudulent and assessment is correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Does not agree Applicant's alleged misapprehensions render RAD's decision unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the alleged misapprehensions do not make the RAD's decision unreasonable.",
+   "role": "conclusion"
+  }
+ ]
+}

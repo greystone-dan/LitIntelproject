@@ -1,0 +1,2061 @@
+{
+ "case_id": 34079,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.027208000000000003
+ },
+ "verification": {
+  "paragraphs": 93,
+  "rows": 93,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 4,
+  "dropped_why": {
+   "duplicate": 2,
+   "not_in_chunk": 2
+  },
+  "propositions": 201,
+  "holders": {
+   "prior_court_or_authority": 8,
+   "court": 120,
+   "earlier_decision_maker": 3,
+   "respondent": 23,
+   "applicant": 47
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 6,
+  "split_paragraphs": 12,
+  "headings_before": 4
+ },
+ "headings": {
+  "12": "B. The Applicants\u2019 TRV applications",
+  "29": "B. Mandamus",
+  "90": "C. Relief sought",
+  "93": "VIII. Costs"
+ },
+ "split_from": {
+  "4": 3,
+  "12": 11,
+  "26": 25,
+  "29": 27,
+  "32": 31,
+  "35": 34,
+  "69": 68,
+  "70": 68,
+  "82": 81,
+  "85": 84,
+  "90": 89,
+  "93": 89
+ },
+ "blocks": {
+  "overview": "This case concerns an application for mandamus to compel the Canadian government to decide on temporary resident visa (TRV) applications under a policy for Palestinian nationals in Gaza. The applicants, a family living in dire conditions in Gaza, seek timely processing and relief from biometric requirements due to border closures. The Federal Court dismissed the application, finding no clear right to mandamus and that the balance of convenience favoured the respondent.",
+  "background_paras": "2-21",
+  "disposition_paras": "91-93",
+  "blocks": [
+   {
+    "issue": "Is the applicant entitled to mandamus compelling a decision on their TRV applications under the Gaza Policy?",
+    "paras": "29-91",
+    "court_conclusion": "Applicants have not established a clear right to mandamus; application dismissed.",
+    "conclusion_paras": "2,29-31,62,68,82-83,89-91",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants seek mandamus to compel IRCC decision on TRV applications, relying on Policy, legitimate expectation, and s. 12.8 IRPR exemption.",
+      "paras": "29,32-33,35,38,42,48,52,59,61,63,64,69,72,75,77,82,84,85,94"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondent acknowledges duty to process but denies duty to decide within timeframe; argues security screening and operational context justify delay; no binding representations made.",
+      "paras": "22,34,44,47,50,51,54,65,73,74,77,86"
+     },
+     {
+      "holder": "court",
+      "text": "Court finds legal duty to process but no duty for timely decision; applicants have legitimate expectation but have not met all Policy conditions; delay not unreasonable given security screening and border closure; balance of convenience favours respondent.",
+      "paras": "2,23,27,31,34,35,41,43,45-47,49,53,55,56,58,59,62,66,68,70-71,74,76,79-81,83,84,87-89,93,94,96"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Mandamus requires legal duty, clear right, no adequate remedy; prejudice relevant but not separate criterion; s. 12.8 IRPR exempts biometric data when collection impossible.",
+      "paras": "2,24,25,26,29,30,31,70,81"
+     }
+    ]
+   },
+   {
+    "issue": "Does the applicants' failure to provide biometrics due to Rafah border closure affect their entitlement to mandamus?",
+    "paras": "11,25,42-48,56,59,61-63,66,79",
+    "court_conclusion": "Applicants have not met Policy condition to provide biometrics; border closure makes collection impossible; no mandamus granted but encouraged to raise s. 12.8 exemption with IRCC.",
+    "conclusion_paras": "11,25,42-48,56,59,61-63,66,79,84,87",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants argue s. 12.8 IRPR exempts biometric requirement due to impossibility; Policy requires Canada to assist exit for biometrics.",
+      "paras": "25,42,48,61"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondent notes s. 12.8 exemption not raised with IRCC; biometric collection necessary; border closure complicates but does not excuse delay.",
+      "paras": "54,86"
+     },
+     {
+      "holder": "court",
+      "text": "Court finds biometric requirement unmet due to border closure; s. 12.8 exemption relevant but must be assessed by IRCC; encourages applicants to raise it promptly.",
+      "paras": "25,43,45-48,56,58,79,84,87"
+     }
+    ]
+   },
+   {
+    "issue": "What is the appropriate approach to the Policy steps and operational context in assessing the applicants' claims?",
+    "paras": "6-10,45-51,63,79,89",
+    "court_conclusion": "Applicants' formalistic step-by-step approach is problematic; operational context changes justify flexibility; no strict obligation to follow Policy steps when frustrated by circumstances.",
+    "conclusion_paras": "45-51,63,79,89",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants argue each Policy step must be respected, especially exit advocacy after biometrics.",
+      "paras": "48,63"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondent argues step-by-step approach inconsistent; exit advocacy depends on biometrics; Minister's representations not binding.",
+      "paras": "50,51,86"
+     },
+     {
+      "holder": "court",
+      "text": "Court agrees with respondent; Policy steps must be viewed holistically; no authority supports strict adherence when operational context frustrates Policy.",
+      "paras": "49,50,51,63,79,89"
+     }
+    ]
+   },
+   {
+    "issue": "Have the applicants established a legitimate expectation of timely processing and decision under the Policy?",
+    "paras": "33-41,44,52,59,64-66",
+    "court_conclusion": "Applicants have legitimate expectation of timely processing but only arises after meeting all Policy conditions including biometrics.",
+    "conclusion_paras": "35,41,59,64-66",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants submit legitimate expectation based on Policy language, Minister's statements, website, and past emergency policies.",
+      "paras": "33,35,38,40,52,64"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondent concedes duty to process but denies binding representations or guarantees of timing or approval.",
+      "paras": "34,44,51,65"
+     },
+     {
+      "holder": "court",
+      "text": "Court agrees applicants have legitimate expectation but obligation arises only after meeting Policy conditions including biometrics.",
+      "paras": "35,41,59,64-66"
+     }
+    ]
+   },
+   {
+    "issue": "Is the delay in processing the applicants' TRV applications unreasonable?",
+    "paras": "23,69-74,79-81",
+    "court_conclusion": "Delay of roughly 18 months is lengthy but not unreasonable given security screening and operational context.",
+    "conclusion_paras": "23,69-74,79-81",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants argue delay exceeds what process requires given humanitarian urgency.",
+      "paras": "23,69,72,75"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondent argues delay has not reached two or three years threshold considered unreasonable; security screening ongoing.",
+      "paras": "23,73,74,86"
+     },
+     {
+      "holder": "court",
+      "text": "Court finds delay lengthy but not unreasonable; adopts prior decisions on similar delays.",
+      "paras": "23,69-74,79-81"
+     }
+    ]
+   },
+   {
+    "issue": "What is the balance of convenience regarding granting mandamus?",
+    "paras": "82-89",
+    "court_conclusion": "Balance of convenience favours respondent; mandamus would lack practical value due to border closure and ongoing security screening.",
+    "conclusion_paras": "82-83,84,87-89",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants argue balance favours mandamus due to extreme risk and prejudice from delay.",
+      "paras": "85"
+     },
+     {
+      "holder": "respondent",
+      "text": "Respondent argues balance favours not granting mandamus due to immigration integrity and pending security assessments.",
+      "paras": "86"
+     },
+     {
+      "holder": "court",
+      "text": "Court agrees with respondent; mandamus risks contrary to interests of justice; border closure prevents practical effect.",
+      "paras": "82-84,87-89"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mandamus requires applicant to meet all legal requirements and be entitled to the requested matter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants face upheavals in Gaza and must fulfill Policy conditions for temporary resident visas",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants have not established a clear right to mandamus",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for mandamus must be dismissed",
+     "answers": 3
+    }
+   ],
+   "summary": "The court states mandamus requires legal entitlement, notes Applicants' difficult context and Policy conditions, finds no clear right, and dismisses application.",
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This case and two others raise similar issues to A.B. v Canada 2025 FC 1514 [A.B.]",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Mandamus was not granted in A.B. II",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes this case and two others raise similar issues to A.B., where mandamus was not granted.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister announced the Policy on December 22, 2023, effective January 9, 2024",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister announced the Policy on December 22, 2023, effective January 9, 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Policy developed under s. 25.2 IRPA to provide refuge for Palestinian nationals with Canadian citizen or PR relatives",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Relatives act as anchor relatives for TRV applications",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Policy was developed under IRPA to help Palestinian nationals with Canadian relatives acting as anchors for TRV applications.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Policy allows officers to exempt applicants from certain requirements",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants must satisfy conditions in Parts 1-3 of the Policy, including application submission, Gaza residence, Palestinian passport, anchor identification, family relationship, statutory declaration, and application format",
+     "answers": 0
+    }
+   ],
+   "summary": "The court details Policy conditions applicants must satisfy, including application, Gaza residence, Palestinian passport, anchor, family ties, declaration, and application format.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants meeting conditions are exempt from financial inadmissibility and leaving Canada requirements",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "All other IRPA and IRPR requirements remain applicable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states applicants meeting conditions are exempt from some requirements but all other IRPA and IRPR rules apply.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Application process has three stages; anchor completes statutory declaration and consent forms confirming eligibility and support",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the first stage of the application process where the anchor completes declaration and consent forms.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second stage: anchor submits crisis webform with declaration, ID, proof of citizenship or PR, and proof of residence or intent to live in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "IRCC issues unique reference code for each applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the second stage where the anchor submits forms and IRCC issues unique reference codes.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Third stage: anchor submits TRV applications with reference code, declaration, proof of relationship, travel documents, consent, and background info",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the third stage where the anchor submits TRV applications with required documents and codes.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "IRCC confirms eligibility and forwards names to Israeli and Egyptian governments for biometric collection at Rafah crossing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No biometric collection facilities exist in Gaza",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRCC forwards eligible applicants' names for biometric collection at Rafah, noting no facilities in Gaza.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants are a family of five living in one room in a partially destroyed home",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants live among rats and insects and are exposed to rain due to roof damage",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the Applicants as a family of five living in poor conditions in a damaged home.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants' situation is seriously wanting and heartbreaking",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicants' situation seriously wanting and heartbreaking.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Several Applicants have physical ailments from bombings and war; ceasefire is in place but situation is fluid",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Applicants have physical ailments from conflict; ceasefire exists but situation remains fluid.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants suffer hearing loss, skin infection, knee injury, nerve damage, gland condition, fainting, hair loss, lack medical care, food, and clean water",
+     "answers": 0
+    }
+   ],
+   "summary": "The court details Applicants' health issues and lack of medical care, food, and clean water.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applications under Policy opened January 9, 2024; Anchor submitted webform same day and received codes March 22, 2024",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states applications opened January 9, 2024; Anchor submitted webform same day and got codes March 22, 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Anchor submitted applications for five Applicants April 3, 2024; biometric instruction letters sent same day",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Anchor submitted applications April 3, 2024; biometric instructions sent same day.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "IRCC started high priority security screening for adult male Applicant due to past transport employment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "High priority security screenings for adult female and two adult children started May 10, 2024",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes IRCC began high priority security screenings for Applicants starting April and May 2024.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Adult male Applicant received letter June 12, 2024 requesting social media info; Anchor sought extension and provided info August 5, 2024",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Additional info gathered as recently as September 2025",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states adult male Applicant was asked for social media info; Anchor provided it August 2024; info gathering continued to September 2025.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Female Applicant's sister's passport and birth certificate were mislabelled and corrected November 10, 2024",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Anchor submitted correct documents using crisis webform",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes a female Applicant's documents were mislabelled and corrected November 2024 by the Anchor.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No decision rendered on Applicants' applications; preliminary high priority security screenings underway since April 24, 2024 for three Applicants",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states no decision made; preliminary high priority security screenings ongoing since April 2024 for three Applicants.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Security screening and background checks involve multiple government departments and must be comprehensive under IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "IRCC works with security partners with expertise and tools to conduct required security checks.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Accept submissions of Respondent about comprehensive security screening and background checks under IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the Respondent's argument that security screening involves multiple departments and must be comprehensive under IRPA, with IRCC working with security partners.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Processing time of roughly 18 months since September 2023 is lengthy but not unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant is an Iranian citizen with two years mandatory IRGC service.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent has been taking steps to move the application forward.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 18-month processing time is lengthy but not unreasonable, noting the Applicant's IRGC service and Respondent's efforts to move the application forward.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 25.2(1) IRPA authorizes Minister to exempt inadmissible foreign nationals on public policy grounds with conditions.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 25.2(1) IRPA authorizes the Minister to exempt inadmissible foreign nationals on public policy grounds with conditions.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 12.8 IRPR exempts biometric data provision when collection is impossible or not feasible.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant raises s 12.8 exemption in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 12.8 IRPR exempts biometric data provision if collection is impossible; Applicant raises this exemption here.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants rely on lawyer's affidavit about Gaza humanitarian crisis and ask Court to assume facts or take judicial notice.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Judicial notice allowed for facts so notorious or generally accepted as not debatable: R v Find, 2001 SCC 32 para 48.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants rely on lawyer's affidavit about Gaza crisis and ask Court to assume facts or take judicial notice per R v Find.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Court should rely on lawyer's affidavit and exhibits only for general background.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "News articles are generally inadmissible hearsay but accepted here for background as in A.B.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Affidavit admissible for general background on Gaza crisis; judicial notice of serious humanitarian crisis taken despite ceasefire.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Rafah crossing remains closed, relevant to biometrics.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent submits affidavit is for background; court accepts it and news articles for background and takes judicial notice of Gaza crisis; Rafah crossing remains closed.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants rely on law professor's affidavit as expert evidence initially.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Applicants withdrew expert claim as no expert certificate filed; affidavit accepted as lay evidence by Respondent.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Paragraphs 16 and 17 of affidavit struck as impermissible opinion from lay affiant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only exhibit relevant was previous IRCC policy, the Afghanistan Airlift Policy.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants relied on law professor's affidavit initially as expert but withdrew expert claim; affidavit accepted as lay evidence; some paragraphs struck; relevant exhibit was Afghanistan Airlift Policy.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants seek mandamus to compel IRCC decision on TRV applications.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Adopts Justice Little's determinations in Wasylynuk v Canada (RCMP), 2020 FC 962 para 76 on mandamus.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Prejudice may be relevant in mandamus but not a separate criterion; incorporated in balance of convenience stage.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Prejudice does not belong in assessment of unreasonable delay; Justice Turley agrees in Tousi v Canada, 2025 FC 671 paras 13-17.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants seek mandamus; court adopts Justice Little's mandamus analysis including prejudice relevance and Justice Turley's views in Tousi.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit mandamus test from Apotex v Canada (AG), [1994] 1 FC 742 (FCA) with 8 factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Mandamus test requires legal duty, duty owed to applicant, clear right, no adequate remedy, practical value, no equitable bar, balance of convenience.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit mandamus test from Apotex with 8 factors; court states test requires legal duty, right, no remedy, value, no bar, and balance of convenience.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court must be satisfied on all eight factors to issue mandamus: Cheloei v Canada, 2025 FC 820 para 13.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will analyse each factor as relevant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court must be satisfied on all eight mandamus factors per Cheloei and will analyse each relevant factor.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit Minister has duty to render decisions per policy developed under s 25.2(1) IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Duty further informed by IRPA statutory framework: Dragan v Canada, [2003] 4 FC 189 para 40.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Section 25.2(1) IRPA allows Minister to develop exemptions for inadmissible foreign nationals where public policy requires.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit Minister has duty to decide per s 25.2(1) IRPA policy; court notes duty informed by IRPA and Dragan; s 25.2(1) allows exemptions.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit duty content informed by IRPA s 3 objectives: saving lives, safe haven, family reunification, with consistent standards and prompt processing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit duty content informed by IRPA s 3 objectives including saving lives and prompt processing.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent concedes legal duty to process TRV applications under Policy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees there is legal duty to process but no duty to process within particular timeframe, per A.B. para 58.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent concedes legal duty to process TRV applications; court agrees no duty to process within specific timeframe per A.B.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants claim legitimate expectation of timely processing and decision of applications.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with Applicants on legitimate expectation as in A.B.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants claim legitimate expectation of timely processing; court agrees as in A.B.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Legitimate expectation arises from clear, unambiguous, unqualified representation about procedures: Agraira, Singh, CUPE cases.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states legitimate expectation arises from clear, unambiguous, unqualified representation about procedures per case law.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit test for legitimate expectation is whether reasonable person would think promise serious and entitled to expect it: Apotex para 128.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit legitimate expectation test is whether reasonable person would think promise serious and entitled to expect it per Apotex.",
+   "role": "law"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit legitimate expectation based on compliance with Policy, Minister's language, Government website, prior temporary policies.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Policy purpose is refuge from volatile Gaza crisis; language reflects seriousness; website outlines eligibility, procedures, representations of pathway to safety.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "IRCC website was only information source; no other guidance issued; January 2024 instructions promised facilitated exit from Gaza and advocacy with local authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "October 2025 instructions no longer mention Rafah crossing but state Canada will advocate for exit from Gaza if application passes preliminary assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit legitimate expectation based on Policy compliance, Minister's language, website info, and prior policies promising facilitated exit and advocacy for Gaza applicants.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit representations show understanding of urgent Gaza crisis and Canada's commitment to advocate exit of eligible applicants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit representations show understanding of urgent Gaza crisis and Canada's commitment to advocate exit of eligible applicants.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants identify past temporary policies created rapidly in emergencies and processed applicants quickly.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Professor's affidavit notes Canada processed thousands of visas quickly in response to emergencies in T\u00fcrkiye, Syria, Ukraine.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Professor says success shows Canada's expertise and capacity to implement temporary resident visas for persons fleeing danger.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants identify past emergency policies processed quickly; professor's affidavit notes Canada's expertise and capacity to implement temporary visas for fleeing persons.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Affidavit now lay evidence; court finds it and other evidence sufficient to support Applicants' legitimate expectations per A.B. para 63.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds affidavit as lay evidence and other evidence sufficient to support Applicants' legitimate expectations per A.B.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants rely on s. 12.8 IRPR exemption for biometric data collection when impossible or not feasible",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue exemption can be used case-by-case or broadly for anticipated or in-progress applications",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants cite Canada Gazette, Part II, Volume 152, Number 14, July 11, 2018",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue s. 12.8 IRPR exempts biometric data collection when impossible, citing Canada Gazette July 2018.",
+   "role": "issue"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "None of the Applicants in three cases asked IRCC to consider s. 12.8; raised first time in this Court in this case",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only counsel for Applicants in this case raised s. 12.8, now relied on in all three cases but discussed here only",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds s. 12.8 raised first time here; only Applicants' counsel raised it, now relied on in all three cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent acknowledges Gaza situation but says prior policies insufficient to establish clear, unambiguous representation",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent notes Government website stated no guarantees applications would be processed or approved",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent notes Canada does not decide who can leave Gaza",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent acknowledges Gaza but says prior policies insufficient, website stated no guarantees, Canada doesn't decide Gaza exit.",
+   "role": "issue"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue website info was not listed when they applied",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Policies may become inapplicable due to changed operational context on ground",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This happened after October 7, 2023 and after Rafah border closure in May 2024",
+     "answers": 2
+    }
+   ],
+   "summary": "Applicants say website info missing when applied; court finds policies may become inapplicable after Oct 2023 and May 2024 closures.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "After Rafah border closure May 7, 2024, what was possible under Policy became impossible and remains so",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds after May 7, 2024 Rafah closure, what Policy contemplated became impossible and remains so.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants in catch-22: cannot leave Gaza to provide biometrics because border closed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This is direct consequence of Policy wording and changed operational context with border closure",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds Applicants trapped by Policy and border closure, unable to provide biometrics due to changed context.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue each Policy step must be respected, especially step 4 then step 5 for exit advocacy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Screening likely delayed until IRCC completes screening of adult male Applicant, info gathered as recently as Sept 2025",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants concede they have not met Policy condition to provide biometrics",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Applicants may raise s. 12.8 IRPR with IRCC if it helps",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue Policy steps must be followed; court finds screening delayed, Applicants not met biometric condition, may raise s. 12.8 with IRCC.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants' step-by-step approach is problematic and too formalistic",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Judicial review rejected for formalistic approach in Halton v Canada, 2024 FCA 160 para 43",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants' approach ignores significant operational changes in Gaza since Policy adoption",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Canadian officials not obliged to follow Policy steps strictly when operational context frustrates Policy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No authority supports Applicants' argument; A.B.C.D. v Canada 2025 FC 1296 not applicable here",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants' formalistic step approach ignores Gaza changes, no authority supports it, cites Halton and rejects A.B.C.D. applicability.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Step-by-step approach inconsistent with Applicants' framing of Application for Leave and Judicial Review",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants fault IRCC for not undertaking exit advocacy (step 5) but step 5 depends on step 4 completion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This supports holistic view of Policy implementation on judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent says step approach inconsistent with Applicants' framing; court agrees holistic view of Policy needed.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Any Minister representations are not binding and do not entitle Applicants to mandamus",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with Respondent and follows Jia v Canada 2014 FC 596 para 92",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent says Minister representations not binding; court agrees and follows Jia 2014 FC 596 para 92.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants say website was authoritative source announcing and updating Policy",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants ask to distinguish Jia, alleging Respondent's reliance misplaced",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In Jia, Court held website statements distinct from Minister representations and treated differently",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants say website authoritative and distinguish Jia; court notes Jia held website statements differ from Minister representations.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No reason to reject Justice Gleason's determination in Jia, still good law",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Jia decision by Justice Gleason remains good law and should not be rejected.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "No evidence s. 12.8 exemption was before TRV officer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties dispute who should raise s. 12.8: Applicants or IRCC officers",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent says no evidence s. 12.8 before TRV officer; parties dispute who should raise it.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "s. 12.8 not raised in A.B. or other two cases decided today",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "s. 12.8 first raised in Applicants' Further Memorandum Oct 14, 2025, mentioning Afghanistan Airlift Policy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court erred in A.B. referring to s. 12.8 as Temporary Public Policy for Afghan Nationals",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes s. 12.8 first raised Oct 14, 2025; not raised in other cases; court erred in A.B. reference.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No decision made on five applications still before IRCC",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This is mandamus, not review of decision; case still in system",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants may bring s. 12.8 to IRCC attention; no need to decide if officers obliged to consider it",
+     "answers": 0
+    }
+   ],
+   "summary": "No decision on five applications; mandamus not decision review; Applicants may raise s. 12.8 with IRCC; no ruling on officers' obligation.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Counsel should raise s. 12.8 with IRCC sooner rather than later",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes counsel should raise s. 12.8 with IRCC promptly.",
+   "role": "conclusion"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Urgent consideration of s. 12.8 encouraged but may not end matter due to high priority security screening",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Engaging s. 12.8 now with IRCC is preferable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court encourages urgent s. 12.8 consideration but notes security screening may delay; engaging IRCC now preferable.",
+   "role": "conclusion"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants have legitimate expectation of timely application disposal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Obligation arises only when Applicants meet all Policy conditions per A.B. paras 64-66",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants have legitimate expectation of timely disposal only after meeting all Policy conditions per A.B.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants refer to A.B. where applicant could not provide biometrics due to Rafah closure",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants submit Policy requires Canada to assist exit for biometrics",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants say GCMS notes show Respondent took no steps to advocate exit from Gaza",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue A.B. shows Policy requires Canada to assist exit for biometrics; Respondent took no advocacy steps per GCMS notes.",
+   "role": "issue"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court not persuaded; Applicants have not satisfied Policy conditions precedent for mandamus",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Clear Policy condition requires biometric submission; Applicants have not done so due to Rafah closure",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court may not order mandamus but hopes situation changes as contemplated by ceasefire",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicants not met biometric condition due to Rafah closure; mandamus not ordered but hopes ceasefire changes situation.",
+   "role": "conclusion"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No duty on Canada to engage in exit advocacy under step 5 because step 4 is incomplete",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Supports a holistic approach on judicial review as encouraged in Vavilov at para 97",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicants argue no duty on Canada for exit advocacy under step 5; court supports holistic judicial review approach per Vavilov para 97.",
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Relies on A.B.C.D. v Canada as example of legitimate expectations from similar policy for Afghan nationals",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees A.B.C.D. confirms legitimate expectations from clear, unambiguous policy representations about expedited process",
+     "answers": 1
+    }
+   ],
+   "summary": "Applicant relies on A.B.C.D. case for legitimate expectations; court agrees policy created clear expectations about expedited process.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "No representations made about processing time, approvals, or exit from Gaza",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not persuaded any such representation was made after reviewing record",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent denies representations on processing time or exit; court not persuaded such representations were made.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees applicant had legitimate expectation of timely TRV application processing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Obligation to process timely arises only after meeting policy requirements, leaving Gaza, and providing biometrics",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant unable to meet these requirements through no fault of her own",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicants submit clear right to timely processing; court finds they do not",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees applicant had legitimate expectation of timely processing but obligation arises only after policy conditions met; no clear right to performance found.",
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No need to consider issue of clear right to performance as applicants have not established it",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no need to consider clear right to performance issue as applicants failed to establish it.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Nearly 18 months since application submission is sufficient time for respondent to comply",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "High priority security screening continues as recently as September",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not persuaded reasonable time has elapsed",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue 18 months is sufficient and screening continues; court not persuaded reasonable time has elapsed.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Unreasonable delay factors from Conille: length longer than process nature, applicant not responsible, no satisfactory justification",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Conille factors for unreasonable delay: length, applicant responsibility, and justification.",
+   "role": "law"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reasonableness of delay is contextual; no uniform length is unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Delay of two or three years or more considered unreasonable by this Court",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees delay of two or three years or more considered unreasonable",
+     "answers": 2
+    }
+   ],
+   "summary": "Court notes delay reasonableness is contextual; respondent and court agree delays over two or three years considered unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Delay longer than required by process nature, which is urgent due to humanitarian crisis",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants submit delay exceeds what process requires, which is urgent due to humanitarian crisis.",
+   "role": "analysis"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicants failed to establish processing time exceeds what process requires",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Applicants submitted applications and received codes in March and April 2024",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "IRCC requested social media info in June 2024 and received response in August 2024",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Further request about employment history made at partners' request, info received September 2, 2025",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent submits applicants failed to prove delay exceeds process needs; details requests and responses from 2024 to 2025 provided.",
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Delay has not reached two or three years threshold considered unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees delay has not reached unreasonable threshold",
+     "answers": 1
+    }
+   ],
+   "summary": "Respondent argues delay not yet unreasonable; court agrees delay not reached unreasonable threshold.",
+   "role": "analysis"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants not responsible for delay as they fulfilled all procedural requirements",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Screening continues as recently as September 2025 despite applicants submitting necessary forms",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants claim no responsibility for delay; court notes screening continues despite applicants' compliance.",
+   "role": "analysis"
+  },
+  {
+   "para": 76,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Mandamus compels public legal duty performance, requiring duty and triggered obligation in favour of applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains mandamus requires public legal duty and triggered obligation to act in favour of applicant.",
+   "role": "law"
+  },
+  {
+   "para": 77,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Respondent provided no explanation or satisfactory justification for processing delay",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicants received only automated emails and no correspondence since application",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Explanation related to IRPA objectives is sufficient justification for delay",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants say no satisfactory explanation for delay; respondent says IRPA objectives justify delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Court held pending security assessment without explanation is inadequate justification for delay",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue prior court held unexplained pending security assessment is inadequate justification for delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 79,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No merit in argument as applicants know applications incomplete due to operational context shift since May 7, 2024",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "High priority security screening active and continuing in September 2025",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Absence of biometrics and border closure cause delay beyond Canada's control",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no merit in argument; applications incomplete due to operational context and biometrics absence caused by border closure.",
+   "role": "analysis"
+  },
+  {
+   "para": 80,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Preliminary and high priority screenings involve multiple Canadian departments and foreign states beyond Canada's control",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees with Justice Blackhawk's determinations in Cheloei at paras 22-23",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes screenings involve multiple departments and foreign states; adopts Justice Blackhawk's Cheloei determinations.",
+   "role": "analysis"
+  },
+  {
+   "para": 81,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Processing time of 18 months in Cheloei was lengthy but not unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Finds Justice Blackhawk's reasoning persuasive and adopts it; no unreasonable delay here",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision found 18-month processing lengthy but not unreasonable; court adopts reasoning and finds no unreasonable delay here.",
+   "role": "analysis"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No alternative remedy available; no equitable bar to relief as applicants complied with instructions",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Concedes no alternative remedy or equitable bar but order lacks practical value",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees no alternative remedy or equitable bar but order would lack practical value",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants say no alternative remedy or equitable bar; respondent concedes but says order lacks practical value; court agrees.",
+   "role": "analysis"
+  },
+  {
+   "para": 83,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mandamus order would not end suffering as Rafah border crossing remains closed despite ceasefire",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Even if TRV applications succeed, applicants cannot leave Gaza currently",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds mandamus would not help as Rafah border closed; applicants cannot leave Gaza even if TRV approved.",
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 12.8 of IRPR is relevant to mandamus and biometrics issues.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mandamus would have practical effect because biometrics may not be necessary given s. 12.8 of IRPR.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Submission that s. 12.8 might assist applicants has merit but IRCC must assess applicability.",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It might be contradictory if applicants do not raise s. 12.8 with IRCC given their court arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Balance of convenience does not favour an order of mandamus.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds s. 12.8 IRPR relevant; applicants argue mandamus may help; court sees merit but IRCC must assess; balance of convenience disfavors mandamus.",
+   "role": "analysis"
+  },
+  {
+   "para": 85,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Balance of convenience favours mandamus due to extreme risk to applicants outweighing minister's risk.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants and family suffer significant prejudice from unreasonable delay in TRV applications.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicants are trapped in warzone; only escape is the Policy; 18 months delay by IRCC.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicants face starvation, thirst, illness, bombing; delays prolong risk of death by IDF.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicants A.A. and B.B. need urgent medical attention; conditions worsen without intervention.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Adult applicants watch daughters waste away from starvation and thirst daily.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Prejudice suffered is heightened risk to life, the greatest prejudice possible.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue balance of convenience favours mandamus due to extreme risk and significant prejudice from delays in warzone.",
+   "role": "analysis"
+  },
+  {
+   "para": 86,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Balance of convenience favours not granting mandamus due to Minister's duty to maintain immigration integrity.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Granting mandamus with pending security assessments and missing biometrics is not in interests of justice.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Foreign affairs and national interests are Executive matters, not for courts: Canada v Boloh 1(A), 2023 FCA para 66.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues balance of convenience disfavors mandamus due to security, biometrics, and executive foreign affairs prerogatives.",
+   "role": "analysis"
+  },
+  {
+   "para": 87,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Granting mandamus or visas without reviewed biometrics entails risks contrary to interests of justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "This is a matter for the Minister to consider.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds granting mandamus or visas without biometrics risks justice; issue for Minister to consider.",
+   "role": "analysis"
+  },
+  {
+   "para": 88,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court cannot set, vary or grant exemptions for government policies, as noted in A.B.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states it cannot alter government policies, citing A.B.",
+   "role": "law"
+  },
+  {
+   "para": 89,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Balance of convenience favours the Respondent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes balance of convenience favours respondent.",
+   "role": "conclusion"
+  },
+  {
+   "para": 90,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Applicants request several orders but no need to address as right to mandamus not established.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes applicants' orders need not be addressed as mandamus right not established.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 91,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicants not entitled to mandamus; conditions precedent not fulfilled; application dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses application as applicants not entitled to mandamus and conditions precedent unmet.",
+   "role": "disposition"
+  },
+  {
+   "para": 92,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "No party proposes certification question; court agrees none arises.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no certification question proposed or arising.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 93,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review dismissed; no question certified; no costs ordered.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses judicial review, denies certification and costs.",
+   "role": "disposition"
+  },
+  {
+   "para": 94,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No basis to conclude binding representations were made to applicants.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue June 8, 2006 Operational Instruction and form letters create binding representations like Minister's statements in Liang.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no binding representations made; applicants argue documents create binding representations like in Liang.",
+   "role": "analysis"
+  },
+  {
+   "para": 95,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees that documents relied on are like binding statements in Liang due to important differences.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disagrees documents relied on are like binding statements in Liang due to differences.",
+   "role": "analysis"
+  },
+  {
+   "para": 96,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statements in Liang were made by Minister in Parliament report, unlike general departmental letters or Operational Instruction here.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Liang statements were Minister's parliamentary report, unlike general letters or instructions here.",
+   "role": "analysis"
+  }
+ ]
+}

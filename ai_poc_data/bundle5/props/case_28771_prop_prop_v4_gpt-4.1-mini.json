@@ -1,0 +1,460 @@
+{
+ "case_id": 28771,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.006125200000000001
+ },
+ "verification": {
+  "paragraphs": 19,
+  "rows": 19,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 38,
+  "holders": {
+   "court": 16,
+   "earlier_decision_maker": 15,
+   "applicant": 6,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 3,
+  "headings_before": 1
+ },
+ "headings": {
+  "7": "II. Decision under review"
+ },
+ "split_from": {
+  "7": 6,
+  "12": 11,
+  "17": 16
+ },
+ "blocks": {
+  "overview": "Kei Wah Carah Law, a Hong Kong citizen, seeks judicial review of a Visa Officer's refusal of her open work permit application under Hong Kong Special Measures due to alleged misrepresentation of educational credentials. The Visa Officer found the credentials illegitimate and refused the application, rendering the applicant inadmissible for five years. The Federal Court dismissed the judicial review, finding the Officer's decision reasonable and procedurally fair.",
+  "background_paras": "1,4-8,13,19",
+  "disposition_paras": "2,16,21",
+  "blocks": [
+   {
+    "issue": "Was the Applicant given a fair opportunity to respond to concerns about the legitimacy of her educational credentials?",
+    "paras": "12-16",
+    "court_conclusion": "The court finds the Applicant had a fair process and the Officer's questions were not unfair.",
+    "conclusion_paras": "15-16",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues she was not given a fair opportunity to respond to Officer's concerns and questioning was unfair as she could not answer for WES.",
+      "paras": "12,14"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Asked Applicant about possible inaccurate information given to WES; Applicant answered 'I don't know'.",
+      "paras": "13"
+     },
+     {
+      "holder": "court",
+      "text": "Finds the interview process fair; questions sought clarification, not speculation; Applicant was put on notice.",
+      "paras": "15-16"
+     }
+    ]
+   },
+   {
+    "issue": "Was the Officer's finding of plagiarism and illegitimacy of the Applicant's educational credentials reasonable?",
+    "paras": "17-21",
+    "court_conclusion": "The Officer's decision is reasonable, justified, and no grounds exist for Court intervention.",
+    "conclusion_paras": "20-21",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues plagiarism finding is unreasonable and Officer acted outside expertise.",
+      "paras": "17-18"
+     },
+     {
+      "holder": "court",
+      "text": "Distinguishes from Chung; notes discrepancies in attendance and coursework completion; finds concerns reasonable.",
+      "paras": "19"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Kwong v Canada holds determining genuine education credentials is within Officer's purview.",
+      "paras": "20"
+     },
+     {
+      "holder": "court",
+      "text": "Officer's decision justified and reasonable despite possible explanations for inconsistencies.",
+      "paras": "20-21"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Kei Wah Carah Law, a Hong Kong citizen, seeks judicial review of a Visa Officer's refusal of her open work permit application under Hong Kong Special Measures.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Officer found she submitted illegitimate educational credentials and was ineligible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Kei Wah Carah Law seeks judicial review of a Visa Officer's refusal due to illegitimate educational credentials found by the Officer.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial review is dismissed as the Officer's finding is reasonable and procedurally fair.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review, finding the Officer's decision reasonable and procedurally fair.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Applicant provided an ECA from WES assessing her Q7 credential as a one-year postgraduate diploma and ARU MBA as a Canadian Master's degree.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker notes the Applicant provided a WES ECA equating her credentials to Canadian diplomas.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Officer scheduled an interview and requested documents about coursework, academic records, exemptions, registration, invoices, and payments for Q7 and ARU credentials.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer scheduled an interview and requested detailed documents about the Applicant's education credentials.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "At the interview, the Officer expressed concerns about legitimacy of degrees, noting inconsistencies in enrollment and completion dates for Q7.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Officer accused the Applicant of plagiarizing her academic paper provided for consideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer found inconsistencies in the Applicant's education and accused her of plagiarism at the interview.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On August 29, 2023, the Officer refused the work permit application citing inadmissibility under IRPA paragraph 40(1)(a) for misrepresentation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Applicant is inadmissible to Canada for five years under IRPA paragraph 40(2)(a) from the Decision date.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer refused the application for misrepresentation under IRPA, rendering the Applicant inadmissible for five years.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "GCMS notes show the Applicant could not explain discrepancies about Q7 program dates and completing the course in two weekends versus one year.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Applicant could not explain how her assignment was found online, raising concerns about accuracy of information provided to WES.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Officer is satisfied on balance that the Applicant submitted a diploma not legitimately earned to obtain a work permit.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Applicant misrepresented a material fact causing an error in IRPA administration and is inadmissible for five years.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Applicant submitted a WES ECA indicating Qualifi Level 7 Diploma and ARU MBA with attendance dates April 2021 to April 2022.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "At interview, the Applicant stated she only contacted UK education in March 2022 and completed Q7 assignments over two weekends.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Information provided to WES was not truthful; concerns raised that ECA was not legitimately obtained.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer's notes show the Applicant could not explain discrepancies, found her diploma not legitimately earned, and concluded misrepresentation causing inadmissibility.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The first issue is reviewed on correctness standard (Canadian Association of Refugee Lawyers v Canada, 2020 FCA 196).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness is assessed by whether the procedure was fair considering all circumstances (Canadian Pacific Railway v Canada, 2018 FCA 69).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first issue uses correctness review and procedural fairness is assessed by overall fairness of procedure.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The second issue is reviewed on reasonableness standard with a reasons-first approach (Mason v Canada, 2023 SCC 21).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A reasonable decision is coherent, rational, and justified by facts and law (Canada v Vavilov, 2019 SCC 65).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the second issue uses reasonableness review requiring coherent, justified decisions per Mason and Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues she was not given a fair opportunity to respond to Officer's concerns about WES issuing an ECA if Q7 was completed in weeks, not a year.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer's questioning was unfair as she could not answer for third-party WES.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues she lacked a fair chance to respond to Officer's concerns about WES and that questioning was unfair as she can't speak for WES.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "GCMS notes show Officer asked if Applicant deliberately gave inaccurate information to WES to obtain ECA.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant answered 'I don't know' when asked if WES would issue ECA if she declared studying only two weeks.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer asked if Applicant gave inaccurate info to WES; Applicant responded she did not know if WES would issue ECA.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant submits it was unfair to expect her to speculate on WES's response and she should have been allowed to follow up with WES.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant submits it was unfair to expect speculation on WES and she should have been allowed to follow up with WES.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court understands Applicant's position but finds the question was not unfair and the interview process was fair.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer requested documents in advance, putting Applicant on notice about education credential questions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's questions sought clarification on inconsistencies, not speculation about WES's actions, and were fair.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the questioning fair, noting prior notice and that questions sought clarification, not speculation about WES.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Considering notice and circumstances, the court finds the Applicant had a fair process and questions were not unfair.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Applicant had a fair process and the questions were not unfair.",
+   "role": "conclusion"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer's plagiarism finding is unreasonable as it was based on one copied line and does not render entire essay fraudulent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the plagiarism finding is unreasonable as it was based on one copied line only.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant relies on Chung v Canada, 2024 FC 1218, arguing Officer acted outside expertise in finding plagiarism.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant relies on Chung to argue the Officer acted outside expertise in plagiarism finding.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This case differs from Chung because plagiarism was not the sole concern; Officer also found Q7 completed in two weeks, not as stated.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant indicated MBA attendance from April 2021 to October 2022 but confirmed contacting ARU only in March 2022 and completing coursework in two weekends.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This discrepancy reasonably raised concerns for the Officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds this case differs from Chung as Officer had multiple concerns including discrepancies in MBA attendance dates.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kwong v Canada holds determining genuine education credentials is within Officer's purview.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer identified inconsistencies and concluded credential was illegitimately obtained based on evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's decision is justified, intelligible, and reasonable despite possible explanations for inconsistencies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Officer's conclusion of illegitimate credentials reasonable and within Officer's authority per Kwong.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Officer's Decision is reasonable and no grounds exist for Court intervention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Officer's Decision is reasonable and declines to intervene.",
+   "role": "conclusion"
+  }
+ ]
+}

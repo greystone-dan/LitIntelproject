@@ -1,0 +1,499 @@
+{
+ "case_id": 72638,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.006796400000000001
+ },
+ "verification": {
+  "paragraphs": 21,
+  "rows": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 39,
+  "holders": {
+   "applicant": 9,
+   "earlier_decision_maker": 2,
+   "court": 24,
+   "witness_or_document": 4
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "4": "DETERMINATION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns an Egyptian citizen appellant claiming refugee protection in Canada due to fear of persecution based on imputed political opinion and Nubian ethnicity. The Refugee Protection Division rejected the claim for lack of credibility, and the appellant appealed. The appeal was dismissed as the appellant failed to establish a serious possibility of persecution upon return to Egypt.",
+  "background_paras": "1-3, 7, 9-10, 13, 15",
+  "disposition_paras": "4, 12, 17-18, 20-21",
+  "blocks": [
+   {
+    "issue": "Did the Refugee Protection Division err in its credibility analysis and handling of documentary evidence?",
+    "paras": "3, 5-6, 8, 19",
+    "court_conclusion": "RPD erred in using derogatory language but overall credibility findings were supported; restraint is required in language used.",
+    "conclusion_paras": "6, 19",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues RPD erred in credibility analysis and failed to provide reasons on documentary evidence.",
+      "paras": "5"
+     },
+     {
+      "holder": "court",
+      "text": "RPD used inappropriate racial slur; decision-makers must avoid derogatory language; RPD credibility findings must be explained.",
+      "paras": "6, 8, 19"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Rejected refugee claim due to lack of credibility.",
+      "paras": "3"
+     }
+    ]
+   },
+   {
+    "issue": "Is the appellant at risk of persecution due to Nubian ethnicity if returned to Egypt?",
+    "paras": "7-12",
+    "court_conclusion": "Appellant failed to show past persecution or serious risk due to Nubian ethnicity; discrimination was not serious or repeated enough.",
+    "conclusion_paras": "11-12",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Fears persecution due to Nubian ethnicity; testified about racial slurs and mistreatment after 2006.",
+      "paras": "7, 9"
+     },
+     {
+      "holder": "court",
+      "text": "Persecution requires serious, repeated discrimination denying core rights; appellant did not show such violations or risk.",
+      "paras": "11"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found appellant not credible but added Nubian ethnicity ground to augment claims.",
+      "paras": "8"
+     },
+     {
+      "holder": "witness_or_document",
+      "text": "Documentary evidence shows Nubians face racism, forced displacement, economic harm, and cultural threats in Egypt.",
+      "paras": "10"
+     }
+    ]
+   },
+   {
+    "issue": "Is the appellant at risk of persecution due to imputed political opinion under the current Egyptian regime?",
+    "paras": "13-18, 20",
+    "court_conclusion": "Appellant did not demonstrate he is a person of interest or at serious risk of persecution by current regime.",
+    "conclusion_paras": "14, 17-18, 20",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Fears return due to military regime and arrest warrant; daughter threatened by police with racial slurs.",
+      "paras": "13, 15"
+     },
+     {
+      "holder": "court",
+      "text": "No evidence current regime targets former opponents; appellant did not explain ongoing risk; police threat testimony rejected.",
+      "paras": "14, 16"
+     },
+     {
+      "holder": "court",
+      "text": "Appellant did not establish serious possibility of persecution or risk of torture, death, or cruel treatment if returned.",
+      "paras": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The appellant is a citizen of Egypt fearing return due to imputed political opinion and Nubian ethnicity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant is an Egyptian citizen fearing return due to imputed political opinion and Nubian ethnicity, as stated by the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In 2006, Mubarak's son tried to take appellant's land; appellant refused, was arrested, beaten, and accused of opposition.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant left Egypt in 2007 for the US, lived there 10 years, arrived in Canada in 2017, and claimed refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states Mubarak's son tried to take his land in 2006, leading to arrest and beating; he left Egypt in 2007, lived in the US, then claimed refugee protection in Canada in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On February 27, 2020, the Refugee Protection Division rejected appellant's refugee claim due to lack of credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker rejected the appellant's refugee claim on credibility grounds on February 27, 2020.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal because the appellant did not show risk if returned to Egypt.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, finding the appellant did not demonstrate risk upon return to Egypt.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "My role is to review all evidence and determine if the RPD's decision is correct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The determinative issue is the risk of return to Egypt.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in credibility analysis and failed to provide reasons on documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role to review evidence; the key issue is risk of return; the applicant alleges RPD erred on credibility and reasons for documents.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD used a racial slur quoting appellant's allegations, which was inappropriate and poor judgment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Decision-makers must exercise restraint and avoid derogatory language in decisions accessible to the public.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD used an inappropriate racial slur and states decision-makers must avoid derogatory language in public decisions.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant fears return because military regime remains and he will be persecuted for Nubian ethnicity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the appellant fears return due to the continuing military regime and persecution for Nubian ethnicity.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found appellant not credible and added Nubian ethnicity ground to augment persecution claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "It is insufficient to state appellant is not credible without explaining why.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found appellant not credible and added ethnicity ground; the court says reasons for credibility findings are required.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "After establishing Nubian ethnicity, RPD must assess past events and evidence to conclude risk of persecution on return.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified no problems before 2006 but persecution after due to minority status, including racial slurs and slave-like treatment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states RPD must assess risk after ethnicity established; the applicant testified of persecution after 2006 due to minority status.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Documentary evidence shows Nubians face racism, forced displacement, economic harm, and cultural threats in Egypt.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Nubians are a minority, face violent arrests for land rights activism, and societal stigmatization including media portrayal as servants.",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Nubians have education access but no language or culture in curriculum; healthcare quality depends on income.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant did not testify or establish he was an activist.",
+     "answers": 0
+    }
+   ],
+   "summary": "Documentary evidence shows Nubians face racism, displacement, stigmatization, and limited cultural education; appellant did not prove activism.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Persecution is sustained or systemic violation of basic human rights showing state protection failure.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Discrimination must be serious, repeated, and deny core human rights to amount to persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant failed to show violation or risk to core rights like housing, employment, social services, or children's education.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's discrimination was not serious or repeated enough to have serious consequences.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains persecution requires serious repeated discrimination denying core rights; appellant failed to show such violations or consequences.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant's testimony and evidence do not establish past persecution or serious possibility of persecution due to Nubian ethnicity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant did not establish past or future persecution due to Nubian ethnicity.",
+   "role": "conclusion"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Documentary evidence shows Mubarak ceased presidency in 2011.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant fears return because military regime remains and he is considered an opponent with an arrest warrant.",
+     "answers": 0
+    }
+   ],
+   "summary": "Documentary evidence shows Mubarak left power in 2011; appellant fears return due to military regime and arrest warrant as political opponent.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not explain how new regime still considers him opponent after Mubarak's departure.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence current regime has ties to Mubarak's regime or views former opponents as opponents now.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mubarak's son wanted land for personal use, not regime.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Constitution prohibits expelling citizens; some Mubarak-era politicians live abroad by choice despite prosecution threats.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Individuals powerful under Mubarak are now marginalized.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellant failed to show current regime views him as opponent; Mubarak's son acted personally; constitution protects citizens; Mubarak-era politicians marginalized.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified his daughter was threatened and hit by police after filing a theft complaint, with racial slurs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant testified his daughter was threatened and hit by police with racial slurs after filing a complaint.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court rejects testimony about police threats due to lack of prior evidence and contradictions with persecution claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects appellant's testimony about police threats due to lack of evidence and contradictions.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant did not demonstrate he is a person of interest to current Egyptian government.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant is not a person of interest to the current Egyptian government.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant did not establish serious possibility of persecution due to imputed political opinion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant did not establish serious risk of persecution due to imputed political opinion.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant notes RPD member's taunts were unwarranted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees RPD member should have shown restraint instead of calling appellant's response ridiculous.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges RPD taunts were unwarranted; the court agrees the RPD member lacked restraint.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant did not establish serious possibility of persecution or risk of torture, death, or cruel treatment if returned.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellant did not establish serious risk of persecution, torture, death, or cruel treatment if returned.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,1262 @@
+{
+ "case_id": 45008,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0166396
+ },
+ "verification": {
+  "paragraphs": 60,
+  "rows": 60,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 125,
+  "holders": {
+   "applicant": 15,
+   "court": 105,
+   "respondent": 1,
+   "prior_court_or_authority": 4
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "4": "DETERMINATION",
+  "5": "DETERMINATIVE ISSUES",
+  "60": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns refugee protection claims by Sri Lankan Principal and Associate Claimants alleging persecution due to ethnicity and gender-based reasons. The tribunal found significant credibility issues with the Principal Claimant's evidence and insufficient evidence of risk for both claimants. Consequently, the tribunal concluded that neither claimant qualifies as a Convention refugee or person in need of protection.",
+  "background_paras": "1-3",
+  "disposition_paras": "4, 60",
+  "blocks": [
+   {
+    "issue": "Is the Principal Claimant credible and does she face a risk of persecution in Sri Lanka?",
+    "paras": "5-42",
+    "court_conclusion": "Principal Claimant's evidence is not credible and she has not established a serious possibility of persecution or risk if returned.",
+    "conclusion_paras": "4, 40-42",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Principal Claimant fears gender-based persecution and army harassment; alleges use of smuggler to enter Canada.",
+      "paras": "1-3, 18, 22"
+     },
+     {
+      "holder": "respondent",
+      "text": "Possibility of exclusion under section 1E raised but insufficient evidence to establish exclusion.",
+      "paras": "6"
+     },
+     {
+      "holder": "court",
+      "text": "Significant credibility concerns with birth certificate, residence, smuggler payment, and identity; psychological report given little weight; evidence insufficient to establish persecution risk.",
+      "paras": "7-41"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Claimants must be truthful about arrival; dishonesty allows negative credibility inference.",
+      "paras": "21"
+     }
+    ]
+   },
+   {
+    "issue": "Does the Associate Claimant face a serious possibility of persecution or risk of harm if returned to Sri Lanka?",
+    "paras": "5, 43-59",
+    "court_conclusion": "Associate Claimant has not established a serious possibility of persecution or risk of harm if returned.",
+    "conclusion_paras": "4, 60",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Associate Claimant alleges harassment, detention, and risk due to long absence from Sri Lanka.",
+      "paras": "3, 49, 55"
+     },
+     {
+      "holder": "court",
+      "text": "Evidence shows improved conditions in Sri Lanka; Associate Claimant's personal evidence not persuasive; no serious risk established.",
+      "paras": "43-59"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Principal and Associate Claimants allege Sri Lankan citizenship and seek refugee protection under IRPA sections 96 and 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal and Associate Claimants allege Sri Lankan citizenship and seek refugee protection under IRPA sections 96 and 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Principal Claimant fears gender-based persecution in Sri Lanka and alleges army harassment at her grandmother's house near an army camp.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She used a smuggler to obtain a Sri Lankan passport and Canadian permanent resident card to come to Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Claimant fears gender-based persecution and army harassment near her grandmother's house; she used a smuggler to come to Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Associate Claimant alleges harassment and detention by Sri Lankan state forces during the civil war, with continued harassment after release.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He left Sri Lanka in 2010, arrived in Canada in 2012, and sought refugee protection at Fort Erie port of entry.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Associate Claimant alleges harassment and detention by Sri Lankan forces, left in 2010, arrived in 2012, and sought refugee protection.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Claimants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Claimants are neither Convention refugees nor persons in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The Principal Claimant's claim's determinative issue is credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The Associate Claimant's claim's determinative issues are credibility and change in circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies credibility as the key issue for the Principal Claimant and credibility plus change in circumstances for the Associate Claimant.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The possibility of a 1E exclusion for the Principal Claimant was raised at the hearing's start.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There is insufficient evidence to establish the Principal Claimant's exclusion under section 1E of the Convention on a balance of probabilities.",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent raised a 1E exclusion possibility, but the court finds insufficient evidence to establish it for the Principal Claimant.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Principal Claimant's evidence has many significant credibility concerns, casting doubt on all her evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "She has not provided sufficient reliable evidence of persecution in Sri Lanka or risk if returned.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds many credibility concerns in the Principal Claimant's evidence and insufficient reliable proof of persecution or risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court outlines some significant credibility concerns found in the Principal Claimant's evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines significant credibility concerns in the Principal Claimant's evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Principal Claimant presented an original birth certificate and translation with unusual notations raising credibility concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds unusual notations on the Principal Claimant's birth certificate raise credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The birth certificate has two 2010 dated notations despite the claimant's 1991 birth and lifelong possession of the certificate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is not credible that the birth certificate could have two 2010 notations given the claimant's birth year and possession.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds it not credible that the birth certificate has two 2010 notations given the claimant's 1991 birth and lifelong possession.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Principal Claimant said she did not know why the 2010 notations were there and confirmed it was her birth certificate issued at birth.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Claimant said she did not know why 2010 notations were on her birth certificate and confirmed it was issued at birth.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Principal Claimant failed to reasonably explain 2010 notations on a 1991 birth certificate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "At 19 in 2010, she likely would know if changes or reissuance occurred.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Her inability to explain undermines her credibility generally and regarding identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Identity is central to refugee claims; unreliable identity evidence raises significant credibility concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant's failure to explain 2010 notations undermines her credibility and identity evidence, central to refugee claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Principal Claimant's testimony about residence before departure was inconsistent between port of entry and hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At port of entry, she said she moved a lot, stayed only one week or 15 days at one address, knowing only grandmother's address.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At hearing, she said she lived at grandmother's house from 2015 onwards.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's testimony about residence before departure inconsistent between port of entry and hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Principal Claimant said at port of entry she meant she frequently went to nearby villages to help grandmother.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She said she made a mistake and meant she went to different towns and came back to do chores.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Claimant explained her port of entry statement as frequent village visits to help grandmother and a mistaken expression.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The explanation does not reasonably explain why she said she never lived in one place more than one week or 15 days.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Port of entry transcript shows she clearly meant no permanent residence due to family troubles.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the claimant's explanation unreasonable and that she clearly meant no permanent residence due to family troubles.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Based on inconsistency without reasonable explanation, the claimant failed to establish her residence before leaving Sri Lanka.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "She failed to establish moving residences to avoid army persecution or residing at grandmother's house next to army camp.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant failed to establish her residence, moving to avoid persecution, or living at grandmother's house near army camp.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's residence evidence is central to her refugee claim regarding army harassment and internal flight alternative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This evidence is core, not incidental, to her allegations of persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant's residence evidence central and core to her refugee claim and persecution allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At port of entry, the claimant was intercepted using another's Sri Lankan passport and Canadian permanent resident card.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "She told officers she did not pay money to smuggler but gave jewellery instead.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "At hearing, she said she paid 30,000 rupees and pawned jewellery to pay smuggler.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She explained to officers she gave jewellery to grandmother to pawn and later paid smuggler cash, which she forgot to mention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant gave inconsistent testimony about paying her smuggler, initially denying payment but later admitting to paying cash and pawning jewellery.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's testimony about smuggler payment is inconsistent between port of entry and hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Her explanation for inconsistency is unreasonable and undermines her credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant's inconsistent smuggler payment testimony and unreasonable explanation undermine her credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant inconsistently stated she met and did not meet her smuggler in person.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She said she met the uncle who introduced her to the smuggler and later said she met the smuggler twice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "She could not explain why she previously denied meeting the smuggler but later said she met him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant gave inconsistent testimony about meeting her smuggler and could not explain the contradiction.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant's statements about meeting her smuggler are inconsistent and unexplained, undermining her credibility",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimants must be truthful about how they arrived in Canada; dishonesty allows negative credibility inference",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Inconsistency about central claim aspect further undermines Principal Claimant's credibility",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's inconsistent statements about meeting her smuggler undermine her credibility, citing case law on truthfulness.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Principal Claimant alleges hiring a smuggler who gave her two passports and Canadian ID documents to enter Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "The Principal Claimant alleges she hired a smuggler who provided false passports and Canadian ID to enter Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant's explanation for using false documents is not reasonable given her father's prior refugee claim at port of entry",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Attempt to mislead port of entry officers about identity and reason for coming undermines credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's explanation for using false documents unreasonable and that this undermines her credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Port of entry officer found emails and documents on Principal Claimant's phone related to XXXX's refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Claimant did not file these documents as evidence at first hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the port of entry officer found documents on the Principal Claimant's phone about XXXX, which she did not file as evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant filed some photos of XXXX but not other documents, raising credibility concerns",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's failure to file all documents related to XXXX raises credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant's claim she did not bring phone does not reasonably explain failure to file documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No explanation offered for not filing documents after credibility concerns raised",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's explanation for not filing documents unreasonable and notes no further explanation was given.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents about another claimant's persecution are relevant to Principal Claimant's claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to present these documents after credibility concerns indicates evasiveness and undermines credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's failure to present relevant documents after concerns indicates evasiveness and undermines credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant gave three inconsistent descriptions of relationship with XXXX, undermining credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's inconsistent descriptions of her relationship with XXXX undermine her credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant's claim she lived with XXXX's family at 16 is implausible given Sri Lankan society",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant likely concealing nature of relationship with XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's claim about living with XXXX's family implausible and likely concealing relationship nature.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Claimant filed European immigration documents from XXXX, some untranslated and incomplete",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Filing untranslated and incomplete documents indicates evasiveness and concealing information about relationship",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's filing of incomplete, untranslated documents indicates evasiveness about her relationship with XXXX.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Claimant's testimony about grandmother's capacity to assist varied, including pawning jewelry and notarizing letter",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Principal Claimant gave varying testimony about her grandmother's capacity to assist her.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At other times, grandmother described as too frail to help or send documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Principal Claimant also described her grandmother as too frail to assist at times.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Claimant said grandmother sent notarized letter via relatives, despite prior claim grandmother was frail",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Principal Claimant's inconsistent explanation about how her grandmother sent a notarized letter.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not credible that relatives notarized letter; grandmother's fingerprint on document means she met Justice of the Peace",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it not credible that relatives notarized the letter given grandmother's fingerprint on it.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Grandmother's capabilities central to claim; inconsistent testimony about her undermines credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the grandmother's capabilities central and inconsistent testimony about her undermines credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Psychological report from Dr. XXXX based solely on Principal Claimant's account without credibility assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Report given little evidentiary weight and insufficient to establish allegations on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court gives little weight to the psychological report as it lacks independent assessment and is insufficient to prove allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Efforts made to accommodate Principal Claimant during hearing; psychological report does not explain all credibility concerns",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds accommodations were made and the psychological report does not explain all credibility concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Higher courts allow rejecting psychological reports based solely on claimant's account without independent studies",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Psychiatric reports cannot cure all deficiencies in claimant's testimony",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Opinion evidence only as valid as truth of facts it is based on",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Given credibility findings and report's basis, report assigned little weight and does not resolve concerns",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites authority that psychological reports based only on claimant's account can be rejected and finds the report does not resolve credibility concerns.",
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal Claimant presented four versions of her story about identity and reasons for coming to Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Principal Claimant presented four different versions of her story about her identity and reasons for coming.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Credibility concerns rebut presumption of truthfulness; statements not reliable to establish gender-based persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the credibility concerns rebut truthfulness and statements are not reliable to prove gender-based persecution.",
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents filed by Principal Claimant to corroborate persecution allegations are not sufficiently reliable to overcome credibility concerns or establish gender-based persecution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Notarized letter from grandmother is not sufficiently reliable due to inconsistent testimony about grandmother's ability to leave house",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statement from step-mother is not sufficiently reliable as it is second-hand and not original, thus low probative value",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Principal Claimant's documents unreliable to prove gender-based persecution, citing inconsistent testimony and low evidentiary value.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant has not established gender-based persecution or risk if returned to Sri Lanka",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient credible evidence to establish serious possibility of persecution or risk of harm on balance of probabilities",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Principal Claimant failed to prove gender-based persecution or risk of harm if returned to Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient persuasive evidence that Associate Claimant faces serious possibility of persecution or risk of harm if returned to Sri Lanka after 8 years abroad",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence that the Associate Claimant faces persecution or risk of harm upon return to Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence on treatment of Tamils in Sri Lanka is mixed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Most persuasive evidence is from UNHCR, an international refugee protection organization",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR assists Sri Lankan and Indian governments in resettling Tamil refugees and monitors reintegration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "UNHCR information indicates improving and safe conditions for Tamils and returning Tamils in Sri Lanka",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds UNHCR evidence most persuasive, showing improving conditions for Tamils in Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "UNHCR notes increasing peace and stability in Sri Lanka with more Tamils returning spontaneously",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "100% of Tamil returnees cited peace and stability as reason for return in August 2015 report",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No returnees cited fear for personal safety in August-December 2015 report",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Sri Lankan government cooperates with UNHCR and humanitarian organizations to protect returning refugees and displaced people",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds UNHCR reports show peace and stability increasing, with Tamil returnees citing safety and government cooperation.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR has a structured program monitoring and resettling Tamil returnees in Sri Lanka",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR meets returnees at airport, ensures safe arrival, opens bank accounts, provides reintegration grants and transportation allowance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Returnees receive non-food assistance, counselling, civil status document info, and referrals",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR visits forcibly returned households to collect data on return and reintegration",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds UNHCR provides structured support and monitoring for Tamil returnees in Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR monitoring shows 90% of returnees satisfied with residence and registered with local government",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "95% of returnees feel secure and not treated differently by community",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds UNHCR data shows most Tamil returnees feel secure and satisfied with their residence.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Other evidence shows improving situation for Tamils: Human Rights Commission restored, detainees released, government more transparent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "New constitution being formulated to recognize Tamil language, devolve power, and protect democracy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "President confirmed freeing civilian lands from military control and commitment to examine war atrocities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds other evidence shows improving Tamil situation with reforms and government commitments in Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Associate Claimant alleges he would be arrested and mistreated if returned due to long absence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "UNHCR indicates re-admission process is quick and returnees with LTTE past can return without ill treatment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only those with significant post-war Tamil separatism role are at risk of detention; Associate Claimant is not such an individual",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Return after long stay abroad does not create serious possibility of persecution for Associate Claimant",
+     "answers": 3
+    }
+   ],
+   "summary": "The court rejects Associate Claimant's arrest risk claim, citing UNHCR evidence and finding no serious persecution risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There has been a durable, effective, substantial change in Sri Lanka since May 2009 for people in Claimant's position",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Country conditions indicate no serious possibility of persecution upon return",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds durable positive change in Sri Lanka conditions negates serious persecution risk for Claimant.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Associate Claimant's personal evidence about forward-facing risk is not persuasive",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Evidence includes Principal Claimant's testimony, wife's letter, and Associate Claimant's allegations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Associate Claimant's personal evidence on risk unpersuasive, relying on related testimonies and letters.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal Claimant is not credible, so her evidence insufficient to establish Associate Claimant's persecution risk",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Army men harassing Principal Claimant likely used father's absence and LTTE ties as harassment, not evidence of seeking Associate Claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statements about 'her father' do not prove army seeks Associate Claimant on balance of probabilities",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds Principal Claimant's evidence insufficient and harassment statements do not prove army seeks Associate Claimant.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Associate Claimant did not initially provide wife's statement corroborating army search allegations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Associate Claimant said he did not think wife's statement important",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Later filed wife's letter states last army search was in 2010",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence does not show army has continued to search for Associate Claimant in recent years",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no recent army interest in Associate Claimant based on wife's letter and lack of corroboration.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Associate Claimant vaguely testified about army inquiries in 2011 and twice between 2012 and 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This does not establish continued state interest in arresting Associate Claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Occasional army door-to-door questioning is not prima facie evidence of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds vague army inquiries insufficient to prove state interest or persecution of Associate Claimant.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Associate Claimant alleges illegal fishing detention at army base with chores and months-long detention",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No record of detention and family unaware of his location during detention",
+     "answers": 0
+    }
+   ],
+   "summary": "The Associate Claimant alleges illegal fishing detention with no record and family unaware of his whereabouts.",
+   "role": "facts"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Associate Claimant was likely not formally detained but opportunistically held for chores",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No state interest or LTTE suspicion indicated by detention",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Detention likely unauthorized and unrelated to war or LTTE suspicion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Associate Claimant's detention was informal, opportunistic, and not evidence of state interest or LTTE suspicion.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Very unlikely Sri Lankan state has current or continued interest in Associate Claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Country conditions, UNHCR data, and personal evidence show diminished state interest by mid-2018",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No serious possibility of persecution due to LTTE connection, Tamil ethnicity, or failed refugee status",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious persecution risk for Associate Claimant due to diminished state interest and improved conditions.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient credible evidence that Associate Claimant will face serious possibility of persecution if returned",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence that Associate Claimant faces serious persecution risk if returned to Sri Lanka.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient credible evidence that Associate Claimant will face risk of harm on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence that Associate Claimant faces risk of harm on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimants are neither Convention refugees nor persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Claimants are neither Convention refugees nor persons in need of protection.",
+   "role": "conclusion"
+  }
+ ]
+}

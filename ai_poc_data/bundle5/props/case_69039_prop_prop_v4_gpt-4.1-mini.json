@@ -1,0 +1,561 @@
+{
+ "case_id": 69039,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.007682400000000001
+ },
+ "verification": {
+  "paragraphs": 21,
+  "rows": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 47,
+  "holders": {
+   "court": 26,
+   "applicant": 11,
+   "earlier_decision_maker": 9,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 2
+ },
+ "headings": {
+  "5": "DECISION",
+  "6": "PROPOSED NEW EVIDENCE"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns an appeal by Mongolian citizens fearing serious harm if returned to Mongolia, specifically from an individual named XXXX and his associates. The appellants challenge the Refugee Protection Division's (RPD) findings regarding the internal flight alternative (IFA) and the likelihood of being tracked by XXXX in IFA locations. The appeal is allowed, with the tribunal finding errors in the RPD's assessment and granting protection to the appellants.",
+  "background_paras": "2-3, 4",
+  "disposition_paras": "1, 20-21",
+  "blocks": [
+   {
+    "issue": "Did the RPD err in finding that XXXX lacks the means to track the appellants in internal flight alternative (IFA) locations?",
+    "paras": "4, 10-15",
+    "court_conclusion": "The RPD erred in dismissing credible evidence that XXXX has means to track the appellants in IFA cities.",
+    "conclusion_paras": "10-15",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RPD found the appellants failed to prove XXXX has means to find them in IFA locations and rejected criminal and police connections as speculative.",
+      "paras": "4, 13"
+     },
+     {
+      "holder": "applicant",
+      "text": "The appellants challenge the RPD's findings on XXXX's means to track them and allege criminal and police connections enabling tracking.",
+      "paras": "4, 13"
+     },
+     {
+      "holder": "court",
+      "text": "The RPD erred by rejecting credible allegations of XXXX's violent threats and connections; these support means to track appellants in IFA cities.",
+      "paras": "10-15"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RPD err in finding that XXXX lacks motivation to track the appellants in IFA locations?",
+    "paras": "16-19",
+    "court_conclusion": "The RPD erred by failing to accept credible threats as evidence of XXXX's motivation to track the appellants.",
+    "conclusion_paras": "16-19",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RPD found XXXX lacked motivation because the police complaint was closed and did not accept revenge or money motives.",
+      "paras": "17, 19"
+     },
+     {
+      "holder": "applicant",
+      "text": "The appellants argue XXXX has motivation to track them for revenge or extortion despite complaint closure.",
+      "paras": "4, 17"
+     },
+     {
+      "holder": "court",
+      "text": "The RPD erred by trying to rationalize XXXX's actions instead of accepting ongoing threats as motivation to track appellants.",
+      "paras": "16-19"
+     }
+    ]
+   },
+   {
+    "issue": "Is the internal flight alternative (IFA) safe for the appellants under the first prong of the IFA test?",
+    "paras": "4, 10-21",
+    "court_conclusion": "The RPD erred in finding the appellants failed to establish safe living in IFA cities; appeal is granted and protection substituted.",
+    "conclusion_paras": "20-21",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RPD found the appellants have a viable IFA and it is reasonable to expect relocation there.",
+      "paras": "4"
+     },
+     {
+      "holder": "applicant",
+      "text": "The appellants argue the IFA is not safe due to XXXX's means and motivation to track them there.",
+      "paras": "4, 5"
+     },
+     {
+      "holder": "court",
+      "text": "The RPD erred in finding safe living in IFA cities; it is unnecessary to examine the second prong of the IFA test.",
+      "paras": "20-21"
+     }
+    ]
+   },
+   {
+    "issue": "Should the proposed new evidence submitted by the appellants be admitted?",
+    "paras": "6-9",
+    "court_conclusion": "The proposed new evidence is dismissed for failure to comply with RAD Rules and lack of reliance in arguments.",
+    "conclusion_paras": "8-9",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The appellants submitted an affidavit with three documents as proposed new evidence but made no submissions on admissibility.",
+      "paras": "8"
+     },
+     {
+      "holder": "court",
+      "text": "The proposed new evidence should be dismissed for non-compliance with RAD Rules and lack of reliance in arguments.",
+      "paras": "6-9"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I allow this appeal for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows this appeal for the reasons that follow.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellants are citizens of Mongolia, including XXXX XXXX, his spouse, and their children.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellants are Mongolian citizens including XXXX XXXX, spouse, and children.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellants fear serious harm or death from XXXX and his associates if they return to Mongolia.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. XXXX was a Democratic Party volunteer who exposed a vote-buying scheme in 2016.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "XXXX accused Mr. XXXX of being an informant, attacked him, and threatened his family.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. XXXX filed a police complaint in 2016; investigation closed without charges in 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "XXXX continued threats and demanded money; Mr. XXXX feared for his and family's safety.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellants left Mongolia in 2019 after receiving visas.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellants fear harm from XXXX due to political conflict, threats, and failed police protection; they left Mongolia in 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellants credible except on some points related to internal flight alternative (IFA).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellants have a viable IFA in Erdenet and Dharkan.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellants failed to prove XXXX has means or motivation to find them in IFA locations.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found it reasonable to expect the Appellants to relocate to IFA locations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellants challenge the RPD's findings on XXXX's means and motivation to track them in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellants credible but rejected their claim that XXXX could track them in IFA cities; Appellants challenge this.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "My role is to review all evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellants argue the RPD erred in finding no likelihood that XXXX has means and motivation to track them in IFA cities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I find the RPD erred in this determination considering credible portions of the Appellants' account.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reviews the RPD decision and agrees with the Appellants that the RPD erred on XXXX's means and motivation to track them.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "I can only accept evidence that arose after the RPD decision, was not reasonably available before, or could not reasonably have been brought earlier.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal criteria for accepting new evidence on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If evidence meets criteria, I must decide if it is new, credible, and relevant before acceptance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Under RAD Rules, Appellants must submit detailed reasons why new evidence is admissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains it must assess new evidence's admissibility and that Appellants must justify admissibility under RAD Rules.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellants submitted an affidavit with three documents as proposed new evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "The Appellants and Counsel made no submissions on admissibility as required by RAD Rules.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On this basis alone, the proposed new evidence should be dismissed.",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Also, Counsel does not rely on the documents in arguments on IFA issue, supporting dismissal.",
+     "answers": 3
+    }
+   ],
+   "summary": "The Appellants submitted new evidence but failed to argue admissibility; the court dismisses it for this and lack of reliance.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I do not find admissible any documents attached to Mr. XXXX's affidavit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the documents attached to Mr. XXXX's affidavit inadmissible.",
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD generally found the Appellants credible except on points about XXXX's means and motivation to track them.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court case law requires presuming claimants telling truth unless valid reasons to doubt.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite some embellishments, I agree the Appellants were credible with insufficient reasons to doubt most of their account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in finding Appellants failed to establish likelihood that XXXX has means and motivation to track them in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the Appellants are credible and finds the RPD erred in rejecting their claim about XXXX's means and motivation.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Under first prong of IFA test, RPD must consider if Appellants show serious possibility of persecution or harm in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first prong of the IFA test requires showing serious possibility of persecution or harm in IFA cities.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I agree with Appellants' counsel that the RPD erred in finding XXXX lacked means to track them in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the RPD erred in finding XXXX lacked means to track the Appellants in IFA cities.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred by rejecting Mr. XXXX's reasons for why XXXX could track the Appellants without considering credible parts of their story.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. XXXX said XXXX has criminal and police connections enabling tracking.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD rejected the criminal and police connections allegation as speculative.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred by rejecting Mr. XXXX's claim of XXXX's criminal and police connections without considering credible evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD accepted as credible multiple allegations of XXXX's violent threats, police and judiciary connections, and intimidation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "These include vote-buying involvement, assault, murder threats, police complaint warnings, home visits by unknown men, imprisonment and attacks, and extortion demands.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists credible allegations accepted by the RPD about XXXX's violent threats and connections.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Given credible allegations, it was error for RPD to dismiss Mr. XXXX's claim that XXXX has means to locate Appellants in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it was an error for the RPD to dismiss claims that XXXX has means to locate the Appellants in IFA cities.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I agree with Counsel that the RPD erred in finding XXXX lacked motivation to track the Appellants in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the RPD erred in finding XXXX lacked motivation to track the Appellants in IFA cities.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found XXXX lacked motivation because the police complaint was closed without consequences.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD did not accept Mr. XXXX's explanation that XXXX wanted revenge or money.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found XXXX lacked motivation due to closed complaint and rejected revenge and extortion explanations.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred by trying to understand logic behind XXXX's actions instead of accepting threats as evidence of motivation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD failed to consider credible threats and incidents after complaint closure showing continued pursuit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I find Appellants established XXXX still has motivation to track them in IFA cities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred by discounting credible threats and concludes XXXX still has motivation to track the Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD struggled to understand why XXXX would track Appellants for money given distance and search effort.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This was error; XXXX likely uses police and other connections to track Appellants without personal travel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred in doubting XXXX's motivation to track Appellants for money using connections, not personal search.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The RPD erred in finding Appellants failed to establish safe living in IFA cities under first prong of IFA test.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "It is unnecessary to examine the second prong of the IFA test.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concludes the RPD erred on the first prong of the IFA test and does not examine the second prong.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Grant the appeal and substitute a finding that the applicant family members are persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the appeal and finds the applicant family members are persons in need of protection.",
+   "role": "conclusion"
+  }
+ ]
+}

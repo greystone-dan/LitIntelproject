@@ -1,0 +1,548 @@
+{
+ "case_id": 69155,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0070848000000000005
+ },
+ "verification": {
+  "paragraphs": 21,
+  "rows": 21,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 47,
+  "holders": {
+   "applicant": 14,
+   "earlier_decision_maker": 6,
+   "court": 25,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns an appeal by Iranian appellants against the Refugee Protection Division's (RPD) rejection of their refugee claims. The appellants alleged persecution by an alleged Sepah member and the Iranian regime, including fear due to conversion to Christianity. The Refugee Appeal Division dismissed the appeal, confirming the RPD's negative credibility findings and rejection of the claims.",
+  "background_paras": "1-3",
+  "disposition_paras": "21",
+  "blocks": [
+   {
+    "issue": "Are the new documents submitted by the appellants admissible as new evidence?",
+    "paras": "5-12",
+    "court_conclusion": "Documents rejected as new evidence for failing the statutory and jurisprudential tests.",
+    "conclusion_paras": "11-12",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Submitted five new pieces of evidence including church letter, baptism certificates, and photographs related to Christian conversion.",
+      "paras": "5,10"
+     },
+     {
+      "holder": "court",
+      "text": "Photographs taken before claim rejection are not new; other documents post-rejection but do not raise new issues or overcome credibility concerns; rejected as new evidence.",
+      "paras": "8-11"
+     }
+    ]
+   },
+   {
+    "issue": "Was the hearing conducted fairly and properly with respect to interpretation and procedural fairness?",
+    "paras": "13-17",
+    "court_conclusion": "Hearing was conducted impartially and properly with appropriate interpretation and sensitivity to issues.",
+    "conclusion_paras": "17",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argued hearing was one-way with unclear interpretation and alleged reasonable apprehension of bias and sarcasm.",
+      "paras": "15,17"
+     },
+     {
+      "holder": "court",
+      "text": "Disagreed; hearing conducted through interpreter with questions asked; Member was impartial, sensitive, and did not conduct hearing improperly.",
+      "paras": "15,17"
+     }
+    ]
+   },
+   {
+    "issue": "Are the RPD's credibility findings justified?",
+    "paras": "13-19",
+    "court_conclusion": "Agrees with RPD's detailed, accurate, and correct credibility findings, including concerns about testimony inconsistencies and omissions.",
+    "conclusion_paras": "18",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Made negative credibility findings based on delay, reavailment, changes in BOC, omissions, vague and inconsistent testimony.",
+      "paras": "14,19"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argued RPD responsible for vague testimony and failed to facilitate specific responses.",
+      "paras": "18"
+     },
+     {
+      "holder": "court",
+      "text": "Disagreed; RPD questioned appropriately, clarified inconsistencies, and reasons reflect record; acted respectfully on sensitive issues.",
+      "paras": "18-19"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RPD properly assess the supporting documentary evidence?",
+    "paras": "20",
+    "court_conclusion": "Agrees with RPD that documentary evidence created additional credibility concerns and did not overcome omissions and inconsistencies.",
+    "conclusion_paras": "20-21",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argued RPD failed to properly assess supporting documentary evidence.",
+      "paras": "20"
+     },
+     {
+      "holder": "court",
+      "text": "Reviewed evidence; RPD carefully considered it and noted inconsistencies with testimony; evidence did not support claims.",
+      "paras": "20"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "XXXX XXXX (Principal Appellant) and others, Iranian citizens, appeal RPD decision rejecting refugee claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the Iranian appellants appeal the RPD decision rejecting their refugee claims.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants detailed allegations in BOC forms and amendments.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Principal Appellant and children claimed persecution from alleged Sepah member threatening them in Canada and Iran.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claim refused on credibility grounds and appealed.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appeal allowed and returned to RPD for redetermination by different panel.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Before second hearing, new allegations of fear of persecution due to conversion to Christianity.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants claim risk of persecution from both alleged Sepah member and Iranian regime if returned.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 explains appellants' allegations, initial refusal on credibility, appeal allowed, new claim of Christian conversion fear.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD had numerous credibility concerns with appellants' claims.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD erred in hearing conduct.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD erred in credibility assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD erred in failing to consider supporting documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 states RPD had credibility concerns; appellants argue errors in hearing, credibility, and evidence consideration.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court considered and applied Chairperson's Guideline 4 on gender considerations relevant to Principal Appellant's allegations and appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 states court applied Chairperson's Guideline 4 on gender considerations to Principal Appellant's allegations.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants submitted five new pieces of evidence including church letter, baptism certificates, and photographs.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 lists five new pieces of evidence submitted by appellants: church letter, baptism certificates, photographs.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Subsection 110(4) IRPA limits new evidence to that arising after claim rejection or not reasonably available before.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 states subsection 110(4) IRPA restricts new evidence to post-rejection or previously unavailable evidence.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Singh endorses adapted Raza factors for assessing new evidence admissibility: credibility, relevance, newness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD applies Raza factors minus materiality, assessed under subsection 110(6) IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 explains Singh endorses Raza factors for new evidence; RAD applies them minus materiality under IRPA 110(6).",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Photographs taken before claim rejection and part of RPD evidence are not new and fail statutory test; rejected as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 finds photographs taken before claim rejection are not new evidence and rejects them.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Items 1-3 and 5 dated post-rejection and not reasonably expected before RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These documents do not raise a new issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 finds items 1-3 and 5 post-rejection but do not raise new issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documents include church letter, baptism certificates, and photographs related to appellants' Christian conversion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Children testified about conversion and baptism plans at RPD hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents address issue already before RPD: appellants' Christian conversion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 notes documents relate to appellants' Christian conversion already before RPD.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents have no probative value as new evidence; do not establish appellants' religious intentions or overcome credibility concerns.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Documents rejected as new evidence for failing jurisprudential test.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 finds documents lack probative value and rejects them as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No new documents admitted; no authority to conduct oral hearing under subsection 110(6) IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 states no new evidence admitted; no authority for oral hearing under IRPA 110(6).",
+   "role": "conclusion"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees with RPD's credibility concerns and confirms negative determination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Determinative issue in appeal is credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 confirms RPD's credibility concerns and identifies credibility as determinative issue.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD made negative credibility findings: delay, reavailment, changes in BOC, omissions, vague and inconsistent testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 lists RPD's negative credibility findings on material claim elements.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue hearing was one-way with unclear interpretation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Independent review disagrees; hearing conducted through interpreter with questions asked.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 rejects appellants' claim of one-way hearing and unclear interpretation after transcript review.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Associate Appellants interjected about paraphrasing by translator; Member welcomed correction but not complementary testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Member instructed parties to provide short, focused answers.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 16 describes interpreter paraphrasing concerns and Member's instructions to parties.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No prior allegations about interpretation quality during or after hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Member rephrased questions, was sensitive to Guideline, allowed private testimony for sexual harassment allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants allege RPD showed reasonable apprehension of bias and sarcasm.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Disagrees; Member was impartial, sensitive, and did not conduct hearing improperly.",
+     "answers": 3
+    }
+   ],
+   "summary": "Paragraph 17 finds no interpretation complaints, rejects bias and sarcasm allegations, finds Member impartial.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Independent review agrees with RPD credibility findings as detailed, accurate, and correct.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD responsible for vague testimony and failed to facilitate specific responses.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Disagrees; RPD questioned appropriately, clarified inconsistencies, and reasons reflect record.",
+     "answers": 2
+    }
+   ],
+   "summary": "Paragraph 18 agrees with RPD credibility findings and rejects appellants' argument about vague testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD acted respectfully and appropriately on sexual assault and harassment issues, allowing private testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found general lack of credibility but accepted Principal Appellant was victim of sexual assault on balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found assault by XXXX not established by objective documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 19 finds RPD respectful on sexual assault issues, accepts assault victimhood but not assault by XXXX.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue RPD failed to properly assess supporting documentary evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court reviewed evidence; RPD carefully considered it and noted inconsistencies with testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documentary evidence created additional credibility concerns and could not overcome omissions and inconsistencies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Agrees with RPD findings on documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 20 rejects appellants' argument, agrees RPD properly assessed documentary evidence and found credibility issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Refugee Appeal Division dismisses the appeal and confirms the RPD decision that the Appellants are neither Convention refugees nor persons in need of protection under section 111(1)(a) IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The Refugee Appeal Division dismisses the appeal and confirms the RPD decision that the Appellants are neither Convention refugees nor persons in need of protection under section 111(1)(a) IRPA, says the court.",
+   "role": "disposition"
+  }
+ ]
+}

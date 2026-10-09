@@ -1,0 +1,691 @@
+{
+ "case_id": 40956,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0087904
+ },
+ "verification": {
+  "paragraphs": 30,
+  "rows": 30,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 65,
+  "holders": {
+   "applicant": 19,
+   "court": 23,
+   "earlier_decision_maker": 23
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "8": "IDENTITY",
+  "10": "ISSUES",
+  "30": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Colombian citizen seeking refugee protection in Canada, claiming threats from the Los Urabe\u00f1os paramilitary group. The tribunal examined the claimant's credibility and the viability of an internal flight alternative within Colombia. The claim was rejected as the tribunal found a viable internal flight alternative and no serious risk of persecution.",
+  "background_paras": "1-7",
+  "disposition_paras": "30",
+  "blocks": [
+   {
+    "issue": "Is the claimant credible and has he established a well-founded fear of persecution?",
+    "paras": "8-14",
+    "court_conclusion": "The claimant is credible but failed to provide persuasive evidence of ongoing risk or persecution.",
+    "conclusion_paras": "8-14",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant testified to threats and persecution by Los Urabe\u00f1os and fears for his life in Colombia.",
+      "paras": "1-7,19-22,25"
+     },
+     {
+      "holder": "court",
+      "text": "Panel found claimant credible but lacking evidence of ongoing risk or investigation outcomes.",
+      "paras": "8-14"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Claimant's testimony lacked corroboration; objective evidence outweighed claimant's assertions.",
+      "paras": "21-24,26-29"
+     }
+    ]
+   },
+   {
+    "issue": "Is there a viable internal flight alternative (IFA) for the claimant within Colombia?",
+    "paras": "14-29",
+    "court_conclusion": "The panel found Tunja to be a viable internal flight alternative for the claimant.",
+    "conclusion_paras": "14-29",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant argues IFA is unreasonable due to inability to practice law and risk from Urabe\u00f1os in Tunja.",
+      "paras": "19,22,25"
+     },
+     {
+      "holder": "court",
+      "text": "Panel found Tunja safe with no Urabe\u00f1os presence and claimant would not face serious persecution there.",
+      "paras": "14-16,18,20"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "IFA in Tunja is viable; claimant faces no serious risk or unreasonable barriers to relocation.",
+      "paras": "21-24,26-29"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant is a Colombian citizen seeking refugee protection under sections 96 and 97(1) of IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the claimant is a Colombian citizen seeking refugee protection under IRPA, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant has a degree from XXXX XXXX University attained in 2004 and worked in that field from 2005 to 2014 in Santa Marta, Colombia",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant was involved in XXXX starting with local politics in 1997 and developed further interest later",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 states the claimant's education and work history and political involvement, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In mid 2013, claimant agreed to help his brother advance his XXXX interest in a XXXX position in Santa Marta for 2015 election",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 states the claimant agreed to help his brother's political interest in 2013, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant learned his brother and four others were massacred at a farm house in Masinga by Los Urabe\u00f1os paramilitary group",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 states the claimant learned his brother was massacred by Los Urabe\u00f1os, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On XXXX XXXX XXXX 2014, two men identifying as Los Urabe\u00f1os threatened claimant to leave Santa Marta or be killed",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant hid and his lawyer filed a denunciation at Bacrim to investigate the massacre",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant received a threatening call from a man claiming to be Los Urabe\u00f1os aware of the denunciation",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant moved to Bogota for 40 days in 2014, returned to Santa Marta, continued receiving threats and filed another denunciation",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 states claimant was threatened by Los Urabe\u00f1os, filed denunciations, moved temporarily, and continued to receive threats, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On XXXX XXXX XXXX 2014, police gave claimant Basic Self-Protection Measures document",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant sought help from government bodies including Human Rights District Office and Attorney General on XXXX XXXX XXXX 2014",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 states police gave claimant self-protection advice and claimant sought help from government bodies, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant received no feedback from organizations, moved to Medellin and back to Santa Marta, then left Colombia fearing for life",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant travelled via U.S. for 13 days and arrived in Canada on XXXX XXXX XXXX 2015",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant and wife separated; wife and son not part of claim",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 states claimant left Colombia via U.S. to Canada in 2015, separated from wife, as said by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel is satisfied claimant established identity on balance of probabilities per passport",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 states the panel found claimant's identity established per passport.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimant is not a Convention refugee nor person in need of protection under IRPA sections 97(1)(a) and (b)",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 states the panel found claimant is not a Convention refugee or person in need of protection under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Determinative issues are credibility and internal flight alternative (IFA)",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 states the determinative issues are credibility and internal flight alternative.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel aware of difficulties claimants face in hearings and stress in responding to questions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel considered passage of four and a half years since claimant's arrival in Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 states panel considered claimant's hearing difficulties and time since arrival.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel found no glaring contradictions or inconsistencies in claimant's testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel found lack of evidence about claimant's circumstances since arrival in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Panel must consider claimant's circumstances at hearing time given forward-looking refugee definition",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 states panel found no contradictions but lack of evidence post-arrival and must consider current circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corroborative evidence confirms claimant's brother was killed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mixed reports on whether assailants were apprehended and if brother was target",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant filed court documents to identify perpetrators, making him a target",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant believes no investigation outcome despite media reports suggesting otherwise",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant failed to provide evidence of ongoing investigation or pursuit since arrival in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant said sister and lawyer friends informed him of situation but gave no corroborative evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 states panel found corroboration of brother's death but mixed reports, no evidence of ongoing risk or investigation, and no corroboration of claims about pursuit.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel gives benefit of doubt claimant would continue to be at risk in Santa Marta but no persuasive evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel examined viability of internal flight alternative (IFA)",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 states panel gave benefit of doubt on risk but found no persuasive evidence and examined IFA viability.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds viable internal flight alternative in Tunja, Boyac\u00e1, Colombia",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 states panel found a viable internal flight alternative in Tunja.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Test for viable IFA is two-pronged: no serious persecution risk and not objectively unreasonable to seek refuge there",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Both prongs must be satisfied for IFA finding",
+     "answers": 1
+    }
+   ],
+   "summary": "Paragraph 16 states the two-pronged test for IFA: no serious risk and reasonable to seek refuge, both required.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel accepts on balance of probabilities that Urabe\u00f1os are agent of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 17 states panel accepts Urabe\u00f1os as agent of persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Tunja is capital of Boyac\u00e1 department",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 18 states Tunja is capital of Boyac\u00e1 department.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified he would be at risk from Urabe\u00f1os in Tunja and not safe anywhere in Colombia",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant said Urabe\u00f1os have widespread influence and means to track him down nationally",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 19 states claimant testified risk from Urabe\u00f1os in Tunja and nationwide influence, as said by claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "National Documentation Package shows Urabe\u00f1os do not have presence in Tunja",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "ELN responsible for two incidents in Boyac\u00e1 in 2016 and 2017, no incidents in Tunja",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 20 states NDP shows Urabe\u00f1os absent in Tunja; ELN responsible for incidents in Boyac\u00e1 but none in Tunja.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "NDP suggests Urabe\u00f1os do not have presence in Boyac\u00e1 or Tunja on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "In absence of credible evidence from claimant, objective documentation outweighs claimant's testimony",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claimant's information about Urabe\u00f1os in Tunja comes from news, sister, and lawyer friends without corroboration",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claimant was unrepresented and strayed from questions, spoke generally about paramilitary groups",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Potential threat from Urabe\u00f1os does not extend to Tunja; no serious persecution or risk to claimant there",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds Urabe\u00f1os not present in Tunja; claimant's uncorroborated testimony outweighed; no serious risk to claimant there, panel finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claimant left Colombia end of 2014, questioned why Urabe\u00f1os would pursue him now",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant insists Urabe\u00f1os network can track him despite time lapse",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Panel rejects claimant's assertion given objective evidence and lack of further evidence of pursuit",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel questioned claimant's claim Urabe\u00f1os would pursue him now; claimant insists; panel rejects assertion due to lack of evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Claimant does not face serious possibility of persecution or risk of torture, death, or cruel treatment if relocated to Tunja",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel finds claimant not at serious risk of persecution or harm if relocated to Tunja.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Proposed IFA of relocating to Tunja is not unreasonable in claimant's circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Test for unreasonableness of IFA requires conditions jeopardizing life and safety",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Actual and concrete evidence of such conditions must be presented",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel finds relocating to Tunja not unreasonable; test requires life-jeopardizing conditions and concrete evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant says moving to Tunja unreasonable because he cannot practice law there",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant acknowledges he cannot practice law in Canada either",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimant argues he cannot practice law in Tunja; acknowledges same in Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No evidence claimant would have difficulty accessing healthcare in Tunja",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Claimant is sophisticated and resourceful to support himself despite inability to practice law",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claimant's family situation changed; no longer with wife and son",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel finds no healthcare access issues; claimant resourceful; family situation changed.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Claimant has not established serious social, economic, or other barriers to relocating to Tunja",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "It would not be unreasonable for claimant to seek refuge in Tunja",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel finds claimant has not shown serious barriers; relocation to Tunja not unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Insufficient evidence that Urabe\u00f1os or other hazards make travel within Colombia to IFA unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claimant may land at airport in Urabe\u00f1os territory but Urabe\u00f1os not actively seeking claimant",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "It would not be unreasonable for claimant to travel to Tunja by road or connecting flight",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel finds insufficient evidence hazards make travel unreasonable; claimant not actively pursued; travel to Tunja reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Claimant has a viable IFA in Tunja on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel finds claimant has a viable IFA in Tunja.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is neither a Convention refugee nor person in need of protection under IRPA sections 96 and 97(1)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Claimant does not face serious possibility of persecution or risk to life, cruel treatment, or torture on return",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Claimant's claim is rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel concludes claimant is not refugee or protected person; no serious risk on return; claim rejected.",
+   "role": "conclusion"
+  }
+ ]
+}

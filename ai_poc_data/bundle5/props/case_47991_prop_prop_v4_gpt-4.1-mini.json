@@ -1,0 +1,1221 @@
+{
+ "case_id": 47991,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.014910400000000002
+ },
+ "verification": {
+  "paragraphs": 59,
+  "rows": 59,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 119,
+  "holders": {
+   "applicant": 20,
+   "court": 98,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "3": "CLAIMANT'S ALLEGATIONS",
+  "17": "DETERMINATION",
+  "59": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Nigerian citizen claimant seeking refugee protection in Canada under sections 96 and 97(1) of IRPA, alleging persecution and threats in Nigeria. The tribunal found the claimant not credible, identified fraudulent documents submitted, and concluded the claim was clearly fraudulent and manifestly unfounded. The claim was rejected under sections 96, 97, and 107.1 IRPA.",
+  "background_paras": "1-16",
+  "disposition_paras": "58-59",
+  "blocks": [
+   {
+    "issue": "Is the claimant credible and has she established a serious possibility of persecution on a Convention ground?",
+    "paras": "17-23, 26, 30, 35, 56",
+    "court_conclusion": "Claimant generally not credible; explanations inadequate; did not satisfy burden to establish serious possibility of persecution.",
+    "conclusion_paras": "17, 23, 26, 30, 35, 56",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant alleges threats, attacks, rape, and persecution in Nigeria starting in 2017.",
+      "paras": "1, 3-16, 20"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant's testimony not credible in key areas; explanations for inconsistencies inadequate; did not establish serious possibility of persecution.",
+      "paras": "17, 23, 26, 30, 35, 56"
+     }
+    ]
+   },
+   {
+    "issue": "Are the threatening letters and police reports submitted by the claimant authentic and credible?",
+    "paras": "36-39, 41-45, 53, 57",
+    "court_conclusion": "Claimant submitted fraudulent documents; explanations for differences not credible; documents lack probative value.",
+    "conclusion_paras": "39, 45, 53, 57",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant submitted threatening letters and police reports as evidence; explanations for document differences given.",
+      "paras": "36-38, 41-44"
+     },
+     {
+      "holder": "court",
+      "text": "Documents differ, some are fraudulent; claimant's explanations inadequate; documents central but lack probative value.",
+      "paras": "39, 45, 53, 57"
+     }
+    ]
+   },
+   {
+    "issue": "Is the refugee claim clearly fraudulent and manifestly unfounded under IRPA?",
+    "paras": "54-59",
+    "court_conclusion": "Claim is clearly fraudulent and manifestly unfounded; rejected under sections 96, 97, and 107.1 IRPA.",
+    "conclusion_paras": "58-59",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Claimant intentionally attempted to deceive panel; claim clearly fraudulent; must be rejected under IRPA.",
+      "paras": "54-59"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant is Nigerian citizen claiming refugee protection under sections 96 and 97(1) of IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the claimant is a Nigerian citizen claiming refugee protection under IRPA sections 96 and 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Considered and applied Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 states the tribunal considered and applied Chairperson's Guidelines on Women Refugee Claimants Fearing Gender-Related Persecution.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant is 34, married in Nigeria, and they adopted a daughter",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 states the claimant is 34, married in Nigeria, and they adopted a daughter.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On a date in 2017, claimant received threatening letter listing two residence addresses in Nigeria",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 states the claimant received a threatening letter in 2017 listing two residence addresses in Nigeria.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Next day, another threatening letter warned husband not to be involved in certain matter or family would suffer",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant begged husband to confront suspected provocateur but he refused",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant went into hiding with daughter and reported matter to police",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 states claimant received another threatening letter, begged husband to confront provocateur, he refused, she hid with daughter and reported to police.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Before police report, claimant and husband received threatening letter with casket picture warning of death if police involved",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 states claimant and husband received threatening letter with casket picture warning death if police involved.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant and daughter hid in Kogi State in 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 states claimant and daughter hid in Kogi State in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant received picture of axe and red cloth on door, then returned to Ekiti State to report insecurities",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 states claimant received threatening items and returned to Ekiti State to report insecurities.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Upon return to Ekiti, claimant saw government officials, destruction, was grabbed by officer, lost consciousness, found in bush",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 states claimant was grabbed by officer, lost consciousness, and found in bush amid chaos in Ekiti.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant fled to Ondo State with no money, robbed, and found red cloth in bag",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 states claimant fled to Ondo State robbed and found red cloth in bag.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant and daughter went to Oyo State, left daughter with sister, then claimant flew to US and then Canada to claim refugee status",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 states claimant left daughter in Oyo State, then flew to US and Canada to claim refugee status.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "After arriving in Canada, claimant's daughter was followed by strange man who tried to take her",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 states claimant's daughter was followed by a strange man in Canada who tried to take her.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant's husband lives as nomad constantly changing hiding place",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 states claimant's husband lives as a nomad constantly changing hiding place.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In 2019 update, claimant alleged rape by unknown men in police uniforms in 2017",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant initially did not disclose rape due to shame",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Husband received blackmail letter threatening to publish nude pictures of claimant",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 states claimant alleged rape by men in police uniforms, initially undisclosed due to shame, and husband received blackmail letter.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In 2018, husband's brother was assassinated in husband's car in Lagos by unknown gunmen with threatening letter",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 states husband's brother was assassinated in husband's car in Lagos with threatening letter.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Husband was attacked and injured by unknown men in Port Harcourt in 2017, lives as nomad, stopped work due to threats",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 16 states husband was attacked in Port Harcourt, lives as nomad, and stopped work due to threats.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant did not satisfy burden to establish serious possibility of persecution on Convention ground or personal risk on return",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 17 finds claimant did not satisfy burden to establish serious possibility of persecution or personal risk on return.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant completed Basis of Claim in English without interpreter and testified mostly in English without interpreter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant declared at least five years of university or college and worked from 2009 to 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 18 notes claimant completed Basis of Claim and testified mostly in English without interpreter and has education and work history.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Guidelines on Women Refugee Claimants recognize reluctance to disclose sexual violence due to shame and symptoms of rape trauma syndrome",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 19 states Guidelines recognize women's reluctance to disclose sexual violence due to shame and trauma symptoms.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation for late disclosure of rape is reasonable and acceptable",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified assailants were disguised in police uniforms, not actual police",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 20 finds claimant's late rape disclosure reasonable; claimant testified assailants were disguised in police uniforms.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant did not link shock, trauma or psychological problems to incongruities in her testimony or evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence does not show difficulty in concentrating or memory affected by past assault explaining contradictions or omissions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant did not link trauma to testimony inconsistencies and evidence shows no memory issues from past assault.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant testified confidently and without hesitation during hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant testified confidently and without hesitation.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's testimony is not credible regarding certain areas, including threats in 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's testimony not credible regarding threats in 2017.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified she received first threatening letter in 2017 as stated in BOC",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant submitted BOC update in April 2019 with police report showing husband and family faced threats since 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant testified to first threat in 2017 and submitted police report showing family threats since 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court asked claimant why she did not mention being target of threats in BOC update if she learned after 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant responded she focused on herself and did not know about threats to husband's family members",
+     "answers": 0
+    }
+   ],
+   "summary": "The court asked claimant why she omitted threats in BOC update; claimant said she focused on herself and lacked knowledge of threats to husband's family.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation is inadequate and weakens credibility about threats and their timing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police report mentions husband received threats starting 2017 extending to family in 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant did not deny being subject of threats from same aggressors starting 2017 as implied in police report",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's explanation inadequate, notes police report on threats, and claimant did not deny being targeted starting 2017.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Husband's affidavit states he received life threatening message in 2017 but did not tell claimant to avoid scaring her",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Later affidavit states both received threatening note in 2017 and reported to police later that year",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes husband's affidavit about receiving threats in 2017, initially not telling claimant, then both receiving threats and reporting to police.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant declared in BOC she informed husband immediately after receiving two threatening letters in 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Husband did not take threats seriously, calling them bogus and baseless",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant declared informing husband of threats in 2017, who dismissed them as bogus and baseless.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court asked claimant why husband called threats bogus if he described them as dreadful in affidavit",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant repeated husband's minimizing threats to avoid scaring her",
+     "answers": 0
+    }
+   ],
+   "summary": "The court asked claimant about husband's contradictory descriptions of threats; claimant said husband minimized to avoid scaring her.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation is inadequate and weakens credibility about threats in Nigeria",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No indication in husband's affidavit he minimized threats in 2017 to reassure claimant",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's explanation inadequate and notes husband's affidavit lacks indication he minimized threats to reassure claimant.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant submitted article from 2019 magazine about husband's threats in Nigeria",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Magazine not listed in Nigerian National Documentation Package (NDP)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified magazine available on Internet but did not provide proof",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court unable to access handwritten Internet address for magazine",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant submitted magazine article about husband's threats, but magazine not in NDP and Internet availability unproven.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's efforts to prove publications exist as credible news sources are inadequate",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents lack probative value and independence from claimant or husband",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's efforts to prove publications credible inadequate and documents lack probative value and independence.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Husband stated in police and affidavit he was involved in XXXX XXXX as XXXX XXXX XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Husband said he and family targeted for threats and attacks due to involvement",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Husband referenced news articles in Nigerian newspapers about attacks on colleagues",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes husband's statements about his involvement and threats, referencing news articles about attacks on colleagues.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court asked claimant about efforts to produce news articles and evidence supporting claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant said husband unable to get media reports due to instability and health",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified husband is nomadic and stopped work",
+     "answers": 0
+    }
+   ],
+   "summary": "The court asked claimant about news articles; claimant said husband unable to get them due to instability and health issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation is inadequate and weakens credibility about existence of news articles",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant communicates with husband almost daily but did not explain why she could not obtain articles herself",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "NDP lists Nation, Vanguard, and Punch as major credible Nigerian news sources with Internet sites",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's explanation inadequate, notes daily communication with husband, and that major Nigerian news sources have Internet sites.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant and counsel listed six threatening letters in evidence contents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Tribunal received only two photocopies of threatening letters dated 24 April 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On hearing day, claimant submitted six original threatening letters with red X at bottom",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "One original letter (C-7.1b) did not match photocopy (C-7.1a) and had differences",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant listed six threatening letters but tribunal initially received two photocopies; claimant later submitted six originals with one differing from photocopy.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court asked claimant why two documents differed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant responded she did not know why documents differed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court asked claimant about document differences; claimant did not know why they differed.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court asked why four other threatening letters were not submitted earlier",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant said only two letters were available at the time",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified she or husband received five threatening letters and one found with dead brother's body, total six",
+     "answers": 0
+    }
+   ],
+   "summary": "The court asked why other letters not submitted earlier; claimant said only two available and total six letters received including one found with dead brother.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation for document differences is inadequate and undermines credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant submitted C-7.1b as original of C-7.1a but they are separate documents, implying seven letters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court concludes claimant submitted a fraudulent document in refugee claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's explanation inadequate, notes document discrepancy implies seven letters, and concludes claimant submitted fraudulent document.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Because one or more threatening letters are fraudulent and claimant not credible, court gives no probative value to any threatening letters",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes no probative value to threatening letters due to fraud and claimant's lack of credibility.",
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Requested first pages of C-9 during hearing as only last two pages were received on April 24, 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Counsel provided photocopy of all pages of C-9 for refugee file",
+     "answers": 0
+    }
+   ],
+   "summary": "The court requested and received the full photocopy of C-9 during the May 8, 2019 hearing as only last two pages were initially received.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant submitted original police report C-9b that did not match earlier photocopy C-9a",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant said original C-9b and photocopy C-9a have same words; original is true copy, photocopy was scanned copy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant said scanned copy was not supposed to be used and original is true copy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant explained two versions exist because a drink spilled on one and another was done",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found claimant submitted an original police report differing from photocopy and claimant explained differences due to damage and scanning.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant admitted she should have mentioned earlier that original C-9 was not same as photocopy but did not",
+     "answers": 0
+    }
+   ],
+   "summary": "The court noted claimant admitted failing to mention earlier that original and photocopy of C-9 differed.",
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Photocopy C-9a had only last two pages of four-page document; last page was pixelated and signature position differed from original C-9b",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "First three pages of C-9a were clear but last page was pixelated and appeared different from first three pages",
+     "answers": 0
+    }
+   ],
+   "summary": "The court observed photocopy C-9a's last page was pixelated and differed from original C-9b, suggesting inconsistency within C-9a.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation for differences between C-9a and C-9b is inadequate and undermines her credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant submitted C-9b as original of C-9a as if same document",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering all evidence and claimant's general lack of credibility and inadequate explanation, claimant submitted fraudulent document",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found claimant's explanation inadequate, undermining credibility, and concluded claimant submitted a fraudulent document.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant submitted photocopy of marriage certificate and wedding photos; no reason to doubt marriage",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Marriage certificate shows claimant's husband is a XXXX",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepted claimant's marriage evidence and that her husband is a XXXX.",
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documents C-4 and C-6 refer to claimant's husband as XXXX in Nigeria",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court accepts claimant's husband is or was a XXXX in Nigeria",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepted documents showing claimant's husband is or was a XXXX in Nigeria.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Letter C-5 from XXXX dated XXXX 2019 attests claimant's husband can XXXX in Nigeria and stopped due to threats",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter author has no independent knowledge of attacks other than husband's statements",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant generally not credible and husband not reliable witness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter has no probative value as it relies on husband's declarations only",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found letter C-5 lacks independent knowledge, husband not credible, so letter has no probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant submitted husband's affidavit alleging brother's assassination by unknown gunmen",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Husband not reliable or credible witness; affidavit has no probative value",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found husband's affidavit about brother's assassination not credible and without probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Death certificate C-3 does not show cause of death and is not probative of alleged aggressors",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Photo C-16 relies on claimant's testimony and is not probative due to claimant's lack of credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found death certificate and photo not probative due to lack of cause and claimant's non-credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Photo C-8 shows husband with bandage over right eye; claimant testified injury caused by aggressors",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Photo alone not probative of injury cause; claimant not credible; photo lacks probative value",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found photo of husband's eye injury not probative as claimant's explanation is not credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Signing officer's name and Nigerian police stamp appear on C-9 and death report C-2",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Since C-9 is fraudulent, C-2 has no probative value",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found that because C-9 is fraudulent, the death report C-2 with same officer and stamp has no probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "NDP mentions fraudulent documents common in Nigeria including fake news, affidavits, corrupt officials",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Given claimant's lack of credibility, serious doubt exists about credibility and probative value of submitted documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court noted fraudulent documents common in Nigeria and doubts credibility of claimant's documents due to her lack of credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 107.1 IRPA requires stating claim is manifestly unfounded if claim is clearly fraudulent",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 107.1 IRPA mandates stating claim manifestly unfounded if clearly fraudulent, per prior authority.",
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Clearly fraudulent includes deliberate deception in refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claim not clearly fraudulent if false statements exist but other credible evidence supports claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "False allegations must be material or substantive to consider claim clearly fraudulent",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explained clearly fraudulent means deliberate deception and requires material falsehoods without credible supporting evidence.",
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant generally not credible as witness after considering all evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documentary evidence insufficiently credible and probative to support claimant's allegations of harm",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found claimant not credible and documentary evidence insufficient to support harm allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant submitted fraudulent documents, either fake or fraudulently created",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Threatening letter C-7.1b submitted as original of earlier photocopy but was not",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Threatening letters central to claim about main aggressors",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police report C-9b submitted as original of C-9a photocopy but did not correspond",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police report one of two central police reports submitted",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation for submitting originals as corresponding copies not reasonable or credible",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found claimant submitted fraudulent central documents and gave unreasonable explanations for discrepancies.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant intentionally attempted to deceive panel about central documentary evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claim is clearly fraudulent and manifestly unfounded",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concluded claimant intentionally deceived panel and claim is clearly fraudulent and manifestly unfounded.",
+   "role": "conclusion"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claim rejected under sections 96 and 97 IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claim found manifestly unfounded under section 107.1 IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejected the claim under IRPA sections 96, 97 and found it manifestly unfounded under section 107.1.",
+   "role": "disposition"
+  }
+ ]
+}

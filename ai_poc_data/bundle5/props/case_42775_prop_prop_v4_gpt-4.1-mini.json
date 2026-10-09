@@ -1,0 +1,1000 @@
+{
+ "case_id": 42775,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0127828
+ },
+ "verification": {
+  "paragraphs": 48,
+  "rows": 48,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 96,
+  "holders": {
+   "prior_court_or_authority": 8,
+   "applicant": 28,
+   "earlier_decision_maker": 15,
+   "court": 45
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 4
+ },
+ "headings": {
+  "18": "II. Standard of Review",
+  "20": "III. The Legislative Regime",
+  "33": "V. Analysis",
+  "46": "VI. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "Ms. Dow, a former CNL employee, appealed the Federal Court's dismissal of her judicial review application challenging the CNSC's handling of her complaints alleging retaliation. The Federal Court found she lacked standing and that CNSC did not breach procedural fairness. The Federal Court's decision was upheld and the appeal dismissed.",
+  "background_paras": "6-15",
+  "disposition_paras": "5, 46-48",
+  "blocks": [
+   {
+    "issue": "Did Ms. Dow have standing to bring judicial review of the CNSC's decision?",
+    "paras": "3, 16-17, 25-28, 33-37, 41-46",
+    "court_conclusion": "Ms. Dow failed to show palpable and overriding error in Federal Court's finding that she lacked standing.",
+    "conclusion_paras": "5, 46",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Federal Court erred in finding Ms. Dow was not directly affected; termination could prejudice reputation and employment; public interest requires standing.",
+      "paras": "4, 27-28, 43-44"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Federal Court dismissed Ms. Dow's application for lack of standing; she was not directly affected by CNSC's decision.",
+      "paras": "3, 17"
+     },
+     {
+      "holder": "court",
+      "text": "Standing requires direct effect on legal rights or obligations; Ms. Dow's complaint disposition did not affect her legal rights or remedies.",
+      "paras": "33-37, 41-46"
+     }
+    ]
+   },
+   {
+    "issue": "Did the CNSC breach procedural fairness towards Ms. Dow?",
+    "paras": "4, 47",
+    "court_conclusion": "No need to decide procedural fairness given standing conclusion.",
+    "conclusion_paras": "47",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Ms. Dow alleges CNSC breached procedural fairness by not informing her or allowing response opportunity.",
+      "paras": "4"
+     },
+     {
+      "holder": "court",
+      "text": "Procedural fairness issue not decided due to standing ruling.",
+      "paras": "47"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "NSCA makes it an offence to take disciplinary action against a person providing information to CNSC officials",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow alleges retaliation by CNL for filing complaints with CNSC about untrue information",
+     "answers": 0
+    }
+   ],
+   "summary": "The NSCA prohibits disciplinary action against informants to CNSC; Ms. Dow alleges retaliation by CNL for her complaints to CNSC.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "CNSC found no evidence that CNL took disciplinary action against Ms. Dow for providing information",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "CNSC found termination issues unrelated to Ms. Dow's initial complaint",
+     "answers": 0
+    }
+   ],
+   "summary": "The CNSC found no evidence of disciplinary action by CNL against Ms. Dow related to her complaint and termination was unrelated.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court dismissed Ms. Dow's judicial review application for lack of standing",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court found Ms. Dow was not directly affected by CNSC's decision to have standing",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court found CNSC had no duty to provide procedural fairness to Ms. Dow",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court dismissed Ms. Dow's review for lack of standing and no procedural fairness duty by CNSC.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow asserts Federal Court erred on standing to challenge CNSC's decision",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow asserts CNSC breached procedural fairness by not informing her of case and denying response opportunity",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow argues Federal Court erred on standing and CNSC breached procedural fairness by denying her case details and response.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Ms. Dow has not persuaded that Federal Court erred on standing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Consequently, appeal is dismissed",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds Ms. Dow failed to show Federal Court erred on standing and dismisses the appeal.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Dow is a chemical engineer with a disability, worked at CNL from 2012 to April 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Her role was Senior Quality Specialist ensuring CNL met standards and regulations",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow is a disabled chemical engineer who worked as Senior Quality Specialist at CNL from 2012 to 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Dow had flexible schedule and occasional work from home, initially with positive reviews",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow had flexible work arrangements and positive performance reviews initially.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow alleges after raising concerns, superiors complained about her performance and reduced accommodations",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow alleges worsened health condition led to sick leave in April 2016",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow alleges retaliation after raising concerns, worsening health, and sick leave in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Dow filed first complaint with CNSC on Oct 19, 2016 alleging untrue info and harassment by CNL",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CNSC took no action initially, believing complaint outside its purview",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CNL learned of Ms. Dow's CNSC complaint in Nov 2016",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow filed first CNSC complaint in Oct 2016; CNSC took no action; CNL learned of complaint in Nov 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CNL requested more medical info for sick leave; Ms. Dow provided doctor's reports",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CNL terminated Ms. Dow on April 28, 2017 for abandoning position and inadequate documentation",
+     "answers": 0
+    }
+   ],
+   "summary": "CNL sought medical info; terminated Ms. Dow in April 2017 for abandonment and insufficient documentation.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Dow filed second CNSC complaint on May 3, 2017 alleging termination due to prior CNSC complaint",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow filed second CNSC complaint in May 2017 alleging retaliatory termination.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CNSC initially did not fully investigate May 2017 complaint",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow brought issue to CNSC President's attention",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CNSC agreed to re-open investigation concluding paragraph 48(g) did not limit info to CNSC purview",
+     "answers": 0
+    }
+   ],
+   "summary": "CNSC initially did not fully investigate; Ms. Dow complained to President; CNSC re-opened investigation.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CNSC investigators interviewed Ms. Dow and others, reviewed documents, and produced 84-page report in June 2018",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Investigators found no evidence of offence under NSCA paragraph 48(g) by CNL",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No evidence CNL took disciplinary action against Ms. Dow for assisting CNSC",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow was not given report copy or chance to comment before finalization",
+     "answers": 0
+    }
+   ],
+   "summary": "CNSC investigation found no offence by CNL; Ms. Dow was not given report or chance to respond before finalization.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Investigators found mistreatment mostly occurred before first CNSC complaint, so complaint not motivating factor",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Employment issues were unrelated to original complaint",
+     "answers": 0
+    }
+   ],
+   "summary": "Investigators found mistreatment mostly predated complaint and employment issues unrelated to complaint.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In July 2018, Ms. Dow received letter and two-page summary from CNSC VP concluding no offence found",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Letter implied CNSC would take no further action on Ms. Dow's complaint",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow received CNSC letter and summary in July 2018 indicating no offence found and no further action.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Ms. Dow applied for judicial review under Federal Courts Act, arguing denial of procedural fairness",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow applied for judicial review alleging denial of procedural fairness in CNSC investigation.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court held Ms. Dow lacked standing as not directly affected by CNSC's disposition",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court dismissed Ms. Dow's judicial review application",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court found Ms. Dow lacked standing and dismissed her judicial review application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "On appeal, court usually reviews Federal Court's standard of review selection and application",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Agraira v. Canada sets appellate review role for judicial review appeals",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standing decision was made by Federal Court, so appellate standards from Housen apply",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "CARL case confirms Housen standards apply to standing decisions by Federal Court",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains appellate review standards for judicial review appeals and standing decisions per Agraira, Housen, and CARL.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standing decisions involve mixed fact and law, reviewed for palpable and overriding error",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "CARL confirms standard of review for standing is palpable and overriding error",
+     "answers": 1
+    }
+   ],
+   "summary": "Standing decisions are mixed fact and law, reviewed for palpable and overriding error per CARL.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "NSCA's purpose includes limiting risks to national security, health, safety, and environment from nuclear energy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CNSC regulates nuclear energy and substances to prevent unreasonable risks to environment, health, and security",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "NSCA sections 3 and 9 set out purposes and CNSC mandate",
+     "answers": 0
+    }
+   ],
+   "summary": "NSCA aims to limit nuclear risks; CNSC regulates nuclear energy and substances to prevent risks per NSCA sections 3 and 9.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Sections 48 to 50 of the NSCA create offences related to nuclear substances and licence compliance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Some offences criminalize conduct obstructing CNSC's ability to detect NSCA violations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states NSCA sections 48-50 create offences including possession without authorization and obstructing CNSC investigations.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Paragraph 48(g) of NSCA makes it an offence to take disciplinary action against a person assisting CNSC inspectors or Commission.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains paragraph 48(g) prohibits disciplinary action against those assisting CNSC inspectors or the Commission.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 51(3) of NSCA classifies paragraph 48(g) offences as indictable or summary conviction offences with fines and imprisonment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Criminal Code provisions apply to prosecution of paragraph 48(g) offences except where NSCA provides otherwise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states subsection 51(3) sets penalties for paragraph 48(g) offences and Criminal Code applies unless NSCA says otherwise.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "NSCA does not create rights or remedies for whistleblowers like Ms. Dow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes NSCA does not provide whistleblowers rights or remedies.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Dow abandoned public interest standing claim and proceeded on personal standing basis in Federal Court and this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Dow abandoned public interest standing and proceeded on personal standing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Federal Courts Act subsection 18.1(1) allows judicial review applications by anyone directly affected by the matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states subsection 18.1(1) permits judicial review by those directly affected.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Federal Court erred in finding Ms. Dow was not directly affected by CNSC decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "CNL's termination decision could cause prejudice to Ms. Dow's reputation and employment prospects.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow has personal interest in vindication for reporting wrongdoing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow argues Federal Court erred; termination harms her reputation and she has personal interest in vindication.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Lack of standing undermines NSCA disclosure and investigation process.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Public interest requires fair complaint handling and whistleblowers' ability to challenge CNSC investigations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow contends standing is needed to protect NSCA process and public interest in fair complaint handling.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow cites CNSC internal document on managing external complaints to support her position.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Parliament did not address complaint process; CNSC manual fills this gap to further NSCA objectives.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow relies on CNSC complaint management document, arguing it fills a parliamentary gap.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "CNSC complaint process is based on fairness and equity principles.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow notes CNSC complaint process emphasizes fairness and equity.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "CNSC document references CHRA and PSDPA, acknowledging whistleblowing complaints require minimum investigation standards.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow accepts complaint processes under CHRA and PSDPA differ from NSCA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow argues CNSC document's references to CHRA and PSDPA imply whistleblowing complaints need proper investigation.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No individual remedies under NSCA weigh against Ms. Dow's standing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Remedial discretion is not absolute precondition for standing, especially given public interest and reputational stakes.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Federal Court focused too narrowly on legal rights, ignoring CNSC actions' impact on Ms. Dow.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow argues lack of remedies is not absolute bar to standing; Federal Court ignored impact on her.",
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To bring judicial review under Federal Courts Act, applicant must be directly affected by the matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reiterates judicial review requires applicant be directly affected.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "No right of review arises if conduct does not affect legal rights, obligations, or cause prejudice.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Democracy Watch 2020 and other cases on standing and judicial review requirements.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states review requires effect on legal rights or prejudice, citing prior cases.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CNSC's decision not to act on Ms. Dow's complaints did not affect her legal rights or remedies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CNSC decision did not affect Ms. Dow's legal rights or remedies.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NSCA enforcement targets regulated entities, not individual employees like Ms. Dow.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CNSC cannot adjudicate disputes between private parties or grant remedies to external complainants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds NSCA enforcement affects regulated entities, not employees, and CNSC lacks adjudicative power over disputes.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NSCA lacks complaint processes and remedies unlike PSDPA and CHRA which provide participatory rights and remedies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds NSCA contrasts with PSDPA and CHRA which provide complaint processes and remedies.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "PSDPA protects public servants from reprisals and mandates Integrity Commissioner to handle complaints with reasons for decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "PSDPA aims to protect whistleblowers and provide remedies for reprisals.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains PSDPA's protections and complaint handling for whistleblowers.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CHRA provides complaints-driven regime with statutory criteria and participatory rights for complainants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes CHRA's complaint regime and participatory rights.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow argues NSCA should be interpreted purposively to afford participatory rights like PSDPA and CHRA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court cannot create statutory regime different from Parliament's enactment.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites PC Ontario Fund v. Essensa and Democracy Watch 2020 to support this principle.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow urges purposive NSCA interpretation; court rejects creating new regime, citing precedent.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CNSC's role in investigating NSCA violations is analogous to police investigating crimes",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only parties directly affected by prosecution decisions are alleged offenders and investigators, not complainants like Ms. Dow",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "CanWest MediaWorks Inc. v. Canada establishes who is directly affected by prosecution decisions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CNSC's investigative role like police and only alleged offenders and investigators are directly affected by prosecution decisions, citing CanWest.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CNSC's disposition of Ms. Dow's complaint did not affect her legal right to pursue other legal recourse against CNL",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Dow filed a discrimination complaint under CHRA and an unjust dismissal complaint under Canada Labour Code",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Dow may have initiated a civil action against CNL, but record is unclear",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CNSC's decision did not affect Ms. Dow's legal rights; she filed other complaints and possibly a civil action against CNL.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "CNSC's decision could prejudice Ms. Dow by damaging her professional reputation",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Potential employers might view her termination as justified, not retaliatory",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow argues CNSC's decision could harm her reputation and affect future employment prospects.",
+   "role": "issue"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow cites Chapman as authority that reputational harm confers standing for judicial review",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chapman is of limited assistance because Ms. Chapman was accused party, not complainant like Ms. Dow",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reputational harm in Chapman related to procedural fairness, not standing",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow cites Chapman for reputational harm standing, but court finds Chapman limited as it involved accused party and procedural fairness, not standing.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Dow has not shown CNSC complaint disposition became public or harmed her reputation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court did not err in finding Ms. Dow failed to establish prejudicial effects to confer standing",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Dow failed to show public knowledge or reputational harm; court finds no error in denying standing for judicial review.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court applied correct legal test for Ms. Dow's standing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Ms. Dow failed to show palpable and overriding errors in Federal Court's standing finding",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Federal Court correctly applied legal test and Ms. Dow failed to show errors in standing decision.",
+   "role": "conclusion"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No need to decide if Ms. Dow received adequate procedural fairness given standing conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "Court decides procedural fairness issue need not be addressed due to standing conclusion.",
+   "role": "conclusion"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal dismissed with costs of $1,500 to respondent",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses appeal and orders costs to respondent.",
+   "role": "disposition"
+  }
+ ]
+}

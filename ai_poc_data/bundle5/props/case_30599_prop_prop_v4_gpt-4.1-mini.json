@@ -1,0 +1,914 @@
+{
+ "case_id": 30599,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0121624
+ },
+ "verification": {
+  "paragraphs": 34,
+  "rows": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 92,
+  "holders": {
+   "applicant": 24,
+   "respondent": 4,
+   "earlier_decision_maker": 27,
+   "court": 36,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 5,
+  "headings_before": 5
+ },
+ "headings": {
+  "5": "I. Overview",
+  "14": "II. Decision under review",
+  "18": "IV. Legislative background",
+  "21": "V. Analysis",
+  "34": "VI. Conclusion and Costs"
+ },
+ "split_from": {
+  "5": 4,
+  "14": 13,
+  "18": 17,
+  "21": 20,
+  "34": 33
+ },
+ "blocks": {
+  "overview": "Mr. Brand seeks judicial review of the Minister of National Revenue's refusal to grant relief from arrears interest on undeclared 2019 income. The Minister's delegate denied relief, emphasizing taxpayer responsibility and availability of tax slips. The Federal Court granted the review, finding the decision lacked proper consideration of CRA errors and Mr. Brand's hardship, and ordered reconsideration.",
+  "background_paras": "1-12",
+  "disposition_paras": "34-35",
+  "blocks": [
+   {
+    "issue": "Did the Minister's delegate properly consider Mr. Brand's request for relief from arrears interest under subsection 220(3.1) of the Income Tax Act?",
+    "paras": "1-3, 11-15, 22-23, 24-26, 32-33",
+    "court_conclusion": "Decision is not transparent or justified; denial of relief must be reconsidered considering all relevant factors.",
+    "conclusion_paras": "3, 26, 33-34",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Brand argues the Minister failed to consider COVID-19, CRA's role in missing slips, and his hardship in paying arrears interest.",
+      "paras": "24"
+     },
+     {
+      "holder": "respondent",
+      "text": "Minister's delegate denied relief emphasizing self-assessment principle and availability of slips before filing.",
+      "paras": "14, 22-23"
+     },
+     {
+      "holder": "court",
+      "text": "Decision fails to address CRA errors and hardship; lacks justification and fairness under subsection 220(3.1).",
+      "paras": "3, 25-26, 32-33"
+     }
+    ]
+   },
+   {
+    "issue": "What is the impact of CRA errors, including missing RBC T5 slips and omitted spreadsheet, on Mr. Brand's ability to comply and seek relief?",
+    "paras": "8, 24, 28-31",
+    "court_conclusion": "CRA errors contributed to arrears interest; failure to consider them undermines decision justification.",
+    "conclusion_paras": "27-30",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "CRA failed to make RBC T5 slips available and omitted spreadsheet, impairing Mr. Brand's knowledge and mitigation ability.",
+      "paras": "24, 29"
+     },
+     {
+      "holder": "respondent",
+      "text": "No evidence CRA guarantees My Account accuracy; taxpayer responsible for verifying information.",
+      "paras": "28"
+     },
+     {
+      "holder": "court",
+      "text": "CRA errors, including missing slips and spreadsheet, affected Mr. Brand's ability to address arrears interest; decision ignores this.",
+      "paras": "27-30"
+     }
+    ]
+   },
+   {
+    "issue": "How should the principle of self-assessment and taxpayer responsibility be balanced against CRA errors and pandemic circumstances in granting relief?",
+    "paras": "2, 17-21, 24, 28, 33",
+    "court_conclusion": "A different delegate must weigh self-assessment importance against CRA failures, pandemic context, and hardship.",
+    "conclusion_paras": "33",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Brand relied on CRA's My Account encouraged by CRA; pandemic affected access to tax documents.",
+      "paras": "24"
+     },
+     {
+      "holder": "respondent",
+      "text": "Self-assessment principle requires complete income disclosure; taxpayer responsible despite pandemic.",
+      "paras": "14, 28"
+     },
+     {
+      "holder": "court",
+      "text": "Self-assessment is important but not always a full response; pandemic and CRA errors must be considered fairly.",
+      "paras": "2, 17-21, 25, 33"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand seeks judicial review of Minister's refusal of his second request for relief from arrears interest for 2019 undeclared income",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister of National Revenue refused Mr. Brand's second request for relief from arrears interest under Income Tax Act",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Refusal set out in letter from Minister's delegate dated March 7, 2023 (the Decision)",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand seeks judicial review of Minister's refusal of relief from arrears interest for 2019 undeclared income, refusal set out in March 7, 2023 letter.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand's relief request made under subsection 220(3.1) of ITA allowing Minister to waive penalties or interest",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 220(3.1) permits Minister discretionary relief for taxpayers unable to comply due to misfortune or circumstances beyond control",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister's delegate is CRA employee authorized to decide under subsection 220(3.1)",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand's relief request relies on subsection 220(3.1) allowing Minister discretionary relief; delegate is CRA employee authorized to decide.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Grant application for judicial review because CRA's Decision fails to address CRA's contributing errors and Mr. Brand's hardship",
+     "answers": 0
+    }
+   ],
+   "summary": "Court grants judicial review because CRA's Decision fails to address CRA's errors and Mr. Brand's hardship.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commends Mr. Brand and Respondent's counsel for concise arguments and candid responses",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commends Respondent's counsel's professionalism and cooperative approach",
+     "answers": 0
+    }
+   ],
+   "summary": "Court commends Mr. Brand and Respondent's counsel for concise arguments and professionalism.",
+   "role": "other"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand filed 2019 tax return on time May 25, 2020 from remote location due to COVID-19",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He and wife were not living at home and lacked access to most tax slips normally received by mail",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Downloaded available slips from CRA 'My Account' using TurboTax to file return",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand filed 2019 tax return on time remotely due to COVID-19, lacking most mailed slips, using CRA 'My Account' and TurboTax.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CRA issued notice of assessment for 2019 based on filed return on June 4, 2020",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA issued 2019 notice of assessment on June 4, 2020 based on filed return.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Certain RBC T5 slips missing from My Account when Mr. Brand prepared 2019 return, so income omitted",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "RBC T5 income accumulated over 10 years in dividend securities account",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Legislative change made full accrued income taxable in 2019",
+     "answers": 0
+    }
+   ],
+   "summary": "RBC T5 slips missing from My Account when Mr. Brand filed 2019 return, omitting substantial income taxable due to legislative change.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CRA sent unreported income letter Dec 10, 2021 indicating investment income not fully reported",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CRA requested completed Worksheet and all T3 and T5 slips used to calculate investment income",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Letter stated spreadsheet listing T3 and T5 slips enclosed, but spreadsheet missing from records and Mr. Brand affirms he did not receive it",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA sent unreported income letter Dec 10, 2021 requesting slips; spreadsheet listed but missing from records and not received by Mr. Brand.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand contacted CRA after letter and was advised to verify return against My Account",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand confirmed T3 and T5 slips used matched My Account data",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand contacted CRA, verified return against My Account, confirming slips matched data.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "CRA issued Notice of Reassessment June 23, 2022 including RBC T5 income omitted",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Omitted income was about 75% of Mr. Brand's total net income for 2019",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Arrears interest charged but no penalty as first omission in prior four years",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA reassessed June 23, 2022 including omitted RBC income (~75% of net income); arrears interest charged, no penalty imposed.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand submitted first request for interest relief June 14, 2022",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Minister denied first request Nov 23, 2022 (First Relief Decision)",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand submitted first interest relief request June 14, 2022; Minister denied it Nov 23, 2022.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand requested second review Dec 2, 2022 with detailed reasons including RBC fund maturity and legislative change",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He did not receive annual RBC statements and relied on CRA My Account for tax documents",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "RBC T5 slips were not posted in My Account when he filed or as of Dec 2, 2022",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "If CRA received missing slips in Feb 2020, CRA responsible for making them accessible",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "To pay over $70,000 arrears interest, Mr. Brand and wife cashed investments at worst time; they continue working part-time at age 70",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand's second review request Dec 2, 2022 detailed RBC fund changes, missing slips in My Account, CRA responsibility, and hardship paying interest.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand emphasized no intention to omit RBC T5 slips in Second Request",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Brand emphasized no intention to omit RBC T5 slips in his Second Request.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Minister's delegate emphasized self-assessment principle requiring complete income disclosure",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Delegate stated T5 slips processed Feb 24, 2020 and available on time from CRA with valid addresses",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "No record of conversation between Mr. Brand and CRA about missing slip",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Omitted income was more than 75% of total net income",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister's delegate emphasized self-assessment, noted T5 slips processed Feb 24, 2020, no CRA conversation record, and large omitted income.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Delegate unable to conclude Mr. Brand was prevented from reporting RBC income, so relief denied",
+     "answers": 0
+    }
+   ],
+   "summary": "Delegate found no prevention for Mr. Brand reporting RBC income; relief denied.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court must assess if Decision applied law rationally and coherently per Vavilov at paras 86, 95",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If Decision justified, court defers and does not substitute own conclusion",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If serious shortcomings in Decision's justification, court must set aside and remit for reconsideration (Vavilov para 100)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court must assess Decision's rationality and justification per Vavilov; defer if justified, set aside if serious shortcomings.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 220(3.1) permits Minister to waive penalties or interest",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Minister must consider all relevant factors and base decision on fairness (Canada v Guindon, 2013 FCA 153 at para 58)",
+     "answers": 0
+    }
+   ],
+   "summary": "Subsection 220(3.1) allows Minister to waive penalties or interest considering all factors and fairness (Canada v Guindon).",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CRA's administrative guidelines inform Minister's discretion but do not bind it",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Minister may grant relief outside guideline categories (Stemijon Investments Ltd. v Canada, 2011 FCA 299 at para 27)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Paragraph 23 of Circular lists situations warranting relief: extraordinary circumstances, CRA actions, inability to pay or hardship",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA guidelines inform but do not bind Minister's discretion; relief may be granted outside listed categories (Stemijon).",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Paragraph 24 of Circular states guidelines are not binding and Minister's delegate may grant relief outside listed categories",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 24 of Circular confirms guidelines are not binding; Minister's delegate may grant relief outside categories.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Income tax regime is based on self-assessment principle requiring timely and accurate returns",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agrees with Respondent that self-assessment principle underpins Decision and delegate's conclusions",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds income tax regime is self-assessment based and agrees with Respondent that this underpins Decision and delegate's conclusions.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Minister\u2019s delegate denied relief based on CRA agent's three conclusions in the Fact Sheet.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Mr. Brand exercised somewhat reasonable care in tax affairs despite omissions in 2019, 2016, 2018, 2021, and 2014.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Unreported income letter sent Dec 10, 2021, but Spreadsheet listing slips was not attached.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Mr. Brand was not prevented by circumstances beyond his control from filing complete tax return.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RBC T5 Slips were processed and available by Feb 24, 2020, before Mr. Brand filed 2019 return.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Omitted income was over 75% of Mr. Brand\u2019s net income, a significant amount he should have noticed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker denied relief based on CRA agent's findings about Mr. Brand's reasonable care, omissions, availability of slips, and significant omitted income.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Minister\u2019s delegate denied relief because RBC T5 Slips were available before filing and no record of Mr. Brand contacting CRA about missing slip.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Omitted income was more than 75% of Mr. Brand\u2019s net income for 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Mr. Brand was not prevented from reporting full income; relief from arrears interest not warranted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker denied relief citing availability of slips, no contact with CRA, and significant omitted income.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Brand accepts responsibility but argues Minister\u2019s delegate failed to consider COVID-19 and CRA\u2019s role in omission.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Brand relied on My Account information encouraged by CRA to file 2019 return remotely.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "CRA failed to make RBC T5 Slips available in My Account and omitted Spreadsheet in Unreported Income Letter.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Failures and automatic reinvestment meant Mr. Brand had no knowledge of income or way to mitigate consequences.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the delegate failed to consider COVID-19 and CRA errors that prevented him from knowing omitted income.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister\u2019s delegate correctly focused on Mr. Brand\u2019s obligation to file accurate returns but self-assessment is not always a full response.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No reference in Fact Sheet or Decision to CRA guidelines for taxpayer relief analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Neither delegate nor Agent addressed Mr. Brand\u2019s arguments about CRA errors or hardship from arrears interest.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These arguments raised two of three relevant factors in paragraph 23 of the Circular.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the delegate focused on obligations but failed to consider CRA guidelines, errors, and hardship arguments.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Decision is not transparent or justified against facts and fairness principle under subsection 220(3.1) ITA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the decision lacks transparency and justification under the relevant law and facts.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to consider CRA errors' impact on Mr. Brand\u2019s ability to mitigate income inclusion is reviewable error warranting intervention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the failure to consider CRA errors' impact is a reviewable error justifying intervention.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Two CRA errors contributed to arrears interest and its accrual period.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Respondent does not dispute RBC T5 Slips were missing from Mr. Brand\u2019s My Account in 2020 and 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CRA gives no explanation for omission of slips from My Account; Agent and delegate silent on this and its effect.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "No evidence CRA guarantees My Account documents are accurate and complete.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Brand responsible for verifying tax information accuracy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Minister\u2019s delegate must weigh taxpayer responsibility against CRA error considering pandemic circumstances under subsection 220(3.1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds two CRA errors, notes respondent's admissions, and states delegate must weigh taxpayer responsibility against CRA error.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CRA failed to append Spreadsheet of slips to Unreported Income Letter.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Mr. Brand promptly called CRA after letter; instructed to check slips in My Account.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Information in My Account matched 2019 return; Mr. Brand took no further action.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CRA failed to append Spreadsheet; Mr. Brand called CRA and checked My Account, finding consistent information.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CRA\u2019s omission of Spreadsheet compromised Mr. Brand\u2019s ability to address arrears interest in Dec 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agent stated Mr. Brand was only somewhat attentive because he delayed clearing balance after Unreported Income Letter.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agent concluded Mr. Brand contributed to arrears interest accumulation during six months.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Brand had no knowledge of unreported income or arrears interest until Notice of Reassessment in June 2022.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to consider omission of Spreadsheet undermines justification for denial of relief.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CRA\u2019s omission compromised Mr. Brand\u2019s ability to act; agent\u2019s conclusion blaming Mr. Brand is undermined.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Minister\u2019s delegate faults Mr. Brand for not calling CRA about missing slips, ignoring he did not know of their existence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agent and delegate rely on omitted income being 75% of net income to argue Mr. Brand should have acted.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Brand states RBC income was automatically reinvested, so no notice of income increase in account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reference to quantum of omitted income is a red herring because no payment was received by Mr. Brand.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Record is ambiguous if automatic reinvestment was clear to CRA; delegate cannot be faulted if so.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds delegate wrongly faults Mr. Brand for not calling CRA and that omitted income quantum is misleading due to reinvestment.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister\u2019s delegate did not address Mr. Brand\u2019s hardship submissions regarding arrears interest.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agent\u2019s failure to consider hardship is not itself reviewable error but contributes to lack of justification.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds delegate ignored hardship submissions; agent\u2019s failure is not reviewable error but weakens justification.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Denial of relief must be reconsidered due to failure to explain reasons against factual and legal context.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Different delegate must weigh self-assessment importance against CRA failures, pandemic circumstances, and hardship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders reconsideration of denial, requiring a new delegate to weigh self-assessment against CRA errors and hardship.",
+   "role": "conclusion"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants the application for judicial review.",
+   "role": "disposition"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Parties agreed successful party entitled to $500 lump sum costs; court awards costs to Mr. Brand accordingly.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court awards $500 costs to Mr. Brand as agreed by parties.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -1,0 +1,874 @@
+{
+ "case_id": 44850,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.011943600000000002
+ },
+ "verification": {
+  "paragraphs": 56,
+  "rows": 56,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 69,
+  "holders": {
+   "court": 46,
+   "applicant": 12,
+   "respondent": 6,
+   "prior_court_or_authority": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 2
+ },
+ "headings": {
+  "9": "MINISTER'S INTERVENTION",
+  "55": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns XXXX XXXX's refugee protection claim under IRPA sections 96 and 97(1), where the Claimant alleges persecution in China and the U.S. The Minister intervened on exclusion grounds under Article 1F(b) for a serious non-political crime committed in the U.S. The tribunal found the Claimant excludable and rejected the refugee claim.",
+  "background_paras": "1-9",
+  "disposition_paras": "53-56",
+  "blocks": [
+   {
+    "issue": "Is the Claimant excludable from refugee protection under Article 1F(b) for committing a serious non-political crime outside the country of refuge before admission?",
+    "paras": "10-55",
+    "court_conclusion": "The Claimant is excluded from refugee protection under IRPA section 98 and Article 1F(b) for a serious non-political crime.",
+    "conclusion_paras": "53-56",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The accident was unintentional due to inability to brake; it was an unfortunate accident with no evidence of intoxication.",
+      "paras": "30,42"
+     },
+     {
+      "holder": "respondent",
+      "text": "Article 1F(b) applies as the Claimant committed a serious non-political crime in the U.S.; aggravating circumstances exist.",
+      "paras": "9,22,40,43"
+     },
+     {
+      "holder": "court",
+      "text": "The panel finds serious reasons to consider the Claimant excludable for a serious non-political crime; the offence is serious and burden of proof met.",
+      "paras": "10,51,52,55"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is the decision on XXXX XXXX's refugee protection claim under IRPA sections 96 and 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this decision concerns XXXX XXXX's refugee protection claim under IRPA sections 96 and 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Claimant's allegations are detailed in his Basis of Claim form, amended narrative, and oral testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Claimant's allegations appear in his Basis of Claim form, amended narrative, and oral testimony.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Claimant and former common law partner could not register their marriage due to statutory age requirements, so had a traditional ceremony only.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges he and his former partner could not register their marriage due to age, so had a traditional ceremony only.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Claimant's former common-law wife was forced to have an abortion due to an unplanned pregnancy.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Claimant was arrested, beaten, detained, and fined monetarily.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges his former partner was forced to abort, and he was arrested, beaten, detained, and fined.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Family planning officials repeatedly visited the Claimant and he was fired from his job.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges family planning officials repeatedly visited him and he was fired from his job.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Claimant left China for the U.S. in 2002, made an asylum claim which was denied, and lived without status before illegally entering Canada in 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states he left China for the U.S. in 2002, was denied asylum, lived without status, then entered Canada illegally in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Claimant was arrested and detained by Canadian police a year after entering Canada and made a refugee protection claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant was arrested and detained by Canadian police a year after entering Canada and made a refugee claim.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "While in the U.S., the Claimant was involved in a fatal vehicular accident and fears Chinese police if returned due to removal from his Hukou.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges involvement in a fatal accident in the U.S. and fears Chinese police due to removal from his Hukou.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "The Minister intervened personally on exclusion grounds under Article 1F(b).",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent Minister intervened personally on exclusion under Article 1F(b).",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel finds serious reasons to consider the Claimant excludable under IRPA section 98 and Article 1F(b) for committing a serious non-political crime in the U.S.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds serious reasons to consider the Claimant excludable under IRPA section 98 and Article 1F(b) for a serious non-political crime in the U.S.",
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On a balance of probabilities, the panel finds the Claimant is who he says and a Chinese national.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Claimant explained failure to provide a passport and provided alternative identity documents including Hukou and birth certificate.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds on a balance of probabilities the Claimant is who he says and a Chinese national, supported by identity documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key issue is whether the Claimant is excludable under Article 1F(b) for committing a serious non-political crime outside the country of refuge before admission.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the key issue is whether the Claimant is excludable under Article 1F(b) for a serious non-political crime before admission.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "IRPA section 98 and Article 1F(b) require assessing serious reasons for considering a serious non-political crime outside the country of refuge before admission.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Febles v. Minister requires focusing on facts and circumstances at the time the crime was committed to assess seriousness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRPA section 98 and Article 1F(b) require assessing serious reasons for a serious non-political crime before admission, per Febles v. Minister.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The panel must consider factors from Jayasekara including nature, prosecution mode, penalty, facts, and mitigating/aggravating circumstances to assess crime seriousness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must consider Jayasekara factors to assess whether the crime was serious.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mitigating and aggravating circumstances include duress, harm caused, weapon use, organized crime involvement, per court guidance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes mitigating and aggravating factors per court guidance include duress, harm, weapon use, and organized crime involvement.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "IRPA section 36(1) defines serious criminality including convictions punishable by 10+ years or 6+ months imprisonment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites IRPA section 36(1) defining serious criminality by convictions punishable by 10+ or 6+ months imprisonment.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "In Deng, Justice Hughes stated exclusion hearings require serious reasons for considering guilt, not proof beyond reasonable doubt.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Deng where Justice Hughes states exclusion hearings require serious reasons for considering guilt, not beyond reasonable doubt.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel must be satisfied the Claimant committed the crime; the Claimant testified about the fatal accident and denied knowledge of charges.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister's Exhibit 9 details the fatal accident with one death and 18 injuries; Claimant drove and failed to appear for hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it must be satisfied the Claimant committed the crime; the Claimant testified about the accident and denied charges; Minister's Exhibit 9 details the accident.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Exclusion applicability does not depend on charges or conviction; Minister must show serious reasons for considering the acts were committed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states exclusion does not depend on charges or conviction; Minister must show serious reasons for considering the acts committed.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The standard of evidence for serious reasons for considering is below criminal or civil law standards.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of evidence for serious reasons for considering is below criminal or civil law standards.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Serious crime for exclusion is judged by the criminal law system of the country of refuge, not the country of origin.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states serious crime for exclusion is judged by the country of refuge's criminal law system, not the country of origin's.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Article 1F(b) of the Refugee Convention applies as the PC committed a serious non-political crime in the U.S.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent alleges Article 1F(b) applies because the PC committed a serious non-political crime in the U.S.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Claimant was involved in a U.S. vehicular accident causing one death, multiple injuries, and vehicle damage.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Claimant was involved in a U.S. vehicular accident causing one fatality and multiple injuries.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Sections 320.13(2) and (3) of the Canadian Criminal Code create a hybrid offence prosecutable by indictment or summary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Hybrid offences are deemed indictable unless the Crown elects summary prosecution under s. 34 of the Interpretation Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Canadian hybrid offences under s. 320.13 and s. 34 of the Interpretation Act are indictable unless Crown elects summary.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A conviction outside Canada is serious if the offence would carry a maximum 10-year+ sentence under Canadian law, making the person inadmissible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states crimes outside Canada are serious if punishable by 10+ years in Canada, making the person inadmissible.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "UNHCR handbook requires considering all factors, including mitigating circumstances, in evaluating presumed crimes for exclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The gravity of persecution feared must be considered in determining refugee status under the 1951 Convention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the UNHCR handbook requires considering all factors and persecution gravity in exclusion and refugee status.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The panel analyzes the Jayasekara factors regarding the nature and elements of the crime.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the panel analyzes Jayasekara factors about the crime's nature and elements.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A maximum sentence of 10 years or more strongly indicates a serious non-political crime under exclusion criteria.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a 10-year+ maximum sentence strongly indicates a serious non-political crime for exclusion.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 320.13(3) prescribes life imprisonment on indictment for death-causing offences.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Section 320.13(3) prescribes life imprisonment on indictment for death-causing offences.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Claimant argues the accident was unintentional due to inability to brake, causing a domino effect with one death and 18 injuries.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Claimant testified he was distracted by highway signs and could not brake before impact.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the accident was unintentional due to distraction and inability to brake, causing death and injuries.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The accident occurred in early evening; police report says it was dark at the time.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Claimant was medically treated, arraigned, bailed, and a bond was issued.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the accident happened in early evening darkness; the Claimant was treated, arraigned, bailed, and bonded.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police report states the impact crushed the rear of the vehicle hit, pushing the rear seat forward causing the fatality.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence of pre-impact braking by the Claimant; Claimant testified braking was too late.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the police report shows severe impact causing fatality and no pre-impact braking by the Claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Operation causing bodily harm and death are hybrid offences; police found no intoxication signs and charged an unclassified misdemeanor.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the offences are hybrid; police found no intoxication and charged an unclassified misdemeanor.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Claimant testified he was unaware of charges and hired a lawyer to handle compensation and insurance matters.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant testified he was unaware of charges and hired a lawyer for compensation and insurance issues.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Claimant moved jurisdictions without notifying authorities or counsel and was unaware of conditions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Claimant moved jurisdictions without notifying authorities or counsel and was unaware of conditions.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Documents show an outstanding warrant for the Claimant's failure to attend U.S. court and bond violation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent shows documents of an outstanding warrant and bond violation for the Claimant's failure to attend court.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No documents exist on the outcome of proceedings; panel lacks further information for assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states no documents exist on proceedings' outcome; panel lacks further information for assessment.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Claimant did not dispute accident details; his account aligns with the police report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Claimant did not dispute accident details and his account aligns with the police report.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Primary cause of accident was Claimant's failure to pay full attention to road and traffic.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant's counsel argues the accident was unfortunate but accidental despite death and injuries.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the accident was caused by Claimant's inattention; counsel argues it was an unfortunate accident.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Minister argues some aggravating circumstances should be considered.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues some aggravating circumstances should be considered.",
+   "role": "issue"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Claimant was driving a large motor vehicle resulting in one fatality and injuries to 18 others.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Claimant was driving a large vehicle causing one death and injuries to 18 others, stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "This was an unfortunate accident with no evidence the Claimant was under the influence, echoed by police report.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Claimant argues it was an unfortunate accident with no evidence of influence, supported by police report.",
+   "role": "issue"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Based on PC's testimony, the panel should find the 'serious reasons for considering' test met.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister argues the 'serious reasons for considering' test is met based on PC's testimony.",
+   "role": "issue"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The panel considered the Claimant's claim of unawareness of charges and unsettled matter at time of move to New York.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel considered the Claimant's claim of unawareness of charges when he moved to New York.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The panel asked if the Claimant contacted his US lawyer about Canadian allegations; he said no due to time and lost contact.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He said a friend who helped him had died and he did not contact his sister who was too busy to help.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the Claimant did not contact his US lawyer or sister about charges due to lost contact and their unavailability.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant may not have known before 2017 but made no attempts after to clear name or face consequences.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the Claimant made no attempts after 2017 to clear his name or face consequences.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Facts of the crime do not lessen Claimant's responsibility; he should have driven more carefully given experience and conditions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the Claimant's responsibility is not lessened and he should have driven more carefully.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unlikely lawyer did not advise Claimant of charges; Claimant did not inform lawyer or courts of move.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Delaware court issued arrest warrant for failure to appear; warrant implies trial presence was required.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found it unlikely the lawyer did not advise the Claimant and noted the arrest warrant implies trial presence was required.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant continues to flee justice by not returning to US to face charges; has known about charges since 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the Claimant continues to flee justice by not returning to face charges known since 2017.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's flight from prosecution is a significant aggravating factor.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the Claimant's flight from prosecution is a significant aggravating factor.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Based on undisputed evidence and max Canadian sentence, offence is serious and burden of proof under Article 1F(b) met.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the offence serious and the burden of proof under Article 1F(b) met based on evidence and sentencing.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Disregard for public safety and flight from justice make offence serious for Article 1F(b) exclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the offence serious for Article 1F(b) exclusion due to public safety disregard and flight from justice.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "PC is excluded from refugee protection under section 98 IRPA and Article 1F(b) Refugee Convention for serious non-political crime.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concluded the PC is excluded from refugee protection under IRPA section 98 and Article 1F(b).",
+   "role": "conclusion"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court ruled inclusion analysis only if Claimant not excluded from refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Therefore, no inclusion analysis will be done.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Federal Court ruled inclusion analysis only if not excluded; thus, no inclusion analysis will be done.",
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Panel finds serious reasons for considering Claimant committed serious non-political crime; Article 1F(b) applies excluding refugee status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds serious reasons to exclude the Claimant from refugee status under Article 1F(b).",
+   "role": "conclusion"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claim is rejected.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects the Claimant's claim.",
+   "role": "disposition"
+  }
+ ]
+}

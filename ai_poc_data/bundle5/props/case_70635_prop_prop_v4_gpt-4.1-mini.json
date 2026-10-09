@@ -1,0 +1,699 @@
+{
+ "case_id": 70635,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.008893999999999999
+ },
+ "verification": {
+  "paragraphs": 23,
+  "rows": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 68,
+  "holders": {
+   "court": 37,
+   "applicant": 15,
+   "earlier_decision_maker": 16
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "5": "DECISION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns an appeal by a Chinese citizen fearing persecution for religious conversion and house church involvement, who challenges the Refugee Protection Division's (RPD) negative credibility findings. The Refugee Appeal Division (RAD) reviewed the appeal and dismissed it, agreeing with the RPD that the appellant is not a refugee or person in need of protection. The appellant's inconsistent testimony and inauthentic documents led to the dismissal of the appeal.",
+  "background_paras": "1-4",
+  "disposition_paras": "22-23",
+  "blocks": [
+   {
+    "issue": "Was the appellant's motivation for coming to Canada credible?",
+    "paras": "8-11",
+    "court_conclusion": "RAD finds RPD's negative credibility finding on motivation correct.",
+    "conclusion_paras": "10-11",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Appellant argues RPD was microscopic in finding and POE asked few questions about motivation; POE interviews are brief and he was not asked to elaborate details.",
+      "paras": "9"
+     },
+     {
+      "holder": "court",
+      "text": "Motivation for coming to Canada is central; appellant had time to consider claim and religious freedom; unclear why appellant could not articulate religious persecution as main reason; finds RPD's negative credibility finding correct.",
+      "paras": "10-11"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found appellant did not credibly establish motivation for leaving China or desire to come to Canada; inconsistent statements undermined credibility.",
+      "paras": "8"
+     }
+    ]
+   },
+   {
+    "issue": "Are the appellant's explanations and documents regarding arrest by Public Security Bureau credible?",
+    "paras": "12-16",
+    "court_conclusion": "RAD finds appellant gave inconsistent arrest explanations and provided inauthentic PSB document; appellant was not arrested for religious participation.",
+    "conclusion_paras": "14-16",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Appellant argues RPD's flawed POE findings led to conclusion receipt was untrustworthy, so inauthenticity finding cannot stand.",
+      "paras": "13"
+     },
+     {
+      "holder": "court",
+      "text": "Receipt unreliable and inauthentic; inconsistencies in dates and explanations; pastor's letter unreliable; appellant gave no satisfactory explanation for inconsistencies.",
+      "paras": "14-16"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found inconsistent testimony about arrest circumstances; receipt date differs from detention date; explanation unreasonable; receipt not authentic.",
+      "paras": "12"
+     }
+    ]
+   },
+   {
+    "issue": "Did the appellant demonstrate sufficient religious knowledge and sincerity of beliefs?",
+    "paras": "17-20",
+    "court_conclusion": "RAD finds appellant insincere in Christian beliefs and did not come to Canada intending to flee religious persecution.",
+    "conclusion_paras": "19-20",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Appellant argues RPD failed to consider low bar for religious knowledge and sincerity; had limited exposure in underground church.",
+      "paras": "18"
+     },
+     {
+      "holder": "court",
+      "text": "Acknowledges low bar but notes credibility concerns; appellant asked about Easter after attending Canadian church; finds RPD correctly impugned credibility; appellant insincere on balance of probabilities.",
+      "paras": "19-20"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found appellant had some Christian knowledge but failed basic questions despite years of faith and Bible study; confused key Christian concepts.",
+      "paras": "17"
+     }
+    ]
+   },
+   {
+    "issue": "Do additional documents provided by appellant overcome credibility concerns?",
+    "paras": "21-22",
+    "court_conclusion": "RAD accepts participation in baptism and workplace injury but finds documents do not overcome credibility concerns; upholds RPD's decision.",
+    "conclusion_paras": "21-22",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Provided baptism certificate and photograph of workplace injury leading to religious discussion in China.",
+      "paras": "21"
+     },
+     {
+      "holder": "court",
+      "text": "Accepts baptism and injury but documents do not overcome credibility concerns; upholds RPD's decision.",
+      "paras": "21-22"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant is a Chinese citizen fearing persecution for religious conversion and house church involvement.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges detention by Public Security Bureau due to house church involvement.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal; the applicant is a Chinese citizen fearing persecution and alleges detention by PSB for house church involvement.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant left China in 2020 on a fraudulent passport from a smuggler.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant made refugee claim at port of entry interview in 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant left China in 2020 on a fraudulent passport and made his refugee claim at the port of entry interview that year.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD heard claim in January 2022 and rejected it in February 2022 for lack of credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker rejected the applicant's claim in February 2022 due to credibility concerns.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Appellant appeals RPD decision to RAD, challenging credibility findings.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "RAD considered the merits of the appeal in its decision below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant appeals the RPD decision to the RAD, which considered the appeal's merits.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RAD dismisses appeal and agrees RPD correctly found Appellant not a refugee or person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, agreeing the earlier decision-maker correctly found the applicant not a refugee or protected person.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD's role is to review all evidence and decide if RPD made the correct decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No new evidence or oral hearing request was submitted on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD reviews all evidence to decide correctness of RPD decision; no new evidence or oral hearing requested.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant submits no new evidence and does not request oral hearing on appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits no new evidence and does not request an oral hearing on appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant did not credibly establish motivation for leaving China or desire to come to Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appellant told border services three times at POE he sought employment and had difficulty finding work in China.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found this undermined Appellant's credibility and refugee claim motivation despite interpreter at hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "At hearing, Appellant said he left China only to flee religious persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD considered Appellant's state of mind at POE interview but found he failed to clarify responses at hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the applicant lacked credible motivation for leaving China, noting inconsistent statements and failure to clarify at hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD was microscopic in finding and POE asked few questions about motivation.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says POE interviews are brief and he was not asked to elaborate details.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the earlier decision-maker's finding was microscopic and POE interviews are brief with few questions on motivation.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD disagrees; motivation for coming to Canada is central to refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant arrived in Canada in 2020 and had POE interview nine months later.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant had been living in Canada and attending church for months before POE interview.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant had time to consider refugee claim and religious freedom in Canada before POE interview.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unclear why Appellant could not articulate religious persecution as main reason for not returning to China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant had time and opportunity to articulate religious persecution but failed to do so at the POE interview months after arrival.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At POE, Appellant did not mention religious persecution but said it was difficult to make a living in China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Employment difficulty differs from fearing religious persecution; inconsistency is not vagueness or brevity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds RPD's negative credibility finding correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant's explanation of employment difficulty differs from religious persecution and upholds the negative credibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant gave inconsistent testimony about PSB arrest circumstances.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appellant could not say if detained while praying or cleaning, two different actions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appellant's pastor letter said detention occurred while distributing leaflets.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found inconsistent arrest explanations made pastor's letter unreliable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "PSB receipt date differs from Appellant's Schedule 12 form detention date.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appellant testified bail posted on one date, receipt dated earlier; claimed translation error.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's explanation unreasonable and receipt not authentic.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found inconsistent arrest testimony and an inauthentic PSB receipt, making supporting evidence unreliable.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD's flawed POE findings led to conclusion receipt was untrustworthy, so inauthenticity finding cannot stand.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the earlier decision-maker's flawed POE findings caused the inauthentic receipt conclusion, which should not stand.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds receipt unreliable and inauthentic on balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Receipt shows payment date before arrest and release dates, inconsistent with Appellant's testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No explanation why receipt date precedes payment; documents lack security features, easy to fabricate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD agrees RPD was correct to find receipt inauthentic considering all factors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the PSB receipt unreliable and inauthentic due to date inconsistencies and lack of security features, agreeing with earlier decision-maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant does not challenge RPD's inconsistent arrest explanation findings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD agrees cleaning and praying are different and Appellant gave no satisfactory explanation for inconsistency.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Uncertain how pastor mistakenly said arrest was for distributing leaflets, distinct from cleaning or praying.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant regularly attended church after arriving in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds pastor's letter unreliable evidence of sincerity or activities in China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with earlier findings of inconsistent arrest explanations and finds the pastor's letter unreliable evidence of sincerity or activities.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds Appellant gave inconsistent arrest explanations and provided inauthentic PSB document.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance, Appellant was not arrested by PSB for religious participation nor held for bail.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant gave inconsistent arrest explanations and an inauthentic document, concluding no PSB arrest for religious reasons occurred.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant had some Christian knowledge but failed basic questions despite four years' faith and Bible study.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant confused betrayal of Jesus and Christian holidays Christmas, Good Friday, Easter Sunday.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the applicant had some Christian knowledge but failed basic questions and confused key religious facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD failed to consider low bar for religious knowledge and sincerity of beliefs.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says RPD erred by weighing testimony against misguided expectations of knowledge.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant had limited exposure to Christianity in underground church, so less knowledge than in free practice country.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the earlier decision-maker erred by not considering low religious knowledge bar and limited exposure in underground church.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD acknowledges low bar for religious knowledge but notes existing credibility concerns.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant was asked about Easter at POE interview after attending Canadian church for months.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant regularly attended Bible studies and services since arriving in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds RPD correctly impugned credibility on religious knowledge, likely bolstered to support claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant's religious knowledge credibility concerns justified, as he had attended church but failed to answer basic questions.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds Appellant insincere in Christian beliefs on balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not come to Canada intending to flee religious persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant said employment difficulty was main reason for not returning to China at POE interview nine months after arrival.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant provided inauthentic PSB receipt and inconsistent arrest evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant insincere in beliefs, motivated by employment, and provided inauthentic and inconsistent evidence.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant provided a baptism certificate confirming baptism on XXXX XXXX, 2020",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant provided a photograph of workplace injury leading to religious discussion with aunt in China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD accepts Appellant participated in baptism at Canadian church after independent assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD accepts Appellant was injured at former workplace in China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inclusion of these documents does not overcome credibility concerns noted above",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant provided baptism certificate and injury photo; the court accepts these facts but finds credibility concerns remain.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD finds RPD's decision is correct",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RAD upholds RPD's decision",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds and upholds the earlier decision-maker's decision as correct.",
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RAD dismisses the appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RAD confirms RPD's decision that Appellant is neither Convention refugee nor person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the earlier decision-maker's finding that the applicant is not a refugee or protected person.",
+   "role": "disposition"
+  }
+ ]
+}

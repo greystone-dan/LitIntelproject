@@ -1,0 +1,682 @@
+{
+ "case_id": 69024,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.009872800000000001
+ },
+ "verification": {
+  "paragraphs": 24,
+  "rows": 24,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 65,
+  "holders": {
+   "court": 43,
+   "applicant": 8,
+   "earlier_decision_maker": 5,
+   "respondent": 1,
+   "other": 8
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "3": "DECISION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns the Appellant, a Ghanaian citizen and US permanent resident, appealing the Refugee Protection Division's (RPD) decision excluding him from refugee protection under Article 1E and section 98 IRPA. The key issue is whether the RPD erred in assessing exclusion based on the Appellant's US permanent resident status and risk of persecution. The appeal was dismissed, confirming the RPD's finding that the Appellant is excluded from refugee protection as he faces no risk in the US and maintains valid US status.",
+  "background_paras": "1, 5, 15-18",
+  "disposition_paras": "3, 6, 19-20, 24",
+  "blocks": [
+   {
+    "issue": "Did the RPD err in assessing exclusion from refugee protection under Article 1E and section 98 IRPA?",
+    "paras": "1, 6, 8-13, 21-23",
+    "court_conclusion": "The RPD correctly concluded the Appellant is excluded from refugee protection under Article 1E and s. 98 IRPA.",
+    "conclusion_paras": "6, 23, 24",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues the RPD applied the wrong legal test for exclusion and the correct test is Zeng from 2010 Federal Court of Appeal.",
+      "paras": "9, 14, 22"
+     },
+     {
+      "holder": "respondent",
+      "text": "Relies on Zeng to argue the Appellant was excluded due to valid US permanent resident status and no risk in the US.",
+      "paras": "10"
+     },
+     {
+      "holder": "court",
+      "text": "Agrees with the Jurisprudential Guide and Zeng test, finds no error in RPD's exclusion decision.",
+      "paras": "2, 6, 11, 23"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found the Appellant excluded under Article 1E as he can return to the US with rights similar to nationals and no well-founded fear of persecution there.",
+      "paras": "1, 8, 21"
+     }
+    ]
+   },
+   {
+    "issue": "Does the Appellant maintain valid US permanent resident status or has he abandoned it?",
+    "paras": "1, 5, 15-19",
+    "court_conclusion": "The Appellant maintains US LPR status until 2021 and has not abandoned it.",
+    "conclusion_paras": "19",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Testified he never abandoned his US green card and was never told he lost status, but did not file US taxes after 2012.",
+      "paras": "15"
+     },
+     {
+      "holder": "other",
+      "text": "Legal opinion suggests LPR status may be abandoned after over one year absence without intent to return; lists factors for abandonment.",
+      "paras": "17, 18"
+     },
+     {
+      "holder": "court",
+      "text": "Finds Appellant has not abandoned LPR; gives more weight to US authorities confirming entry rights; finds Appellant's testimony about losing status not credible.",
+      "paras": "16, 19"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found the Appellant has status similar to nationals in the US.",
+      "paras": "13"
+     }
+    ]
+   },
+   {
+    "issue": "Is the Appellant at risk of persecution or danger in the US, his country of residence?",
+    "paras": "6, 20-23",
+    "court_conclusion": "The Appellant faces no risk or fear in the US and is excluded from refugee protection.",
+    "conclusion_paras": "20, 23",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges fear of threat, harm, or death in Ghana based on sexual orientation but does not fear the US.",
+      "paras": "1"
+     },
+     {
+      "holder": "court",
+      "text": "Finds no risk or fear in the US based on Appellant's own admission; no need to proceed further under Zeng test.",
+      "paras": "6, 20, 23"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Concluded the Appellant had no risk or fear in the US by his own admission.",
+      "paras": "21"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant appeals the RPD decision dated August 25, 2020, rejecting his refugee claim due to exclusion under Article 1E and section 98 IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant is a Ghanaian citizen and US green card holder with permanent resident status in the US.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant alleges fear of threat, harm, or death in Ghana based on sexual orientation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant excluded from refugee protection under Article 1E due to US permanent resident status.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key issue is whether the RPD erred in assessing exclusion from refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant appeals the RPD's exclusion decision under Article 1E due to his US permanent resident status and alleges fear in Ghana.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court considered and applied the new Jurisprudential Guide MB8-00025 designated December 22, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees with the JG's reasoning on Article 1E and applies the traditional framework of analysis from JG1.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies the new Jurisprudential Guide MB8-00025 and agrees with its Article 1E reasoning using the traditional framework.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court dismisses the appeal and finds the RPD was correct that the Appellant is neither a Convention refugee nor in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, agreeing the Appellant is not a Convention refugee or person in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court's role is to review all evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review evidence and determine if the RPD decision was correct.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant was granted US permanent residence and green card in 2011, valid until 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant left the US in 2012 to accompany his uncle's body to Ghana and stayed until 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant married in 2010, had a daughter in 2014 with another woman, and his marriage ended in 2017 due to suspicions about his same-sex relationship.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant lived with another woman unaware of his sexual orientation rumors in 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In 2018, the Appellant was charged with sodomy and homosexuality in Ghana and left for Canada using his US green card.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant was granted visitor status and extended visitor visa in Canada, filed refugee claim in fall 2019, and had eligibility interview October 9, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court details the Appellant's US permanent residence, personal relationships, charges in Ghana, and refugee claim in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD incorrectly applied jurisprudence but correctly concluded the Appellant is excluded from refugee protection under Article 1E and s. 98 IRPA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD considered risk but found no risk in the US as the Appellant said he did not fear anything, leading to exclusion under Article 1E.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite quoting the wrong test, the RPD correctly assessed risk and concluded no serious possibility of persecution or danger in the US.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Therefore, the RPD correctly concluded the Appellant is excluded from refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD misapplied jurisprudence but correctly excluded the Appellant due to no risk of persecution in the US.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court follows Majebi and agrees the Appellant had valid US permanent resident status at the hearing time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with Majebi that the Appellant had valid US permanent resident status at the hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant excluded under Article 1E as he can return and remain in the US with rights similar to nationals and no well-founded fear of persecution there.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD relied on Shamloo and Wassiq to assess exclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant excluded under Article 1E due to US status and no fear, relying on Shamloo and Wassiq.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD applied the wrong legal test for exclusion and the correct test is Zeng from 2010 Federal Court of Appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD applied the wrong legal test and the correct test is Zeng from 2010.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Minister intervened before the RPD relying on Zeng to argue the Appellant was excluded.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Minister did not intervene before the RAD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister relied on Zeng before the RPD but did not intervene before the RAD.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not identify the correct jurisprudence as it did not indicate following Zeng.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RAD finds Zeng is the correct test and applies it to this appeal.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant has not shown he lacks valid US status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD did not identify correct jurisprudence, applies Zeng test, and finds Appellant has valid US status.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant had US status at the RPD hearing and has not shown the RPD erred in that conclusion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant had US status at the hearing and the RPD was correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant has status similar to nationals in the US.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant has status similar to US nationals.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues he does not have status in the US substantially similar to nationals.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues he lacks status substantially similar to US nationals.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant's green card is valid until 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant testified he never abandoned his US green card.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant testified he was never told by US officials he lost status.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant testified he never filed US income tax after leaving in 2012.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant testified a US officer told him he had six months to return or lose visa after uncle's funeral.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified he never abandoned his green card, was not told he lost status, never filed US taxes, and was told he had six months to return.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "US authorities confirmed the Appellant would not be denied entry to the US and his permanent resident status was not revoked.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At Canadian entry, US Customs and Border Patrol verified the Appellant could proceed to the US by flight in 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "US authorities confirmed the Appellant's permanent resident status and allowed entry to the US in 2019.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "A legal opinion concluded the Appellant abandoned his US LPR status due to over one year outside the US and no SB-1 visa eligibility.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "The US Foreign Affairs Manual states LPR status may be abandoned if absent over one year without intent to return or for reasons within control.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "US instructions on maintaining permanent residence list factors for abandonment including moving permanently abroad, extended absence, failure to file taxes, and declaring nonimmigrant status.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Obtaining re-entry or SB-1 visa may help show temporary absence intent.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "The legal opinion proposes evidence needed to show intent to return for SB-1 visa eligibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "A legal opinion states the Appellant abandoned LPR status due to prolonged absence and no SB-1 visa eligibility, citing US rules on abandonment.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "US National Documentation Package states LPR status is maintained until naturalization or loss/abandonment.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "LPR status can be lost by removal order or intentional abandonment including moving abroad permanently, failing to file taxes, or declaring nonimmigrant status.",
+     "answers": 0
+    },
+    {
+     "holder": "other",
+     "kind": "fact",
+     "text": "Chodorow Law Offices states CPB officers may refer suspected abandonment cases to Immigration Court for determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "US documentation states LPR status is lost by naturalization, removal order, or abandonment, with CPB officers referring cases to court.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant has not abandoned his LPR and losing LPR is not automatic.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Conflicting evidence exists on US re-entry but more weight is given to US authorities confirming Appellant would not be denied entry.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant never voluntarily abandoned LPR, was not told he lost status, and a process exists to maintain status which he has not exhausted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's testimony about losing status after six months absence is not credible and inconsistent with legal opinion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance, the Appellant maintains LPR status with rights and obligations until 2021.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD correctly assessed no risk or fear in the US by the Appellant's own admission.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant has not abandoned LPR, gives more weight to US authorities, rejects his testimony, and finds no risk in the US.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The court considers if the Appellant's country of residence (US) is unsafe with risk of persecution or danger without protection or internal flight alternative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Based on the Appellant's admission, he will not face risk or fear returning to the US.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Therefore, the Appellant is excluded from refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant will not face risk returning to the US and thus is excluded from refugee protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD considered the Appellant's risk or fear in the US and concluded the Appellant had none by his own admission",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant had no risk or fear in the US by his own admission, as stated by the earlier decision-maker.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant submits the RPD erred by not clearly outlining the Zeng test or moving on to parts two and three of Zeng",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred by not clearly outlining the Zeng test or proceeding to its later parts.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD assessed risk or fear in the US in paragraph 25 of its reasons, but only cursory due to lack of factual evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD correctly concluded the Appellant does not face risk or fear in the US",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The evidence before the RPD and RAD is clear the Appellant did not present any risk or harm in the US",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Following Zeng, when no factual evidence exists, the tribunal need only consider the evidence presented and make a finding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant faces no fear in the US by his own admission",
+     "answers": 4
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not need to continue further once concluding no risk or fear existed, and RAD need not either",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD correctly concluded the Appellant as a US LPR could return without fear",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD assessed risk in the US correctly and properly concluded no risk or fear existed, following Zeng and the Appellant's admission.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed and the RPD decision excluding the Appellant from refugee protection is confirmed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision excluding the Appellant from refugee protection.",
+   "role": "disposition"
+  }
+ ]
+}

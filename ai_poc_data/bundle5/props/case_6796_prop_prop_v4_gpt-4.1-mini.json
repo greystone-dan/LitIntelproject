@@ -1,0 +1,697 @@
+{
+ "case_id": 6796,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.008856000000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "rows": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 76,
+  "holders": {
+   "applicant": 30,
+   "earlier_decision_maker": 11,
+   "court": 30,
+   "witness_or_document": 1,
+   "prior_court_or_authority": 4
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "2": "II. Background and underlying decisions",
+  "13": "IV. Analysis",
+  "20": "V. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "Ms. Narda Domenica Estrada Alejandro, an Ecuadorian citizen, seeks judicial review of the Refugee Appeal Division's (RAD) decision confirming the Refugee Protection Division's (RPD) refusal of her refugee claim. She alleges persecution by Ecuadorian police due to her participation in student protests and argues the state cannot protect her. The Federal Court found the RAD's decision reasonable and dismissed the application.",
+  "background_paras": "1-6",
+  "disposition_paras": "20",
+  "blocks": [
+   {
+    "issue": "Is the RAD's finding that Ecuador provides adequate state protection reasonable?",
+    "paras": "7-19, 21-23",
+    "court_conclusion": "The RAD's finding that Ecuador provides adequate state protection is reasonable and supported by evidence.",
+    "conclusion_paras": "16,18-20,22-23",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues state protection is unavailable as state is agent of persecution; relies on evidence of police abuse and torture; claims worsening situation and police threats.",
+      "paras": "10,13,15,23"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found applicant not credible and failed to rebut presumption of state protection; Ecuador is democratic with remedies available.",
+      "paras": "7"
+     },
+     {
+      "holder": "court",
+      "text": "RAD found applicant feared police but Ecuador is progressing in police accountability; applicant's parents used state protection; applicant made no complaints.",
+      "paras": "9,14,18-19,21-22"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Burden to rebut presumption lies with claimant; subjective fear insufficient without failed protection; refugee protection surrogate when state protection unavailable.",
+      "paras": "16,18,18"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Narda Domenica Estrada Alejandro is a 30-year-old Ecuadorian citizen claiming refugee protection due to targeting by government officials for student protests participation",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "She seeks judicial review of the RAD decision dated June 22, 2021, which confirmed the RPD decision dated September 4, 2020",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RAD found Ms. Estrada failed to rebut the presumption of adequate state protection in Ecuador",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I find nothing unreasonable in the RAD\u2019s decision and dismiss the application",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant Ms. Estrada claims refugee protection and seeks judicial review of RAD decision; court finds RAD decision reasonable and dismisses application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada obtained a student loan from IECS in 2013 to study nutrition and related fields",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "IECS was closed and merged into IPHT after government economic reforms; IPHT managed loans but provided no information",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada could not continue studies or pass exams; IPHT regional manager Mr. Rada demanded loan repayment with interest within two months",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant obtained student loan from IECS, which was merged into IPHT; IPHT demanded repayment, and applicant could not continue studies.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada participated in a student demonstration protesting IPHT's abuse of power, leading to police confrontation and arrests",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "A student leader filed a complaint against police, resulting in intimidation and threats against him and family",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Fearing retaliation, Ms. Estrada withheld and never filed her complaint against police",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant joined student protest leading to police arrests; a complaint caused intimidation, so applicant did not file her complaint fearing retaliation.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada\u2019s parents made loan payments, but Mr. Rada withdrew funds directly from her bank account",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada filed a complaint with her bank unsuccessfully and closed her account",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Bill collector visits forced her parents to move; Ms. Estrada cancelled contracts with her home address",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In early 2016, Ms. Estrada sought psychiatric help due to police threats, especially from Lieutenant Morocho Cadenas",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant\u2019s bank account was withdrawn from; complaints failed; family moved due to bill collectors; applicant sought psychiatric help for police threats.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada visited sister in Toronto in 2016, extended stay due to sister\u2019s health, returned to Ecuador July 2017",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She was detained at airport for over two hours without explanation",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Her parents reported ongoing police threats and intimidation to prevent complaints",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Fearing for her life, Ms. Estrada returned to Canada on July 21, 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant visited Canada, returned to Ecuador, was detained, faced ongoing threats, and fled back to Canada fearing for her life.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Ms. Estrada returned to Ecuador October 2017 hoping threats subsided; police questioned her near home",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She avoided answering police questions and entered home safely",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She tried contacting fellow protesters but learned they were imprisoned or sued by police officers",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "A community guard warned her police officers were looking for her; she left Ecuador October 30, 2017, claiming refugee protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant returned to Ecuador, faced police questioning and threats, learned protesters were imprisoned, fled again to Canada claiming refugee protection.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Ms. Estrada not credible due to omission and vague testimony",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found she failed to rebut presumption of adequate state protection in Ecuador",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Ecuador is democratic with government control and steps to curtail police abuse",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Complaints against police are available remedies; Ms. Estrada did not report threats to police",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found applicant not credible, failed to rebut state protection presumption; Ecuador has democratic control and complaint mechanisms.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "RAD admitted new credible news article evidence under subsection 110(4) but denied oral hearing request",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD admitted new evidence but denied applicant\u2019s request for oral hearing.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found RPD erred in credibility; applicant feared police as perceived leader, not as protest leader",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD accepted applicant\u2019s subjective fear due to protest participation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD agreed applicant failed to rebut presumption of adequate state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "RAD corrected RPD\u2019s credibility error, accepted applicant\u2019s subjective fear, but upheld failure to rebut state protection presumption.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued no adequate state protection as state is agent of persecution",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD disagreed with applicant\u2019s argument",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argued state is persecutor so no protection; RAD disagreed.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Sole issue is whether RAD\u2019s state protection finding is reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court identifies issue as reasonableness of RAD\u2019s state protection finding.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review is reasonableness per Vavilov, absent exceptions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires justification, transparency, intelligibility, and relation to factual and legal constraints",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states reasonableness is standard of review, requiring justification, transparency, and relation to facts and law.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD erred assessing country conditions and personal circumstances on state protection availability",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues state protection unavailable when state is agent of persecution",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant relies on NDP evidence showing police excessive force and torture",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RAD erred on state protection assessment, relying on evidence of police abuse and state as persecutor.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD found applicant feared Mr. Rada and police due to protest participation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD found Ecuador is progressing in police accountability per recent NDP evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant\u2019s parents filed complaints with no retaliation; they availed themselves of state protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant made no effort to file complaints with police or authorities",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD\u2019s findings that applicant feared officials, Ecuador improving police accountability, parents used protection, applicant did not complain.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant did not file complaint fearing torture of student leaders who filed complaints",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims worsening situation since last Ecuador trip and police still seek her",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims Mr. Rada blocks her bank account opening, no evidence in record",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims mother is extorted by police, uncertain and no evidence in record",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant claims fear prevented complaints, worsening threats, bank account blocked, and mother extorted, but no evidence supports latter claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No reviewable error in RAD\u2019s finding that applicant failed to rebut presumption of state protection",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Refugee protection is surrogate when home state protection unavailable (Ward; Hinzman)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Burden to rebut presumption of state protection lies with claimant (Ward; Flores Carrillo)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no error in RAD\u2019s state protection finding; refugee protection is surrogate; burden to rebut lies with claimant.",
+   "role": "conclusion"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant fears persecution from Mr. Rada and police due to protest participation",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes applicant fears persecution from Mr. Rada and police due to protests.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant failed to submit clear and convincing evidence of unsuccessful state protection attempts",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Evidence must show more than imperfect or ineffective state protection (Villafranca)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD reasonably concluded applicant did not meet onus to rebut presumption",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD found complaint mechanisms exist in Ecuador; subjective fear insufficient without prior failed protection",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Subjective fear insufficient without prior failed protection (Ruszo)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds applicant failed to prove failed state protection; RAD reasonably concluded onus unmet; subjective fear insufficient without prior failure.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD acknowledged human rights issues but found no clear evidence Ecuador cannot protect applicant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court will not reweigh evidence (Vavilov)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD presumed to consider all evidence unless fundamental misapprehension shown (Vavilov; Cepeda-Gutierrez)",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant did not show RAD failed to consider contrary evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Nothing unreasonable in RAD\u2019s decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RAD acknowledged issues but reasonably concluded Ecuador can protect applicant; no reweighing or misapprehension shown.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses judicial review application.",
+   "role": "disposition"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective documentation shows the state is making efforts to hold police who use excessive force accountable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A special prosecutorial unit was set up in 2010 to investigate and prosecute cases documented by a truth commission",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "68 extrajudicial executions between 1984 and 2008 is concerning",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The special unit's prosecutions indicate state efforts for accountability",
+     "answers": 3
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD decision highlights successes in NDP for Ecuador of March 31, 2020 paragraphs 28-31",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Administration conducts better police human rights training, citizens can file complaints to Public Prosecutor and Ombudsman",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the state is making efforts to hold police accountable, citing a special unit and training, despite the applicant's concern about extrajudicial executions.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Reviewed most recent NDP for Ecuador dated April 23, 2021",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "NDP confirms Ecuador is democratic, not broken or fragile state",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ecuador has issues with police corruption, protest response, and excessive force",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective evidence shows Ecuador is making efforts to keep police in check",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "State's unsuccessful efforts alone do not rebut presumption of state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Ecuador democratic with police issues but making efforts; unsuccessful efforts do not rebut presumption of state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "State as agent of persecution means state cannot provide protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This proposition is incorrect; state protection assessment requires objective documentation and case circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective documentation and parents' report to Specialized Prosecution Officer show adequate state protection in Ecuador",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant did not file report with police or other state protection actors like Attorney General or Ombudsperson",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues state cannot protect as persecutor; court finds this incorrect and concludes adequate state protection exists, noting appellant's lack of reporting.",
+   "role": "analysis"
+  }
+ ]
+}

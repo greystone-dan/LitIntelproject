@@ -1,0 +1,368 @@
+{
+ "case_id": 43142,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.004887600000000001
+ },
+ "verification": {
+  "paragraphs": 15,
+  "rows": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 32,
+  "holders": {
+   "court": 20,
+   "earlier_decision_maker": 5,
+   "applicant": 4,
+   "respondent": 1,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "The appellant, owner of 6th Street Developments Ltd., appeals the Tax Court of Canada's dismissal of his appeals regarding unremitted source deductions and related penalties. The issue is whether the appellant exercised due diligence to prevent the company's failure to remit taxes. The Federal Court of Appeal dismissed the appeal, finding no palpable and overriding error in the Tax Court's decision.",
+  "background_paras": "1-3",
+  "disposition_paras": "14",
+  "blocks": [
+   {
+    "issue": "Did the appellant exercise due diligence to prevent 6th Street's failure to remit source deductions and net tax?",
+    "paras": "4-13",
+    "court_conclusion": "No palpable and overriding error found; appellant failed to establish due diligence.",
+    "conclusion_paras": "8, 12, 14",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found appellant did not establish due diligence; delegated remittance to bookkeeper without oversight; efforts were to cure, not prevent failures.",
+      "paras": "5"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argues Tax Court erred on FIFO method; took steps to ensure timely remittances; memory lapses from brain injury not sufficiently considered; cites Penate and Worrell cases.",
+      "paras": "6"
+     },
+     {
+      "holder": "respondent",
+      "text": "Notes facts differ from Penate and Worrell; those cases involved different circumstances like prioritizing remittances or bank dishonouring cheques.",
+      "paras": "13"
+     },
+     {
+      "holder": "court",
+      "text": "Function is not to retry case; no palpable and overriding error found; appellant did not distinguish creditor payments; burden to prove due diligence not met despite brain injury.",
+      "paras": "7,8,9,10,11,12"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The appellant appeals the Tax Court of Canada decision dismissing appeals on assessments under ITA and ETA statutes.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Tax Court dismissed appellant's appeals for unremitted source deductions, interest, penalties totaling $62,298.56 and net tax, interest, penalties totaling $7,504.44.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant appeals the Tax Court decision dismissing appeals on tax assessments totaling $69,803. The court states this.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At relevant times, appellant owned and directed 6th Street Developments Ltd., a construction company providing services to RABB, also owned by appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RABB was in residential home development business.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant owned 6th Street and RABB, a construction and home development business respectively, the court states.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "6th Street failed to remit source deductions and net tax due to cash flow problems starting 2010 from a non-paying RABB client causing other defaults.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant sued defaulting clients and obtained family loans but shortfall remained between funds and debts.",
+     "answers": 0
+    }
+   ],
+   "summary": "6th Street failed remittances due to cash flow problems from client defaults; appellant sued clients and got loans but shortfall remained, the court states.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The sole issue was whether appellant exercised due diligence under ITA and ETA to prevent 6th Street's failure to remit source deductions and net tax.",
+     "answers": 0
+    }
+   ],
+   "summary": "The only issue was whether appellant exercised due diligence to prevent 6th Street's failure to remit taxes, the court states.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Tax Court found appellant did not establish due diligence because he delegated remittance responsibility to bookkeeper without adequate oversight.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Bookkeeper paid creditors including CRA by FIFO method; appellant gave no directions on remittances.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant's efforts to raise funds were attempts to cure failures, not to prevent them, so did not establish due diligence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Tax Court found appellant lacked due diligence due to delegation without oversight, FIFO payments, and curing rather than preventing failures, the court reports.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Tax Court erred finding 6th Street used FIFO method, claiming it had no creditors other than CRA unlike RABB.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says evidence showed he took steps to ensure timely remittances using QuickBooks.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges Tax Court did not sufficiently consider his memory lapses from brain injury.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits his circumstances are like Penate and Worrell cases and appeal should be granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues errors on FIFO method, QuickBooks use, memory lapse consideration, and similarity to precedent cases, seeking appeal grant.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court's function is not to retry case or re-weigh evidence but to intervene only if Tax Court erred in law or made palpable and overriding factual error.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Palpable and overriding error means obvious error affecting the result, as explained in Canada v. South Yukon Forest Corporation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states it only intervenes for legal or palpable overriding factual errors, defining the standard with case law.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "All appellant's arguments are factual.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "After review, no palpable and overriding error found in Tax Court's conclusion appellant failed to establish due diligence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellant's arguments factual and no palpable overriding error in Tax Court's due diligence conclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not clearly distinguish creditor payment methods of 6th Street and RABB and testified bookkeeper used FIFO for both.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant confirmed 6th Street employees paid bi-weekly by cheque and gave no instructions on CRA remittances.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant only became aware of remittance failures in 2015, years after they occurred.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellant unclear on FIFO use, no remittance instructions given, and late awareness of failures.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not explain how QuickBooks ensured timely or prioritized remittances in testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes appellant failed to explain how QuickBooks ensured timely remittances.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Tax Court was aware of appellant's brain injury and accommodated memory problems during hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant bore burden to prove due diligence; memory lapses do not discharge this burden.",
+     "answers": 0
+    }
+   ],
+   "summary": "Tax Court accommodated appellant's brain injury but appellant still bore burden to prove due diligence, court states.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Based on evidence, Tax Court was entitled to conclude appellant failed to act with due diligence to make remittances.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Tax Court properly concluded appellant failed to act with due diligence based on evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent notes facts differ from Penate and Worrell cases cited by appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Penate involved taxpayer prioritizing remittances; Worrell involved bank dishonouring cheques causing bankruptcy, unlike appellant's case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These cases turn on different facts than appellant's case.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent and court find appellant's case facts differ from Penate and Worrell precedents, which involved different circumstances.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal is dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Costs award is declined, as was done by Tax Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses appeal and declines costs award, following Tax Court's approach.",
+   "role": "disposition"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Palpable and overriding error is a highly deferential standard of review defined in H.L. v. Canada and Peart v. Peel Regional Police.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Palpable means obvious error; overriding means error affecting case outcome; entire case must fail, not just parts.",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior cases define palpable and overriding error as obvious and outcome-affecting, requiring entire case failure, not partial.",
+   "role": "law"
+  }
+ ]
+}

@@ -1,0 +1,1439 @@
+{
+ "case_id": 43195,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.019135199999999998
+ },
+ "verification": {
+  "paragraphs": 62,
+  "rows": 62,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 144,
+  "holders": {
+   "court": 65,
+   "earlier_decision_maker": 44,
+   "applicant": 17,
+   "respondent": 18
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 8
+ },
+ "headings": {
+  "13": "III. The Chair\u2019s Decision",
+  "22": "IV. The Federal Court\u2019s Decision",
+  "28": "V. Issues",
+  "30": "VI. Standard of Review",
+  "40": "B. Date of the Charge",
+  "46": "C. Breaches of CCRR and CD 580",
+  "55": "E. Chain of Custody",
+  "61": "VIII. Conclusion"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The Attorney General of Canada appealed a Federal Court decision that granted judicial review to James Thomas Eakin, quashing a disciplinary charge against him for taking intoxicant. The case concerns procedural and evidentiary issues related to the charge and suspension following a positive THC urinalysis test. The Federal Court's decision was allowed in part, with some findings set aside and others upheld.",
+  "background_paras": "1-12",
+  "disposition_paras": "61-62",
+  "blocks": [
+   {
+    "issue": "Was the suspension of Mr. Eakin a disciplinary sanction or an administrative consequence?",
+    "paras": "26-39",
+    "court_conclusion": "Suspension was an administrative consequence, not a disciplinary sanction; Federal Court erred in ordering compensation for suspension loss.",
+    "conclusion_paras": "33-39, 61",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Eakin argued suspension was part of penalty and improper sanctioning occurred.",
+      "paras": "26, 37"
+     },
+     {
+      "holder": "respondent",
+      "text": "Attorney General argued suspension was administrative, not disciplinary; Federal Court erred in ordering compensation.",
+      "paras": "28, 35"
+     }
+    ]
+   },
+   {
+    "issue": "What was the correct date of laying the charge against Mr. Eakin?",
+    "paras": "40-45",
+    "court_conclusion": "Federal Court was correct to find Chair's conclusion on charge date unreasonable; charge date not Oct 16 but likely Oct 2.",
+    "conclusion_paras": "44-45",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Eakin argued Suspension Form on Oct 2 indicated charge existed earlier than Offence Report date.",
+      "paras": "42"
+     },
+     {
+      "holder": "respondent",
+      "text": "Attorney General argued charge date was Offence Report delivery date, not Suspension Form date; minor breach cured.",
+      "paras": "40, 45"
+     }
+    ]
+   },
+   {
+    "issue": "Were procedural breaches regarding Offence Report and related documents cured or did they prejudice Mr. Eakin?",
+    "paras": "46-51",
+    "court_conclusion": "Chair unreasonably found breaches cured; failed to consider prejudice from delays; Federal Court correct to find errors.",
+    "conclusion_paras": "50-51",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Eakin alleged failures in timely delivery of Offence Report, hearing details, and documents; breaches not cured.",
+      "paras": "46, 29"
+     },
+     {
+      "holder": "respondent",
+      "text": "Attorney General argued breaches were cured by hearing delays and minor.",
+      "paras": "28, 45"
+     }
+    ]
+   },
+   {
+    "issue": "Was the Federal Court's order to remove the Offence Report and references from Mr. Eakin's record appropriate?",
+    "paras": "52-54",
+    "court_conclusion": "Federal Court should have ordered correction, not removal, of records; removal was unfair without party input.",
+    "conclusion_paras": "54",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Eakin argued removal necessary due to continued reference to quashed decision.",
+      "paras": "53"
+     },
+     {
+      "holder": "respondent",
+      "text": "Attorney General argued CCRA authorizes correction, not removal; removal unfair without hearing parties.",
+      "paras": "52, 53"
+     }
+    ]
+   },
+   {
+    "issue": "Were chain of custody requirements for the urinalysis sample respected despite missing barcode and certification issues?",
+    "paras": "55-60",
+    "court_conclusion": "Chair's finding that barcode omission did not violate CCRR was reasonable; certification not incorrect as it referred to original form.",
+    "conclusion_paras": "56, 60",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Mr. Eakin argued missing barcode and incorrect certification violated chain of custody requirements.",
+      "paras": "55, 57"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Chair found barcode omission did not violate CCRR; Federal Court agreed; certification issue unclear if raised before Chair.",
+      "paras": "56, 58"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Attorney General of Canada appeals Federal Court decision granting judicial review to respondent James Thomas Eakin.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Federal Court decision concerned Acting Independent Chairperson Colin Wright's conviction of Mr. Eakin for taking intoxicant under CCRA paragraph 40(k).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General appeals a Federal Court decision granting judicial review to Mr. Eakin about a disciplinary conviction by Chair Colin Wright under CCRA.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court found several errors in Chair's Decision and quashed it.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Federal Court's Decision also granted other relief discussed later.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found errors in the Chair's Decision, quashed it, and granted other relief.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal is allowed in part for reasons below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is allowed in part for reasons set out below.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Summary of facts provided is sufficient for these reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "A sufficient summary of facts is provided for these reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Eakin was selected for random urinalysis on September 19, 2018, authorized by Officer Gleadhill.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Toxicology Report sent September 24, 2018, showed positive THC result for Mr. Eakin's sample.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin was selected for urinalysis on Sept 19, 2018, authorized by Officer Gleadhill; report on Sept 24 showed positive THC.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Eakin suspended from grocery store job on October 2, 2018, due to positive THC urinalysis and resulting charge.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin was suspended from his job on Oct 2, 2018, due to positive THC urinalysis and resulting charge.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On October 16, 2018, Mr. Eakin received Offence Report charging him under CCRA paragraph 40(k).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Offence Report indicated charge laid October 16, 2018, hearing not before 1 pm Oct 19, 2018, but no hearing location given.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin received an Offence Report on Oct 16, 2018, charging him and indicating hearing date but no location.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin objected to Offence Report failing to identify hearing time, date, and place as required by CCRR paragraph 25(1)(b).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argued Offence Report was not delivered as soon as practicable per CCRR subsection 25(2), based on charge decision date.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin alleged failure to provide Offence Report, Toxicology Report, or hearing details within two working days as per CD 580 paragraph 17.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin alleged Officer Gleadhill's involvement in charge categorization and urine sample authorization violated CD 580 paragraph 10.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin objected to Offence Report defects, late delivery, failure to provide documents timely, and Officer Gleadhill's involvement violating CD 580.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Chair was unprepared for detailed submissions, requested written submissions, and adjourned hearing to Nov 19, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin objected to adjournment, wanting resolution before parole hearing on Nov 8, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Eakin received Toxicology Report on Oct 30, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair adjourned hearing to Nov 19, 2018 after submissions; Mr. Eakin objected due to parole hearing; he received Toxicology Report Oct 30.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Hearing resumed Nov 19, 2018 but adjourned to Nov 26, 2018 because Chair had not read submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin introduced new ground: missing bar code sticker on Urinalysis Chain of Custody form violated CCRR subparagraph 66(1)(f)(ii).",
+     "answers": 0
+    }
+   ],
+   "summary": "Hearing adjourned Nov 19, 2018 for unread submissions; Mr. Eakin added new objection about missing bar code sticker violating CCRR.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Hearing Nov 26, 2018 could not proceed due to absence of Officer Quesnelle who took urine sample.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Dec 10, 2018 hearing also failed for Officer Quesnelle's absence; Chair warned charge would be dismissed if absent Dec 17, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Hearings Nov 26 and Dec 10, 2018 failed due to Officer Quesnelle's absence; Chair warned charge dismissal if absent Dec 17.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Hearing proceeded Dec 17, 2018 with Officer Quesnelle present to answer questions on missing bar code and positive THC test.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Eakin had no questions for Officer Quesnelle; Chair invited penalty submissions if guilty.",
+     "answers": 0
+    }
+   ],
+   "summary": "Hearing proceeded Dec 17, 2018 with Officer Quesnelle present; Mr. Eakin had no questions; Chair invited penalty submissions.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair dismissed all Mr. Eakin's objections and found charge made out on Jan 7, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair dismissed Mr. Eakin's objections and found charge proven on Jan 7, 2019.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair acknowledged Offence Report failed to specify hearing details and Toxicology Report not provided to Mr. Eakin, breaching CD 580 paragraph 17.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair concluded these breaches were curable and were cured.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair acknowledged breaches in Offence Report and Toxicology Report delivery but found breaches curable and cured.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Legal requirements can be mandatory (breach nullity) or directory (breach fixable or disregarded).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair concluded CD 580 and CCRR provisions were directory to ensure inmate can respond to evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Mr. Eakin had missing information in ample time to respond.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair did not consider Mr. Eakin's concern about delay causing prejudice at parole hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair found provisions directory, Mr. Eakin had info timely, but did not consider prejudice from delay to parole hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair found Mr. Eakin's objection about late Offence Report delivery lacked merit based on charge date Oct 16, 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair found objection about late Offence Report delivery lacked merit based on Oct 16 charge date.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair found no breach of CD 580 paragraph 10 regarding Officer Gleadhill's involvement in charge categorization and urine sample authorization.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair found no breach of CD 580 paragraph 10 regarding Officer Gleadhill's involvement.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair noted Officer Quesnelle alone involved in incident description on Offence Report.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair made no comment on Officer Gleadhill's role in authorizing urine sample collection.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair noted Officer Quesnelle alone involved in incident description and made no comment on Officer Gleadhill's authorization role.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair accepted missing bar code sticker on Mr. Eakin's Urinalysis Chain of Custody form but found CCRR subparagraph 66(1)(f)(ii) requirements met.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair accepted missing bar code sticker but found CCRR chain of custody requirements met.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair considered other chain of custody issues including Mr. Eakin's certification of sealed and labelled urine sample container.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair considered other chain of custody issues including Mr. Eakin's certification of sealed and labelled sample.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair found no merit in Mr. Eakin's objections and accepted Officer Quesnelle's evidence of positive THC urinalysis test.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair found the charge against Mr. Eakin was made out and imposed a penalty.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Chair found no merit in Mr. Eakin's objections, accepted positive THC test evidence, found the charge made out, and imposed a penalty.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On judicial review, the Federal Court sided with Mr. Eakin and quashed the Chair's Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The Federal Court ordered compensation for Mr. Eakin's financial loss from penalty and suspension.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "If the charge was not pursued within 30 days, the Offence Report and references should be removed from Mr. Eakin's record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court quashed the Chair's Decision, ordered compensation for Mr. Eakin, and removal of Offence Report if charge not pursued.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair did not err in concluding CCRR and CD 580 provisions were directory, not mandatory.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair's conclusion that breaches were cured was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found the Chair correctly saw provisions as directory but unreasonably concluded breaches were cured.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair failed to consider repeated adjournments and delay impacts on Mr. Eakin.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair's conclusion that charge was laid only on October 16, 2018 was unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair's conclusion that the two-day limit for providing Offence Report was respected was unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair's treatment of late disclosure of Toxicology Report was cavalier and unjustifiable.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair's failure to consider prejudice to Mr. Eakin from non-compliance was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found the Chair unreasonably ignored delays, misdated charge, wrongly accepted timely Offence Report, cavalierly treated late Toxicology Report, and failed to consider prejudice.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair correctly concluded CCRR subparagraph 66(1)(f)(ii) requirements met despite missing bar code sticker.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Chair failed to address Mr. Eakin's argument that Officer Quesnelle's certification was incorrect.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The certification on the Urinalysis Chain of Custody form was indeed incorrect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is unclear if the incorrect certification formed part of the basis for quashing the Chair's Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court found CCRR requirements met despite missing bar code, noted incorrect certification unaddressed, but unclear if it affected quashing.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court's compensation order was based on finding suspension was part of penalty.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court characterized the suspension as a sanction and premature.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court based compensation on viewing suspension as penalty part and characterized it as premature sanction.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Federal Court was silent on paragraph 10 of CD 580 and Officer Gleadhill's involvement.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argued before the Federal Court there was a breach of paragraph 10 of CD 580.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court was silent on paragraph 10 and Officer Gleadhill's role, though Mr. Eakin argued breach of paragraph 10.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Attorney General argues the Federal Court erred on suspension being disciplinary sanction; it was administrative.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Federal Court found suspension premature without parties' submissions, which was error.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The charge date was the Offence Report date; it was not late.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Breaches of CCRR and CD 580 were cured by hearing delays.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Federal Court erred in ordering removal of Offence Report and references without hearing parties.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General argues the Federal Court erred on suspension, charge date, breach cures, and removal of records without hearing parties.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin disputes all Attorney General's arguments.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argues CCRR subparagraph 66(1)(f)(ii) and chain of custody requirements were not respected due to missing bar code sticker.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin disputes Attorney General's arguments and claims chain of custody requirements were not met due to missing bar code.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Standard of review approach follows Agraira and Northern Regional Health Authority cases.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court must determine if lower court identified and applied correct standard of review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court states the standard of review approach per Agraira and Northern Regional Health Authority requires checking lower court's identification and application.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court correctly identified reasonableness standard for Chair's findings and correctness for procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court correctly identified reasonableness and correctness standards of review for Chair's findings and procedural fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The following paragraphs discuss if the Federal Court applied standards of review correctly.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court will discuss whether the Federal Court applied standards of review correctly.",
+   "role": "other"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Federal Court ordered compensation based on view suspension was part of penalty without explanation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The issue of suspension as penalty was not raised or argued before the Federal Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Federal Court ordered compensation viewing suspension as penalty without explanation or party argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The suspension was not a disciplinary sanction but an administrative consequence of positive test and pending charge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Suspension Form identified urinalysis test and charge as reasons for suspension.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No reliance on charge merit or indication suspension was disciplinary sanction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds suspension was administrative consequence, not disciplinary sanction, per Suspension Form and lack of reliance on charge merit.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General relies on CD 585 to argue administrative consequences differ from disciplinary sanctions.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Administrative consequences may include job suspension requiring trust.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "CD 585 treats administrative consequences and disciplinary sanctions separately.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Authorities recognize distinction: Charbonneau and Oliver cases cited.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Subsection 44(1) of CCRA does not list job suspension as disciplinary sanction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General argues administrative consequences differ from disciplinary sanctions, citing CD 585, case law, and CCRA provisions.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Distinction between disciplinary sanction and job suspension is important for inmate work program administration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Both administrative consequences and disciplinary sanction were pursued against Mr. Eakin.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Eakin sought judicial review of disciplinary sanction but apparently did not grieve job suspension separately.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds the distinction important; both sanctions pursued, but Mr. Eakin only judicially reviewed disciplinary sanction, not suspension.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin notes Federal Court statement that Attorney General conceded improper sanctioning.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General counsel unsure about concession and argues concession cannot alter law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Court agrees concession does not alter the law.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin notes alleged concession; Attorney General unsure and argues law unchanged; Court agrees concession does not alter law.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The concession likely referred only to suspension, not sanction, and Federal Court mischaracterized suspension as sanction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court finds the concession likely referred to suspension only and Federal Court mischaracterized suspension as sanction.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Federal Court erred in characterizing suspension as disciplinary sanction and ordering compensation for suspension loss.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court concludes the Federal Court erred in characterizing suspension as disciplinary sanction and ordering compensation.",
+   "role": "conclusion"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General argues charge date was Offence Report delivery date, not Suspension Form date.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Suspension Form advised suspension; Offence Report addressed the charge.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General cites section 25 CCRR and paragraph 17 CD 580 to support argument.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Attorney General argues the charge date was the Offence Report date, not Suspension Form date, citing CCRR and CD 580.",
+   "role": "issue"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 25 CCRR and paragraph 17 CD 580 require notice of charge and Offence Report within two working days or as soon as practicable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Delivery of Offence Report is not defined as date of laying charge, nor must date in it be accepted as true.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CCRR and CD 580 require notice and Offence Report within two days or as soon as practicable, but delivery date is not the charge date.",
+   "role": "law"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair concluded no decision to lay charge on October 2, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argued Suspension Form on October 2 indicated charge already existed, not that form laid charge.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair failed to address Mr. Eakin's argument about Suspension Form indicating charge existed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Chair concluded no charge on Oct 2, but failed to address Mr. Eakin's argument that Suspension Form indicated charge existed then.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unclear how Chair concluded charge date; no stated reasoning for rejecting Suspension Form reference.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair may have concluded charge laid Oct 16 based on Offence Report delivery date, which is incorrect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Offence Report date does not define charge date; laying charge is separate from Offence Report per CD 580.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair's conclusion ignores conflict with Suspension Form and allows Offence Report to excuse its own lateness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Chair's reasoning on charge date unclear, possibly relying wrongly on Offence Report date, ignoring Suspension Form conflict.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unable to understand Chair's basis for concluding charge laid Oct 16, not Oct 2.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court was correct to find Chair's conclusion on charge date unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Chair's conclusion on charge date unreasonable and agrees with Federal Court's finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General argues charge date is unimportant as minor breach subsequently cured.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair did not state or find breach cured regarding charge date.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court will not decide charge date importance; it could increase delays by two weeks.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Attorney General argues charge date unimportant, but Chair did not find breach cured; court will not decide importance.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin alleges breaches: failure to deliver Offence Report timely, missing hearing details, failure to provide documents within two days.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin alleges breaches of CCRR and CD 580 including late Offence Report and missing hearing details.",
+   "role": "issue"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin alleged Officer Gleadhill's involvement breached paragraph 10 CD 580 before Chair and Federal Court.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin did not raise Officer Gleadhill issue before this Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court will not address Officer Gleadhill issue; silence is not conclusion of no breach.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin alleged Officer Gleadhill breach before Chair and Federal Court but not this Court; Court declines to address issue.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair found alleged breaches either not breaches or cured.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair found two-day period for Offence Report not breached.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair found breaches cured.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Federal Court disagreed; not all breaches were cured.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court discussed charge date issue leading Chair to unreasonably find Offence Report not late.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Federal Court found other errors by Chair.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair found breaches not or cured; Federal Court disagreed; court discusses charge date and other Chair errors.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court found Chair wrong to say Toxicology Report provided well before hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This is semantic; Toxicology Report was after first hearing day.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair did not err on whether Mr. Eakin had opportunity to respond to evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court found Chair wrong on timing of Toxicology Report; court finds Chair did not err on fairness of evidence response.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court concerned Chair failed to consider impact of delays on Mr. Eakin.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Eakin raised delay impact at first hearing and again on Dec 10, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair addressed fairness of document timing but not other prejudices like parole hearing impact.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court agrees Federal Court that Chair should have considered prejudice from delays.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court concerned Chair ignored delay impact; court agrees Chair should have considered prejudice to Mr. Eakin.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court described Chair's treatment of documentation requirement as 'somewhat cavalier.'",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Chair's statement suggests tolerance of routine failure to provide documentation with Offence Report.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Inefficiency or impracticality is no reason to routinely disobey legal requirements; proper solution is to change them.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Chair's cavalier attitude to documentation; legal requirements must be followed or changed, not ignored.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "Federal Court ordered removal of Offence Report and references if charge not pursued within 30 days.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General argues CCRA authorizes correction, not removal, and removal was unfair without party input.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court ordered record removal if charge not pursued; Attorney General argues only correction authorized and removal unfair without input.",
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General cites cases ordering correction, not removal, of inmate file information.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argues jurisprudence unclear and removal needed due to continued reference to quashed decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Attorney General cites correction cases; Mr. Eakin argues removal needed due to ongoing reference to quashed decision.",
+   "role": "issue"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Issue decided on fairness; parties did not address removal issue and sought correction only.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Federal Court should have ordered correction, not removal, of records in question.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court decides fairness requires correction, not removal, as parties did not address removal and sought correction only.",
+   "role": "conclusion"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argued chain of custody requirements for urinalysis sample were not respected; barcode missing on his form copy.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin argues chain of custody breached due to missing barcode sticker on his urinalysis form copy.",
+   "role": "issue"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Chair found barcode omission did not violate CCRR subparagraph 66(1)(f)(ii).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court found Chair's conclusion reasonable; court agrees.",
+     "answers": 0
+    }
+   ],
+   "summary": "Chair found barcode omission not a violation; Federal Court and this court agree.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Eakin argues Officer Quesnelle's certification on chain of custody form was incorrect.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Federal Court agreed certification was incorrect.",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Eakin argues Officer Quesnelle's certification incorrect; Federal Court agreed.",
+   "role": "issue"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unclear if Mr. Eakin raised certification issue before Chair; notes handwritten notes likely for Federal Court only.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If issue not raised before Chair, Chair cannot be faulted for not addressing it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds certification issue likely not raised before Chair; Chair not at fault for not addressing it.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Certification states sample bears same numbered tag as on form; original form had barcode, Mr. Eakin's copy did not.",
+     "answers": 0
+    }
+   ],
+   "summary": "Certification states sample bears same tag as on form; original form had barcode, Mr. Eakin's copy did not.",
+   "role": "facts"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Certification not incorrect as it refers to original form, not Mr. Eakin's copy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Missing barcode on Mr. Eakin's copy unlikely to raise chain of custody doubt.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds certification correct referring to original form; missing barcode on Mr. Eakin's copy unlikely to affect chain of custody.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Allow the present appeal in part",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Set aside paragraph 3 of the Federal Court\u2019s judgment on compensation for Mr. Eakin\u2019s financial loss",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Modify paragraph 5 of the Federal Court\u2019s judgment to correct Mr. Eakin\u2019s record and add this decision to his file",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal in part, sets aside paragraph 3 on compensation, and modifies paragraph 5 to correct Mr. Eakin's record and add this decision to his file.",
+   "role": "disposition"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal in all other respects",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Award costs to Mr. Eakin in the amount of $250",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal otherwise and awards costs of $250 to Mr. Eakin.",
+   "role": "disposition"
+  }
+ ]
+}

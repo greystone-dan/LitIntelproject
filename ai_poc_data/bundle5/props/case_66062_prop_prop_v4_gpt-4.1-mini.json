@@ -1,0 +1,2061 @@
+{
+ "case_id": 66062,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.026052000000000002
+ },
+ "verification": {
+  "paragraphs": 84,
+  "rows": 84,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 230,
+  "holders": {
+   "applicant": 49,
+   "court": 160,
+   "earlier_decision_maker": 17,
+   "respondent": 2,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "2": "DECISION",
+  "7": "NEW EVIDENCE",
+  "48": "ORAL HEARING"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns an Afghan citizen (Appellant) appealing the Refugee Protection Division's (RPD) rejection of his refugee claim. The Appellant alleges fear of the Taliban and persecution due to family ties and past threats. The appeal is dismissed, confirming the RPD's decision that the Appellant is neither a Convention refugee nor in need of protection.",
+  "background_paras": "1-5",
+  "disposition_paras": "84",
+  "blocks": [
+   {
+    "issue": "Should new evidence submitted on appeal be admitted?",
+    "paras": "7-46",
+    "court_conclusion": "Only some new evidence meets legislative requirements and is admitted; most is rejected.",
+    "conclusion_paras": "12-13,15-18,20-23,25-30,33,35-37,39-41,43-46",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Submits new affidavits, letters, narratives, and documents as new evidence not available before RPD decision.",
+      "paras": "7,10-11,19-20,24,27,31,33-34,38"
+     },
+     {
+      "holder": "court",
+      "text": "New evidence accepted only if it arose after RPD decision, was not reasonably available, and is credible and relevant.",
+      "paras": "8-9"
+     },
+     {
+      "holder": "court",
+      "text": "Most evidence rejected for not meeting new evidence criteria; some affidavits and letters admitted.",
+      "paras": "12-13,15-18,20-23,25-30,33,35-37,39-41,43-46"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RPD err in its credibility findings and adverse inferences?",
+    "paras": "49-83",
+    "court_conclusion": "Some RPD findings set aside, but significant credibility concerns remain; appeal dismissed.",
+    "conclusion_paras": "51-56,59-60,62-64,67,69-70,73-75,78,82-83",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues RPD erred in credibility assessments, adverse inferences, and failed to consider medical evidence properly.",
+      "paras": "50,51,52,53,54,55,56,59,66,72,77"
+     },
+     {
+      "holder": "court",
+      "text": "Sets aside some RPD findings but upholds overall credibility concerns and adverse inferences; medical evidence accepted but inconsistencies remain.",
+      "paras": "51-56,59-60,62-64,67,69-70,73-75,78,82-83"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found significant discrepancies and inconsistencies undermining Appellant's credibility and rejected claim.",
+      "paras": "57,58,61,65,71,76,81,83"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant is a citizen of Afghanistan appealing RPD decision rejecting refugee claim",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the Appellant is an Afghan citizen appealing the RPD's refugee claim rejection.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismisses appeal; RPD was correct that Appellant is neither a Convention refugee nor person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 states the court dismisses the appeal, agreeing with the RPD's findings.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Fears Taliban due to cousin's US military employment and father's Afghan army role",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Left Afghanistan in 2009 due to Taliban threats; asylum claim and appeal refused in Belgium",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Fears criminals in Belgium due to brother's police role; some criminals linked to Taliban",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Taliban sent threatening letters and abducted and killed Appellant's father",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 summarizes the Appellant's allegations about Taliban threats, family roles, and asylum history.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Left Belgium for US in 2017; entered Canada in 2017; signed Basis of Claim form May 8, 2017",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 states the Appellant's travel and claim filing dates.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD heard claim March and May 2019; Minister filed Notice to Intervene on credibility and exclusion",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejected claim on credibility, stay in Belgium, and Belgian refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant alleges RPD was procedurally unfair and erred in credibility assessment",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 describes the RPD hearing, Minister's intervention, RPD rejection, and Appellant's procedural fairness and credibility allegations.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD applies correctness standard for fact, mixed fact and law, and law questions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD may defer to RPD on credibility if RPD had meaningful advantage",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In this appeal, RPD did not have meaningful advantage in credibility assessment",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 explains RAD's standard of review and finds RPD lacked meaningful advantage on credibility.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Submits new evidence items: affidavits, BOC narrative, Taliban letters, photograph, identity documents, statement, article",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 lists new evidence submitted by the Appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "New evidence accepted only if it arose after RPD decision, was not reasonably available, or could not reasonably be expected to be brought before RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 states the legal criteria for accepting new evidence on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If evidence meets criteria, must assess if it is new, credible, and relevant before acceptance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Part of XXXX affidavit admitted as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 states the process for admitting new evidence and admits part of XXXX affidavit.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Affidavits not reasonably available before rejection as they postdate decision and respond to issues not anticipated",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 states the Appellant's argument that affidavits are new evidence not previously available.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "XXXX affidavit clarifies issues from XXXX refugee claim relied on by RPD in error",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Affidavit details relationship, employment dates, threats, father's death, hearing basis, attendance, Taliban letters, memory issues, ongoing Taliban risk",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 explains XXXX affidavit's purpose and contents as submitted by the Appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 12 of XXXX affidavit arose after RPD decision, is relevant and credible, and admitted as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 admits paragraph 12 of XXXX affidavit as new, relevant, and credible evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Remainder of XXXX affidavit does not meet new evidence requirements and is rejected",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Information in affidavit could have been anticipated before RPD decision",
+     "answers": 1
+    }
+   ],
+   "summary": "Paragraph 13 rejects remainder of XXXX affidavit as not new evidence, finding information was foreseeable before RPD decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "XXXX BOC form was exhibit in Appellant's claim; inconsistencies exist between XXXX and Appellant's narratives",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inconsistencies about employment dates and father's death are significant and apparent from narratives before RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister's counsel raised inconsistency at May 7, 2019 hearing; RPD decision was four months later",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Issues could reasonably have been anticipated before RPD decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 finds significant inconsistencies in narratives were known and could be anticipated before RPD decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Except paragraph 12, Appellant could reasonably have been expected to provide XXXX affidavit before RPD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Except paragraph 12, XXXX affidavit not admitted as new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 concludes only paragraph 12 of XXXX affidavit is admitted; rest is excluded as not new evidence.",
+   "role": "conclusion"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "XXXX wife's BOC narrative does not meet new evidence requirements",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not specifically explain how wife's BOC narrative meets new evidence criteria",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "XXXX affidavit states hearing proceeded on basis of wife's BOC narrative as more accurate",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 16 finds XXXX wife's BOC narrative is not new evidence and notes lack of specific submissions by Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Wife's BOC narrative predates RPD decision and was before RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Significant differences between XXXX and Appellant's narratives were apparent and raised by Minister's counsel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has not shown wife's BOC narrative was unavailable or could not be brought before RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Submitting wife's BOC narrative on appeal attempts to repair deficient RPD record, which is improper",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "No discretion to admit evidence on appeal that does not meet legislative new evidence requirements",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 17 finds wife's BOC narrative was available before RPD and cannot be admitted on appeal to repair record.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "XXXX wife's BOC narrative is not admitted into evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 18 excludes XXXX wife's BOC narrative from evidence.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Submits five Taliban letters as exhibit to XXXX affidavit",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 19 states the Appellant submits five Taliban letters as evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "First Taliban letter not submitted to RPD due to oversight; thought given to lawyer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "First Taliban letter dated 2011, predates RPD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's explanation does not reasonably explain failure to provide letter before RPD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter is significant; Appellant responsible to present best case at RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant is trying to repair deficient RPD record, which is not purpose of new evidence on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "2011 Taliban letter does not meet legislative requirements for new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 20 finds the 2011 Taliban letter predates RPD decision, Appellant's explanation is insufficient, and letter is excluded as not new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The 2016 and 2017 Taliban letters are not new evidence as they are already part of the RPD record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 2016 and 2017 Taliban letters are not new evidence as they are already in the RPD record.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The 2019 Taliban letter predates the RPD decision and was not reasonably available or brought before the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The 2019 Taliban letter does not meet legislative requirements for new evidence and is not admitted.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The photograph is not new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the 2019 Taliban letter predates the RPD decision and is not new evidence, so it is not admitted; the photograph is also not new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The photograph submitted with XXXX affidavit is not new evidence as it is already part of the RPD record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Some of the Appellant's affidavit is admitted as new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the photograph with XXXX affidavit is not new evidence but admits some of the Appellant's affidavit as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant submits his and XXXX affidavits were not reasonably available before rejection as they postdate the decision and respond to issues raised by the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant's affidavit clarifies errors of fact made by the RPD that could not have been anticipated.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The affidavit provides new information about Taliban continuing to search for him after the hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues his and XXXX affidavits postdate the decision, clarify RPD errors, and provide new information about Taliban threats.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 25 of the Appellant's affidavit about Taliban continuing to look for him is new evidence arising after the RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This evidence is relevant as it indicates continuing risk to the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant swore to its truthfulness and it meets the credibility threshold for admissibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 25 of the Appellant's affidavit is admitted into evidence.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds paragraph 25 is new, relevant, credible, and admits it into evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's affidavit repeats much content from his BOC narrative and oral testimony including Taliban threats and family abduction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The affidavit outlines alleged misunderstandings by the RPD not realized until reading the RPD's reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's evidence regarding the interpreter in Belgium is admitted into evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the affidavit repeats prior content and outlines misunderstandings; it admits evidence about the interpreter in Belgium.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 24(a) states the RPD did not ask why he could not request another interpreter in Belgium.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "If asked, he would have said he requested another interpreter but none were available.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "This explains why he followed his brother's instructions to lie to Belgian authorities about his family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges the RPD did not ask about interpreter requests, which explains his false statements to Belgian authorities.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reviewing transcripts shows the Appellant was not asked why he did not request another interpreter in Belgium.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant reasonably explained why he did not provide this information earlier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(a) meets legislative requirements for new evidence.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Appellant was not asked about interpreter requests, his explanation is reasonable, and paragraph 24(a) meets new evidence requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 24(a) is new as no other evidence on this issue exists on record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is relevant to the Appellant's reasons for lying and his credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "As it is in a sworn affidavit, it meets the credibility threshold for admissibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds paragraph 24(a) is new, relevant to credibility, and credible for admissibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(a) of the Appellant's affidavit is admitted into evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's submission about dates XXXX was with US military is not new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court admits paragraph 24(a) but finds the submission about XXXX's US military dates is not new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 24(b) states the RPD did not question dates or whether XXXX was in the US military.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges the RPD did not question dates or presence of XXXX in the US military.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 24(b) contains submissions, not evidence, to be considered later.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's statement about asylum documents from Belgium is not admitted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds paragraph 24(b) is submissions, not evidence, and does not admit the asylum documents statement.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 24(c) states efforts to obtain documents from Afghanistan and Belgium were made but difficult.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant was asked about efforts to obtain documents during the hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 24(c) provides additional explanations but no reason why it was not provided earlier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 24(c) does not meet legislative requirements for new evidence and is not admitted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(c) is not admitted into evidence.",
+     "answers": 4
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's statement regarding XXXX is admitted into evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds paragraph 24(c) is additional explanation not meeting new evidence requirements and not admitted; statement about XXXX is admitted.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 24(d) states the RPD did not ask if he tried to get a letter from XXXX, an undercover police officer in Belgium.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "If asked, he would have explained XXXX could not provide a letter due to his undercover status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges the RPD did not ask about obtaining a letter from undercover officer XXXX, who could not provide one.",
+   "role": "issue"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reviewing transcripts shows the Appellant was not asked about trying to obtain a letter from XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant reasonably explained why he did not provide this information earlier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(d) meets legislative requirements for new evidence.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Appellant was not asked about XXXX letter, his explanation is reasonable, and paragraph 24(d) meets new evidence requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 24(d) is new as no other evidence on this issue exists on record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is relevant to the RPD finding about lack of corroborating evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "As it is in a sworn affidavit, it meets the credibility threshold for admissibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds paragraph 24(d) is new, relevant to corroboration, and credible for admissibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(d) of the Appellant's affidavit is admitted into evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's statement regarding documents proving his father was in Afghan army is admitted into evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court admits paragraph 24(d) and the Appellant's statement about documents proving his father's Afghan army service.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 24(e) states the RPD failed to ask about documents proving his father was in Afghan army.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "If asked, he would have said such records were destroyed by the Taliban as a threat to his father.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges the RPD did not ask about documents proving his father's Afghan army service, which were destroyed by Taliban.",
+   "role": "issue"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reviewing transcripts shows the Appellant was not asked why he did not provide documents proving his father's Afghan army service.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant reasonably explained why he did not provide this evidence earlier.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(e) meets legislative requirements for new evidence.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the Appellant was not asked about documents, his explanation is reasonable, and paragraph 24(e) meets new evidence requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Paragraph 24(e) is new as no other evidence on this issue exists on record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is relevant to the RPD finding about lack of corroborating evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "As it is in a sworn affidavit, it meets the credibility threshold for admissibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds paragraph 24(e) is new, relevant to corroboration, and credible for admissibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Paragraph 24(e) of the Appellant's affidavit is admitted into evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's wife's documents are admitted into evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court admits paragraph 24(e) of the Appellant's affidavit and the Appellant's wife's documents into evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant's affidavit states his wife left Afghanistan and sought refuge in Tajikistan around 2019",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He submits a copy of her identification from Tajikistan",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant states his wife fled to Tajikistan in 2019 and submits her Tajikistan ID.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's wife's documents meet the legislative requirement for new evidence as they were issued after the RPD decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's wife's documents meet legislative requirements for new evidence as issued after the RPD decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's wife's documents meet jurisprudential requirements for new evidence as they are new and relevant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The documents are credible as issued by foreign governments",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's wife's documents and the cousin's letter are admitted into evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the wife's documents new, relevant, credible, and admits them and the cousin's letter into evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The cousin's letter refers to Taliban continuing to look for the Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The cousin's letter meets legislative requirements for new evidence as it post-dates the RPD decision and relates to post-decision events",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the cousin's letter refers to Taliban threats and meets legislative requirements for new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The cousin's letter meets jurisprudential requirements as it is new, relevant to ongoing risk, and credible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The cousin's letter is admitted into evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The article is not admitted into evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the cousin's letter meets jurisprudential requirements and admits it, but does not admit the article.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The article predates the RPD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant does not explain why the article was not reasonably available before the RPD decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The article does not meet legislative requirements for new evidence and is not admitted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the article predates the RPD decision, lacks explanation for late submission, and is not admitted.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant does not request an oral hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 110(6) of IRPA allows RAD to hold a hearing if new evidence raises serious credibility issues central to the claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The admissible new evidence would not justify allowing or rejecting the claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No hearing can be held under subsection 110(6) of IRPA",
+     "answers": 3
+    }
+   ],
+   "summary": "The Appellant does not request a hearing; the court finds new evidence insufficient to justify one under IRPA 110(6).",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The role is to review all evidence and decide if the RPD made the correct decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in some findings but they are not determinative",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role to review all evidence and finds some RPD errors but not determinative.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD's suggestion of additional credibility concerns prevents addressing them on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court focuses on credibility concerns addressed in the RPD reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues some credibility concerns are unaddressed; the court focuses on those addressed by the RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Discrepancies between original and amended BOC forms should not impugn credibility given detention and lack of counsel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court sets aside RPD findings based on omissions from the original BOC form",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues BOC discrepancies are excusable; the court sets aside RPD findings on omissions in original BOC form.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in speculating about avoiding interpreter in Belgium and drawing adverse inference from lying to Belgium immigration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court sets aside this RPD finding",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD erred on interpreter and lying in Belgium; the court sets aside that finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in drawing adverse inference from misleading Canadian immigration authorities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant initially gave false info but later admitted untruthfulness due to fear of deportation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court accepts Appellant's explanation and sets aside this finding",
+     "answers": 2
+    }
+   ],
+   "summary": "The Appellant argues RPD erred on misleading Canadian authorities; the court accepts his explanation and sets aside the finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in adverse inference from failure to provide documents about father serving in Afghan army",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant was not asked about missing documents and gave reasonable explanation on appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court sets aside this RPD finding",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD erred on missing father documents; the court sets aside that finding due to reasonable explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD found Appellant's testimony inconsistent with objective evidence about brother's sentence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues belief in brother's innocence and support is not material to refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court agrees and sets aside this finding impugning credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the Appellant that brother's innocence belief is immaterial and sets aside related RPD credibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD speculated it was unlikely Appellant faced threats in Belgium due to brother's activities",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in finding Appellant's testimony on smugglers' threats vague",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court sets these RPD findings aside",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD speculated on threats and erred on testimony vagueness; the court sets these findings aside.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant is an Afghan citizen",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD stated it will not address exclusion issue",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Risk in Belgium is relevant but not determinative; focus is on risk in Afghanistan",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite some RPD errors, significant credibility concerns remain about risk in Afghanistan",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant has not established claim on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD correctly found significant discrepancies in BOC narratives undermine credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Appellant's Afghan citizenship, RPD's exclusion stance, focuses on Afghanistan risk, finds credibility concerns, and denies claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found significant inconsistencies and omissions between Appellant's and XXXX's BOC narratives",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Discrepancies relate to XXXX's US military work, father's death or disappearance, and Taliban abduction",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found significant inconsistencies and omissions between Appellant's and XXXX's BOC narratives on key issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD erred in drawing negative inference from discrepancies and speculated XXXX evidence preferred",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD failed to acknowledge his dates were consistent with allegations and corroborative evidence except XXXX claim",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits his evidence was consistent and made sense",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD erred in negative inference from discrepancies and that his evidence was consistent and credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court rejects Appellant's submissions that RPD speculated preferring XXXX evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD found discrepancies raised significant credibility concerns in Appellant's claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD was entitled to consider XXXX narrative as it was in evidence before it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD was not required to consider Appellant's claim absent XXXX narrative",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects Appellant's argument, finds RPD properly considered XXXX narrative and credibility concerns in Appellant's claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD member had significant credibility concerns regarding XXXX claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD member's finding of credibility concerns does not remedy discrepancies between XXXX and Appellant narratives",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD did not err in finding discrepancies undermined Appellant's credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD member had credibility concerns about XXXX claim; the court finds these concerns do not fix discrepancies and uphold the RPD's finding that Appellant's credibility is undermined.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court reviewed record and agrees with RPD that inconsistencies between Appellant and XXXX narratives undermine Appellant's credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "XXXX narrative states XXXX took XXXX XXXX in 2012, worked as XXXX from 2012, no threats until 2015",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant's narrative states worked as XXXX for US military 2009-2011 and received Taliban threat letter in 2011",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister's counsel challenged Appellant on discrepancies about dates of work for US military",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant replied he could not speak to XXXX BOC narrative but was threatened in 2009 and provided documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that inconsistencies between Appellant and XXXX narratives undermine credibility; Minister challenged Appellant on dates, Appellant responded he was threatened in 2009.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD noted additional discrepancies: XXXX narrative says parents disappeared in 2015; Appellant says father shot in 2011 and no mention of mother",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's narrative says father abducted in 2017; XXXX narrative does not mention abduction though it occurred six months before XXXX completed BOC form",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found discrepancies about parents' fate: XXXX narrative says parents disappeared in 2015; Appellant says father shot in 2011 and abducted in 2017; XXXX narrative omits abduction.",
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with RPD that unexplained discrepancies between Appellant and XXXX narratives undermine Appellant's credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD was correct to draw adverse inference from inconsistency in psychiatric report about Appellant's father",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees with RPD that discrepancies undermine Appellant's credibility and adverse inference from psychiatric report inconsistency was correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found psychiatric report inconsistent with other evidence",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD accepted PTSD and adjustment disorder diagnoses but noted doctors could not state cause of symptoms",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Report states brother lives in Belgium and father in Kabul; Appellant testified brother went to Tajikistan and father abducted by Taliban",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found psychiatric report inconsistent with other evidence; accepted PTSD diagnosis but noted doctors could not state cause; report conflicts with Appellant's testimony about family.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD failed to properly consider medical evidence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues error to discount medical evidence due to mistakes not affecting substantive claim merits",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Medical reports substantiate PTSD and should be considered for effect on Appellant's behaviour",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues RPD erred by discounting medical evidence due to minor mistakes and should consider PTSD diagnoses affecting behaviour.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court rejects Appellant's submissions and finds RPD did not err",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD did not discount medical evidence entirely and accepted psychiatrist's diagnosis",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects Appellant's argument and finds RPD did not err, noting RPD accepted psychiatrist's diagnosis and did not discount medical evidence entirely.",
+   "role": "analysis"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mistakes in medical report affect substantive claim merits due to contradiction about Appellant's father",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Medical report states father lives in Kabul; Appellant's narrative and testimony say father abducted by Taliban",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister's counsel questioned Appellant about this contradiction at hearing",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant told psychiatrist father visited Kabul; also told psychiatrist father was abducted",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds medical report mistakes affect claim merits due to contradiction about Appellant's father; Appellant gave conflicting info to psychiatrist; Minister questioned him.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's explanation for contradiction about father is not reasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Medical report dated 2018 states father lives in Kabul, contradicting 2017 abduction claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's first language is Dari, used interpreter at assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court does not accept psychiatrist made error and finds Appellant did not reasonably explain discrepancy",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant's explanation for contradiction about father unreasonable, does not accept psychiatrist error, and finds discrepancy unexplained.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Medical report explains Appellant's behaviour while detained and at hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inconsistency about father arises from psychiatric assessment and amended BOC narrative completed with counsel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Significant inconsistency about father not reasonably explained",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD correctly drew adverse inference from inconsistency about Taliban threat letters",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds inconsistency about father from psychiatric assessment and BOC narrative not reasonably explained and agrees with adverse inference on Taliban threat letters.",
+   "role": "analysis"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found discrepancies in Appellant's evidence about number of Taliban letters",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD states Appellant filed only one letter with RPD",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found discrepancies in Appellant's evidence about number of Taliban letters and stated only one letter was filed.",
+   "role": "analysis"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD ignored and misconstrued evidence about Taliban letters",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD reasons are confusing and inaccurate about Taliban letters",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD erroneously stated only one letter filed; two additional letters filed before May 7, 2019 hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues RPD ignored evidence and erred in stating only one Taliban letter was filed; two additional letters were filed before hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees RPD erred stating only one Taliban letter filed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "One letter submitted before hearing; two more before second sitting; letters entered as exhibit; Member questioned Appellant about letters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Nothing turns on this error",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees RPD erred about number of Taliban letters filed but finds this error does not affect outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with RPD that Appellant's evidence inconsistent about number of Taliban letters received",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant told CBSA officer in 2017 he received one threat letter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant had Dari interpreter at interview",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's amended BOC narrative states family received one letter in 2011 and two additional letters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "2011 threat letter not submitted to RPD; other two letters were before RPD",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At first sitting, Appellant initially said 4-5 letters, later confirmed 5 letters",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant's evidence inconsistent about number of Taliban letters: one letter told to CBSA, amended BOC says three, testimony says five.",
+   "role": "analysis"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not receive additional letters between CBSA interview and last sitting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's evidence about number of letters inconsistent across interview, BOC narrative, and testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant detained at CBSA interview",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if detention caused error in interview, inconsistency between BOC narrative and testimony remains",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "PTSD diagnosis accepted but no explanation how it impairs ability to report correct number of letters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with adverse inference drawn from inconsistencies",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant's evidence about Taliban letters inconsistent despite detention; PTSD diagnosis does not explain errors; adverse inference justified.",
+   "role": "analysis"
+  },
+  {
+   "para": 76,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD drew adverse inference from Appellant's failure to provide documents about asylum claim in Belgium",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD drew adverse inference from Appellant's failure to provide documents about asylum claim in Belgium.",
+   "role": "analysis"
+  },
+  {
+   "para": 77,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD erred by expecting documentary evidence without valid reasons to doubt credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues RPD erred in expecting documents without valid reasons to doubt credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 78,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court rejects Appellant's submission and finds RPD did not err",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD had valid reasons to doubt Appellant's credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with adverse inference from failure to provide documents about asylum claim in Belgium",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified about asylum claim and appeals in Belgium in 2009, 2010, and 2013",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified he did not have documents because he was in a hurry to leave Belgium",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified he did not try to obtain documents in Canada due to being busy and not knowing how",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects Appellant's argument, finds RPD had valid reasons to doubt credibility, and agrees with adverse inference from failure to provide asylum documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 79,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At second sitting, Appellant said he did not try to get asylum documents because given temporary documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant said he received a document given to his Belgian lawyer",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant said he could not contact lawyer due to not knowing name and having different lawyers",
+     "answers": 0
+    }
+   ],
+   "summary": "At second sitting, Appellant said he did not try to get asylum documents, had a document given to Belgian lawyer, but could not contact lawyer.",
+   "role": "facts"
+  },
+  {
+   "para": 80,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Rule 11 of RPD Rules requires claimants to provide documents or explain failure and efforts to obtain them",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant had two hearings and an appeal in Belgium",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified he was in a hurry to leave Belgium, busy in Canada, did not try to get documents, did not know how, and did not know lawyers' names",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court finds Appellant's explanations for failure to provide or obtain documents not reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Rule 11 requires documents or explanation; Appellant's explanations for failure to provide asylum documents are not reasonable, court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 81,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "These documents would allow determination of the Appellant's consistency in his claims in Belgium and Canada",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The claimant's Belgian refugee application, decisions, and appeals are important to assess fears in Afghanistan and claimant's credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I agree with the RPD member's statement on the importance of Belgian documents for credibility and fear assessment",
+     "answers": 2
+    }
+   ],
+   "summary": "The RPD found Belgian documents important for assessing the Appellant's consistency and credibility, and the court agrees with this finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I agree with drawing an adverse inference on the Appellant's credibility due to failure and lack of effort to provide Belgian asylum documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees that an adverse inference on the Appellant's credibility is justified due to failure to provide Belgian asylum documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 83,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Sworn testimony of a claimant is presumed true unless valid reasons to doubt it exist",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred in some findings but significant credibility issues remain core to the claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Significant discrepancies exist in BOC narratives, psychiatric report, Taliban letters evidence, and failure to provide Belgian asylum documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant failed to establish allegations on balance of probabilities due to these discrepancies",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds significant credibility issues and discrepancies, leading to the conclusion that the Appellant failed to prove his allegations on a balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal and confirm the RPD decision that the Appellant is neither a Convention refugee nor in need of protection under IRPA paragraph 111(1)(a)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision denying refugee status and protection to the Appellant.",
+   "role": "disposition"
+  }
+ ]
+}

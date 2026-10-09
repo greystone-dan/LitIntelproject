@@ -1,0 +1,813 @@
+{
+ "case_id": 47964,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0095148
+ },
+ "verification": {
+  "paragraphs": 52,
+  "rows": 52,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 64,
+  "holders": {
+   "applicant": 30,
+   "court": 29,
+   "witness_or_document": 1,
+   "earlier_decision_maker": 4
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 4
+ },
+ "headings": {
+  "2": "DETERMINATION",
+  "3": "SUMMARY OF ALLEGATIONS",
+  "16": "IDENTITY",
+  "51": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns XXXX XXXX XXXX, a Haitian citizen seeking refugee protection in Canada, claiming risk of persecution due to her husband's murder and threats. The Immigration and Refugee Board panel found her testimony not credible and rejected her claim. The claimant was not found to be a Convention refugee or in need of protection under IRPA.",
+  "background_paras": "1-15",
+  "disposition_paras": "51-52",
+  "blocks": [
+   {
+    "issue": "Is the claimant credible about knowing her husband's murderers and being able to identify them?",
+    "paras": "17-50",
+    "court_conclusion": "The panel finds the claimant not credible and rejects her testimony about the incidents and threats.",
+    "conclusion_paras": "18,24-26,31-33,36-38,43-44,46,48-50",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claims husband was threatened and murdered by criminals; fears returning as a witness who could identify them; explains discrepancies due to shock and stress.",
+      "paras": "1,3-15,20,22,23,29-30,34-35,38,40,42,45,47"
+     },
+     {
+      "holder": "court",
+      "text": "Rejects claimant's explanations for discrepancies and omissions; finds contradictions undermine credibility; documents have no probative value.",
+      "paras": "16,18,19,24,25,26,31,32,33,36,37,43,44,46,48,49,50"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "XXXX XXXX XXXX, a Haitian citizen, claims refugee protection under section 96 and subsection 97(1) of IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the applicant, a Haitian citizen, claims refugee protection under IRPA sections 96 and 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel finds the claimant did not establish a serious possibility of persecution on a Convention ground or personal risk of torture, death, or cruel treatment if returned to Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 states the panel concludes the claimant failed to prove serious persecution or personal risk if returned to Haiti.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant was married on XXXX XXXX, 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 states the claimant was married in 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Her husband was a technician working for XXXX XXXX, a subsidiary of XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 states the claimant's husband was a technician for a subsidiary company.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In early 2017, the claimant's husband was threatened.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 states the claimant's husband was threatened in early 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Their car was intercepted by armed criminals demanding money one night.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 states armed criminals intercepted their car and demanded money one night.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On XXXX XXXX, 2017, the claimant went to the US for a pregnancy-related check-up.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 states the claimant traveled to the US for a pregnancy check-up in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On August 6, 2017, threats escalated and her husband's car was vandalized.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 states threats escalated and the husband's car was vandalized on August 6, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On August 7, 2017, an armed group visited their house and the husband paid them money.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 states an armed group visited their home and the husband paid them money on August 7, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On August 9, 2017, the claimant spoke to her husband for the last time.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 states the claimant last spoke to her husband on August 9, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On that day, the husband asked his servant to leave the gate open because he was on his way.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 states the husband asked his servant to leave the gate open on August 9, 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On XXXX XXXX, 2017, the husband died.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 states the husband died in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He was already dead when taken to hospital, with broken arms and bruises over his body.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 states the husband was dead with injuries when taken to hospital.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Two people who took him to hospital were arrested and an investigation is ongoing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 states two people who took the husband to hospital were arrested and investigated.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant fears returning to Haiti as she would be seen as a troublesome witness who could help police find criminals in prison.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 states the claimant fears return because she could be seen as a troublesome witness aiding police.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's identity was established satisfactorily with a copy of her passport entered into evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 16 states the court found the claimant's identity satisfactorily established by passport evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key issue is whether the claimant is credible about knowing her husband's murderers and being able to identify them.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 17 states the key issue is the claimant's credibility about knowing and identifying her husband's murderers.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel does not find the claimant credible for reasons to follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 18 states the panel does not find the claimant credible, reasons to follow.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant is well educated, did not need translation, testified in French, and understood the proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 19 states the claimant is well educated, testified in French, and understood the proceedings.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In her Basis of Claim Form, the claimant alleges her husband received anonymous threatening calls in early 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 20 states the claimant alleges her husband received anonymous threatening calls in early 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "One night, armed criminals intercepted our vehicle and demanded money.",
+     "answers": 0
+    }
+   ],
+   "summary": "A document states armed criminals intercepted a vehicle and demanded money one night.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified criminals intercepted their car around November or December 2016 in the XXXX XXXX XXXX area.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant testified that criminals intercepted their car in late 2016 in the XXXX XXXX XXXX area.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant explained incident was placed after January 2017 in BOC Form because she was in shock after husband's murder.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant said she has since collected herself and was telling the panel her story.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant explained the incident date discrepancy was due to shock after husband's murder and that she has since collected herself.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel rejects the claimant's explanation for the date discrepancy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects the claimant's explanation for the date discrepancy.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has been in Canada nearly a year, speaks French, and has an experienced lawyer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel believes claimant could have amended her story to reflect experiences accurately.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel draws negative inference from claimant's sworn statement that BOC Form was true, then contradicting it by citing shock after arrival in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant could have amended her story and draws negative inference from her contradictory sworn statement.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant did not specify in BOC Form that criminals were from XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel notes claimant did not specify criminals' origin in BOC Form.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant was seven months pregnant on arrival in Canada but this does not explain credibility problems.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant's pregnancy does not explain her credibility problems.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "There is more regarding claimant and husband being intercepted by criminals.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel notes additional issues about claimant and husband being intercepted by criminals.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant was asked to sketch streets where intercepted by criminals and explained details of the incident at a red light around 9:00 p.m.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant described the location and circumstances of the interception by criminals at a red light.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant explained criminals might have followed them and taken alternate route to intercept at that spot.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant explained criminals might have followed them and taken an alternate route to intercept.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel rejects claimant's explanation about criminals following and intercepting them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects claimant's explanation about criminals following and intercepting them.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not believe on balance of probabilities criminals knew exactly when claimant and husband would arrive to intercept them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel does not believe criminals knew exactly when claimant and husband would arrive to intercept them.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not believe claimant and husband were intercepted by criminals or that criminals look for her as husband's killers' witness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel does not believe claimant and husband were intercepted or criminals seek her as witness.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified that in February 2017, she accompanied husband to XXXX XXXX where they were threatened by criminals wanting money and equipment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges seeing these criminals made them consider her a witness to husband's murder.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant testified about threats by criminals in February 2017 and alleges this made her a witness to husband's murder.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant explained not mentioning threats in BOC Form due to shock from husband's murder when writing it.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant said she started remembering events only after overcoming shock.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant explained omission of threats in BOC Form due to shock and later remembering events.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel rejects claimant's explanation for omission of threats in BOC Form.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel believes claimant could have amended BOC Form after shock but did not.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel draws negative inference from claimant amending BOC Form on hearing day but omitting threats information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects claimant's explanation and draws negative inference from her failure to amend BOC Form about threats.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not believe claimant saw criminals in XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel does not believe claimant saw criminals in XXXX XXXX.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified she did not know if murderers were criminals from XXXX XXXX or XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant testified she did not know if murderers were from XXXX XXXX or XXXX XXXX XXXX.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Later, claimant testified criminals arrested at hospital were from XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant later testified criminals arrested at hospital were from XXXX XXXX.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant stated first question was unclear to explain contradiction about murderers' origin.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant explained contradiction about murderers' origin by saying first question was unclear.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "After the break, her lawyer returned to this part of her testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "After the break, her lawyer returned to this part of her testimony, the court states.",
+   "role": "facts"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She wanted to seem more sure of herself than she really was when she answered that the criminals were from XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said she wanted to seem more sure of herself about the criminals' origin, the applicant argues.",
+   "role": "facts"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel rejects these explanations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects these explanations, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Before the break, she stated she did not fully understand the panel's question.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "After the break, she seemed to state she had exaggerated her knowledge about the criminals' identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant was trying to get herself out of an awkward situation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker noted her confusion and exaggeration; the court finds she tried to escape an awkward situation.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She was emotional and stressed by the questions, found it difficult to relive her husband's death, and felt uncomfortable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said she was emotional, stressed, and uncomfortable during the hearing, the applicant states.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel empathizes with the claimant's feelings but finds the contradiction undermines her credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel empathizes with the claimant but finds the contradiction undermines her credibility, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The criminals took her husband's body to the hospital and then tried to flee but were arrested by a security guard.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is implausible that criminals linked to a murder would take the dead body to a hospital and risk being identified and arrested.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant testified about the criminals' actions; the court finds this implausible on a balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel does not believe the claimant's husband was killed by criminals who threatened him because of his work as a XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel does not believe the husband was killed by criminals threatening him due to his work, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The panel received various documents including registry extracts, notarized statements, and letters.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These documents are insufficient to support the claimant's not credible testimony and have no probative value.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel received documents but finds them insufficient and without probative value, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Three documents related to the husband's death were filed in evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These documents have no probative value because the claimant was not credible about the incidents leading to the husband's murder.",
+     "answers": 0
+    }
+   ],
+   "summary": "Three documents about the husband's death were filed but have no probative value due to claimant's lack of credibility, the court finds.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel determines the claimant is not a Convention refugee under section 96 of the IRPA or a person in need of protection under subsection 97(1) of the IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel determines the claimant is not a Convention refugee or person in need of protection under the IRPA, the court concludes.",
+   "role": "conclusion"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel rejects the refugee protection claim filed by XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects the refugee protection claim filed by the claimant, the court concludes.",
+   "role": "disposition"
+  }
+ ]
+}

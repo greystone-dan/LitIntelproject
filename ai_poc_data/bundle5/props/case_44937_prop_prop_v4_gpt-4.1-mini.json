@@ -1,0 +1,582 @@
+{
+ "case_id": 44937,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0080292
+ },
+ "verification": {
+  "paragraphs": 28,
+  "rows": 28,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 47,
+  "holders": {
+   "applicant": 19,
+   "court": 12,
+   "respondent": 1,
+   "earlier_decision_maker": 11,
+   "witness_or_document": 4
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "26": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Haitian citizen seeking refugee protection in Canada based on political persecution fears from the ruling PHTK party. The claimant alleges multiple attacks and threats due to political activism. The tribunal found key allegations not credible and rejected the claim for protection.",
+  "background_paras": "1-6, 11-16, 21-24",
+  "disposition_paras": "25-28",
+  "blocks": [
+   {
+    "issue": "Is the claimant's identity and political profile credible?",
+    "paras": "7-10",
+    "court_conclusion": "The claimant's identity and political profile as a KOPA student member are credible and accepted.",
+    "conclusion_paras": "8-10",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The claimant is a Haitian citizen active in political groups OPHA and KOPA with specific roles and activities.",
+      "paras": "1-2"
+     },
+     {
+      "holder": "court",
+      "text": "The claimant's identity is satisfactorily established; political profile is credible and accepted by the panel.",
+      "paras": "8-10"
+     }
+    ]
+   },
+   {
+    "issue": "Are the claimant's allegations of attacks and threats credible and plausible?",
+    "paras": "12-20, 22-23",
+    "court_conclusion": "The claimant's accounts of the October 4 and 10, 2017 attacks and related threats are not credible or plausible and are rejected.",
+    "conclusion_paras": "14, 17-20, 22-23",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The claimant alleges being beaten and attacked on October 4 and 10, 2017, with threats and violence from PHTK members.",
+      "paras": "12-16, 22-23"
+     },
+     {
+      "holder": "respondent",
+      "text": "Claimant's counsel argues the barricade issue is peripheral to credibility.",
+      "paras": "18"
+     },
+     {
+      "holder": "court",
+      "text": "The barricade explanation and attack accounts are not plausible; the claimant's narrative omissions and inconsistencies undermine credibility.",
+      "paras": "14, 17-20, 22-23"
+     }
+    ]
+   },
+   {
+    "issue": "Has the claimant established a well-founded fear of persecution or risk in Haiti?",
+    "paras": "24-28",
+    "court_conclusion": "On balance, the claimant has not established a well-founded fear of persecution and the claim is rejected.",
+    "conclusion_paras": "25-28",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Political violence exists but claimant has not been targeted; claim rejected as not a Convention refugee or person in need of protection.",
+      "paras": "25-28"
+     },
+     {
+      "holder": "witness_or_document",
+      "text": "Political violence has abated; no systematic repression but risks exist in certain regions due to territorialism and polarization.",
+      "paras": "24"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant is a Haitian citizen claiming protection in Canada under the Immigration and Refugee Protection Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant, a Haitian citizen, claims protection in Canada under the Immigration and Refugee Protection Act, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant's claim is based on political opinion and fear of persecution by the ruling PHTK party.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant was active in student group OPHA and political group KOPA with specific roles and activities.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant participated in protests against the 2017 budget and organized a university group INUKA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges political persecution by PHTK due to his active membership in OPHA, KOPA, protests, and organizing INUKA, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges threats and violence from PHTK members including shootings at a KOPA meeting.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges threats and shootings by PHTK members after joining KOPA, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant received threatening calls warning him to stop protesting or face worse consequences.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges receiving threatening calls from PHTK members warning him to stop protesting, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges violence at the October 12, 2017 protest involving PHTK and Platfom Pitit Desalin groups.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant learned that people were paid to disrupt peaceful protests after the October 12 protest.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges violent clashes at the October 12 protest and learned about paid disruptors, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant was attacked twice in October 2017 and fled to his grandmother's house before leaving Haiti.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant went to the US but did not claim asylum due to US policy changes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges two attacks in October 2017, fled to grandmother's house, then left Haiti and did not claim US asylum due to policy, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Credibility, identity, and political profile are the key issues in the claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "Credibility, identity, and political profile are the key issues, says the court.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's identity as a Haitian citizen is satisfactorily established by testimony and documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant's identity as a Haitian citizen is satisfactorily established, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant testified straightforwardly but some aspects were found not credible or plausible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant testified straightforwardly but some testimony aspects were not credible or plausible, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's political profile as a KOPA student member is credible and accepted by the panel.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant's political profile as a KOPA member is credible and accepted, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant fears PHTK members due to his political activities in Bloc 1, Petion-Ville.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant fears PHTK due to political activities in Bloc 1, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges being beaten on October 4, 2017, by PHTK members and rescued by students.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges an October 4, 2017 beating by PHTK members and rescue by students, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges an October 10, 2017 attack involving stones, gunfire, and fleeing to grandmother's house.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges an October 10, 2017 attack with stones and gunfire, fleeing to grandmother's house, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claimants benefit from a presumption of truthfulness in sworn testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The presumption of truthfulness is rebutted as the two major incidents are not credible or plausible.",
+     "answers": 1
+    }
+   ],
+   "summary": "Claimants have a presumption of truthfulness, but the court finds the two major incidents not credible or plausible, rebutting it.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges being stopped, dragged, and beaten on October 4, 2017, and treated at home by family.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges an October 4, 2017 attack and home treatment by family, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant testified that assailants erected a barricade to stop him leaving school on October 4, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant testified that assailants erected a barricade to stop him leaving school on October 4, 2017, says the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The barricade explanation is not plausible as it does not explain timing or how it avoided alerting others.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is not plausible that assailants would erect a barricade to stop only the claimant when others also used cars.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the barricade explanation implausible and not credible due to timing and other users, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Claimant's counsel argues the barricade issue is peripheral to credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The barricade is central to the October 4 attack allegation and the court rejects the claimant's account as not plausible.",
+     "answers": 1
+    }
+   ],
+   "summary": "Claimant's counsel says barricade issue is peripheral, but the court finds it central and rejects the October 4 attack allegation as not plausible.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's account of the October 10, 2017 attack is not credible or plausible due to the dead-end escape scenario.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant's October 10, 2017 attack account not credible or plausible due to the dead-end escape, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is reasonable to assume assailants knew the neighbourhood and would have searched the garbage dump for the claimant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court rejects the claimant's October 10, 2017 attack allegations due to valid doubts about plausibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds assailants would have searched the dump and rejects the October 10 attack allegations as not plausible, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant tendered photographs of his damaged vehicle",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The panel accepts the claimant's vehicle was damaged",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The panel cannot be certain the damage was sustained as claimed due to credibility findings",
+     "answers": 2
+    }
+   ],
+   "summary": "The claimant submitted photos of his damaged vehicle; the panel accepts damage but doubts it was sustained as claimed due to credibility issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant testified his grandmother hid him under the bed to prevent being found",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The panel finds this testimony not plausible as attackers would likely look under the bed first",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said his grandmother hid him under the bed, but the panel finds this implausible.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant testified he learned of a fellow organiser's death and a threat to his parents prompting his father to buy a ticket",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The panel is not satisfied the threat was made as it was omitted from the claimant's narrative",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant said his narrative was a 'resume' of his experiences",
+     "answers": 2
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The panel finds the claimant's explanation unsatisfactory given the threat's significance and omission",
+     "answers": 3
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "The claimant's father's letter mentions the threat, written a year later",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The panel rejects the explanation that the threat was omitted from the narrative despite its significance",
+     "answers": 4
+    }
+   ],
+   "summary": "The claimant testified about a threat and a death prompting travel; the panel rejects the threat claim due to omission and unsatisfactory explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Objective documentation states political violence has abated and no systematic repression exists",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Territorialism exists making political opposition dangerous in certain areas",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "The society is polarized with risks for opposing local political trends in specific regions",
+     "answers": 0
+    }
+   ],
+   "summary": "Objective evidence shows political violence has decreased but territorialism makes opposing local politics dangerous in some areas.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Violence and targeting for political reasons occur in Haiti, including by the PHTK",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "On balance of probabilities, the claimant has not been targeted in such a manner",
+     "answers": 1
+    }
+   ],
+   "summary": "The panel finds political violence occurs but the claimant has not been targeted on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The claimant has not discharged his onus to establish a well-founded fear of persecution or risk in Haiti",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concludes the claimant failed to prove a well-founded fear of persecution or risk in Haiti.",
+   "role": "conclusion"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The claimant is not a Convention refugee nor a person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds the claimant is neither a Convention refugee nor in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The claim is rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel rejects the claim.",
+   "role": "disposition"
+  }
+ ]
+}

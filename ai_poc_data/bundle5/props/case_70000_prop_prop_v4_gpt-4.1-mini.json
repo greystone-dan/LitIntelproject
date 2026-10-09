@@ -1,0 +1,826 @@
+{
+ "case_id": 70000,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0102528
+ },
+ "verification": {
+  "paragraphs": 36,
+  "rows": 36,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 76,
+  "holders": {
+   "court": 37,
+   "applicant": 21,
+   "earlier_decision_maker": 9,
+   "witness_or_document": 3,
+   "prior_court_or_authority": 3,
+   "respondent": 3
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns the appeal of a Zimbabwean woman seeking refugee protection in Canada due to decades of domestic abuse and fear of persecution if returned. The appellant challenges the Refugee Protection Division's (RPD) findings on credibility and the Internal Flight Alternative (IFA). The Refugee Appeal Division (RAD) allowed the appeal, finding the appellant credible and a Convention refugee.",
+  "background_paras": "2-4, 9, 31-34",
+  "disposition_paras": "1, 5, 35-36",
+  "blocks": [
+   {
+    "issue": "Did the RPD err in assessing the appellant's credibility regarding her husband's political activities?",
+    "paras": "14-18",
+    "court_conclusion": "The appellant is credible; no omission or inconsistency found regarding husband's political involvement.",
+    "conclusion_paras": "14, 16-18",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RPD wrongly found appellant not credible on husband's political activities and omitted decades of abuse and fear.",
+      "paras": "6, 9"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found appellant not credible on husband's political involvement and omissions in testimony.",
+      "paras": "15-17"
+     },
+     {
+      "holder": "court",
+      "text": "Appellant credible on all claim aspects; no omission; testimony consistent given context and Gender Guidelines.",
+      "paras": "14, 16-18"
+     }
+    ]
+   },
+   {
+    "issue": "Is Bulawayo a reasonable Internal Flight Alternative (IFA) for the appellant?",
+    "paras": "9-12, 19-30, 34-35",
+    "court_conclusion": "RPD erred; appellant lacks IFA due to risk of persecution, divorce filing risks, and psychological impact.",
+    "conclusion_paras": "8, 11-12, 19-20, 22-30, 34-35",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Cannot relocate to Bulawayo due to risk from husband, political connections, and disclosure of location; divorce filing risks persecution.",
+      "paras": "6, 9"
+     },
+     {
+      "holder": "respondent",
+      "text": "Divorce process in Zimbabwe alerts husband; similar to Canadian process with police protection; little objective evidence on risks.",
+      "paras": "21"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found IFA determinative and reasonable for appellant to live in Bulawayo.",
+      "paras": "9"
+     },
+     {
+      "holder": "court",
+      "text": "RPD failed to consider risks from divorce filing, psychological harm, and state protection; IFA fails first prong and is unreasonable.",
+      "paras": "8, 10-12, 19-20, 22-30, 34-35"
+     }
+    ]
+   },
+   {
+    "issue": "Has the appellant rebutted the presumption of state protection in Zimbabwe?",
+    "paras": "8, 31-35",
+    "court_conclusion": "Appellant has rebutted presumption of state protection due to decades of abuse and police inaction.",
+    "conclusion_paras": "8, 34-35",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Reported violence to police many times; police did nothing; provided police and medical reports.",
+      "paras": "31, 34"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Zimbabwe has domestic violence laws but enforcement is reluctant; police misconduct reported.",
+      "paras": "32-33"
+     },
+     {
+      "holder": "court",
+      "text": "Objective evidence confirms challenges and rebuts presumption of state protection; appellant credible on abuse.",
+      "paras": "8, 34-35"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Allowing the appeal of XXXX XXXX, a Zimbabwean citizen, finding she is a Convention refugee",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal of XXXX XXXX, finding she is a Convention refugee.",
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant's claim was heard by the RPD on October 31, 2019 and denied on February 18, 2020",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred in assessing credibility and Internal Flight Alternative (IFA)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant's claim was denied by the RPD, who the Appellant argues erred on credibility and IFA assessment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant is a 58-year-old woman fearing her husband in Zimbabwe due to decades of violence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Her four adult children witnessed and experienced the husband's abuse",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She fears further violence from her husband and his friends if returned to Zimbabwe",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges decades of abuse by her husband, witnessed by her children, and fears further violence if returned to Zimbabwe.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant obtained a US visa and travelled there intending to claim refugee protection in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She made a refugee claim in Canada in July 2018",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant travelled to the US with intent to claim refugee protection in Canada and made a claim in July 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed; the RAD sets aside the RPD decision and finds the Appellant is a Convention refugee",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal, sets aside the RPD decision, and finds the Appellant is a Convention refugee.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred in assessing risk in Bulawayo as the proposed IFA",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD wrongly found it reasonable for the Appellant to live in Bulawayo",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD wrongly found the Appellant not credible regarding her husband's political activities",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD failed to analyze decades of abuse, lack of police protection, and fear of future persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred on risk in Bulawayo, reasonableness of living there, credibility on husband's politics, and failed to analyze abuse and fear.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The correctness standard of review is applied",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies the correctness standard of review.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Reviewed RPD hearing and record and conducted independent evidence assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred in analysis; Appellant is credible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has no Internal Flight Alternative in Bulawayo",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant has rebutted presumption of state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court independently reviewed the record, finds RPD erred, the Appellant credible, no IFA in Bulawayo, and state protection rebutted.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD found IFA was the determinative issue and asked if Appellant could relocate to Bulawayo",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant cannot relocate to Bulawayo due to fears of husband and his friends killing or abusing her",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Relatives across Zimbabwe might disclose her location",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Husband's family in Bulawayo might disclose her location",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Husband is politically connected and might locate her",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Fear that children might disclose her location to husband",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Filing for divorce risks husband knowing her location through court proceedings",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Women's freedom of movement is limited by economic and political conditions and checkpoints, risking identification",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found IFA was key; the Appellant argues she cannot relocate to Bulawayo due to fears of husband, family disclosures, political connections, divorce filing, and movement limits.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "IFA test requires no serious possibility of persecution and that relocation is not unreasonable considering claimant's needs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the IFA test requires no serious persecution possibility and relocation must be reasonable for the claimant.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD failed to consider Appellant's desire to file for divorce as a fundamental right and risk factor",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Filing for divorce risks serious possibility of persecution if returned to Zimbabwe",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "IFA fails on the first prong of the test due to risk from divorce filing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD failed to consider divorce filing risk, which creates serious persecution possibility, so IFA fails the first test prong.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's emotional and mental health make relocation to IFA unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Psychological assessment and Appellant's testimony show impact of years of abuse",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds relocation unreasonable due to Appellant's mental health and psychological assessment of abuse impact.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will address credibility issues then analyze RPD's IFA errors",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will first address credibility issues then analyze RPD's IFA errors.",
+   "role": "other"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant credible on all claim aspects on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant credible on all claim aspects on a balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD accepted credibility on domestic violence but found Appellant not credible on husband's political involvement",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD accepted credibility on domestic violence but doubted Appellant's testimony on husband's political involvement.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant omitted husband's political activities in testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No omission; Appellant reasonably distinguished husband's work from political involvement",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found omission on husband's political activities, but the court finds Appellant reasonably distinguished work from politics.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's testimony on husband's political ties vague and inconsistent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's limited knowledge is reasonable and credible given context of abuse and Gender Guidelines",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Gender Guidelines explain women may have limited knowledge of male relatives' political activities in certain cultures",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Appellant's testimony vague; the court finds it reasonable and credible per abuse context and Gender Guidelines.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering social, emotional, cultural, economic context, Appellant's testimony is consistent and accepted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the Appellant's testimony as consistent considering her social and cultural context.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Disagrees with RPD's risk analysis of Bulawayo as IFA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's desire to divorce places her at risk in any proposed IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with RPD's Bulawayo risk analysis, finding divorce desire places Appellant at risk in any IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Appellant stated she wants to divorce and must file for divorce, which requires husband's court attendance",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Appellant confirmed husband would know of divorce filing through court proceedings",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified she wants to divorce, must file for it, and husband would know through court proceedings.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Requirement to serve spouse in divorce is similar to Canadian court proceedings with police protection and separation by country distance",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Divorce process in Zimbabwe alerts husband to wife's location",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Little objective evidence on divorce in Zimbabwe; divorce stigmatizes women as failures",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues divorce service is like Canadian courts with police protection; divorce alerts husband; divorce stigmatizes women in Zimbabwe.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's desire for divorce may exacerbate violence due to past threats from husband when separation was raised",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD reasons did not address risks related to Appellant seeking divorce",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds divorce desire may increase violence; RPD did not address related risks.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Right to choose marital status is fundamental under international and Canadian law per Universal Declaration of Human Rights Article 16",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states right to choose marital status is fundamental under international and Canadian law.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CEDAW requires states to eliminate discrimination against women in marriage and family relations, ensuring equal rights and free consent",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites CEDAW requiring elimination of discrimination and equal marriage rights for women.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. XXXX's desire to divorce is core to her right to self-determination",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Calderon v. Canada, RPD's IFA findings were unduly harsh and unreasonable regarding custody and domestic violence",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds divorce desire core to self-determination; cites Calderon case criticizing harsh RPD IFA findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is unreasonable to expect Ms. XXXX not to assert her right to divorce to avoid being targeted in an IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds it unreasonable to expect Ms. XXXX to avoid divorce to prevent targeting in IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. XXXX has right to divorce and live without legal connection to abuser",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Obtaining divorce will alert husband of Appellant's whereabouts regardless of location in Zimbabwe",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant faces serious possibility of persecution in any proposed IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Ms. XXXX's divorce right and that divorce alerts husband, causing serious persecution risk in IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD failed to consider psychological assessment showing Appellant's pervasive fear and impact of violence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's psychological experiences are important in assessing IFA reasonableness",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD ignored psychological evidence showing Appellant's fear, important for IFA reasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Nimako v. Canada states IFA reasonableness must consider gender violence context",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites Nimako case that IFA reasonableness must consider gender violence context.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Requiring Appellant to relocate despite documented fear is unreasonable; Appellant lacks IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes relocation requirement is unreasonable; Appellant has no IFA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant reported violence to police many times over 38 years; police did nothing",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant provided police and medical report from 2010 incident",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant told family about violence",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant testified to many police reports with no action, provided 2010 report, and told family about violence.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Zimbabwe has domestic violence legislation criminalizing it with imprisonment since 2007",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Despite legislation and shelters, domestic violence is stigmatized and police/judicial enforcement is reluctant",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Studies report police misconduct and refusal to assist domestic violence victims in Zimbabwe",
+     "answers": 0
+    }
+   ],
+   "summary": "Evidence shows Zimbabwe criminalizes domestic violence but enforcement is weak and police misconduct occurs.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "UK Home Office reports domestic violence illegal but considered private; prosecutions rare; 35% women experienced spousal violence",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Domestic violence common in Zimbabwe with area variation",
+     "answers": 0
+    }
+   ],
+   "summary": "UK report states domestic violence illegal but rarely prosecuted; 35% women affected; common in Zimbabwe.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant described attempts to seek state protection over many years",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective evidence confirms Appellant's challenges and rebuts presumption of state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant's attempts for protection confirmed by evidence; court finds presumption of state protection rebutted.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant credible regarding decades of abuse and desire to escape abuser",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant lacks IFA and has rebutted presumption of state protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed; Appellant found to be a Convention refugee",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant credible, no IFA, rebutted state protection presumption, allows appeal and grants refugee status.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal allowed under IRPA; court substitutes own decision that Appellant is a Convention Refugee",
+     "answers": 0
+    }
+   ],
+   "summary": "Court allows appeal under IRPA and substitutes decision granting Convention Refugee status to Appellant.",
+   "role": "disposition"
+  }
+ ]
+}

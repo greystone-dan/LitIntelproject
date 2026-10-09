@@ -1,0 +1,1023 @@
+{
+ "case_id": 37591,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.013464
+ },
+ "verification": {
+  "paragraphs": 51,
+  "rows": 51,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 94,
+  "holders": {
+   "court": 70,
+   "applicant": 14,
+   "prior_court_or_authority": 8,
+   "witness_or_document": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 5
+ },
+ "headings": {
+  "7": "DETERMINATION",
+  "8": "IDENTITY",
+  "9": "DETERMINATIVE ISSUES",
+  "22": "ANALYSIS",
+  "50": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns Chinese citizens seeking refugee protection in Canada, fearing persecution due to opposition to government land expropriation. The claimants allege persecution and arrest threats by the Public Security Bureau (PSB) but the tribunal found their claims not credible. The tribunal rejected their refugee claims under IRPA, concluding they are neither Convention refugees nor persons in need of protection.",
+  "background_paras": "1-6",
+  "disposition_paras": "7, 50-51",
+  "blocks": [
+   {
+    "issue": "Are the claimants credible in their allegations of persecution and fear of arrest by the PSB?",
+    "paras": "9-10, 23, 25-28, 31-33, 39-43, 47-49",
+    "court_conclusion": "The panel finds the claimants' allegations not credible and draws negative inferences affecting their credibility.",
+    "conclusion_paras": "42-43, 47-49",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimants allege PSB continued home visits and fear arrest due to protest participation; arranged smuggler to flee China.",
+      "paras": "10, 25-28, 31"
+     },
+     {
+      "holder": "court",
+      "text": "Panel finds PSB visits without documentation not credible; claimants' omissions and travel plans detract from credibility.",
+      "paras": "10, 27-28, 31-33, 39-43, 47-49"
+     }
+    ]
+   },
+   {
+    "issue": "Did the tribunal member exhibit reasonable apprehension of bias requiring recusal?",
+    "paras": "11-21",
+    "court_conclusion": "The panel finds no reasonable basis for apprehension of bias and denies the recusal motion.",
+    "conclusion_paras": "19-21",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimants' counsel orally applied for recusal alleging bias.",
+      "paras": "11"
+     },
+     {
+      "holder": "court",
+      "text": "Panel applied bias test, found no evidence of bias, and concluded member would decide fairly.",
+      "paras": "12-21"
+     }
+    ]
+   },
+   {
+    "issue": "Does the claimants' failure to seek asylum in the U.S. affect their credibility and fear of persecution?",
+    "paras": "29-32",
+    "court_conclusion": "Panel finds failure to claim asylum in U.S. and illegal entry to Canada indicates lack of subjective fear.",
+    "conclusion_paras": "32",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimants did not seek asylum in U.S.; smuggler advised Canada better for asylum claim.",
+      "paras": "29"
+     },
+     {
+      "holder": "court",
+      "text": "Failure to claim asylum in U.S. is significant; panel finds claimants planned to come to Canada, detracting from credibility.",
+      "paras": "30-32"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant, his wife, and their son are Chinese citizens claiming refugee protection under IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants are Chinese citizens seeking refugee protection under IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimants fear arrest by the PSB due to opposition to government land expropriation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant leased and expanded a fish pond, which the government sought to take for a logistics centre.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant was ordered to vacate the land by March 2012; 27 businesses were affected.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the claimants fear PSB arrest for opposing land expropriation affecting their fish pond and others.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Business owners were offered small cash compensation and unsuccessfully petitioned district, municipal, and provincial governments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Higher authorities directed them back to the district government as the only authority to resolve the matter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states business owners unsuccessfully petitioned various government levels and were told only district government could resolve the issue.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Business owners demonstrated at district government office on Feb 21 and 22, 2012; police confronted and detained some demonstrators.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant and female claimant escaped and went into hiding; their son stayed with grandparents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes demonstrations leading to police confrontation and the principal and female claimants fleeing into hiding.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "While in hiding, PSB visited the claimants' home, questioned the son, and threatened him to disclose parents' whereabouts.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The son went into hiding in late February 2012 and joined his parents; claimants arranged to flee China via a smuggler.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts PSB harassment of the family, the son's hiding, and the claimants' arrangement to flee China.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In 2012, the claimants arrived in the U.S. and then crossed illegally into Canada, filing refugee claims inland.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimants arrived in the U.S. then illegally entered Canada and filed refugee claims.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel determines the claimants are neither Convention refugees nor persons in need of protection under IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the claimants are not Convention refugees or persons in need of protection under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel accepts the claimants are Chinese citizens based on passports and other documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimants are Chinese citizens based on passports and documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The determinative issues are credibility and whether the claimants fear prosecution rather than persecution upon return.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies credibility and fear of prosecution versus persecution as determinative issues.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The PSB continued visiting the claimants' home after being told they left China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel expressed credibility concerns about the PSB's alleged numerous visits without leaving documentation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel found it odd and nonsensical that PSB left no documentation during visits from 2012 to 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimants allege PSB visits after their departure; the panel doubts this due to lack of documentation and finds it odd.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Claimants' counsel orally applied for the panel member to recuse herself for apprehension of bias.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimants' counsel applied orally for the panel member's recusal due to alleged bias.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The panel addressed the recusal motion at hearing and provided reasons for denying it, applying the bias test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel considered and denied the recusal motion after applying the bias test and giving reasons.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel believes the hearing reasons were sufficient but adds further explanation herein.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds its hearing reasons sufficient but provides additional explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 162(2) IRPA recognizes common-law natural justice principles requiring informal, quick, and fair proceedings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states IRPA section 162(2) recognizes natural justice principles for informal, quick, and fair proceedings.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Natural justice includes the rule against bias disqualifying decision-makers with actual or apparent bias.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains natural justice includes a rule disqualifying biased decision-makers.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The Supreme Court's test for reasonable apprehension of bias asks if an informed person would likely think the decision-maker would not decide fairly.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites the Supreme Court test for reasonable apprehension of bias based on an informed person's view.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The test for bias should not be based on a very sensitive or scrupulous conscience.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the bias test excludes overly sensitive or scrupulous standards.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Clear evidence is required to support bias allegations; mere suspicion or conjecture is insufficient.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states bias allegations require clear evidence, not mere suspicion or conjecture.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel finds no reasonable basis for an informed person to conclude the member would not decide fairly.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds no reasonable apprehension of bias against the member in this case.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel must follow the Code of Conduct and Conflict of Interest Act and decide fairly based on evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There is no evidence the panel would fail to do so; the member swore to comply with these instruments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RPD members must decide cases on merits without extraneous influence under the Code of Conduct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel affirms its duty to decide fairly under the Code of Conduct and finds no evidence of failure to do so.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reasonable apprehension of bias raised by counsel has no factual basis, is speculative and unsupported by evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite counsel's oral application for recusal and allegations for de novo hearing, claimants received a fair hearing",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no factual basis for bias allegations and holds claimants received a fair hearing despite counsel's recusal request.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Panel considered totality of evidence including claimants' testimonies and counsel's submissions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considered all evidence including testimonies and submissions in making its determination.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimant's sworn facts create presumption of truth unless valid reason to doubt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Truth of witness story tested by harmony with preponderance of probabilities reasonable in context",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Evidence credible only if probably so, not just possibly so",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Credibility determined on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states legal principles on credibility: sworn facts presumed true unless doubted; truth tested by probabilities; credibility requires probable truth; decided on balance of probabilities.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Panel recognizes difficulties claimants face including cultural factors, hearing room milieu, and interpreter stress",
+     "answers": 0
+    }
+   ],
+   "summary": "The court acknowledges difficulties claimants face in establishing claims including cultural and interpreter-related stress.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimants went into hiding on or around Feb 22, 2012; son stayed with principal claimant's parents",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "PSB visited home and asked about claimants' whereabouts",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Son later joined parents in hiding; claimants arranged smuggler for U.S. visas and exit from China",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimants remained in hiding until fleeing China; arrests of eight demonstrators during PSB clashes",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimants say they hid from PSB after Feb 22, 2012, arranged smuggler for exit, and eight demonstrators were arrested during PSB clashes.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On Feb 22, 2012, PSB arrested eleven demonstrators including three elected representatives",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Six of eight arrested demonstrators released; two still detained; principal claimant not among those in clashes",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "PSB arrested demonstrators involved in clashes on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants were not pursued by PSB on Feb 23, 2012 as alleged",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds PSB arrested demonstrators but claimants were not pursued by PSB on Feb 23, 2012 as alleged.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Principal claimant says PSB would arrest him as one of six elected representatives; three arrested and not released",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Two elected representatives fled to South America per principal claimant's telephone conversations with father",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Father's letter and claimants' addendum omit info about two fleeing to South America; omission significant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel draws negative inference from omission affecting claimants' credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds omission of key info about elected representatives fleeing South America significant and draws negative inference on claimants' credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimants allege PSB continued home visits since 2012, decreasing after PSB learned claimants fled abroad",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "PSB visits occurred at end of October and Chinese New Year; no documents left by PSB",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not credible PSB would visit home numerous times over years without leaving summons or arrest warrants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This finding detracts from claimants' credibility about PSB pursuing them to arrest",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it not credible PSB visited claimants' home repeatedly without leaving documents, detracting from claimants' credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimants traveled from Guangzhou to Hong Kong by train, then flew to San Francisco",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimants did not seek asylum in U.S.; crossed U.S.-Canada border illegally and claimed asylum in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Smuggler suggested Canada better place to claim asylum than U.S.",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimants did not seek asylum in U.S., crossed illegally into Canada, explaining smuggler advised Canada better for asylum claims.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Failure to seek asylum in another Convention country is significant but not determinative",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Negative inference can be drawn from failure to claim in safe third country but not determinative",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Short stay in safe third country en route to Canada not necessarily material to expect asylum claim there",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Planned transit through third country does not undermine subjective fear of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains failure to claim asylum in safe third country is significant but not determinative, especially if transit planned.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel accepts claimants hired smuggler to come to Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not find credible claimants hired smuggler due to fear of PSB arrest and hiding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimants planned to come to Canada and hired smuggler to execute plans, detracting from credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants planned to come to Canada and hired smuggler for that, not due to PSB fear, detracting from credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants' failure to claim asylum in U.S. and illegal entry to Canada indicates lack of subjective fear",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants' failure to claim asylum in U.S. and illegal entry to Canada indicates lack of subjective fear.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not credible claimants could pass China's strict exit controls if truly wanted by PSB",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimants alleged hiring smuggler to assist international travel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimants not credible as being wanted by PSB for arrest",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel not persuaded smuggler arranged evasion of security checks upon exiting China",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants not credible as wanted by PSB and not persuaded smuggler arranged evasion of China's exit security checks.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Travel from mainland China to Hong Kong considered international travel with same security screening as other international travel",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes travel from mainland China to Hong Kong is treated as international travel with full security screening.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Chinese government has Golden Shield Project, a national computer network accessible by PSB with criminal and passport info",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Chinese Golden Shield Project is a national policing database accessible by PSB with criminal and passport data.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Airport security officials access PSB's online database (Policenet/Golden Shield) to identify wanted citizens",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Example of political dissident detained at airport shows coordination between airport officials and police departments",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Chinese government checks passports to approve or confiscate for foreign travel",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes evidence that airport officials access PSB databases to detain wanted persons and confiscate passports.",
+   "role": "facts"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "All police units nationwide have access to eight public security databases including population, border exit and entry, and criminal investigations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes police nationwide access multiple public security databases including border exit and criminal investigations.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Golden Shield includes tracking mechanisms like real-name registration, GPS, facial recognition to identify disruptive individuals",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Policenet connects agencies enabling targeting and neutralizing political dissidents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Golden Shield's extensive tracking and Policenet's role in targeting political dissidents.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reasonable to expect local authorities entered claimants' info into database to apprehend them given PSB pursuit allegations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it reasonable local authorities would enter claimants' info into database given PSB pursuit allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Objective evidence on Golden Shield and border controls is compelling and convincing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Less likely claimants bypassed all security controls if actively pursued by PSB",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unlikely claimants bypassed all Chinese security controls if actively pursued by PSB, based on compelling evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Panel may make reasonable findings based on implausibilities, common sense, and rationality, rejecting inconsistent evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Negative credibility findings based on plausibility inferences require evidentiary foundation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds evidentiary foundation for negative credibility findings in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the panel can reject evidence based on implausibility and finds a foundation for negative credibility findings here.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not find credible that claimants left Mainland China and Hong Kong on their own passports after PSB attention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Panel draws negative inference on claimants' credibility regarding PSB pursuit allegations.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds claimants' travel claims not credible and draws negative inference on their PSB pursuit allegations.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimants' persecution allegations due to protest participation not credible on balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants have not provided credible evidence they are pursued by PSB for arrest.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants' persecution and PSB pursuit allegations not credible and unsupported by evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if PSB is looking for claimants for protest participation, evidence is insufficient to find persecution by PSB or other state authority.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient evidence of persecution even if PSB seeks claimants for protest participation.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Chinese law criminalizes unauthorized demonstrations with penalties including imprisonment and forbids protests by children, young adults, or foreigners.",
+     "answers": 0
+    }
+   ],
+   "summary": "Documentary evidence reports Chinese law criminalizes unauthorized demonstrations with severe penalties and forbids protests by certain groups.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Citizens continue public protests over evictions causing conflicts; authorities use administrative detention to intimidate activists and prevent demonstrations.",
+     "answers": 0
+    }
+   ],
+   "summary": "Document reports ongoing protests and authorities' use of administrative detention to intimidate activists.",
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds any PSB interest in claimants would be to prosecute them for breaking laws by participating in anti-government demonstrations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds PSB interest, if any, would be to prosecute claimants for illegal protest participation.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimants are not being sought for arrest by Chinese authorities as alleged, on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants are not being sought for arrest by Chinese authorities as alleged.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants have not established serious possibility of persecution or risk of cruel treatment, torture, or danger to life upon return to China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants failed to prove serious risk of persecution or harm upon return to China.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Pursuant to IRPA sections 96 and 97(1), claimants are neither Convention refugees nor persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimants are neither Convention refugees nor persons in need of protection under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claims are rejected.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the claims.",
+   "role": "disposition"
+  }
+ ]
+}

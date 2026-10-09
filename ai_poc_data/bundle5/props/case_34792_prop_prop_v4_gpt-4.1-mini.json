@@ -1,0 +1,838 @@
+{
+ "case_id": 34792,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.011566000000000002
+ },
+ "verification": {
+  "paragraphs": 37,
+  "rows": 37,
+  "paragraphs_missing": [],
+  "retried": 2,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 69,
+  "holders": {
+   "applicant": 13,
+   "court": 30,
+   "respondent": 2,
+   "earlier_decision_maker": 8,
+   "witness_or_document": 2,
+   "prior_court_or_authority": 14
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 6,
+  "headings_before": 6
+ },
+ "headings": {
+  "2": "I. Background",
+  "11": "II. Issues",
+  "13": "III. Analysis",
+  "14": "A. Treatment of evidence regarding hardship/health system",
+  "19": "B. BIOC analysis",
+  "24": "C. Failure of compassion"
+ },
+ "split_from": {
+  "2": 1,
+  "11": 10,
+  "13": 12,
+  "14": 12,
+  "19": 18,
+  "24": 23
+ },
+ "blocks": {
+  "overview": "Innocencia Hernandez Delgado, a Cuban refugee and former permanent resident of Canada, seeks judicial review of IRCC's refusal of her permanent resident application on humanitarian and compassionate grounds. The Federal Court found the decision unreasonable due to inadequate consideration of her health, the deteriorating Cuban healthcare system, and the best interests of her grandchildren. The Court set aside the decision and remitted the matter for redetermination with proper analysis and compassion.",
+  "background_paras": "1-6",
+  "disposition_paras": "13,23-24,31,33",
+  "blocks": [
+   {
+    "issue": "Was the decision to refuse permanent resident status on humanitarian and compassionate grounds reasonable?",
+    "paras": "1,6-13,14-18,29-33",
+    "court_conclusion": "The decision was unreasonable due to failure to consider worsening health, Cuban healthcare crisis, and lack of compassion.",
+    "conclusion_paras": "1,13,16-18,29-33",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues decision not based on evidence, fails reasonable assessment of child's best interests, and lacks compassion.",
+      "paras": "1,6,11,14"
+     },
+     {
+      "holder": "respondent",
+      "text": "Officer not required to cite every piece of evidence potentially leading to contrary conclusion.",
+      "paras": "18"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Rejected application citing health issues managed previously in Cuba and Cuba's good healthcare system; found no best interests impact on grandchildren; denied relief from cessation.",
+      "paras": "7-10"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Officer properly assess the applicant's health conditions and the state of the Cuban healthcare system?",
+    "paras": "14-18",
+    "court_conclusion": "Officer's findings ignoring health deterioration and current Cuban healthcare crisis were clearly unreasonable.",
+    "conclusion_paras": "16-18",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicant's health has worsened since arrival; Cuban healthcare system deteriorated significantly.",
+      "paras": "14"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found health issues managed previously in Cuba; Cuba's system one of the world's best (2014 report).",
+      "paras": "15"
+     },
+     {
+      "holder": "court",
+      "text": "No evidence applicant's conditions existed in Cuba; ignored worsening health and current healthcare crisis evidence.",
+      "paras": "16-17"
+     },
+     {
+      "holder": "witness_or_document",
+      "text": "Evidence shows Cuban healthcare crisis with shortages and deteriorated facilities (Mesa-Lago 2023, Guglielmone 2017).",
+      "paras": "17"
+     },
+     {
+      "holder": "respondent",
+      "text": "Officer not required to cite every piece of evidence potentially leading to contrary conclusion.",
+      "paras": "18"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Officer properly consider the best interests of the applicant's grandchildren in the humanitarian and compassionate application?",
+    "paras": "8,19-23,39,64",
+    "court_conclusion": "Officer's limited analysis ignoring emotional interconnectedness and minimizing grandparent role was unreasonable.",
+    "conclusion_paras": "21-23",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found no dependency; best interests not affected as parents remain caregivers; family childcare challenges common.",
+      "paras": "8"
+     },
+     {
+      "holder": "applicant",
+      "text": "Officer failed required Williams analysis; unreasonably limited to financial dependency ignoring emotional harm and interconnectedness.",
+      "paras": "22"
+     },
+     {
+      "holder": "court",
+      "text": "Officer's reasoning deficient and unreasonable; prior cases overturned similar decisions ignoring grandparents' role.",
+      "paras": "21-23"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Best interests of child are singularly significant; decisions must attentively consider children's rights and hardship (Kanthasamy, Baker, Williams).",
+      "paras": "19-20,39,64"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Officer apply the required compassionate and empathetic approach in assessing the humanitarian and compassionate application?",
+    "paras": "26-28,29-33,34",
+    "court_conclusion": "Officer's dismissive and moralistic approach lacked compassion and empathy, rendering the decision unreasonable.",
+    "conclusion_paras": "29-33",
+    "positions": [
+     {
+      "holder": "prior_court_or_authority",
+      "text": "H&C applications require compassion, empathy, and engagement with forced departure realities (Kanthasamy, Damte, Fernandez).",
+      "paras": "26-28"
+     },
+     {
+      "holder": "court",
+      "text": "Decision fails to reflect compassionate approach; dismissal of applicant's life as extended visit is unempathetic and capricious.",
+      "paras": "29-31"
+     },
+     {
+      "holder": "court",
+      "text": "Officer's moralistic assertion of lack of respect for Canadian law is unfounded and shows misunderstanding of asylum rights.",
+      "paras": "32-33"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Innocencia Hernandez Delgado seeks judicial review of IRCC's November 8, 2024 decision refusing her permanent resident application on H&C grounds under s. 25(1) IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The decision was unreasonable and must be set aside",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of IRCC's refusal of permanent resident status; court finds decision unreasonable and to be set aside.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant is a 65-year-old Cuban refugee who fled Cuba in 2010 with her son and arrived in Canada where her daughter was a protected person",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "They arrived in Fort Erie on August 16, 2010, were granted refugee protection less than a year later, and applicant became permanent resident on August 12, 2012",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is a Cuban refugee who arrived in Canada in 2010, was granted refugee protection, and became permanent resident in 2012.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant has mental health challenges including depression and suicidal ideation",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In January 2018, she travelled to Mexico on a Cuban passport obtained three years earlier, unaware it might affect her Canadian legal status or that she could use a Canadian Protected Person Travel Document",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant has mental health issues and travelled to Mexico in 2018 on a Cuban passport, unaware of legal implications.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In July 2018, applicant returned to Cuba to be with a dying brother and returned to Canada after his death in August 2018, remaining since",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant returned to Cuba in 2018 to visit dying brother and has remained in Canada since returning.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister applied to RPD to cease applicant's refugee protection under s. 108(2) IRPA, asserting return to Cuba on Cuban passport was reavailment under s. 108(1)(a) IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD granted cessation application in August 2021, making applicant inadmissible and losing permanent resident status under s. 40.1 IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister applied to cease refugee protection; RPD granted cessation in 2021, causing loss of permanent resident status.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant applied on March 21, 2023 to regain permanent resident status on H&C grounds citing establishment, family ties, best interests of grandchildren, and hardship due to health",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argued cessation law changed after RPD decision, citing Galindo Camayo, 2022 FCA 50, and lack of subjective intent would change outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant applied for permanent resident status on H&C grounds and argued new law would alter cessation outcome.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Senior Immigration Officer rejected application, accepted some health issues managed in Canada but noted they were managed previously in Cuba and Cuba's system is one of the best",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer rejected application, accepting health issues but finding Cuba's health system excellent and previously managed conditions.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found insufficient evidence that applicant's departure would negatively affect grandchildren's best interests, noting children would adjust and parents remain in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer observed family childcare challenges are common and applicant's situation is not different from other Canadian families",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found no negative impact on grandchildren's best interests and noted family childcare challenges are common.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer gave some weight to daughter's pledge to support applicant and acknowledged applicant's understandable concern about future care",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found applicant would have access to same social systems as other Cubans upon return",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer acknowledged daughter's support and applicant's concerns but found access to social systems in Cuba.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer rejected relief from cessation consequences, finding applicant consciously returned to country she was protected from, showing lack of respect for Canadian law",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer rejected relief, finding applicant consciously returned to Cuba, showing disrespect for Canadian law.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant asserts Officer's decision is not based on evidence, fails reasonable assessment of best interests of child, and lacks compassionate approach",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues Officer's decision lacks evidentiary basis, reasonable child best interests assessment, and compassion.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court's role is to determine if Officer's decision is reasonable, involving coherent, rational analysis justified by facts and law (Vavilov)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires justification, transparency, intelligibility, and reasons reflecting stakes (Vavilov)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court must assess reasonableness of Officer's decision per Vavilov, requiring justification, transparency, and reflection of stakes.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with applicant that decision is unreasonable for several reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees decision is unreasonable for multiple reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant provided evidence of physical and mental health challenges and reports on declining Cuban health care system from 2017 and 2023",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued she would lack access to adequate health care for her conditions in Cuba today",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant provided evidence of health challenges and Cuban health system decline, arguing inadequate care if returned.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer acknowledged applicant's health issues managed currently but found same conditions managed in Cuba before arrival and Cuba's system is one of the world's best (2014 report)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "There are two problems with Officer's findings on health system and condition management",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found health conditions managed previously in Cuba; court identifies two problems with this finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence supports that applicant's current health conditions existed in Cuba; medical notes show worsening health since arrival in Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's finding ignores health deterioration and treatments since leaving Cuba, making it clearly unreasonable (Vavilov)",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds no evidence applicant's current health conditions existed in Cuba; Officer's finding ignoring deterioration is unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if conditions were managed in Cuba, Officer's conclusion on access to adequate treatment today ignores evidence of Cuban health care crisis in 2023",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Evidence shows Cuban health care system in crisis with reduced access, deteriorated facilities, medicine shortages (Mesa-Lago 2023)",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "2017 article reports deterioration, lack of medicine, doctors fleeing, poor hospital conditions, corruption (Guglielmone 2017)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Officer ignored evidence of Cuban health care crisis and deterioration in concluding adequate treatment access today.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits Officer not required to cite every piece of evidence potentially leading to contrary conclusion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Issue is failure to engage with central evidence and unreasonable reliance on outdated evidence excluding current evidence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Failure to engage with central evidence and reliance on outdated evidence is unreasonable (Cepeda-Gutierrez; Vavilov)",
+     "answers": 2
+    }
+   ],
+   "summary": "Respondent argues Officer need not cite all evidence; court finds failure to engage with central evidence and reliance on outdated evidence unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The best interests of the child are a singularly significant focus in H&C applications (Kanthasamy v Canada, 2015 SCC 61 at para 40).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Decision makers must show attentiveness to children's rights, best interests, and hardship from negative decisions (Baker v Canada, 1999 SCR 817 at para 74).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The Supreme Court of Canada explained these principles in Kanthasamy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that the best interests of the child are a key focus in H&C applications, citing Kanthasamy and Baker decisions.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "In Williams v Canada, 2012 FC 166, Justice Russell explained relevant principles, as cited in Kanthasamy at para 59.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes that Justice Russell explained relevant principles in Williams v Canada, cited in Kanthasamy.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Officer considered Ms. Hernandez Delgado's role with grandchildren mainly as caregiving and emotional support, including gender identity support",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer limited best interests consideration to financial or other dependency, found no dependency",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer found grandchildren's best interests not affected by refusal since parents' care continues",
+     "answers": 0
+    }
+   ],
+   "summary": "The Officer considered Ms. Hernandez Delgado's caregiving role but limited best interests to financial dependency, finding refusal would not affect grandchildren's best interests.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Officer failed to undertake required Williams analysis and minimized Ms. Hernandez Delgado's role with grandchildren",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Officer unreasonably limited analysis to financial dependency and parents' presence, ignoring emotional interconnectedness and separation harm",
+     "answers": 1
+    }
+   ],
+   "summary": "Ms. Hernandez Delgado argues the Officer failed Williams analysis and unreasonably limited best interests to financial dependency, ignoring emotional ties and separation harm.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Agrees Officer's reasoning is deficient and unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Court previously overturned H&C decisions ignoring grandparents' role in children's best interests (citing cases)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Must overturn again here; Officer's treatment of children's best interests was unreasonable under Vavilov",
+     "answers": 0
+    }
+   ],
+   "summary": "The Court agrees Officer's reasoning is deficient, citing prior cases overturning similar errors, and finds Officer's treatment unreasonable under Vavilov.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Each prior finding alone suffices to quash and remit decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Cumulatively, findings reveal larger problem with Officer's overall H&C approach needing correction on redetermination",
+     "answers": 1
+    }
+   ],
+   "summary": "The Court finds prior findings suffice to quash decision and cumulatively reveal a larger problem with Officer's H&C approach needing correction.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Kanthasamy explained the legal standard for compassionate relief in H&C applications",
+     "answers": 0
+    }
+   ],
+   "summary": "Kanthasamy explains the legal standard for compassionate relief in H&C applications.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Compassionate relief requires facts that would excite reasonable desire to relieve misfortunes warranting special relief (Kanthasamy citing Chirwa)",
+     "answers": 0
+    }
+   ],
+   "summary": "Kanthasamy states compassionate relief requires facts exciting reasonable desire to relieve misfortunes warranting special relief.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Officers must apply compassion and genuine empathy in H&C applications, engaging with reality of forced departure (Damte)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Campbell in Damte emphasized empathetic approach",
+     "answers": 0
+    }
+   ],
+   "summary": "Officers must apply compassion and empathy in H&C applications, engaging with reality of forced departure, as emphasized in Damte.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "H&C applications are an exercise in empathy (Fernandez)",
+     "answers": 0
+    }
+   ],
+   "summary": "H&C applications are an exercise in empathy, per Fernandez.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision under review fails to reflect compassionate approach",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's dismissive approach to applicant's health hardship and removal impact on grandchildren is problematic",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Two other findings by Officer are even more concerning",
+     "answers": 0
+    }
+   ],
+   "summary": "The decision fails to reflect compassion; Officer's dismissive approach to health hardship and grandchildren impact is problematic, with two other concerning findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer found it understandable applicant may not wish to return to Cuba after extended visit",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found it understandable applicant may not wish to return to Cuba after extended visit.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant came 16 years ago as refugee, lived as claimant, protected person, permanent resident over decade before losing status due to visit",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant is not on extended visit but part of Canadian community requesting H&C relief",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Officer's dismissal of applicant's life as extended visit is unempathetic, demeaning, perverse and capricious",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant lived in Canada 16 years as refugee and permanent resident; Officer's dismissal of her life as extended visit is unempathetic and capricious.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer found asylum was privilege and applicant showed lack of respect for Canadian law",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found asylum was privilege and applicant showed lack of respect for Canadian law.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Being granted asylum is a right, not a privilege (citing Mason, B010, N\u00e9meth, Singh)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's characterization of asylum as privilege shows fundamental misunderstanding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's finding of lack of respect for law based on return to Cuba ignores evidence and applicant's unawareness of legal implications",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No basis for Officer's moralistic assertion of lack of respect for Canadian law",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds asylum is a right, Officer misunderstood this and wrongly found lack of respect for law without basis.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applying compassion requires empathetic approach imagining oneself in applicant's position, engaging heart and mind",
+     "answers": 0
+    }
+   ],
+   "summary": "Applying compassion requires empathetic approach imagining oneself in applicant's position, engaging heart and mind.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance for certification arises",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no serious question of general importance for certification.",
+   "role": "disposition"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Decision under s. 25(1) unreasonable if children's interests not sufficiently considered (Baker)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Children's interests must be well identified, defined and examined with great attention (Hawthorne)",
+     "answers": 0
+    }
+   ],
+   "summary": "Baker and Hawthorne require children's interests be well identified and carefully examined for s. 25(1) decisions.",
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "No basic needs minimum or hardship threshold satisfies best interest test; question is what is in child's best interests",
+     "answers": 0
+    }
+   ],
+   "summary": "No basic needs minimum or hardship threshold satisfies best interest test; question is what is in child's best interests.",
+   "role": "law"
+  }
+ ]
+}

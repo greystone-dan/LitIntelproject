@@ -1,0 +1,1293 @@
+{
+ "case_id": 42518,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0176792
+ },
+ "verification": {
+  "paragraphs": 58,
+  "rows": 58,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 121,
+  "holders": {
+   "court": 50,
+   "applicant": 14,
+   "earlier_decision_maker": 40,
+   "prior_court_or_authority": 17
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 6,
+  "headings_before": 1
+ },
+ "headings": {
+  "34": "C. Judicial exercise of discretion"
+ },
+ "split_from": {
+  "10": 9,
+  "14": 13,
+  "15": 13,
+  "21": 20,
+  "29": 28,
+  "34": 33
+ },
+ "blocks": {
+  "overview": "Ms. Molchan appealed the Commission's retroactive reconsideration of her employment insurance benefits, which found she was not capable or available for work, resulting in an overpayment. The Appeal Division upheld the Commission's decision, finding the reconsideration lawful and discretionary despite Ms. Molchan's arguments about misinformation and lack of new facts. The Federal Court of Appeal dismissed Ms. Molchan's judicial review application, concluding the Appeal Division's decision was reasonable.",
+  "background_paras": "2-4, 14-20, 26-27",
+  "disposition_paras": "58-59",
+  "blocks": [
+   {
+    "issue": "Did the Commission have authority to retroactively reconsider Ms. Molchan's availability for work without new information?",
+    "paras": "4, 5, 9, 21-28",
+    "court_conclusion": "The Commission's broader reconsideration authority under section 52 EIA is reasonable and not limited to new facts.",
+    "conclusion_paras": "22, 27-28",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Commission lacked authority to reconsider availability without new facts; retroactive reconsideration power is exceptional and should be strictly construed.",
+      "paras": "5, 9, 21"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Appeal Division held section 52 allows reconsideration without new facts, broader than section 111; new facts are relevant but not required.",
+      "paras": "23-25"
+     },
+     {
+      "holder": "court",
+      "text": "Appeal Division's interpretation aligns with statutory language and precedent, supporting broader reconsideration authority.",
+      "paras": "22, 27-28"
+     }
+    ]
+   },
+   {
+    "issue": "Did Ms. Molchan provide false information affecting the Commission's assessment of her availability for work?",
+    "paras": "5, 8, 29-33, 45",
+    "court_conclusion": "Appeal Division's finding that Ms. Molchan gave false information despite following advice is factually reasonable.",
+    "conclusion_paras": "31, 33",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Ms. Molchan argues she reported as instructed and did not give false information.",
+      "paras": "5, 29"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Appeal Division found biweekly reports inaccurate; capability must be proven daily; false statements pivotal to assessment.",
+      "paras": "8, 30, 45"
+     },
+     {
+      "holder": "court",
+      "text": "Appeal Division's reasoning is consistent with law and facts; Ms. Molchan admitted incapacity despite contrary reports.",
+      "paras": "31, 33"
+     }
+    ]
+   },
+   {
+    "issue": "Could Ms. Molchan rely on Commission misinformation to avoid overpayment and reconsideration?",
+    "paras": "5, 32, 35-40, 45",
+    "court_conclusion": "Appeal Division reasonably applied precedent rejecting reliance on Commission misinformation to avoid overpayment.",
+    "conclusion_paras": "36, 37, 39, 40",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Ms. Molchan argues Appeal Division misconstrued Buors and unreasonably dismissed financial hardship and delay.",
+      "paras": "5, 35, 46"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Appeal Division held Ms. Molchan could not avoid overpayment due to misinformation, bound by Buors and related cases.",
+      "paras": "32, 38, 39, 45"
+     },
+     {
+      "holder": "court",
+      "text": "Appeal Division's application of Buors and related case law is reasonable; financial hardship and delay were properly considered.",
+      "paras": "37, 39, 40"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Appeal Division properly assess the Commission's exercise of discretion in reconsidering the claim?",
+    "paras": "6-7, 34, 41-44, 53-56",
+    "court_conclusion": "Appeal Division reasonably found Commission failed to consider all relevant factors, thus did not exercise discretion judicially.",
+    "conclusion_paras": "44, 53-56",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Ms. Molchan argues Appeal Division erred in concluding judicial exercise of discretion and overlooked financial hardship.",
+      "paras": "34, 46"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Appeal Division found Commission failed to consider impact on Ms. Molchan, finality, honesty; financial hardship irrelevant to discretion.",
+      "paras": "6-7, 41-44, 45"
+     },
+     {
+      "holder": "court",
+      "text": "Appeal Division's findings on discretion and relevant factors are reasonable; financial hardship not a factor in reconsideration discretion.",
+      "paras": "53-56"
+     }
+    ]
+   },
+   {
+    "issue": "Is financial hardship a relevant factor in the Commission's discretion to reconsider and recover overpayments?",
+    "paras": "46-56",
+    "court_conclusion": "Financial hardship is not relevant to reconsideration discretion but may be considered in write-off procedures.",
+    "conclusion_paras": "51, 53-56",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Ms. Molchan submits financial hardship is relevant to discretion, relying on Schembri.",
+      "paras": "46"
+     },
+     {
+      "holder": "court",
+      "text": "Schembri is distinguishable; financial hardship relevant to penalty, not entitlement reconsideration; write-off possible under regulations.",
+      "paras": "47-56"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Molchan stopped working in February 2020 due to car accident injuries and contacted the Commission as sickness benefits were expiring.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "She claimed regular benefits, reported being capable and available for work, and collected benefits for 25 weeks after Commission approval.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan stopped work due to injuries, claimed regular benefits reporting availability, and collected benefits for 25 weeks after Commission approval, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On March 4, 2021, the Commission contacted Ms. Molchan about her work availability and she confirmed she was not capable of working during benefit period.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "She explained she reported availability on advice from two Service Canada agents in June 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission contacted Ms. Molchan who confirmed incapacity but said she reported availability on Service Canada agents' advice, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On March 11, 2021, the Commission retroactively reconsidered and decided Ms. Molchan was not capable or available for work, creating an overpayment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Molchan sought reconsideration but the Commission upheld its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Commission retroactively reconsidered and found Ms. Molchan not capable or available, creating overpayment; reconsideration was denied, court states.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan argued the Commission lacked authority to reconsider availability without new facts and she was truthful from the start.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She claimed Service Canada agents exercised discretion and told her to declare availability despite incapacity.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She argued the Commission did not follow its reconsideration policy which prohibits retroactive review if benefits were incorrectly paid.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argued no authority to reconsider without new facts, she was truthful, agents told her to declare availability, and policy was not followed, applicant argues.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The General Division dismissed Ms. Molchan\u2019s appeal, believing she received misleading advice about claiming benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "It held the Commission\u2019s reconsideration under section 52 EIA is discretionary and was exercised judicially.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "It concluded Ms. Molchan was not entitled to regular benefits as she was not capable of working during benefit period.",
+     "answers": 0
+    }
+   ],
+   "summary": "The General Division dismissed the appeal, found misleading advice, upheld Commission discretion, and concluded no entitlement to benefits, earlier decision maker finds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division dismissed Ms. Molchan\u2019s appeal, agreeing General Division erred on proof of discretion exercise.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "It substituted its decision, finding the Commission failed to exercise discretion judicially by not considering relevant factors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division dismissed the appeal, found General Division erred on discretion proof, and substituted decision finding discretion not judicially exercised, earlier decision maker finds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division found Ms. Molchan\u2019s false statements pivotal to Commission\u2019s availability assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "It considered Commission\u2019s policy listing false statements as grounds for reconsideration.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "It concluded claimant cannot rely on Commission misinformation to avoid overpayment and maintained overpayment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found false statements pivotal, considered policy grounds, and maintained overpayment despite misinformation, earlier decision maker finds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan submits Appeal Division erred allowing retroactive reconsideration without new information and finding false statements under policy.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Alternatively, she claims the Appeal Division erred in concluding judicial exercise of discretion by Commission.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan submits Appeal Division erred on retroactive reconsideration without new info, false statements, and judicial exercise of discretion, applicant argues.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties agree Appeal Division\u2019s decision is reviewable on deferential reasonableness standard.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness standard established in Vavilov and recent FCA cases cited.",
+     "answers": 0
+    }
+   ],
+   "summary": "Parties agree Appeal Division decision is reviewed on deferential reasonableness standard per Vavilov and FCA cases, court states.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires decision to show justification, transparency, intelligibility, and rational analysis chain (Vavilov).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Burden is on challenger to show flaws central enough to render decision unreasonable (Vavilov).",
+     "answers": 0
+    }
+   ],
+   "summary": "Reasonableness requires justification, transparency, rationality; challenger must show central flaws to render decision unreasonable, court states citing Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "DESDA s.58(1) limits Appeal Division intervention to natural justice breaches, jurisdiction errors, or perverse factual findings.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Appeal Division cannot overturn General Division by reweighing evidence (Sibbald, Uvaliyev).",
+     "answers": 0
+    }
+   ],
+   "summary": "DESDA s.58(1) limits Appeal Division intervention to specific errors; cannot reweigh evidence, court states citing Sibbald and Uvaliyev.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "If Appeal Division intervenes, it may decide necessary facts and substitute or remit decision (Nelson, DESDA s.59(1)).",
+     "answers": 0
+    }
+   ],
+   "summary": "Appeal Division may decide facts and substitute or remit decision if intervention justified, court states citing Nelson and DESDA.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "It is useful to set out statutory and policy framework relevant to this application.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states it is useful to set out relevant statutory and policy framework for this application.",
+   "role": "other"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Employment insurance benefits require claimants to meet statutory requirements including interruption of earnings and minimum insurable hours (EIA ss.7,8).",
+     "answers": 0
+    }
+   ],
+   "summary": "Employment insurance benefits require claimants to meet statutory requirements including interruption of earnings and minimum insurable hours, court states citing EIA.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimants are disentitled if they fail to prove capability and availability for work (EIA para.18(1)(a)).",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimants are disentitled if they fail to prove capability and availability for work, court states citing EIA.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Commission may reconsider claims within 36 months after benefits paid or payable (EIA s.52(1)).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "If person received benefits not qualified for, Commission may seek repayment (EIA ss.52(2),(3)).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "If false or misleading statement made, Commission has additional 36 months to reconsider (EIA s.52(5)).",
+     "answers": 0
+    }
+   ],
+   "summary": "Commission may reconsider claims within 36 months, seek repayment for unqualified benefits, and has extra 36 months if false statements made, court states citing EIA.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission\u2019s discretion guided by principles in Digest of Benefit Entitlement Principles, Chapter 17 on error correction and reconsideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "Commission\u2019s discretion guided by Digest of Benefit Entitlement Principles, Chapter 17 on error correction and reconsideration, court states.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 17.3.2.2 defines Commission error and correction methods, including retroactive correction causing overpayment if decision contrary to EIA structure.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 17.3.2.2 defines Commission error and retroactive correction causing overpayment if decision contrary to EIA, court states.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 17.3.3 sets Commission policy for consistent application of s.52 EIA to prevent debt when overpaid without claimant fault.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claims reconsidered only if benefits underpaid, paid contrary to EIA, paid due to false statement, or claimant ought to have known no entitlement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 17.3.3.2 specifies availability decisions are not contrary to EIA structure.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 17.3.3 policy limits reconsideration to specific grounds; availability decisions not contrary to EIA structure, court states.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan submits Appeal Division erred finding Commission could reconsider availability without new information.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She argues retroactive reconsideration power is exceptional and should be strictly construed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Allowing reconsideration without new info undermines employment insurance scheme\u2019s purpose of financial security.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan submits Appeal Division erred allowing reconsideration without new info, power is exceptional, and undermines scheme\u2019s purpose, applicant argues.",
+   "role": "issue"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. Molchan has failed to persuade me that the Appeal Division erred in this regard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Ms. Molchan failed to persuade that the Appeal Division erred in this regard.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division concluded the Commission had authority to reconsider Ms. Molchan\u2019s claim even without new information.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division compared section 52 and section 111 of the EIA regarding reconsideration authority.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Section 111 allows rescission or amendment only if new facts or mistakes of material facts are presented.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Section 52 applies despite section 111 and is not limited to new facts or mistakes, giving broader reconsideration authority.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Division held reconsideration authority under section 52 is broader than Ms. Molchan claimed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found the Commission's reconsideration authority under section 52 broader than under section 111, allowing reconsideration without new facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division agreed new facts are not required for reconsideration under section 52 but are a relevant factor.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Other factors, including false statements per Commission policy, are equally relevant to reconsideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found new facts not required but relevant, and other factors like false statements are also relevant.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "If new facts were required, reconsideration was still appropriate due to different information in bi-weekly reports.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Overpayment did not arise from a change of mind on same facts but from different information provided later.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found reconsideration appropriate even if new facts were required, due to differing information in reports.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Starting June 21, 2020, Ms. Molchan reported being ready, willing, and capable of working each day in biweekly reports.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "This information differed from what she had previously provided to the Commission.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found Ms. Molchan's biweekly reports from June 21, 2020, showed different information than previously provided.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On June 19, 2020, the Commission viewed Ms. Molchan as capable of working but not her previous work due to sitting limitations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On March 4, 2021, Ms. Molchan told the Commission she could not work at all.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division reasonably concluded new information justified reconsideration of the claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division reasonably concluded new information justified reconsideration based on differing statements in 2020 and 2021.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division\u2019s conclusion that new facts are not required under section 52 for reconsideration is reasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Subsection 52(1) begins with 'Despite section 111', suggesting broader scope than section 111's rescission power.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Appeal Division\u2019s interpretation aligns with this Court\u2019s decision in Bri\u00e8re, distinguishing the provisions' purposes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division\u2019s interpretation of section 52 as broader than section 111 reasonable and consistent with precedent.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan submits the Appeal Division could not reasonably find she gave false information when reporting as instructed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argues the Appeal Division unreasonably found she gave false information while following instructions.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division accepted Ms. Molchan followed Commission agents' advice but found biweekly reports inaccurate.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Capability and availability decisions are not one-time and claimants must prove capability for every working day.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found Ms. Molchan\u2019s reports inaccurate despite following advice and noted ongoing proof of capability is required.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division\u2019s reasoning is factually reasonable and consistent with paragraph 18(1)(a) of the EIA and case law.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. Molchan admitted she was not capable and available for work during the benefit period despite contrary reports.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division\u2019s reasoning reasonable and notes Ms. Molchan admitted incapability despite reports.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division considered whether to refrain from applying reconsideration policy given Ms. Molchan was directed to make false statements.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Relying on this Court\u2019s decision in Buors, the Appeal Division held Ms. Molchan could not avoid overpayment due to Commission misinformation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division held Ms. Molchan could not avoid overpayment by relying on Commission misinformation, citing Buors.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. Molchan has not persuaded me that the Appeal Division\u2019s findings are unreasonable despite disagreement with its interpretation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Ms. Molchan has not persuaded that the Appeal Division\u2019s findings are unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan submits the Appeal Division erred in concluding the Commission exercised discretion to reconsider the claim judicially.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division found the contrary; it did not conclude the Commission exercised discretion judicially.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argues error on judicial discretion conclusion, but the Appeal Division found the opposite.",
+   "role": "issue"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan argues the Appeal Division misconstrued Buors, unreasonably dismissed financial hardship and delay, and unreasonably ordered retroactive reconsideration.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argues the Appeal Division misconstrued Buors, ignored relevant factors, and unreasonably ordered retroactive reconsideration.",
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Ms. Molchan\u2019s arguments must fail.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Ms. Molchan\u2019s arguments must fail.",
+   "role": "conclusion"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division reasonably applied Buors to find Ms. Molchan could not rely on Commission misinformation to avoid reconsideration policy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division reasonably applied Buors to reject Ms. Molchan\u2019s reliance on Commission misinformation.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan argued Buors was distinguishable because it involved benefit rate decisions set by law.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division disagreed, finding Buors concerned allocation of unreported earnings and misinformation causing overpayments.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division felt bound by this Court\u2019s direction in Buors.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argued Buors was distinguishable; the Appeal Division disagreed and felt bound by Buors.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division\u2019s findings align with this Court\u2019s decisions in Buors, Granger, and Paxton regarding Commission\u2019s lack of power to amend law.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Granger held Commission representatives cannot amend law; their interpretations have no force of law and commitments contrary to law are void.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division could not ignore relevant case law including Paxton.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division\u2019s findings consistent with case law that Commission cannot amend law and must follow precedent.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appeal Division\u2019s treatment of financial hardship and delay was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appeal Division reasonably treated financial hardship and delay factors.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appeal Division examined relevant factors for Commission\u2019s discretion under section 52 after substituting its decision for General Division.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "EIA is silent on relevant factors, but M.S. decision examined factors addressing tension between finality and accuracy.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "M.S. found Commission\u2019s reconsideration policy factors are relevant but not necessarily binding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found factors in Commission\u2019s policy relevant but not binding for discretion under section 52, consistent with M.S.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division agreed with reasoning in M.S. and applied it to Ms. Molchan's situation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division added relevant factors relate to finality and accuracy beyond policy list",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division agreed with M.S. reasoning and added relevant factors relate to finality and accuracy, per the Appeal Division.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division agreed Ms. Molchan that Commission overlooked relevant factors in reconsideration discretion",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Commission failed to consider impact of its error on Ms. Molchan and her absence of fault",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Commission failed to consider finality factor: Ms. Molchan's reliance on mistaken decision prevented other benefits",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Commission did not consider Ms. Molchan's honesty in dealings",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found the Commission overlooked factors including error impact, no fault, finality, and honesty, agreeing with Ms. Molchan.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division disagreed with Ms. Molchan that Commission's delay was relevant; delay was within statutory period",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division found financial hardship irrelevant to finality or accuracy, relevant only in write-off procedure",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Appeal Division concluded Commission failed to exercise discretion judicially by not considering all relevant factors",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division rejected delay and financial hardship as relevant factors and concluded Commission failed to exercise discretion judicially.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division found Ms. Molchan's false statements pivotal to Commission's assessment of availability for work",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division considered whether policy on false statements applied given Commission directed false statements",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appeal Division felt bound by Buors decision and determined claim to be reconsidered, overpayment remains",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appeal Division found Ms. Molchan's false statements pivotal, considered policy application, and decided claim must be reconsidered per Buors.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan argues financial hardship is relevant factor in Commission's discretion, relying on Schembri",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argues financial hardship is relevant to Commission discretion, citing Schembri.",
+   "role": "issue"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Schembri was not raised directly before General Division or Appeal Division",
+     "answers": 0
+    }
+   ],
+   "summary": "Schembri was not raised before the General or Appeal Divisions, court finds.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Schembri decision is distinguishable from current case",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Schembri decision distinguishable from this case.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Schembri involved penalty imposition for misreporting earnings and overpayment recovery",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission reduced penalty due to gambling addiction; Board exonerated claimant; Umpire reduced penalty further",
+     "answers": 0
+    }
+   ],
+   "summary": "Schembri involved penalty for misreporting earnings, with penalty reduced and exonerated at various stages.",
+   "role": "facts"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Court held Commission not required to initiate inquiries into financial circumstances before penalty",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Claimant had opportunities to request penalty reduction for financial hardship at various stages",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Claimant did not raise issue; Umpire erred in interfering with penalty",
+     "answers": 0
+    }
+   ],
+   "summary": "Court held Commission not required to inquire into financial hardship before penalty; claimant had opportunities but did not raise issue.",
+   "role": "law"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Schembri findings do not extend to reconsideration of entitlement to benefits",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Overpayment not disputed in Schembri, only penalty amount",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Commission has wide discretion to assess penalty amount and may consider financial hardship as mitigating factor",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Schembri does not apply to benefit entitlement reconsideration; Commission has wide discretion on penalties including financial hardship.",
+   "role": "law"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission's penalty policy mentions financial hardship as mitigating circumstance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission did not apply penalty in Ms. Molchan's case despite false statements",
+     "answers": 0
+    }
+   ],
+   "summary": "Commission's penalty policy allows financial hardship mitigation; no penalty applied to Ms. Molchan despite false statements.",
+   "role": "facts"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Commission's discretion under section 52 relates to entitlement and guided by finality and accuracy factors",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Financial hardship not listed as factor in Commission's reconsideration policy and not directly related to finality or accuracy",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Commission's discretion on entitlement guided by finality and accuracy; financial hardship not a relevant factor.",
+   "role": "law"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "When reconsideration finds claimant not entitled, amount is repayable as debt under EIA sections 43 and 47",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Commission has no discretion in setting repayment amount once entitlement is denied",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Liability arises directly from disentitlement determination (Levesque case)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This differs from Commission setting penalty amount",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains repayment amount is fixed by law once entitlement denied, unlike penalty amount which Commission can set.",
+   "role": "law"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appeal Division's comments on write-off consistent with legislation allowing write-off for undue hardship",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Employment Insurance Regulations allow write-off of amount payable if repayment causes undue hardship",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appeal Division's comments on write-off align with regulations allowing write-off for undue hardship.",
+   "role": "law"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appeal Division was empathetic to Ms. Molchan's financial hardship and urged Commission and CRA to consider write-off",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appeal Division provided contact information for seeking relief",
+     "answers": 0
+    }
+   ],
+   "summary": "Appeal Division showed empathy for Ms. Molchan's hardship and urged consideration of write-off, providing contact info.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Molchan contends Appeal Division unreasonably concluded claim should be retroactively reconsidered",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds Ms. Molchan essentially asks for reassessment of factors and weight, which is not judicial review role",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Molchan argues Appeal Division's reconsideration conclusion unreasonable; court rejects as outside judicial review scope.",
+   "role": "issue"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court satisfied Appeal Division's decision is reasonable, coherent, rational, justified by facts and law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court sympathetic to Ms. Molchan's situation but finds no basis to intervene",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appeal Division's decision reasonable and justified, sympathetic but no basis to intervene.",
+   "role": "conclusion"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review dismissed; no costs awarded as respondent did not seek costs",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses judicial review application and awards no costs as respondent did not seek them.",
+   "role": "disposition"
+  }
+ ]
+}

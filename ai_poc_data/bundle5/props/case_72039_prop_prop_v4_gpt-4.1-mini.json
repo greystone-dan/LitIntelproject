@@ -1,0 +1,620 @@
+{
+ "case_id": 72039,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.008675200000000001
+ },
+ "verification": {
+  "paragraphs": 26,
+  "rows": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 58,
+  "holders": {
+   "court": 28,
+   "applicant": 16,
+   "earlier_decision_maker": 8,
+   "prior_court_or_authority": 6
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "6": "DETERMINATION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The principal appellant and her children, citizens of Tunisia and Libya, appeal the Refugee Protection Division (RPD) decision rejecting their refugee claims based on an internal flight alternative in Bizerte. The appellant argues the RPD erred by not considering family reunification, family unit, and indirect persecution principles. The appeal is dismissed; the RPD's decision is found correct and reasonable.",
+  "background_paras": "1-3, 8-10, 17-18, 22-23, 30",
+  "disposition_paras": "5-6, 24-25",
+  "blocks": [
+   {
+    "issue": "Did the RPD err in assessing the internal flight alternative in Bizerte?",
+    "paras": "4-6, 10, 17-22, 24-25",
+    "court_conclusion": "The RPD's decision on the internal flight alternative is correct; no serious risk or unreasonable to seek refuge in Bizerte.",
+    "conclusion_paras": "5-6, 24-25",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RPD erred by not considering family reunification, family unit, indirect persecution; no viable internal flight alternative exists in Tunisia.",
+      "paras": "3, 11, 21"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Rejected claims due to internal flight alternative in Bizerte; found fear speculative and no serious risk in Bizerte.",
+      "paras": "3, 10"
+     },
+     {
+      "holder": "court",
+      "text": "RPD reasonably found appellants are not refugees; internal flight alternative exists; fears unsupported by evidence.",
+      "paras": "4-6, 10, 17-22, 24-25"
+     }
+    ]
+   },
+   {
+    "issue": "Whether family reunification and indirect persecution principles affect refugee claim assessment.",
+    "paras": "3, 11, 13-16, 30",
+    "court_conclusion": "Family reunification objective is not determinative for refugee status; indirect persecution does not constitute persecution under Convention.",
+    "conclusion_paras": "24",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "RPD ignored family reunification, family unity, indirect persecution; claims should be accepted on these bases.",
+      "paras": "3, 11"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Indirect persecution not persecution; family as social group requires personal targeting; family reunification not determinative for refugee status.",
+      "paras": "13-16"
+     },
+     {
+      "holder": "court",
+      "text": "Family reunification under IRPA is not determinative; other mechanisms exist; RPD's conclusion correct.",
+      "paras": "16, 23, 30"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal appellant and her children, citizens of Tunisia and Libya, appeal the RPD decision rejecting their refugee claims due to an internal flight alternative in Bizerte.",
+     "answers": 0
+    }
+   ],
+   "summary": "The principal appellant and her children, citizens of Tunisia and Libya, appeal the RPD decision rejecting their refugee claims due to an internal flight alternative in Bizerte.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal appellant's claim is based on her husband's recognized refugee status and his persecution due to employment in Tunisia, including death threats.",
+     "answers": 0
+    }
+   ],
+   "summary": "The principal appellant's claim is based on her husband's recognized refugee status and his persecution due to employment in Tunisia, including death threats.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by not considering family reunification, family unit, and indirect persecution principles.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD rejected claims due to an internal flight alternative in Bizerte.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges RPD erred by ignoring family reunification and indirect persecution; the RPD rejected claims due to an internal flight alternative in Bizerte.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key question is whether the RPD erred in assessing the internal flight alternative in Bizerte.",
+     "answers": 0
+    }
+   ],
+   "summary": "The key question is whether the RPD erred in assessing the internal flight alternative in Bizerte.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The answer to the key question is no; the RPD's decision is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court answers no to the key question and finds the RPD's decision correct.",
+   "role": "conclusion"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed; the RPD reasonably found appellants are not refugees or in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is dismissed; the RPD reasonably found appellants are not refugees or in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court reviews all evidence to determine if the RPD decision is correct, applying the correctness standard of review.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Huruglica and Rozas del Solar support applying the correctness standard of review here.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court reviews all evidence and applies the correctness standard of review, supported by Huruglica and Rozas del Solar.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court considered Chairperson's Guidelines 3 and 4 regarding child and women refugee claimants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considered Chairperson's Guidelines 3 and 4 regarding child and women refugee claimants.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The principal appellant fears being tracked in Bizerte due to her husband's past and her job, but gave vague explanations and summarized her fears in writing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The principal appellant alleges fear of being tracked in Bizerte due to husband's past and her job, but gave vague explanations and summarized fears in writing.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the fear speculative without evidence of tracking efforts and noted the husband no longer employed at source of threats.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the appellant's allegations unreasonable due to counsel representation and ample time to amend written account.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found no evidence of required authorization to leave country or current interest by authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found appellants failed to establish serious possibility of persecution or risk of harm in Bizerte.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found it not objectively unreasonable for appellants to seek refuge in Bizerte given conditions and circumstances.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the fear speculative, allegations unreasonable, no evidence of authority interest, no serious risk in Bizerte, and refuge there not unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by confusing sections 96 and 97 IRPA and not recognizing family targeting.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD ignored evidence corroborating real fear for lives in Tunisia.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD decision contradicts IRPA's family reunification objective.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Termination of husband's employment does not end persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Post-resignation events increased fear of return to Tunisia.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD should have accepted claims based on family unity principle.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD should have applied indirect persecution concept.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD should consider Libya-Tunisia proximity and cultural homogeneity.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants can claim refugee status as women social group members.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No viable internal flight alternative exists in Tunisia due to persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues RPD erred on IRPA sections, ignored family targeting and evidence, misapplied family unity and indirect persecution, and wrongly found an internal flight alternative.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court notes the statement in Akinfolajimi regarding internal flight alternative and related issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the statement in Akinfolajimi regarding internal flight alternative and related issues.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Indirect persecution does not constitute persecution under the Convention.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimants must have well-founded fear of persecution, not be mere spectators of others' persecution.",
+     "answers": 0
+    }
+   ],
+   "summary": "Case law states indirect persecution is not persecution and claimants must have well-founded fear, not be mere spectators.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Family as a social group basis requires evidence of persecution due to family membership, not just family unity principle.",
+     "answers": 0
+    }
+   ],
+   "summary": "Family as a social group basis requires evidence of persecution due to family membership, not just family unity principle.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "A person is not a refugee solely because a family member is persecuted; claimants must be personally targeted.",
+     "answers": 0
+    }
+   ],
+   "summary": "A person is not a refugee solely because a family member is persecuted; claimants must be personally targeted.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Family reunification objective in IRPA is not determinative for refugee status under sections 96 and 97.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Other IRPA mechanisms exist for family reunification since husband's claim was accepted.",
+     "answers": 0
+    }
+   ],
+   "summary": "Family reunification is not determinative for refugee status; other IRPA mechanisms exist since husband's claim was accepted.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal appellant's account is based on husband's allegations of threats due to employment; husband recognized as refugee.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key question is whether an internal flight alternative exists for all appellants in Bizerte.",
+     "answers": 0
+    }
+   ],
+   "summary": "The principal appellant's account is based on husband's recognized refugee status; key question is internal flight alternative in Bizerte.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The husband is Libyan; principal appellant is Tunisian; children have dual citizenship.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Appellants must establish lack of internal flight alternative in Bizerte, as proposed by RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "Husband is Libyan; principal appellant Tunisian; children dual citizens; appellants must prove no internal flight alternative in Bizerte.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "IFA test from Rasaratnam and Thirunavukkarasu involves two-pronged analysis: no serious risk and not unreasonable to seek refuge there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RAD must be satisfied on balance of probabilities that appellants face no serious risk or it is not unreasonable to seek refuge in IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "IFA test requires showing no serious risk and that seeking refuge there is not unreasonable, per Rasaratnam and Thirunavukkarasu.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal appellant's fear of being tracked in Bizerte is unsupported by independent proof and absent from written account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Husband no longer employed at source of threats; appellant failed to prove threats would follow to Bizerte.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the principal appellant's fear unsupported and husband no longer employed at source of threats, so no proof threats follow to Bizerte.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Principal appellant raised new alleged fear of Tunisian authorities due to her resignation.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She stated she could be suspected by authorities but gave no further information when asked by RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Principal appellant does not dispute RPD's conclusion about allegations omitted from her written account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No error found in RPD's conclusion regarding omitted allegations; conclusion is correct.",
+     "answers": 3
+    }
+   ],
+   "summary": "The principal appellant alleges a new fear of Tunisian authorities but provides no details; she does not dispute RPD's conclusion, which the court finds correct.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Audio recording shows principal appellant's parents live in Bizerte with no problems related to refugee claim allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal appellant unable to identify other reasons preventing return to Bizerte with children.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal appellant submitted additional written submissions after hearing but gave no explanations on second prong of IFA test.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence suggests principal appellant cannot find employment or housing in Bizerte; she is educated and previously employed in Tunisia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There is an IFA for female appellants in location proposed by RPD; no need to address associated appellants' fear in Libya.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no evidence preventing return to Bizerte; an IFA exists there for female appellants; no need to address fear in Libya.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD aware of documentary evidence on situation of women in Tunisia.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Principal appellant did not allege or establish link between difficult situation of women and her or her children's situation.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "This conclusion is not challenged by principal appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court examined conclusion and Guidelines and finds RPD's conclusion correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found no link between women's situation in Tunisia and appellant's fear; appellant does not challenge this; court agrees with RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "After examining all evidence, RPD did not err in its decision, which is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the RPD did not err and its decision is correct after reviewing all evidence.",
+   "role": "conclusion"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal is dismissed; RPD's determination that female appellants are neither Convention refugees nor persons in need of protection is confirmed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms RPD's determination that female appellants are not refugees or in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Family unification is a stated objective of IRPA and decisions leading to different results are difficult.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Protection claims must be assessed individually and on their own merit based on IRPA sections 96 and 97 definitions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states family unification is an IRPA objective but protection claims must be individually assessed per IRPA sections 96 and 97.",
+   "role": "law"
+  }
+ ]
+}

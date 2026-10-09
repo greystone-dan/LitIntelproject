@@ -1,0 +1,896 @@
+{
+ "case_id": 28105,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.012102000000000002
+ },
+ "verification": {
+  "paragraphs": 43,
+  "rows": 43,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 86,
+  "holders": {
+   "court": 52,
+   "respondent": 19,
+   "prior_court_or_authority": 7,
+   "applicant": 7,
+   "witness_or_document": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 6,
+  "headings_before": 5
+ },
+ "headings": {
+  "3": "II. Facts",
+  "14": "III. Issue",
+  "20": "B. The application for judicial review is not doomed to fail",
+  "31": "C. The application for judicial review is not premature",
+  "42": "V. Conclusion"
+ },
+ "split_from": {
+  "3": 2,
+  "14": 13,
+  "15": 13,
+  "20": 19,
+  "31": 30,
+  "42": 41
+ },
+ "blocks": {
+  "overview": "This case concerns Lemay Co Inc.'s judicial review application challenging the Minister of Canada's refusal to allow an upward adjustment to its Canada Emergency Wage Subsidy (CEWS) claim. Lemay is the applicant appealing the Minister's decision, the respondent, which denied the amendment of CEWS claims for certain periods. The Federal Court dismissed the respondent's motion to strike, finding the judicial review application is neither doomed to fail nor premature due to internal recourse.",
+  "background_paras": "3-12",
+  "disposition_paras": "42-44",
+  "blocks": [
+   {
+    "issue": "Is Lemay's judicial review application doomed to fail or premature due to internal recourse?",
+    "paras": "2, 13-20, 29-31, 38-42",
+    "court_conclusion": "Motion to strike is dismissed; application is not doomed to fail or premature due to internal recourse.",
+    "conclusion_paras": "2, 30, 38, 41-42",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Application is doomed to fail due to incorrect ITA interpretation and premature because internal recourse under subsection 125.7(16) must be exhausted.",
+      "paras": "13, 21, 31, 36, 37"
+     },
+     {
+      "holder": "applicant",
+      "text": "Application is not doomed to fail; ITA provisions allow amendment and Minister has no internal recourse to deny upward adjustment.",
+      "paras": "22-24, 33"
+     },
+     {
+      "holder": "court",
+      "text": "Respondent failed to show application is doomed or premature; no internal recourse exists as Minister rendered enforceable decision to contrary.",
+      "paras": "2, 30, 38, 39, 41"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent failed to show judicial review application is doomed to fail or that internal recourse exists for Lemay's claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Motion to strike is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the respondent failed to show the judicial review application is doomed or recourse exists, so the motion to strike is dismissed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties agree Lemay received CEWS from Aug 2, 2020 to May 8, 2021 over 10 two-week pay periods numbered 6 to 15",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states parties agree Lemay received CEWS for periods 6 to 15 during the pandemic.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister audited CEWS and found Lemay overclaimed for periods 6,7 and 13 to 15 by $311,204",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Lemay underclaimed for periods 8 to 12 due to same calculation error",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister found Lemay overclaimed for some periods and underclaimed for others due to calculation errors.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On March 27, 2023, Minister notified Lemay of intent to assess and adjust periods 6,7 and 13 to 15",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister notified Lemay on March 27, 2023 of intended adjustments for overclaimed periods.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On May 12, 2023, Lemay requested Minister to apply discretion under ITA subsection 125.7(16) to increase claim for periods 8 to 12",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This would allow Lemay to receive $1,715,341 more for those periods",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Lemay requested an upward adjustment under ITA subsection 125.7(16) for periods 8 to 12 to receive more funds.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On June 22, 2023, Minister confirmed intent to adjust periods 6,7 and 13 to 15 but refused Lemay's request for periods 8 to 12",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister referred refusal to CRA technical interpretation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister confirmed adjustments for overclaimed periods but refused upward adjustment for periods 8 to 12, citing CRA interpretation.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On July 26, 2023, Lemay sent additional submissions asserting Minister may grant higher CEWS amounts under ITA paragraphs 164(1)(b) and 152(3.4)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Lemay submitted further arguments that the Minister may grant higher CEWS amounts under specific ITA provisions.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Sept 11, 2023, Minister again refused, stating no jurisdiction to allow upward adjustment for periods 8 to 12",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister reasoned original amounts were paid and new amounts exceed initial claim filed timely",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Paragraph 125.7(5)(a) limits subsidy to amount originally claimed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister cannot accept amended application as Parliament did not confer such power",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister refused upward adjustment again, citing lack of jurisdiction, original claim limits, and statutory restrictions.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Oct 11, 2023, Lemay applied for judicial review of Minister's decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Lemay applied for judicial review on October 11, 2023.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Oct 25, 2023, respondent informally revised position suggesting analysis under subsection 125.7(16) to consider upward adjustment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This contradicts Minister's Sept 11, 2023 decision",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states the respondent informally suggested reconsideration under subsection 125.7(16), contradicting the prior decision.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Lemay rejected proposal as it had already been refused in Sept 11, 2023 letter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Sept 11, 2023 letter remains official decision under judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Lemay rejected the informal proposal and the September 11 letter remains the official decision under review.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Application for judicial review is doomed to fail due to incorrect interpretation of ITA provisions",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Application is premature because internal and efficient recourse under subsection 125.7(16) must be exhausted",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the judicial review is doomed to fail and premature due to internal recourse under subsection 125.7(16).",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the applicant's judicial review application is doomed to fail or premature due to internal recourse",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the issue is whether the judicial review application is doomed or premature due to internal recourse.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court may strike judicial review applications doomed to fail or premature if internal and efficient recourse exists to prevent abuse of court processes",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Michaels of Canada, ULC v Canada (Attorney General), 2023 FCA 243 and JP Morgan, 2013 FCA 250 at para 48",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it may strike doomed or premature judicial reviews if internal recourse exists, citing relevant authorities.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Judicial review applications should not be struck before merits hearing except in exceptional cases of no possibility of success",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites David Bull Laboratories, JP Morgan, and Luk\u00e1cs cases",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states judicial reviews should not be struck pre-hearing except in exceptional no-success cases, citing authorities.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Party moving to strike must meet stringent standard to show application should be struck",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Luk\u00e1cs, Benhsaien, and Canada v Preston cases",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the moving party must meet a stringent standard to strike an application, citing cases.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "On statutory interpretation questions, court must determine if applicant's interpretation has reasonable chance of success on motion to strike",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Cites Mohr v National Hockey League, 2022 FCA 145 at para 47",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If legislation can be interpreted in two ways, court cannot find no reasonable chance of success",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states on statutory interpretation, it must find if applicant's interpretation has reasonable chance, citing Mohr.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Motions judge should not make definitive legal pronouncements on competing statutory interpretations on motion to strike",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Court must determine if conflicting interpretation has reasonable prospect of success, citing Mohr at para 52",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it should not decide definitive legal meaning on motion to strike but assess if conflicting interpretation has reasonable prospect, citing Mohr.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Subsection 125.7(5) of ITA limits deemed overpayment to amount claimed by eligible entity in application for qualifying period",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states subsection 125.7(5) of ITA limits overpayment to amount claimed by eligible entity in application.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 125.7(5)(a) prohibits Minister from paying subsidy greater than amount initially claimed",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Definition of qualifying entity includes filing application with specific amount claimed",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 125.7(5)(a) language is unambiguous and disallows paying amounts exceeding claimed amount",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "conclusion_or_order",
+     "text": "Lemay's application is doomed to fail due to statutory language",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues paragraph 125.7(5)(a) unambiguously prohibits paying more than claimed, so Lemay's application is doomed to fail.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Subsection 125.7(5) of the ITA does not prevent a qualifying entity from amending an original CEWS application",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Paragraph 125.7(5)(a) does not address the right to file a new form to correct a calculation error in a previously submitted form",
+     "answers": 0
+    }
+   ],
+   "summary": "Lemay argues subsection 125.7(5) ITA allows amending CEWS applications and does not bar filing new forms to correct errors.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Minister has inherent power under ITA, especially subsections 152(3.4) and 164(1)(b), to allow new returns by taxpayers",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Respondent's argument does not fully respond to judicial review application; application is not doomed to fail",
+     "answers": 0
+    }
+   ],
+   "summary": "Lemay claims Minister has inherent power under ITA to allow new returns and respondent's argument does not doom application.",
+   "role": "issue"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Lemay submitted that paragraphs 164(1)(b) and subsection 152(3.4) apply",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister rejected Lemay's argument in September 11, 2023 decision",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Minister's conclusions on these provisions are subject of judicial review application",
+     "answers": 0
+    }
+   ],
+   "summary": "Lemay submitted ITA provisions apply; Minister rejected this; these conclusions are under judicial review.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Subsection 152(3.4) remedies effects of paragraph 152(1)(b) and does not allow upward adjustments to original applications",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Purpose of subsection 152(3.4) is to allow immediate subsidy by deeming overpayment at qualifying period",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Subsection 152(3.4) text provided",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues subsection 152(3.4) remedies paragraph 152(1)(b) effects and limits upward adjustments; provides text of subsection.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Subsection 152(3.4) is unambiguous and subject to limitation in subsection 125.7(5)",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent views subsection 152(3.4) as unambiguous and limited by subsection 125.7(5).",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent made no argument rebutting Lemay's position on paragraph 164(1)(b)",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent referred to subsection 152(4) orally, indicating Lemay's argument does not apply",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Subsection 152(4) does not fully address Lemay's argument on subsections 152(3.4), 125.7(5), and paragraph 164(1)(b)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Respondent did not address whether Minister has inherent power to allow amendment to prescribed form under these provisions",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent did not rebut Lemay's paragraph 164(1)(b) argument; subsection 152(4) insufficient; Minister's inherent power to amend form unaddressed.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "It is unclear if ITA provisions allow Minister to admit amended prescribed form as applicant requests",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "This issue is central to the judicial review application",
+     "answers": 0
+    }
+   ],
+   "summary": "It is unclear if ITA allows Minister to admit amended form; this is central to judicial review.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "On motion to strike, Court should not determine ITA meaning if multiple reasonable interpretations exist",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Mohr case states interpretation with multiple reasonable meanings is for trial judge, not motion to strike",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not clear ITA provisions cannot allow Lemay's claim; full submissions needed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states on motion to strike it cannot decide ITA meaning if multiple interpretations; Lemay's claim not clearly doomed.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent did not provide full submissions showing ITA provisions cannot be interpreted as Lemay suggests",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent failed to show it is plain and obvious Lemay's interpretation has no chance of success",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is not clearly doomed to fail",
+     "answers": 2
+    }
+   ],
+   "summary": "Respondent failed to prove Lemay's interpretation has no chance; judicial review application not doomed to fail.",
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Application for judicial review should be struck as internal and effective recourse exists under subsection 125.7(16)",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Court may strike premature application if internal recourse could resolve issue (citing CB Powell and JP Morgan cases)",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues judicial review is premature due to internal recourse under subsection 125.7(16), citing case law.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister has already ruled on recourse respondent directs Lemay to seek, interpreting subsection 125.7(16) narrowly",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister has ruled on recourse respondent suggests, interpreting subsection 125.7(16) narrowly.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "On May 12, 2023, Lemay requested Minister to apply discretion under subsection 125.7(16) to increase claim",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On June 22, 2023, Minister refused claim relying on CRA internal interpretation document",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "CRA document states subsection 125.7(16) does not affect Minister's ability to allow amendment to CEWS amount",
+     "answers": 0
+    }
+   ],
+   "summary": "Lemay requested discretion under subsection 125.7(16); Minister refused relying on CRA internal interpretation.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister determined no recourse under subsection 125.7(16) and rejected application respondent claims is available",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister determined no recourse under subsection 125.7(16) and rejected application respondent claims is available.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On September 11, 2023, CRA stated subsection 125.7(16) allows original CEWS application but not amendments",
+     "answers": 0
+    }
+   ],
+   "summary": "CRA stated subsection 125.7(16) allows original CEWS applications but not amendments.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent submits Minister's interpretation is error; internal and effective recourse exists under subsection 125.7(16)",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues Minister erred; internal recourse exists under subsection 125.7(16).",
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent's interpretation of subsection 125.7(16) is plausible and aligns with liberal interpretation principle",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Interpretation Act section 12 favors fair, large, liberal construction to attain objects",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister specifically rejected respondent's interpretation in decision under judicial review",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent's interpretation is plausible and aligns with liberal interpretation, but Minister rejected it in decision under review.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister rejected all internal recourse under subsection 125.7(16) that could allow Lemay to file application",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No internal and effective recourse exists in this matter",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister rejected all internal recourse under subsection 125.7(16); no internal and effective recourse exists.",
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent cannot argue internal recourse exists when Minister has rendered enforceable decision to contrary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Respondent may argue Minister erred at hearing if parties raise issue",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Lemay had no internal recourse and had to file judicial review application",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent cannot claim internal recourse exists contrary to Minister's decision; Lemay had no recourse and filed judicial review.",
+   "role": "conclusion"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Allowing respondent's argument would require ruling on Minister's reasonableness without full submissions",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Issue must be decided by trial judge if raised at hearing, not on motion to strike",
+     "answers": 0
+    }
+   ],
+   "summary": "Ruling on Minister's reasonableness requires full submissions; issue for trial judge, not motion to strike.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent cannot object to Minister's conclusions and order Lemay to submit prohibited application on motion to strike",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent cannot object to Minister's conclusions and order prohibited application on motion to strike.",
+   "role": "conclusion"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The motion to strike is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the motion to strike.",
+   "role": "conclusion"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Requests extension of time limits under Federal Courts Rules by 30 days from decision date",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Extends time limits by 30 days as requested by respondent",
+     "answers": 1
+    }
+   ],
+   "summary": "The respondent requests and the court grants a 30-day extension of time limits under Federal Courts Rules.",
+   "role": "conclusion"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Costs of $3,285 payable to Lemay as agreed by parties",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders costs of $3,285 payable to Lemay as agreed by the parties.",
+   "role": "conclusion"
+  }
+ ]
+}

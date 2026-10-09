@@ -1,0 +1,2069 @@
+{
+ "case_id": 72239,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.027872800000000003
+ },
+ "verification": {
+  "paragraphs": 75,
+  "rows": 75,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 235,
+  "holders": {
+   "court": 153,
+   "applicant": 34,
+   "respondent": 11,
+   "earlier_decision_maker": 24,
+   "prior_court_or_authority": 13
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "5": "DECISION",
+  "6": "ROLE OF THE RAD",
+  "10": "GROUNDS OF APPEAL"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns the appeal of a Nigerian citizen excluded from refugee protection under Article 1F(b) of the Refugee Convention for alleged involvement in bribery and extortion as a Nigerian police officer. The appellant challenges the exclusion and alleges procedural fairness breaches, while the Minister argues serious non-political crimes justify exclusion. The appeal is dismissed, confirming the exclusion and the appellant is not a Convention refugee.",
+  "background_paras": "1-3, 7-9",
+  "disposition_paras": "1, 4-5, 59, 73-75",
+  "blocks": [
+   {
+    "issue": "Did the RPD breach natural justice by not allowing the appellant to respond to the Minister's Article 1F(b) exclusion intervention?",
+    "paras": "10-17",
+    "court_conclusion": "The RPD did not breach natural justice; the appellant had notice and opportunity to respond.",
+    "conclusion_paras": "12-17",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues breach of natural justice due to late and broad Minister intervention under Article 1F(b).",
+      "paras": "10, 14"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": "3"
+     },
+     {
+      "holder": "court",
+      "text": "RPD provided procedural fairness; appellant had notice and chance to respond; no breach found.",
+      "paras": "12-17"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RPD err in finding the appellant committed a serious non-political crime excluding him under Article 1F(b)?",
+    "paras": "18-31, 60-64",
+    "court_conclusion": "There are serious reasons to consider the appellant committed bribery and extortion; RPD's finding is correct.",
+    "conclusion_paras": "18, 26, 31, 60, 64",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues no crime committed, no conviction, complicity does not apply under Article 1F(b).",
+      "paras": "29, 30, 37"
+     },
+     {
+      "holder": "respondent",
+      "text": "Minister alleges appellant complicit in bribery and extortion under common intention doctrine.",
+      "paras": "21, 33"
+     },
+     {
+      "holder": "court",
+      "text": "RPD and RAD correctly applied complicity framework; appellant's testimony not credible; serious reasons to exclude.",
+      "paras": "18, 26, 31, 60, 64"
+     }
+    ]
+   },
+   {
+    "issue": "Does the Ezokola complicity framework apply to exclusion under Article 1F(b) for serious non-political crimes?",
+    "paras": "33-45, 60, 72",
+    "court_conclusion": "Ezokola complicity factors apply to Article 1F(b); appellant made significant contribution to crimes.",
+    "conclusion_paras": "40-45, 60, 72",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues complicity applies only to Article 1F(a), not 1F(b); concedes Ezokola factors if complicity assumed.",
+      "paras": "29, 37, 38"
+     },
+     {
+      "holder": "court",
+      "text": "Ezokola and complicity principles apply to Article 1F(b); significant contribution test met.",
+      "paras": "40-45, 60, 72"
+     }
+    ]
+   },
+   {
+    "issue": "Was the appellant's involvement in bribery and extortion sufficient to exclude him under Article 1F(b) and section 98 IRPA?",
+    "paras": "46-58, 62-68, 70-74",
+    "court_conclusion": "Appellant's senior police role and knowledge of corruption establish complicity and exclusion under Article 1F(b).",
+    "conclusion_paras": "46-58, 62-68, 70-74",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Denies knowledge or participation in bribery; claims retirement and lack of evidence for his unit.",
+      "paras": "30, 52, 53, 62"
+     },
+     {
+      "holder": "respondent",
+      "text": "Evidence shows widespread police corruption; appellant held senior rank and participated in bribery/extortion.",
+      "paras": "21, 27, 41, 46, 47"
+     },
+     {
+      "holder": "court",
+      "text": "Appellant's rank, duties, and testimony show complicity; evidence of systemic corruption supports exclusion.",
+      "paras": "46-58, 62-68, 70-74"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal brought by the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant appeals a decision of the RPD dated April 11, 2022, excluding him from refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant is excluded pursuant to Article 1F(b) of the Convention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Confirm the RPD decision that the Appellant is not a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, confirms the RPD excluded the Appellant under Article 1F(b), and he is not a Convention refugee.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant is a Nigerian citizen who claimed refugee status based on religion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He alleges threats because he refused to become chief priest due to Christian beliefs.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He alleges risk of death from idol worshippers for refusing hereditary role.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Minister intervened seeking exclusion under Article 1F(b) and section 98 IRPA for serious non-political crime equivalent to bribery and extortion.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Minister met its burden and excluded the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant claims religious persecution; the Minister seeks exclusion for serious crime; the RPD excluded the Appellant accordingly.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Minister did not intervene at the RAD stage.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The key issue is whether the RPD erred in excluding the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No new evidence or oral hearing requested on appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues he is not excluded and alleges a breach of natural justice by the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister did not intervene on appeal; the issue is RPD's exclusion decision; the Appellant argues no exclusion and breach of natural justice.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not breach natural justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The exclusion test is met considering complicity test factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant is excluded from refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no natural justice breach and confirms the exclusion test is met; the Appellant is excluded.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD was correct that the Appellant is neither a Convention refugee nor in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and finds the RPD correct that the Appellant is not a refugee or in need of protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The RAD's role is to review all evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RAD's role is to review evidence and assess correctness of the RPD decision.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant is a XXXX and retired XXXX XXXX with years of service in Nigerian police.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He worked in the XXXX XXXX Division and became a XXXX in 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "His family maintains a shrine requiring a priest; his father refused chief priest role and fled.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "His father died in 1973, attributed to refusal to be chief priest.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "After father's death, Appellant was pressured to be chief priest but agents of persecution could not influence him due to police role.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the Appellant's police career and family shrine background, including his father's death and pressure to be chief priest.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In 2018, the Appellant was summoned to be chief priest but refused due to Christian faith and was threatened with death.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He alleges being followed and threatened, reported to police who took no action due to 'family matter' and staff shortage.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He relocated but received anonymous calls revealing his location.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In 2019, he left Nigeria for USA, did not claim asylum there, then came to Canada and claimed asylum.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges threats for refusing priest role, police inaction, relocation, and eventual asylum claim in Canada after USA.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Minister intervened at RPD in June 2021, amended notice in December 2021 on credibility and exclusion under Articles 1F(a) and (c).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "At RPD hearing, Minister orally added exclusion under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The RPD hearing proceeded on exclusion under Article 1F(b).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Minister intervened at RPD initially on Articles 1F(a) and (c), then added Article 1F(b); hearing proceeded on 1F(b) exclusion.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues RPD breached procedural fairness and erred in excluding him under Article 1F(b).",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD breached procedural fairness and erred in exclusion under Article 1F(b).",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Central questions: was there denial of natural justice and is there serious reason to consider Appellant committed a non-serious political crime excluding him under Article 1F(b)?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issues to address: Did RPD breach natural justice by not allowing response to Article 1F(b) exclusion?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did RPD err in finding a crime was committed?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Does Ezokola complicity framework apply to non-serious political crime under Article 1F(b)?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Did Appellant commit bribery and extortion under common intention doctrine excluding him under Article 1F(b) and section 98 IRPA?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court frames issues: natural justice breach, crime finding error, Ezokola complicity test applicability, and commission of bribery/extortion under Article 1F(b).",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court will address these issues throughout the decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not breach natural justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will address issues and finds the RPD did not breach natural justice.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not breach natural justice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant had opportunity to know the case and respond to Minister's exclusion intervention under Article 1F(b).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not breach natural justice and the Appellant had opportunity to respond to exclusion under Article 1F(b).",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues RPD breached natural justice by allowing overly broad Minister intervention notice.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He claims RPD failed to apply Baker guidelines on procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He says refugee claim is important and procedural fairness must be followed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Minister initially intervened on Article 1F(a), amended to include 1F(c), then raised 1F(b) at hearing without advance notice.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He suggests Minister sought any means to exclude him.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Minister's notice cited many Criminal Code sections not referred to at hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He claims he was unaware of issues to prepare for.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD breached natural justice due to broad Minister notice, lack of advance notice on Article 1F(b), and failure to apply Baker guidelines.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees with the Appellant's natural justice breach claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RPD audio, transcript, and evidence show procedural fairness was demonstrated by RPD and Minister.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister's written notice stated intervention on Articles 1F(a) and (c), but at first hearing in Dec 2021, Minister corrected to include 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RPD immediately asked Appellant's counsel for comments; counsel had none.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Hearing proceeded; second sitting scheduled; both parties allowed additional evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified at both sittings on exclusion under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister gave oral submissions on exclusion and equivalency to bribery and extortion under Criminal Code sections.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds procedural fairness was demonstrated; Minister corrected intervention to include 1F(b); Appellant had opportunity to respond and testify.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister filed oral submissions and amended written submissions on record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant was given opportunity to file written submissions on Article 1F(b) exclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant filed written submissions on March 27, 2022, on Article 1F(b) exclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Minister filed reply submissions as it had burden of proof.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister and Appellant filed submissions on Article 1F(b); Minister had burden and filed reply submissions.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant was given notice at December 2021 hearing that Minister sought exclusion under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant and counsel could have requested adjournment but did not.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD accepted Minister's change as Appellant made no objection; claim proceeded on exclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant was questioned on exclusion and provided answers.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant provided written submissions on Article 1F(b) exclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD considered Appellant's submissions in reasons to exclude him.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant had opportunity to know case and respond; no breach of natural justice by RPD or Minister.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence supports Appellant's breach of natural justice claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant had notice, opportunity to respond, no objection to Minister's change, and no breach of natural justice occurred.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD correctly found commission of a crime and excluded the Appellant under Article 1F(b).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD correctly found a crime was committed and excluded the Appellant under Article 1F(b).",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The RPD agreed with the Minister's submissions on exclusion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court will address the RPD's reasons throughout its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD agreed with the Minister's submissions; the court will address these reasons throughout the decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred in finding exclusion under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court will consider the Appellant's submissions on RPD error throughout its reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD erred in exclusion; the court will consider these submissions throughout its reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister alleges Appellant excluded from refugee protection for serious non-political offence before entering Canada",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister submits Nigerian police and XXXX XXXX are highly corrupt and expect returns",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Appellant was member of NPF XXXX XXXX department, rose ranks to XXXX XXXX XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Appellant participated in extortion to obtain bribes and moved money up command chain",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Serious reasons to consider Appellant complicit in crimes under paragraph 21(1)(b) or doctrine of common intention under subsection 21(2) CCC",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Crimes in Canada would be Bribery of Officers (s.120 CCC) and Extortion (s.346 CCC)",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent alleges Appellant excluded from refugee protection for serious non-political offences including bribery and extortion in Nigerian police.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will assess if RPD was incorrect in finding on Appellant's exclusion based on Appellant's appeal arguments",
+     "answers": 0
+    }
+   ],
+   "summary": "Court will assess if RPD erred in its exclusion finding based on Appellant's arguments on appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Minister bears onus to prove exclusion under Article 1F(b) by serious reasons for considering serious non-political crime",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Minister bears onus to prove exclusion under Article 1F(b) by serious reasons for considering serious non-political crime.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Crime generally serious if max sentence 10+ years in Canada, rebuttable presumption",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Jayasekara requires considering crime elements, prosecution mode, penalty, facts, mitigating/aggravating circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Febles cautions against unjust, mechanistic, decontextualized application of 10-year rule",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains legal principles on seriousness of crime including Jayasekara and Febles precedents.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD correctly applied jurisprudence on Article 1F(b)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Minister established serious reason to consider Appellant committed serious non-political crime before Canada entry",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD explained how Minister established exclusion under Article 1F(b) and section 98 IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker found Minister established serious reason for exclusion and applied law correctly under Article 1F(b).",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Minister proved crime committed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying complicity factors, RPD's exclusion result is same",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant committed non-political crimes of Bribery of Officers and Extortion in Nigeria",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found serious reason to consider Appellant committed serious non-political offence of bribery and extortion",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker found crime proven; court agrees complicity factors support exclusion for bribery and extortion.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Minister's evidence includes reports from Human Rights Watch, US Dept of State, UN, Amnesty International",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Minister's evidence shows Nigerian police corruption and bribe/extortion demands",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Police officers pay superiors for lucrative posts to elicit bribes",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant worked in sought-after XXXX XXXX post in Lagos, promoted several times",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Evidence indicates XXXX XXXX within Nigerian police cause XXXX to elicit bribes",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker found Minister's evidence shows endemic police corruption and Appellant's role in sought-after post.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD did not accept Appellant's claim of unawareness of corruption due to endemic hierarchical corruption",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant's long police career and promotions indicate participation in bribery",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant aided colleagues in accepting bribes",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Offence if committed in Canada would be bribery and extortion",
+     "answers": 0
+    }
+   ],
+   "summary": "Earlier decision-maker rejected Appellant's ignorance claim and found he aided bribery and extortion.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in finding serious reason for serious non-political offence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says RPD failed to consider he did not commit crimes and was not convicted",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant disputes complicity applies under Article 1F(b), says it applies under 1F(a) only",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says RPD's 'common intent doctrine' reference not associated with Article 1F(b)",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in finding serious reason for bribery and extortion before Canada entry",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues RPD erred, denies crimes and complicity under Article 1F(b), and disputes common intent doctrine use.",
+   "role": "issue"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits police promotions based on geographical quotas, with Northern Nigerians favored",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says he was underpaid but content with salary",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says RPD failed to consider his 2009 retirement and that Minister's evidence post-dates retirement",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant says Minister did not address his specific police unit",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues promotions were quota-based, retired in 2009, and Minister's evidence post-dates retirement and ignores his unit.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD correctly concluded serious reason to find Appellant aided colleagues in bribery",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Offence if committed in Canada would be bribery and extortion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying complicity framework and common intent doctrine supports RPD conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds RPD correctly concluded Appellant aided bribery; complicity and common intent support exclusion.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's involvement in crime is essential to exclusion under Article 1F(b)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court applies complicity framework to assess Appellant's involvement in bribery and extortion",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states Appellant's involvement is essential and applies complicity framework to assess it.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister produced no evidence Appellant personally involved; Appellant denies knowledge or involvement",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister argues para 21(1)(b) or doctrine of common intention under CCC 21(2) apply to exclude Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues complicity does not apply under Article 1F(b)",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister argues complicity under CCC applies; Appellant denies involvement and says complicity not applicable under Article 1F(b).",
+   "role": "issue"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence Appellant directly accepted bribes; Minister argues complicity under common intention doctrine",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD did not assess exclusion under complicity framework",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "RAD will assess if Appellant meets complicity test",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes no direct evidence of bribe acceptance; RPD did not assess complicity; RAD will assess complicity test.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Minister must precisely identify alleged crimes and evidence to meet onus of serious reasons",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister met onus to establish serious reasons for serious non-political crime",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court will examine Appellant's actions under Supreme Court complicity framework",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Minister met onus and will examine Appellant's actions under Supreme Court complicity framework.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Zrig FCA 2003 holds no requirement that person be charged or convicted for exclusion to apply",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant's argument that he was not charged or convicted must fail",
+     "answers": 1
+    }
+   ],
+   "summary": "Court cites Zrig that exclusion does not require charge or conviction; rejects Appellant's argument otherwise.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues complicity applies under Article 1F(a) not 1F(b)",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant concedes if complicity assumed, SCC Ezokola factors apply, not guilt by association",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues complicity applies only under 1F(a), concedes Ezokola factors apply if complicity assumed.",
+   "role": "issue"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant incorrectly cites dissent in Zrig FCA that complicity applies only to 1F(a) not 1F(b)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "FCA Zrig decision holds complicity applies to both Article 1F(a) and 1F(b)",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues Febles means 1F(b) excludes only individuals, not organization members",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "SCC Febles addresses 1F(b) only in relation to individual at issue",
+     "answers": 0
+    }
+   ],
+   "summary": "Court rejects Appellant's incorrect dissent citation; FCA Zrig holds complicity applies to 1F(b); Febles addresses individual only.",
+   "role": "law"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Crimes by state actors often involve Article 1F(a) with complicity issues",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Crimes not rising to 1F(a) level involving state actors may occur less frequently but do occur",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes complicity issues common in 1F(a) crimes by state actors; lesser crimes also occur as in this case.",
+   "role": "facts"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Complicity principles for Article 1F(a) may apply to 1F(b) and (c)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Approach consistent with international law and CCC s.21(2) criminal liability for common unlawful purpose",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minister relies on CCC 21(2) to exclude Appellant under Article 1F(b) for bribery and extortion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court's analysis includes Appellant's contribution to common unlawful purpose of bribery and extortion",
+     "answers": 0
+    }
+   ],
+   "summary": "Court holds complicity principles apply to 1F(b), consistent with law; analysis includes Appellant's contribution to bribery/extortion.",
+   "role": "law"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documentation shows widespread bribes and extortions by a state organization and the Appellant's participation under subsection 20(2) of the CCC.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The test for complicity in Ezokola provides a good road map to assess these arguments.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds documentation shows widespread bribes and extortions involving the Appellant, applying the Ezokola complicity test.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant acknowledges that if complicity is assumed, Ezokola factors apply instead of guilt by association.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ezokola addressed complicity in Article 1F(a) exclusion and commented on subsection 21(2) of the CCC, adopting a contribution-based approach linking individual and group criminal conduct.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The accused's contribution need not be directed to specific crimes but can be to wider common design accomplishing the organization's purpose by any means.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Appellant accepts Ezokola's contribution-based complicity test applies, which links individual conduct to group crimes broadly.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 98 IRPA excludes persons under Article 1F of the Refugee Convention from refugee status.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Article 1F(a) excludes persons with serious reasons to consider they committed crimes against peace, war crimes, or crimes against humanity.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ezokola confirms the standard of serious reasons to consider is between suspicion and balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "An individual need not physically commit the crime but can be excluded if complicit.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains Article 1F(a) exclusion under IRPA and Ezokola's standards for serious reasons and complicity.",
+   "role": "law"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The SCC held an individual is complicit if they voluntarily made a significant and knowing contribution to the organization's crime or purpose.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "SCC factors for complicity include organization size, claimant's part, duties, rank, time in organization, recruitment and opportunity to leave.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites SCC's complicity definition and six factors to consider in assessing complicity.",
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A significant contribution need not be to specific crimes but to the organization's common design; contribution must be carefully assessed for significance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's actions constitute a significant contribution.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states significant contribution can be to common design and finds the Appellant's actions significant.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The NPF is a large organization with 375,000 members across 36 states; the Appellant admits his division falls under the NPF.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The NPF commits systemic, institutionalized, widespread serious non-political crimes with near total impunity, including bribery and extortion by police.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the NPF is large and commits systemic bribery and extortion with impunity, including the Appellant's division.",
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The parties agree the Appellant worked for the NPF, rising from XXXX XXXX to XXXX XXXX XXXX XXXX with men under his command.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant's role in the NPF is significant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant worked in the NPF in a significant role with command over men.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant worked XXXX years as a XXXX XXXX with the Nigerian Police, mostly in the XXXX XXXX XXXX at various levels including XXXX and XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "His tasks included XXXX XXXX XXXX and XXXX XXXX; he did not XXXX XXXX XXXX as XXXX XXXX are stationed elsewhere.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He testified about arresting once, writing statements, and detainees not held more than 24 hours without court order.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the Appellant's police career, duties, and testimony about arrests and detainee treatment.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant worked in the XXXX XXXX Division since early XXXX; evidence shows police officers ask for bribes and extort for financial gain.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A 2008 report acknowledged police as one of Nigeria's most corrupt institutions with bribery and extortion accusations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant testified hearing about corruption but not seeing it; he rose to XXXX XXXX XXXX XXXX rank.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court disagrees with the Appellant's argument that evidence post-dates his work and that his unit is not named.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds evidence of police bribery and extortion during the Appellant's career and rejects his argument about timing and unit naming.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Over XXXX years, the Appellant instructed other XXXX XXXX, conducted XXXX XXXX, and supervised other XXXX XXXX XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant instructed and supervised other officers over his career.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "The Federal Court in Kurt found supervisory responsibility is not required for complicity under the contribution-based test.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court is not weighing supervisory responsibility under Article 1F(b) but considers the Appellant's XXXX role as fact and link to complicity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court considers the Appellant's XXXX role as part of common intention doctrine and exclusion under Article 1F(b).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Kurt's ruling that supervisory role is not required for complicity and considers the Appellant's role under common intention.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant's rank changed from XXXX to XXXX to XXXX to XXXX XXXX XXXX XXXX; he denied bribing for promotion, claiming merit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "As XXXX XXXX, he had more responsibilities, took commands, and had subordinates; he was promoted automatically to XXXX.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He denied knowledge of colleagues receiving bribes but admitted some officers were dismissed for such acts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant rose through ranks, denied bribery for promotion, but acknowledged some officers were dismissed for bribery.",
+   "role": "facts"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant declared police were underpaid but he lived within income limits and denied taking bribes or knowing of bribery.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He testified to being disciplined, Christian, condemning corruption, and blaming lack of supervision for malfeasance.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He said he did not participate in XXXX XXXX but acknowledged possible XXXX XXXX; described police duties including XXXX and XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the Appellant's testimony denying bribery, citing religious beliefs, and describing police duties and possible corruption.",
+   "role": "facts"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's senior rank makes it difficult to believe his denial of bribery/extortion knowledge or participation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "His admission that corruption 'could sometimes' happen contradicts his denial and shows knowledge of corrupt behavior.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "His religious beliefs do not exclude him from knowing or seeing bribery/extortion by police personnel for financial gain.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "His testimony about 'bad apples' shows some knowledge of wrongdoing despite denial of direct involvement.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's denials contradicted by his rank, admissions, and knowledge of police corruption despite religious claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The NPF has been corrupt for decades; the Appellant's XXXX years of service gave him knowledge of its criminal purpose and corruption.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The 2008 Nigerian report acknowledged police bribery and extortion during the Appellant's tenure, weighing negatively against him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's long service coincided with known police corruption, weighing against him.",
+   "role": "facts"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant voluntarily remained and retired from the NPF, achieving senior rank, indicating complicity or ignoring bribery/extortion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's voluntary long service and retirement indicate complicity or ignoring corruption.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "CCC paragraph 21(1)(b) and subsection 21(2) define parties to offence and common intention doctrine.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Common intention applies when persons form a common unlawful purpose and any commits an offence known or probable to others.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the CCC provisions on parties to offence and common intention doctrine.",
+   "role": "law"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Objective evidence shows the XXXX XXXX Division commits bribery and extortion; the Appellant held various ranks there for years.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant omitted to act to aid commission of offences; his testimony was evasive and general, negatively impacting credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court agrees with the Minister that the doctrine of common intention applies to exclude the Appellant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant complicit by omission in bribery/extortion, his evasive testimony harms credibility, and applies common intention doctrine.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Minister has made the case that the Appellant is complicit through common intention doctrine.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Bribery and extortion under CCC sections 120 and 346 are serious crimes justifying exclusion of the Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The court considered all evidence in reaching this finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Appellant is complicit in serious crimes of bribery and extortion, justifying exclusion.",
+   "role": "conclusion"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD made an incorrect finding on Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD correctly applied evidence and caselaw on Article 1F(b); the RAD expanded assessment with Ezokola complicity factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RAD did not raise a new issue requiring notice; the Appellant failed to rebut Minister's allegations due to credibility issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "There are serious reasons to consider the Appellant committed a non-political crime; the RPD was correct but should have considered Ezokola factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's testimony and evidence before the RPD is not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the Appellant's argument, finds the RPD correct, the RAD properly expanded complicity analysis, and the Appellant not credible.",
+   "role": "conclusion"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's testimony was vague and he needed redirection to answer questions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant denied common evidence of police bribery and extortion in Nigeria, which is not believable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant diverted questions by comparing Nigerian 'bad apples' to Canadian cities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD was correct to find the Appellant not credible about being unaware of corruption and extortion systems.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's testimony vague, not credible, and that the RPD was correct to reject his denial of corruption evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant worked for the NPF XXXX XXXX Division in Lagos and was promoted under the Nigerian National Police.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant says he was only a XXXX XXXX, not a regular police member.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The distinction between being a XXXX XXXX or regular police officer does not matter given the criminal behaviour evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant worked for the NPF XXXX XXXX Division and that his claim of not being regular police is irrelevant due to criminal behaviour evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD considered the Appellant retired since 2009.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "A 2008 report acknowledged Nigerian police as highly corrupt with bribery and extortion accusations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite retirement, the Appellant was complicit in the common unlawful purpose during his service.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Appellant is a party to the offence if he ought to have known the offence was a probable consequence of the common purpose.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD considered retirement, cites a 2008 report on police corruption, and finds the Appellant complicit under the common purpose doctrine.",
+   "role": "analysis"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's evidence is not credible, especially his denial of knowledge of bribery or extortion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "His religious testimony does not rebut objective evidence of police bribery and extortion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "There are serious reasons to consider the Appellant committed a non-political crime excluding him from refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant not credible and concludes he likely committed a non-political crime excluding refugee protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The crime of bribery and extortion was committed for economic, not political, reasons.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Minister met the burden to show the crime is non-political under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not err in finding the crime non-political and excluding the Appellant from refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the crime was economic, the Minister met the burden, and the RPD correctly excluded the Appellant from refugee protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Bribery and extortion are indictable and serious offenses under the Canadian Criminal Code.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Bribery carries up to 14 years imprisonment; extortion can carry life imprisonment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states bribery and extortion are serious indictable offenses in Canada with severe penalties.",
+   "role": "facts"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found police and XXXX XXXX exercise power and extortion involves threats or coercion.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found documentary evidence links extortion and bribery to unlawful acts like violence and murder.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the crimes serious and punishable by 14 years to life imprisonment in Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Appellant's elevated position would result in a longer sentence, indicating seriousness.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister refers to CCC sections 120 and 346(1) showing punishments up to 14 years or life imprisonment.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant's authority supports the conclusion of serious crimes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the crimes serious, linked to violence, punishable by long sentences, and the Appellant's authority increases sentence severity.",
+   "role": "facts"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The RPD relied on evidence showing police brutality and harassment related to extortion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Human Rights Watch states the NPF has a long history of corruption and criminal conduct.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant's career timeframe contradicts his claim that corruption occurred only after his retirement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD correctly concluded the crimes are serious and the Appellant's authority supports this.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds objective evidence supports the RPD's conclusion that the crimes are serious and contradict the Appellant's claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not need to assess mitigating factors under Article 1F(b) jurisprudence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred by considering mitigating factors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not need to assess mitigating factors and rejects the Appellant's argument about error.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found corruption's pervasiveness and the Appellant's denial were aggravating factors.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant's role as a XXXX was a mitigating factor but insufficient to outweigh others.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found aggravating factors and a mitigating factor but the latter was insufficient to outweigh the former.",
+   "role": "facts"
+  },
+  {
+   "para": 71,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD failed to consider mitigating factors like honesty, retirement, promotions, family support, and no evidence of bribes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD failed to consider several mitigating factors related to his conduct and circumstances.",
+   "role": "issue"
+  },
+  {
+   "para": 72,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "SCC in Febles states extraneous factors to the crime should not be considered for seriousness assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "This approach is followed in other decisions like Lin.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD must assess if the crime falls within less or more serious range of CCC provisions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court is not persuaded the RPD should do more than this assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mitigating factors were not determinative and the RPD correctly found none even if it did not assess them.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Post-offence conduct is irrelevant to assessing crime seriousness under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court rejects the Appellant's argument that the RPD erred by not finding mitigating factors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites SCC and other cases limiting mitigating factors, finds RPD's assessment sufficient, and rejects the Appellant's argument.",
+   "role": "law"
+  },
+  {
+   "para": 73,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "There are serious reasons to consider the Appellant committed serious, non-political crimes of extortion and bribery before entering Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "This is based on subsection 21(2) CCC and the Ezokola test for complicity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes serious reasons exist to consider the Appellant committed serious non-political crimes under CCC and Ezokola test.",
+   "role": "conclusion"
+  },
+  {
+   "para": 74,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant is excluded from refugee protection under Article 1F(b) of the Convention and section 98 of IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court excludes the Appellant from refugee protection under Article 1F(b) and IRPA section 98.",
+   "role": "conclusion"
+  },
+  {
+   "para": 75,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed and the RPD decision confirmed that the Appellant is neither a Convention refugee nor in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision denying refugee protection to the Appellant.",
+   "role": "disposition"
+  }
+ ]
+}

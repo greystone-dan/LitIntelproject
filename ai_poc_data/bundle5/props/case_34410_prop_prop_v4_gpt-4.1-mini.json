@@ -1,0 +1,650 @@
+{
+ "case_id": 34410,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.008442000000000002
+ },
+ "verification": {
+  "paragraphs": 30,
+  "rows": 30,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 59,
+  "holders": {
+   "court": 40,
+   "applicant": 9,
+   "respondent": 8,
+   "earlier_decision_maker": 1,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 4,
+  "headings_before": 4
+ },
+ "headings": {
+  "3": "II. Pertinent Facts and Decision under Review",
+  "7": "III. Issues and Standard of Review",
+  "11": "IV. Analysis",
+  "30": "V. Conclusion"
+ },
+ "split_from": {
+  "3": 2,
+  "7": 6,
+  "11": 10,
+  "30": 29
+ },
+ "blocks": {
+  "overview": "This case concerns a judicial review application by a Haitian citizen challenging the refusal to reconsider his humanitarian and compassionate (H&C) grounds application for permanent residence in Canada. The applicant argues the reconsideration decision was unreasonable and procedurally unfair, while the respondent contends the decision was reasonable and proper. The Federal Court dismissed the application, finding the reconsideration decision reasonable and justified.",
+  "background_paras": "3-6",
+  "disposition_paras": "2, 30-31",
+  "blocks": [
+   {
+    "issue": "Was the reconsideration decision reasonable?",
+    "paras": "7-30",
+    "court_conclusion": "The reconsideration decision was transparent, intelligible, justifiable and not unreasonable.",
+    "conclusion_paras": "2, 30",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The Officer's decision was not reasonable; failed to consider all evidence, made erroneous findings, and breached Vavilov requirements.",
+      "paras": "11"
+     },
+     {
+      "holder": "respondent",
+      "text": "The reconsideration decision is reasonable given the new evidence; the Applicant improperly attacks the original H&C decision.",
+      "paras": "13, 23, 27"
+     },
+     {
+      "holder": "court",
+      "text": "The Officer's refusal to reconsider was not unreasonable; the decision met reasonableness standards under Vavilov.",
+      "paras": "2, 9, 26, 28, 30"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Officer reviewed additional submissions and maintained refusal of application on November 3, 2023.",
+      "paras": "24"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "In Tanyanyiwa, refusal to reconsider was logical; this case is similar.",
+      "paras": "25"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This application for judicial review is dismissed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer\u2019s refusal to reconsider the decision rejecting the H&C application was not unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application and finds the Officer's refusal to reconsider the H&C application was not unreasonable.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicant is a citizen of Haiti who arrived in Canada in February 2008 and made a refugee claim later refused by the RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On May 23, 2018, the Applicant submitted an application for permanent residence on H&C grounds.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant is Haitian, arrived in Canada in 2008, had a refugee claim refused, and applied for permanent residence on H&C grounds in 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On November 3, 2023, the Officer refused the H&C application, finding the Applicant inadmissible under IRPA subparagraph 35(1)(a).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Officer found the Applicant self-declared membership in the TonTon Macoutes from 1984 to 1985 at the RPD hearing in July 2010.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Officer found reasonable grounds to believe the TM committed crimes against humanity from 1959 to 1986 and that the Applicant participated in those crimes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Applicant\u2019s role met the legal test of complicity outlined in Ezokola v Canada, 2013 SCC 40.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the Officer's refusal of the H&C application based on the Applicant's self-declared TM membership and complicity in crimes against humanity per Ezokola.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On November 30, 2023, the Applicant requested reconsideration of the H&C Decision and submitted additional documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant requested reconsideration and submitted new documents on November 30, 2023.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On January 5, 2024, the Officer responded to the reconsideration request, considering new evidence including a Police Security Clearance and counsel\u2019s explanation for delay.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer accepted the reason for delay but found the new submissions did not change the H&C Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer placed heavy weight on the Applicant\u2019s initial self-declaration of TM membership and concluded the H&C Decision stands and refused the application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Reconsideration Decision is the subject of this judicial review application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Officer considered new evidence but upheld the H&C Decision, making the Reconsideration Decision subject to judicial review.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The issue is whether the Reconsideration Decision is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the issue as the reasonableness of the Reconsideration Decision.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The standard of review for the Reconsideration Decision is reasonableness, citing Vavilov.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The parties agree reasonableness is the applicable standard of review.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The court agrees that reasonableness is the applicable standard of review.",
+     "answers": 0
+    }
+   ],
+   "summary": "Both parties agree and the court confirms reasonableness is the standard of review for the Reconsideration Decision, citing Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A reasonable decision must show justification, transparency and intelligibility (Vavilov para 99).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness depends on the legal and factual context (Vavilov para 90).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A decision may be unreasonable if the decision-maker misapprehended the evidence (Vavilov paras 125-126).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The party challenging the decision bears the onus to prove unreasonableness (Vavilov para 100).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court outlines the reasonableness standard requiring justification, transparency, and that the challenger bears the onus, citing Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness is assessed by whether the procedure was fair in all circumstances (Canadian Pacific para 54).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If a breach of procedural fairness is alleged, the court reviews it on a correctness standard (Canadian Pacific para 34 citing Mission Institution para 79).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states procedural fairness is assessed for fairness and breaches are reviewed on correctness, citing Canadian Pacific and Mission Institution.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Officer\u2019s decision was not reasonable as he failed to consider and analyze all evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Officer provided no reasons on the evidence analyzed or how it was analyzed.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Officer made erroneous findings of fact ignoring material evidence and failed to provide sufficient reasons, breaching Vavilov requirements.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant argues the Officer\u2019s decision was unreasonable due to failure to consider all evidence and provide sufficient reasons, breaching Vavilov.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Officer breached procedural fairness by relying on the RPD\u2019s decision with different evidence than in the H&C application.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant alleges procedural fairness breach because the Officer relied on RPD evidence different from the H&C application evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant is improperly collaterally attacking the H&C Decision which was not challenged in this judicial review.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant only challenged the Reconsideration Decision, not the H&C Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Reconsideration Decision is reasonable given the new evidence before the Officer.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues the Applicant improperly attacks the H&C Decision and that the Reconsideration Decision is reasonable given new evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The following paragraphs outline the framework for reconsideration decisions from this Court\u2019s jurisprudence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court introduces the framework for reconsideration decisions from its jurisprudence.",
+   "role": "other"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Immigration officers have jurisdiction to reconsider decisions based on new evidence or submissions (Kurukkal paras 3-5).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "There is no general obligation to reconsider; the onus is on the applicant to show reconsideration is warranted in interests of justice or unusual circumstances (AB para 22).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states officers may reconsider decisions on new evidence but applicants must show reconsideration is warranted, citing Kurukkal and AB.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reconsideration involves two stages: first, deciding whether to reopen; second, reconsidering the decision on merits (Katumbus para 11, Jaworski para 12).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains reconsideration has two stages: deciding to reopen and reconsidering on merits, citing Katumbus and Jaworski.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The scope and reasons required differ between first and second stage reconsideration decisions (Katumbus paras 11-12).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the scope and reasons differ between first and second stage reconsideration decisions, citing Katumbus.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The parties disagree whether the Officer made a first or second stage reconsideration decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant\u2019s arguments address a second stage assessment, arguing evidence shows he was not a TM member.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Respondent argues the Officer made a first stage decision and objects to merits submissions on the H&C Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds parties disagree on whether the Officer made a first or second stage decision; Applicant argues second stage, Respondent argues first stage.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Officer engaged with the first stage by assessing whether new documents warrant reopening the H&C Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Officer engaged in the first stage by assessing if new documents warranted reopening the H&C Decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "At reconsideration, officers must consider submissions about interests of justice or necessity to reconsider (AB para 31).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states officers must consider submissions about interests of justice or necessity when deciding reconsideration, citing AB.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Merely mentioning new evidence does not mean a second stage decision was made.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Failure to engage with new evidence at first stage raises reasonableness concerns (Jaworski para 14 citing Katumbus para 18).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains that mentioning new evidence alone does not indicate a second stage decision and failure to engage at first stage raises reasonableness concerns.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Assessment of refusal to reopen considers materials and case context; justification need not be high if officer engaged in first stage",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that refusal to reopen is assessed by materials and context, with lower justification if officer engaged in first stage.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant's TM membership and inadmissibility fully addressed with procedural fairness and opportunity to respond",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant recanted TM membership before RPD; reconsideration evidence aimed to substantiate this",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Police Security Clearance certificate and references show Applicant could not have been TM member",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent says TM membership was fully addressed with fairness; applicant recanted and submitted evidence denying TM membership.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer reviewed additional submissions and maintained refusal of application on November 3, 2023",
+     "answers": 0
+    }
+   ],
+   "summary": "The officer reviewed new evidence and upheld refusal of the application on November 3, 2023, the earlier decision-maker finds.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Tanyanyiwa, officer did not move beyond first stage; brief decision was logical refusal to reconsider",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This case is similar; officer did not move beyond first stage and refusal is logical",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds, citing Tanyanyiwa, the officer did not move beyond first stage and refusal to reconsider is logical here too.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reconsideration Decision consistent with other denials; officer engaged with submissions and explained insufficiency of new evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the reconsideration decision consistent with others, engaging submissions and explaining insufficiency of new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant's challenge concerns merits of H&C Decision and officer's guideline adherence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reconsideration Decision focused on reopening issue; applicant's arguments apply only if second stage assessment occurred, which did not",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues challenge concerns merits; court finds reconsideration focused on reopening, no second stage assessment occurred.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Reconsideration Decision should have been more fulsome",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness review looks to whole record to understand decision rationale, not perfection of reasons",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Written reasons must not be judged by perfection standard, citing Tanyanyiwa and Vavilov",
+     "answers": 2
+    }
+   ],
+   "summary": "Applicant argues for fuller reasons; court states reasonableness review looks to whole record and reasons need not be perfect.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues breach of procedural fairness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's procedural fairness arguments relate to reasonableness, not fairness of procedure under all circumstances",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues procedural fairness breach; court finds arguments relate to reasonableness, not procedural fairness analysis.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Reconsideration Decision is transparent, intelligible, justifiable and not unreasonable; judicial review dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the reconsideration decision is reasonable and dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question for certification proposed or arising",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees no question for certification arises as none was proposed by parties.",
+   "role": "disposition"
+  }
+ ]
+}

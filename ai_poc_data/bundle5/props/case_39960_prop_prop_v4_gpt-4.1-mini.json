@@ -1,0 +1,374 @@
+{
+ "case_id": 39960,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0047968
+ },
+ "verification": {
+  "paragraphs": 18,
+  "rows": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 31,
+  "holders": {
+   "applicant": 9,
+   "court": 22
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "4": "ALLEGATIONS AND CREDIBILITY ASSESSMENT",
+  "17": "CONCLUSION",
+  "18": "DECISION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns XXXX XXXX XXXX, a citizen of St. Vincent, seeking refugee protection in Canada due to alleged spousal abuse and threats. The tribunal found the claimant's evidence not credible and rejected the claim. The claimant failed to establish a serious possibility of persecution or risk upon return to St. Vincent.",
+  "background_paras": "1, 7-9, 11, 12",
+  "disposition_paras": "16-18",
+  "blocks": [
+   {
+    "issue": "Is the claimant's evidence credible and sufficient to establish a serious possibility of persecution or risk upon return to St. Vincent?",
+    "paras": "2-6, 8-15",
+    "court_conclusion": "The claimant's evidence is not credible and does not establish a serious possibility of persecution or risk.",
+    "conclusion_paras": "16",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claims spousal abuse, threats, and fled St. Vincent due to these risks; explained omissions and delays as reasonable.",
+      "paras": "7-9, 11, 12"
+     },
+     {
+      "holder": "court",
+      "text": "Found serious inconsistencies, implausibilities, and negative inferences; claimant failed to seek protection timely; evidence not credible.",
+      "paras": "2-6, 8, 10-15"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "XXXX XXXX XXXX, a citizen of St. Vincent, claims refugee protection under sections 96 and 97 of IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the applicant, a St. Vincent citizen, claims refugee protection under IRPA sections 96 and 97.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant failed to provide sufficient credible evidence to establish a serious possibility of persecution or risk of torture, death, or cruel treatment if returned to St. Vincent",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 finds the claimant failed to prove a serious risk of persecution or harm if returned to St. Vincent.",
+   "role": "analysis"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant is a citizen of St. Vincent and has established her identity based on the genuine passport",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 finds the claimant is a St. Vincent citizen and has established identity with a genuine passport.",
+   "role": "analysis"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Credibility requires evidence to be probably so, not just possibly so, per Federal Court of Appeal in Orelien",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Serious internal and external inconsistencies and implausibilities exist in the claimant's testimony",
+     "answers": 1
+    }
+   ],
+   "summary": "Paragraph 4 cites Orelien for credibility standard and finds serious inconsistencies in claimant's testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Credibility is indicated by consistency in a witness's story, including to Canadian immigration officials, per Dan-Ash",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 cites Dan-Ash that credibility depends on consistency of witness testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The Chairperson's Gender Guidelines are considered in assessing social, cultural context, state protection, and country conditions",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 states the panel considered Gender Guidelines in assessing the claimant's context and facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges spousal abuse, beating, and death threats by common-law partner XXXX, who threatened her after returning to St. Vincent",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 summarizes the claimant's allegation of spousal abuse and threats by XXXX.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant omitted XXXX's name in response to question 16 about spouse or partner",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant explained omission by saying she was not in a relationship with XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel accepts the explanation as reasonable but draws a negative inference for not mentioning XXXX in question 43 about why protection is sought",
+     "answers": 1
+    }
+   ],
+   "summary": "Paragraph 8 notes claimant omitted XXXX's name, explained it reasonably, but panel draws negative inference for omission in protection reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges she fled St. Vincent due to threats and abuse by XXXX",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified she left St. Vincent to attend a wedding in Canada with four friends in 2009",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant could not name the friend whose wedding she attended and said she took opportunity to seek help in Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 states claimant alleges fleeing abuse but testified she traveled to Canada for a wedding and to seek help, unable to name friend.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel draws negative inference from claimant's inability to name wedding friend despite travel cost and financing explanation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimant's explanation for travel reason not credible",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 finds claimant's inability to name friend and travel explanation not credible, drawing negative inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant authorized to stay in Canada until 2010 but claimed asylum only in 2012",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant said she did not try to extend visa and spoke to elder L.B. and a lawyer requiring $5,000 fee",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant said she did not approach legal aid because she did not know about it",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel questions reliability of letter from L.B. due to lack of authentication and gives it little weight",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 notes claimant delayed asylum claim, gave explanations, and panel questions reliability of supporting letter.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not accept claimant's delay explanation as reasonable",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant stated fear and apprehension to disclose problems to authorities due to prior disregard by St. Vincent officials",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel mindful of Gender Guidelines but expects claimant to seek help after authorization expired given support available",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 12 rejects claimant's delay explanation despite fear, expecting earlier help-seeking given support and Gender Guidelines.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is reasonable to expect a protection seeker to ask for it at earliest, here after authorization expired, not 2.5 years later",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 13 finds claimant should have sought protection earlier, not after 2.5 years delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's failure to seek asylum or regularize stay shows lack of subjective fear of return to St. Vincent",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 14 finds claimant's actions show lack of subjective fear of return.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's spousal abuse allegation is not credible on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statements by mother and daughter reciting claimant's allegations have interest and lack credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient credible evidence to suggest XXXX would pursue claimant in 2018 given separation since 2006",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 15 finds spousal abuse allegation and supporting statements not credible and no evidence of ongoing threat.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant has not met burden to establish serious possibility of persecution or risk of torture, death, or cruel treatment on return",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 16 concludes claimant failed to establish serious risk of persecution or harm on return to St. Vincent.",
+   "role": "conclusion"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is not a Convention refugee nor a person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 17 concludes claimant is not a Convention refugee or person in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The claim is rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 18 orders the claim rejected.",
+   "role": "disposition"
+  }
+ ]
+}

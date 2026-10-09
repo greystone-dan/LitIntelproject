@@ -1,0 +1,786 @@
+{
+ "case_id": 67078,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0098892
+ },
+ "verification": {
+  "paragraphs": 29,
+  "rows": 29,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 74,
+  "holders": {
+   "court": 56,
+   "applicant": 10,
+   "earlier_decision_maker": 7,
+   "prior_court_or_authority": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "4": "NEW EVIDENCE"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a Kenyan woman's appeal against the Refugee Protection Division's rejection of her refugee claim based on an internal flight alternative (IFA) in Kenya. The appellant alleges domestic violence and threats from her husband, which the tribunal found credible and determined that no reasonable IFA exists for her. The appeal was allowed, and the tribunal substituted its own decision recognizing her as a Convention refugee.",
+  "background_paras": "1-3, 9, 11-13, 15-16, 18-19, 22-24, 26",
+  "disposition_paras": "1-2, 8, 20-21, 25, 27-29",
+  "blocks": [
+   {
+    "issue": "Is the appellant's claim of domestic violence and threats credible and supported by evidence?",
+    "paras": "3-4, 9, 11-12, 16-17",
+    "court_conclusion": "The appellant's allegations are accepted as credible and supported by evidence, including new evidence of ongoing threats.",
+    "conclusion_paras": "3-4, 8, 11-12, 16-17",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "I am a victim of domestic violence and my husband has threatened to harm me if I return to Kenya.",
+      "paras": "3"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD accepted these allegations as credible but rejected claim based on IFA test.",
+      "paras": "3, 9"
+     },
+     {
+      "holder": "court",
+      "text": "I accept the truth of the allegations and the new evidence of ongoing threats from the husband.",
+      "paras": "3, 4, 8, 11-12, 16-17"
+     }
+    ]
+   },
+   {
+    "issue": "Is the letter from the appellant's sister admissible as new evidence?",
+    "paras": "4-8, 16",
+    "court_conclusion": "The letter is new, relevant, credible, and probative and is admitted into evidence.",
+    "conclusion_paras": "8",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The letter describes husband's threatening behaviour since the RPD decision and corroborates ongoing risk.",
+      "paras": "7, 16"
+     },
+     {
+      "holder": "court",
+      "text": "The letter describes conduct arising after the RPD decision and is new, relevant, and probative.",
+      "paras": "4-8, 16"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RPD err in its internal flight alternative (IFA) findings?",
+    "paras": "9, 13-15, 18-22, 25",
+    "court_conclusion": "The RPD erred; the husband has means and motivation to find the appellant in IFAs, making IFA unreasonable.",
+    "conclusion_paras": "1, 20-22, 25",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD found IFA satisfied both prongs; appellant's concern about husband's reach was vague and speculative.",
+      "paras": "9, 13-15, 18"
+     },
+     {
+      "holder": "applicant",
+      "text": "RPD's analysis was unreasonable; husband is wealthy with influence and police corruption is widespread.",
+      "paras": "19"
+     },
+     {
+      "holder": "court",
+      "text": "Given husband's profile and police corruption, he likely can find appellant; IFA is not reasonable.",
+      "paras": "20-22, 25"
+     }
+    ]
+   },
+   {
+    "issue": "Is there adequate state protection for the appellant against persecution?",
+    "paras": "26-27",
+    "court_conclusion": "There is no adequate state protection; evidence rebuts presumption of protection.",
+    "conclusion_paras": "27",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Objective evidence shows widespread impunity and obstacles prevent women accessing justice in Kenya.",
+      "paras": "26"
+     },
+     {
+      "holder": "court",
+      "text": "Clear and convincing evidence rebuts presumption of state protection; protection not reasonably forthcoming.",
+      "paras": "27"
+     }
+    ]
+   },
+   {
+    "issue": "Does the appellant meet the criteria to be recognized as a Convention refugee?",
+    "paras": "1-2, 28-29",
+    "court_conclusion": "The appellant has a well-founded fear of persecution and is recognized as a Convention refugee.",
+    "conclusion_paras": "1-2, 28-29",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "I allow the appeal and substitute my own decision that the appellant is a Convention refugee.",
+      "paras": "1-2, 28-29"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I allow this appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant is a Kenyan citizen appealing RPD decision rejecting refugee claim due to viable IFA in Kenya.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "I conducted independent analysis of all evidence including Appellant's Record and RPD hearing transcript.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "I considered and applied Chairperson's Guideline 4 on women refugee claimants fearing gender-related persecution.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred on IFA findings; sufficient evidence shows Appellant is a Convention refugee under section 96 IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal, finds RPD erred on IFA, and concludes Appellant is a Convention refugee after independent analysis and applying Guideline 4.",
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed and I substitute my own decision that the Appellant is a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and substitutes its own decision that the Appellant is a Convention refugee.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "I am a victim of domestic violence in a forced marriage to an older wealthy businessman in Kenya.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "My husband has asked about my whereabouts since I left Kenya and threatened to harm me if I return.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD accepted these allegations as credible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I also accept the truth of these allegations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges domestic violence and threats from her husband; RPD accepted these as credible and the court also accepts them.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The evidence presented by the Appellant is accepted.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "I seek to enter a letter from my sister in Kenya dated 2019 as new evidence, with identity documentation for the author.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts the Appellant's evidence including a letter from her sister as new evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "I can only accept evidence that arose after the RPD decision, was not reasonably available then, or could not reasonably have been brought before the RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal criteria for accepting new evidence on appeal.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If evidence meets criteria, I must decide if it is new, credible and relevant before acceptance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court must assess if new evidence is new, credible and relevant before accepting it.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The letter is admissible as it describes husband's threatening behaviour since RPD decision and corroborates ongoing risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant submits the letter is admissible and corroborates ongoing risk from her husband.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The letter describes agent of persecution's conduct arising after RPD decision, is new, relevant and probative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I will enter this letter into evidence.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the letter new, relevant and probative, and admits it into evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant credible but both prongs of IFA test satisfied, so claim failed under sections 96 and 97(1) IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant credible but rejected her claim due to a viable IFA under IRPA sections 96 and 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "My role is to review all evidence and decide if RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role to review all evidence and assess correctness of RPD decision.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant credible; sworn testimony presumed truthful unless rebutted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I find no inconsistencies or material omissions in Appellant's sworn testimony or Basis of Claim form after review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant credible; the court finds no inconsistencies in her testimony or claim form.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I accept Appellant's allegations and find she has subjective fear of harm from husband.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Given high domestic abuse prevalence in Kenya and accepted allegations, there is objective basis for fear.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court accepts the Appellant's allegations and finds both subjective and objective basis for fear of harm from husband.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD identified three possible IFA locations in its decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD identified three possible internal flight alternative locations.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "IFA test is two-pronged from Rasaratnam: no serious persecution risk in IFA and it is reasonable to seek refuge there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the two-pronged IFA test from Rasaratnam case law.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's concern that husband could find her in IFA vague and speculative with insufficient evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant's concern about husband locating her in IFA vague and unsupported.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD made no finding on husband's motivation or ongoing interest in Appellant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "I have stayed in touch with family who report husband's threats to harm me if found.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Letter from sister states husband still violently seeks me and threatens family.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I accepted the letter as new evidence describing husband's ongoing violent threats.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD made no finding on husband's motivation; Appellant and sister report ongoing threats, which court accepts as new evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Husband maintains forward looking interest and likely future abuse given past behaviour and Appellant's departure.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Abuse may escalate since I left him.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds husband maintains interest and likely future abuse; Appellant submits abuse may escalate after leaving.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant did not establish husband had means to locate her in IFA and no evidence of nationwide influence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found no evidence husband had means or influence to locate Appellant in IFA locations.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD's analysis was unreasonable expecting me to know details of husband's influence in police or business.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Police corruption in Kenya is widespread and husband is wealthy, prominent elder in patriarchal society.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD ignored husband's profile and societal context that supports his influence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD unreasonably expected her to know husband's influence details and ignored his profile and police corruption.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Given Appellant's background and husband's profile, it is not unusual she cannot recall details of his means to find her.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Chairperson's Guideline 4 notes women may not know details of husband's activities in some cultures.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I accept husband's profile and police corruption prevalence mean he likely has means to find Appellant in IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "More than a mere possibility exists that husband has means to find Appellant in IFA locations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it reasonable Appellant lacks details, accepts husband's means and police corruption, concluding husband likely can find Appellant in IFA.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Husband has motivation and means to locate and harm the Appellant in the IFAs, failing the first prong of the test",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Internal flight alternative is not reasonable",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the husband can locate and harm the Appellant in IFAs, so the internal flight alternative is not reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "First part of the IFA test fails, so no need to analyze second part in detail",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Second part of the IFA test also fails",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documentary evidence discusses conditions for women in Nairobi and infers challenges relate to other places in Kenya",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if husband could not locate her in one IFA location, relocating to other places in Kenya would be unreasonable",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds the first IFA test part fails, the second also fails, and relocating within Kenya is unreasonable due to conditions for women.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant would return as a single woman facing challenges and high gender-based violence in Kenya",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant is a survivor of gender-based violence with stigma",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant is largely uneducated with no formal work history",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ethnic friction exists between Somali Kenyans and indigenous groups; Appellant experienced discrimination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant lived under protection of family and then abusive husband",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant has no familial relationships in IFA locations except one friend in Nairobi",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "As a single female without male guardianship or familial support, Appellant likely faces higher gender and ethnic discrimination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Cumulative impact of Appellant's circumstances must be considered in reasonableness test",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant faces multiple vulnerabilities including gender, ethnic discrimination, lack of support, and low education affecting IFA reasonableness.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Employment is precarious, unstable, and difficult for Appellant in IFA locations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Women face discrimination accessing credit and are concentrated in informal sector with low wages and risk of abuse",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant has no family in IFA locations, increasing vulnerability to discrimination and violence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Widows may engage in sex work in Nairobi; Appellant similarly vulnerable as lone, uneducated, unmarried woman",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant has only seven years primary education and limited domestic work history",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant may be forced into street vending, which risks daily harassment and abuse",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds employment is unstable and discriminatory for women; Appellant's vulnerabilities increase risk of abuse and hardship in IFAs.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Courts set high bar for unreasonableness of IFA, but bar met in Appellant's situation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Analysis linked to guideline on women claimants considering Appellant's particular circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant would face significant hardship in employment and housing, leading to poverty",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Test for IFA fails on second prong; no viable IFA anywhere in Kenya for Appellant",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the high bar for unreasonable IFA is met due to Appellant's hardships; no viable IFA exists in Kenya.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Objective evidence shows widespread impunity for domestic violence perpetrators in Kenya",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police may accept bribes to avoid justice",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Laws exist but obstacles like poverty, lack of knowledge, and patriarchal interpretations prevent women accessing justice",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds widespread impunity and obstacles prevent women in Kenya from accessing justice for domestic violence.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Clear and convincing evidence rebuts presumption of state protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Adequate state protection would not be reasonably forthcoming in this case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds evidence rebuts state protection presumption; adequate protection is not reasonably forthcoming for Appellant.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant found credible",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No state protection or IFA exists for Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant has established well-founded fear of persecution under section 96 IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant credible, lacking protection or IFA, and establishes well-founded fear of persecution under IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal is allowed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Substitutes own decision that Appellant is a Convention refugee",
+     "answers": 1
+    }
+   ],
+   "summary": "The court allows the appeal and substitutes its decision that the Appellant is a Convention refugee.",
+   "role": "disposition"
+  }
+ ]
+}

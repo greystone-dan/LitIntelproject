@@ -1,0 +1,1160 @@
+{
+ "case_id": 7724,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.015439600000000001
+ },
+ "verification": {
+  "paragraphs": 55,
+  "rows": 55,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 114,
+  "holders": {
+   "court": 70,
+   "applicant": 13,
+   "respondent": 4,
+   "prior_court_or_authority": 10,
+   "witness_or_document": 17
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "12": "II. Issues"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns judicial review applications challenging Canadian firearm regulations promulgated in 2020, brought by firearm rights groups against the Attorney General of Canada. The applicants sought interlocutory injunctions to stay the regulations and related orders, alleging irreparable harm and other grounds. The Federal Court dismissed the motions, finding no clear evidence of irreparable harm and admitting key expert evidence.",
+  "background_paras": "1-10",
+  "disposition_paras": "11, 30, 55",
+  "blocks": [
+   {
+    "issue": "Are the affidavits of Mr. Smith and Ms. Deschamps admissible evidence?",
+    "paras": "12, 14-20, 25-30",
+    "court_conclusion": "The affidavits are admissible; Deschamps' affidavit shows existence of articles, Smith's expert evidence is relevant and impartial.",
+    "conclusion_paras": "20, 30",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Deschamps affidavit contains inadmissible hearsay; Smith affidavit biased and outside expertise.",
+      "paras": "16-17, 26, 28"
+     },
+     {
+      "holder": "respondent",
+      "text": "Deschamps affidavit not for truth but to show articles exist; Smith affidavit meets expert evidence criteria and benefits outweigh risks.",
+      "paras": "18-19, 25"
+     },
+     {
+      "holder": "court",
+      "text": "Deschamps has no knowledge of exhibits but affidavit admitted for existence of articles; Smith's evidence is impartial and helpful.",
+      "paras": "20, 25-30"
+     }
+    ]
+   },
+   {
+    "issue": "Do the applicants meet the test for interlocutory injunction, specifically irreparable harm?",
+    "paras": "11, 31-55",
+    "court_conclusion": "Applicants failed to show clear, non-speculative irreparable harm; injunction motions dismissed.",
+    "conclusion_paras": "11, 55",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Regulations cause irreparable harm including business losses, Aboriginal rights infringement, loss of pastime and gun culture.",
+      "paras": "32, 42, 44-45, 51-52"
+     },
+     {
+      "holder": "respondent",
+      "text": "Applicants' losses are quantifiable and speculative; buy-back program mitigates harm; no evidence military or law enforcement skills will decline.",
+      "paras": "39, 42, 53-54"
+     },
+     {
+      "holder": "court",
+      "text": "Applicants failed to prove real probability of irreparable harm; losses are monetary and speculative; alternatives and exceptions exist; no harm to military or law enforcement skills.",
+      "paras": "11, 31-41, 43-50, 53-55"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On May 1, 2020, the Governor in Council promulgated the Regulations Amending the Regulations Prescribing Certain Firearms as Prohibited, Restricted or Non-Restricted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that on May 1, 2020, the Governor in Council promulgated the Regulations Amending the Regulations Prescribing Certain Firearms as Prohibited, Restricted or Non-Restricted.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Regulations add certain firearms to the definitions of prohibited or restricted firearms under the Criminal Code and prohibit firearms with bore diameter 20 mm or greater or muzzle energy over 10,000 joules.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Governor in Council considers these firearms not reasonable for hunting or sporting purposes in Canada under Criminal Code s 117.15(2).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the Regulations add certain firearms to prohibited or restricted categories and the Governor in Council considers them unreasonable for hunting or sporting use.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Regulatory Impact Analysis Statement states nine principal firearm models are now prohibited due to semi-automatic rapid fire capability, modern design, and large market volume.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Regulatory Impact Analysis Statement lists nine principal firearm models prohibited for specific reasons.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court is seized with six judicial review applications challenging the Order in Council on multiple grounds including Charter violations, ultra vires, Constitution Act violations, Criminal Code violation, Canadian Bill of Rights violation, and bad faith.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it is seized with six judicial review applications challenging the Order in Council on various constitutional and legal grounds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In three applications, the Applicants brought Motions for interlocutory injunctions under Federal Courts Rules.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that in three applications, the Applicants brought Motions for interlocutory injunctions under Federal Courts Rules.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Applicants raised a preliminary objection to expert evidence of Mr. Murray Smith and affidavit of documents by Ms. Adrienne Deschamps for the Respondent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Applicants raised preliminary objections to expert and affidavit evidence filed by the Respondent.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On the merits, Applicants seek interlocutory injunctions staying the Regulations and the Amnesty Order, which temporarily allows possession and storage of specified firearms until April 30, 2022.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicants seek interlocutory injunctions staying the Regulations and Amnesty Order allowing temporary possession of firearms.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants seek injunctions prohibiting RCMP from designating firearms as restricted or prohibited in the Firearms Reference Table, which was updated after the Regulations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Applicants seek injunctions prohibiting RCMP from designating firearms in the Firearms Reference Table updated after the Regulations.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicants in file T-735-20 seek injunction prohibiting Crown from making defamatory public statements about firearm licensees as a group.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Applicants in one file seek injunction prohibiting Crown from making defamatory public statements about firearm licensees.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Reasons will focus mainly on the Regulations as injunction staying them affects the Amnesty Order and Firearms Reference Table.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states reasons will focus mainly on the Regulations due to their effect on the Amnesty Order and Firearms Reference Table.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicants do not meet the test for interlocutory injunction as they failed to show clear, non-speculative evidence of irreparable harm if Regulations remain pending merits determination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Applicants fail to meet interlocutory injunction test due to lack of clear evidence of irreparable harm if Regulations remain.",
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the Smith and Deschamps affidavits are admissible evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether Applicants meet the tripartite test for interlocutory injunction from RJR-MacDonald: serious issue, irreparable harm, balance of convenience.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies issues: admissibility of affidavits and whether Applicants meet interlocutory injunction test from RJR-MacDonald.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The RJR-MacDonald test is conjunctive; failure on any branch is fatal to Applicants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The determinative issue is whether Applicants will suffer irreparable harm without injunction; court finds they will not, so no need to address other branches.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the RJR-MacDonald test is conjunctive and finds Applicants will not suffer irreparable harm, so other branches need not be addressed.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Murray Smith is a forensic scientist, former RCMP employee, now consultant for Canadian Firearms Program within RCMP.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Smith is a forensic scientist, former RCMP employee, now consultant for Canadian Firearms Program.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Adrienne Deschamps is legal assistant to counsel for Attorney General of Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Adrienne Deschamps is legal assistant to counsel for Attorney General of Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Deschamps affidavit contains inadmissible hearsay as she had no input or knowledge of attached articles and Applicants could not cross-examine her on them.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "None of the documents were before the Governor in Council when enacting the Regulations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicants argue Deschamps affidavit is inadmissible hearsay and documents were not before Governor in Council when enacting Regulations.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Smith affidavit is biased due to association and professional bias; Smith worked for RCMP, involved in Regulations creation and re-designation process, motivated to support Regulations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Smith gives evidence outside his expertise.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicants argue Smith affidavit is biased due to his RCMP association and involvement, and he gives evidence outside expertise.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Deschamps affidavit is tendered not for truth of contents but to show appended articles are publicly accessible at referenced sites.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues Deschamps affidavit is tendered to show articles are publicly accessible, not for truth of contents.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Smith affidavit meets expert evidence requirements from R v Mohan: relevant, necessary, not excluded, tendered by qualified expert.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Benefits of admitting Smith evidence outweigh risks per White Burgess case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondent argues Smith affidavit meets expert evidence requirements and benefits of admission outweigh risks.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Deschamps has no knowledge of contents of exhibits appended to her affidavit, admitted in cross-examination.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court agrees with Respondent that Deschamps affidavit can be admitted as evidence that articles exist at referenced sites.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Deschamps has no knowledge of exhibits but admits affidavit as evidence articles exist at referenced sites, agreeing with Respondent.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Most exhibits appended to Deschamps affidavit relate to first branch of RJR-MacDonald test about Government's enactment of Regulations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Examples include EU firearm legislation reforms, firearm accessibility and suicide/homicide risk, Minister mandate letters, Ontario Chiefs of Police statement",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states most exhibits in Deschamps affidavit relate to the first RJR-MacDonald test branch, including EU reforms and police statements.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Admits Applicants' applications meet low threshold for serious issue to be tried for sake of discussion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will not assess probative value of this evidence due to admission",
+     "answers": 1
+    }
+   ],
+   "summary": "The court admits Applicants raise serious issue to be tried and will not assess evidence probative value.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Four exhibits concern second branch of RJR-MacDonald test to be discussed further",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit J: two Maccabee Defense Inc. Twitter posts from Nov 2017",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit U: Corporation/Non-Profit Search Results for Maccabee Defense Inc. from Alberta Corporate Registry",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit V: Company Search Results for Wolverine Supplies Ltd. from Manitoba Companies Online",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit W: Maccabee Defense Inc. 'About Us' webpage as of Oct 4, 2020",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists four exhibits related to the second RJR-MacDonald test branch, including social media and corporate registry documents.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence from two Applicants or reliable neutral sources given high probative value",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants concerned with these exhibits did not deny their truth",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds evidence from Applicants or neutral sources highly probative as Applicants did not deny it.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties agree expert evidence must be independent, impartial, objective",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Disagreement whether Mr. Smith's evidence meets independence, impartiality, objectivity criteria",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants bear burden to show Mr. Smith unwilling or unable to be fair, objective, non-partisan (White Burgess at para 48)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondents argue Applicants have not met burden; court agrees",
+     "answers": 3
+    }
+   ],
+   "summary": "The court notes parties agree on expert evidence standards, disagrees on Mr. Smith's compliance, and agrees Respondents that burden not met.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Smith's RCMP employment and consulting relationship bias his evidence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Supreme Court in White Burgess says mere employment relationship generally insufficient to render expert inadmissible",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue Mr. Smith's RCMP ties bias him; Supreme Court in White Burgess says employment alone insufficient to exclude expert.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants identified nothing more than mere employment relationship with Mr. Smith",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mr. Smith did not write Regulations but had some input",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Consulting relationship does not mean financial investment in outcome",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds only mere employment relationship with Mr. Smith, who had some input but no financial stake in outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mr. Smith exceeded expertise boundaries during cross-examination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants' argument implies Mr. Smith has expertise helpful to Court",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Cross-examination shows Mr. Smith gave impartial evidence, acknowledged limits and lack of legal or hunting expertise",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue Mr. Smith exceeded expertise; court finds he has helpful expertise and gave impartial evidence acknowledging limits.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants' submissions not supported by Mr. Smith's cross-examination facts",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "All Applicants relied on portions of Mr. Smith's evidence, acknowledging relevance",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicants' submissions unsupported and notes all relied on parts of Mr. Smith's evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Mr. Smith's evidence benefits Court and should be admissible",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Mr. Smith's evidence benefits the Court and is admissible.",
+   "role": "conclusion"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Interlocutory injunction requires clear, non-speculative evidence of irreparable harm before final judicial review (Air Passengers Rights v Canada)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Irreparable harm means harm not curable by damages (RJR-MacDonald at 341)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states interlocutory injunction requires clear evidence of irreparable harm, meaning harm not curable by damages.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants rely on affidavits describing personal impacts of Regulations on firearm ownership",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Impacts include business decline, Aboriginal Rights infringement, loss of pastime, skill-building, psychological turmoil, sustenance hunting loss, and 'gun culture' loss",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue Regulations cause various personal harms including business decline and loss of Aboriginal Rights.",
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Will address each category of alleged harm separately",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will address each category of alleged harm separately.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Irreparable harm depends on nature, not magnitude; unquantifiable or unlikely recoverable damages (RJR-MacDonald at 341)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states irreparable harm depends on nature, not magnitude, per RJR-MacDonald.",
+   "role": "law"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Three corporate applicants initially: Maccabee Defense Inc., Wolverine Supplies Ltd., Magnum Machine Ltd.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Magnum Machine Ltd. discontinued and filed separate damages action",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes three corporate applicants initially, with Magnum Machine Ltd. discontinuing and filing separate damages action.",
+   "role": "facts"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Only harm suffered by moving party considered for interlocutory injunction (Glooscap at para 33)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Will not consider expert evidence on Regulations' impact on Canadian economy or Magnum Machine Ltd.'s affidavit evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will consider only harm to moving parties, excluding economic impact evidence and Magnum Machine Ltd.'s affidavit.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Wyatt Signer testified for Maccabee and about his investment in SLR-Multi firearm",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Maccabee discontinued SLR-Multi sales due to FRT re-designation and potential criminal liability",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Maccabee lacks confidence new firearms won't be similarly re-designated",
+     "answers": 0
+    }
+   ],
+   "summary": "Wyatt Signer testified Maccabee discontinued SLR-Multi sales due to re-designation and fears future firearms will be similarly affected.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Wolverine has $477,000+ inventory prohibited by Regulations and FRT re-designation",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Inventory cannot be sold in Canada; no disposal mechanism exists",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Wolverine filed expert affidavit of Jeff Pellarin, Chartered Accountant and Business Valuator",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Pellarin opined sales decline 21-33%, earnings decline 41-100%, marginal earnings with low or negative returns",
+     "answers": 0
+    }
+   ],
+   "summary": "Wolverine has prohibited inventory and expert Pellarin opined significant sales and earnings declines with marginal returns.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Courts distinguish loss of business operations from loss of revenue or profit (RJR-MacDonald at 341)",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Neither Wolverine nor Maccabee forced to cease operations or expect to do so",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Maccabee markets new non-prohibited firearms and Mr. Singer has faith in business continuation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Both claim losses quantifiable in monetary terms, similar to Magnum Machine Ltd.'s quantified losses",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no cessation of operations, Maccabee markets new firearms, and losses claimed are quantifiable monetarily.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporate Applicants provided little direct evidence of financial impact since May 1, 2020",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Wolverine's expert admitted sales decline assumptions exclude increased sales of non-prohibited firearms",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If Wolverine sells non-prohibited firearms to affected customers, sales decline would be less or not occur",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds little direct financial impact evidence and notes Wolverine's expert admitted sales decline assumptions exclude substitution effects.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants must prove irreparable harm will occur without intervention, not just likely occur",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants Maccabee and Wolverine failed to provide convincing evidence of real probability of unavoidable irreparable harm",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states applicants must prove irreparable harm will occur and finds Maccabee and Wolverine failed to do so with convincing evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RIAS is a quasi-admission that the legislation will cause irreparable harm",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court views RIAS as opposite since government announced buy-back program to compensate firearm owners",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Corporate applicants' short-term profit loss is speculative and could be mitigated by buy-back and other options",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue RIAS admits irreparable harm; court finds government buy-back mitigates harm and corporate losses are speculative.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mr. Knowles is a status Indian of Haida First Nation, hunting and using firearms daily for 40+ years",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Sustenance hunting is significant diet portion and cultural, social, ceremonial activity for Aboriginal peoples",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Hunted animals used for traditional clothing and artwork",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Knowles testifies he hunts daily for sustenance and cultural purposes, using firearms important to Aboriginal traditions.",
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mr. Knowles owns four firearms prohibited by Regulations suited to Haida Gwaii hunting practices",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Replacing prohibited firearms will cause Mr. Knowles irreparable financial harm",
+     "answers": 0
+    }
+   ],
+   "summary": "Mr. Knowles owns prohibited firearms suited to his hunting and claims replacement will cause irreparable financial harm.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Infringement of Aboriginal rights and loss of consultation opportunity constitute prima facie irreparable harm",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue infringement of Aboriginal rights and lost consultation cause prima facie irreparable harm.",
+   "role": "issue"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants ignore Amnesty Order exception allowing Indigenous use of prohibited firearms if non-restricted on April 30, 2020",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds applicants silent on Amnesty Order exception allowing Indigenous use of certain prohibited firearms.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Knowles is subject to Amnesty exception; non-prohibited firearms remain available and suitable for hunting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Little evidence on Mr. Knowles' non-prohibited firearms; he owns a .22 rifle not always effective for hunting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court cannot determine if other non-prohibited firearms suit Mr. Knowles' hunting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Replacing prohibited firearms does not amount to irreparable harm, especially with upcoming buy-back program",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes Amnesty exception, limited evidence on alternatives, and concludes replacement does not cause irreparable harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Knowles unaware of consultation but RIAS shows government engaged Indigenous groups extensively before Regulations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Amnesty Order allows limited use of firearms for Indigenous and sustenance hunters",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Government will continue engagement with Indigenous groups post-Regulations to assess hunting impact",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds government engaged Indigenous groups pre-Regulations and will continue post-Regulations engagement; Amnesty Order allows limited firearm use.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Threshold for expert evidence admissibility is low; exclusion only for clear unwillingness or inability to provide fair, objective evidence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Interest or connection to litigation matters, but mere employment usually insufficient to exclude expert evidence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Direct financial interest, close familial ties, or advocacy role may justify exclusion",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Exclusion at threshold stage should be rare and only for clear inability or unwillingness to provide non-partisan evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority states expert evidence exclusion is rare, requiring clear inability or unwillingness to provide fair, objective evidence.",
+   "role": "law"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Loss of specific firearm for hunting or shooting is not irreparable harm; many non-restricted alternatives exist",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mr. Smith explains military calibers can be replaced by non-restricted hunting rifles chambered for same cartridges",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "BCL 102 rifle used by Mr. Delve can be replaced by alternative non-restricted firearms with similar or less recoil",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds loss of specific firearms not irreparable harm; expert evidence shows suitable non-restricted alternatives exist.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue Regulations cause loss of gun culture",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicants provide no specific submissions defining or supporting gun culture loss claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Regulations' effect on gun culture unclear; recreational activities can continue with non-restricted firearms",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicants failed to provide compelling evidence of irreparable harm",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants claim loss of gun culture; court finds claim unsupported and concludes applicants failed to prove irreparable harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue law enforcement and military will lose shooting skills without access to prohibited firearms",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Affidavits from DCRA President and retired Corporal testify civilian sport shooters teach military and police shooting techniques",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants argue law enforcement and military shooting skills will decline; affidavits say civilians teach military and police techniques.",
+   "role": "issue"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mr. Smith, former military, says only civilians competing with civilian versions of service weapons are affected",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Law enforcement and military have prescribed training and access to service weapons and ranges",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with Respondent that civilian shooting competitions are not required for military or law enforcement",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds only civilians affected; military and law enforcement have training and access; civilian competitions not required for them.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No compelling evidence that military or law enforcement shooting skills will decline due to Regulations",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no compelling evidence military or law enforcement shooting skills will decline from Regulations.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicants failed second branch of RJR-MacDonald test; Motions for interlocutory injunction dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes applicants failed to meet test and dismisses their motions for interlocutory injunction.",
+   "role": "disposition"
+  }
+ ]
+}

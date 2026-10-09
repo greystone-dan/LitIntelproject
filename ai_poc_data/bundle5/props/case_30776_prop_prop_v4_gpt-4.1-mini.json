@@ -1,0 +1,586 @@
+{
+ "case_id": 30776,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0075168000000000006
+ },
+ "verification": {
+  "paragraphs": 24,
+  "rows": 24,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 50,
+  "holders": {
+   "court": 29,
+   "earlier_decision_maker": 9,
+   "applicant": 9,
+   "prior_court_or_authority": 3
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 3,
+  "headings_before": 2
+ },
+ "headings": {
+  "3": "II. Decision",
+  "4": "III. Standard of Review"
+ },
+ "split_from": {
+  "3": 2,
+  "4": 2,
+  "5": 2
+ },
+ "blocks": {
+  "overview": "The case concerns Zahidul Islam Bhuiyan's judicial review of the Refugee Appeal Division's (RAD) rejection of his refugee protection appeal under IRPA. Bhuiyan, fearing persecution by terrorists in Bangladesh, challenges the RAD's finding of a viable internal flight alternative (IFA). The Federal Court dismissed the judicial review, finding the RAD's decision reasonable.",
+  "background_paras": "1-2",
+  "disposition_paras": "3, 25",
+  "blocks": [
+   {
+    "issue": "Was the Refugee Appeal Division's decision rejecting the refugee claim and finding a viable internal flight alternative reasonable?",
+    "paras": "1-3, 4-7, 15-19, 23",
+    "court_conclusion": "The court found the RAD's decision reasonable and dismissed the judicial review.",
+    "conclusion_paras": "3, 15-19, 23",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues RAD's decision was unreasonable and challenges the IFA finding.",
+      "paras": "1, 2, 8, 13, 20, 22"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "RPD dismissed claim; RAD dismissed appeal due to viable IFA in Sylhet or Khulna.",
+      "paras": "2"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RAD err in rejecting new evidence submitted late by the applicant?",
+    "paras": "8-13, 15",
+    "court_conclusion": "Court found RAD erred in rejecting evidence solely for late filing but error was not determinative; overall decision remained reasonable.",
+    "conclusion_paras": "12-13, 15",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues RAD's handling of new evidence was unreasonable.",
+      "paras": "8, 13"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "court",
+      "text": "Found RAD erred on late evidence rejection but error did not affect reasonableness of decision.",
+      "paras": "12-13, 15"
+     }
+    ]
+   },
+   {
+    "issue": "Was the applicant's burden to disprove the viability of the internal flight alternative properly assessed?",
+    "paras": "5-7, 14-16, 18-19, 21-23",
+    "court_conclusion": "Court found RAD reasonably assessed the applicant's burden and concluded relocation was not unreasonable.",
+    "conclusion_paras": "18-19, 21-23",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues continued persecution and hardship make IFA unreasonable.",
+      "paras": "20, 22"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found no serious persecution risk or unreasonableness of relocation to IFA cities.",
+      "paras": "18-19"
+     },
+     {
+      "holder": "court",
+      "text": "Found RAD's analysis reasonable; applicant's arguments based on unsupported inferences.",
+      "paras": "21-23"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant Zahidul Islam Bhuiyan seeks judicial review of Refugee Appeal Division's rejection of his refugee protection appeal under IRPA section 72(1).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial review is dismissed for the following reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant seeks judicial review of RAD's rejection and dismisses the review.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant is a Bangladeshi citizen fearing persecution by JMB terrorists for refusing to join them.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD dismissed Applicant's refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RAD dismissed Applicant's appeal due to internal flight alternative in Sylhet or Khulna.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant seeks judicial review arguing RAD's decision was unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant's background, RPD and RAD decisions, and Applicant's ground for judicial review.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial review application is dismissed because RAD's decision is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application finding RAD's decision reasonable.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parties agree and court concurs that standard of review is reasonableness per Vavilov.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review is reasonableness as agreed by parties and per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "IFA test requires a place in applicant's country where claimant is not at risk and relocation is not unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the two-prong IFA test requiring a safe place and reasonable relocation.",
+   "role": "law"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To find viable IFA, RAD must be satisfied claimant won't face persecution or risk and relocation is reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states RAD must find no persecution risk and reasonable relocation for viable IFA.",
+   "role": "law"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Once IFA is raised, claimant must prove no viable IFA by showing risk or unreasonableness of relocation.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ranganathan requires high burden and concrete evidence to prove unreasonableness of IFA relocation.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Other cases cited for IFA test: Rasaratnam, Thirunavukkarasu, Ranganathan, Rivero Marin.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states claimant's burden to disprove IFA and cites case law on high burden and evidence.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD's handling of new evidence was unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees partially but finds overall decision reasonable despite rejection of new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court partially agrees with Applicant that RAD's new evidence handling was unreasonable but finds decision reasonable overall.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant tried to file new evidence after RAD memorandum: affidavits from Applicant, father, brother, and anonymous threat letter.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes Applicant's attempt to file new evidence after RAD memorandum including affidavits and threat letter.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's affidavit states family informed him of fundamentalists' inquiries and threats after claim refusal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes Applicant's affidavit about family receiving threats and inquiries after claim refusal.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RAD accepted Applicant's affidavit but rejected attached exhibits from father and brother.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states RAD accepted Applicant's affidavit but rejected attached exhibits from family.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "RAD rejected new evidence for late filing and silence in memorandum about upcoming evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RAD erred in rejecting evidence solely for late filing without considering unavailability at RPD decision time.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD erred by rejecting new evidence for late filing without considering its unavailability earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Error on late evidence filing is not determinative as RAD's IFA analysis presumes ongoing local risk.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues RAD's partial rejection of new evidence was unreasonable, citing cases on evidence assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD's error on evidence timing not determinative; Applicant argues partial rejection was unreasonable citing cases.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's cited cases concern credibility, but here issue is IFA and claimant's burden to prove no viable IFA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Details on agents of harm's means and motivation are relevant for claimant to discharge burden on IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds cited cases misplaced as issue is IFA burden requiring relevant details on agents of harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Error on s.110(4) evidence filing timing is not determinative; rejected evidence relates to local village risk accepted by RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD's independent credibility assessment rejected persecution in Dhaka but found local risk consistent with RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RAD's analysis reasonable and will elaborate further.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds evidence filing error not determinative; RAD's credibility assessment reasonable and consistent with RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD independently agreed Applicant lacks profile for persecution in IFA cities six years after leaving country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's new evidence supports only local interest; RAD reasonably found Applicant did not meet burden of serious persecution risk in IFA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD reasonably concluded Applicant lacks persecution risk in IFA cities based on evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant testified he was chased by fundamentalists in Dhaka and feared their network distributing his picture.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found insufficient evidence that agents of persecution chased Applicant in Dhaka.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Applicant's Dhaka chase evidence not credible due to contradictions between testimonies.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RAD's credibility assessment reasonable and defers to it, not reweighing evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD reasonably rejected Applicant's Dhaka persecution evidence due to contradictions and defers to that assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found Applicant did not establish serious persecution possibility or personal risk in Sylhet or Khulna.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RAD's analysis of first prong of IFA test reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD reasonably concluded Applicant lacks serious persecution risk in proposed IFA cities.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant testified no other reason besides fear of fundamentalists prevents relocation to Sylhet or Khulna.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD found relocation to IFA not unreasonable based on Applicant's testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds RAD's conclusion on reasonableness of relocation to IFA reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RAD reasonably concluded relocation to IFA cities is not unreasonable based on Applicant's testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues continued persecution interest forces him to live in hiding and break family contact if returned, causing undue hardship making IFA unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Applicant argues persecution interest would force hiding and family separation, making IFA unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant bases arguments on unsupported inferences, not facts of this case",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence before RAD that any family member was harmed or threatened due to Applicant's whereabouts",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant speculates about needing to hide whereabouts or changed communication if living in IFA in Bangladesh",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD's analysis that Applicant need not hide location from family was reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicant's arguments speculative and unsupported by evidence, and that the RAD reasonably concluded no need to hide location from family.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Relies on A.B. v Canada to argue refugee claimant not expected to live in hiding in IFA",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "In A.B., agents of harm visited family and inquired about their whereabouts",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Court in A.B. concluded it unreasonable to expect family to risk lives by denying or misleading agents of persecution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Facts here differ: Applicant not reasonably expected to hide in IFA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Evidence shows family never had to risk lives in interactions with police or men asking about Applicant",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant relies on A.B. v Canada, but the court finds facts differ and family not at risk here, so hiding not expected.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RAD's conclusion on second prong of IFA is reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RAD's conclusion on the second prong of the IFA reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question to be certified",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes there is no question to be certified.",
+   "role": "conclusion"
+  }
+ ]
+}

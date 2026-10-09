@@ -1,0 +1,401 @@
+{
+ "case_id": 34531,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0049732
+ },
+ "verification": {
+  "paragraphs": 18,
+  "rows": 18,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 34,
+  "holders": {
+   "applicant": 12,
+   "earlier_decision_maker": 4,
+   "court": 9,
+   "prior_court_or_authority": 6,
+   "witness_or_document": 3
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "Applicant Darshan Singh Dhaliwal seeks judicial review of a decision refusing permanent residence on humanitarian and compassionate grounds. The Federal Court found the Officer's decision unreasonable due to failure to properly consider evidence of family interdependency and hardship. The judicial review application was granted.",
+  "background_paras": "1-7, 11-15",
+  "disposition_paras": "18",
+  "blocks": [
+   {
+    "issue": "Was the Officer's decision refusing permanent residence on humanitarian and compassionate grounds reasonable under the Vavilov standard?",
+    "paras": "1-4, 8-17",
+    "court_conclusion": "The Officer's decision was unreasonable due to failure to justify conclusions and consider contradictory evidence properly.",
+    "conclusion_paras": "9, 16-17",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicant argues Officer failed to grasp central point of H&C application and family interdependency; sought exemption due to detrimental effect of separation on parents; parents highly interdependent on Applicant's family.",
+      "paras": "7, 10"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Officer found Applicant failed to show sufficient establishment, hardship, or impact on child's best interests; concluded sisters could provide needed support; suggested private home worker or social services as alternatives.",
+      "paras": "2, 12-13"
+     },
+     {
+      "holder": "court",
+      "text": "Court agrees reasons do not justify Officer's conclusions; decision lacks rational analysis chain; contradictory evidence not accounted for; decision unreasonable under Vavilov standard.",
+      "paras": "3-4, 9, 16-17"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Reasonableness standard from Vavilov requires justification, transparency, intelligibility; decision may be unreasonable if misapprehends evidence; H&C relief varies by facts and requires substantive consideration of all relevant factors.",
+      "paras": "3-4, 8, 9"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant Darshan Singh Dhaliwal seeks judicial review of a June 3, 2024 decision refusing permanent residence on humanitarian and compassionate grounds",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Officer of Minister refused permanent residence application under section 25 of Immigration and Refugee Protection Act",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of Officer's June 3, 2024 decision refusing permanent residence on humanitarian and compassionate grounds.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found Applicant failed to show sufficient establishment, hardship, or impact on child's best interests to warrant relief",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found Applicant failed to demonstrate sufficient establishment, hardship, or child impact to warrant relief.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Issue is whether Officer's Decision was unreasonable under reasonableness standard from Vavilov",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness standard of review from Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 10, 25",
+     "answers": 0
+    }
+   ],
+   "summary": "Issue is whether Officer's Decision was unreasonable under Vavilov reasonableness standard.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires justification, transparency, intelligibility (Vavilov para 99)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness depends on legal and factual context (Vavilov para 90)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Decision may be unreasonable if decision-maker misapprehended evidence (Vavilov paras 125-126)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Challenger bears onus to show decision is unreasonable (Vavilov para 100)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states reasonableness requires justification, context, no misapprehension; challenger bears onus, per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant is Indian citizen who arrived May 2019 on work permit; family arrived July 2019 on temporary visas",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant and family live with elderly parents aged 72 and 77; parents and one sister are permanent residents; another sister is citizen; third sister in India not in contact",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is Indian citizen who arrived 2019 with family living with elderly parents and siblings in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's parents have medical issues and suffered family deaths prompting Applicant's assistance",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant moved with family to Canada to help parents, taking over brother's prior responsibilities",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's parents have medical issues and family deaths; Applicant moved to Canada to assist and took over responsibilities.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "H&C application stated parents highly interdependent on Applicant's family",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant sought H&C exemption due to detrimental effect of separation on parents",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant's H&C application stated parents' interdependency and sought exemption due to separation's detrimental effect.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "H&C relief varies by facts; officers must consider all relevant facts and factors substantively (Toor v Canada 2022 FC 773 para 16)",
+     "answers": 0
+    }
+   ],
+   "summary": "H&C relief varies; officers must substantively consider all relevant facts and factors, per Toor v Canada.",
+   "role": "law"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees Applicant that reasons do not justify Decision's conclusions, especially given contradictory evidence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Citing Garcia v Canada 2020 FC 16 paras 14-17 and Vavilov paras 125-126 on reasonableness and evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Court agrees Applicant that Decision's reasons do not justify conclusions, citing Garcia and Vavilov on evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues Officer failed to grasp central point of H&C application and family interdependency",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues Officer failed to grasp central point of H&C application and family interdependency.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant works full-time, pays mortgage; parents own home and will leave it to Applicant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's wife cares for parents; children accompany grandparents to appointments and temple",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Parents stated emotional support from Applicant's family benefits their wellbeing",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant works full-time, pays mortgage; wife and children care for parents; parents attest to emotional support benefits.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Statements from Applicant's sisters say they cannot provide same care due to own family responsibilities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer concluded sisters could provide needed support despite their limitations",
+     "answers": 0
+    }
+   ],
+   "summary": "Sisters state they cannot provide care; Officer concluded sisters could provide support despite this.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Officer stated parents could get private home worker or social services based on independent internet search",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer stated parents could get private home worker or social services based on internet search.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant notes Website states care not guaranteed; eligibility criteria unknown and not in record",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant notes Website states care not guaranteed; eligibility criteria unknown and not in record.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Parents state they rely financially on Applicant and cannot afford old age home",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Sisters state financial limitations prevent covering old age home costs",
+     "answers": 0
+    }
+   ],
+   "summary": "Parents and sisters state financial limitations prevent old age home care; parents rely on Applicant financially.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Difficult to reconcile Officer's conclusion on alternatives to care with contradictory financial evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Conclusions on alternatives to day-to-day care not supported by record evidence",
+     "answers": 1
+    }
+   ],
+   "summary": "Court finds Officer's conclusions on care alternatives unsupported and contradictory to financial evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision uses term 'interdependency' but Officer did not sufficiently consider submitted level of interdependency",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Decision not justified as it did not account for contradictory evidence and lacks rational analysis chain (Vavilov para 103)",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Officer insufficiently considered interdependency and Decision unjustified, lacking rational analysis per Vavilov.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Judicial review application is granted",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No question for certification arises or is proposed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court grants judicial review application and finds no question for certification arises.",
+   "role": "disposition"
+  }
+ ]
+}

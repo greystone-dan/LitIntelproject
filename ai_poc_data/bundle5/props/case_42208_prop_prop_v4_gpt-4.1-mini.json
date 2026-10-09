@@ -1,0 +1,649 @@
+{
+ "case_id": 42208,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0086176
+ },
+ "verification": {
+  "paragraphs": 26,
+  "rows": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 63,
+  "holders": {
+   "court": 49,
+   "earlier_decision_maker": 3,
+   "applicant": 8,
+   "prior_court_or_authority": 2,
+   "respondent": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns the appellant, an inmate at Cowansville penitentiary, seeking access to a seized laptop and related tools to prepare his appeal against the Federal Court's damages award. The respondent is Canada, represented by the correctional authorities. The Federal Court of Appeal dismissed the appellant's motion for restoration of access, finding no new facts and upholding prison security concerns.",
+  "background_paras": "1-2, 5-6, 8-10, 15-19, 23-25",
+  "disposition_paras": "26",
+  "blocks": [
+   {
+    "issue": "Should the appellant be granted access to the seized laptop and related tools to prepare his appeal?",
+    "paras": "3-4, 7, 15-17, 20-21, 24-25",
+    "court_conclusion": "The motion is dismissed; no new facts justify access; security concerns and prior orders upheld.",
+    "conclusion_paras": "26",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Seized laptop is a new fact justifying motion; seeks restoration of access to laptop, hard drive, and legal search engines; alleges perjury and obstruction by respondent.",
+      "paras": "3,4,7,17"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Denied appellant's first motion and reconsideration; found no deprivation of reasonable access; increased access risks prison security.",
+      "paras": "2"
+     }
+    ]
+   },
+   {
+    "issue": "Did the appellant comply with court procedures and instructions regarding evidence and motions?",
+    "paras": "5-6, 9-14, 22-23",
+    "court_conclusion": "Appellant failed to follow instructions; reply record circumscribed; respondent's main relief moot; appellant's reply moot.",
+    "conclusion_paras": "13-14, 26",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Filed reply with new affidavits and exhibits; alleges respondent's solicitor admitted interference; accuses respondent of perjury and obstruction.",
+      "paras": "7,11,17"
+     },
+     {
+      "holder": "respondent",
+      "text": "Filed motion seeking leave to present supplementary affidavits or strike new allegations; objected to appellant's irregular filings.",
+      "paras": "10"
+     },
+     {
+      "holder": "court",
+      "text": "Appellant did not follow instructions; reply record limited; delays caused by both parties filing supplementary records; appellant's reply and respondent's main relief moot.",
+      "paras": "6,9-14,22-23"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The appellant is currently in custody at Cowansville penitentiary in Quebec and seeks orders for tools to prepare his appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant in custody seeks orders for tools to prepare his appeal, as stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "The Court denied the appellant's first motion and reconsideration requests on July 7 and August 25, 2022.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The appellant was not deprived of reasonable access to legal sources, computer, printing, or communication means to represent himself.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "Increased access could compromise prison security and reasonable limitations (citing Barkley and Pengelly cases).",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker denied the appellant's motions, finding he had reasonable access and increased access could compromise prison security.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant's authorized laptop was seized on November 29, 2022, and he requests restoration of access.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues his authorized laptop was seized and requests its access be restored.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant seeks access to a hard drive and legal search engines previously denied under the Orders.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No new facts justify this request; it is a prohibited roundabout appeal of the Orders.",
+     "answers": 1
+    }
+   ],
+   "summary": "The appellant seeks denied access to a hard drive and search engines, but the court finds no new facts and disallows this as a roundabout appeal.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Court issued instructions on November 7, 2022, limiting evidence and requiring appellant to confirm case law requests from prior solicitor.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "The Notice of Appeal alleges Justice Pamel erred in law by misinterpreting case law and failing to consult relevant case law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court issued instructions limiting evidence and requiring appellant to confirm case law requests; the Notice of Appeal alleges legal errors by Justice Pamel.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant did not follow the Court's instructions, affecting the motion's outcome.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant did not follow instructions, influencing the motion's outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The seized laptop is a new fact justifying the motion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "A respondent's solicitor allegedly admitted CSC deliberately interfered with support procedures.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "conclusion_or_order",
+     "text": "The appellant concludes the respondent is guilty of perjury and obstructing justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant alleges the seized laptop is new fact, claims respondent admitted interference, and accuses respondent of perjury and obstruction.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant's complaint extends beyond this appeal to multiple proceedings, lacking specificity regarding this appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The appeal concerns the quantum of damages awarded by the Federal Court.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant ignored prior instructions relevant to this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's complaint is broad, not specific to this appeal about damages, and notes he ignored prior instructions.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The appellant prepared a reply relying on evidence requiring prior leave, which was not obtained, violating procedure.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Applicants cannot split their case by presenting a reply to enhance main evidence (citing Amgen Canada Inc. v. Apotex Inc.).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the appellant's reply improperly relies on evidence needing prior leave, violating rules against splitting cases.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The Registry did not file the appellant's reply record and sought the Court's direction due to irregularities.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "procedure",
+     "text": "The respondent filed a Notice of Motion seeking leave to present supplementary affidavits or to strike new allegations and exhibits in appellant's reply.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Registry withheld filing appellant's reply due to irregularities; respondent seeks leave to file affidavits or strike new allegations.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "The appellant filed a reply record containing new affidavits and exhibits to the respondent's motion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant filed a reply record with new affidavits and exhibits responding to respondent's motion.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent should have objected earlier and awaited Court directions, but both parties filed supplementary records causing delays.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds respondent should have objected earlier; both parties' filings caused delays.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "To prevent delays, the Court will circumscribe appellant's reply record by removing evidence and new allegations, granting respondent's alternative relief.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders removal of evidence and new allegations from appellant's reply to prevent delays, granting respondent's alternative relief.",
+   "role": "disposition"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant's reply record is permitted but specified paragraphs and exhibits will be disregarded for this motion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent's main relief to file supplementary affidavits and submissions is moot and will not be given effect.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant's reply record to this motion is moot as it depends on respondent's supplementary affidavits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court permits appellant's reply but excludes parts; respondent's motion and appellant's reply to it are moot and not effective.",
+   "role": "disposition"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The seized laptop was loaned during the pandemic due to limited library access and seized during a cell search on November 29, 2022.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The search was moved forward after appellant was seen watching unauthorized pornographic video on the laptop.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Guards found contraband peripheral devices prohibited by Corrections and Conditional Release Act during the search.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the laptop was loaned during pandemic, seized after appellant watched unauthorized video, and contraband devices were found.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A disciplinary offence report was dismissed as late, but the laptop remained seized.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Between Dec 12, 2022 and Feb 8, 2023, CSC proposed solutions to recover documents from the laptop.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant was offered options to sort and transfer documents himself, via solicitor, or keep device in secured locker in library.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds disciplinary report dismissed but laptop kept seized; CSC proposed solutions to recover documents with options for appellant.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant objected to CSC's solutions mainly because CSC refuses access to external hard drive or USB key in his cell.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant reiterates accusations of perjury and obstruction of justice against CSC.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant objects to CSC's solutions due to refusal of cell access to external drives and repeats accusations of perjury and obstruction.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Only 3 of 400 inmates at the Institution have laptops in their cells, all involved in ongoing criminal proceedings.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Only 2 laptops exist in other CSC penitentiaries in Quebec Region.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Ongoing criminal proceedings guarantee constitutionally protected right to full answer and defence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds only 3 inmates have laptops in cells due to ongoing criminal proceedings guaranteeing constitutional rights.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Privacy filters are in place for computers in the Institution library.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A project is underway to allow digital peripheral devices on library computers.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Computers in CSC institutions pose security and operational challenges; access is generally limited to secure areas like libraries.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Lending laptops to inmates for cell use is exceptional, not the rule.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds privacy filters and projects for peripherals exist; computers pose security challenges and cell laptops are exceptional.",
+   "role": "facts"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CSC's reluctance to give appellant laptop access again is reasonable given security and search results.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Alternative solutions proposed are justified despite appellant's dissatisfaction due to legitimate prison security requirements.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CSC's refusal and alternative solutions reasonable and justified by prison security despite appellant's dissatisfaction.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant wanted to bargain using acceptance of respondent's alternative solutions to demand a hard drive, already refused and endorsed by this Court",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "This motion cannot serve as a disguised appeal of the Orders without new facts",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant tried to bargain for a hard drive despite refusal, and the motion cannot be a disguised appeal without new facts.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Do allegations of perjury and obstruction of justice alter the situation?",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The respondent\u2019s solicitor signed an affidavit with a different story than the appellant's allegations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Contradictory evidence is insufficient to establish serious allegations like perjury or obstruction of justice",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant's interpretation of conversation and legal conclusions are insufficient to support allegations",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds allegations of perjury and obstruction do not alter the situation, as contradictory evidence and appellant's interpretations are insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant ignored instructions to indicate in new motions whether he requested case law from his prior solicitor",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Notice of Appeal is primarily based on alleged legal errors by Justice Pamel regarding case law interpretation and damages awarded",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant ignored instructions about requesting case law and that the Notice of Appeal alleges legal errors by Justice Pamel.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The motion record lacks information to fully grasp appellant\u2019s real needs for preparing the appeal and impact of laptop seizure",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Absence of relevant information is grounds to dismiss the motion",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The motion record paints a bigger picture beyond appeal proceedings, which this Court cannot dispose of",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "It was appellant\u2019s duty to provide relevant information as directed by the Court",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the motion record lacks relevant information about appellant's needs and impact of laptop seizure, justifying dismissal.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Court is not required to decide if appellant's volume of files justifies particular access needs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Such questions may be debated through grievance procedures under Corrections and Conditional Release Act",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This Court is not the appropriate forum for debating appellant's access needs beyond this file's scope",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it is not required or appropriate to decide appellant's access needs here; grievance procedures exist for that.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The motion will be dismissed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No costs will be awarded as respondent is not seeking costs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant\u2019s reply filing allowed only in circumscribed form described in paragraph 14",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent\u2019s alternative motion component allowed; main component moot",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant\u2019s reply record to respondent\u2019s motion allowed but moot as linked to main component",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the motion, denies costs, allows limited appellant reply, allows respondent's alternative motion component, main component moot.",
+   "role": "disposition"
+  }
+ ]
+}

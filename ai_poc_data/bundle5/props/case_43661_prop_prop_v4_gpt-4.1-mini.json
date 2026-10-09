@@ -1,0 +1,1131 @@
+{
+ "case_id": 43661,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.015038800000000001
+ },
+ "verification": {
+  "paragraphs": 50,
+  "rows": 50,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 104,
+  "holders": {
+   "earlier_decision_maker": 35,
+   "applicant": 15,
+   "court": 43,
+   "respondent": 5,
+   "prior_court_or_authority": 6
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 10,
+  "headings_before": 10
+ },
+ "headings": {
+  "4": "II. The JR Decision",
+  "9": "III. The Redetermination Decision",
+  "12": "A. Redetermination Decision related to the Payment Data Error",
+  "15": "B. Redetermination Decision related to the Profit Margin Error",
+  "16": "IV. Issues in Dispute and Standard of Review",
+  "21": "V. Analysis",
+  "26": "A. Redetermination Decision related to the Payment Data Error",
+  "36": "B. Redetermination Decision related to the Profit Margin Error",
+  "42": "C. Reasonableness of the Board\u2019s determinations concerning the additional issues",
+  "43": "VI. Remedy"
+ },
+ "split_from": {
+  "4": 3,
+  "9": 8,
+  "12": 11,
+  "15": 14,
+  "16": 14,
+  "21": 20,
+  "26": 25,
+  "36": 35,
+  "42": 41,
+  "43": 41
+ },
+ "blocks": {
+  "overview": "This case concerns an appeal by the Copyright Collective of Canada against Bell Canada regarding the scope of the Board's redetermination following a judicial review. The Collectives (applicant) argued the Board exceeded its jurisdiction by going beyond the court's directions, while Bell Canada and BDUs (respondent) defended the Board's broader approach. The Federal Court of Appeal found the Board exceeded its jurisdiction and ordered the Board to set corrected royalty rates accordingly.",
+  "background_paras": "2-8, 9-15",
+  "disposition_paras": "43-49, 82, 84",
+  "blocks": [
+   {
+    "issue": "Did the Board exceed its jurisdiction by going beyond the judicial review decision in its redetermination?",
+    "paras": "2, 3, 9-12, 16-20, 21-35",
+    "court_conclusion": "The Board exceeded its jurisdiction by going beyond the judicial review decision; its assessment was incorrect and unreasonable.",
+    "conclusion_paras": "3, 20, 27-30, 32, 35",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Board exceeded jurisdiction by adjusting calculations beyond JR Decision; was functus officio except as remitted; improperly reinstated 25% profit margin for US services; analysis unreasonable.",
+      "paras": "2, 16, 17"
+     },
+     {
+      "holder": "respondent",
+      "text": "Board properly exercised jurisdiction and analysis was reasonable; absence of explicit direction limiting redetermination means JR Decision not limited.",
+      "paras": "18, 31"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Board recognized limits but concluded it should consider additional issues beyond JR Decision; justified by lack of endorsement and duty to correct errors.",
+      "paras": "9-12, 27"
+     }
+    ]
+   },
+   {
+    "issue": "What is the proper scope of the Board's jurisdiction on redetermination following the judicial review decision?",
+    "paras": "21-25, 26-32, 33-36, 39-41",
+    "court_conclusion": "Redetermination limited to correcting two identified errors; no rational basis to extend beyond JR Decision issues.",
+    "conclusion_paras": "28-30, 32, 39-41",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "JR Decision limited setting aside Original Decision to wrong pricing data error only; corrections limited to omitted payments for three Canadian proxy services.",
+      "paras": "26"
+     },
+     {
+      "holder": "respondent",
+      "text": "Absence of explicit direction limiting redetermination means JR Decision was not intended to be limited.",
+      "paras": "31"
+     },
+     {
+      "holder": "court",
+      "text": "Only instructions explicitly stated in judgment bind; reasons interpret but are not binding alone; no slips or material changes here; JR Decision set aside only two errors.",
+      "paras": "21, 29-30, 39-41"
+     }
+    ]
+   },
+   {
+    "issue": "Was the Board's application of the profit margin adjustment reasonable and within jurisdiction?",
+    "paras": "6, 11, 15, 36-40",
+    "court_conclusion": "Board's reinstatement of 25% profit margin for US proxy services was unreasonable and beyond JR Decision scope; 10% applies to all proxy services.",
+    "conclusion_paras": "39-41",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Only 10% profit margin adjustment reasonable for both Canadian and US proxy services.",
+      "paras": "40"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Applied 10% for Canadian proxy services but 25% for US proxy services, rejecting 10%.",
+      "paras": "11, 15, 37-38"
+     },
+     {
+      "holder": "court",
+      "text": "Board's reading that profit margin issue was remitted for re-evaluation is unreasonable; JR Decision indicates 10% adjustment for all proxy services.",
+      "paras": "39-41"
+     }
+    ]
+   },
+   {
+    "issue": "What is the appropriate remedy given the Board exceeded its jurisdiction?",
+    "paras": "43-49, 82, 84",
+    "court_conclusion": "Matter remitted to Board to set rates per corrected figures; Board must amend Tariff expeditiously; parties govern themselves pending adjustments.",
+    "conclusion_paras": "48-49, 84",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Matter should not be remitted again; Court should direct Board to issue new certified Tariff per Appendix A figures with caps.",
+      "paras": "46, 45"
+     },
+     {
+      "holder": "respondent",
+      "text": "BDUs do not dispute court may direct Board on appropriate royalty rates if application granted.",
+      "paras": "47, 45"
+     },
+     {
+      "holder": "court",
+      "text": "Remit to Board appropriate; Board must approve and publish Tariff; delay is concerning; caps determinative for rates; trust Board will amend expeditiously.",
+      "paras": "43-49, 82, 84"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Redetermination Decision followed the 2021 FCA 148 JR Decision granting judicial review in part of the Board's Original Decision CB-CDA 2019-056",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The JR Decision set aside aspects of the Original Decision and remitted the matter to the Board for redetermination",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Whether the Board exceeded its jurisdiction in the Redetermination Decision by going beyond the JR Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker set aside parts of the Original Decision and remitted it; the applicant disputes Board's jurisdiction in Redetermination Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Board exceeded its jurisdiction in the Redetermination Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the Board exceeded its jurisdiction in the Redetermination Decision.",
+   "role": "conclusion"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Following the Original Decision, Collectives and BDUs applied for judicial review; JR Decision dismissed BDUs' application but granted Collectives' in part",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "JR Decision found two reviewable errors in the Original Decision: reliance on incomplete payment data and incorrect profit margin adjustment",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found two errors in the Original Decision after judicial review applications by Collectives and BDUs.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Board omitted certain payments for three Canadian proxy services in its calculations (Payment Data Error)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The missing data was entered via undertakings before the Original Decision; BDUs did not dispute the error",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found omitted payment data error undisputed by BDUs, based on undertakings data.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Board erred by applying a 25% profit margin adjustment instead of 10% for Canadian and US proxy services (Profit Margin Error)",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Dr. Chipty's expert evidence supported a 10% profit margin adjustment",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board erred by using 25% profit margin instead of 10% supported by expert evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives urged the Court to substitute its own decision for the Board's Original Decision due to easy fixes and delay",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Court remitted the matter to the Board for redetermination despite Collectives' urging",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Court made observations when remitting the matter to the Board",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant urged substitution of decision; the earlier decision-maker remitted the matter to the Board with observations.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The JR Decision granted judicial review in part, set aside Board's use of wrong pricing data and profit margin, and remitted for redetermination",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Each party shall bear its own costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker's judgment granted review in part, set aside errors, remitted for redetermination, and allocated costs.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "In the Redetermination Decision, the Board addressed both errors found in the JR Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker states the Board addressed both errors in the Redetermination Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Regarding Payment Data Error, Board applied omitted data and made two additional modifications not in issue before the Court",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board removed double-counted payments for SD and HD specialty services and added payments by Telus for Fox News specialty service",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board applied omitted data and made additional modifications in the Redetermination Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board applied 10% profit margin for Canadian proxy services as per JR Decision",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board applied 25% profit margin for US specialty services, rejecting 10%",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board applied 10% margin for Canadian and 25% for US services in Redetermination Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board recognized its calculations went beyond JR Decision issues",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Board concluded it should consider additional issues because JR Decision did not endorse remainder of proxy price calculations",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Double-counting issue identified through redetermination process",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Board has mandate to fix fair and equitable royalty rates",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Board reasoned it should not ignore apparent errors and corrections were not in conflict with JR Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board recognized exceeding JR Decision scope but justified corrections as not conflicting with it.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board relied on BDUs' argument that subscriber and payment amounts for SD and HD services were nearly identical to find double counting",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board relied on BDUs' argument to find double counting of SD and HD payments.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board noted preliminary calculations relied on Dr. Chipty's report and Undertakings Data, not Collectives' summary table",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "This explained missing Fox News payments in Original Decision",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Parties did not object to inclusion of Fox News payments before the Board",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board explained missing Fox News payments and parties did not object to their inclusion.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board evaluated evidence and rejected 10% profit margin for US proxy services, applying 25% instead",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker found the Board rejected 10% margin and applied 25% for US proxy services after evaluation.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives argue Board exceeded jurisdiction by adjusting calculations beyond JR Decision",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives argue Board was functus officio except as remitted by Court",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives argue Board improperly overrode evidence treatment and reinstated 25% profit margin for US services",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the Board exceeded jurisdiction, was functus officio, and improperly reinstated 25% profit margin for US services.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives argue Board's analysis of contested adjustments was unreasonable even if authorized",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the Board's analysis was unreasonable even if it had authority to adjust calculations.",
+   "role": "issue"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "BDUs disagree and argue Board properly exercised jurisdiction and analysis was reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent argues the Board properly exercised jurisdiction and its analysis was reasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives argue Board's jurisdiction scope conclusion should be reviewed on correctness standard",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives accept reasonableness standard for analysis if jurisdiction exists",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "BDUs argue reasonableness standard applies to all issues",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues correctness standard for jurisdiction and reasonableness for analysis; respondent argues reasonableness for all.",
+   "role": "issue"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No need to decide standard of review for Board's jurisdiction scope",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Board's assessment of its jurisdiction was incorrect and unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Board's jurisdiction assessment incorrect and unreasonable, so standard of review need not be decided.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether functus officio or stare decisis principles apply is unnecessary to decide",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Scope of Board's jurisdiction constrained by JR Decision judgment, which is binding on subsequent decision-maker",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Only instructions explicitly stated in judgment bind subsequent decision-maker (Canada v. Yansane, Jagadeesh)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasons in JR Decision can interpret the judgment but are not binding alone",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Board's power to change Original Decision limited to slips in formal judgment or material changes in circumstances (Chandler, Copyright Act s.66.52)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Neither slips nor material changes are present in this case",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Board's jurisdiction is limited by the JR Decision judgment and legal principles; no slips or changes present here.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Board acknowledged limits on its power on redetermination, requiring court direction to review its own decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board acknowledged limits on its power on redetermination, requiring court direction to review its own decision.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "The Board cited a framework from this Court for determining if a tribunal acted within authority on redetermination.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board cited a framework from this Court for determining if a tribunal acted within authority on redetermination.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A simpler analysis suffices: what did this Court direct on redetermination, and did the Board follow those directions.",
+     "answers": 0
+    }
+   ],
+   "summary": "A simpler analysis suffices: what did this Court direct on redetermination, and did the Board follow those directions.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The dispute relates to how legal limitations on the Board's redetermination power should be applied in this case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The dispute relates to how legal limitations on the Board's redetermination power should be applied in this case.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Collectives argue the JR Decision limited setting aside the Original Decision to the wrong pricing data error only.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Collectives argue corrections to pricing data should be limited to omitted payments for three Canadian proxy services.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Collectives argue the JR Decision limited setting aside the Original Decision to the wrong pricing data error only and corrections to omitted payments for three Canadian proxy services.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Board acknowledged adjustments went beyond JR Decision issues, including SD/HD double counting and Telus/Fox News issues.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "allegation_or_argument",
+     "text": "The Board justified additional modifications by lack of JR Decision endorsement and duty to correct found errors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Neither justification justifies the Board's approach to additional modifications beyond JR Decision issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board acknowledged adjustments went beyond JR Decision issues and justified them by lack of endorsement and duty to correct errors; court rejects these justifications.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Board concluded JR Decision text permitted redetermination beyond addressed issues, which is incorrect and unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Board concluded JR Decision text permitted redetermination beyond addressed issues, which is incorrect and unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The JR Decision identified the Payment Data Error as missing payment data for three Canadian proxy services only.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No suggestion in JR Decision of other payment data errors beyond those identified.",
+     "answers": 0
+    }
+   ],
+   "summary": "The JR Decision identified the Payment Data Error as missing payment data for three Canadian proxy services only, with no other errors suggested.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Absence of explicit endorsement of remainder of Original Decision is irrelevant to Board's power to revisit calculations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "JR Decision set aside Original Decision only to extent of two errors, implicitly leaving remainder undisturbed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Absence of explicit endorsement is irrelevant; JR Decision set aside Original Decision only to extent of two errors, leaving remainder undisturbed.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "BDUs argue absence of explicit direction limiting redetermination means JR Decision was not intended to be limited.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court sees no reason to infer broader meaning from absence of explicit direction in JR Decision.",
+     "answers": 1
+    }
+   ],
+   "summary": "BDUs argue absence of explicit direction means JR Decision was not limited; court disagrees and sees no reason to infer broader meaning.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying reasonableness standard, no rational basis to conclude redetermination extends beyond JR Decision issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Conclusion that redetermination extends beyond two errors is unreasonable and goal-oriented reasoning.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applying reasonableness standard, no rational basis to extend redetermination beyond JR Decision issues; such conclusion is unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "JR Decision suggests redetermination would be limited and straightforward, allowing expeditious amendment.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "JR Decision expressed concern about delay but expected quick, straightforward recalculations.",
+     "answers": 0
+    }
+   ],
+   "summary": "JR Decision suggests redetermination would be limited and straightforward, allowing expeditious amendment despite delay concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court expected quick, predictable redetermination results to allow business decisions before completion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Redetermination took almost 2\u00bd years, not conducted expeditiously.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court expected quick redetermination for business decisions, but it took almost 2\u00bd years and was not expeditious.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Board's duty to correct additional errors is not a proper justification to revisit Original Decision beyond JR Decision direction.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Board acknowledged no power to review or correct errors without court direction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No reasonable basis that JR Decision directed correction of errors other than two identified.",
+     "answers": 0
+    }
+   ],
+   "summary": "Board's duty to correct errors is not proper justification to revisit Original Decision; Board acknowledged no power without court direction; no basis JR Decision directed other corrections.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "JR Decision set aside Original Decision only to extent of wrong profit margin use, indicating limited redetermination scope.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Wrong profit margin was 25%, correct adjustment was 10% per JR Decision paragraph 72.",
+     "answers": 0
+    }
+   ],
+   "summary": "JR Decision set aside Original Decision only for wrong profit margin use, 25% replaced by 10%, indicating limited redetermination scope.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Board re-evaluated evidence and applied 10% adjustment to Canadian proxy services, 25% to US proxy services.",
+     "answers": 0
+    }
+   ],
+   "summary": "Board re-evaluated evidence and applied 10% adjustment to Canadian proxy services, 25% to US proxy services.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Board did not repeat justifications for broad redetermination on profit margin but disagreed with Collectives on US services.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Board stated FCA sent profit adjustment issue back for re-evaluation with detailed evidence description.",
+     "answers": 0
+    }
+   ],
+   "summary": "Board did not repeat broad redetermination justifications but disagreed with Collectives on US services, stating FCA sent issue back for re-evaluation.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Board's reading that profit margin issue was remitted for re-evaluation is unreasonable and not explained.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Board interpreted Judgment as it wanted, not as it actually read.",
+     "answers": 0
+    }
+   ],
+   "summary": "Board's reading that profit margin issue was remitted for re-evaluation is unreasonable and not explained; Board misinterpreted Judgment.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Collectives argue only one reasonable interpretation: 10% adjustment applies to both Canadian and US proxy services.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "JR Decision wording and paragraphs 82 and 84 indicate no further evidence evaluation and 10% adjustment for all proxy services.",
+     "answers": 0
+    }
+   ],
+   "summary": "Collectives argue only 10% adjustment applies to all proxy services; court finds JR Decision wording supports this interpretation.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No reason to infer broader redetermination scope from absence of explicit direction in Judgment as per Federal Courts Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "No reason to infer broader redetermination scope from absence of explicit direction in Judgment as per Federal Courts Act.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No need to address alternative arguments on reasonableness of Board's conclusions on SD/HD double counting and 25% profit margin adjustment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it unnecessary to address alternative arguments on the Board's reasonableness regarding SD/HD double counting and profit margin adjustment.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Having found Board exceeded jurisdiction, must decide appropriate remedy.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it must decide the appropriate remedy after concluding the Board exceeded its jurisdiction.",
+   "role": "issue"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court in JR Decision remitted matter to Board despite delay concerns, noting recalculations straightforward and expeditious.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Vavilov teaches it is usually appropriate to remit matter to decision maker for reconsideration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Court noted amounts at stake considerable and lacked BDUs' views on Collectives' recalculations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Parliament created Board as expert tribunal responsible for approving Tariff.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recalls the JR Decision remitted the matter to the Board, citing Vavilov and noting the Board's expertise and lack of BDUs' views.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Delay since 2021 has worsened by 2025, increasing concern.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Collectives provided Appendix A with appropriate monthly per subscriber royalty rates for large systems depending on court rulings.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "BDUs do not dispute numbers in Appendix A.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Collectives confirm Appendix A figures exclude payments related to Telus/Fox News issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes worsening delay; Collectives provide Appendix A rates uncontested by BDUs, excluding Telus/Fox News payments.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Matter should not be remitted again to Board to avoid endless judicial reviews per Vavilov guidance.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Court should direct Board to issue new certified Tariff per Appendix A figures, subject to caps from Redetermination Decision paragraph 154.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Collectives argue against remitting again, seeking court direction for Board to issue Tariff per Appendix A and caps.",
+   "role": "issue"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "BDUs do not dispute court may direct Board on appropriate royalty rates if application granted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Ultimately, Board must approve and publish proposed tariff in Canada Gazette as stated in JR Decision paragraph 83.",
+     "answers": 0
+    }
+   ],
+   "summary": "BDUs accept court may direct Board on rates; court states Board must approve and publish tariff.",
+   "role": "law"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Caps identified in Redetermination Decision paragraph 154 are determinative for setting per subscriber royalty rates for large systems.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Board should set rates per last column of table for years 2014-2018 as specified.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds caps determinative and directs Board to set specified per subscriber rates for large systems 2014-2018.",
+   "role": "conclusion"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Rates for other systems should be based on large system rates adjusted per Redetermination Decision paragraph 162.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders rates for other systems be adjusted from large system rates per prior decision paragraph 162.",
+   "role": "conclusion"
+  },
+  {
+   "para": 82,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Errors identified by court on proxy price adjustment are straightforward and do not require reconsidering Board's overall approach.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Amounts at stake are considerable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Collectives filed calculation of correcting errors but BDUs' views on issue are absent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds proxy price adjustment errors straightforward but stakes high; BDUs' views on corrections are missing.",
+   "role": "analysis"
+  },
+  {
+   "para": 84,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Retransmission royalty rates for 2014-2018 released December 2018; Tariff approved August 3, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Reconsidering rates that should have applied 3-7 years ago causes concern and uncertainty.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Trust Board will amend Tariff expeditiously; parties can govern themselves pending adjustments.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes delay in rate release and approval causes concern; trusts Board will amend Tariff quickly; parties can act meanwhile.",
+   "role": "analysis"
+  }
+ ]
+}

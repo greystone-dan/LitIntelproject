@@ -1,0 +1,420 @@
+{
+ "case_id": 30830,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0051856
+ },
+ "verification": {
+  "paragraphs": 15,
+  "rows": 15,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 34,
+  "holders": {
+   "court": 20,
+   "earlier_decision_maker": 3,
+   "applicant": 7,
+   "prior_court_or_authority": 4
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "Ms. Mardani and her husband applied for Canadian study and spousal work permits, which were denied by a visa officer due to insufficient ties to Iran and unclear benefits of the MBA program. They sought judicial review of the refusal, arguing errors in the officer's reasoning and procedural fairness breaches. The Federal Court dismissed the application, finding the officer's decision reasonable and supported by law and evidence.",
+  "background_paras": "1-2",
+  "disposition_paras": "15",
+  "blocks": [
+   {
+    "issue": "Was the visa officer's finding of insufficient ties to Iran reasonable?",
+    "paras": "1,4-5",
+    "court_conclusion": "Officer reasonably considered family ties and travel with spouse as weakening ties; presumed to consider all evidence including assets.",
+    "conclusion_paras": "5",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants challenge officer's reasoning on ties, arguing evidence of family and assets in Iran was overlooked.",
+      "paras": "4-5"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Officer found family ties outside Canada insignificant; travel with spouse weakens ties; motivation to return diminished.",
+      "paras": "1,4"
+     },
+     {
+      "holder": "court",
+      "text": "Officer used boilerplate reasons but could consider travel with immediate family; failure to mention assets not unreasonable.",
+      "paras": "5"
+     }
+    ]
+   },
+   {
+    "issue": "Did the visa officer reasonably assess the benefits of the MBA program?",
+    "paras": "6-10",
+    "court_conclusion": "Officer reasonably concluded insufficient evidence of MBA benefits; applicant's statements and employer letter vague or silent.",
+    "conclusion_paras": "8-9",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicant argues officer misapprehended purpose; employer will promote her; long-term goal is consulting business.",
+      "paras": "7"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Officer noted different bachelor's degree and employment; found insufficient reasons for MBA benefit.",
+      "paras": "6"
+     },
+     {
+      "holder": "court",
+      "text": "MBA after different degree common; officer reasonably found insufficient evidence of benefit; prepayment of tuition not determinative.",
+      "paras": "8-10"
+     }
+    ]
+   },
+   {
+    "issue": "Did the visa officer breach procedural fairness in refusing the permits?",
+    "paras": "12-14",
+    "court_conclusion": "No procedural fairness breach; minimal duty applies; no notice required absent misrepresentation or credibility issues.",
+    "conclusion_paras": "13-14",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Applicants argue officer breached procedural fairness in refusal.",
+      "paras": "12"
+     },
+     {
+      "holder": "court",
+      "text": "Duty of fairness minimal; no notice required for insufficient evidence; allegations relate to substance, not fairness breach.",
+      "paras": "13-14"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Rajabi, Patel, and Amirhesari cases confirm no notice required and reject such allegations as fairness breaches.",
+      "paras": "13-14"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Mardani, Iranian citizen, applied for MBA study permit; husband applied for spousal work permit; both denied due to insufficient ties and evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Visa officer found insufficient ties to Iran and benefits of MBA; concluded they may not return after authorized stay.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Mardani and her husband applied for permits; visa officer denied both for insufficient ties and evidence, fearing they won't return.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Ms. Mardani and Mr. Rasouli apply for judicial review of visa officer's decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application dismissed; officer's decision was reasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants seek judicial review; court dismisses application as officer's decision was reasonable.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonable decision must explain result with law and key facts; Vavilov requires logical explanation and responsiveness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Visa officers face many applications; reasons need not be lengthy but must set out key analysis and respond to core submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicant bears onus to satisfy officer of meeting legal requirements, including intent to leave after authorized stay.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Visa officers must consider push and pull factors influencing applicant's likelihood to overstay or return home.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court summarizes judicial review framework: decisions must explain reasoning; officers must consider ties and intent to leave; applicants bear onus.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants challenge officer's reasoning on their ties to Iran, quoting officer's concerns about insufficient ties.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found applicant's family ties outside Canada not significant; travel with spouse weakens ties to Iran; motivation to return diminished.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants challenge officer's reasoning on ties to Iran; officer found family ties insufficient and travel with spouse weakens motivation to return.",
+   "role": "issue"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue officer overlooked evidence of family in Iran and assets owned there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer used boilerplate reasons but could consider travel with immediate family despite extended family in Iran.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Nourani case supports considering travel with immediate family as weakening ties to home country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer presumed to have considered all evidence including assets; failure to mention assets does not make decision unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants say officer overlooked family and assets; court finds officer's reasoning acceptable and presumes all evidence considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer noted applicant's different bachelor's degree, employment, and statement of purpose; found insufficient reasons for benefit of MBA.",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found applicant's education and work history did not justify pursuing MBA in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues officer misapprehended her purpose; employer will promote her after MBA; long-term goal is consulting business.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues officer misunderstood her study purpose and promotion prospects.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees MBA after different degree is common and not inconsistent career progression.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court reviewed statement and employer letter; finds officer reasonably concluded insufficient evidence of benefit from MBA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Statement of purpose vague on management skills and course details; employer letter silent on why MBA required for promotion.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds officer reasonably concluded applicant failed to show MBA benefits despite common career path and employer letter.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Visa officers reasonably inquire about benefits of proposed study; study unlikely if no benefits shown.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Khosravi case supports inquiry into study benefits; officers do not provide career counselling or value judgments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer reasonably concluded applicant provided insufficient evidence of benefits; Rajabi case analogous.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states officers can inquire about study benefits; here officer reasonably found insufficient evidence of benefits.",
+   "role": "law"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues officer overlooked her prepayment of tuition fees, showing intent to study or ties to Iran.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds prepayment does not establish intent to study or ties; officer's failure to mention it not unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues prepayment shows intent; court disagrees and finds officer's omission reasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue providing all required documents should prevent unreasonable decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicants must meet substantive requirements beyond document compliance, especially intent to leave after stay.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If documents do not meet test, applicants cannot claim officer overlooked evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants say submitting all documents should suffice; court says substantive requirements and intent to leave must be met.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicants argue officer breached procedural fairness in refusing study and work permits.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicants allege procedural fairness breach in permit refusals.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Duty of procedural fairness in study permit refusals is minimal; officers must notify if misrepresentation or credibility issues arise.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Rajabi and Patel cases confirm no notice required for insufficient evidence of intent to leave.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states minimal procedural fairness duty; no notice needed for insufficient evidence of intent to leave, per case law.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Allegations of disregarded evidence or insufficient reasons relate to substance, not procedural fairness breach.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Court repeatedly rejects such allegations as procedural fairness breaches; see Amirhesari case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Recasting such allegations as breach of reasonable expectations does not help applicants.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court explains such allegations concern substance, not procedural fairness, and rejects them as breaches.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review dismissed for reasons stated.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses judicial review application.",
+   "role": "disposition"
+  }
+ ]
+}

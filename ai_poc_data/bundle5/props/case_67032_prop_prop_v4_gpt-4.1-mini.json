@@ -1,0 +1,1185 @@
+{
+ "case_id": 67032,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.015756
+ },
+ "verification": {
+  "paragraphs": 57,
+  "rows": 57,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 114,
+  "holders": {
+   "court": 72,
+   "earlier_decision_maker": 20,
+   "applicant": 22
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "6": "REQUEST TO ADMIT NEW EVIDENCE"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns an Iranian citizen (the Appellant) appealing the Refugee Protection Division's (RPD) refusal of refugee protection based on his claim of persecution due to his Christian faith. The Appellant alleges errors in the RPD's credibility assessment and failure to properly consider his psychological state and sur place claim. The appeal was dismissed, confirming the RPD's decision that the Appellant is neither a Convention refugee nor a person in need of protection.",
+  "background_paras": "1-3, 12",
+  "disposition_paras": "2, 9-10, 46, 52, 56-57",
+  "blocks": [
+   {
+    "issue": "Is the Appellant entitled to have the new letter admitted as evidence?",
+    "paras": "6-10",
+    "court_conclusion": "The letter is admitted as new evidence; no oral hearing is convened.",
+    "conclusion_paras": "9-10",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The letter was not provided earlier as it was unforeseeable RPD would question unpaid status; could not reasonably have been presented earlier.",
+      "paras": "6, 8"
+     },
+     {
+      "holder": "court",
+      "text": "Evidence post-dates RPD decision, meets credibility and relevance thresholds; no basis for oral hearing under subsection 110(6) IRPA.",
+      "paras": "6-10"
+     }
+    ]
+   },
+   {
+    "issue": "Does the Appellant face a serious forward-looking risk of persecution in Iran as a genuine convert from Islam to Christianity?",
+    "paras": "12-15, 53-55",
+    "court_conclusion": "Appellant's sporadic Christian practice unlikely to cause serious persecution risk; not a genuine convert.",
+    "conclusion_paras": "53-55",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges serious forward-looking risk of persecution in Iran due to Christian faith and as a failed refugee claimant.",
+      "paras": "4, 14, 54"
+     },
+     {
+      "holder": "court",
+      "text": "If genuine convert, risk exists; however, sporadic practice unlikely to cause apostasy charge or serious persecution.",
+      "paras": "15, 53-55"
+     }
+    ]
+   },
+   {
+    "issue": "Did the RPD err in assessing the Appellant's credibility and matters central to his claim?",
+    "paras": "16-31, 33-52",
+    "court_conclusion": "RPD made errors in credibility assessment but ultimate decision upheld; Appellant not genuine convert.",
+    "conclusion_paras": "46, 52",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found Appellant not credible; inconsistencies unexplained; misrepresented reasons for coming to Canada; rejected mental health evidence.",
+      "paras": "4, 13, 22, 25, 28, 31, 34, 38"
+     },
+     {
+      "holder": "applicant",
+      "text": "RPD erred by ignoring psychological state, misrepresenting reasons for coming, being microscopic about church attendance, and failing to assess sur place claim.",
+      "paras": "5, 14, 19, 24, 33, 37, 47, 54"
+     },
+     {
+      "holder": "court",
+      "text": "Agrees RPD erred in some credibility findings, ignored relevant testimony and evidence, but finds Appellant not genuine convert and upholds decision.",
+      "paras": "17-18, 20-21, 23, 26-27, 29-30, 35-36, 39-46, 48-52"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant, an Iranian citizen, appeals the RPD's December 9, 2019 decision refusing refugee protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant, an Iranian citizen, appeals the RPD's December 9, 2019 decision refusing refugee protection.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appeal is dismissed for the reasons that follow.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Appellant alleged depression from childhood incidents and did not attend school in Canada due to it.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "He began attending church in December 2018 on a friend's recommendation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "He returned to Iran and re-entered Canada in 2019 but was refused entry by CBSA and then made a refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant alleges a serious forward-looking risk of persecution in Iran due to his Christian faith.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant suffered depression, attended church, was refused entry by CBSA, and claimed risk of persecution for Christian faith; the Appellant alleges this risk.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The RPD refused the claim based on credibility as the determinative issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD refused the claim based on credibility as the determinative issue.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by finding psychological state irrelevant to inconsistencies.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD erred by finding he misrepresented reasons for coming to Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD was microscopic about church attendance and conversion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD failed to assess the sur place claim about being perceived as Christian in Iran.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges RPD erred on psychological state, misrepresentation, church attendance, and sur place claim assessment.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant did not request an oral hearing but asked to admit a letter dated February 3, 2020 as new evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Evidence can be accepted if it arose after the RPD decision, was not reasonably available, or could not reasonably have been brought before.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant seeks to admit a February 3, 2020 letter as new evidence; the court states legal criteria for admitting new evidence.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If evidence meets requirements, it must be new, credible, and relevant to be accepted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states new evidence must be new, credible, and relevant to be accepted.",
+   "role": "law"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant states he did not provide the letter earlier because he did not think it was necessary.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He could not reasonably have been expected to present the letter earlier as it was unforeseeable RPD would question unpaid status.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues he did not provide the letter earlier because he did not think it necessary and could not reasonably have presented it earlier.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The letter post-dates the RPD decision and meets credibility and relevance thresholds.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The letter is admitted as new evidence.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the letter credible and relevant and admits it as new evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The letter does not raise a serious credibility issue.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No basis exists to convene an oral hearing under subsection 110(6) IRPA.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the letter does not raise serious credibility issues and denies an oral hearing request.",
+   "role": "disposition"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The court independently assesses the record and applies correctness standard of review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Deference to RPD's credibility assessment applies only if RPD has a particular advantage, which must be explained.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court will independently assess the record applying correctness standard, deferring to RPD only if it has a particular advantage.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The court's determination is based on RPD records, audio of hearing, and National Documentation Package for Iran.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Does the Appellant face a serious forward-looking risk of persecution in Iran as a genuine convert from Islam to Christianity?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court bases its determination on evidence and asks if the Appellant faces serious risk as a genuine convert.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant not credible and feigned Christian conversion to gain status.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found material inconsistencies in CBSA interview unexplained, undermining credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found inconsistencies about reasons for coming to Canada not explained by depression.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found inconsistencies about church attendance after December 25, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD acknowledged testimony about Christianity but found depression did not explain inconsistencies about conversion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant not credible, with unexplained inconsistencies about reasons for coming to Canada and church attendance.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Even if conversion was opportunistic, Appellant is entitled to protection and RPD erred by not considering perception as Christian in Iran.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RAD must assess risk of persecution for manifesting Christian faith in Canada even if not credible on conversion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant faces serious risk in Iran as a failed refugee claimant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues protection is due even if conversion was opportunistic and that risk arises from being perceived as Christian or a failed claimant.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's finding that Appellant was not genuine Christian was based on belief he would not be perceived as such in Iran.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If Appellant is a genuine convert, he faces serious forward-looking risk of persecution in Iran.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD's disbelief in genuine conversion underpins its decision; genuine conversion would mean serious risk in Iran.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The determinative issue is whether RPD erred in assessing Appellant's credibility and matters central to his claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies the key issue as whether RPD erred in credibility assessment and central claim matters.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees the RPD erred in adopting CBSA's finding that Appellant entered Canada to work illegally.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the RPD erred in adopting CBSA's finding that the Appellant entered Canada to work illegally.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's reference to 'preponderance of evidence' supporting CBSA's conclusion is misleading.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's plausibility finding lacked objective evidence and was based on common sense presumption about unpaid work.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD's reliance on CBSA's conclusion misleading and notes lack of objective evidence for plausibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant says RPD was irrational in finding he could not volunteer without pay and never volunteered at all.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD acknowledged Appellant's testimony about volunteering to stay busy and interest in the job.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues RPD was irrational denying volunteering; RPD acknowledged his testimony about volunteering interest.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified he knew payment was illegal, was interested in work, and supported by brother's money.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD did not reference this testimony, weakening its finding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "New evidence corroborates Appellant's testimony; letter given some weight for this purpose.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified about unpaid volunteering and support; RPD ignored this; new evidence corroborates and is given weight.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Whether the Appellant was paid to work was not material to the claim's core issue of genuine Christian conversion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds whether the Appellant was paid to work was not material to the genuine conversion claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's testimony on payment not credible and questioned truthfulness of related allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Payment status was extraneous since RPD accepted Appellant met XXXX who introduced him to Christianity there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Whether Appellant was paid or volunteer when meeting XXXX is irrelevant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found payment testimony not credible; the Appellant argues payment status is extraneous; the court finds payment status irrelevant.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's view that illegal work status was integral to credibility assessment is unsupported by evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD's insistence on illegal work status as integral to credibility unsupported by evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred rejecting Appellant's testimony about not attending XXXX due to emotional state.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in finding Appellant's depression irrelevant to CBSA statements assessment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD erred in finding Appellant abused depression diagnosis.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD failed to make explicit finding on whether Appellant had depression.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges RPD erred rejecting testimony on emotional state, depression relevance, abuse of diagnosis, and failing explicit depression finding.",
+   "role": "issue"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD noted Appellant invoked depression to explain failure to attend XXXX and memory issues.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found poor memory or depression did not address inconsistency about reason for entering Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found depression invoked to explain failures but did not resolve inconsistency about entry reason.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's testimony about not attending XXXX due to emotional state somewhat inconsistent with BOC narrative reason of depression and dislike.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "BOC narrative omits belief that courses started three months after arrival.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds some inconsistency between Appellant's testimony and BOC narrative about reasons for not attending XXXX.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's BOC narrative wanting out of Iran does not contradict statements to CBSA or RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD insisted studying at XXXX was predicate reason for being in Canada and inconsistencies undermine credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not mislead CBSA or RPD about never attending university.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds BOC wanting out of Iran not contradictory; RPD saw studying as predicate reason; Appellant did not mislead about attendance.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant misrepresented reasons for being in Canada and sought protection as Christian due to legal entry issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Such misrepresentation should not undermine credibility since claimants may violate rules or misrepresent to claim protection safely.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found misrepresentation undermined credibility; the court finds such misrepresentation should not undermine credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD asked why Appellant did not claim protection on April 2, 2019 but only summarized testimony without analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD failed to consider if timing of claim on April 3, 2019 impacted credibility of subjective fear.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD asked about claim timing but failed to analyze its impact on credibility; the court notes this failure.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred in drawing negative inference from misrepresentation to obtain visa documents without relevance to subjective fear credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred drawing negative inference from misrepresentation unrelated to subjective fear credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD wrongly rejected psychiatrist and psychologist reports corroborating Appellant's depression before and upon arrival in Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD wrongly rejected medical evidence corroborating Appellant's depression.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred dismissing mental health evidence as scapegoat for inconsistencies about intentions and Christian conversion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred dismissing mental health evidence as scapegoat for inconsistencies.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD was microscopic in assessing church attendance dates and erred assessing friend's letter against testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant submits RPD was microscopic in assessing church attendance and erred assessing supporting letter.",
+   "role": "issue"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant first attended church Dec 25, 2018, then not again until April 4 or 5, 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejected Appellant's explanation for not attending church between Dec 25, 2018 and Feb 8, 2019 as not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found Appellant attended church Dec 25, 2018 and not again until April 2019, rejecting his explanation as not credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees RPD's finding that Appellant's explanation for not attending church lacked credibility, especially unawareness of Bible study classes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified friend XXXX was minister leading Bible study classes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified he was in bad emotional state and discussed Christianity with XXXX during period of non-attendance.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees RPD that Appellant's explanation lacked credibility, noting his testimony about friend minister and emotional state.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD was entitled to question credibility of Appellant's explanation for not attending church and did not err in finding it not credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD did not err in disbelieving Appellant's explanation for church non-attendance.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits RPD erred finding BOC implied conversion after Dec 25, 2018 and no inconsistencies about conversion timing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant submits RPD erred finding BOC implied conversion after Dec 25, 2018 and no inconsistencies exist.",
+   "role": "issue"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found BOC and letter conveyed regular church attendance and conversion shortly after Dec 25, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's CBSA statements conveyed he was not yet Christian.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found BOC and letter showed conversion after Dec 25, 2018 but CBSA statements showed not yet Christian.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court accepts Appellant first expressed desire to convert in April 3, 2019 CBSA interview, repeated April 11, 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts Appellant first expressed desire to convert on April 3, 2019, repeated April 11, 2019.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified conversion completion date was day after Christmas 2018 when friend gifted Bible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Appellant testified conversion completed day after Christmas 2018 when gifted Bible.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's Reasons do not cite XXXX XXXX testimony as basis for finding Appellant's conversion evidence inconsistent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD focuses credibility assessment on Appellant's BOC narrative and XXXX XXXX supporting letter only",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not cite XXXX XXXX testimony for inconsistency finding and focused only on BOC narrative and supporting letter.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "XXXX XXXX supporting letter is forward-looking and does not specify a period",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's BOC narrative states attendance since Christmas Day but no specific dates",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Neither document supports RPD's finding of continuous church attendance immediately after December 2018 party",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the supporting letter and BOC narrative do not support RPD's finding of continuous church attendance after December 2018.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees with RPD's finding that Appellant completed moral and psychological conversion shortly after December 25, 2018",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's narrative states ongoing attendance, help with depression, and hope to be baptized",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with RPD's finding of completed conversion shortly after December 25, 2018, noting ongoing attendance and hope to be baptized.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "XXXX supporting letter states Appellant believed in Bible and Jesus 'after a while' and showed changed behavior",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court finds 'after a while' observation insufficient to infer completed conversion as of December 25, 2018",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds XXXX letter's 'after a while' statement insufficient to infer conversion completion by December 25, 2018.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD could find Appellant's explanation about CBSA conversations evasive",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court rejects RPD's finding that explanation was designed to minimize inconsistency about conversion evidence",
+     "answers": 1
+    }
+   ],
+   "summary": "The court accepts RPD's evasive finding but rejects that Appellant minimized inconsistency about conversion evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court rejects RPD's inference about timing of conversion from letter or BOC narrative",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred in drawing negative inference from non-existent inconsistencies among evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects RPD's timing inference and finds RPD erred drawing negative credibility inference from non-existent inconsistencies.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD failed to give due weight to Appellant's knowledgeable speech about Christianity",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD acknowledged Appellant's knowledge but found it did not outweigh negative credibility findings",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues RPD failed to give due weight to knowledge; court notes RPD acknowledged knowledge but found it insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD Reasons state Appellant spoke about Christianity's principles and impact",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court independently finds Appellant exhibited knowledge of Christian holidays and principles",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant testified about desire to be baptized and pastor's advice to attend Bible study",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant spoke knowledgeably about Christianity, including holidays, principles, and baptism desire.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD observed Christianity changed Appellant based on his testimony about prior non-religious, depressed state",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes RPD found Christianity changed Appellant from prior non-religious, depressed state.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's testimony and evidence unlikely to cause perception he is practicing Christian if returned to Iran",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Knowledge of Christianity does not equal sincere and genuine belief",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's evidence unlikely to cause perception of practicing Christian in Iran; knowledge alone insufficient for sincerity.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's failure to explain church absence between Dec 25, 2018 and Feb 8, 2019 undermines credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court would expect church attendance given testimony about Christianity's importance",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's unexplained church absence undermines credibility given Christianity's importance to him.",
+   "role": "analysis"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant stated desire for baptism and pastor's advice months before RPD hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence Appellant took steps toward baptism between RPD decision and RAD appeal",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance, Appellant is not a genuine convert despite knowledge and past practice",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no evidence of baptism steps and concludes Appellant is not a genuine convert despite knowledge and past practice.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's opportunistic Christian practice unlikely to cause serious persecution risk in Iran",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Practice too sporadic to support finding of true convert from Islam",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Sincere belief unlikely imputed by Iranian authorities due to sporadic practice",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's sporadic Christian practice unlikely to cause persecution or be seen as sincere conversion in Iran.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant submits he faces serious forward-looking risk in Iran as failed refugee claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "March 2015 RIR states failed claimants may face arrest and detention if returned to Iran",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Returnees from Australia and elsewhere have faced monitoring, interrogation, detention in Iran",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits risk; court notes RIR states failed claimants may face arrest, detention, and ill-treatment upon return to Iran.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RIR indicates Iran prosecutes returnees politically active or criminal abroad",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant not politically active abroad and sporadic church attendance unlikely to cause apostasy charge",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant not politically active and sporadic church attendance unlikely to cause apostasy prosecution in Iran.",
+   "role": "analysis"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD made errors but did not err in ultimate determination Appellant is not refugee or person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred in parts but correctly determined Appellant is not refugee or person in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appeal dismissed; RPD decision confirmed that Appellant is neither Convention refugee nor person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms RPD decision that Appellant is neither refugee nor person in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

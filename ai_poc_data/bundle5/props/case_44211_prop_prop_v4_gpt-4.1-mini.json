@@ -1,0 +1,375 @@
+{
+ "case_id": 44211,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.004994
+ },
+ "verification": {
+  "paragraphs": 11,
+  "rows": 11,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 32,
+  "holders": {
+   "court": 14,
+   "earlier_decision_maker": 6,
+   "applicant": 10,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case is an appeal by Gravel against the Attorney General of Canada, challenging the dismissal of his judicial review application as moot regarding a Parole Board decision. The Federal Court had struck the application, and the appellant argues for merits review despite mootness. The Federal Court of Appeal dismissed the appeal, finding no error in the lower court's discretion.",
+  "background_paras": "1-2, 6-9",
+  "disposition_paras": "10-11",
+  "blocks": [
+   {
+    "issue": "Should the court hear the merits of a judicial review application that has been struck as moot?",
+    "paras": "1-5",
+    "court_conclusion": "The court refuses to adopt a systematic approach to hear moot issues and finds no error in the Motions Judge's discretion to dismiss the application as moot.",
+    "conclusion_paras": "4-5",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The appellant argues the ongoing impact of the extended release condition justifies merits review despite mootness and urges courts to always review moot issues on merits.",
+      "paras": "2, 4"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The Motions Judge struck the application as moot, focusing on criteria weighing against exercising discretion and referring to a similar case (Adams).",
+      "paras": "1, 6"
+     },
+     {
+      "holder": "court",
+      "text": "The Motions Judge made no palpable or overriding error in discretion; frequent recurrence of similar moot cases does not justify merits consideration.",
+      "paras": "3-5"
+     }
+    ]
+   },
+   {
+    "issue": "Was the Motions Judge's application of the Borowski criteria and reliance on precedents appropriate?",
+    "paras": "6-9",
+    "court_conclusion": "The Motions Judge's approach, including reliance on Adams and not being bound by Najar and Gallone, was justified and acceptable.",
+    "conclusion_paras": "6-9",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The appellant criticizes the Motions Judge for not explicitly analyzing each Borowski criterion and argues Najar and Gallone were more compelling precedents.",
+      "paras": "6-7, 10"
+     },
+     {
+      "holder": "court",
+      "text": "Although more detail would be preferable, no intervention is warranted; Adams was a useful precedent; Najar and Gallone are distinguishable.",
+      "paras": "6-9"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The Motions Judge focused on criteria against exercising discretion and referred to Adams; Najar and Gallone involved different facts.",
+      "paras": "6, 9"
+     }
+    ]
+   },
+   {
+    "issue": "Should new evidence be considered on appeal?",
+    "paras": "10",
+    "court_conclusion": "The court dismisses the request to consider new evidence as it could have been presented earlier and it does not change the outcome.",
+    "conclusion_paras": "10",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The appellant asks the court to consider new evidence.",
+      "paras": "10"
+     },
+     {
+      "holder": "court",
+      "text": "The appellant concedes the evidence could have been presented earlier; even considering it, the appeal outcome remains unchanged.",
+      "paras": "10"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an appeal from a Federal Court order dated July 6, 2023, striking the appellant's judicial review application as moot.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Motions Judge struck the appellant's application for judicial review of the Parole Board's decision to extend a special release condition for six months.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The special condition required the appellant to reside in a designated residential facility for three months after cancelling parole suspension.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains this appeal is from a Federal Court order striking the appellant's judicial review application as moot regarding parole conditions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant agrees the application is moot but criticizes the Motions Judge's application of Borowski criteria to decide whether to hear the merits.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues the extended release condition remains on his prison record and negatively impacts future decisions about him.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He claims this ongoing impact justifies judicial review on the merits due to the adversarial relationship between prison authorities and inmates.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He submits the interests of justice require such a review despite mootness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues the parole condition's ongoing impact justifies judicial review on merits despite mootness, criticizing the Motions Judge's Borowski application.",
+   "role": "issue"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Judicial review applications may be summarily dismissed as moot (Luk\u00e1cs; JP Morgan).",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Intervention is only possible if the Motions Judge made a palpable and overriding or extricable error of law in discretion (Peckford; Housen; Hospira).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states judicial review can be dismissed as moot and intervention requires palpable overriding or legal error by the Motions Judge.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Motions Judge made no palpable or overriding error or extricable error of law in exercising discretion.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant urges courts to always review moot issues on merits due to ongoing inmate-prison authority relationship.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court refuses to adopt the appellant's proposed systematic approach to moot issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no error by the Motions Judge and rejects the appellant's argument for systematic merits review of moot issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant acknowledges each case must be decided on its own facts.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The impact of the extended release condition on future decisions is conjectural, especially since it was not renewed, a positive development.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Federal Court noted it is preferable to assess validity of any reimposed condition based on facts at that time.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Frequent recurrence of similar moot cases alone does not justify merits consideration (Borowski).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the parole condition's future impact is conjectural and notes Borowski forbids merits review solely due to frequent recurrence.",
+   "role": "analysis"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant criticizes the Motions Judge for not explicitly analyzing each Borowski criterion.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Although more detail would be preferable, this does not warrant intervention (Mahjoub).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Motions Judge focused on criteria weighing against exercising discretion and referred to Adams, a similar case analyzing Borowski in detail.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Referring to Adams was an open and acceptable approach for the Motions Judge.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Motions Judge's Borowski analysis sufficient and her reliance on Adams appropriate despite appellant's criticism.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant argues Adams concerned Board Appeal Division jurisdiction to dismiss moot appeals, not discretion to hear merits.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "He submits Najar and Gallone were more compelling precedents for the Motions Judge.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant argues Adams is less relevant and that Najar and Gallone are more compelling precedents for mootness discretion.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Adams analyzed mootness and discretion to decide merits regardless of Board Appeal Division jurisdiction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Adams provided a useful precedent for the Motions Judge.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Adams analyzed mootness and discretion on merits and was a useful precedent for the Motions Judge.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Najar and Gallone are distinguishable from this case.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Najar involved parole suspension based on third-party gang association information.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Gallone involved procedural fairness issues affecting all inmates justifying merits review despite mootness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Motions Judge was justified in not considering herself bound by Najar and Gallone due to factual differences and discretion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Najar and Gallone distinguishable and the Motions Judge justified in not following them due to factual differences.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellant asks the court to consider new evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant concedes the evidence could have been presented earlier, justifying dismissal of the request.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Even considering the new evidence, the court's position on the appeal outcome remains unchanged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appellant's request to consider new evidence and maintains its position on the appeal outcome.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed without costs as the respondent does not claim them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal without costs as the respondent does not claim them.",
+   "role": "disposition"
+  }
+ ]
+}

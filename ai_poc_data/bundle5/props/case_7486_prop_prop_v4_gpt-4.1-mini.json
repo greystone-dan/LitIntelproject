@@ -1,0 +1,808 @@
+{
+ "case_id": 7486,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0099776
+ },
+ "verification": {
+  "paragraphs": 39,
+  "rows": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 70,
+  "holders": {
+   "court": 58,
+   "applicant": 6,
+   "respondent": 3,
+   "prior_court_or_authority": 3
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "10": "B. SIN/Use",
+  "22": "B. Legislative Scheme",
+  "26": "C. Interpretation"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns Mr. Stanchfield's challenge to the Minister's refusal to deregister his Social Insurance Number (SIN) and delete related information. Mr. Stanchfield, the applicant, argues he should not be registered as he is not currently employed, while the respondent maintains the SIN registration is permanent. The Federal Court dismissed the application, holding that the legislation does not permit rescission of a SIN once issued.",
+  "background_paras": "1-14",
+  "disposition_paras": "37-38",
+  "blocks": [
+   {
+    "issue": "Does the DESDA legislation allow for deregistration or rescission of a Social Insurance Number (SIN)?",
+    "paras": "15, 22-29, 37",
+    "court_conclusion": "No statutory power authorizes rescission of SIN; Parliament would have specified if intended.",
+    "conclusion_paras": "29, 37",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claims right to have SIN deregistered or rescinded; argues 'is employed' means current employment status, so he should not be registered.",
+      "paras": "1, 3, 30"
+     },
+     {
+      "holder": "respondent",
+      "text": "Argues SIN registration is permanent; no power to rescind SIN once issued; registration obligation applies to employed persons.",
+      "paras": "6, 13, 22-28, 34"
+     },
+     {
+      "holder": "court",
+      "text": "Finds no statutory power for rescission; registration obligation imposed but no rescission provision; rejects applicant's interpretation.",
+      "paras": "15, 22-29, 30-31, 33, 37"
+     }
+    ]
+   },
+   {
+    "issue": "What is the appropriate standard of review for interpreting the legislation regarding SIN registration and rescission?",
+    "paras": "16-21, 124",
+    "court_conclusion": "Reasonableness standard applies, but only one reasonable interpretation exists.",
+    "conclusion_paras": "16, 19, 21, 124",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Asserts correctness standard of review applies.",
+      "paras": "16"
+     },
+     {
+      "holder": "respondent",
+      "text": "Argues reasonableness standard applies.",
+      "paras": "16"
+     },
+     {
+      "holder": "court",
+      "text": "Determines reasonableness standard applies; only one reasonable interpretation available; not a correctness case under Vavilov.",
+      "paras": "16-21, 124"
+     }
+    ]
+   },
+   {
+    "issue": "How should the phrase 'persons employed' in s 28.1(1) of DESDA be interpreted regarding SIN registration?",
+    "paras": "30-36",
+    "court_conclusion": "Applicant's interpretation is unreasonable; registration is based on initial employment, not continuing status.",
+    "conclusion_paras": "30-31, 33-36",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Interprets 'is employed' as requiring current employment status for registration.",
+      "paras": "3, 30"
+     },
+     {
+      "holder": "respondent",
+      "text": "Interprets registration as a one-time obligation upon employment; SIN is permanent and not rescinded.",
+      "paras": "34"
+     },
+     {
+      "holder": "court",
+      "text": "Rejects applicant's interpretation; finds it conflicts with legislative scheme and purpose; supports respondent's view.",
+      "paras": "30-31, 33-36"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The decision concerns the Minister's refusal to delete the Applicant's SIN and related information from the Register.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant claims a right to have his SIN deregistered or rescinded and seeks a mandamus order to compel deregistration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Minister refused to delete the Applicant's SIN; the Applicant claims a right to deregistration and seeks a mandamus order.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 28.1(1) of DESDA requires persons employed in insurable employment or self-employed under Part VII.1 to be registered with the Commission.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s 28.1(1) DESDA requires registration of employed or self-employed persons under Employment Insurance Act.",
+   "role": "law"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant contends 'who is employed' means current employment status; since he is not employed or intending to be, he should not be registered.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Therefore, the Applicant claims entitlement to deregistration of his SIN and related information.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues 'employed' means current status; not employed or intending to be, so he claims deregistration entitlement.",
+   "role": "issue"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Stanchfield is self-represented, experienced in litigation, and has made cogent arguments citing authority.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He previously unsuccessfully challenged the Minister of National Revenue in two other cases in this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Mr. Stanchfield is self-represented, experienced, and has unsuccessfully challenged the Minister before.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Stanchfield applied for a SIN at age 15 in 1986 when he began employment history.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He has not been employed in insurable employment or self-employed since December 31, 2009.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Stanchfield applied for SIN in 1986 and has not been employed or self-employed since 2009.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In May 2016, the Applicant sought to have his SIN rescinded.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "On June 2, 2016, the Register Office advised the Applicant that a SIN is permanent and cannot be disassociated from the individual.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant sought SIN rescission in 2016; the Register Office responded SIN is permanent and cannot be disassociated.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "From February 2017, communications between the Applicant and Department officials increased with escalating assertiveness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "These interactions involved the Applicant's demand for rescission and the Department's negative response.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes increasing communications from 2017 between Applicant and Department over rescission demand and refusal.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The series of interactions adds nothing to the issues in the case.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence suggests the Applicant was treated unfairly or that his rescission demand was not seriously considered.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the interactions add nothing and no unfair treatment or lack of serious consideration occurred.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant suggested the SIN regime offends his religious beliefs.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The religious belief issue was not substantively raised nor was a Charter breach alleged.",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant suggested religious offense; the court finds no substantive raising or Charter breach alleged.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A SIN is a nine-digit number identifying Canadian citizens, permanent or temporary residents who earn money, pay taxes, contribute to pensions, or use government services.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states a SIN identifies Canadians or residents who earn money, pay taxes, contribute to pensions, or use government services.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Register is a database storing all SINs issued since 1964 with personal identifying information updated as required.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Register stores all SINs since 1964 with personal information updated as needed.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Different government departments use SINs for program administration and benefits; access is only for legislated purposes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states government departments use SINs for programs and benefits with access limited to legislated purposes.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Respondents identified programs requiring SIN: CPP, OAS, EI, child tax benefits, student aid, GST/HST, social assistance, veterans' benefits, workers' compensation, education savings grants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Respondents identify programs requiring SIN including CPP, OAS, EI, tax benefits, student aid, and others.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Having a SIN does not legally require participation in government programs but practically absence excludes a person from these programs and benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states SIN possession is not legally mandatory for programs but absence practically excludes participation.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The central issue is whether DESDA allows deregistration of a SIN and whether the Court should order deregistration and deletion of personal information.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the central issue is whether DESDA allows SIN deregistration and if the Court should order it.",
+   "role": "issue"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Applicant asserts the applicable standard of review is correctness.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "The Respondents argue the applicable standard of review is reasonableness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The issue is largely immaterial because only one reasonable conclusion is available to the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Applicant asserts correctness standard; Respondents argue reasonableness; the court finds only one reasonable conclusion exists.",
+   "role": "issue"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "In Vavilov, the presumption on statutory interpretation is reasonableness, but a single reasonable interpretation applies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Vavilov that presumes reasonableness standard but allows single reasonable interpretation.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "In Nova Tube, the Court of Appeal applied reasonableness standard even with only one reasonable interpretation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Nova Tube applying reasonableness standard despite a single reasonable interpretation.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This case is not one of the 'central importance' categories in Vavilov that attract correctness standard.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Vavilov identifies categories attracting correctness: parliamentary privilege, religious neutrality, uniformity for justice administration.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds this case is not a Vavilov correctness category, which include parliamentary privilege, religious neutrality, and uniformity.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The legal issue impacts much of the public and is of wider concern but does not bring it into the Vavilov correctness regime.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the issue affects the public but does not qualify for Vavilov correctness standard.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondents bring experience and objectivity to the issue's consideration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Use of SIN covers broader context and multiple statutory regimes beyond creation and rescission",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This is not a turf-preserving government office situation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondents' perspective supports reasonableness standard with one reasonable interpretation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Respondents bring experience and objectivity, SIN use covers broader context, not turf-preserving, supporting one reasonable interpretation.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Key provision of DESDA is s 28.1(1) requiring employed or self-employed persons to register with the Commission",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s 28.1(1) of DESDA requires employed or self-employed persons to register with the Commission.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Paragraphs 2 and 3 require maintenance of Register and assignment of SIN",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission maintains register with names and necessary identifying information",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission assigns each registered person a SIN for any required purpose",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains paragraphs 2 and 3 require the Commission to maintain a register and assign SINs to registered persons.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 28.2 outlines contents of the Social Insurance Register including names of registered persons, CPP SIN holders, and applicants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Register may contain additional identifying information subject to regulations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Commission may issue SIN card when assigning a SIN, which is valid for all required purposes",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s 28.2 outlines the Social Insurance Register contents and Commission's power to issue SIN cards.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Sections 28.2(8)-(10) allow issuance of new SIN only if original assigned, caused hardship, or special circumstances",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "SIN may only be voided, not rescinded, under limited circumstances including fraud",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "If multiple SINs assigned inadvertently, Commission determines official number and voids others",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains s 28.2(8)-(10) allow new SIN issuance only in limited cases and old SINs are voided, not rescinded.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "DESDA gives Minister broad power and objections (s 5) and operational powers to Commission (s 24, 28.1, 28.2)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes DESDA grants broad powers to Minister and operational powers to Commission under specified sections.",
+   "role": "facts"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Section 28.1 imposes obligation to register on employed persons but is silent on continuing employment requirement",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states s 28.1 requires registration for employed persons but does not require continuing employment.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Legislative scheme is silent on rescission of SIN even when number is voided",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Old SIN is voided, not deleted or rescinded, when new SIN issued",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the legislation is silent on SIN rescission; old SINs are voided, not rescinded, when new ones issued.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No statutory power authorizes rescission of SIN explicitly or by implication",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parliament would have specified rescission right if intended, as it did for registration and voiding",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no statutory power for SIN rescission exists and Parliament would have specified it if intended.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues 'is employed' in s 28.1(1) indicates continuing condition for registration as ordinary meaning",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court rejects Applicant's interpretation as not an ordinary meaning",
+     "answers": 1
+    }
+   ],
+   "summary": "The Applicant argues 'is employed' means continuing registration; the court rejects this as not ordinary meaning.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's interpretation ignores timing of registration when one 'is employed' initially",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's interpretation is unreasonable considering legislation's scheme, context, and purpose",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant ignores consequences of registration, deregistration, and reregistration as employment changes",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant's interpretation ignores timing and is unreasonable given legislative scheme and consequences.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court must consider s 12 of Interpretation Act and modern interpretation principles from Rizzo & Rizzo Shoes Ltd",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it must apply s 12 of the Interpretation Act and modern interpretation principles from Rizzo & Rizzo.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's interpretation conflicts with scheme imposing registration obligation but no rescission provision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's interpretation conflicts with legislative context referring only to voidability, not rescission",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant's interpretation conflicts with statutory scheme lacking rescission and only allowing voiding.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondents' interpretation aligns with purpose of maintaining single government number per person",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondents' view ensures consistency and ease of administration across federal legislation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Broader context supports interpretation that SIN once issued is not rescinded and no right to rescission exists",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Respondents' interpretation supports single SIN per person and no rescission right, ensuring administrative consistency.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Interpretation consistent with enabling participation in benefits and efficient monetary collection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the interpretation supports participation in benefits and efficient monetary collection.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's argument of voluntary 'enfranchisement' relationship lacks merit",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Relationship is statutory and compulsory; consent irrelevant to registration obligation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant's voluntary relationship argument lacks merit; registration is statutory and compulsory.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondents had no power and Applicant had no right to rescind SIN",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mandamus and similar relief submissions are irrelevant",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes Respondents lack power and Applicant lacks right to rescind SIN; mandamus submissions irrelevant.",
+   "role": "conclusion"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review dismissed with costs of $3,500.00",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the judicial review application with costs of $3,500.00.",
+   "role": "disposition"
+  },
+  {
+   "para": 124,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness review does not involve de novo analysis or determining 'correct' interpretation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Sometimes text, context, and purpose allow only one reasonable interpretation of statutory provision",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states reasonableness review avoids de novo analysis but may find only one reasonable interpretation.",
+   "role": "law"
+  }
+ ]
+}

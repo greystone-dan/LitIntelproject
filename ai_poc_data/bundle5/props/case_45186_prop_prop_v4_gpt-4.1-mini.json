@@ -1,0 +1,694 @@
+{
+ "case_id": 45186,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.009007600000000001
+ },
+ "verification": {
+  "paragraphs": 32,
+  "rows": 32,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 60,
+  "holders": {
+   "court": 41,
+   "prior_court_or_authority": 6,
+   "earlier_decision_maker": 4,
+   "applicant": 9
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "9": "ALLEGATIONS",
+  "10": "DETERMINATION",
+  "32": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a 43-year-old Egyptian Coptic Christian claimant seeking refugee protection in Canada due to religious persecution. The Refugee Protection Division (RPD) expedited the claim without a hearing and found the claimant credible with a well-founded fear of harm if returned to Egypt. The claim was allowed, and the claimant was recognized as a Convention refugee.",
+  "background_paras": "1-9, 18-24",
+  "disposition_paras": "10, 29-32",
+  "blocks": [
+   {
+    "issue": "Is the claimant credible and does he meet the definition of a Convention refugee based on religion?",
+    "paras": "1-9, 11-17, 25",
+    "court_conclusion": "Claimant is credible and meets the Convention refugee definition based on religion with a serious possibility of harm if returned.",
+    "conclusion_paras": "10, 14-17, 25",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant is a devout Coptic Christian who suffered religious discrimination and physical attacks, fearing harm if returned to Egypt.",
+      "paras": "9"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant's identity and credibility accepted; nexus to refugee definition established; serious harm likely from radical Islamists and society.",
+      "paras": "1-2, 8, 11-17, 25"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Claim identified as suitable for expedited process and streaming of less complex claims.",
+      "paras": "5"
+     }
+    ]
+   },
+   {
+    "issue": "Is adequate state protection available to the claimant in Egypt?",
+    "paras": "26-29",
+    "court_conclusion": "Claimant has overcome presumption of state protection; adequate protection is not available.",
+    "conclusion_paras": "29",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Authorities in Egypt do not intervene in religious disputes; claimant cannot access protection.",
+      "paras": "27, 31"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant provided clear evidence of lack of adequate state protection despite some improvements in Egypt.",
+      "paras": "26-29"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Reports indicate government negligence and societal bigotry contribute to violence against Christians.",
+      "paras": "28"
+     }
+    ]
+   },
+   {
+    "issue": "Is there a viable internal flight alternative for the claimant within Egypt?",
+    "paras": "30-31",
+    "court_conclusion": "No viable internal flight alternative exists for the claimant in Egypt.",
+    "conclusion_paras": "30-32",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "No place in Egypt is safe from Muslim extremists; fears harm everywhere.",
+      "paras": "31"
+     },
+     {
+      "holder": "court",
+      "text": "Neutral country information shows Christians face widespread discrimination and violence, especially in rural Upper Egypt.",
+      "paras": "31"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant is a 43-year-old married male citizen of Egypt with no other citizenship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant is a 43-year-old married male Egyptian citizen with no other citizenship, stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant claims refugee protection under ss. 96 and 97(1) of IRPA based on Christianity.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant claims refugee protection under IRPA based on his Christian religion, stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claim was considered by an expedited process.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claim was processed by an expedited procedure, stated by the court.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Paragraph 170(f) IRPA allows RPD to accept claims without hearing unless Minister intervenes timely.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Subsection 162(2) IRPA requires informal and quick proceedings consistent with fairness and natural justice.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states legal rules from IRPA allowing claims without hearing unless Minister intervenes and requiring informal, quick proceedings.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Claim identified as suitable for streaming less complex claims at RPD.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD publicly identified claims from Egypt as acceptable without hearing on issue date.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker identified the claim as less complex and accepted Egyptian claims without hearing, stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD received Certificate of Readiness, File Review Process form signed 3 December 2019 (Exhibit 4).",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker received a Certificate of Readiness form signed 3 December 2019, stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Front End Security Screening received by RPD on 23 November 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker received Front End Security Screening on 23 November 2019, stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The case meets criteria for expedited determination and was decided without a hearing per RPD instructions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the case meets expedited criteria and was decided without a hearing per instructions.",
+   "role": "conclusion"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant is a devout Coptic Christian from Menia, Egypt.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant suffered religious discrimination throughout life.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "In 2017, claimant lost friends in terrorist attack on Christians traveling to monastery.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "In 2018, claimant's wife and daughter were physically attacked after church attendance.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "In 2019, claimant was physically attacked and hospitalized.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant exited Egypt with agent's help, arrived Canada in 2019, claimed refugee protection.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant fears harm due to religion if returned to Egypt.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges religious discrimination, attacks on family and self, flight from Egypt, and fear of harm if returned.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the claimant is a Convention refugee.",
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's personal identity as Egyptian citizen established by certified true copy of genuine Egyptian passport (Exhibit 1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's Egyptian citizenship established by genuine passport evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's credibility accepted; evidence complete, true, consistent, and not contradicted by country documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts claimant's credibility as evidence is complete, consistent, and not contradicted.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Panel reviewed BOC, POE intake forms, and claimant-specific documents including ID, birth, marriage, medical, baptism certificates, letters, and photos (Exhibits 1,2,4).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reviewed claimant's forms and documents including IDs, certificates, letters, and photos as evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant established nexus to Convention refugee definition based on religion.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant established nexus to refugee definition through religion.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant established feared harm as serious harm including physical harm, persecution, and inability to practice religion freely.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant's feared harm is serious harm including physical harm and persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agents of harm are radical Islamists and Egyptian society generally.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds agents of harm are radical Islamists and Egyptian society generally.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has serious possibility of serious harm if returned due to Coptic Christian identity, supported by neutral COI (Exhibit 3).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant has serious possibility of harm if returned, supported by neutral country information.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "US Department of State 2018 report describes Egypt's political and human rights situation including elections, state of emergency, and human rights issues.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites US State Department 2018 report describing Egypt's political and human rights situation.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Report notes April 2017 terrorist attack on Coptic churches and deadly attacks by terrorist groups in 2018 including places of worship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes report's mention of terrorist attacks on Coptic churches and places of worship in 2017-2018.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "2018 International Religious Freedom Report notes ongoing lethal violence and discrimination against Christians in Egypt.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Report details attacks on Christian pilgrims and churches, anti-Semitic and sectarian speech, and Al-Azhar's interfaith efforts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites 2018 Religious Freedom Report noting violence against Christians and interfaith efforts in Egypt.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit 3 item 1.4 is DFAT Country Information Report Egypt, June 2019, on terrorist attacks on Christians and Christian history in Egypt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Report details terrorist attacks on Christians in Egypt from 2016 to 2018, including bombings and shootings with casualties",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Christians in Egypt mostly belong to Coptic Orthodox Church, live throughout country, concentrated in Upper Egypt and major cities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Christians are politically and socio-economically diverse, dress similarly to Muslims, with some urban differences for women",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes DFAT report on terrorist attacks on Christians and Christian demographics in Egypt from 2016 to 2018.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit 3 item 2.4 is Freedom House 2019 report on religious freedom in Egypt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "2014 constitution declares Islam official religion but states freedom of belief is absolute",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Coptic Christians are a substantial minority; religious minorities and atheists face persecution and violence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Freedom House 2019 report stating Egypt's constitution and persecution of religious minorities including Copts.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit 3 item 12.6 is USCIRF Annual Report 2019 on religious freedom in Egypt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "2018 saw some positive official discourse but ongoing widespread challenges to religious freedom at community level",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Anti-Christian mob violence occurred regularly in Upper Egypt, often linked to church registration efforts",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "ISIS and terror groups targeted Christians and officials; Baha'is and Jehovah's Witnesses unrecognized; blasphemy laws used against various groups",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports USCIRF 2019 findings of ongoing religious freedom challenges and violence against Christians in Egypt.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "USCIRF report details sectarian attacks and legal impunity in 2018, including attempted suicide bombing and deadly attacks on Christian pilgrims",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "ISIS claimed responsibility for attacks; societal bigotry and government negligence contribute to communal violence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Christian population angry at police failure to prevent attacks; police sometimes involved in violence against Christians",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Examples include fatal police beating and murder by police sergeant of Christians; officer found guilty after reporting period",
+     "answers": 0
+    }
+   ],
+   "summary": "The court details USCIRF report on sectarian attacks, government negligence, and police involvement in violence against Christians in Egypt.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Neutral COI supports claimant's allegation of serious possibility of serious harm if returned to Egypt as Coptic Christian man from El Mania",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Societal discrimination and appalling violence against Coptic Christians by Muslim extremists exist",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's past harm and country conditions establish serious possibility of similar future harm due to religious identity",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds neutral COI supports claimant's serious possibility of harm in Egypt due to his Coptic Christian identity and past harm.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has established on balance of probabilities that adequate state protection is not available to him",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant has proven lack of adequate state protection on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant never attempted to seek police protection",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Authorities in Egypt are not interested in intervening in religious disputes",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant never sought police protection and alleges Egyptian authorities do not intervene in religious disputes.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Panel considered all evidence, especially Exhibit 3 item 12.6 stating societal bigotry and government negligence contribute to communal violence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considered evidence including report that societal bigotry and government negligence contribute to communal violence in Egypt.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant provided clear and convincing evidence he cannot access adequate state protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Egypt's improvements in protecting Christians have not translated into effective protection for this claimant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant has overcome presumption of state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant has clear evidence of inability to obtain adequate state protection and overcomes presumption of protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No viable internal flight alternative exists for claimant in Egypt",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no viable internal flight alternative exists for the claimant in Egypt.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No place in Egypt is safe from Muslim extremists; claimant fears them everywhere",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Neutral COI shows Christians in rural Upper Egypt face greater violence risk",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "COI also states Christians face widespread societal discrimination and bigotry",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel accepts claimant's allegation of no viable internal flight alternative given evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court accepts claimant's allegation of no safe place in Egypt due to widespread discrimination and violence risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is a Convention refugee under IRPA section 96 and claim is allowed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimant is a Convention refugee and allows the claim under IRPA section 96.",
+   "role": "conclusion"
+  }
+ ]
+}

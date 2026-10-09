@@ -1,0 +1,956 @@
+{
+ "case_id": 29164,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0114716
+ },
+ "verification": {
+  "paragraphs": 37,
+  "rows": 37,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 100,
+  "holders": {
+   "earlier_decision_maker": 28,
+   "court": 60,
+   "applicant": 10,
+   "prior_court_or_authority": 1,
+   "respondent": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 3,
+  "headings_before": 3
+ },
+ "headings": {
+  "5": "II. BACKGROUND",
+  "13": "III. DECISION UNDER REVIEW",
+  "38": "V. CONCLUSION"
+ },
+ "split_from": {
+  "5": 4,
+  "13": 12,
+  "38": 37
+ },
+ "blocks": {
+  "overview": "This case concerns a judicial review of a refusal by a Senior Immigration Officer to grant a temporary resident visa and work permit to the applicant, El Sadek, due to inadmissibility for misrepresentation under IRPA. The applicant challenged the procedural fairness and reasonableness of the misrepresentation finding. The court dismissed the judicial review application, upholding the officer's decision.",
+  "background_paras": "2-18",
+  "disposition_paras": "37-39",
+  "blocks": [
+   {
+    "issue": "Was the procedural fairness letter adequate to inform the applicant of the concerns about his employment documentation?",
+    "paras": "10-12,22-26",
+    "court_conclusion": "The procedural fairness letter was sufficiently clear and allowed the applicant to address the concerns.",
+    "conclusion_paras": "22-26",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Sent procedural fairness letter citing concerns about fraudulent employment record and misrepresentation under IRPA.",
+      "paras": "10-11"
+     },
+     {
+      "holder": "applicant",
+      "text": "Alleges procedural fairness breach, arguing letter was unclear and insufficient.",
+      "paras": "4"
+     },
+     {
+      "holder": "court",
+      "text": "Letter wording was puzzling but identified relevant issue with sufficient clarity; applicant understood concerns and responded accordingly.",
+      "paras": "22-26"
+     }
+    ]
+   },
+   {
+    "issue": "Did the applicant misrepresent his work experience as a heavy duty equipment operator?",
+    "paras": "2-9,14-18,27-35,29-31,34-37",
+    "court_conclusion": "Officer reasonably concluded applicant misrepresented work experience, rendering him inadmissible under IRPA 40(1)(a).",
+    "conclusion_paras": "29-31,34-37",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found applicant misrepresented work experience; employment letter was fraudulent and inaccurate; applicant likely worked in family business with sales experience.",
+      "paras": "2,6-9,14-18"
+     },
+     {
+      "holder": "applicant",
+      "text": "Provided employment letters and documents; argued it was unreasonable to rely on verification call and to focus on El Sadek employment.",
+      "paras": "5,12,32,35"
+     },
+     {
+      "holder": "court",
+      "text": "Officer's reasons are transparent and reasonable; applicant's evidence supports sales role, not operator; verification call with applicant was reliable; focusing on El Sadek was reasonable.",
+      "paras": "27-31,34-37"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "A Senior Immigration Officer refused the application on March 13, 2023, giving three reasons for refusal",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Reason 1: Applicant found inadmissible under IRPA paragraph 40(1)(a) for misrepresentation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Reason 2: Applicant did not establish he would leave Canada at end of authorized stay",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Reason 3: Purpose of visit inconsistent with temporary stay given application details",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision-maker refused the application on March 13, 2023, citing inadmissibility for misrepresentation, failure to establish leaving Canada, and inconsistent visit purpose.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "GCMS notes show sole reason for refusal was inadmissibility due to misrepresentation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer found applicant misrepresented work experience as heavy duty equipment operator",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds GCMS notes show refusal was solely for misrepresentation of work experience as heavy duty equipment operator.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant applies for judicial review alleging procedural fairness breach and unreasonableness of misrepresentation finding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court disagrees that decision is flawed and will dismiss judicial review application",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant alleges procedural fairness breach and unreasonableness; the court disagrees and will dismiss the application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant provided undated employment letter from company 'El Sadek' signed by wife Mona Hassan",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Letter stated applicant employed as heavy duty equipment operator since March 1, 2020",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Marriage certificate shows applicant and Mona Hassan are husband and wife",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant provided an undated employment letter from his wife's company stating he worked as a heavy duty equipment operator since March 2020.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On May 31, 2022, embassy staff called El Sadek company; applicant answered",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Applicant confirmed company owned by wife and employs him, brother, sister, and a friend",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Applicant said he is manager and supervisor when asked about responsibilities",
+     "answers": 0
+    }
+   ],
+   "summary": "Embassy staff called El Sadek company; applicant answered, confirmed ownership and employment, and described himself as manager and supervisor.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "IRCC summarized doubts about applicant working as heavy equipment operator",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant registered business two years ago and only supervises company",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No information on company operations or applicant working on equipment",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Belief that business was registered in preparation for work in Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "IRCC found doubts about applicant's role as heavy equipment operator and suspected business was registered to prepare for work in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer reviewed documents and verification call; concerned employment letter was fraudulent",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer satisfied employment letter was fraudulent and inaccurate",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Fraud finding based on phone verification with company",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found employment letter fraudulent and inaccurate based on verification call with company.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's concern was accuracy of applicant's work experience information in employment letter",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer's concern was about accuracy of applicant's work experience in employment letter.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "On September 2, 2022, IRCC sent procedural fairness letter citing subsection 16(1) IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Letter stated concern that employment record was fraudulent and requested explanation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Letter asked for details about agent or consultant used in application",
+     "answers": 0
+    }
+   ],
+   "summary": "IRCC sent procedural fairness letter alleging fraudulent employment record and requested explanations and agent details.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Letter warned applicant of inadmissibility under paragraph 40(1)(a) IRPA for misrepresentation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Letter explained five-year inadmissibility under subsection 40(2) IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Applicant given deadline of September 19, 2022, to respond with evidence or information",
+     "answers": 0
+    }
+   ],
+   "summary": "Letter warned of inadmissibility for misrepresentation and gave applicant deadline to respond with evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's consultant responded with covering letter and materials including notarized letter confirming documents' genuineness",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant confirmed all employment letters were correct",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant provided company registration, inventory print-outs, and past employment documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's employment contract with Dynamica showed director of sales, conflicting with employment letter as heavy duty equipment operator",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant did not explain discrepancy in Dynamica employment documents",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant responded with documents confirming genuineness but did not explain discrepancy in Dynamica employment role.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Officer refused application due to inadmissibility for misrepresentation under IRPA paragraph 40(1)(a)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Officer's reasons are in GCMS notes",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer refused application for misrepresentation inadmissibility; reasons are in GCMS notes.",
+   "role": "facts"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant stated he worked as supervisor at El Sadek company",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found applicant likely worked in family business with sales experience, not heavy duty equipment operation",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found applicant worked as supervisor with sales experience, not as heavy duty equipment operator.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Documents provided little evidence applicant was heavy duty equipment operator",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer satisfied applicant had a company but not working as heavy duty equipment operator as claimed",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found little evidence applicant was heavy duty equipment operator despite owning a company.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Declaration of heavy duty equipment operator duties was clearly false given actual manager role",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found applicant's job title declaration was clearly false given actual manager duties.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant's work experience was material and relevant to visa and permit eligibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Inaccurate statements constituted misrepresentation under IRPA paragraph 40(1)(a)",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found applicant's inaccurate work experience statements were material misrepresentation under IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Officer refused application due to inadmissibility under IRPA paragraph 40(1)(a)",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer refused application due to inadmissibility for misrepresentation under IRPA paragraph 40(1)(a).",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Court must independently assess procedural fairness of decision process (Canadian Pacific Railway Co v Canada)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness inquiry is functionally correctness standard",
+     "answers": 0
+    }
+   ],
+   "summary": "Court must independently assess procedural fairness, applying a correctness standard as per Canadian Pacific Railway Co.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Substance of officer's decision reviewed on reasonableness standard (Vavilov)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonable decision is coherent, rational, justified by facts and law",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Applicant must show serious shortcomings to set aside decision as unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer's decision reviewed for reasonableness; applicant must show serious shortcomings to overturn it.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Procedural fairness letter wording is puzzling given officer's concerns in GCMS notes",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter suggests concern was fraudulent document, not inaccurate information",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter does not specify which employment letter caused concern",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's concerns related only to El Sadek company letter",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant not persuaded procedural fairness letter was insufficient for fair decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds procedural fairness letter wording puzzling but sufficient to ensure fair decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The procedural fairness letter identified the relevant issue with sufficient clarity for the applicant to address it.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Pham v Canada (Citizenship and Immigration), 2022 FC 793 at para 32 and Kaur v Canada (Citizenship and Immigration), 2020 FC 809 at para 42 support clarity requirement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The statement that the employment record was fraudulent implies the document's information is inaccurate.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the procedural fairness letter was sufficiently clear, citing prior cases, and that the fraudulent employment record implies inaccuracy.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The applicant's response shows he understood the concerns in the procedural fairness letter correctly.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant provided mostly information about El Sadek company being a going concern but understood concerns about employment letter accuracy.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Providing unrelated information about Dynamica did not prevent applicant from providing relevant information about El Sadek company.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Failure to single out El Sadek letter did not mislead applicant but led to providing more information than needed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant understood the concerns and was not misled by the procedural fairness letter's wording.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's affidavit accurately describes the procedural fairness letter's principal concern about his work as heavy duty equipment operator.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Counsel suggests applicant's statement was made with hindsight after seeing GCMS notes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence applicant's statement was made with hindsight; it reflects his understanding when received.",
+     "answers": 2
+    }
+   ],
+   "summary": "The court finds the applicant accurately understood the officer's concerns and rejects counsel's hindsight argument.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant has not shown he would have provided other evidence if he had understood concerns correctly.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Letter from Mona Hassan confirming applicant's work repeats original letter and would not assuage officer's concerns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the applicant did not show he would have provided new evidence and that the new letter repeats prior information.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's evidence suggests he worked in sales, not as heavy duty equipment operator.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant stated he worked as operator with Dynamica but could not get reference due to lawsuit.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant provided Dynamica employment letter originally, conflicting with affidavit statement.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Lawsuit documents show applicant was sales manager and breached non-competition by opening El Sadek company.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This information confirms officer's concerns about accuracy of applicant's employment description.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds applicant's evidence suggests sales work, conflicts with prior letters, and confirms officer's concerns.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This ground of review must be rejected.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects this ground of review.",
+   "role": "conclusion"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's claim to have worked as heavy duty equipment operator is relevant to work permit application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inaccurate information about work experience could induce error in IRPA administration.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether officer reasonably concluded applicant provided inaccurate work experience information.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Officer reasonably concluded applicant provided inaccurate information.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds the claim relevant, inaccurate info could cause error, and officer reasonably concluded misrepresentation.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer's reasons for concluding misrepresentation are transparent and intelligible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer made reasonable findings based on information before him.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Finding that applicant's experience was more sales than operator is supported by information including applicant's response.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer reasonably found applicant provided little evidence of being heavy duty equipment operator; finding is generous.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer's reasons transparent, findings reasonable, and evidence supports sales role not operator.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Officer reasonably concluded applicant's declaration of operator work was clearly false.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the officer reasonably found the applicant's operator work declaration clearly false.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Officer relied on May 31, 2022 verification call where applicant said he is supervisor and did not mention operating equipment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues it was unreasonable to rely on this without speaking to immediate supervisor; suggests person was unaware of duties.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes officer relied on verification call; applicant argues it was unreasonable without supervisor's input.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant has not denied under oath that IRCC spoke with him on May 31, 2022.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant implies IRCC spoke to someone else but does not say who.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant's suggestion that person was unaware is unpersuasive and new information not before officer.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "New information does not deserve further consideration.",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds applicant's denial unsubstantiated, suggestion unpersuasive, and new info inadmissible.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Information before officer was that IRCC spoke with applicant himself.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This information is uncontradicted in this application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Officer reasonably took applicant at his word as supervisor and drew adverse inference from omission of operator role.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds IRCC spoke with applicant, info uncontradicted, and officer reasonably drew adverse inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues it was unreasonable to focus on El Sadek employment due to short duration and longer Dynamica employment.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees; officer reasonably focused on most recent employment, El Sadek company.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Focusing on Dynamica would not help applicant as evidence does not establish operator work there either.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues focus on El Sadek was unreasonable; court disagrees and finds Dynamica evidence insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argues it was unreasonable to conclude he would not leave Canada after authorized stay.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Consideration of this was noted but did not actually figure in officer's decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues officer unreasonably concluded he would not leave; court finds this was not part of decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Officer reasonably concluded applicant misrepresented work experience, rendering him inadmissible under IRPA 40(1)(a).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This required refusal of temporary resident visa and work permit applications.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant has not established basis to interfere with officer's decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes officer reasonably found misrepresentation, requiring refusal, and denies interference with decision.",
+   "role": "conclusion"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review will be dismissed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application for judicial review.",
+   "role": "disposition"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Parties have not suggested serious questions of general importance for certification under IRPA 74(d).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees no question arises for certification.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious questions of general importance for certification under IRPA 74(d).",
+   "role": "disposition"
+  }
+ ]
+}

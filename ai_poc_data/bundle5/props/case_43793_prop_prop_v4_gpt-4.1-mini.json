@@ -1,0 +1,1428 @@
+{
+ "case_id": 43793,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.019500800000000002
+ },
+ "verification": {
+  "paragraphs": 74,
+  "rows": 74,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 132,
+  "holders": {
+   "court": 49,
+   "earlier_decision_maker": 32,
+   "applicant": 22,
+   "prior_court_or_authority": 12,
+   "respondent": 17
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 3,
+  "split_paragraphs": 6,
+  "headings_before": 3
+ },
+ "headings": {
+  "12": "II. Issues and Standard of Review",
+  "59": "C. Air Canada\u2019s Accessibility Plan Under the ACA",
+  "65": "IV. Conclusion"
+ },
+ "split_from": {
+  "12": 11,
+  "39": 37,
+  "43": 42,
+  "51": 50,
+  "59": 58,
+  "65": 64
+ },
+ "blocks": {
+  "overview": "This case is an appeal by Air Canada against the Canadian Transportation Agency's Final Decision ordering accommodations for persons with disabilities using power wheelchairs. The Agency found Air Canada's aircraft assignments created mobility obstacles and required corrective measures. The Federal Court of Appeal dismissed Air Canada's appeal, upholding the Agency's orders.",
+  "background_paras": "1-11, 21-34, 46-49, 52-56, 131-138, 173-174",
+  "disposition_paras": "2, 20, 35, 37, 41-42, 50, 57-58, 60-64, 65, 184-187",
+  "blocks": [
+   {
+    "issue": "Did the Agency err in law by its undue hardship analysis regarding aircraft substitution to accommodate power wheelchair users?",
+    "paras": "23-35, 131-138, 173-174, 184-185",
+    "court_conclusion": "No basis to find Agency erred in law; Air Canada failed to prove undue hardship from substitution.",
+    "conclusion_paras": "35, 184-185",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Agency did not balance interests properly and failed to consider safety and quality of service impacts; erred by considering factors individually, not collectively.",
+      "paras": "23, 26, 28-30, 35, 173"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Agency considered evidence and concluded Air Canada failed to prove undue hardship; found substitution impacts unlikely to significantly affect passengers or service.",
+      "paras": "31-34"
+     },
+     {
+      "holder": "court",
+      "text": "Whether substitution causes undue hardship is a question of fact or mixed fact and law, not appealable; no legal error found in Agency's analysis.",
+      "paras": "27, 35, 131-138, 174, 184-185"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Agency breach procedural fairness or err in jurisdiction by not reconsidering section 44 of the Air Transportation Passenger's Disability Regulations (ATPDR) or shifting goalposts on financial evidence?",
+    "paras": "38-42, 43-50, 51-58",
+    "court_conclusion": "Not reconsidering section 44 did not violate procedural fairness; Agency did not shift goalposts; no procedural fairness breach found.",
+    "conclusion_paras": "41-42, 50, 57-58",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges procedural fairness breaches: inconsistent incidence findings, failure to reconsider section 44 ATPDR, and shifting financial evidence requirements.",
+      "paras": "38, 40, 43, 51"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Agency found section 44 does not limit duty to accommodate; required objective financial evidence per Supreme Court guidance.",
+      "paras": "48, 53, 55"
+     },
+     {
+      "holder": "court",
+      "text": "Difference in incidence findings does not breach fairness; section 44 not reconsidered as it does not limit duty; Agency followed Supreme Court standards on financial evidence.",
+      "paras": "41-42, 50, 57-58"
+     }
+    ]
+   },
+   {
+    "issue": "Did the Agency exceed its jurisdiction by ordering Air Canada to update its accessibility plan under the Accessible Canada Act (ACA) for transborder routes?",
+    "paras": "59-64",
+    "court_conclusion": "Agency did not exceed jurisdiction; it can require appropriate corrective measures and leave details to Air Canada.",
+    "conclusion_paras": "60-64",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues Agency exceeded jurisdiction by ordering specific accessibility plan updates under ACA.",
+      "paras": "59"
+     },
+     {
+      "holder": "court",
+      "text": "Agency has remedial powers to require corrective measures; no basis to find lack of jurisdiction; details left to Air Canada.",
+      "paras": "60-64"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an appeal from the Canadian Transportation Agency's Final Decision dated August 11, 2023, Decision 123-AT-A-2023.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Agency ordered Air Canada to implement measures to accommodate persons with disabilities using power wheelchairs and address matters in its accessibility plan under the Accessible Canada Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this appeal is from the Agency's August 11, 2023 Final Decision ordering Air Canada to accommodate power wheelchair users under the Accessible Canada Act.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is dismissed for the reasons that follow.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court would dismiss the appeal for the reasons that follow.",
+   "role": "disposition"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Rose filed an application with the Agency and pleadings opened on September 13, 2018.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "In the March 1, 2019 decision (LET-AT-A-28-2019), the Agency made certain findings.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Mr. Rose filed an application in 2018 and the Agency made findings in its March 1, 2019 decision.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Agency found Air Canada's use of certain aircraft on particular routes creates obstacles to mobility for Mr. Rose and others using mobility devices that cannot be carried on those aircraft.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "The next step was an oral hearing to determine if obstacles could be removed without undue hardship to Air Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found Air Canada's aircraft use creates mobility obstacles and held an oral hearing on removing obstacles without undue hardship.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "An oral hearing was held December 2-3, 2019, where Air Canada provided evidence through witnesses and undertakings.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Air Canada responded to requests including number of spare aircraft accommodating large mobility aids and satisfied undertakings; parties submitted closing statements.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency held a hearing in December 2019 where Air Canada provided evidence and undertakings, then parties submitted closing statements.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "Proceeding was suspended in 2020 due to the pandemic.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "After suspension, Air Canada requested to adduce new evidence of undue hardship, which was granted; Mr. Rose could reply to new evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The proceeding was suspended in 2020; Air Canada was allowed to submit new evidence of undue hardship and Mr. Rose could reply.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Agency issued the Show Cause Decision on July 5, 2022, reviewing evidence, accommodation options, and identifying corrective measures.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency issued the Show Cause Decision in July 2022 reviewing evidence and proposing corrective measures.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "procedure",
+     "text": "In paragraph 188 of the Show Cause Decision, Air Canada was directed to show cause why it should not implement proposed corrective measures.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Air Canada filed additional evidence and submissions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "In the Final Decision, the Agency found Air Canada did not demonstrate undue hardship if corrective measures were implemented with some modifications.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency directed Air Canada to show cause, received more evidence, and found no undue hardship in the Final Decision with some modifications.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Agency issued orders as a result of the Final Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency issued orders following the Final Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada challenges only two measures in the Final Order: substituting an accessible aircraft and addressing accessibility in its updated ACA plan for transborder routes.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada challenges two measures: substituting accessible aircraft and addressing accessibility in its ACA plan for transborder routes.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Subsection 41(1) of the Canada Transportation Act requires leave to appeal and restricts appeals to questions of law or jurisdiction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Leave to appeal the Final Decision was granted by this Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states leave to appeal is required and was granted, limiting appeal to law or jurisdiction questions.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "issue",
+     "text": "Air Canada sets out three issues: (a) Agency erred in law on undue hardship analysis; (b) Agency erred in jurisdiction by procedural fairness violation; (c) Agency erred in law and jurisdiction on ACA accessibility plan order.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada raises three issues: undue hardship analysis error, procedural fairness violation, and error on ACA accessibility plan order.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Standard of review for law or jurisdiction questions is correctness (Vavilov, 2019 SCC 65, para 37).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the standard of review for law or jurisdiction questions is correctness per Vavilov.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Air Canada originally appealed both Show Cause and Final Decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court noted leave was only granted for Final Decision and invited submissions on removing the notice of appeal for Show Cause Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada initially appealed both decisions; court noted leave only for Final Decision and invited submissions on removing Show Cause appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "On May 15, 2024, the Court acknowledged Air Canada's appeal is limited to the Final Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The original notice of appeal was removed and Air Canada allowed to file a new notice for the Final Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court limited Air Canada's appeal to the Final Decision and allowed filing a new notice of appeal.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada\u2019s memorandum refers to the Court\u2019s power to vary the Show Cause Decision and requests an order varying it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada's memorandum requests the Court to vary the Show Cause Decision.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Air Canada\u2019s memorandum was filed before the Court\u2019s Direction limiting appeal to the Final Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Air Canada did not amend its memorandum after filing new notice limiting appeal to Final Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada confirmed at hearing it is not challenging the Show Cause Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada filed its memorandum before appeal limitation and confirmed it is not challenging the Show Cause Decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Since the Show Cause Decision is not under appeal, the Court lacks power to vary it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states it has no power to vary the Show Cause Decision as it is not under appeal.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Show Cause Decision addresses whether Air Canada can remove obstacles without undue hardship.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Obstacles were identified in the March 1, 2019 decision.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Agency set out proposed corrective measures in paragraph 182 and directed Air Canada to show cause by August 16, 2022, in paragraph 188.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Show Cause Decision addressed undue hardship, identified obstacles from 2019, proposed corrective measures, and directed Air Canada to show cause.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The Agency found Mr. Rose encountered mobility obstacles because Air Canada assigns aircraft that cannot accommodate his wheelchair on Toronto-Cleveland flights, denying access.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found Air Canada\u2019s aircraft assignment denies Mr. Rose access due to wheelchair accommodation obstacles on Toronto-Cleveland flights.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency did not balance interests of persons with power wheelchairs and Air Canada in undue hardship test",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues the Agency failed to balance interests of power wheelchair users and Air Canada in undue hardship test.",
+   "role": "issue"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Air Canada\u2019s network routes with aircraft that cannot accommodate larger mobility aids create obstacles for Mr. Rose and similar users",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency finds Air Canada\u2019s aircraft choices create obstacles for Mr. Rose and similar mobility device users.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "\u2018Practicable\u2019 under s. 5(g)(ii) of Canada Transportation Act depends on whether accommodation causes unreasonable burden",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Whether accommodation causes unreasonable burden is a question of fact",
+     "answers": 1
+    }
+   ],
+   "summary": "The Supreme Court states \u2018practicable\u2019 means accommodation causing unreasonable burden is a factual question.",
+   "role": "law"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency failed to consider impact of ad hoc aircraft substitution on safety and quality of service in undue hardship analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues the Agency ignored safety and service impact of ad hoc aircraft substitution in undue hardship analysis.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Unclear what safety impact on other passengers should be considered by Agency",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Air Canada did not provide evidence that aircraft substitution impacts overall safety of other passengers",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds unclear what safety impact should be considered and Air Canada gave no evidence of safety impact from substitution.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency considered factors: a) complexity from structural/logistical challenges of aircraft substitution including ground equipment/personnel unavailability",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "b) departure from optimal operations of pure station using one aircraft type",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "c) Air Canada\u2019s costs, other passengers\u2019 inconvenience and expense",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "d) low incidence of obstacles on transborder routes, Mr. Rose only case",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada says Agency considered factors: logistical challenges, operational impacts, costs and low incidence of obstacles.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency did not consider impact on quality of service to other passengers from aircraft substitution",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency considered other passengers\u2019 inconvenience and expense, part of quality of service",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada alleges Agency ignored quality of service impact, but court finds Agency considered inconvenience and expense to other passengers.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency erred by considering factors individually, not collectively, in undue hardship analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues Agency erred by considering undue hardship factors individually, not collectively.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agency considered evidence on aircraft substitution and issues arising",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agency concluded Air Canada failed to prove undue hardship from substitution despite evidence and admissions",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency considered substitution evidence and concluded Air Canada failed to prove undue hardship despite its own admissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "rule_of_law",
+     "text": "To prove undue hardship, Air Canada must provide objective, real, quantifiable evidence of significant incremental financial cost",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Air Canada did not provide such evidence",
+     "answers": 1
+    }
+   ],
+   "summary": "Agency states Air Canada must provide objective evidence of significant cost; Air Canada did not provide it.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Air Canada submitted additional confidential cost evidence after Show Cause Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada submitted additional confidential cost evidence after Show Cause Decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agency noted Air Canada\u2019s claimed impediments to ad hoc substitution but found no explanation why these do not prevent regular substitution",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agency found unlikely that substitution to accommodate disability would significantly impact other passengers or service",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Air Canada has not demonstrated significant impact from substitution",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency found Air Canada\u2019s impediments unexplained given regular substitutions and unlikely significant impact from disability accommodation substitution.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency considered evidence and concluded Air Canada did not establish undue hardship from substitution",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency erred by considering factors individually, not collectively",
+     "answers": 2
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Whether substitution causes undue hardship is question of fact or mixed fact and law, not appealable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No basis to find Agency erred in law by its analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Agency considered evidence properly; undue hardship is factual question not appealable; no legal error found.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agency should have redone undue hardship analysis after additional evidence",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada did not identify legal error in Agency\u2019s refusal to redo analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues Agency should redo analysis after new evidence but identifies no legal error in refusal.",
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Whether additional evidence warrants de novo review is question of fact or mixed fact and law, not appealable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No legal error identified by Air Canada in Agency\u2019s decision not to redo analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds decision not to redo analysis is factual and not appealable; no legal error identified.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada alleges procedural fairness breaches: a) Agency expressed different views on incidence level of power wheelchair users encountering obstacles",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "b) Agency did not reconsider section 44 of ATPDR in Final Decision",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "c) Agency shifted goalposts on financial info required to prove undue hardship",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada alleges procedural fairness breaches: differing views on incidence, no reconsideration of section 44 ATPDR, and shifting financial info requirements.",
+   "role": "issue"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Agency orders Air Canada to implement measures including advance notice accommodation and aircraft substitution by Dec 20, 2023",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "Air Canada must update accessibility plan by June 1, 2026 addressing aircraft acquisition, selection, and service design for power wheelchair users",
+     "answers": 0
+    }
+   ],
+   "summary": "Agency orders Air Canada to implement accommodation measures by Dec 20, 2023 and update accessibility plan by June 1, 2026.",
+   "role": "disposition"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada contrasts Agency\u2019s Show Cause Decision finding of likely other affected persons with Final Decision stating Mr. Rose\u2019s situation is rare",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada contrasts Agency\u2019s Show Cause finding of other affected persons with Final Decision calling Mr. Rose\u2019s situation rare.",
+   "role": "issue"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Difference in incidence statements does not breach procedural fairness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only evidence on number affected was from Air Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No basis to conclude Air Canada was unable to present case fully or that process was unfair",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no procedural fairness breach from differing incidence statements; Air Canada had full opportunity to present case.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Lower incidence finding reduces likelihood that aircraft substitution causes undue hardship",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Additional substitution costs would rarely be incurred",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No procedural fairness breach from lower incidence finding in Final Decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds lower incidence finding reduces undue hardship likelihood and no procedural fairness breach arises from it.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada submitted the Agency should have reconsidered section 44 of the ATPDR in its Final Decision as part of procedural fairness argument.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues the Agency should have reconsidered section 44 of the ATPDR in its Final Decision as part of procedural fairness.",
+   "role": "issue"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 44 of the ATPDR allows air carriers to refuse transport of mobility aids if door size, airworthiness, or weight/size capacity is insufficient.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 44 of the ATPDR permits refusal to transport mobility aids if door size, airworthiness, or weight/size capacity is inadequate.",
+   "role": "law"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 2 of the ATPDR states nothing limits duty to accommodate under Canadian Human Rights Act or jeopardizes security, health, or safety.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 2 of the ATPDR clarifies it does not limit duty to accommodate or require actions jeopardizing security, health, or safety.",
+   "role": "law"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Agency decision dated October 18, 2019 responded to Air Canada's request to dismiss or stay proceedings by Mr. Rose.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Air Canada's argument was mootness due to upcoming ATPDR regulations removing undue hardship requirement if mobility aid doesn't fit aircraft door.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency's October 18, 2019 decision responded to Air Canada's mootness argument about new ATPDR regulations removing undue hardship requirement.",
+   "role": "facts"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Agency referred to section 44 of the ATPDR in paragraph 17 of its October 18, 2019 decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency referred to section 44 of the ATPDR in its October 18, 2019 decision paragraph 17.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agency found consideration of Terms of Reference to determine undue hardship remains salient, satisfying first part of Borowski test.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found that considering Terms of Reference to determine undue hardship remains relevant, satisfying Borowski test's first part.",
+   "role": "analysis"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada conceded section 44 does not 'handcuff' the Agency but submitted it should have been reconsidered given rare incidence finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada conceded section 44 does not restrict the Agency but argued it should have been reconsidered due to rare incidence finding.",
+   "role": "issue"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Only issue in Final Decision was undue hardship from proposed corrective measures as per Show Cause Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency did not err by not reconsidering section 44 which does not limit duty to accommodate.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Not reconsidering section 44 did not violate procedural fairness as alleged by Air Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency did not err or violate procedural fairness by not reconsidering section 44 in the Final Decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada argues Agency shifted goalposts on financial information needed to establish undue hardship, breaching procedural fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues the Agency shifted goalposts on financial evidence needed, breaching procedural fairness.",
+   "role": "issue"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Agency's June 20, 2019 letter set terms of reference for oral hearing without specifically identifying financial costs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency's June 20, 2019 letter set hearing terms without specifying financial costs.",
+   "role": "facts"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Show Cause Decision noted Air Canada lacked objective, real, quantifiable evidence of incremental financial cost causing undue hardship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Show Cause Decision found Air Canada lacked sufficient financial evidence to prove undue hardship.",
+   "role": "facts"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Air Canada submitted confidential schedule of additional costs for substituting aircraft on Toronto-Cleveland-Toronto route after Show Cause Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada submitted confidential financial cost schedule after the Show Cause Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Agency found Air Canada's incremental cost analysis insufficient to establish undue hardship in Final Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency found Air Canada's incremental cost analysis insufficient to prove undue hardship in the Final Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Supreme Court in VIA Rail confirmed size of expenditure and enterprise are relevant to undue hardship assessment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Supreme Court in VIA Rail confirmed expenditure size and enterprise size are relevant to undue hardship.",
+   "role": "law"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency did not shift goalposts; Supreme Court set the goalposts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency did not shift goalposts; the Supreme Court set them.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency required Air Canada to provide objective financial evidence per Supreme Court VIA Rail decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency confirmed size of enterprise and incremental costs impact are relevant factors for undue hardship.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Agency did not shift goalposts or breach procedural fairness; Air Canada failed to establish breach.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency followed Supreme Court guidance, did not shift goalposts, and Air Canada failed to prove procedural fairness breach.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada argued Agency exceeded jurisdiction by ordering specific accessibility plan updates under ACA by June 1, 2026.",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argued the Agency exceeded jurisdiction by ordering specific accessibility plan updates under ACA by June 1, 2026.",
+   "role": "issue"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency did not order specific strategies but left details of aircraft acquisition, selection, and service design to Air Canada.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency did not order specific strategies but left details to Air Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Agency has remedial powers under paragraph 172(2)(a) of CTA to require appropriate corrective measures for undue barriers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency has remedial powers under CTA paragraph 172(2)(a) to require corrective measures for undue barriers.",
+   "role": "law"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Agency found undue barrier to mobility of power wheelchair users on certain transborder flights.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Agency can require Air Canada to identify appropriate corrective measures; no basis to find lack of jurisdiction.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency identified undue barriers and can require Air Canada to identify corrective measures; no jurisdictional error.",
+   "role": "analysis"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Air Canada must address accessibility for power wheelchair users in aircraft acquisition, selection, and transborder service design in its accessibility plan",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Air Canada will indicate steps or decisions that avoid undue hardship in addressing accessibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders Air Canada to address accessibility for power wheelchair users in its aircraft and service planning, avoiding undue hardship.",
+   "role": "conclusion"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Agency did not exceed jurisdiction by ordering Air Canada to address accessibility for power wheelchair users in aircraft acquisition, selection, and service design",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "How Air Canada factors accessibility into operations will be determined by Air Canada",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Agency acted within jurisdiction ordering Air Canada to address accessibility, with operational details left to Air Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Dismiss appeal with costs to Mr. Rose",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No costs awarded to Interveners as per prior orders",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No costs awarded to the Agency as per prior order",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal with costs to Mr. Rose and no costs to Interveners or Agency.",
+   "role": "disposition"
+  },
+  {
+   "para": 131,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Undue hardship assessment under Canadian Human Rights Act s.15(3) is fact-specific guided by jurisprudence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Refusal to spend small proportion of funds to remedy barrier undermines undue hardship claim (Eldridge)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Size of enterprise and economic conditions relevant to undue hardship (Chambly)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Substantial interference may be undue hardship; some interference acceptable for human rights (Central Okanagan)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains undue hardship assessment is fact-specific, citing Eldridge, Chambly, and Central Okanagan cases.",
+   "role": "law"
+  },
+  {
+   "para": 133,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Duty to accommodate limited by 'reasonable' and 'short of undue hardship' as alternate expressions of same concept (Chambly, Central Okanagan)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Factors in Canada Transportation Act s.5 reflect balancing in reasonable accommodation analysis in transportation context",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites case law that 'reasonable' and 'short of undue hardship' express the same concept, with s.5 factors reflecting balancing in transportation.",
+   "role": "law"
+  },
+  {
+   "para": 136,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Canada Transportation Act ss.5 and 172(1) direct Agency to determine 'undue obstacle' to mobility of persons with disabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Agency's authority includes eliminating 'undue' or 'unreasonable' barriers justified under human rights principles",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Act directs the Agency to identify and remedy undue obstacles to mobility of persons with disabilities.",
+   "role": "law"
+  },
+  {
+   "para": 137,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "'As far as is practicable' in Act acknowledges 'undue hardship' standard; same evaluative balancing required (Meiorin)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the statutory phrase 'as far as is practicable' equates to the undue hardship standard requiring balancing.",
+   "role": "law"
+  },
+  {
+   "para": 138,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Parliament charged Agency, not Human Rights Commission, with assessing barriers due to Agency's specialized expertise balancing disability needs and transportation realities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Parliament gave the Agency responsibility to assess barriers due to its expertise balancing disability and transportation realities.",
+   "role": "law"
+  },
+  {
+   "para": 173,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Air Canada argues low incidence (only Mr. Rose) means no accommodation required; greater demand might prompt planning response",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Requiring accommodation for only Mr. Rose is disproportionate and constitutes undue hardship",
+     "answers": 0
+    }
+   ],
+   "summary": "Air Canada argues low incidence of accommodation need means no obligation to accommodate Mr. Rose, claiming undue hardship.",
+   "role": "issue"
+  },
+  {
+   "para": 174,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "finding",
+     "text": "Incidence is unreliable as inaccessible service deters requests, creating false perception of no demand",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "finding",
+     "text": "No tracking system captures persons deterred by cargo door size from traveling with Air Canada",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "finding",
+     "text": "IWG Report shows many power wheelchairs exceed cargo door clearance, so others likely affected",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "finding",
+     "text": "Few needing accommodation does not lessen carrier's human rights accommodation burden",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "finding",
+     "text": "Incidence relevant but not determinative of undue hardship; no incidence level needed to establish entitlement",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency finds incidence unreliable, others likely affected, few needing accommodation does not lessen burden, and incidence is not determinative of undue hardship.",
+   "role": "analysis"
+  },
+  {
+   "para": 184,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "finding",
+     "text": "Air Canada has not shown ad hoc aircraft substitution to accommodate power wheelchair users causes undue hardship",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "conclusion_or_order",
+     "text": "With 10 business days' notice, Air Canada should accommodate passengers on chosen flight, or comparable time same day, or day before/after",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency preliminarily finds no undue hardship in aircraft substitution and orders accommodation with 10 days' notice on chosen or comparable flights.",
+   "role": "analysis"
+  },
+  {
+   "para": 185,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "conclusion_or_order",
+     "text": "Air Canada may choose accommodation measures including similar flights/routes, other carriers, or accessible aircraft substitution",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "conclusion_or_order",
+     "text": "If using another carrier, Air Canada must pay price difference",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency orders Air Canada to accommodate by various means and pay price difference if using another carrier.",
+   "role": "analysis"
+  },
+  {
+   "para": 186,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "conclusion_or_order",
+     "text": "Passengers must give Air Canada minimum 10 business days' notice for accommodation; urgent travel requires best effort",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency requires passengers to give 10 business days' notice for accommodation; urgent travel gets best effort.",
+   "role": "analysis"
+  },
+  {
+   "para": 187,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "conclusion_or_order",
+     "text": "Air Canada must address accessibility for power wheelchair users in its accessibility plan by June 1, 2023, covering aircraft acquisition, selection, and transborder service design",
+     "answers": 0
+    }
+   ],
+   "summary": "The Agency orders Air Canada to address accessibility for power wheelchair users in its accessibility plan by June 1, 2023.",
+   "role": "analysis"
+  }
+ ]
+}

@@ -1,0 +1,328 @@
+{
+ "case_id": 34756,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0044396
+ },
+ "verification": {
+  "paragraphs": 12,
+  "rows": 12,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 30,
+  "holders": {
+   "court": 23,
+   "applicant": 5,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "Ms. Nandha seeks judicial review of an IRCC officer's refusal of her permanent resident visa under the FST program due to doubts about her claimed cook experience. The officer relied on a verification call that contradicted her interview and documentary evidence. The court found the officer's decision reasonable and dismissed the application.",
+  "background_paras": "1-5, 8, 10",
+  "disposition_paras": "11-12",
+  "blocks": [
+   {
+    "issue": "Was the IRCC officer's decision to reject Ms. Nandha's visa application reasonable given the conflicting evidence about her work experience?",
+    "paras": "1-9",
+    "court_conclusion": "The officer's decision was reasonable despite scant reasons; contradictions in verification call materially undermined documentary evidence.",
+    "conclusion_paras": "7-9, 11",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The officer ignored or failed to explain preferring verification call discrepancies over documentary evidence, citing Rong v Canada.",
+      "paras": "2, 6"
+     },
+     {
+      "holder": "court",
+      "text": "The officer's reasons were scant but not ignoring evidence; contradictions from verification call materially undermined documentary evidence.",
+      "paras": "7"
+     },
+     {
+      "holder": "court",
+      "text": "This case differs from Rong; contradictory verification call information cast sufficient doubt on claimed experience.",
+      "paras": "8-9"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "An IRCC officer made a verification call to the hotel where Ms. Nandha claimed to have worked as a cook.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The officer received answers differing materially from Ms. Nandha's interview answers about the hotel restaurant, staff, and benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The officer rejected Ms. Nandha's permanent resident visa application under the FST program due to dissatisfaction with her claimed two years' cook experience.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states that an IRCC officer's verification call found discrepancies leading to rejection of Ms. Nandha's visa application under the FST program.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Nandha seeks judicial review, arguing the officer's reasons show no consideration of documentary evidence confirming her employment.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She argues no analysis was given why verification call results were preferred over documentary evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "A second argument about the verification call recipient's role was withdrawn at hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Nandha argues the officer ignored documentary evidence and failed to explain preferring verification call results; a second argument was withdrawn.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The reasonableness standard applies to review of visa officer decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Canada (Minister of Citizenship and Immigration) v Vavilov, 2019 SCC 65 at paras 91\u201396 sets the reasonableness review standard.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the reasonableness standard applies, citing Vavilov for reviewing visa officer decisions.",
+   "role": "law"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The record includes the officer's GCMS notes from the September 2023 interview and verification call.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The officer noted concerns about discrepancies between Ms. Nandha's interview answers and verification call answers on restaurant, menu, staff, cooks, and benefits.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Nandha responded that there must be some misunderstanding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The officer was not satisfied with her reply and concluded she did not meet the FST program requirements under IRPR section 87.2(3)(b) and IRPA section 11.2.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the officer's GCMS notes showing concerns about discrepancies and the officer's conclusion rejecting eligibility under IRPR and IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The record includes Ms. Nandha's original application and documents responding to procedural fairness letters about her work experience.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documents include letters and affidavits confirming employment, hotel employee register, cash vouchers, and income tax returns.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the record includes Ms. Nandha's application and documentary evidence confirming her employment and income.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Nandha argues the officer ignored or failed to explain preferring verification call discrepancies over documentary evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She cites Rong v Canada (Citizenship and Immigration), 2013 FC 364, where reliance on verification call contradictions without explanation was found unreasonable.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Nandha argues the officer ignored evidence and cites Rong where unexplained reliance on verification call contradictions was unreasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The officer's reasons were scant but not ignoring evidence and sufficiently clear for reasonableness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The contradictions from the verification call materially undermined the documentary evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer's scant reasons sufficiently clear and that verification call contradictions undermined documentary evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This case differs from Rong where minor inconsistencies explained by documents were insufficient to cast doubt.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The verification call was with Ms. Nandha's claimed supervisor who contradicted her on restaurant type, staff size, and bonuses.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds this case differs from Rong because the verification call was with a supervisor whose answers contradicted Ms. Nandha's claims.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The officer's reasons meet the requirements of a reasonable decision despite lacking all preferred details.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The contradictory verification call information cast sufficient doubt on Ms. Nandha's claim of cook experience.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The officer's weighing of evidence was not unreasonable or a fundamental misapprehension.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Not listing all evidence does not displace presumption the officer considered all evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the officer's decision reasonable, the contradictory call cast doubt, and the officer considered all evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No finding of misrepresentation was made against Ms. Nandha, though it was raised in procedural fairness letters.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Misrepresentation findings require reasons reflecting the stakes, per Vavilov para 133 and Alvarez Gonzalez 2025 FC 628 para 18.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no misrepresentation finding was made, and such findings require reasons reflecting stakes per Vavilov and Alvarez Gonzalez.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Ms. Nandha has not met her onus to show the officer's decision was unreasonable.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is dismissed.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court concludes Ms. Nandha failed to show unreasonableness and dismisses the judicial review application.",
+   "role": "conclusion"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Neither party proposed a question for certification.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court agrees no question for certification arises.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no certification question was proposed and agrees none arises.",
+   "role": "disposition"
+  }
+ ]
+}

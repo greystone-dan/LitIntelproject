@@ -1,0 +1,1454 @@
+{
+ "case_id": 69474,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.018304400000000002
+ },
+ "verification": {
+  "paragraphs": 70,
+  "rows": 70,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 145,
+  "holders": {
+   "court": 64,
+   "applicant": 31,
+   "earlier_decision_maker": 31,
+   "respondent": 8,
+   "prior_court_or_authority": 5,
+   "witness_or_document": 6
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "2": "DECISION",
+  "6": "CASE HISTORY",
+  "12": "INTERVENTION BY MINISTER"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns an appeal by a Honduran citizen seeking refugee protection in Canada based on alleged persecution due to sexual orientation and gang threats. The Refugee Protection Division (RPD) found the appellant not credible and denied protection, a decision the Refugee Appeal Division (RAD) upheld. The appeal was dismissed, confirming the appellant is neither a Convention refugee nor a person in need of protection.",
+  "background_paras": "3-11",
+  "disposition_paras": "1-2, 70",
+  "blocks": [
+   {
+    "issue": "Did the RPD err in finding the appellant not credible regarding his sexual orientation and risk of harm?",
+    "paras": "1, 6, 23-37, 38-43, 52-57, 61-66",
+    "court_conclusion": "The court found no error in the RPD's credibility assessment and upheld the finding of insufficient credible evidence.",
+    "conclusion_paras": "1, 6, 23-37, 38-43, 52-57, 61-66",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argues RPD erred in credibility findings about sexual orientation and risk; claims bisexuality and risk from gangs; disputes inconsistencies and omissions.",
+      "paras": "1, 25, 27-28, 30-33, 38, 46, 52, 55, 58, 64"
+     },
+     {
+      "holder": "respondent",
+      "text": "Supports RPD findings that appellant is not credible and not a Convention refugee or person in need of protection.",
+      "paras": "12"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found insufficient credible evidence appellant is gay or bisexual or perceived as such; found credibility problems and rejected claim.",
+      "paras": "1, 6, 11, 23, 26, 30, 40, 46, 49, 52, 54, 55, 62, 64"
+     }
+    ]
+   },
+   {
+    "issue": "Does the RAD have jurisdiction to find the claim manifestly unfounded or to hold an oral hearing?",
+    "paras": "14-19",
+    "court_conclusion": "RAD lacks authority to find claim manifestly unfounded or to hold oral hearing; request denied.",
+    "conclusion_paras": "15-19",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Argues RAD can find claim manifestly unfounded and supports such finding; requests oral hearing if new evidence.",
+      "paras": "12, 14"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argues facts do not support manifestly unfounded finding; requests oral hearing under IRPA section 110(6).",
+      "paras": "14, 18"
+     },
+     {
+      "holder": "court",
+      "text": "Finds RAD lacks jurisdiction to find claim manifestly unfounded or hold oral hearing; denies request.",
+      "paras": "15-19"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I dismiss this appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant is a citizen of Honduras.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant claims refugee protection due to fear of persecution for sexual orientation and refusal to join maras.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found insufficient credible evidence that claimant is gay or bisexual or perceived as such in Honduras.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in finding him not credible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Determinative issue is whether RPD erred in finding Appellant not credible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I find RPD did not err and insufficient credible evidence supports Appellant's homosexuality or risk of harm by gangs.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal, noting the appellant's Honduran citizenship, his refugee claim basis, RPD's credibility finding, appellant's challenge, and court's agreement with RPD.",
+   "role": "conclusion"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I dismiss the appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD was correct in finding Appellant is neither a Convention refugee nor a person in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and finds the RPD was correct that the appellant is neither a Convention refugee nor in need of protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant was born in Honduras on XXXX XXXX, 1995.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant was born in Honduras in 1995.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant left Honduras in 2012, entered US, detained by US immigration, then lived in US until 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant left Honduras in 2012, was detained in the US, and lived there until 2015.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant crossed into Canada from US in 2015 at unofficial point, did not claim refugee protection upon arrival.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant entered Canada unofficially in 2015 and did not claim refugee protection then.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD Panel summarized facts from paragraphs 2 to 11 of RPD decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Appellant cites RPD summary without objection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I agree with RPD Panel's background summary and summarize it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD Panel's factual summary cited by the appellant without objection and summarizes it.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister's documents show Appellant came to attention after 2016 arrest following bar altercation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister's documents show appellant was arrested in 2016 after a bar altercation.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Appellant's Basis of Claim form received by IRB on November 23, 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant's Basis of Claim form was received by the IRB in November 2016.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Minister intervened; RPD initially refused claim in January 2017 excluding Appellant under Article 1F(b).",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "First RPD Panel found serious reasons to consider Appellant committed serious non-political crime in US.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "First RPD decision upheld by RAD in February 2018.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister intervened; first RPD panel excluded appellant for serious crime; RAD upheld that decision in 2018.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Federal Court granted judicial review and returned case to RAD for redetermination by different member.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RAD overturned first RPD decision in January 2019, found Appellant not excluded under Article 1F(b), returned case to RPD.",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court granted judicial review; RAD overturned first RPD decision and returned case to RPD in 2019.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Second RPD Panel found Appellant not a Convention Refugee nor in need of protection in December 2019.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Appellant appealed second RPD decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Second RPD panel found appellant not a refugee or in need of protection; appellant appealed that decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister submits RPD findings support confirming Appellant is not a Convention refugee or person in need of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister wants RAD to dismiss appeal and confirm RPD decision under IRPA section 111(1)(a).",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister disagrees with order sought by Appellant in his Memorandum.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister submits RPD could find claim clearly fraudulent and manifestly unfounded under IRPA section 107.1; RAD can confirm this and Minister supports it.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister argues RPD findings support dismissal, disagrees with appellant's order, and supports manifestly unfounded claim finding.",
+   "role": "issue"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "Appellant responded to Minister's submission.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "I will consider both Minister's submission and Appellant's response in analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellant responded to the Minister's submission, which the court will consider in analysis.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Minister submits RPD could find claim manifestly unfounded; RAD could also find claim manifestly unfounded and Minister supports this.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues facts do not support manifestly unfounded claim finding.",
+     "answers": 0
+    }
+   ],
+   "summary": "Minister argues claim is manifestly unfounded; appellant disagrees that facts support this finding.",
+   "role": "issue"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "I do not agree with Minister; RAD lacks jurisdiction to find claim manifestly unfounded.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Finding based on own analysis and RAD jurisprudence in similar case.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees with Minister and finds RAD lacks jurisdiction to find claim manifestly unfounded, based on analysis and jurisprudence.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 107.1 IRPA requires RPD to state claim manifestly unfounded if clearly fraudulent.",
+     "answers": 0
+    }
+   ],
+   "summary": "Section 107.1 IRPA requires RPD to state claim is manifestly unfounded if clearly fraudulent.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Authority to state claim manifestly unfounded is conferred on RPD by IRPA; no similar authority for RAD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RAD lacks statutory authority to state claim manifestly unfounded.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds only RPD has authority to declare claim manifestly unfounded; RAD lacks such authority.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant requests oral hearing under IRPA section 110(6) if documentary evidence submitted at RAD.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 110(6) IRPA allows RAD to hold hearing if documentary evidence raises serious credibility issue central to decision and justifies claim outcome; discretionary and conjunctive test.",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant requests oral hearing under IRPA section 110(6); court explains hearing is discretionary and requires conjunctive test.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No new evidence meeting section 110(3) requirements submitted; all three elements for oral hearing not met.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No jurisdiction for RAD to hold oral hearing; request denied.",
+     "answers": 0
+    }
+   ],
+   "summary": "No new qualifying evidence submitted; court finds no jurisdiction for oral hearing and denies request.",
+   "role": "conclusion"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "My role is to review all evidence and decide if RPD made correct decision.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "I conducted independent assessment of evidence and arguments as part of analysis.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court's role is to review all evidence and decide if RPD was correct, conducting independent assessment.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Sworn allegations before IRB presumed true unless reason to doubt truthfulness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Presumption does not apply to inferences, conclusions, or speculation without evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states sworn allegations before IRB are presumed true unless doubted, but not inferences or speculation without evidence.",
+   "role": "law"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Presumption of truthfulness may be rebutted by contradictions, inconsistencies, omissions, vague testimony, limited knowledge, or false documents",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the presumption of truthfulness can be rebutted by various problems in testimony.",
+   "role": "law"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found numerous credibility problems with Appellant's testimony and rebutted presumption of truthfulness",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court agrees with RPD that presumption of truthfulness is rebutted for Appellant",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Court will consider problems with Appellant's testimony in following analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found credibility problems with the Appellant's testimony; the court agrees and will analyze these issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Supreme Court in Ward recognized sexual orientation as a particular social group",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "This recognition extends to gender identity and expression",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Supreme Court recognized sexual orientation and gender identity as particular social groups.",
+   "role": "law"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant claims persecution in Honduras due to being gay or bisexual, central to his claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues he faces persecution in Honduras because of his sexual orientation, central to his claim.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found insufficient credible evidence that Appellant is gay or bisexual or perceived as such",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found insufficient credible evidence that the Appellant is gay or bisexual or perceived that way.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues on appeal he is bisexual and at risk from Maras and society if discovered in Honduras",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues on appeal that being bisexual puts him at risk of persecution in Honduras.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in finding him not credible due to inconsistencies and omissions about sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues his testimony is consistent with SOGIE Guidelines about evolving understanding of sexual orientation",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred in credibility findings, asserting his testimony aligns with SOGIE Guidelines on evolving sexual orientation.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "SOGIE Guideline defines sexual orientation as attraction to different, same, no, or more than one gender, and understanding may change",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites SOGIE Guideline defining sexual orientation and that understanding may change.",
+   "role": "law"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD drew negative inference from Appellant's inconsistent testimony about attraction to men and bisexuality",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues no inconsistency in his account of sexual orientation",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found inconsistencies in Appellant's testimony about sexual orientation; Appellant denies inconsistency.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues his understanding of sexual orientation changed over time, citing RPD exchange",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues his sexual orientation understanding changed over time, citing his testimony to RPD.",
+   "role": "issue"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues watching same-sex male pornography is not inconsistent with no ongoing attraction to men",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues watching male pornography does not contradict his lack of ongoing attraction to men.",
+   "role": "issue"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified to one intimate relationship with a woman in US lasting one year",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified to one consensual same-sex experience in US which he did not like and would not repeat",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified to one female relationship and one disliked consensual same-sex experience in the US.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees Appellant that RPD erred in credibility assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Issue is Appellant's testimony evolved during hearing with significant inconsistencies, not lifetime evolution",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court finds RPD did not err",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD did not err, as the Appellant's testimony evolved with significant inconsistencies during hearing.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court conducted own analysis and agrees with RPD that Appellant's testimony has significant credibility issues",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD that the Appellant's testimony has significant credibility issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even accepting testimony, court not persuaded Appellant is bisexual as claimed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant's bisexual claim based on adolescent fantasies, liking men's appearance, and single sexual encounter",
+     "answers": 0
+    }
+   ],
+   "summary": "The court is not persuaded the Appellant is bisexual, based on adolescent fantasies and a single sexual encounter.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant does not wish sexual relations with men nor is sexually attracted to men",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Fondness for gay pornography does not establish sexual orientation causing harm or requiring suppression",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's fondness for gay pornography does not establish a sexual orientation causing harm or requiring suppression.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in adverse credibility finding due to interchangeable use of 'homosexual' and 'bisexual' terms",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred in credibility findings due to his interchangeable use of sexual orientation terms.",
+   "role": "issue"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD did not accept Appellant's explanation that nervousness caused word use",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD rejected the Appellant's explanation that nervousness caused his word use.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD cited SOGIE Guideline that persons may not know terminology",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD noted Appellant knew difference between terms before leaving Honduras",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD drew negative inference from Appellant's inconsistent and careless use of terms",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD noted Appellant knew terminology but inconsistently used terms, drawing a negative inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred in taking a negative inference against the Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant was under stress when using terms in BOC form, narrative and interview",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "English is not the Appellant's first language",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant was not fully knowledgeable of terms used in BOC form, narrative and interview",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds RPD erred in negative inference, accepts Appellant was stressed, English not first language, and lacked full knowledge of terms used.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's use of 'homosexual' and 'bisexual' is insufficient to support negative credibility inference",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellant's use of sexual orientation terms insufficient for negative credibility inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Despite error, RPD's overall credibility assessment is agreed with",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's testimony on central claim elements has significant inconsistencies and contradictions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with RPD's overall credibility assessment despite error, noting significant inconsistencies in Appellant's testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant provided two letters each from mother and brother to support claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "First version of each letter does not mention Appellant's sexual orientation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Appellant provided letters from mother and brother, first versions omit sexual orientation mention.",
+   "role": "facts"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Initial letters dated 2017 and 2016 do not refer to Appellant's sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "First letters mention gang recruitment attempt and brother's intimidation due to his sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No mention of Appellant's alleged bisexuality in first letters",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds initial letters mention gang issues and brother's orientation but omit Appellant's bisexuality.",
+   "role": "facts"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD expected mother and brother to mention Appellant's sexual orientation in initial letters",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant told mother and brother he was bisexual before coming to Canada",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's explanation that sexual orientation is private and omitted unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD drew negative inference from Appellant's explanation",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found omission of sexual orientation in initial letters unreasonable and drew negative inference; Appellant said he told family before Canada.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant provided second letters from mother and brother dated 2018",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second letters add Appellant's alleged sexual orientation to earlier allegations",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Mother and brother provided second letters after learning Appellant claimed refugee protection based on sexual orientation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes second letters added sexual orientation after family learned of Appellant's refugee claim basis.",
+   "role": "facts"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mother's second letter states she took Appellant to Tegucigalpa to hide his feelings from family and gangs",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Appellant told mother he was bisexual months after leaving Honduras when in US",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified events in mother's second letter occurred as described",
+     "answers": 0
+    }
+   ],
+   "summary": "Mother's letter and Appellant's testimony state he told her he was bisexual after leaving Honduras, in the US.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found contradictory testimony about whether Appellant told mother about sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Appellant initially testified he never told mother, but mother's letter says he did in US",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Appellant offered no explanation for contradiction",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found Appellant contradicted himself about telling mother his orientation and gave no explanation.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Brother's 2016 letter says gang harassed him due to his sexual orientation, not Appellant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellant testified brother told him he was gay before Appellant left Honduras",
+     "answers": 0
+    }
+   ],
+   "summary": "Brother's letter mentions harassment due to his orientation, Appellant testified brother told him he was gay before Appellant left Honduras.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Brother's 2018 affidavit says Appellant told him he was bisexual in 2011 during gang recruitment attempt",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Brother's 2016 affidavit omits mention of Appellant's sexual orientation",
+     "answers": 0
+    }
+   ],
+   "summary": "Brother's 2018 affidavit adds Appellant's bisexuality, omitted in 2016 affidavit.",
+   "role": "facts"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD asked when Appellant told brother he was attracted to men; Appellant said in US",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Mother's affidavit states Appellant told her he was bisexual after leaving Honduras in US",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "No record of anyone in Honduras perceiving Appellant as gay or bisexual",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellant's Schedule A Form statement denying telling anyone about orientation contradicted testimony",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant explained Schedule A Form completed under pressure in detention",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court does not accept Appellant's explanation for contradiction",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant's understanding of his orientation and disclosures is central to claim",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found contradictions about when Appellant disclosed orientation; court rejects Appellant's explanation; orientation understanding is central.",
+   "role": "analysis"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Contradictions between affidavits and testimony on core claim events cannot be reconciled",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Affidavits do not assist Appellant in establishing sexual orientation as homosexual or bisexual",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds contradictions irreconcilable and affidavits unhelpful to establish Appellant's sexual orientation claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found additional reasons to doubt Appellant's allegations of being targeted by maras",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found further reasons to doubt Appellant's claims of gang targeting.",
+   "role": "analysis"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found inconsistent testimony on Appellant's residence history in Honduras undermining credibility",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues RPD erred in finding inconsistencies material and focusing on mathematical error",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD found inconsistent residence testimony undermining credibility; Appellant argues error on materiality and focus.",
+   "role": "issue"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court disagrees that RPD erred on residence history inconsistencies",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Residence history and gang interaction central to Appellant's claim of persecution",
+     "answers": 0
+    }
+   ],
+   "summary": "Court disagrees with Appellant that RPD erred; residence history and gang interaction are central to claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 57,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD fully canvassed problems with Appellant's residence testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant did not provide unprompted, consistent, coherent testimony on residence history",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Residence history is central to claim of gang problems in specific times and locations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Inconsistencies undermine Appellant's credibility",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellant has not established risk of harm from criminal gangs",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant's inconsistent residence testimony undermines credibility and no established gang harm risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 58,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellant argues persecution by gangs due to perceived sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant lacks profile exposing him to serious persecution risk from gangs on sexual orientation basis",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellant argues gang persecution due to perceived orientation; court finds no exposure to serious risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 59,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant provides no details why gangs would perceive him as bisexual or homosexual",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Appellant gives no details why gangs would perceive him as bisexual or homosexual.",
+   "role": "analysis"
+  },
+  {
+   "para": 60,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "RPD asked when Appellant told brother he was attracted to men; Appellant said in US",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Mother's affidavit states Appellant told her he was bisexual after leaving Honduras in US",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No record anyone in Honduras perceived Appellant as gay or bisexual when he lived there",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD and affidavits show Appellant disclosed orientation only after leaving Honduras; no perception in Honduras recorded.",
+   "role": "facts"
+  },
+  {
+   "para": 61,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Insufficient credible evidence supports that the Appellant has a profile in Honduras as bisexual or homosexual or is perceived as such by gangs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds insufficient credible evidence that the Appellant is perceived as bisexual or homosexual by gangs in Honduras.",
+   "role": "analysis"
+  },
+  {
+   "para": 62,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellant did not establish a claim under section 97 of IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found insufficient evidence to establish personal risk under s. 97(1) of IRPA on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the Appellant failed to establish a section 97 claim or personal risk under IRPA.",
+   "role": "facts"
+  },
+  {
+   "para": 63,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees with the RPD's finding",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "To succeed under section 97(1)(b), an appellant must establish a personal risk not shared generally in the country",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the RPD that a section 97(1)(b) claim requires personal risk not shared generally in the country.",
+   "role": "law"
+  },
+  {
+   "para": 64,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant alleges personal risk from gangs due to prior targeting based on sexual orientation",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD disbelieved the Appellant was threatened or targeted by maras based on sexual orientation or any reason",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The RPD concluded no personal risk and dismissed the section 97 claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant alleges gang targeting for sexual orientation; the RPD disbelieved this and dismissed the section 97 claim for lack of personal risk.",
+   "role": "facts"
+  },
+  {
+   "para": 65,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees with the RPD that the Appellant was not threatened or targeted by maras on sexual orientation or any reason",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees the Appellant was not threatened or targeted by gangs on sexual orientation or any reason.",
+   "role": "analysis"
+  },
+  {
+   "para": 66,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant has not established through credible evidence a personal risk from gangs in Honduras due to sexual orientation or other reasons",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant failed to establish personal risk from gangs in Honduras for sexual orientation or other reasons.",
+   "role": "analysis"
+  },
+  {
+   "para": 67,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant testified owing money to coyotes in Guatemala for passage to the US",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant speculated coyotes might be associated with gangs in Honduras without basis",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant testified owing coyotes in Guatemala and speculated they might be linked to Honduran gangs without basis.",
+   "role": "facts"
+  },
+  {
+   "para": 68,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if the Appellant owes money to coyotes in Guatemala, this does not establish personal risk in Honduras due to that debt",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds owing coyotes in Guatemala does not establish personal risk in Honduras from that debt.",
+   "role": "analysis"
+  },
+  {
+   "para": 69,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant failed to establish a serious possibility of persecution or likelihood of section 97 harm if returned to Honduras",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant failed to establish serious persecution or section 97 harm likelihood if returned to Honduras.",
+   "role": "analysis"
+  },
+  {
+   "para": 70,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court dismisses the appeal and confirms the RPD decision that the Appellant is neither a Convention refugee nor person in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the appeal and confirms the RPD decision denying refugee or protection status to the Appellant.",
+   "role": "disposition"
+  }
+ ]
+}

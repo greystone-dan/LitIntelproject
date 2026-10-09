@@ -1,0 +1,841 @@
+{
+ "case_id": 41026,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0110956
+ },
+ "verification": {
+  "paragraphs": 34,
+  "rows": 34,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 84,
+  "holders": {
+   "court": 39,
+   "earlier_decision_maker": 12,
+   "applicant": 20,
+   "prior_court_or_authority": 12,
+   "respondent": 1
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 4
+ },
+ "headings": {
+  "3": "ALLEGATIONS",
+  "6": "DETERMINATION",
+  "7": "DETERMINATIVE ISSUES",
+  "34": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Tibetan woman and her two minor sons seeking refugee protection in Canada, fearing persecution due to their Tibetan ethnicity and lack of valid Indian citizenship. The claimant's credibility, US residency status, and ability to acquire Indian citizenship were central issues. The tribunal rejected their claims, finding them not to be Convention refugees or persons in need of protection.",
+  "background_paras": "1-6, 10-12, 18-20, 22-24, 33",
+  "disposition_paras": "34",
+  "blocks": [
+   {
+    "issue": "Is the claimant credible regarding her identity, residency, and refugee claim?",
+    "paras": "7, 8, 10-14, 31, 32",
+    "court_conclusion": "The claimant's credibility is seriously undermined by delays, inconsistencies, and lack of corroborative evidence.",
+    "conclusion_paras": "13, 14, 31, 32",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Credibility undermined by delay, inconsistencies, and lack of evidence; adverse inference drawn from delay.",
+      "paras": "13, 14"
+     },
+     {
+      "holder": "applicant",
+      "text": "Denies lack of evidence caused denial; argues delay excused by circumstances.",
+      "paras": "11, 31"
+     },
+     {
+      "holder": "respondent",
+      "text": "Argues delay is not excusable; claimant's credibility is questionable.",
+      "paras": "31"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found concerns about claimant's identity and adverse credibility findings.",
+      "paras": "8, 11"
+     }
+    ]
+   },
+   {
+    "issue": "Has the claimant made reasonable efforts to acquire Indian citizenship?",
+    "paras": "15-30",
+    "court_conclusion": "Claimant failed to make reasonable efforts to acquire citizenship; citizenship is automatic by birth for Tibetans born in India.",
+    "conclusion_paras": "21, 25, 29, 30",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Citizenship is automatic by birth; claimant made no reasonable efforts to obtain documents or citizenship.",
+      "paras": "15-21, 25, 29, 30"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argues citizenship is not automatic and she faces hindrances obtaining it due to lack of documents.",
+      "paras": "18, 20, 22, 24"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Indian law grants citizenship by birth; failure to prove reasonable efforts to acquire citizenship is fatal to claim.",
+      "paras": "15, 17, 19, 21, 26, 27, 28"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant (P.C.) and her two minor sons seek refugee protection under IRPA ss. 96 and 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. and her two minor sons seek refugee protection under IRPA ss. 96 and 97(1), stated by the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The P.C. was appointed designated representative for her minor sons.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "No evidence was provided about the minor sons' US residency.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "The minor children are not Convention refugees or persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. was appointed representative for her sons, but no evidence of their US residency was given; the panel found they are not refugees or protected persons.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The P.C.'s allegations are detailed in her Personal Information Form and summarized here.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the P.C.'s allegations from her Personal Information Form.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The P.C. was born in a Tibetan settlement in India in 1972 and has lived there since.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She married in 1995 and has two children included in the claim.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She obtained a US visa in 1998; husband joined her in US a year later; children born in US.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She remained undocumented in US during a two-year separation from husband.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She applied for legal status in US after first son's birth but was denied due to lack of evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. states she was born in India in 1972, married in 1995, had two US-born children, remained undocumented in US, and was denied legal status.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The P.C. reunited with husband, had second son, fears deportation to India and Tibet due to no valid Indian residence permit.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "She fears persecution in Tibet for religious beliefs as a follower of the Dalai Lama.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. fears deportation to Tibet and persecution for her religious beliefs, stated by the applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The P.C. failed to prove serious possibility of persecution on a Convention ground or risk to life or cruel treatment.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the P.C. did not establish a serious possibility of persecution or risk to life or cruel treatment.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The determinative issues are credibility, US residency, country of reference, and ability to acquire Indian citizenship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies credibility, US residency, country of reference, and Indian citizenship ability as determinative issues.",
+   "role": "issue"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD had concerns about the P.C.'s identity.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Based on Green Book and Tibetan settlement letters, the P.C. is likely Tibetan born and residing in India since birth.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel had identity concerns but found the P.C. likely Tibetan born and residing in India since birth based on documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD considered difficulties in establishing claims, passage of time, and applied Chairperson's Guidelines for female claimants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel considered claim difficulties, time passage, and applied guidelines for female claimants in assessing credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The claimant arrived in US in 1998 on a 6-month visitor visa, claiming a tour but intended not to return to India.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Her husband followed a year later.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel found the claimant arrived in US in 1998 on a visitor visa intending not to return, with husband following a year later.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She had no money on arrival, delayed refugee claim, was ineligible, but husband was granted status.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She believes husband was accepted as Convention refugee in 2001 and wanted to sponsor her around 2001-2002.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She did not want to return to India due to husband's affair and separation from 2003-2005; claimed refugee in 2005.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "P.C. had no status in US from 6 months after arrival until 2005 claim.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "P.C.'s refugee claim denied in 2007 and appeal dismissed in 2009 due to failure to establish entry timing and adverse credibility findings.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues denial was due to lack of evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD rejects lack of evidence argument; US authorities found inconsistencies going to heart of claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. delayed claim, had no US status until 2005, claim denied for timing and credibility; counsel alleges lack of evidence, rejected by RPD.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "P.C. said husband did not pursue sponsorship 2009-2012 due to lawyer's advice about undocumented status.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "P.C. arrived in Canada in 2012.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. said husband did not pursue sponsorship due to lawyer's advice; she arrived in Canada in 2012.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The P.C. was without US status for 7-8 years; evidence was elicited only after prodding.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "US court appeal judgment calls P.C.'s credibility into question.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Lack of corroborative evidence about husband's claim and legal consultation noted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the P.C. lacked US status for 7-8 years, credibility questioned by US court, and corroborative evidence lacking.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "P.C.'s conduct inconsistent with living in fear of persecution; genuine refugees seek protection promptly.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Delay is not normally decisive but can be relevant and important to credibility.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Delay can be determinative in certain circumstances.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Board draws adverse inference from delay, seriously undermining P.C.'s credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds P.C.'s delay inconsistent with fear, cites law on delay's relevance, and draws adverse inference undermining credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "If claimant can acquire citizenship in another safe country, refugee claim may be denied.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RPD must consider claimant's control over citizenship acquisition process applying Williams principles.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states refugee claims may be denied if claimant can acquire citizenship elsewhere and must consider claimant's control per Williams.",
+   "role": "law"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Jurisprudence on Tibetans born in India (1950-1987) having Indian citizenship rights is mixed.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Panel considered testimony, documents, and Federal Court of Appeal decisions carefully.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes mixed jurisprudence on Indian citizenship for Tibetans born 1950-1987 and considered evidence and appeals carefully.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Section 3(1) Indian Citizenship Act 2003 defines citizenship by birth conditions for persons born in India between 1950 and 2003.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Section 3(1) of Indian Citizenship Act 2003 defining citizenship by birth conditions.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "P.C. was born in India in 1972, within dates of Section 3(1).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "P.C. argues Indian citizenship is not automatic and there are hindrances to obtaining it.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. was born in India in 1972 but argues citizenship is not automatic and hindered, stated by applicant.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Panel examined recent Delhi and Karnataka High Court decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Delhi High Court ruled Tibetan woman born in India entitled to citizenship by birth and passport.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Court ordered Ministry to process passport and fined Ministry.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Indian citizen by birth need not apply for citizenship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Delhi High Court decisions affirming Tibetan born in India entitled to citizenship and passport, with Ministry fined.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "P.C. argues as Tibetan resident without proper Indian identity documents, she cannot obtain citizenship.",
+     "answers": 0
+    }
+   ],
+   "summary": "The P.C. argues she cannot obtain Indian citizenship without proper identity documents, stated by applicant.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD is not persuaded by P.C.'s arguments and affidavits supporting them",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "High Court decisions say ethnic Tibetans born in India 1950-1987 are Indian citizens by birth regardless of parents' nationality",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Citizenship is automatically acquired by birth, no need to apply",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Some cases show difficulties for ethnic Tibetans in acquiring passports but do not prove citizenship is not in their control",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Has P.C. attempted to obtain Indian citizenship?",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds P.C. is Indian citizen by birth per High Court, citizenship automatic, passport difficulties don't negate citizenship, and asks if P.C. tried to obtain citizenship.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant testified she never tried to obtain Indian citizenship while in India",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant was 27 when she left India but made no attempts to get citizenship documents before leaving",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant says she lost or misplaced identity documents, discovered in 2007 in US",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant did not try to replace lost documents or inquire about options, believing she must be in India to apply",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimant says she never tried to get Indian citizenship or replace lost documents, believing presence in India was required, court notes no attempts before leaving India.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "National Documentation package for China states Tibetans born in India get initial RCs at 16",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Birth certificate usually required for RC; school documents or police certification can substitute",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes official documentation says Tibetans born in India get RCs at 16, with alternative documents accepted if birth certificate missing.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant made one effort two months ago to inquire at Indian Embassy in Toronto about obtaining passport",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant told to go online and learned she needed identification documents she no longer has",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "P.C. left India in 1989; only attempt to get documents was two months before hearing",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "P.C. could not explain delay or provide proof of embassy visit; embassy won't provide proof",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "P.C.'s husband suggested she return to India for sponsorship but she did not say lack of documents prevented this",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimant made one recent attempt to get passport documents but had no proof; court notes long delay and no claim lack of documents prevented sponsorship.",
+   "role": "facts"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "P.C.'s claim she needs Residency and Identification certificates contradicted by new passport rules allowing other documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documentary evidence shows educational documents, PAN Card, Aadhar Card, election ID, driver's licence accepted instead of birth certificate",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Claimant says she does not have PAN Card or Aadhar Card",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has 13 years education but no evidence provided about other documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's testimony on passport requirements not consistent with documentary evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Documentary evidence from government sources is more reliable than claimant's testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant made no contacts to obtain documents and provided no impediments to citizenship",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds claimant's passport document claims contradicted by official rules; documentary evidence more reliable; claimant made no efforts or showed impediments.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court of Appeal in Tretsetsang allows Board to infer from claimant's failure to take reasonable steps to acquire citizenship",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimant must prove on balance of probabilities: significant impediment preventing citizenship rights and reasonable unsuccessful efforts to overcome it",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court of Appeal in Tretsetsang sets test requiring claimant to prove significant impediment and reasonable unsuccessful efforts to acquire citizenship.",
+   "role": "law"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Tretsetsang says failure to confirm citizenship recognition without reasonable explanation is fatal to refugee claim",
+     "answers": 0
+    }
+   ],
+   "summary": "Tretsetsang holds that failing to confirm citizenship recognition without reasonable explanation dooms refugee claim.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Federal Court in Dakar found applicant had not made reasonable efforts to acquire Indian citizenship",
+     "answers": 0
+    }
+   ],
+   "summary": "Federal Court in Dakar found applicant failed to make reasonable efforts to acquire Indian citizenship.",
+   "role": "law"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Tretsetsang analysis consistent with Williams on making reasonable attempts to avail citizenship; obstacles alone insufficient",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Tretsetsang consistent with Williams that obstacles alone do not excuse failure to attempt citizenship acquisition.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant made no attempt in India to acquire citizenship and lost documents after arrival in US and Canada",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant made no contact about documents until two months before hearing after 19 years out of India",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds claimant made no citizenship attempts in India and delayed contacting about documents for 19 years.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel rejects claimant's explanations for undocumented stay in US",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Delay over one year in filing refugee claim raises serious credibility concerns",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submits delay is excuse, but panel rejects this",
+     "answers": 0
+    }
+   ],
+   "summary": "Panel rejects claimant's explanations for undocumented US stay and finds delay in refugee claim filing raises credibility concerns, rejecting counsel's excuse.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's actions and lack of credibility with US immigration detract from overall credibility including document loss and embassy efforts",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds claimant's lack of credibility with US authorities undermines overall credibility including document loss and embassy efforts.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "India is country of reference; claimant fears deportation to China",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant does not allege serious possibility of persecution under section 96 or need for protection under section 97(1) IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds India is country of reference; claimant fears deportation to China but does not allege persecution or need for protection under IRPA.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "RPD finds claimant and minor children are not Convention refugees or persons in need of protection; claims rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "RPD concludes claimant and minor children are not refugees or in need of protection; claims rejected.",
+   "role": "conclusion"
+  }
+ ]
+}

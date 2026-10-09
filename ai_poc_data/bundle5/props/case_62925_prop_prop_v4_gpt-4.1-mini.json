@@ -1,0 +1,939 @@
+{
+ "case_id": 62925,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.012152000000000003
+ },
+ "verification": {
+  "paragraphs": 46,
+  "rows": 46,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 82,
+  "holders": {
+   "court": 43,
+   "applicant": 24,
+   "earlier_decision_maker": 2,
+   "witness_or_document": 2,
+   "prior_court_or_authority": 11
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns Mexican appellants fearing death threats from the Cartel Jalisco Nueva Generacion (CJNG) and seeking refugee protection. The Refugee Protection Division (RPD) initially found them not credible, but the tribunal reviewed and allowed the appeal. The tribunal concluded the appellants face a personal risk to life and lack adequate state protection, granting refugee status.",
+  "background_paras": "2-3, 20-22, 27-29, 31-34, 40",
+  "disposition_paras": "1, 14, 19, 38, 45-46",
+  "blocks": [
+   {
+    "issue": "Are the appellants credible in their claims of threats and danger from CJNG?",
+    "paras": "4-13",
+    "court_conclusion": "Appellants are credible; minor inconsistencies do not rebut presumption of truthfulness.",
+    "conclusion_paras": "7-13",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found appellants not credible due to omissions and contradictions.",
+      "paras": "4"
+     },
+     {
+      "holder": "applicant",
+      "text": "RPD failed to connect circumstances, applied microscopic analysis, ignored evidence, and failed to apply presumption of truthfulness.",
+      "paras": "5"
+     },
+     {
+      "holder": "court",
+      "text": "RPD's credibility assessment problematic; minor inconsistencies insufficient to rebut truthfulness; appellants' testimony consistent and credible.",
+      "paras": "7-13"
+     }
+    ]
+   },
+   {
+    "issue": "Do the appellants face a personal risk to life not faced generally by other Mexican nationals?",
+    "paras": "13-14",
+    "court_conclusion": "It is more likely than not appellants face personal risk to life not faced generally by other Mexican nationals.",
+    "conclusion_paras": "13-14",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Appellants specifically targeted by death threats and threats with a gun, constituting personal risk to life.",
+      "paras": "13-14"
+     }
+    ]
+   },
+   {
+    "issue": "Is there a viable internal flight alternative (IFA) for the appellants within Mexico?",
+    "paras": "15-19, 30-38",
+    "court_conclusion": "First prong of IFA test not met; appellants face serious risk throughout Mexico.",
+    "conclusion_paras": "19, 30, 38",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Did not express opinion on IFA viability but questioned appellants about it.",
+      "paras": "15"
+     },
+     {
+      "holder": "court",
+      "text": "IFA test requires no personal risk and reasonable conditions; appellants do not meet first prong; CJNG's reach and motivation make IFA unlikely.",
+      "paras": "16-19, 30-38"
+     },
+     {
+      "holder": "applicant",
+      "text": "Appellants do not feel safe anywhere in Mexico; cartel has reach to track them.",
+      "paras": "20, 28"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "CJNG is expanding, violent, controls much of Mexico, colludes with corrupt authorities, and can track individuals widely.",
+      "paras": "31-34"
+     }
+    ]
+   },
+   {
+    "issue": "Do the appellants have access to adequate protection from the Mexican state?",
+    "paras": "39-45",
+    "court_conclusion": "Appellants lack access to adequate state protection; testimony and evidence rebut presumption of protection.",
+    "conclusion_paras": "39-45",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Mexican authorities frequently collude with criminals; impunity and corruption widespread; protection inadequate.",
+      "paras": "39, 41-44"
+     },
+     {
+      "holder": "applicant",
+      "text": "Appellants tried to file complaints but suffered consequences; do not feel safe due to collusion.",
+      "paras": "40"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I am allowing the appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The appellants are Mexican citizens threatened by the Cartel Jalisco Nueva Generacion (CJNG) who fear being killed for not meeting demands.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants, Mexican citizens, claim threats and fear from CJNG extortion demands.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In early 2019, the female appellant received extortion calls and threats after a large bank deposit.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "She reported threats to the public ministry and was advised to ignore messages and change numbers.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The male appellant was threatened with death and abduction in 2019, leading them to leave Mexico and resign jobs.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "After leaving, threats continued at their residence and the male appellant's father was attacked by CJNG members.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants describe extortion calls, threats, reporting to authorities, fleeing Mexico, and continued threats to family.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the appellants not credible due to omissions and contradictions in testimony and evidence.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD found the appellants not credible due to inconsistencies and omissions.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD failed to connect circumstances explaining how CJNG targeted appellants and their fear.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD conducted a microscopic analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD failed to apply the presumption of truthfulness to appellants' sworn statements.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD based doubt on extortion calls and CJNG contact on limited evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The RPD ignored or did not analyze evidence from the male appellant's father's letter and photographs of an attack.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "National Documentation Package confirms CJNG danger and supports appellants' testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants argue the RPD erred by ignoring evidence, applying microscopic analysis, and failing to presume truthfulness.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "My role is to review all evidence and determine if the RPD's decision is correct.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role to review evidence and assess correctness of the RPD decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD's credibility assessment is problematic and based on peripheral elements.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's findings on fundamental aspects of appellants' claims are incorrect overall.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the RPD's credibility assessment problematic and its fundamental findings incorrect.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD's reasons to doubt appellants' credibility are slim and include minor inconsistencies in testimony and documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Examples include discrepancies about who identified as CJNG, dates of calls, and who pointed a gun.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD gave little weight to documents due to its disbelief in appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists minor inconsistencies RPD relied on to doubt appellants' credibility and notes RPD discounted evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These minor inconsistencies are insufficient to rebut the presumption of truthfulness, given explanations and weak foundation of one issue.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor inconsistencies insufficient to rebut the presumption of truthfulness.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellants' testimony was spontaneous, direct, consistent, and they answered all questions with valid explanations.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellants' testimony credible and consistent with valid explanations.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "In absence of inconsistencies or omissions, appellants are credible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellants credible due to no inconsistencies or omissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in assessing the male appellant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred in assessing the male appellant's credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellants face a personal risk to their lives not faced generally by other Mexican nationals under subsection 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellants face personal risks to life beyond those of other Mexican nationals.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellants were specifically targeted by death threats and threats with a gun, constituting a personal risk to life.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "It is more likely than not appellants face personal risk to life not faced generally by other Mexican nationals.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds appellants were specifically targeted and likely face personal risk to life beyond others.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD did not express an opinion on internal flight alternative (IFA) viability but questioned appellants about it at hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD did not opine on IFA viability but questioned appellants about it.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The legal test for assessing an internal flight alternative (IFA) is two-pronged.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the legal test for IFA is two-pronged.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "First prong: appellants must not face personal risk to life, torture, or cruel treatment in a part of Mexico on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The first prong requires no personal risk to life or torture in a part of Mexico on balance of probabilities.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Second prong: conditions of IFA must make it reasonable for appellants to seek refuge there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The second prong requires IFA conditions to be reasonable for appellants to seek refuge.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The first prong of the IFA test has not been met for the appellants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the first prong of the IFA test is not met for appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants testified they do not feel safe in Mexico and criminals could track them anywhere.",
+     "answers": 0
+    }
+   ],
+   "summary": "The appellants testified they do not feel safe and believe criminals could track them anywhere in Mexico.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants left Mexico due to escalating violence and extortion threats from criminals including a gun threat to male appellant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Male appellant's father was visited and threatened by cartel after appellants left",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Note found by male appellant's father indicated cartel knew appellants reported them and would find them regardless of payment",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Male appellant's father fled apartment after reading threatening note and has not returned",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Male appellant's father survived a murder attempt while driving in 2019",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Person who asked male appellant's father about his whereabouts was one of the assailants",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant details escalating violence and threats from cartel, including a murder attempt on male appellant's father and threatening note found.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Male appellant explained cartel's interest in locating them is because they reported the cartel",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Male appellant testified cartel will not stop until they kill them, as shown by attempt on his father",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Male appellant testified CJNG has connections with other cartels making it impossible to hide in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant testified cartel seeks them due to reporting, will not stop until killing, and has wide connections preventing hiding.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Maldonado holds refugee claimant's sworn facts presumed true unless valid reasons to doubt",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority holds refugee claimant's sworn facts presumed true absent valid doubt reasons.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying presumption of truthfulness and evidence, appellants' testimony is credible, especially on safety concerns in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants' testimony credible regarding their safety concerns in Mexico applying presumption of truthfulness.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CJNG's interest in locating appellants goes beyond financial gain due to their reporting the cartel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Male appellant's father was contacted and attacked, showing cartel motivation and means to find appellants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Male appellant can identify persons who threatened him, motivating cartel to track appellants",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds cartel's motivation to locate appellants is beyond money, supported by attacks and identification of assailants.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if cartel's interest were financial, evidence shows outstanding debt could motivate tracking outside cartel area",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds financial motives alone could justify cartel tracking appellants outside their area.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants argue documentary evidence confirms CJNG's presence, danger, and reach in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues evidence confirms CJNG's presence, danger, and reach in Mexico.",
+   "role": "issue"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Male appellant stated he could not live safely in M\u00e9rida or Campeche as CJNG has info to track them",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant states male appellant cannot live safely in M\u00e9rida or Campeche due to CJNG's tracking ability.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Immigration and Refugee Board documents show high violence, impunity, and collusion with corrupt authorities in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority documents show high violence, impunity, and collusion with corrupt authorities in Mexico.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "It is difficult to imagine a viable internal flight alternative (IFA) in Mexico against CJNG given motivation to track claimants",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds it difficult to imagine viable internal flight alternative against CJNG given motivation to track claimants.",
+   "role": "issue"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "US Library of Congress study shows CJNG expanding, violent, declared most dangerous cartel with broad reach",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "CJNG operates throughout Americas, Asia, Europe, controls half of Mexico, battles other cartels, linked to mass graves and military attacks",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority shows CJNG is expanding, violent cartel with broad reach and control, linked to mass graves and military attacks.",
+   "role": "facts"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "CJNG active in 24 states, present in all 32 via alliances or cells, challenging organized crime leadership",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Criminal organizations can track individuals outside areas via alliances",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "CJNG's reach extends beyond Mexico to Americas, Asia, Europe",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority shows CJNG active nationwide via alliances, can track individuals outside areas, and has international reach.",
+   "role": "facts"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Cartels collude with corrupt police and government; CJNG powerful enough to corrupt and challenge Mexican state with impunity",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "CJNG involved in large-scale corruption, e.g. half Guadalajara police on payroll",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority shows cartel collusion with corrupt officials and CJNG's large-scale corruption and impunity.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Criminals access police databases and can buy private info including addresses",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Police collude with cartels, e.g. arresting rival youths and handing them to CJNG for execution",
+     "answers": 0
+    }
+   ],
+   "summary": "Prior authority shows criminals access police data and police collude with cartels, handing rivals to CJNG for execution.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, CJNG has motivation and means to track appellants in Mexico given harm agents' awareness",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds on balance of probabilities CJNG motivated and able to track appellants in Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, CJNG's motivation and means to track appellants continues due to reputation and capacity to make dissenters disappear",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds CJNG's motivation and means to track appellants continues due to reputation and capacity to eliminate dissenters.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying presumption of truthfulness and evidence, appellants' testimony credible that they face danger everywhere in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants' testimony credible that they face danger throughout Mexico applying presumption of truthfulness.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "On balance of probabilities, appellants face serious risk of death, torture, or cruel treatment in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "Court concludes appellants face serious risk of death, torture, or cruel treatment in Mexico on balance of probabilities.",
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Although states presumed capable of protection, appellants lack access to adequate protection from Mexican state",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds appellants lack adequate protection from Mexican state despite presumption of state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants tried twice to file police complaints but cartel was informed and they suffered consequences",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants testified they do not feel safe due to collusion between criminals and police",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants left Mexico because state authorities unable to protect them from extortionists they reported",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant states attempts to file complaints failed due to cartel knowledge and collusion, leading to unsafe conditions and departure.",
+   "role": "facts"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mexican state authorities frequently collude with criminal groups as confirmed by objective documentary evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds that Mexican state authorities frequently collude with criminal groups, confirmed by objective documentary evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Impunity and low prosecution rates remain significant problems in Mexico according to the most recent NDP on Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "US Department of State reports illegal groups' involvement in killings, disappearances, torture, and arbitrary detention, sometimes with government collaboration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Impunity for human rights abuses remains a problem with extremely low prosecution rates for all crimes",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mexican federal statistics estimate 94% of crimes are unreported or not investigated",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Open Society Foundations describes Mexico as experiencing a crisis of atrocity and impunity and as one of the most corrupt countries in the Americas",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds multiple reports confirm impunity, low prosecution, and corruption in Mexico, including government collaboration with illegal groups.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documentary evidence shows police involvement in kidnappings, extortion, and acting on behalf of organized crime in Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Police, army, and state agents sometimes coordinate with criminal organizations in arbitrary killings, disappearances, torture, and arbitrary detention",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds police and state agents sometimes coordinate with criminal groups in serious crimes including kidnappings and torture.",
+   "role": "analysis"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Security forces continue extrajudicial executions, forced disappearances, and torture in Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Impunity remains the norm especially when crimes are committed by law enforcement",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Prosecutors and police routinely neglect investigations into enforced disappearances, often telling families to investigate themselves",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds security forces commit serious abuses with impunity and authorities neglect investigations, burdening families.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Appellants' testimony and documentary evidence rebut the presumption of state protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes appellants' testimony and evidence rebut the presumption of state protection.",
+   "role": "conclusion"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court substitutes the RPD's determination with its own that appellants are refugees and persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal and substitutes the RPD's decision, finding appellants are refugees needing protection.",
+   "role": "disposition"
+  }
+ ]
+}

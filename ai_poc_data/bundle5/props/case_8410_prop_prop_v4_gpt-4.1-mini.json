@@ -1,0 +1,510 @@
+{
+ "case_id": 8410,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.006155600000000001
+ },
+ "verification": {
+  "paragraphs": 26,
+  "rows": 26,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 42,
+  "holders": {
+   "applicant": 8,
+   "respondent": 1,
+   "court": 18,
+   "earlier_decision_maker": 10,
+   "prior_court_or_authority": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 4
+ },
+ "headings": {
+  "3": "II. Relevant Facts",
+  "5": "III. Decision Under Review",
+  "10": "IV. Issue and Standard of Review",
+  "15": "V. Analysis"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns the judicial review of a negative Pre-Removal Risk Assessment (PRRA) decision regarding a Palestinian permanent resident in Canada convicted of serious criminality. The applicant challenges the PRRA refusal, arguing the decision was unreasonable due to failure to properly assess risk evidence. The Federal Court dismissed the application, finding the decision reasonable and supported by the evidence.",
+  "background_paras": "3-9",
+  "disposition_paras": "2, 25-26",
+  "blocks": [
+   {
+    "issue": "Was the PRRA decision reasonable?",
+    "paras": "10-25",
+    "court_conclusion": "The PRRA decision was reasonable and supported by evidence; the application is dismissed.",
+    "conclusion_paras": "25",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Argued risk was never assessed before; all risk evidence is new; Officer failed to consider independent sources and personal recount.",
+      "paras": "15, 18"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found Applicant vague on key claim elements; insufficient probative evidence; risk evidence largely generalized; PRRA refused.",
+      "paras": "5-9"
+     },
+     {
+      "holder": "court",
+      "text": "Found Officer's concerns about credibility reasonable; evidence mostly generalized; no reliable personalized risk evidence; decision reasonable.",
+      "paras": "19-24"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant seeks judicial review of adverse PRRA decision made March 31, 2020 by Senior Immigration Officer",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant seeks to have the Decision set aside and sent back for re-determination",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Respondent seeks to have the application dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant seeks judicial review of adverse PRRA decision and wants it set aside; Respondent seeks dismissal of application.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application is dismissed",
+     "answers": 0
+    }
+   ],
+   "summary": "Court dismisses the application.",
+   "role": "disposition"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant is Palestinian citizen who arrived in Canada February 2015 as permanent resident sponsored by then wife",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant convicted in October 2018 of sexual assault of female child under s.271 Criminal Code",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant found inadmissible to Canada for serious criminality under s.36(1)(a) IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant is Palestinian permanent resident convicted of sexual assault and found inadmissible for serious criminality.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant applied for PRRA on June 27, 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant eligible for risk assessment only under s.97 IRPA due to inadmissibility",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant applied for PRRA June 27, 2019 and was eligible only under s.97 IRPA due to inadmissibility.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Decision recognized Applicant eligible for review only under s.97 due to serious criminality inadmissibility under s.36(1)(a) IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "Decision recognized Applicant's eligibility for review only under s.97 IRPA due to serious criminality inadmissibility.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer acknowledged Applicant's fear of reprisal for work as informant for Israeli military",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer noted Applicant's concerns about leaving pregnant girlfriend but found it outside PRRA relief scope",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer acknowledged Applicant's fear of reprisal and noted concerns about pregnant girlfriend but excluded latter from PRRA relief.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer found Applicant vague on important claim elements like dates and identification of Israeli recruiters",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer noted Applicant did not establish type of information disclosed or how he disclosed it to Israeli military captains",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found Applicant vague on claim details and did not establish type or method of information disclosed to Israeli military.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Applicant failed to establish identity of brother who notified him of rumours about informant role",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Decision noted inconsistency that Applicant entered Canada with permanent residence visa despite claims Israeli military held his visa",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found Applicant failed to establish brother's identity and noted inconsistency about Canadian visa possession.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer concluded Applicant provided insufficient probative evidence to establish personalized forward-looking risk on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Officer noted evidence about risk in Palestine was largely generalized country conditions not applicable under s.97 IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "conclusion_or_order",
+     "text": "PRRA application was refused",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer found insufficient evidence of personalized risk and refused PRRA application due to generalized country conditions.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Only issue is whether the Decision was reasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Court states the only issue is whether the Decision was reasonable.",
+   "role": "issue"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Vavilov confirms judicial review of administrative decisions presumed to be on reasonableness standard except certain exceptions not applicable here",
+     "answers": 0
+    }
+   ],
+   "summary": "Vavilov confirms judicial review presumed on reasonableness standard, with no exceptions applying here.",
+   "role": "law"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Under reasonableness standard, court refrains from deciding issue afresh and considers only if Decision and rationale are unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "Under reasonableness standard, court reviews only if Decision and rationale are unreasonable, not deciding issue anew.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Reasonableness requires internally coherent, rational chain of analysis justified by facts and law, with deference to decision-maker",
+     "answers": 0
+    }
+   ],
+   "summary": "Reasonableness requires coherent, rational analysis justified by facts and law, with deference to decision-maker.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Written reasons need not include all arguments or explicit findings on each element; lack of perfection not basis to set aside decision",
+     "answers": 0
+    }
+   ],
+   "summary": "Written reasons need not be perfect or include all arguments; lack of explicit findings not grounds to set aside decision.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant argued risk never previously assessed as he entered Canada under spousal sponsorship, so all risk evidence is new",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant argues risk never previously assessed and all risk evidence is new due to spousal sponsorship entry.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant met Israeli man Malik at age 14 or 15 who got him construction job and recruited him as informant",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant alleges he worked as informant from 2008 to 2015 doing surveillance",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant alleges recruitment by Israeli man Malik at 14-15 and working as informant from 2008 to 2015.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant identified specific risk from 2014 when he provided info thwarting attack and attacker accused him of collaboration",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant fears for life if returned to Palestine due to accusations",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant fears for life in Palestine due to 2014 thwarted attack and accusations of collaboration.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims Officer failed to consider independent sources and personal recount on treatment of suspected informants",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Vavilov and Newfoundland Nurses Union hold decision-makers presumed to have considered all evidence and need not make explicit findings on each element",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant claims Officer failed to consider evidence; Vavilov holds decision-makers presumed to consider all evidence without explicit findings.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Record shows most materials submitted were general country condition documents and news about risks to suspected informants",
+     "answers": 0
+    }
+   ],
+   "summary": "Record shows evidence mostly general country conditions and news about risks to suspected informants.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Officer noted three problems with Applicant's evidence",
+     "answers": 0
+    }
+   ],
+   "summary": "Officer noted three problems with Applicant's evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant left family members section blank in PRRA application, conflicting with claim about brother's advice.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This conflict reasonably raised Officer's suspicion about Applicant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Applicant left family section blank, conflicting with his claim about his brother, raising Officer's suspicion about credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant travelled to Canada with permanent resident visa but alleged Israelis held his visa to force informing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This conflicting information reasonably raised Officer's suspicion about Applicant's credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Applicant's travel with visa conflicts with his claim that Israelis held it, raising Officer's suspicion about credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No personalized evidence of risk exists, such as affidavits from brother or others knowledgeable about informant story.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no personalized evidence of risk like affidavits supporting Applicant's informant story.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "General country condition documents show persecution risk for informants but do not support Applicant's personal informant claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering Officer's concerns about brother and visa, no reliable evidence supports Applicant's claimed risk.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds general documents show risk for informants but do not support Applicant's personal claim, so no reliable evidence supports risk claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application is dismissed for the foregoing reasons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court dismisses the application for the reasons given.",
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No serious question of general importance exists for certification.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no serious question of general importance for certification.",
+   "role": "conclusion"
+  }
+ ]
+}

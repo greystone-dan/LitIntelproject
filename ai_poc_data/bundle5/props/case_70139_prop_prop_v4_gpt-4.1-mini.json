@@ -1,0 +1,1243 @@
+{
+ "case_id": 70139,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0152528
+ },
+ "verification": {
+  "paragraphs": 56,
+  "rows": 56,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 119,
+  "holders": {
+   "court": 70,
+   "applicant": 23,
+   "earlier_decision_maker": 13,
+   "prior_court_or_authority": 6,
+   "witness_or_document": 7
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 1
+ },
+ "headings": {
+  "7": "DECISION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a refugee appeal by Mexican citizens who fled extortion and threats by the CJNG cartel. The appellants claimed a risk of persecution and inadequate state protection in Mexico. The tribunal allowed the appeal, recognizing the appellants as Convention refugees and persons in need of protection.",
+  "background_paras": "2-4, 23",
+  "disposition_paras": "1, 7-9, 54-56",
+  "blocks": [
+   {
+    "issue": "Did the appellants have a viable internal flight alternative (IFA) in Campeche City and M\u00e9rida?",
+    "paras": "5-6, 29-33, 37-47",
+    "court_conclusion": "The RPD erred; Campeche and M\u00e9rida are not safe IFAs due to CJNG presence and risk to appellants.",
+    "conclusion_paras": "6, 29, 37, 39-47",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found appellants had viable IFA in Campeche City and M\u00e9rida where CJNG was absent.",
+      "paras": "5"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argued CJNG active in Campeche and Yucatan; CJNG can track appellants nationwide; RPD speculated baselessly about CJNG targeting.",
+      "paras": "34-36"
+     },
+     {
+      "holder": "court",
+      "text": "RPD ignored key evidence on CJNG presence; CJNG is powerful and can infiltrate state authorities; appellants face risk in IFAs; no adequate state protection.",
+      "paras": "6, 29-33, 37-47"
+     }
+    ]
+   },
+   {
+    "issue": "Is there a nexus to the Convention based on gendered sexual assault and threats?",
+    "paras": "12-20",
+    "court_conclusion": "Appellant and female minors have a nexus to the Convention as women in a social group due to gender-based persecution.",
+    "conclusion_paras": "18-19",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found appellants had not established nexus to the Convention under section 97 of IRPA.",
+      "paras": "12"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argued RPD erred by not finding nexus based on gendered sexual assault; relied on Gutierrez case and Gender Guidelines.",
+      "paras": "13, 15"
+     },
+     {
+      "holder": "court",
+      "text": "Claims involve gender-based sexual assault; applying Gender Guideline, nexus to Convention established for female appellants.",
+      "paras": "14, 17-19"
+     }
+    ]
+   },
+   {
+    "issue": "Did the appellants' delay in making a refugee claim affect their credibility?",
+    "paras": "23-28",
+    "court_conclusion": "No credibility concerns; RPD erred in analyzing delay without considering appellants' personal circumstances.",
+    "conclusion_paras": "25-28",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found delay detracted from credibility but not sufficient to impugn it; accepted appellants credible on balance of probabilities.",
+      "paras": "23-24"
+     },
+     {
+      "holder": "applicant",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "court",
+      "text": "No credibility concerns; testimony consistent with evidence; delay explained by appellants' education and immigration knowledge.",
+      "paras": "25-28"
+     }
+    ]
+   },
+   {
+    "issue": "Is there adequate state protection available to the appellants in Mexico?",
+    "paras": "6, 48-53",
+    "court_conclusion": "Appellants do not have access to adequate state protection in Mexico due to CJNG influence and police collusion.",
+    "conclusion_paras": "6, 53",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Found appellants did not provide sufficient evidence they lack access to state protection on balance of probabilities.",
+      "paras": "48"
+     },
+     {
+      "holder": "applicant",
+      "text": "Argued RPD ignored evidence showing inadequate state protection; good intentions or legislation do not prove protection exists; appellants feared seeking protection due to CJNG collusion.",
+      "paras": "49-50"
+     },
+     {
+      "holder": "court",
+      "text": "CJNG dominates and corrupts law enforcement; police lack resources; impunity common; appellants lack access to state protection.",
+      "paras": "51-53"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I allow this appeal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows this appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellants and their minor associates are citizens of Mexico.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states the appellants are Mexican citizens.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellants ran a business in Guadalajara and were extorted by CJNG starting February 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "When payments were missed, the Appellant was abducted, raped, and threatened; threats extended to all appellants including female minors.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states the appellants faced extortion, abduction, rape, and threats from CJNG.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellants relocated twice within Mexico but were found and threatened by CJNG each time.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "They hid in Chapala, traveled to Canada in 2018, filed a police report in 2019, and made a refugee claim in June 2019.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant states the appellants relocated, were threatened, fled to Canada, filed a police report, and claimed refugee protection.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the appellants had a viable internal flight alternative (IFA) in Campeche City and M\u00e9rida where CJNG was absent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found a viable internal flight alternative for the appellants in areas without CJNG presence.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in finding a viable IFA for the appellants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellants do not have access to adequate state protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred; appellants lack a viable IFA and adequate state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "I substitute my own decision that the Appellant and Female Minor Appellants are Convention refugees.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court decides the appellant and female minor appellants are Convention refugees.",
+   "role": "disposition"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "All appellants are persons in need of protection.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds all appellants need protection.",
+   "role": "disposition"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The appellants requested an oral hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "An oral hearing may be held if new evidence raises a serious credibility issue central to the claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No oral hearing was held because there is no new evidence on the record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant requested an oral hearing; the court may hold one for new evidence but did not because none was presented.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "My role is to review all evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review evidence and assess the RPD's decision correctness.",
+   "role": "other"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the appellants had not established a nexus to the Convention under section 97 of IRPA.",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found no nexus to the Convention under section 97 IRPA for the appellants.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues the RPD erred by not finding a nexus to the Convention based on gendered sexual assault.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant argues the RPD erred by ignoring the gendered aspect of the sexual assault nexus to the Convention.",
+   "role": "issue"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claims began with criminal risk but the sexual assault and threats are gender-based.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant was raped because she is a woman; female minors were threatened similarly; male appellants were not threatened with rape.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the sexual assault and threats are gender-based, linked to the appellant's and female minors' gender.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel relies on Gutierrez to show the Federal Court's approach distinguishing sexual assault as gender-based violence.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Justice Kelen summarized jurisprudence distinguishing sexual assault as a gender-specific crime per Chairperson's Guideline 4.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Sexual assault is an assault on human dignity and equality for women, not merely common criminal intent.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant cites Gutierrez and guidelines showing sexual assault is gender-based violence, not just common crime.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "In Gutierrez, the Board erred by not considering the claim under section 96 and Gender Guidelines.",
+     "answers": 0
+    }
+   ],
+   "summary": "Gutierrez found the Board erred by ignoring section 96 and Gender Guidelines in a sexual assault claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant's case is comparable to Gutierrez with a distinct gender-based claim arising from sexual assault and threats.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant's case comparable to Gutierrez with a distinct gender-based claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying the Gender Guideline, the appellant and daughters' gender establishes a nexus to the Convention.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Gender is innate and unchangeable and relevant even if women face generalized oppression in their country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Mixed reasons for persecution should be assessed partially as related to a Convention ground.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies the Gender Guideline, finding gender establishes nexus despite generalized oppression; mixed reasons assessed partially as Convention grounds.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The appellant and female minor appellants have a nexus to the Convention as women in a social group.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the appellant and female minors have a Convention nexus as women in a social group.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Associate Appellant and male minor should not be assessed under section 96 as family members of persecuted people.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court disagrees that the male appellants should be assessed under section 96 as family members of persecuted people.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The risk faced by the Appellant Associate and Male Minor Associate Appellant is independent from the gender-based risk faced by other Appellants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellants face a risk to their lives",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the risk to the Appellant Associate and Male Minor Associate Appellant is independent from gender-based risk and that all Appellants face a risk to their lives.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "All Appellants face a section 97 risk in Mexico on a balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "They face a personalized risk due to specific interactions with CJNG",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The risk is not general to the Mexican population but defined by Appellants' history with CJNG including violent repercussions and threats for refusing extortion",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds all Appellants face a section 97 risk in Mexico due to personalized risk from their history with CJNG, not faced generally by Mexicans.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "The Appellants arrived in Canada in 2018 and made a refugee claim in June 2019",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found the Appellants' delay in making a claim detracted from their credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found the Appellants delayed refugee claim and that this detracted from their credibility.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD did not find the delay sufficient to impugn credibility",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD considered the Appellants credible witnesses and accepted their allegations on a balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker found the delay insufficient to impugn credibility and accepted the Appellants' allegations as credible.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court has no credibility concerns about the Appellants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellants' testimony was consistent with documentary evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellants' accounts align with objective documentary evidence, enhancing credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no credibility concerns; Appellants' testimony aligns with documentary evidence, enhancing credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in its analysis of the Appellants' delay in making a refugee claim",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Decision makers must consider Appellants' explanation for delay and personal circumstances including education, travel history, and immigration understanding",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD was not satisfied by Appellants' explanation for delay",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not consider the explanation within the context of Appellants' profiles",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds the RPD erred by not considering Appellants' explanation for delay in context of their personal circumstances, despite legal requirements.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant and Associate Appellant did not finish secondary studies; Appellant finished junior high school",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellant studied 9 years; Associate Appellant completed one year of prep school",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Average Mexican citizen completes 14 years of school",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellants are not highly educated",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Appellants' passports show no travel history; US visa applications were rejected",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is plausible Appellants had minimal knowledge of immigration process",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No inconsistencies indicate lack of credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellants are not highly educated, have no travel history, plausibly had minimal immigration knowledge, and no credibility inconsistencies.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering personal circumstances and explanation for delay, no negative credibility inference is drawn",
+     "answers": 0
+    }
+   ],
+   "summary": "The court does not draw a negative credibility inference after considering Appellants' circumstances and explanation for delay.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in its IFA analysis; Campeche and Merida are not safe IFAs for Appellants",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred in its IFA analysis and that Campeche and Merida are not safe IFAs for the Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "There are two parts to the legal test for assessing an IFA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states there are two parts to the legal test for assessing an IFA.",
+   "role": "law"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "First, must be satisfied on balance of probabilities that no serious possibility of persecution or risk exists in proposed IFA locations",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the first part of the IFA test requires no serious possibility of persecution or risk in proposed locations on balance of probabilities.",
+   "role": "law"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Once IFA identified, Appellant must show it is unsafe or unreasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RPD must consider latest objective documentary evidence in IFA analysis",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant must show the IFA is unsafe and the RPD must consider latest documentary evidence in IFA analysis.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court cautioned against selective use of documentary evidence in Castillo Garcia",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD and RAD found Appellant credible but found IFA in Cancun relying selectively on a map ignoring other evidence",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "Federal Court did not find RAD's decision reasonable",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court considers Castillo Garcia jurisprudence relevant due to similarities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Federal Court cautioned against selective evidence use in Castillo Garcia and finds it relevant here.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submits RPD erred in finding CJNG does not have presence in Campeche and Yucatan",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel refers to objective evidence showing CJNG active throughout these states",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant's counsel argues the RPD erred by finding no CJNG presence in Campeche and Yucatan, citing objective evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues CJNG can track Appellants nationwide",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "CJNG showed ongoing interest by tracking Appellants after move to Durango and attacking Appellant's mother in 2019",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant's counsel argues CJNG can track Appellants nationwide and has shown ongoing interest by attacks after their move.",
+   "role": "issue"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues RPD speculated baselessly that CJNG reserves capacity for higher profile targets",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Objective evidence contradicts RPD's assertion",
+     "answers": 1
+    }
+   ],
+   "summary": "The applicant's counsel argues the RPD's speculation about CJNG reserving capacity for higher profile targets is baseless and contradicted by evidence.",
+   "role": "issue"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees with Counsel's submissions",
+     "answers": 0
+    }
+   ],
+   "summary": "The court agrees with the applicant's counsel's submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD reviewed documentary evidence and concluded CJNG did not have presence in IFAs on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The earlier decision maker concluded CJNG did not have presence in IFAs based on documentary evidence.",
+   "role": "facts"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD ignored a document explicitly about CJNG activities and influence titled 'The Strategic Implications of the C\u00e1rtel de Jalisco Nueva Generaci\u00f3n'",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD ignored a document explicitly about CJNG activities and influence.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The document was not in the NDP before the RPD at hearing but included in new NDP issued Feb 28, 2020",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RPD decision issued July 17, 2020, and expected to consult most recent NDP version",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "RPD must consult latest NDP especially when evidence contradicts findings of fact",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD erred by ignoring this evidence",
+     "answers": 3
+    }
+   ],
+   "summary": "The court finds the RPD erred by ignoring new NDP evidence about CJNG that was available before its decision and must be considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CJNG is Mexico's largest and most powerful Organized Crime Group present in every state through alliances or presence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CJNG has extensive resources and can infiltrate state authorities",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD accepted CJNG's capacity and national reach to a certain degree",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CJNG is Mexico's largest OCG with extensive resources and infiltration capacity; RPD accepted CJNG's capacity and reach to some degree.",
+   "role": "facts"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD noted CJNG has alliances with other OCGs in Durango state and used this to suggest different IFAs for Appellants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "RPD appears to accept CJNG may have located Appellants in Durango through alliances",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel points out RPD ignored evidence that CJNG has alliances with OCGs present in IFA locations",
+     "answers": 2
+    }
+   ],
+   "summary": "The RPD found CJNG alliances in Durango and suggested different IFAs; counsel argues RPD ignored evidence of CJNG alliances in IFA locations.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CJNG maintains alliances with OCGs throughout Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In Yucatan, CJNG disputes leadership or has alliance with rivals",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "In Campeche, CJNG allied with La Familia to fight Gulf Cartel",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CJNG can fight an OCG in one location while allied with same group against common enemies elsewhere",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CJNG has alliances and rivalries with OCGs across Mexico, including Yucatan and Campeche, showing complex relationships.",
+   "role": "facts"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "OCGs maintain fluid presence in Mexican states subject to change",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Important to consider case-specific info on CJNG's motivation to pursue Appellants throughout Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes OCG presence is fluid and case-specific CJNG motivation to pursue Appellants must be considered.",
+   "role": "analysis"
+  },
+  {
+   "para": 45,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No credibility problems on record; Appellants presumed truthful",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CJNG threatened Appellants multiple times and located them in Nayarit and Durango",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants point out Durango is 8 hours from home state Jalisco",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CJNG members assaulted and threatened Appellant's mother in early 2019",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "CJNG remain interested and motivated to find Appellants on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellants credible; CJNG threatened and located them in distant states and assaulted mother; CJNG motivated to pursue Appellants.",
+   "role": "analysis"
+  },
+  {
+   "para": 46,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "RPD did not provide reference for claim OCGs only track high-profile targets",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documentary evidence does not establish OCGs only pursue high-profile targets",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Other cases may show OCGs lack motivation for many reasons",
+     "answers": 1
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Appellants' experience shows CJNG motivated to use resources to pursue them outside territory",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants argue RPD lacked basis for claim OCGs track only high-profile targets; court finds evidence does not support that claim; Appellants' experience shows CJNG motivation.",
+   "role": "analysis"
+  },
+  {
+   "para": 47,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "CJNG have means and motivation to search for Appellants in IFA locations on balance of probabilities",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Appellant and daughters face serious possibility of gender-based persecution by sexual assault in IFAs",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "All Appellants face risk to their lives in proposed IFA locations",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No adequate state protection exists",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CJNG can and will pursue Appellants in IFAs; Appellant and daughters face gender-based persecution; all face life risk; no adequate state protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 48,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD did not consider state protection determinative but analyzed it",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "RPD found Appellants did not provide sufficient evidence they lack access to state protection on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The RPD analyzed state protection and found Appellants did not prove lack of access to it on balance of probabilities.",
+   "role": "facts"
+  },
+  {
+   "para": 49,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues RPD gave no basis for finding on state protection",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel says RPD ignored objective documentary evidence showing inadequate state protection in Mexico",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submits good intentions or legislation do not prove state protection exists",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants' counsel argues RPD gave no basis for state protection finding, ignored evidence of inadequacy, and that intentions or laws don't prove protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 50,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Appellants did not seek protection in Mexico fearing CJNG collusion with police",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "When Appellants filed police report, Appellant's mother was threatened and assaulted",
+     "answers": 0
+    }
+   ],
+   "summary": "Appellants did not seek protection fearing CJNG-police collusion; police report led to threats and assault on mother.",
+   "role": "facts"
+  },
+  {
+   "para": 51,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Documentary evidence confirms OCGs dominate and collude with Mexican law enforcement",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "OCGs use corrupt law enforcement agents to get info on targets",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "CJNG can confront and corrupt Mexican state at all government levels using bribes or bullets",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "CJNG has history of infiltrating and dominating police forces",
+     "answers": 0
+    }
+   ],
+   "summary": "Documentary evidence shows OCGs dominate and collude with law enforcement; CJNG corrupts state using bribes or bullets and infiltrates police.",
+   "role": "facts"
+  },
+  {
+   "para": 52,
+   "propositions": [
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Police in Mexico lack resources to investigate crimes properly",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "Criminals often enjoy impunity; police targeted by and collude with OCGs",
+     "answers": 0
+    },
+    {
+     "holder": "witness_or_document",
+     "kind": "fact",
+     "text": "2019 creation of Guardia Nacional failed to measurably address criminality",
+     "answers": 0
+    }
+   ],
+   "summary": "Police lack resources; criminals enjoy impunity; police collude with OCGs; Guardia Nacional failed to reduce crime measurably.",
+   "role": "facts"
+  },
+  {
+   "para": 53,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court does not find Appellants have access to state protection in Mexico",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Appellants lack access to state protection in Mexico.",
+   "role": "analysis"
+  },
+  {
+   "para": 54,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal.",
+   "role": "disposition"
+  },
+  {
+   "para": 55,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court substitutes its own decision that Appellant and Female Minor Appellants are Convention refugees",
+     "answers": 0
+    }
+   ],
+   "summary": "The court substitutes its decision that the Appellant and female minors are Convention refugees.",
+   "role": "disposition"
+  },
+  {
+   "para": 56,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "All Appellants are persons in need of protection",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds all Appellants are persons in need of protection.",
+   "role": "disposition"
+  }
+ ]
+}

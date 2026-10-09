@@ -1,0 +1,795 @@
+{
+ "case_id": 46781,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.011009999999999999
+ },
+ "verification": {
+  "paragraphs": 42,
+  "rows": 42,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 61,
+  "holders": {
+   "applicant": 19,
+   "court": 42
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 4
+ },
+ "headings": {
+  "2": "ALLEGATIONS",
+  "8": "DETERMINATION",
+  "40": "CONCLUSION",
+  "41": "DECISION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Haitian citizen seeking refugee protection in Canada, alleging persecution and threats in Haiti. The claimant presented multiple allegations including family violence, harassment, and fear of witchcraft and sexual violence. The tribunal found the claimant not credible and rejected the refugee protection claim.",
+  "background_paras": "1-7, 9",
+  "disposition_paras": "8, 20, 24, 28, 32, 39-42",
+  "blocks": [
+   {
+    "issue": "Did the claimant establish a well-founded fear of persecution or personal risk from her paternal uncle in Haiti?",
+    "paras": "12-20",
+    "court_conclusion": "Claimant failed to establish a well-founded fear or personal risk from her uncle if returned to Haiti.",
+    "conclusion_paras": "20",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges paternal uncle was violent, hitting and threatening family and mother with hot oil.",
+      "paras": "12"
+     },
+     {
+      "holder": "court",
+      "text": "Uncle's violence dates back over ten years; no threat after 2010 or 2015; claimant's credibility undermined by omissions and contradictions.",
+      "paras": "13-19"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimant prove harassment and threats by a classmate constitute a serious risk?",
+    "paras": "21-24",
+    "court_conclusion": "Claimant failed to prove classmate was or is a threat on balance of probabilities.",
+    "conclusion_paras": "24",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges harassment and threats by classmate including death threats and weapon at school; classmate called her in 2015.",
+      "paras": "21"
+     },
+     {
+      "holder": "court",
+      "text": "Testimony inconsistent; no complaints filed; threats not credible or serious risk after time elapsed.",
+      "paras": "22-23"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimant establish a current threat from four armed criminals who entered her home in 2006?",
+    "paras": "25-28",
+    "court_conclusion": "Claimant failed to prove criminals still present or threatening her or family.",
+    "conclusion_paras": "28",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Alleges four armed criminals entered home, beat father, and caused her to leave Haiti.",
+      "paras": "25"
+     },
+     {
+      "holder": "court",
+      "text": "Incident was isolated robbery 13 years ago; no evidence of ongoing threat; family no longer lives at home location.",
+      "paras": "26-27"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimant prove a risk from witchcraft practices in Haiti?",
+    "paras": "29-32",
+    "court_conclusion": "Claimant failed to prove any risk from witchcraft in Haiti on balance of probabilities.",
+    "conclusion_paras": "32",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Fears witchcraft acts in Haiti; met pastors with vision about threat but no specific details.",
+      "paras": "29-30"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant's story lacks objective basis; no specific witchcraft acts against her shown.",
+      "paras": "31"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimant prove a serious risk of persecution by sexual violence or rape in Haiti as a woman?",
+    "paras": "33-39",
+    "court_conclusion": "Claimant failed to prove serious risk of persecution by sexual violence or rape under Convention.",
+    "conclusion_paras": "39",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Fears rape in Haiti due to widespread occurrences against women.",
+      "paras": "33"
+     },
+     {
+      "holder": "court",
+      "text": "Being a woman in Haiti insufficient; claimant is educated and resourceful; no evidence of serious risk.",
+      "paras": "34-38"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant is a Haitian citizen claiming refugee protection in Canada under IRPA section 96 and subsection 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant is a Haitian citizen claiming refugee protection in Canada under IRPA section 96 and subsection 97(1).",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges being hit and threatened by her paternal uncle who lived with her family in Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges being hit and threatened by her paternal uncle who lived with her family in Haiti.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges harassment in secondary school in 2002 or 2003 by a boy who was expelled for carrying a weapon.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges harassment in secondary school in 2002 or 2003 by a boy who was expelled for carrying a weapon.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges that in 2006 four armed criminals entered her family home and beat her father.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges that in 2006 four armed criminals entered her family home and beat her father.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant fears witchcraft practice and rape in Haiti due to widespread occurrences against women.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant fears witchcraft practice and rape in Haiti due to widespread occurrences against women.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant left Haiti in 2010 for Mexico, stayed with temporary status until 2017, and visited several countries including the US twice and returned to Haiti briefly in 2015.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant left Haiti in 2010 for Mexico, stayed with temporary status until 2017, visited several countries including the US twice, and returned to Haiti briefly in 2015.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant left Mexico and the US in 2017 and decided to enter Canada to claim refugee protection in 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant left Mexico and the US in 2017 and decided to enter Canada to claim refugee protection in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel determines the claimant failed to establish a well-founded fear of persecution or personal risk of torture, death, or cruel treatment under IRPA subsection 97(1).",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel determines the claimant failed to establish a well-founded fear of persecution or personal risk of torture, death, or cruel treatment under IRPA subsection 97(1).",
+   "role": "conclusion"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant's identity was established by her Haitian passport and Mexican documents seized by Canadian authorities.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The refugee hearing was held over three sessions with about eight hours of testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant has a stutter noted in a psychotherapist's assessment, causing interruptions to clarify testimony.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Counsel initially requested panel recusal due to frequent interruptions but withdrew the request before the third session.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The panel gave counsel the entire third session to question the claimant, but counsel asked very few questions.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant's identity was established; the hearing lasted three sessions with interruptions due to her stutter; counsel withdrew recusal request and asked few questions.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A refugee claimant's sworn allegations create a presumption of truth unless rebutted by contradictions, inconsistencies, implausibilities, or omissions.",
+     "answers": 0
+    }
+   ],
+   "summary": "A refugee claimant's sworn allegations create a presumption of truth unless rebutted by contradictions, inconsistencies, implausibilities, or omissions.",
+   "role": "law"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant was not credible due to significant omissions, contradictions, and inconsistencies in testimony and documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant was not credible due to significant omissions, contradictions, and inconsistencies in testimony and documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The claimant alleges her paternal uncle was violent, hitting and threatening the family and throwing hot oil on her mother.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges her paternal uncle was violent, hitting and threatening the family and throwing hot oil on her mother.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant said her parents did not change residences after incidents but only after she left Haiti; parents now live separately.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said her parents did not change residences after incidents but only after she left Haiti; parents now live separately.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant said she lived with her mother in 2015 and added a new account of a hostile encounter with her uncle not in the initial claim form.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant said she lived with her mother in 2015 and added a new account of a hostile encounter with her uncle not in the initial claim form.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant initially stated her BOC Form was complete and true but later added the 2015 uncle encounter only after panel questioning and amended the form.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant initially stated her BOC Form was complete and true but later added the 2015 uncle encounter only after panel questioning and amended the form.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The family's moves and living with mother in 2015 are not in the IMM 5669 form, which only lists the family home address.",
+     "answers": 0
+    }
+   ],
+   "summary": "The family's moves and living with mother in 2015 are not in the IMM 5669 form, which only lists the family home address.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant tried to embellish her account by adding incidents after panel questions, undermining her credibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant tried to embellish her account by adding incidents after panel questions, undermining her credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The family lived with the violent uncle until at least 2010 and no complaint was filed, leading to disbelief of the uncle allegations on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The family lived with the violent uncle until at least 2010 and no complaint was filed, leading to disbelief of the uncle allegations on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Even if true, the uncle's violence dates back over ten years and no threat existed after 2010 or 2015 return; the 2015 encounter is not a serious risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "Even if true, the uncle's violence dates back over ten years and no threat existed after 2010 or 2015 return; the 2015 encounter is not a serious risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The claimant failed to establish a well-founded fear of persecution or personal risk of torture or cruel treatment from her uncle if returned to Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant failed to establish a well-founded fear of persecution or personal risk of torture or cruel treatment from her uncle if returned to Haiti.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges harassment and threats by classmate XXXX XXXX in 2002-2005, including death threats and weapon at school.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges leaving Haiti partly due to this classmate and that he called her from unknown number in 2015.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant's father and uncle took action to keep classmate away.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges harassment and death threats by classmate XXXX XXXX from 2002-2005, leading her to leave Haiti; her family intervened.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant added an incident at a funeral where XXXX identified her but did not recall year.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant believes classmate called her from unknown number after return to Haiti in 2015.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant did not explain how classmate knew she was back or why he waited 10 years to threaten anonymously.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Neither claimant nor family filed complaint about classmate before leaving or after return despite alleged threats and weapon incident.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant added a funeral incident and believes classmate called her in 2015, but gave no explanation and no complaints were filed.",
+   "role": "facts"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's testimony about timing of harassment and threats is inconsistent between BOC Form and hearing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant changed testimony to align with BOC Form dates when questioned about inconsistencies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant's testimony about timing of threats is inconsistent but she later aligned it with her BOC Form.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Due to contradictions and time elapsed, claimant failed to prove classmate Boileau was or is a threat on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant failed to prove classmate Boileau was or is a threat due to contradictions and elapsed time.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges four armed criminals entered home in 2006, threatened her and beat her father who reported to police.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges leaving Haiti partly because of this incident.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges armed criminals attacked her home in 2006, beating her father, and she left Haiti partly due to this.",
+   "role": "facts"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Assuming incident occurred, it was isolated robbery about 13 years ago, per claimant's father.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence criminals targeted claimant or still do; incident was a burglary with altercation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds the 2006 incident was an isolated robbery with no evidence criminals targeted claimant or still do.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant and family did not establish any current threat from criminals, especially as family no longer lives at home location.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds no current threat from criminals as claimant's family no longer lives at the attacked home.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant failed to prove criminals still present or threatening her or family on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant failed to prove criminals still threaten her or family in Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant alleges leaving Haiti partly due to witchcraft acts in country.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant did not experience or witness witchcraft acts and could not specify perpetrators or nature.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges leaving Haiti partly due to witchcraft but did not witness or specify any acts or perpetrators.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant met Argentinian pastors in Mexico who had a vision about a threat over her.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant believes pastors' vision but did not describe the threat.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant believes Argentinian pastors' vision of a threat over her but did not describe the threat.",
+   "role": "facts"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has right to religious beliefs but panel requires objective basis for reasoning.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's story lacks objective basis and no specific witchcraft acts against her were shown.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel respects claimant's beliefs but finds no objective basis or specific witchcraft acts against her.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's allegations are vague and she failed to prove any risk from witchcraft in Haiti on balance of probabilities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant's witchcraft allegations vague and unproven as a risk to her in Haiti.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimant fears rape in Haiti because many women have experienced it there.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant fears rape in Haiti due to widespread occurrences against women.",
+   "role": "facts"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "National Documentation Package on Haiti refers to violence and rape against women.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Panel considered Chairperson's Guideline 4 and case law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel notes documentation on violence against women in Haiti and considered relevant guidelines and case law.",
+   "role": "facts"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's counsel's argument that being a woman in Haiti suffices for refugee protection is insufficient.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant's counsel's argument that woman status alone suffices for protection is insufficient.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Membership in a particular social group alone does not establish persecution; risk must be serious and more than a mere possibility.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel states law that social group membership alone does not prove persecution; risk must be serious and probable.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant is educated, resourceful, with diplomas, temporary residence in Mexico, university studies, and business.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant traveled in Central America, US visits, returned to Haiti in 2015, and has family contacts there.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant has no dependents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant is educated, traveled, returned to Haiti in 2015, has family contacts, and no dependents.",
+   "role": "facts"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant failed to prove she fits profile of single vulnerable woman persecuted as member of particular social group of women.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimant failed to prove she is a vulnerable woman persecuted as a member of a particular social group.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant failed to prove serious risk of persecution by sexual violence or rape in Haiti under Convention.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concludes claimant failed to prove serious risk of sexual violence or rape persecution in Haiti.",
+   "role": "conclusion"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant failed to prove serious risk of persecution or personal danger of torture, life risk, or cruel treatment under IRPA if returned to Haiti.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concludes claimant failed to prove serious risk of persecution or danger under IRPA if returned to Haiti.",
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant is not a Convention refugee under subsection 97(1) of the IRPA",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant is not a person in need of protection under subsection 97(1) of the IRPA",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant is neither a Convention refugee nor a person in need of protection under subsection 97(1) of the IRPA.",
+   "role": "conclusion"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The refugee protection claim of XXXX XXXX XXXX is rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the refugee protection claim of XXXX XXXX XXXX.",
+   "role": "disposition"
+  }
+ ]
+}

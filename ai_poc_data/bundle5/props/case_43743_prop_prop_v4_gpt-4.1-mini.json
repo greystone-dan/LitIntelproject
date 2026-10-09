@@ -1,0 +1,381 @@
+{
+ "case_id": 43743,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.005566000000000001
+ },
+ "verification": {
+  "paragraphs": 11,
+  "rows": 11,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 36,
+  "holders": {
+   "applicant": 5,
+   "earlier_decision_maker": 6,
+   "court": 20,
+   "prior_court_or_authority": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "The Ville de Laval appeals a Federal Court decision rejecting its judicial review request against Services publics et approvisionnement Canada's refusal to pay a tax replacement under the Payments in Lieu of Taxes Act. The dispute concerns whether a municipal park contribution fee (CFP) qualifies as a property tax under the Act. The Federal Court of Appeal dismisses the appeal, upholding the refusal as reasonable and justified.",
+  "background_paras": "1-3, 6",
+  "disposition_paras": "11",
+  "blocks": [
+   {
+    "issue": "Is the municipal park contribution fee (CFP) a property tax eligible for payment under the Payments in Lieu of Taxes Act?",
+    "paras": "3, 5-10",
+    "court_conclusion": "The CFP is not a property tax under the Act; Services publics' decision was reasonable and justified.",
+    "conclusion_paras": "10",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The CFP should be assessed against the definition of property tax, not dismissed as irrelevant whether it is a tax.",
+      "paras": "5"
+     },
+     {
+      "holder": "respondent",
+      "text": "The CFP is a unique contribution fee, not a tax, and thus not covered by the Payments in Lieu of Taxes regime.",
+      "paras": "3, 8"
+     },
+     {
+      "holder": "earlier_decision_maker",
+      "text": "Services publics refused payment as the CFP does not meet the criteria of the Payments in Lieu of Taxes regime.",
+      "paras": "3"
+     }
+    ]
+   },
+   {
+    "issue": "Did Services publics appropriately rely on the local urban planning law to characterize the CFP?",
+    "paras": "9",
+    "court_conclusion": "It was not unreasonable for Services publics to rely on Quebec's urban planning law to characterize the CFP.",
+    "conclusion_paras": "9",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Services publics should not have relied on the urban planning law to qualify the CFP.",
+      "paras": "9"
+     },
+     {
+      "holder": "court",
+      "text": "The minister must use the local property tax regime; reliance on Quebec law was reasonable and supported by precedent.",
+      "paras": "9"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Supreme Court and Quebec Court of Appeal decisions support using local tax regimes to assess such fees.",
+      "paras": "9"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "procedure",
+     "text": "La Ville de Laval interjette appel de la d\u00e9cision de la Cour f\u00e9d\u00e9rale rejetant sa demande de contr\u00f4le judiciaire",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Services publics et approvisionnement Canada a refus\u00e9 un paiement en remplacement d\u2019imp\u00f4ts selon la Loi sur les paiements vers\u00e9s en remplacement d\u2019imp\u00f4ts",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 1 states the Ville de Laval appeals the Federal Court decision rejecting its judicial review of Services publics' refusal to pay under the PRI Act.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Le gouvernement f\u00e9d\u00e9ral poss\u00e8de certains terrains dans la Ville de Laval",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "En 2017, le gouvernement a envisag\u00e9 un centre de surveillance de l\u2019immigration et demand\u00e9 un permis de construction",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "La Ville a demand\u00e9 \u00e0 Services publics de payer une contribution aux fins de parc (CFP) selon la Loi sur l\u2019am\u00e9nagement et l\u2019urbanisme",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "La CFP sert \u00e0 financer des d\u00e9penses publiques comme parcs, terrains de jeux ou espaces naturels",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 2 explains federal land ownership, a 2017 construction permit request, the City's CFP demand under Quebec law, and CFP's public expense purpose.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Services publics a refus\u00e9 le paiement PRI le 3 ao\u00fbt 2022 car la CFP ne correspond pas aux crit\u00e8res du r\u00e9gime de PRI",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Le ministre n\u2019a pas l\u2019autorit\u00e9 d\u2019accorder un PRI sauf pour imp\u00f4t foncier ou imp\u00f4t sur fa\u00e7ade ou superficie selon la Loi",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "L\u2019article 117.16 de la Loi sur l\u2019am\u00e9nagement dit que la CFP n\u2019est ni taxe, ni compensation, ni mode de tarification",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "La jurisprudence, notamment Soci\u00e9t\u00e9 immobili\u00e8re du Qu\u00e9bec, appuie que la CFP n\u2019est pas une taxe",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "fact",
+     "text": "Services publics consid\u00e8re la CFP comme une contribution unique, un frais pr\u00e9alable \u00e0 un permis, non vis\u00e9 par le r\u00e9gime de PRI",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 3 reports Services publics' refusal of PRI payment, legal basis, Quebec law defining CFP, supporting case law, and CFP as a unique fee.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "La Cour d\u2019appel doit v\u00e9rifier si la Cour f\u00e9d\u00e9rale a appliqu\u00e9 la norme de contr\u00f4le appropri\u00e9e et correctement",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "La Cour doit se mettre dans les souliers de la cour de r\u00e9vision et se concentrer sur la d\u00e9cision administrative (Chelsea c. Canada)",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 4 states the Court of Appeal must assess if the Federal Court applied the correct standard of review, adopting the administrative decision perspective.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "La Ville soutient que Services publics n\u2019a pas appliqu\u00e9 les crit\u00e8res de d\u00e9finition d\u2019\u00ab imp\u00f4t foncier \u00bb \u00e0 la CFP",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "La Ville affirme que la question de savoir si la CFP est une taxe n\u2019est pas pertinente",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "La Ville dit qu\u2019il faut \u00e9tablir si la CFP correspond \u00e0 la d\u00e9finition d\u2019imp\u00f4t foncier selon la Loi",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 5 presents the City's argument that Services publics wrongly focused on whether CFP is a tax instead of applying the definition of property tax under the Act.",
+   "role": "issue"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Les propri\u00e9t\u00e9s f\u00e9d\u00e9rales b\u00e9n\u00e9ficient d\u2019une immunit\u00e9 constitutionnelle contre la taxation provinciale et municipale selon l\u2019article 125 de la Loi constitutionnelle de 1867",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "La Loi vise \u00e0 r\u00e9soudre les probl\u00e8mes d\u2019\u00e9quit\u00e9 li\u00e9s \u00e0 cette immunit\u00e9 fiscale",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Le r\u00e9gime de PRI vise \u00e0 compenser le manque \u00e0 gagner pour les imp\u00f4ts fonciers non per\u00e7us, termes interchangeables avec taxes fonci\u00e8res et municipales",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 6 finds federal properties have constitutional tax immunity; the Act addresses equity issues by compensating for lost property taxes.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Il est raisonnable de v\u00e9rifier si la CFP est une taxe pour conclure qu\u2019elle n\u2019est pas un imp\u00f4t foncier",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Si la CFP n\u2019est pas une taxe selon le r\u00e9gime fiscal local, les conditions du r\u00e9gime de PRI ne sont pas respect\u00e9es",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Si la CFP est une taxe, le raisonnement de Services publics utilisant indiff\u00e9remment \u00ab imp\u00f4t foncier \u00bb et \u00ab taxe \u00bb est clair",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 7 finds it reasonable to assess if CFP is a tax; if not, PRI conditions fail; if yes, Services publics' reasoning is clear.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "La Cour n\u2019est pas d\u2019accord que Services publics limite son analyse \u00e0 la question de la taxe",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "Services publics affirme que la CFP est une contribution unique, un frais pr\u00e9alable \u00e0 un permis",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Compte tenu des contraintes, il \u00e9tait permis \u00e0 Services publics d\u2019arriver \u00e0 cette conclusion",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 8 finds Services publics did not limit analysis to tax question and reasonably concluded CFP is a unique contribution fee.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "La Ville affirme que Services publics n\u2019aurait pas d\u00fb s\u2019appuyer sur la Loi sur l\u2019am\u00e9nagement pour qualifier la CFP",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "La Cour n\u2019est pas d\u2019accord avec la Ville sur ce point",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "La Cour supr\u00eame dit que le ministre doit utiliser le r\u00e9gime local d\u2019imp\u00f4ts fonciers applicable si la propri\u00e9t\u00e9 \u00e9tait imposable (Halifax c. Canada)",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Voir aussi Montr\u00e9al c Administration portuaire de Montr\u00e9al sur ce point",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Il n\u2019est pas d\u00e9raisonnable que Services publics s\u2019appuie sur le texte l\u00e9gislatif qu\u00e9b\u00e9cois",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "finding",
+     "text": "La Cour d\u2019appel du Qu\u00e9bec a conclu que la CFP ne constitue pas une taxe (Soci\u00e9t\u00e9 immobili\u00e8re du Qu\u00e9bec)",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Les tentatives de la Ville pour distinguer cette d\u00e9cision sont peu convaincantes",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "La qualification de Services publics selon la Loi sur l\u2019am\u00e9nagement n\u2019est pas d\u00e9raisonnable",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 9 rejects the City's objection to relying on Quebec law, citing Supreme Court and Quebec Court of Appeal precedents supporting Services publics' approach.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Il n\u2019appartenait pas \u00e0 la Cour d\u2019appel de trancher si la CFP est une taxe ou un imp\u00f4t foncier; c\u2019\u00e9tait \u00e0 Services publics",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "La Cour doit se mettre \u00e0 la place de la Cour f\u00e9d\u00e9rale et juge que la d\u00e9cision de Services publics n\u2019\u00e9tait pas d\u00e9raisonnable, justifi\u00e9e, transparente et intelligible",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 10 finds the Court of Appeal should defer to Services publics' decision, which was reasonable and justified.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "L\u2019appel de la d\u00e9cision de la Cour f\u00e9d\u00e9rale est rejet\u00e9 avec d\u00e9pens de 9000 $ fix\u00e9s d\u2019un commun accord",
+     "answers": 0
+    }
+   ],
+   "summary": "Paragraph 11 orders dismissal of the appeal with costs fixed at $9000 by agreement.",
+   "role": "disposition"
+  }
+ ]
+}

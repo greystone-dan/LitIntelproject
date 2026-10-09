@@ -1,0 +1,602 @@
+{
+ "case_id": 46859,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.008414000000000001
+ },
+ "verification": {
+  "paragraphs": 23,
+  "rows": 23,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 51,
+  "holders": {
+   "court": 43,
+   "applicant": 6,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 3
+ },
+ "headings": {
+  "3": "SUMMARY OF ALLEGED FACTS",
+  "6": "DETERMINATION",
+  "22": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Colombian family seeking refugee protection in Canada, claiming persecution by a criminal group. The Immigration and Refugee Board panel found their claims unsubstantiated and rejected their refugee protection application. The decision concluded the claimants did not credibly establish risk or persecution under the Act.",
+  "background_paras": "1-5",
+  "disposition_paras": "6, 20-23",
+  "blocks": [
+   {
+    "issue": "Are the claimants' identities and initial claims credible?",
+    "paras": "1-8",
+    "court_conclusion": "The panel is satisfied with claimants' identities and finds the file well prepared with corroborating evidence.",
+    "conclusion_paras": "7-8",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Satisfied as to claimants' identities; file well prepared with corroborating evidence and necessary elements for risk and lack of protection.",
+      "paras": "7-8"
+     },
+     {
+      "holder": "applicant",
+      "text": "No significant contradictions; considerable evidence supports allegations.",
+      "paras": "8"
+     },
+     {
+      "holder": "prior_court_or_authority",
+      "text": "Seamless, consistent evidence should be viewed with caution like inconsistent testimony.",
+      "paras": "8"
+     }
+    ]
+   },
+   {
+    "issue": "Are there concerns about the authenticity and follow-up of complaints made by claimants in Colombia?",
+    "paras": "9-14",
+    "court_conclusion": "Panel concludes complaints concern fictional events and gives no evidentiary weight to Colombian protection measures.",
+    "conclusion_paras": "10-14",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Concerns about 'inactivo' complaints; complaints likely based on fictitious facts; Colombian counsel's explanations unsatisfactory.",
+      "paras": "9-14"
+     },
+     {
+      "holder": "applicant",
+      "text": "Claimants should not be blamed for unfamiliar legal situation; always followed advice of Colombian counsel.",
+      "paras": "12"
+     }
+    ]
+   },
+   {
+    "issue": "Is the claimants' alleged stay in XXXX credible and supported by evidence?",
+    "paras": "15-17",
+    "court_conclusion": "Panel concludes documents contain false statements fabricated to hide male claimant's presence in XXXX in 2017 and gives no weight to other documents.",
+    "conclusion_paras": "16-17",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Documents for licence renewal require personal presence; claimant's explanation conflicts with evidence; documents likely fabricated.",
+      "paras": "15-16"
+     },
+     {
+      "holder": "applicant",
+      "text": "Male claimant says father obtained licence on his behalf without his presence.",
+      "paras": "15"
+     }
+    ]
+   },
+   {
+    "issue": "Are the claimants' accounts of threats and incidents by Los Urabe\u00f1os credible?",
+    "paras": "18-20",
+    "court_conclusion": "Panel finds claimants' explanations improbable and does not believe alleged incidents.",
+    "conclusion_paras": "18-20",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Claimants' explanation about group name improbable; accounts of murder attempts improbable; panel rejects claimants' explanation.",
+      "paras": "18-20"
+     },
+     {
+      "holder": "applicant",
+      "text": "Claimants say group identified as Los Urabe\u00f1os; female claimant described seeing assailant's gun jam.",
+      "paras": "18-19"
+     }
+    ]
+   },
+   {
+    "issue": "Did the claimants establish a serious possibility of persecution or risk under the Act?",
+    "paras": "21-23",
+    "court_conclusion": "Claimants have not established serious possibility of persecution or risk; refugee protection claims rejected.",
+    "conclusion_paras": "21-23",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Claimants not Convention refugees nor persons in need of protection under the Act; claims rejected.",
+      "paras": "21-23"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The male claimant, his spouse, and their minor child, all Colombian citizens, claim refugee protection under the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The male claimant, his spouse, and their minor child, all Colombian citizens, claim refugee protection under the Act, says the court.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The minor and male claimants base their claims on the female claimant, who is the designated representative for the child.",
+     "answers": 0
+    }
+   ],
+   "summary": "The minor and male claimants base their claims on the female claimant, their designated representative, says the court.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The facts alleged in the original Basis of Claim Form are summarized.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the facts alleged in the original Basis of Claim Form.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Since 2016, claimants were socially active with organizations assisting populations and were targeted by Los Urabenos.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "They sought authorities' help, moved cities, faced assaults and a murder attempt, then fled Colombia and claimed refugee protection in Canada in 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states claimants were socially active, targeted by Los Urabenos, sought help, faced assaults, then fled Colombia and claimed refugee protection in Canada in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimants later alleged two men violently threatened them at the female claimant's mother's home in 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimants later alleged violent threats at the female claimant's mother's home in 2017.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel determines claimants are neither Convention refugees nor persons in need of protection under the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel determines claimants are neither Convention refugees nor persons in need of protection under the Act, says the court.",
+   "role": "conclusion"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel is satisfied as to the claimants' identities based on submitted identity documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel is satisfied as to claimants' identities based on identity documents, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "A claimant's sworn facts create a presumption of truth unless valid reasons to doubt exist.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "No significant contradictions were raised during testimony; considerable evidence supports allegations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel agrees with counsel and finds the file well prepared with corroborating documentary evidence and necessary elements for risk and lack of protection.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "A Federal Court judge cautioned that seamless, consistent evidence should be viewed with caution like inconsistent testimony.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states sworn facts create a presumption of truth; counsel alleges no contradictions and good evidence; the panel agrees but recalls a Federal Court caution about seamless evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The panel sent the Minister a notice under rule 27 raising concerns about similarities between claimants' story and others.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Minister declined to intervene; the panel disregards this concern and does not pursue it further.",
+     "answers": 1
+    }
+   ],
+   "summary": "The panel raised concerns about story similarities; the Minister declined to intervene; the panel disregards this concern, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The panel notified the Minister of concerns about 'inactivo' complaints in claimants' file possibly indicating crimes did not occur.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Minister declined to intervene; the panel remains concerned claimants may submit real complaints based on fictitious facts.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The concern is not about complaint authenticity or contradictions but about authorities' and complainants' follow-up.",
+     "answers": 1
+    }
+   ],
+   "summary": "The panel notified the Minister about 'inactivo' complaints possibly indicating fictitious facts; Minister declined; panel remains concerned about follow-up, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "RIRs describe complaint closure process involving telegrams, appointments, and explanations by prosecutors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimants produced only one suspicious document lacking contact info and appointment details.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimants' counsel in Colombia confirmed document authenticity but gave vague explanations about refusal to reopen investigation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel finds counsel's vague version unconvincing given RIRs describing complainants' rights and recourse.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Counsel confirmed other complaints' inactive status but was eager for details.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel describes complaint closure process; claimants produced one suspicious document; counsel confirmed authenticity but gave vague explanations; panel finds counsel unconvincing, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimants' counsel in Canada says claimants should not be blamed for unfamiliar legal situation regarding complaints.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimants always followed advice of Colombian counsel representing them on complaints and protection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel finds explanations in Colombian counsel's letters unsatisfactory and concludes complaints concern fictional events.",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimants argue unfamiliarity with complaint status; panel finds Colombian counsel's explanations unsatisfactory and concludes complaints concern fictional events, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Colombian counsel followed up on protection applications with UNP; claimants did not personally take steps.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Documentary evidence shows UNP decisions take about three months and are communicated in writing.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds it improbable claimants received no UNP response in over 14 months and concludes claimants are hiding real outcome.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This strengthens conclusion that claimants made protection requests based on fictional facts to prepare Canadian claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimants likely hid UNP response and made protection requests based on fictional facts, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Submitting protection applications in Colombia triggers objective measures not demonstrated here.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants failed to explain absence of protection measures and manipulated Colombian system with complaints based on fictitious events.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Panel gives no evidentiary weight to claimants' measures with Colombian authorities.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimants manipulated Colombian protection system with fictitious complaints and gives no evidentiary weight to their measures, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants' alleged stay in XXXX lacks credible documentary evidence beyond easily fabricated documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants could not produce independent evidence like bank statements or ATM withdrawals for XXXX stay.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Male claimant was issued a new driver's licence in XXXX during alleged stay, which requires personal presence.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Male claimant says father obtained licence on his behalf without his presence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant's explanation conflicts with documentary evidence requiring personal presence for licence renewal.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel finds claimants' alleged stay in XXXX lacks credible evidence; male claimant's driver's licence renewal explanation conflicts with documentary evidence, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents submitted to support licence renewal without presence are dated before 2017 and do not reflect reforms.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Panel concludes documents contain false statements fabricated to hide male claimant's presence in XXXX in 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel prefers objective documentary evidence and concludes claimants attempt to mislead by alleging hiding in XXXX.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concludes documents are false to hide male claimant's presence in XXXX and finds claimants attempt to mislead by alleging hiding, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel gives no weight to other documents from family or influenced persons submitted by claimants.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel gives no weight to other documents from family or influenced persons submitted by claimants, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants' explanation that feared group identified as Los Urabe\u00f1os is improbable; group uses different name AGC.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimants say that is how the person identified themselves.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel rejects claimants' explanation and finds it improbable a member would identify as Los Urabe\u00f1os.",
+     "answers": 2
+    }
+   ],
+   "summary": "The panel finds claimants' explanation about feared group's name improbable and rejects it, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants' accounts of murder attempts are improbable given circumstances and details described.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Female claimant explained seeing assailant's gun jam despite darkness and fleeing with child.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel does not believe alleged incidents given improbability of observations while fleeing.",
+     "answers": 2
+    }
+   ],
+   "summary": "The panel finds claimants' murder attempt accounts improbable and does not believe the incidents, despite claimants' explanations, says the court.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Panel concludes claimants have not credibly established their story including incidents after XXXX 2016.",
+     "answers": 0
+    }
+   ],
+   "summary": "The panel concludes claimants have not credibly established their story including incidents after XXXX 2016, says the court.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants have not established serious possibility of persecution on a Convention ground or risk under subsection 97(1) of the Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants failed to prove serious persecution risk or danger under subsection 97(1) of the Act.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimants are neither Convention refugees under section 96 nor persons in need of protection under paragraphs 97(1)(a) or (b) of the Act",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimants are neither Convention refugees nor persons in need of protection under the Act.",
+   "role": "conclusion"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Refugee protection claims are rejected",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders rejection of the claimants' refugee protection claims.",
+   "role": "disposition"
+  }
+ ]
+}

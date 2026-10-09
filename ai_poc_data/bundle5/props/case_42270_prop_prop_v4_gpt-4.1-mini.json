@@ -1,0 +1,846 @@
+{
+ "case_id": 42270,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.010440400000000002
+ },
+ "verification": {
+  "paragraphs": 38,
+  "rows": 38,
+  "paragraphs_missing": [],
+  "retried": 1,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 85,
+  "holders": {
+   "applicant": 11,
+   "court": 63,
+   "prior_court_or_authority": 6,
+   "respondent": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 1,
+  "split_paragraphs": 0,
+  "headings_before": 4
+ },
+ "headings": {
+  "9": "DETERMINATION",
+  "11": "ANALYSIS",
+  "15": "IDENTITY",
+  "38": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "The claimant seeks refugee protection in Canada, alleging persecution in China due to family planning policy violations and political activities. The Refugee Protection Division panel assessed the claimant's identity, credibility, and risk of persecution. The panel concluded the claimant failed to establish identity and credibility, rejecting the refugee claim.",
+  "background_paras": "1-8",
+  "disposition_paras": "37-38",
+  "blocks": [
+   {
+    "issue": "Is the claimant's personal and national identity established sufficiently to support the refugee claim?",
+    "paras": "15-26, 29-30, 31-37",
+    "court_conclusion": "Claimant failed to establish identity on balance of probabilities; failure to establish identity leads to negative credibility and claim rejection.",
+    "conclusion_paras": "37-38",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Claimant provided various documents but did not submit critical identity documents like Resident Identity Card or passport; alleged efforts to obtain them were insufficient.",
+      "paras": "22, 24-25, 29"
+     },
+     {
+      "holder": "respondent",
+      "text": "Fraudulent identity documents are common in China; claimant aware of fraudulent documents availability; claimant's documents lack security features.",
+      "paras": "27-28"
+     },
+     {
+      "holder": "court",
+      "text": "Claimant did not provide adequate documentation; photocopies have little probative value; failure to establish identity is dispositive; claimant did not make serious efforts to obtain documents.",
+      "paras": "15-16, 19-21, 23-26, 29-31, 36-37"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant is claiming refugee protection under section 96 and subsection 97(1) of the Immigration and Refugee Protection Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant claims refugee protection under the Immigration and Refugee Protection Act, as stated by the claimant.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant's Personal Information Form captures the basis of his fear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The panel summarizes the narrative and timeline based on the claimant's disclosed documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimant's Personal Information Form captures his fear basis and summarizes the narrative and timeline from disclosed documents.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant came to the US in March 1993 and made an unsuccessful refugee claim in 1998 based on violating family planning policy.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "His appeal was denied in September 2003 and re-issued in March 2007 due to administrative issues.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "He was ordered to leave the US but remained there despite the order.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges he came to the US in 1993, had an unsuccessful refugee claim and appeal, was ordered to leave but stayed, as he says.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant was detained in North Carolina for a period and remained in the US after release.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges he was detained in North Carolina and remained in the US after release.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In 2009, the claimant joined the China Democracy Party and attended meetings promoting its policies.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges joining the China Democracy Party in 2009 and promoting its policies.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In November 2010, the claimant began practicing Falun Gong to help shoulder pain.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges he began practicing Falun Gong in November 2010 for shoulder pain relief.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "In May 2011, many people without US status were being sent back to their home countries, claimant alleges.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges that in May 2011 many without US status were being deported.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The claimant left the US and entered Canada from Seattle on a certain date and applied for refugee protection on July 21, 2011.",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges he entered Canada from Seattle and applied for refugee protection on July 21, 2011.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimant would not face a serious possibility of persecution on a Convention ground if returned to China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, the claimant would not face risk to life, cruel treatment, or torture upon return to China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant would not face serious persecution or risk of harm if returned to China.",
+   "role": "conclusion"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The claimant is not a Convention refugee and does not have a well-founded fear of persecution or harm if returned to China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes the claimant is not a Convention refugee and lacks a well-founded fear of persecution if returned.",
+   "role": "conclusion"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The panel focused on the credibility of the claimant's allegations of risk of persecution or harm upon return to China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court focuses on the credibility of the claimant's risk of persecution allegations upon return to China.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel recognizes difficulties faced by the claimant including cultural factors, hearing environment, limited education, and interpreter stress.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "These considerations were taken into account in the determination.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court acknowledges claimant's difficulties and considers them in its determination.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "The panel identified issues: claimant's identity, credibility of family planning violation, Falun Gong practice, and sur place claim nature.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, the claimant has not been credible regarding these issues.",
+     "answers": 1
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reasons for these findings are noted below.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies key issues and finds the claimant not credible on them, with reasons to follow.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "At hearing outset, claimant was asked about additional documents; he said he had provided all he wished.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court asked claimant about additional documents; claimant said he had provided all he wished.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "A key issue is the claimant's personal and national identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "On balance of probabilities, claimant has not provided adequate documentation for identity as a Chinese citizen.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has not made sufficient efforts to obtain such documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant failed to provide adequate identity documentation and insufficiently tried to obtain it.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Section 106 of the Immigration and Refugee Protection Act guides assessment of claimant's identity credibility and documentation efforts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites section 106 of the Act guiding credibility assessment regarding identity documentation and efforts.",
+   "role": "law"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Rule 11 of the Refugee Protection Division Rules requires claimant to provide acceptable identity documents or explain lack and efforts to obtain them.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Rule 11 requiring claimant to provide identity documents or explain their absence and efforts.",
+   "role": "law"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court held claimant has fundamental obligation to establish identity on balance of probabilities.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Claimant must bring all evidence believed necessary to prove claim.",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Proof of identity is prerequisite for refugee protection claim to verify persecution claims and nationality.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court cites Federal Court rulings on claimant's obligation to prove identity and its necessity for refugee claims.",
+   "role": "law"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant indicated traveling to US on false passport and entering Canada without documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "If claimant traveled on false or no documents, reasonable to expect efforts to establish identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant has experienced counsel aware of importance of establishing identity for refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant traveled on false or no documents and should reasonably try to establish identity, with counsel aware of this.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant indicated in his initial Claim for Refugee Protection Form dated July 19, 2011, that he traveled to the United States on a false passport.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "According to his Personal Information Form, the claimant entered Canada without any documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "If the claimant traveled on false documents or had no documents, it would be reasonable to expect him to make every effort to establish his identity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimant has experienced counsel who understands the importance of establishing identity for a refugee claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the claimant traveled on a false passport to the US, entered Canada without documents, should establish identity, and has experienced counsel.",
+   "role": "facts"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant should have made serious efforts to obtain documents verifying identity and nationality",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Photocopies and original documents produced have little probative value",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant should have made serious efforts to obtain identity documents and that his documents have little probative value.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant provided various documents including civil mediation certificate, photocopies of household registration, marriage certificate, party membership card, Illinois ID, employment authorization, US social security card, and notarial certificate",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "None of these documents contain security features like Resident Identity Card or passport",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant has not established personal and national identity on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant provided various documents lacking security features and finds he has not established identity on balance of probabilities.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant did not submit original or copy of Resident Identity Card",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Resident Identity Card is critical to establish personal and national identity",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant did not submit Resident Identity Card, a critical identity document.",
+   "role": "facts"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Resident Identity Card implemented by Chinese Government in 1985; mandatory for citizens over 16",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified he gave card to smuggler who was to return it after fee paid by wife",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified fee was paid but card not returned to wife",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant's wife did not ask for card back; claimant did not follow up due to difficulty finding smuggler",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is reasonable to expect claimant would have made serious efforts to obtain this important document",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts claimant's testimony about Resident Identity Card and finds it reasonable to expect serious efforts to retrieve it.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant did not provide Chinese passport",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified he did not have a passport",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Reasonable to expect claimant to have proper ID like passport to travel by plane in US",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes claimant did not provide passport and finds it reasonable to expect proper ID for US air travel.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds claimant was aware of availability of fraudulent documents",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant signed declaration that contents of Claim for Refugee Protection were truthful, complete and correct",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimant aware of fraudulent documents and notes his signed truthful declaration.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Agent provided a false passport",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Canadian Embassy official stated consistent reports of document fraud in China; fraudulent IDs easily obtained",
+     "answers": 0
+    }
+   ],
+   "summary": "The claimant alleges a false passport was provided; the respondent notes official reports of document fraud in China.",
+   "role": "facts"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Professor states fraud including ID fraud is major problem in China",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Fraudulent IDs are easily accessible, big business, open secret in China",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "State media describes fraudulent ID industry as lucrative trade",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Beijing embassy official says Guangdong and Fujian provinces high-risk for fraudulent documents",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent presents expert and media evidence that fraudulent IDs are widespread and lucrative in China, especially in certain provinces.",
+   "role": "facts"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant tendered photocopy of family Hukou",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "US judge and lawyer did not return original Hukou; claimant tried to contact lawyer unsuccessfully",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Hukou does not establish national identity due to lack of security features",
+     "answers": 0
+    }
+   ],
+   "summary": "Claimant tendered photocopy of Hukou and alleges original not returned; court finds Hukou does not establish identity due to lack of security features.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Household register (Hukou) is extremely susceptible to fraud and manipulation",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "US consular official states personal documents in China cannot be trusted; fraudulent document market expanding",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "fact",
+     "text": "Professor states Hukou forgery and fraudulent acquisition has occurred for many years",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Country documents indicate proliferation of fraudulent Chinese documents including fake Hukou",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel gives little weight to Hukou in corroborating claimant's residency in China",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Hukou is susceptible to fraud, supported by official and academic sources, and gives it little weight.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel identified concerns regarding claimant's overall credibility",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies concerns about claimant's overall credibility.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "If claimant has not established identity, negative credibility conclusion will almost inevitably be drawn and can be dispositive",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states failure to establish identity usually leads to negative credibility and can be dispositive.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Claimant's sworn facts presumed true unless valid reason to doubt",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Credibility determined on balance of probabilities",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states sworn facts are presumed true unless doubted and credibility is assessed on balance of probabilities.",
+   "role": "law"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel has concerns about some aspects of claimant's evidence",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant affirmed Personal Information Form was true, accurate and complete",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified he entered US through Mexico but did not include this in narrative",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimant said lawyer omitted entry info; panel said claimant responsible for accuracy",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimant testified to little formal education and limited understanding of application process",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel notes claimant had competent counsel and managed complex immigration steps despite limited education",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes concerns about claimant's evidence, his omissions, and his responsibility despite limited education and competent counsel.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel relies on People's Republic of China National Documentation Package as reliable, probative, and detailed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court relies on the National Documentation Package as reliable and detailed information about China.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Failure to establish identity leads to negative credibility and can be dispositive",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Federal Court held no need to analyze further once identity not established",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds this case fits that situation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reiterates failure to establish identity leads to negative credibility and finds this case fits that rule.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant has not satisfied burden to establish personal and national identity",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claim for refugee protection not established",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimant failed to establish identity and refugee claim is not established.",
+   "role": "conclusion"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimant is neither Convention refugee nor person in need of protection",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Refugee Protection Division rejects claim",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimant is not a refugee or person in need of protection and rejects the claim.",
+   "role": "disposition"
+  }
+ ]
+}

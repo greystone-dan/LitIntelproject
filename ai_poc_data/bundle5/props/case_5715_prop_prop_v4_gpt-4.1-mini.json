@@ -1,0 +1,1077 @@
+{
+ "case_id": 5715,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0133348
+ },
+ "verification": {
+  "paragraphs": 44,
+  "rows": 44,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 102,
+  "holders": {
+   "court": 85,
+   "applicant": 8,
+   "respondent": 7,
+   "prior_court_or_authority": 2
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a judicial review application by Mr. Al-Halbouni (applicant) challenging decisions of the Social Security Tribunal (respondent) refusing to consider medical documents and denying leave to appeal. The Federal Court found procedural and evidentiary deficiencies, including unintelligible decisions and incomplete records. The Court allowed the application, set aside the decisions, and ordered a fresh reconsideration including the medical documents.",
+  "background_paras": "1-17",
+  "disposition_paras": "40-44",
+  "blocks": [
+   {
+    "issue": "Are the Filing Decision and Leave Decision properly before the Court and in evidence?",
+    "paras": "6-13",
+    "court_conclusion": "Documents outside Certified Tribunal Record are not in evidence; only Certified Tribunal Record and Applicant's affidavit exhibits can be relied on.",
+    "conclusion_paras": "6-13",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Most documents relied on by Respondent are not properly in evidence; only Certified Tribunal Record and Applicant's affidavit exhibits can be relied on.",
+      "paras": "6-13"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "applicant",
+      "text": "Not stated",
+      "paras": ""
+     }
+    ]
+   },
+   {
+    "issue": "Was the judicial review application timely filed regarding the Leave Decision and Filing Decision?",
+    "paras": "25-35",
+    "court_conclusion": "Application timely for Filing Decision; for Leave Decision, court accepts communication date as December 7, 2020, making review timely; would extend time if needed.",
+    "conclusion_paras": "30-35",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Application should be dismissed due to delay; Leave Decision issued January 22, 2020 and communicated January 23, 2020; no explanation for delay or extension request.",
+      "paras": "25-28"
+     },
+     {
+      "holder": "applicant",
+      "text": "Applicant unaware of Appeal Decision until December 7, 2020; no submissions on delay; affidavit states file closed December 2, 2020 and learned of decision December 7, 2020.",
+      "paras": "17,29,31,33"
+     },
+     {
+      "holder": "court",
+      "text": "No evidence Filing Decision received before December 7, 2020; judicial review filed January 6, 2021; accepts December 7, 2020 as communication date for Leave Decision; would extend time if needed.",
+      "paras": "30-35"
+     }
+    ]
+   },
+   {
+    "issue": "Should the Court exercise discretion to consider both the Filing Decision and Leave Decision?",
+    "paras": "23-24",
+    "court_conclusion": "Court exercises discretion to consider both decisions for fairness; no prejudice to parties.",
+    "conclusion_paras": "23-24",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Only one decision is subject of judicial review but discretion allows more; will consider both Filing and Leave Decisions; no prejudice; parties made submissions on both.",
+      "paras": "23-24"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "applicant",
+      "text": "Not stated",
+      "paras": ""
+     }
+    ]
+   },
+   {
+    "issue": "Does the judicial review application have merit and should time be extended despite delay?",
+    "paras": "36-40",
+    "court_conclusion": "Application has merit; Leave Decision unreasonable; interests of justice favor extending time despite no explanation for delay.",
+    "conclusion_paras": "36-40",
+    "positions": [
+     {
+      "holder": "respondent",
+      "text": "Application has no merit; matter is res judicata; Crown prejudiced by delay; Applicant offers no explanation for delay.",
+      "paras": "28"
+     },
+     {
+      "holder": "applicant",
+      "text": "Applicant implies continuing intention to pursue claim; no submissions on delay.",
+      "paras": "29,37"
+     },
+     {
+      "holder": "court",
+      "text": "Applicant had continuing intention; Respondent relied on documents not in evidence; Leave Decision unreasonable; prejudice to Crown not significant; interests of justice favor extension.",
+      "paras": "36-40"
+     }
+    ]
+   },
+   {
+    "issue": "Are the Leave Decision and Filing Decision reasonable and what is the appropriate remedy?",
+    "paras": "19,38,41-44",
+    "court_conclusion": "Both decisions are unintelligible or unreasonable; set aside; Appeal Decision to be reconsidered afresh including medical documents; no costs ordered.",
+    "conclusion_paras": "19,38,41-44",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Filing Decision unintelligible and fails reasonableness test; Leave Decision unreasonable due to minimal evidence and lack of General Division decision; appeal decision without reviewing underlying decision is unreasonable.",
+      "paras": "19,38,41-42"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "applicant",
+      "text": "Not stated",
+      "paras": ""
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The file is in a state of near total disarray.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the file is in a state of near total disarray.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Both parties are at fault for the file's disarray.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mr. Al-Halbouni has mostly acted on his own behalf and is self-represented.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Self-represented parties often challenge the Court and opposing party due to unfamiliarity with processes.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Attorney General has been represented by counsel throughout but also shares blame.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds both parties at fault; the applicant is self-represented and the respondent has counsel but also shares blame.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Counsel at hearing was recently engaged for oral submissions and not responsible for initial record state.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No effort was made to address record deficiencies until pointed out by the Court at hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes counsel was recently engaged and did not address record deficiencies until the Court pointed them out.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Court spent considerable time trying to understand the file and events.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court found it had to spend considerable time understanding the file and events.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This is an application for judicial review under section 18.1 of the Federal Courts Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The application appears to seek review of an October 28, 2020 decision refusing the Applicant's request to file medical documents (Filing Decision).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Both parties made submissions regarding a January 22, 2020 Appeal Division decision refusing leave to appeal the General Division decision (Appeal Decision).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states this is a judicial review application of an October 28, 2020 filing decision and submissions also concern a January 22, 2020 appeal decision.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "There are issues with the evidence in the Respondent's Record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Most documents relied on by the Respondent are not properly in evidence before the Court.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies issues with the Respondent's evidence and finds most documents are not properly before the Court.",
+   "role": "analysis"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Certified Tribunal Record lacks most documents before the Appeal Division.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Some documents are referenced as placed in an internal shared drive but not included in the record.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Index of Materials lists these documents with GD prefixes and page counts.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Certified Tribunal Record lacks most Appeal Division documents, which are referenced but not included.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Tribunal considered these documents already in Applicant's possession and did not include them per Rule 317 Federal Courts Rules.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A February 12, 2021 letter to Courts Administration Service encloses Index of Materials and Federal Court Application.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The letter states documents in Tribunal possession but not shared with parties are sent with the Index.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The audio recording of the General Division hearing was sent to the Applicant on February 12, 2021.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Tribunal considered documents in Applicant's possession and sent an Index and audio recording to the Applicant.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "An email dated January 23, 2020 addressed to the Applicant shows two attachments: 'Application for Leave to Appeal \u2013 Refused.pdf' and 'Decision.pdf'.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The attachments themselves are not included in the Certified Tribunal Record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes an email to the Applicant lists two attachments which are not included in the Certified Tribunal Record.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Certified Tribunal Record contains a file review checklist, telephone call records, and administrative documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "These documents relate to the Leave Decision, not the Filing Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Certified Tribunal Record contains administrative documents related to the Leave Decision, not the Filing Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Missing 'GD' documents are included in the Respondent's Record as part of an affidavit of Annie Berthiaume, but no affidavit is produced.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Documents start with a letter dated February 12, 2021 marked Exhibit A to the affidavit, addressed to a DOJ paralegal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "This letter encloses Index of Materials, Hearing Recording, and Federal Court Application with a statement from Tribunal Registry Operations.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The statement says parties are responsible for providing important materials and offers to provide misplaced materials.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds missing documents included in Respondent's Record lack an affidavit and include a letter with an offer to provide misplaced materials.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Exhibit B is an internal Tribunal email dated January 23, 2020 indicating two documents placed in an internal shared drive.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Remaining Respondent's Record documents are not stamped as exhibits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Exhibit B is an internal email about documents in a shared drive; other Respondent documents lack exhibit stamps.",
+   "role": "facts"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Documents in Respondent's Record outside the Certified Tribunal Record are not in evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Only Certified Tribunal Record and Applicant's affidavit exhibits can be relied on.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds only the Certified Tribunal Record and Applicant's affidavit exhibits are properly in evidence and can be relied on.",
+   "role": "law"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant was injured playing soccer on July 31, 2010 and claims inability to work since.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant applied for Canada Pension Plan Disability Benefits soon after injury.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Applicant was injured in 2010 and applied for disability benefits soon after.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The application has taken a tortuous route over a decade.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A January 22, 2020 Appeal Division decision refused Applicant's leave to appeal the General Division decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the application process has been long and that leave to appeal was refused on January 22, 2020.",
+   "role": "facts"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Certified Tribunal Record contains a January 23, 2020 email to Applicant about Social Security Tribunal appeal.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Email lists two attachments: 'Application for Leave to Appeal \u2013 Refused.pdf' and 'Decision.pdf'.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Attachments are not included in the Certified Tribunal Record and it cannot be confirmed they match documents provided to Applicant.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes an email with two attachments is in the record but attachments are missing and their identity is unconfirmed.",
+   "role": "facts"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence Applicant received or accessed the January 23, 2020 email or attachments.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant was unaware of Appeal Decision until December 7, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's affidavit states he sent medical report on October 4, 2020, received no confirmation, learned file was closed on December 2, 2020, and was told leave to appeal was denied on January 22, 2020 on December 7, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant received an email on December 7, 2020 attaching a letter dated October 28, 2020 about file closure.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant requests the medical report be added to his file.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes no evidence Applicant received the email; Applicant's affidavit says he learned of the decision late and requests adding medical report.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Filing Decision was sent as an attachment titled 'Acknowledgment \u2013 Correspondence Post-Decision.pdf' on December 7, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The letter acknowledges correspondence of October 23, 2020 and states the appeal file is closed and documents sent on October 23, 2020 will not be considered.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The letter advises judicial review is possible with a short deadline.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the Filing Decision letter sent December 7, 2020, closing the file and advising on judicial review deadlines.",
+   "role": "facts"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Filing Decision is unintelligible and fails the reasonableness test from Vavilov.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is unintelligible because no correspondence was sent on October 23, 2020 and no decision dated that day exists.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "fact",
+     "text": "Respondent asserts the Appeal Decision was made January 22, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Filing Decision unintelligible and notes the Respondent says the Appeal Decision was January 22, 2020.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "If the Filing Decision is the decision under review, the application must be allowed.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes that if the Filing Decision is under review, the application must be allowed.",
+   "role": "conclusion"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On January 8, 2021, Respondent's counsel wrote to Applicant about judicial review application of Social Security Tribunal Appeal Division letter.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent's original position may have been that October 28 Letter communicated December 7, 2020, is decision under review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Respondent's written submissions focus on Leave Decision, not Filing Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Respondent's counsel wrote about judicial review and that Respondent focused on Leave Decision, not Filing Decision.",
+   "role": "facts"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "October 28, 2020 letter incorrectly states Applicant's leave to appeal was denied on October 23, 2020 after medical report submission.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant could reasonably believe appeal was dismissed after filing medical report.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant apparently never received Appeal Decision in January 2020, only by email October 19, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the October 28 letter was incorrect and Applicant could reasonably believe appeal was dismissed after medical report, as he only got Appeal Decision by email in October.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Only one order or decision is subject of judicial review application; Rule 302 allows discretion to consider more than one.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court will exercise discretion to consider both decisions in this case.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court states judicial review usually covers one decision but will consider both decisions here by discretion.",
+   "role": "law"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Considering both Filing and Leave Decisions is not prejudicial to parties.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Both parties made submissions on Leave Decision; Respondent equivocated on which decision is under review.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Court proceeds on basis Applicant seeks review of both Leave and Filing Decisions for fairness.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no prejudice in reviewing both decisions and proceeds on that basis for fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Application should be dismissed due to delay; Leave Decision issued January 22, 2020 and communicated January 23, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues application should be dismissed for delay as Leave Decision was issued and communicated in January 2020.",
+   "role": "issue"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant applied for judicial review after 30-day deadline without explanation or extension request.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues Applicant filed late without explanation or extension request.",
+   "role": "issue"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "rule_of_law",
+     "text": "Court should consider potential merit, prejudice to Crown, and explanation for delay when deciding extension of time (citing Larkman).",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent cites Larkman that court considers merit, prejudice, and explanation for delay in extension decisions.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Application has no merit because matter is res judicata.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Crown prejudiced by delay as it assumed matter decided in its favour.",
+     "answers": 0
+    },
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Applicant claims awareness of Leave Decision in December 2020 but offers no explanation for delay in awareness.",
+     "answers": 0
+    }
+   ],
+   "summary": "Respondent argues application lacks merit, Crown prejudiced by delay, and Applicant offers no explanation for late awareness.",
+   "role": "issue"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant makes no submissions on delay and filed no reply submissions on this point.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant's affidavit says he learned file was closed December 2, 2020 and implies Leave Decision received December 7, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "Applicant does not address delay but says he learned file closed December 2 and implies Leave Decision received December 7.",
+   "role": "facts"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence Filing Decision was received before December 7, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Judicial review application filed January 6, 2021; no timing issue with Filing Decision review.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds no evidence Filing Decision received before December 7 and review filed January 6 is timely for Filing Decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "No evidence Appeal Decision communicated before October 19, 2020 email.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Applicant waited about 11 weeks before seeking review of Appeal Decision.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "Applicant attests he only became aware appeal denied and file closed December 7, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "If Applicant's awareness date is correct, review of Appeal Decision is timely.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes no evidence Appeal Decision communicated before October 19 email; Applicant attests awareness December 7, making review timely.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Time period for judicial review starts when applicant has knowledge of final decision (citing Meeches, Robertson, Larkman, Z\u00fcndel).",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites authority that time for judicial review starts when applicant knows final decision.",
+   "role": "law"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Email dated October 19, 2020 transmitted January 2020 Appeal Decision as attachment to Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Applicant says he was told of final decision December 7, 2020.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether final decision can be communicated if Applicant unaware of it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "allegation_or_argument",
+     "text": "Recipient arguably obligated to open email attachments.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Email instructs to open and read attachments immediately.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant cannot be faulted for not realizing attachment was final decision as email suggests appeal not over.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court notes October 19 email sent Appeal Decision; Applicant says he learned December 7; court finds Applicant not at fault for not realizing attachment was final decision.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No cross-examination on Applicant's awareness date; court accepts final decision communicated December 7, 2020.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court accepts Applicant's claim final decision communicated December 7, 2020 due to no cross-examination.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Even if application not timely, court would extend time in unusual circumstances without explanation.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court would extend time even if application untimely due to unusual circumstances.",
+   "role": "conclusion"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Larkman sets four questions for extension of time: intention to pursue, potential merit, prejudice, explanation; interests of justice override.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court cites Larkman four questions for extension and interests of justice as overriding consideration.",
+   "role": "law"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applicant had continuing intention to pursue application given decade-long claim.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Applicant had continuing intention to pursue application due to decade-long claim.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent's submissions rely on documents not in evidence.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Court cannot find Leave Decision reasonable; application has merit.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds Respondent's submissions lack evidence and Leave Decision unreasonable, so application has merit.",
+   "role": "analysis"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Respondent has some prejudice assuming Leave Decision final.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Prejudice not significant compared to cases with Crown financing projects.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Crown only did not hear appeal and potentially withheld benefits relying on Leave Decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "Court finds some but not significant prejudice to Respondent, limited to not hearing appeal and possibly withholding benefits.",
+   "role": "analysis"
+  },
+  {
+   "para": 40,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Factors favor extending time despite no explanation from Applicant.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Respondent's actions and record state make interests of justice demand extension.",
+     "answers": 1
+    }
+   ],
+   "summary": "Court concludes factors favor extending time and interests of justice demand extension given Respondent's actions and record.",
+   "role": "conclusion"
+  },
+  {
+   "para": 41,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Cannot find the Leave Decision reasonable based on the minimal evidence before this Court",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Record before this Court does not include the General Division decision that the Appeal Division was to consider",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "An appeal decision without reviewing the decision being appealed cannot be justified and is unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Leave Decision unreasonable due to minimal evidence and missing General Division decision, stating an appeal decision must review the decision appealed.",
+   "role": "analysis"
+  },
+  {
+   "para": 42,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Filing Decision is unintelligible and therefore unreasonable",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Filing Decision unintelligible and unreasonable.",
+   "role": "analysis"
+  },
+  {
+   "para": 43,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Both the Appeal and the Leave Decisions are set aside",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appeal Decision is to be reconsidered afresh by a different member",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The reconsideration must include analysis of medical documents from Dr. Brad Burke submitted in 2020",
+     "answers": 0
+    }
+   ],
+   "summary": "The court sets aside both Appeal and Leave Decisions and orders a fresh Appeal Decision including analysis of 2020 medical documents.",
+   "role": "disposition"
+  },
+  {
+   "para": 44,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No costs are ordered",
+     "answers": 0
+    }
+   ],
+   "summary": "The court orders no costs.",
+   "role": "disposition"
+  }
+ ]
+}

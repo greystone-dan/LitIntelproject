@@ -1,0 +1,1155 @@
+{
+ "case_id": 39964,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.015405600000000002
+ },
+ "verification": {
+  "paragraphs": 39,
+  "rows": 39,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 120,
+  "holders": {
+   "court": 105,
+   "applicant": 7,
+   "prior_court_or_authority": 8
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 5,
+  "split_paragraphs": 0,
+  "headings_before": 5
+ },
+ "headings": {
+  "3": "ALLEGATIONS",
+  "7": "DETERMINATION",
+  "8": "IDENTITY",
+  "9": "ISSUE",
+  "38": "CONCLUSION"
+ },
+ "split_from": {},
+ "blocks": {
+  "overview": "This case concerns a Hungarian family seeking refugee protection in Canada due to fears of mafia extortion and harm if returned to Hungary. The Refugee Protection Division panel found no nexus between their fears and any Convention grounds, concluding the risks were generalized criminal threats faced by many. The claimants were denied refugee status and protection under the Immigration and Refugee Protection Act.",
+  "background_paras": "1-6",
+  "disposition_paras": "38-39",
+  "blocks": [
+   {
+    "issue": "Do the claimants face a serious possibility of persecution in Hungary for a Convention ground?",
+    "paras": "7-11",
+    "court_conclusion": "Claimants do not have a well-founded fear of persecution for a Convention ground; fears are generalized criminal risks.",
+    "conclusion_paras": "7,10-11",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "No nexus between allegations and Convention grounds; fears are generalized criminal risks, not persecution.",
+      "paras": "7,10-11"
+     },
+     {
+      "holder": "applicant",
+      "text": "not stated",
+      "paras": ""
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     }
+    ]
+   },
+   {
+    "issue": "Is the principal claimant's risk from criminal elements personalized or generalized?",
+    "paras": "12-13,22-25",
+    "court_conclusion": "Risk is generalized criminal risk faced by many Hungarians; no basis for protection under section 97(1)(b)(ii).",
+    "conclusion_paras": "12-13,25",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Risk is speculative and generalized; no particularized risk after business closure and departure.",
+      "paras": "12-13,22-25"
+     },
+     {
+      "holder": "applicant",
+      "text": "not stated",
+      "paras": ""
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     }
+    ]
+   },
+   {
+    "issue": "Does the minor claimant's mental health condition create a personalized risk that distinguishes the family from generalized risk?",
+    "paras": "14-18,26-28,30-35",
+    "court_conclusion": "Minor's mental health issues linked to school pressure, not father's claims; no personalized risk beyond generalized criminal risk.",
+    "conclusion_paras": "18,28,31,34-35",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Medical evidence and testimony show minor's issues stem from school pressure, not father's extortion; no link to Convention grounds.",
+      "paras": "14-18,26-28,30-35"
+     },
+     {
+      "holder": "applicant",
+      "text": "Counsel argues harm to minor claimant extends to all claimants and is not generalized due to mental well-being impact.",
+      "paras": "26,30,35"
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     }
+    ]
+   },
+   {
+    "issue": "Does the risk of inadequate health care in Hungary increase the minor claimant's risk of harm upon return?",
+    "paras": "30-34",
+    "court_conclusion": "No evidence minor will be denied adequate care; risk from inadequate health care is speculative and does not qualify for protection.",
+    "conclusion_paras": "31-34",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Risk from inadequate health care is speculative; minor will return with family support and no greater harm than others.",
+      "paras": "30-34"
+     },
+     {
+      "holder": "applicant",
+      "text": "Minor claimant fears inadequate health care upon return to Hungary.",
+      "paras": "30"
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     }
+    ]
+   },
+   {
+    "issue": "Are the claimants persons in need of protection under section 97(1)(b)(ii) of the Act?",
+    "paras": "36-39",
+    "court_conclusion": "Claimants are not persons in need of protection; face generalized risk only and no risk to life, cruel treatment, or torture.",
+    "conclusion_paras": "38-39",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Risk faced is generalized criminal risk; claimants not at risk of persecution or serious harm if returned.",
+      "paras": "36-39"
+     },
+     {
+      "holder": "applicant",
+      "text": "Counsel submits general country conditions and broadens 'particular social group' to include family with mental health issues.",
+      "paras": "36-37"
+     },
+     {
+      "holder": "respondent",
+      "text": "not stated",
+      "paras": ""
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimants are a Hungarian family seeking refugee protection under sections 96 and 97(1) of the Immigration and Refugee Protection Act.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant fears a mafia member who extorted him and fears harm to his family if returned to Hungary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Hungarian family claims refugee protection fearing mafia extortion and harm if returned to Hungary.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The panel heard the claims jointly under Rule 55 of the Refugee Protection Division Rules.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The principal claimant was appointed Designated Representative for his minor sons under subsection 167(2) of the Act.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains the panel heard claims jointly and appointed the principal claimant as representative for his minor sons.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant's experiences are in his Personal Information Form and amended narrative; other claimants rely on his narrative.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The claimants fear returning to Hungary due to mafia extortion of their business.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the principal claimant's narrative and the claimants' fear of mafia extortion if returned to Hungary.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The family lived in D\u00e9legyh\u00e1za, Hungary; the principal claimant opened a business in 2010 supplying products to chains.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "A man named XXXX pressured the principal claimant to pay 20% protection money, claiming to be mafia.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant refused to pay; men threatened and abused the family at their home daily.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes the principal claimant's business and mafia extortion attempts with threats at their home.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant was forced to do a bank transfer and register a criminal on his bank account, later recanted.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Police did not help; mafia men threatened him with a gun and warned of police connections.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Claimants received a one-week respite to pay extortion money, then fled to Germany in XXXX 2012.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mafia put a bounty on the principal claimant; claimants came to Canada in September 2012 and filed claims.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court recounts forced bank actions, police failure, threats, fleeing to Germany, and arrival in Canada with claims.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant requested police confirmation of his visit; no reply received.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He paid protection money from XXXX2012 to XXXX2012; no other person registered on his bank account.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The female claimant's daughter reported mafia threats and bounty on the principal claimant in Germany.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant clarified some references to calls were misunderstandings and discarded his cellphone.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Mafia sought the principal claimant at his mother's and daughter's homes; offered money for information.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The principal claimant's 17-year-old son was emotionally affected and hospitalized after a suicide attempt in Canada in XXXX 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court details police non-response, mafia threats in Germany, family harassment, and son's hospitalization after suicide attempt.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "There is no nexus between the claimants' allegations and any Convention grounds.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimants do not have a well-founded fear of persecution for a Convention ground in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimants are not persons in need of protection as removal would not risk life, cruel treatment, or torture.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no nexus to Convention grounds and no well-founded fear or need for protection for the claimants.",
+   "role": "conclusion"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimants established their identities as Hungarian citizens by testimony and identity documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimants established their Hungarian citizenship by testimony and documents.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the claimants face a serious possibility of persecution in Hungary for a Convention ground.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the risk they face if returned is personalized or generalized.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court identifies issues of persecution risk for a Convention ground and whether the risk is personalized or generalized.",
+   "role": "issue"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Criminality alone provides no nexus to a Convention ground and does not support refugee status.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The principal claimant fears criminal reprisals, but victims of criminal vendettas are not a particular social group per Ward.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The claimants cannot benefit from Convention refugee protection based on criminal vendetta fears.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds criminality does not establish Convention nexus and claimants cannot claim refugee protection for criminal vendetta fears.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The state is not the agent of persecution; torture ground is unavailable to claimants.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The adult claimants' fear lacks nexus to the Convention refugee definition.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claimants' fear does not amount to persecution or risk to life, cruel treatment, or torture.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "The panel assessed the claimants' allegations under section 97(1) of the Act for generalized risk.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no state persecution nexus, no persecution risk, and assesses under section 97(1) for generalized risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The principal claimant paid protection money until end of XXXX 2012, then closed business and left Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The claim of a bounty on him is speculative and based on hearsay from wife's daughter.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "It is implausible mafia would continue interest after five years and business closure.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The principal claimant has no means to support family if returned; economic situation irrelevant to refugee status.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No basis for fear or risk from criminal elements after business closure and departure years ago.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the bounty claim speculative, mafia interest implausible after years, and no basis for fear or risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Criminal elements may threaten business owners generally in Hungary, as in many countries.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Hungarian state agencies exist to enforce law and protect citizens.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The principal claimant's fear is speculative and a risk faced by any Hungarian citizen targeted by criminals.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The principal claimant and family are not persons in need of protection under section 97(1)(b)(ii).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds criminal threats are general risks, state protection exists, and claimants are not persons in need of protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The eldest son attempted suicide in late XXXX 2017; principal claimant attributes this to events in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Medical report confirms son's hospitalization for acute suicidality in XXXX 2017.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Principal claimant links son's problems to fear of returning home and refugee hearing.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the son's suicide attempt and hospitalization, with principal claimant attributing it to Hungary-related fears.",
+   "role": "facts"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Medical evidence and son's testimony do not support principal claimant's allegation about cause of mental issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Son testified his mental issues stemmed from school pressure in Canada, not family issues in Hungary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds son's testimony and medical evidence attribute mental issues to school pressure, not Hungary-related events.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Medical documents do not link son's mental health issues to father's business troubles in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Doctor diagnosed social anxiety disorder, ADD, and noted video gaming and family history factors.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Diagnoses pre-date father's alleged incidents; no persuasive evidence links son's issues to father's claims.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel prefers medical evidence and son's admission over principal claimant's use of son's hospitalization to support fear.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Son testified he would feel worse returning to Hungary due to inferior healthcare and is accustomed to Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Son did not link his situation to father's prior extortion and business issues in Hungary.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds medical evidence and son's testimony do not link mental issues to father's claims and prefers this evidence over principal claimant's.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel observed son as coherent, responsive, well-spoken, and credible witness regarding mental health causes.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the son credible and articulate about the causes of his mental health issues.",
+   "role": "analysis"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Medical documents are silent on father's problems impacting son; son's testimony attributes issues to school pressure.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The panel is persuaded son's hospitalization was due to scholastic pressure, not father's extortion issues.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants are not Convention refugees; harm faced is generalized risk faced by all targeted by criminals in Hungary.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimants are not persons in need of protection under section 97(1)(b)(ii).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes son's issues stem from school pressure, claimants are not Convention refugees, and face generalized risk only.",
+   "role": "conclusion"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Claimants' counsel argues claimants form a particular social group of business people targeted by criminals causing them to leave country.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The panel does not accept this submission as it is not supported by the Ward definition of particular social group.",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant's counsel argues for a broader social group; the court rejects it as unsupported by Ward.",
+   "role": "analysis"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Canadian jurisprudence clearly limits protection to human rights and anti-discrimination grounds, not general criminality.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal claimant would not be marginalized or discriminated against as a returnee.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel argues principal claimant would be targeted by criminals due to alleged bounty if returned after five years abroad.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Jurisprudence in Barthelemy and Cius confirms fear of criminal assaults alone does not constitute persecution linked to Convention grounds.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds jurisprudence limits protection to human rights grounds; counsel argues targeting by criminals, but law rejects criminal assault fears as persecution.",
+   "role": "analysis"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Protection under the Convention is for human rights and anti-discrimination, not general criminality, per Court's reference to Ward",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "A small business owner facing criminality in Hungary is not a particular social group under s. 96 of the Act",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds Convention protection is for human rights, not general criminality, and a small business owner facing criminality in Hungary is not a particular social group.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether the principal claimant faces a particular risk from criminals in Hungary beyond generalized risk",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Panel examined risk to principal claimant as business person targeted by mafia and if risk is generalized or particular under Section 97(1)(b)(ii)",
+     "answers": 0
+    }
+   ],
+   "summary": "The court examines if the principal claimant faces a particular or generalized risk from criminals in Hungary as a business person targeted by mafia.",
+   "role": "issue"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Proph\u00e8te states applicant does not face personalized risk beyond general criminality risk faced by all Haitians",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel considered Proph\u00e8te jurisprudence regarding generalized risk from criminals in Hungary",
+     "answers": 1
+    }
+   ],
+   "summary": "The court considers Proph\u00e8te jurisprudence that criminality risk is generalized, applying it to the claimant's risk in Hungary.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "This case involves generalized risk from criminals in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Principal claimant has not shown his risk differs from other Hungarians regarding criminality",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the claimant faces a generalized criminal risk in Hungary, no different from other Hungarians.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Under section 97(1)(b)(ii), principal claimant and family face generalized risk from criminals in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "They are not 'persons in need of protection' if returned to Hungary",
+     "answers": 1
+    }
+   ],
+   "summary": "The court finds the claimant and family face generalized criminal risk and are not persons in need of protection if returned to Hungary.",
+   "role": "conclusion"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submits harm to minor claimant extends to all claimants and is not generalized due to mental well-being impact",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Baires Sanchez requires applicants to show risk is not generally faced by others in country to avoid generalized risk",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds counsel's submission unpersuasive based on Baires Sanchez test",
+     "answers": 1
+    }
+   ],
+   "summary": "The applicant argues harm to minor claimant affects all and is not generalized; the court finds this unpersuasive per Baires Sanchez.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Portillo sets two-step test: define risk nature and compare to significant group to determine if risk is generalized",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel applies Portillo test to assess if claimant's risk is personalized or generalized",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Personal risk to life or cruel treatment is not generalized risk",
+     "answers": 0
+    }
+   ],
+   "summary": "The court applies Portillo's two-step test to determine if the claimant's risk is personalized or generalized, noting personal risk is not generalized.",
+   "role": "law"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Harm to minor claimant is not a personalized risk beyond generalized risk in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel considered minor's mental health treatment and testimony, finding no link to criminal experiences or mafia",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel distinguishes this case from Kanthasamy, giving weight to medical reports and testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Panel considered future harm or risk to minor claimant and counsel's submission on personalized risk",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor's harm is not personalized risk, distinguishes Kanthasamy, and considers medical evidence and future risk submissions.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Harm faced by claimants is generalized risk from criminal targeting, not a Convention ground",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Other Hungarians face similar risks from criminal elements",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Panel considered if risks are of same nature and degree for minor claimant and family returning to Hungary",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds claimants face generalized criminal risk like others and considers if risks are similar for minor and family upon return.",
+   "role": "analysis"
+  },
+  {
+   "para": 30,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Minor claimant fears inadequate health care upon return to Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence minor claimant experienced or testified to inadequate Hungarian health care",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants' counsel made no submissions on health care; minor's statement is speculative",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Consolidated Grounds state risk from inadequate health care does not qualify for protection under s. 97(1)(b)(iv)",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant fears inadequate health care, but the court finds no evidence and cites law that such risk does not qualify for protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 31,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Risk to minor claimant is not caused by inadequate health care in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Bensaid decision held speculative risks from expulsion with mental illness consequences do not violate Article 3",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel relied on Bensaid in assessing minor's allegation of inadequate health care risk",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor's risk is not from inadequate health care, relying on Bensaid which held speculative mental illness risks insufficient for protection.",
+   "role": "analysis"
+  },
+  {
+   "para": 32,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Risk from country's inability to provide adequate care differs from risk from country's unwillingness to provide care",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants have not shown minor will be denied adequate care in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minor's health issues stem from reasons other than principal claimant's situation",
+     "answers": 0
+    }
+   ],
+   "summary": "The court distinguishes inability versus unwillingness to provide care, finds no evidence minor will be denied care, and notes health issues unrelated to principal claimant.",
+   "role": "analysis"
+  },
+  {
+   "para": 33,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "issue",
+     "text": "Whether risk arises from medical condition increasing vulnerability to country instability, not lack of care",
+     "answers": 0
+    },
+    {
+     "holder": "prior_court_or_authority",
+     "kind": "rule_of_law",
+     "text": "Ahmed held risk assessed from medical condition vulnerability, not lack of care, when no family support exists",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minor will return with family support, no evidence of greater harm than family faces",
+     "answers": 0
+    }
+   ],
+   "summary": "The court considers if risk arises from medical vulnerability, notes Ahmed case, and finds minor has family support and no greater harm evidence.",
+   "role": "analysis"
+  },
+  {
+   "para": 34,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel finds medical diagnosis of minor persuasive, unlike Kanthasamy where report was unreasonably assessed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No evidence minor or family unable to obtain adequate care or face unusual hardship in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No medical evidence of heightened risk to minor if returned; family expected to support reintegration",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minor has recovered, is in treatment, studying, and can attend school or work in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Any mental health impact would not arise from principal claimant's situation or Convention ground",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds minor's medical diagnosis credible, no evidence of care denial or hardship, and no Convention ground for mental health impact.",
+   "role": "analysis"
+  },
+  {
+   "para": 35,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel referenced Lohazyak where removal effects on family were ignored, supported by psychological assessment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No such evidence presented here; panel assigns weight to medical reports and minor's testimony",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Minor's problems in Canada stem from reasons other than principal claimant's alleged extortion issues",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No persuasive evidence minor faces greater harm than generalized risk if returned to Hungary",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant cites Lohazyak on removal effects; the court finds no such evidence here and no greater harm than generalized risk.",
+   "role": "analysis"
+  },
+  {
+   "para": 36,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel submitted general country conditions in Hungary despite panel not requesting",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "No persuasive evidence conditions in Hungary pose risk to life, cruel treatment, or torture to claimants",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Risk faced is generalized risk faced by all targeted by criminals in Hungary",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Claimants left Hungary over five years ago; not at risk of mafia targeting today",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel expects adjustment period upon return but no greater harm to minor claimant",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant submits country conditions; the court finds no risk beyond generalized criminal risk and no greater harm to minor claimant upon return.",
+   "role": "analysis"
+  },
+  {
+   "para": 37,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Counsel expanded 'particular social group' to include family with member having acute mental health issue",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel gives no weight to broadening 'particular social group' definition as per paragraphs 19-24",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Panel cannot rely on risk to minor claimant if family returns to Hungary",
+     "answers": 0
+    }
+   ],
+   "summary": "The applicant broadens 'particular social group'; the court rejects this and cannot rely on risk to minor if family returns.",
+   "role": "analysis"
+  },
+  {
+   "para": 38,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claimants are not Convention refugees, failing to establish nexus to Convention ground",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "They are not persons in need of protection and face no risk to life, cruel treatment, or torture if returned",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Risk faced is generalized risk faced by all persons targeted by criminals in Hungary",
+     "answers": 0
+    }
+   ],
+   "summary": "The court concludes claimants are not Convention refugees, face no protected risk, only generalized criminal risk if returned.",
+   "role": "conclusion"
+  },
+  {
+   "para": 39,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Claims of principal claimant, wife, and two sons are rejected as not Convention refugees",
+     "answers": 0
+    }
+   ],
+   "summary": "The court rejects the claims of the principal claimant, wife, and two sons as not Convention refugees.",
+   "role": "disposition"
+  }
+ ]
+}

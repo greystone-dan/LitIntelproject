@@ -1,0 +1,493 @@
+{
+ "case_id": 67516,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0068676
+ },
+ "verification": {
+  "paragraphs": 17,
+  "rows": 17,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 41,
+  "holders": {
+   "court": 28,
+   "earlier_decision_maker": 6,
+   "applicant": 7
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 4,
+  "split_paragraphs": 0,
+  "headings_before": 0
+ },
+ "headings": {},
+ "split_from": {},
+ "blocks": {
+  "overview": "The case concerns a Chinese citizen appealing the Refugee Protection Division's (RPD) rejection of his refugee claim based on credibility issues. The appellant fears persecution by the Public Security Bureau in China for protesting farmland expropriation. The Refugee Appeal Division (RAD) allowed the appeal, setting aside the RPD decision and recognizing the appellant as a Convention refugee.",
+  "background_paras": "1-2, 14",
+  "disposition_paras": "17",
+  "blocks": [
+   {
+    "issue": "Was the RPD's negative credibility finding regarding the arrest summons justified?",
+    "paras": "5, 7-10, 13",
+    "court_conclusion": "The RPD's finding that the arrest summons was fraudulent was erroneous and breached procedural fairness; no negative credibility inference is drawn.",
+    "conclusion_paras": "7-10, 13",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RPD found the summons fraudulent due to incorrect law citation and implausibility.",
+      "paras": "1, 5, 7, 11"
+     },
+     {
+      "holder": "applicant",
+      "text": "The appellant disputes the RPD's document assessment and argues procedural fairness breach.",
+      "paras": "6"
+     },
+     {
+      "holder": "court",
+      "text": "The RPD erred in its finding on article 59 and breached procedural fairness by not allowing response; summons authenticity is not doubted.",
+      "paras": "7-10, 13"
+     }
+    ]
+   },
+   {
+    "issue": "Was the RPD's negative credibility inference based on the Administrative Punishment Decision omission justified?",
+    "paras": "5, 11-13",
+    "court_conclusion": "The RPD's negative credibility inference based on omission is unsustainable without opportunity to respond.",
+    "conclusion_paras": "12-13",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RPD found it reasonable to expect legal citation and drew negative credibility inference.",
+      "paras": "5, 11"
+     },
+     {
+      "holder": "applicant",
+      "text": "The appellant argues the RPD's document assessment was incorrect and breached fundamental justice.",
+      "paras": "6"
+     },
+     {
+      "holder": "court",
+      "text": "Expectation of legal citation may be reasonable but RPD did not allow response; credibility cannot be impugned on omission alone.",
+      "paras": "12-13"
+     }
+    ]
+   },
+   {
+    "issue": "Is the appellant's claim of exiting China with a false passport and smuggler assistance plausible?",
+    "paras": "5, 15",
+    "court_conclusion": "The court finds it not implausible the appellant exited China with smuggler assistance as described.",
+    "conclusion_paras": "15",
+    "positions": [
+     {
+      "holder": "earlier_decision_maker",
+      "text": "The RPD found no inconsistency but preferred evidence of Chinese authorities' efficiency.",
+      "paras": "15"
+     },
+     {
+      "holder": "applicant",
+      "text": "The appellant argues the RPD made a blanket implausibility finding without factual analysis.",
+      "paras": "6, 15"
+     },
+     {
+      "holder": "court",
+      "text": "The court finds the appellant's exit with smuggler assistance plausible.",
+      "paras": "15"
+     }
+    ]
+   },
+   {
+    "issue": "Does the appellant face a risk of persecution in China warranting refugee protection?",
+    "paras": "1, 2, 14, 16-17",
+    "court_conclusion": "The appellant faces serious persecution risk and is recognized as a Convention refugee.",
+    "conclusion_paras": "16-17",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "The appellant fears persecution by PSB for protesting farmland expropriation and detention.",
+      "paras": "1, 2"
+     },
+     {
+      "holder": "court",
+      "text": "The appellant is wanted by PSB, cannot seek state protection, and faces risk to life and cruel treatment.",
+      "paras": "14, 16-17"
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 1,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant is a Chinese citizen appealing the RPD's May 24, 2018 decision rejecting his refugee claim.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant fears persecution by the PSB in China for protesting farmland expropriation and detention.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD rejected the claim based on credibility, finding fraudulent documents and implausibility of exit with false passport.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Appellant is a Chinese citizen appealing the RPD's rejection of his refugee claim due to credibility issues and fear of PSB persecution.",
+   "role": "facts"
+  },
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant is 39, lived in Changle City, China, and protested government farmland sale starting 2015.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He was arrested by PSB in late 2016, detained, and had to report monthly after release.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "He went into hiding, arranged smuggler exit, fled China in 2017 with false Taiwanese passport, and claimed refugee protection in Canada on May 2, 2017.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court summarizes the Appellant's background, protest, detention, escape via smuggler with false passport, and refugee claim in Canada.",
+   "role": "facts"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant stated he was not submitting new evidence under IRPA s.110(4).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant included two Canadian sample documents to dispute RPD's finding on Chinese summons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court declines to address admissibility of new evidence as moot, deciding on existing record.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes the Appellant's new documents but declines to consider them, deciding on the existing evidence.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "The court's role is to review all evidence and decide if the RPD made the correct decision.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states its role is to review all evidence and assess correctness of the RPD decision.",
+   "role": "law"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD's negative decision was based on three credibility findings: incorrect law citation in summons, omission in punishment decision, and implausible exit with false passport.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the RPD's three credibility findings underlying its negative decision.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD erred by breaching fundamental justice by not allowing response to document concerns.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD's document assessment was incorrect.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD made a blanket implausibility finding about exit with false passport without factual analysis.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD ignored Federal Court jurisprudence on plausibility of wanted persons exiting China with smugglers.",
+     "answers": 0
+    }
+   ],
+   "summary": "The Appellant argues the RPD erred in credibility assessment, procedural fairness, document evaluation, and ignored relevant jurisprudence.",
+   "role": "issue"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD's finding that the arrest summons was fraudulent was erroneous due to reliance on incorrect NDP section.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD noted the summons cited Criminal Code 59, which NDP said referred to property confiscation, not arrest.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD erred in finding the arrest summons fraudulent based on incorrect NDP reliance.",
+   "role": "analysis"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Criminal Law NDP 2017 shows article 59 about property confiscation; Criminal Procedure Law NDP 2017 shows article 59 about evidence collection.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The 2018 NDP corrected wording to be consistent without property confiscation reference.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD erred in finding article 59 related to property confiscation in Criminal Procedure Law.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court explains NDP versions and finds the RPD erred in its interpretation of article 59 of the Criminal Procedure Law.",
+   "role": "analysis"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The 1996 Criminal Procedure Law's article 59 referred to arrest, which the RPD noted was missing in the summons.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Since the summons was issued after 1996, it is reasonable it did not reference arrest in article 59.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds it reasonable the summons did not reference arrest in article 59 given the law's amendment history.",
+   "role": "analysis"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD did not give the Appellant opportunity to respond to concerns about the arrest summons, breaching procedural fairness.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court has no objective basis to doubt the summons authenticity or impugn Appellant's credibility on it.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The court does not draw a negative credibility inference regarding the arrest summons.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds procedural fairness breach and no basis to doubt the arrest summons authenticity, rejecting negative credibility inference.",
+   "role": "analysis"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD drew negative credibility inference on the Administrative Punishment Decision for omitting legal citation.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found it reasonable to expect legal citation in such official documents.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court reports the RPD's negative credibility finding on the punishment decision due to omitted legal citation.",
+   "role": "facts"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court agrees expectation of legal citation may be reasonable in Canada but RPD did not allow Appellant to respond.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court cannot impugn credibility based on omission in third-party document without response opportunity.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The document contents are consistent with Appellant's testimony on detention timing, bail, and reporting.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds no credibility impugning without response opportunity and notes document consistency with testimony.",
+   "role": "analysis"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The RPD's negative credibility findings on summons and punishment decision were central to discounting all other documents.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Since these findings are unsustainable, the RPD's negative credibility assessment of other documents is also unsustainable.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the RPD's negative credibility findings unsustainable, undermining its discounting of other documents.",
+   "role": "analysis"
+  },
+  {
+   "para": 14,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The Appellant submitted credible documents consistent with his testimony and claim, including land expropriation notice and PSB reports.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Based on total evidence, the court is satisfied Appellant was detained and is wanted for protesting farmland expropriation.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's submitted documents credible and consistent, concluding he was detained and is wanted.",
+   "role": "analysis"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "fact",
+     "text": "The Appellant testified a smuggler helped him exit China with a false passport and specific instructions.",
+     "answers": 0
+    },
+    {
+     "holder": "earlier_decision_maker",
+     "kind": "finding",
+     "text": "The RPD found no inconsistency in Appellant's exit evidence but preferred evidence of Chinese authorities' efficiency.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "The Appellant argues the RPD made a blanket implausibility finding without considering his specific exit circumstances.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The court finds it not implausible the Appellant exited China with smuggler assistance as described.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant's exit testimony credible and rejects the RPD's blanket implausibility finding.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "The Appellant is wanted by PSB government agents and cannot seek state protection or internal flight alternative in China.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The Appellant faces serious persecution risk, including risk to life, cruel treatment, or torture in China.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Appellant faces serious persecution risk and no protection or internal flight alternative in China.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The appeal is allowed; the RAD sets aside the RPD decision and finds the Appellant a Convention refugee.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court allows the appeal, overturns the RPD, and finds the Appellant a Convention refugee.",
+   "role": "disposition"
+  }
+ ]
+}

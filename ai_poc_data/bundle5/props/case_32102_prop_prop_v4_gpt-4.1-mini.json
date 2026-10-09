@@ -1,0 +1,615 @@
+{
+ "case_id": 32102,
+ "model": "gpt-4.1-mini",
+ "prompt_version": "prop_v4",
+ "run": "bundle5_prop",
+ "usage": {
+  "usd": 0.0072604
+ },
+ "verification": {
+  "paragraphs": 27,
+  "rows": 27,
+  "paragraphs_missing": [],
+  "retried": 0,
+  "dropped_rows": 0,
+  "dropped_why": {
+   "duplicate": 0,
+   "not_in_chunk": 0
+  },
+  "propositions": 55,
+  "holders": {
+   "court": 48,
+   "respondent": 2,
+   "applicant": 5
+  },
+  "empty_proposition_rows": 0,
+  "blocks": 2,
+  "split_paragraphs": 4,
+  "headings_before": 3
+ },
+ "headings": {
+  "3": "II. Background",
+  "10": "III. Issues and Standards of Review",
+  "29": "V. Conclusion"
+ },
+ "split_from": {
+  "3": 2,
+  "10": 9,
+  "17": 16,
+  "29": 28
+ },
+ "blocks": {
+  "overview": "Ms. Zhang challenges the CRA's determination of her ineligibility for CERB benefits, alleging procedural fairness breaches. The Federal Court found that the CRA's Second Reviewer failed to use appropriate communication methods, breaching procedural fairness. The application for judicial review was granted, setting aside the ineligibility decision and remitting the matter for redetermination.",
+  "background_paras": "3-9, 23-27",
+  "disposition_paras": "2, 28-29",
+  "blocks": [
+   {
+    "issue": "Was procedural fairness breached in the CRA's review of Ms. Zhang's CERB eligibility?",
+    "paras": "2, 17-18, 21-29",
+    "court_conclusion": "Procedural fairness was breached as the Second Reviewer relied solely on failed telephone contact, depriving Ms. Zhang of participatory rights.",
+    "conclusion_paras": "2, 28-29",
+    "positions": [
+     {
+      "holder": "applicant",
+      "text": "Procedural fairness denied because CRA did not try alternative contact methods after phone failed.",
+      "paras": "18"
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "court",
+      "text": "Procedural fairness breached due to reliance on failed telephone contact without trying mail, depriving participatory rights.",
+      "paras": "2, 28-29"
+     }
+    ]
+   },
+   {
+    "issue": "What level of procedural fairness was owed to Ms. Zhang in the second-level eligibility review?",
+    "paras": "19-27",
+    "court_conclusion": "A moderate level of procedural fairness was owed based on Baker factors and context of the review.",
+    "conclusion_paras": "21-27",
+    "positions": [
+     {
+      "holder": "court",
+      "text": "Moderate procedural fairness owed considering administrative nature, importance, and expectations.",
+      "paras": "21-27"
+     },
+     {
+      "holder": "applicant",
+      "text": "Not stated",
+      "paras": ""
+     },
+     {
+      "holder": "respondent",
+      "text": "Not stated",
+      "paras": ""
+     }
+    ]
+   }
+  ]
+ },
+ "paragraphs": [
+  {
+   "para": 2,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Procedural fairness was breached because the Second Reviewer relied on telephone contact which had previously failed without trying mail contact.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "The application for judicial review is granted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds procedural fairness was breached by relying on failed telephone contact and grants judicial review.",
+   "role": "conclusion"
+  },
+  {
+   "para": 3,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Zhang received CERB and CRSB benefits from CRA.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "The application challenges only the determination of ineligibility for CERB benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states Ms. Zhang received CERB and CRSB benefits and challenges only CERB ineligibility determination.",
+   "role": "facts"
+  },
+  {
+   "para": 4,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CRA's June 17, 2024 letter requested additional information within 45 days.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On July 23, 2024, Ms. Zhang uploaded documents including receipts, notes, bank statements, emails, mostly in Mandarin.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes CRA requested more info and Ms. Zhang uploaded various documents mostly in Mandarin.",
+   "role": "facts"
+  },
+  {
+   "para": 5,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CRA First Reviewer called Ms. Zhang on Oct 29 and 30, 2024; no response first call, no voicemail possible.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second call had no response but voicemail was left requesting callback by Nov 2, 2024; no callback received.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court describes unsuccessful First Reviewer calls and voicemail left with no callback.",
+   "role": "facts"
+  },
+  {
+   "para": 6,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "On Nov 5, 2024, CRA found Ms. Zhang ineligible for benefits due to failure to prove earnings under $1000 or COVID-related work reduction.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "First Reviewer noted much submitted information was not in English or French.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states CRA found Ms. Zhang ineligible and noted much information was not in English or French.",
+   "role": "facts"
+  },
+  {
+   "para": 7,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Zhang disagreed with CRA's determination and a Second Review was started.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes Ms. Zhang disagreed and a Second Review commenced.",
+   "role": "facts"
+  },
+  {
+   "para": 8,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second Reviewer called Ms. Zhang on Aug 21 and twice on Aug 25, 2025, using same phone number; no response and no voicemail possible.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the Second Reviewer made three calls with no response or voicemail possible.",
+   "role": "facts"
+  },
+  {
+   "para": 9,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Second Reviewer found Ms. Zhang's information insufficient to determine eligibility and requested more documentation.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. Zhang was deemed ineligible for benefits.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the Second Reviewer deemed Ms. Zhang ineligible due to insufficient information and requested more documents.",
+   "role": "facts"
+  },
+  {
+   "para": 10,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Attorney General of Canada should be identified as proper Respondent for CERB eligibility decisions.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Zhang consents to changing the Respondent to Attorney General of Canada.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "procedure",
+     "text": "Style of cause amended to reflect Attorney General of Canada as Respondent effective immediately.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent requests and Ms. Zhang consents to naming Attorney General as Respondent; court amends style accordingly.",
+   "role": "procedural_history"
+  },
+  {
+   "para": 11,
+   "propositions": [
+    {
+     "holder": "respondent",
+     "kind": "allegation_or_argument",
+     "text": "Objects to admissibility of evidence not before decision maker.",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "No standard of review needed; admissibility resolved by judicial review principles from Access Copyright at para 20.",
+     "answers": 0
+    }
+   ],
+   "summary": "The respondent objects to new evidence admissibility; court applies Access Copyright principles without standard of review.",
+   "role": "issue"
+  },
+  {
+   "para": 12,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Procedural fairness requires assessing if decision-maker's procedure was fair and just in all circumstances (Canadian Pacific Railway at para 54).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states procedural fairness requires assessing fairness of decision-maker's procedure per Canadian Pacific Railway.",
+   "role": "law"
+  },
+  {
+   "para": 13,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Reasonableness of decision is evaluated under reasonableness standard from Vavilov, 2019 SCC 65.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states reasonableness standard from Vavilov applies to evaluate decision reasonableness.",
+   "role": "law"
+  },
+  {
+   "para": 15,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Materials do not appear in Certified Tribunal Record, presumed complete (Khan at para 17).",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Zhang does not provide details on when/how materials were submitted.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds materials missing from record; Ms. Zhang does not explain their submission details.",
+   "role": "analysis"
+  },
+  {
+   "para": 16,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "New evidence on judicial review admitted only to provide background, highlight procedural fairness defects, or show record absence (Access Copyright para 20).",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Ms. Zhang's new evidence does not fit these categories and is disregarded.",
+     "answers": 1
+    }
+   ],
+   "summary": "The court applies Access Copyright to exclude Ms. Zhang's new evidence as it does not fit admissible categories.",
+   "role": "analysis"
+  },
+  {
+   "para": 17,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Zhang admits CRA tried five telephone contacts but she was unresponsive.",
+     "answers": 0
+    },
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Zhang explains telephone issues and not recognizing Vancouver number caused no response.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Zhang admits unresponsiveness to calls due to phone issues and unrecognized number, says so.",
+   "role": "facts"
+  },
+  {
+   "para": 18,
+   "propositions": [
+    {
+     "holder": "applicant",
+     "kind": "allegation_or_argument",
+     "text": "Ms. Zhang argues procedural fairness denied because CRA did not try alternative contact methods after phone failed.",
+     "answers": 0
+    }
+   ],
+   "summary": "Ms. Zhang argues CRA should have tried mail after phone contact failed to ensure procedural fairness.",
+   "role": "issue"
+  },
+  {
+   "para": 19,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Level of procedural fairness owed is variable and depends on decision-making context (Baker at para 21).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states procedural fairness level depends on context per Baker.",
+   "role": "law"
+  },
+  {
+   "para": 20,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "rule_of_law",
+     "text": "Baker factors for procedural fairness include nature of decision/process, statutory scheme, importance to individual, legitimate expectations, and agency's procedural choices (Baker paras 23-27).",
+     "answers": 0
+    }
+   ],
+   "summary": "The court lists Baker factors determining procedural fairness level in decision-making context.",
+   "role": "law"
+  },
+  {
+   "para": 21,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Applying Baker factors, a moderate level of procedural fairness was owed in Ms. Zhang's second-level eligibility review.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds moderate procedural fairness owed in Ms. Zhang's second-level eligibility review applying Baker.",
+   "role": "analysis"
+  },
+  {
+   "para": 22,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Second-level review is administrative, informal, no right to counsel, indicating relaxed procedural fairness standards.",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds the second-level review is administrative and informal, supporting relaxed procedural fairness standards.",
+   "role": "analysis"
+  },
+  {
+   "para": 23,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Eligibility re-determination decision is determinative and relevant to the second Baker factor",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Statutory scheme lacks statutory appeal mechanism but allows judicial review with presumptive deference",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Determinative nature supports a moderate level of fairness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court states the eligibility re-determination decision is determinative, lacks statutory appeal but allows judicial review, supporting moderate fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 24,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Re-determination of eligibility for received financial benefits has moderate to high importance",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Recipients likely relied on benefits for financial support, increasing consequences of repayment",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This factor indicates a moderate to high level of fairness is warranted",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds re-determination of received benefits is highly important and warrants moderate to high fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 25,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Ms. Zhang was not assured of multiple contact methods but received mail and telephone communications",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "She legitimately expected alternative contact methods if one failed",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This factor points to a moderate level of fairness",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds Ms. Zhang legitimately expected alternative contact methods, supporting moderate fairness.",
+   "role": "analysis"
+  },
+  {
+   "para": 26,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "CRA chose to use more than one communication method despite no statutory or policy obligation",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Institutional constraints did not prevent using multiple communication methods",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This indicates a moderate level of fairness was owed",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds CRA's choice to use multiple communication methods shows moderate fairness was owed.",
+   "role": "analysis"
+  },
+  {
+   "para": 27,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Previous decisions placed CRA's procedural fairness obligations at low end",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "fact",
+     "text": "Contextual analysis from Baker indicates moderate fairness owed to Ms. Zhang",
+     "answers": 0
+    }
+   ],
+   "summary": "The court notes prior low fairness findings but finds moderate fairness owed here based on context.",
+   "role": "analysis"
+  },
+  {
+   "para": 28,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Procedural fairness was breached as Second Reviewer persisted with failed communication method",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "finding",
+     "text": "Second Reviewer knew or should have known history of failed telephone and successful mail communications",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "This deprived Ms. Zhang of participatory rights including right to know concerns",
+     "answers": 0
+    }
+   ],
+   "summary": "The court finds procedural fairness breached by persisting with failed communication, depriving Ms. Zhang of rights.",
+   "role": "analysis"
+  },
+  {
+   "para": 29,
+   "propositions": [
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Procedural fairness breach by Officer's persistence in failed communication methods",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Application for judicial review is granted",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No need to assess reasonableness of decision",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Style of cause amended to name Attorney General as Respondent",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "Applicant's ineligibility determination set aside and matter remitted for redetermination",
+     "answers": 0
+    },
+    {
+     "holder": "court",
+     "kind": "conclusion_or_order",
+     "text": "No order as to costs",
+     "answers": 0
+    }
+   ],
+   "summary": "The court grants judicial review, sets aside ineligibility, amends style, remits matter, and orders no costs.",
+   "role": "disposition"
+  }
+ ]
+}

@@ -252,6 +252,7 @@ test checks that these paths continue to exist.
 | `backend/pages/citation_pass.py` | Citation Pass QA page builder |
 | `backend/pages/coming_soon_content.py` | Words for the Coming soon pages |
 | `backend/pages/coming_soon_page.py` | Coming soon: the roadmap, one overview page plus one page per section |
+| `backend/pages/coming_soon_preview.html` | TODO: describe this file |
 | `backend/pages/data_explorer.py` | Primary Data Explorer interface builder |
 | `backend/pages/deidentify.py` | De-identification page builder |
 | `backend/pages/discussion_units_sandbox.py` | Experimental discussion-unit page builder |

@@ -606,7 +606,7 @@ def test_secondary_navigation_groups_existing_views_and_functional_tools():
     assert 'soon-fc-analytics' not in soon
     roadmap = {tab: group for tab, group in views.items() if tab.startswith('roadmap-')}
     assert set(roadmap.values()) == {'roadmap'}
-    assert list(roadmap) == ['roadmap-overview', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-intelligence', 'roadmap-fc-files', 'roadmap-team', 'roadmap-readiness', 'roadmap-internal', 'roadmap-local-ai']
+    assert list(roadmap) == ['roadmap-overview', 'roadmap-demos', 'roadmap-accuracy', 'roadmap-expansion', 'roadmap-intelligence', 'roadmap-fc-files', 'roadmap-team', 'roadmap-readiness', 'roadmap-internal', 'roadmap-local-ai']
     assert {tab: group for tab, group in views.items() if tab not in soon and tab not in roadmap} == {
         'about': 'info', 'about-how': 'info', 'about-changelog': 'info', 'search': 'research',
         'judge-profile': 'intel', 'citation-intelligence': 'intel', 'fc-analytics': 'intel',

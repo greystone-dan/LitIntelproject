@@ -1536,6 +1536,12 @@ def coming_soon_preview_page() -> HTMLResponse:
 	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
 
 
+@router.get("/coming-soon-demo", include_in_schema=False)
+def coming_soon_demo_page() -> HTMLResponse:
+	page = Path(__file__).resolve().parent / "pages" / "coming_soon_demo.html"
+	return HTMLResponse(page.read_text(encoding="utf-8"), headers={"Cache-Control": "public, max-age=300"})
+
+
 @router.get("/coming-soon-preview/img/{name}", include_in_schema=False)
 def coming_soon_preview_image(name: str) -> Response:
 	if name not in {"reader.webp", "workbench.webp", "live.webp", "authorities.webp"}:

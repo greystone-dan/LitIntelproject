@@ -366,3 +366,19 @@ def test_coming_soon_preview_page_is_served_and_linked():
     assert 'id="comingSoonPreviewStart"' in client.get("/data-explorer").text
     assert client.get("/coming-soon-preview/img/reader.webp").status_code == 200
     assert client.get("/coming-soon-preview/img/secret.webp").status_code == 404
+
+
+def test_coming_soon_demo_page_is_served_linked_and_makes_no_requests():
+    client = TestClient(app)
+    page = client.get("/coming-soon-demo")
+    assert page.status_code == 200
+    for label in ("Reference library", "Smarter tags", "Profiles and teams", "Argument breakdown", "Live document reader", "Future local AI"):
+        assert label in page.text
+    # demos run on fixed data in the browser: no network calls of any kind
+    for call in ("fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket"):
+        assert call not in page.text
+    explorer = client.get("/data-explorer").text
+    assert "roadmap-demos" in explorer and "/coming-soon-demo" in explorer and 'id="comingSoonDemos"' in explorer
+    overview = client.get("/coming-soon/overview")
+    assert overview.status_code == 200 and "roadmap-demos" in overview.text
+    assert "/coming-soon-demo#ai" in client.get("/coming-soon/local-ai").text
